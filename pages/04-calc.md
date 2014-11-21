@@ -1,17 +1,11 @@
 ---
-layout: lesson
-root: ../..
+layout: page
+title: Introduction to Databases and SQL
+subtitle: Calculating New Values
+minutes: 30
 ---
-
-## Calculating New Values
-
-
-<div class="objectives" markdown="1">
-#### Objectives
-
-*   Write queries that calculate new values for each selected record.
-</div>
-
+> ## Learning Objectives {.objectives}
+> *   Write queries that calculate new values for each selected record.
 
 After carefully re-reading the expedition logs,
 we realize that the radiation measurements they report
@@ -39,7 +33,7 @@ select 1.05 * reading from Survey where quant=&#39;rad&#39;;</code></pre>
 </table></div>
 
 
-When we run the query,
+`When we run the query,
 the expression `1.05 * reading` is evaluated for each row.
 Expressions can use any of the fields,
 all of usual arithmetic operators,
@@ -100,32 +94,32 @@ select personal || &#39; &#39; || family from Person;</code></pre>
 > even a two-part division into "personal" and "family"
 > isn't enough...
 
+> ## FIXME {.challenge}
+>
+> After further reading,
+> we realize that Valentina Roerich
+> was reporting salinity as percentages.
+> Write a query that returns all of her salinity measurements
+> from the `Survey` table
+> with the values divided by 100.
 
-#### Challenges
-
-1.  After further reading,
-    we realize that Valentina Roerich
-    was reporting salinity as percentages.
-    Write a query that returns all of her salinity measurements
-    from the `Survey` table
-    with the values divided by 100.
-
-2.  The `union` operator combines the results of two queries:
-
-
-<pre class="in"><code>%%sqlite survey.db
-select * from Person where ident=&#39;dyer&#39; union select * from Person where ident=&#39;roe&#39;;</code></pre>
+> ## FIXME {.challenge}
+>
+> The `union` operator combines the results of two queries:
+>
+> ~~~
+> select * from Person where ident=&#39;dyer&#39; union select * from Person where ident=&#39;roe&#39;;</code></pre>
+> ~~~
 
 <div class="out"><table>
 <tr><td>dyer</td><td>William</td><td>Dyer</td></tr>
 <tr><td>roe</td><td>Valentina</td><td>Roerich</td></tr>
 </table></div>
 
-
-Use `union` to create a consolidated list of salinity measurements
-in which Roerich's, and only Roerich's,
-have been corrected as described in the previous challenge.
-The output should be something like:
+> Use `union` to create a consolidated list of salinity measurements
+> in which Roerich's, and only Roerich's,
+> have been corrected as described in the previous challenge.
+> The output should be something like:
 
 <table>
   <tr> <td>619</td> <td>0.13</td> </tr>
@@ -138,14 +132,14 @@ The output should be something like:
   <tr> <td>837</td> <td>0.225</td> </tr>
 </table>
 
-
-
-3.  The site identifiers in the `Visited` table have two parts
-    separated by a '-':
-
-
-<pre class="in"><code>%%sqlite survey.db
-select distinct site from Visited;</code></pre>
+> ## FIXME {.challenge}
+>
+> The site identifiers in the `Visited` table have two parts
+> separated by a '-':
+>
+> ~~~
+> select distinct site from Visited;
+> ~~~
 
 <div class="out"><table>
 <tr><td>DR-1</td></tr>
@@ -153,20 +147,12 @@ select distinct site from Visited;</code></pre>
 <tr><td>MSK-4</td></tr>
 </table></div>
 
-
-Some major site identifiers are two letters long and some are three.
-The "in string" function `instr(X, Y)`
-returns the 1-based index of the first occurrence of string Y in string X,
-or 0 if Y does not exist in X.
-The substring function `substr(X, I)`
-returns the substring of X starting at index I.
-Use these two functions to produce a list of unique major site identifiers.
-(For this data,
-the list should contain only "DR" and "MSK").
-
-
-<div class="keypoints" markdown="1">
-#### Key Points
-
-*   SQL can perform calculations using the values in a record as part of a query.
-</div>
+> Some major site identifiers are two letters long and some are three.
+> The "in string" function `instr(X, Y)`
+> returns the 1-based index of the first occurrence of string Y in string X,
+> or 0 if Y does not exist in X.
+> The substring function `substr(X, I)`
+> returns the substring of X starting at index I.
+> Use these two functions to produce a list of unique major site identifiers.
+> (For this data,
+> the list should contain only "DR" and "MSK").

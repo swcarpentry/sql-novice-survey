@@ -1,19 +1,13 @@
 ---
-layout: lesson
-root: ../..
+layout: page
+title: Introduction to Databases and SQL
+subtitle: Missing Data
+minutes: 30
 ---
-
-## Missing Data
-
-
-<div class="objectives" markdown="1">
-#### Objectives
-
-*   Explain how databases represent missing information.
-*   Explain the three-valued logic databases use when manipulating missing information.
-*   Write queries that handle missing information correctly.
-</div>
-
+> ## Learning Objectives {.objectives}
+> *   Explain how databases represent missing information.
+> *   Explain the three-valued logic databases use when manipulating missing information.
+> *   Write queries that handle missing information correctly.
 
 Real-world data is never complete&mdash;there are always holes.
 Databases represent these holes using special value called `null`.
@@ -27,7 +21,6 @@ let's have a look at the `Visited` table.
 There are eight records,
 but #752 doesn't have a date&mdash;or rather,
 its date is null:
-
 
 <pre class="in"><code>%load_ext sqlitemagic</code></pre>
 
@@ -195,34 +188,31 @@ we need to exclude all the records for which we don't know who did the work.
 
 #### Challenges
 
-1.  Write a query that sorts the records in `Visited` by date,
-    omitting entries for which the date is not known
-    (i.e., is null).
+> ## FIXME {.challenge}
+>
+> Write a query that sorts the records in `Visited` by date,
+> omitting entries for which the date is not known
+> (i.e., is null).
 
-1.  What do you expect the query:
+> ## FIXME {.challenge}
+>
+> What do you expect the query:
+>
+> ~~~
+> select * from Visited where dated in ('1927-02-08', null);
+> ~~~
+>
+> to produce?
+> What does it actually produce?
 
-    ~~~
-    select * from Visited where dated in ('1927-02-08', null);
-    ~~~
-
-    to produce?
-    What does it actually produce?
-
-1.  Some database designers prefer to use
-    a [sentinel value](../../gloss.html#sentinel-value)
-    to mark missing data rather than `null`.
-    For example,
-    they will use the date "0000-00-00" to mark a missing date,
-    or -1.0 to mark a missing salinity or radiation reading
-    (since actual readings cannot be negative).
-    What does this simplify?
-    What burdens or risks does it introduce?
-
-
-<div class="keypoints" markdown="1">
-#### Key Points
-
-*   Databases use `null` to represent missing information.
-*   Any arithmetic or Boolean operation involving `null` produces `null` as a result.
-*   The only operators that can safely be used with `null` are `is null` and `is not null`.
-</div>
+> ## FIXME {.challenge}
+>
+> Some database designers prefer to use
+> a **sentinel value*)
+> to mark missing data rather than `null`.
+> For example,
+> they will use the date "0000-00-00" to mark a missing date,
+> or -1.0 to mark a missing salinity or radiation reading
+> (since actual readings cannot be negative).
+> What does this simplify?
+> What burdens or risks does it introduce?

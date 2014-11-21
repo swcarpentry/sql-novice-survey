@@ -1,47 +1,14 @@
 ---
-layout: lesson
-root: ../..
+layout: page
+title: Introduction to Databases and SQL
+subtitle: Selecting Data
+minutes: 30
 ---
-
-## Selecting Data
-
-
-In the late 1920s and early 1930s,
-William Dyer,
-Frank Pabodie,
-and Valentina Roerich led expeditions to the
-[Pole of Inaccessibility](http://en.wikipedia.org/wiki/Pole_of_inaccessibility)
-in the South Pacific,
-and then onward to Antarctica.
-Two years ago,
-their expeditions were found in a storage locker at Miskatonic University.
-We have scanned and OCR'd the data they contain,
-and we now want to store that information
-in a way that will make search and analysis easy.
-
-We basically have three options:
-text files,
-a spreadsheet,
-or a database.
-Text files are easiest to create,
-and work well with version control,
-but then we would then have to build search and analysis tools ourselves.
-Spreadsheets are good for doing simple analysis,
-they don't handle large or complex data sets very well.
-We would therefore like to put this data in a database,
-and these lessons will show how to do that.
-
-
-<div class="objectives" markdown="1">
-#### Objectives
-
-*   Explain the difference between a table, a record, and a field.
-*   Explain the difference between a database and a database manager.
-*   Write a query to select all values for specific fields from a single table.
-</div>
-
-### A Few Definitions
-
+> ## Learning Objectives {.objectives}
+>
+> *   Explain the difference between a table, a record, and a field.
+> *   Explain the difference between a database and a database manager.
+> *   Write a query to select all values for specific fields from a single table.
 
 A [relational database](../../gloss.html#relational-database)
 is a way to store and manipulate information
@@ -249,32 +216,22 @@ select * from Person;</code></pre>
 <tr><td>danforth</td><td>Frank</td><td>Danforth</td></tr>
 </table></div>
 
+> ## FIXME {.challenge}
+>
+> Write a query that selects only site names from the `Site` table.
 
-#### Challenges
-
-1.  Write a query that selects only site names from the `Site` table.
-
-2.  Many people format queries as:
-
-    ~~~
-    SELECT personal, family FROM person;
-    ~~~
-
-    or as:
-
-    ~~~
-    select Personal, Family from PERSON;
-    ~~~
-
-    What style do you find easiest to read, and why?
-
-
-<div class="keypoints" markdown="1">
-#### Key Points
-
-*   A relational database stores information in tables,
-    each of which has a fixed set of columns and a variable number of records.
-*   A database manager is a program that manipulates information stored in a database.
-*   We write queries in a specialized language called SQL to extract information from databases.
-*   SQL is case-insensitive.
-</div>
+> ## FIXME {.challenge}
+>
+> Many people format queries as:
+>
+> ~~~
+> SELECT personal, family FROM person;
+> ~~~
+>
+> or as:
+>
+> ~~~
+> select Personal, Family from PERSON;
+> ~~~
+>
+> What style do you find easiest to read, and why?

@@ -1,18 +1,13 @@
 ---
-layout: lesson
-root: ../..
+layout: page
+title: Introduction to Databases and SQL
+subtitle: Creating and Modifying Data
+minutes: 30
 ---
-
-## Creating and Modifying Data
-
-
-<div class="objectives" markdown="1">
-#### Objectives
-
-*   Write queries that creates tables.
-*   Write queries to insert, modify, and delete records.
-</div>
-
+> ## Learning Objectives {.objectives}
+> 
+> *   Write queries that creates tables.
+> *   Write queries to insert, modify, and delete records.
 
 So far we have only looked at how to get information out of a database,
 both because that is more frequent than adding information,
@@ -20,9 +15,6 @@ and because most other operations only make sense
 once queries are understood.
 If we want to create and modify data,
 we need to know two other sets of commands.
-
-### Creating and Removing Tables
-
 
 The first pair are `create table` and `drop table`.
 While they are written as two words,
@@ -90,9 +82,6 @@ exactly what constraints are avialable
 and what they're called
 depends on which database manager we are using.
 
-### Adding, Removing, and Updating Data
-
-
 Once tables have been created,
 we can add, change, and remove records using our other set of commands,
 `insert`, `update`, and `delete`.
@@ -159,6 +148,8 @@ using [cascading delete](../../gloss.html#cascading-delete).
 However,
 this technique is outside the scope of this chapter.
 
+> ## Hybrid Storage Models
+>
 > Many applications use a hybrid storage model
 > instead of putting everything into a database:
 > the actual data (such as astronomical images) is stored in files,
@@ -171,46 +162,36 @@ this technique is outside the scope of this chapter.
 > the database inside the application keeps track of the MP3 files,
 > but the files themselves live on disk.
 
+> ## FIXME {.challenge}
+>
+> Write an SQL statement to replace all uses of `null` in
+> `Survey.person` with the string `'unknown'`.
 
-#### Challenges
+> ## FIXME {.challenge}
+>
+> One of our colleagues has sent us a **CSV** file containing
+> temperature readings by Robert Olmstead, which is formatted like
+> this:
+>
+> ~~~
+> Taken,Temp
+> 619,-21.5
+> 622,-15.5
+> ~~~
+>
+> Write a small Python program that reads this file in and prints out
+> the SQL `insert` statements needed to add these records to the
+> survey database.  Note: you will need to add an entry for Olmstead
+> to the `Person` table.  If you are testing your program repeatedly,
+> you may want to investigate SQL's `insert or replace` command.
 
-1.  Write an SQL statement to replace all uses of `null`
-    in `Survey.person`
-    with the string `'unknown'`.
-
-2.  One of our colleagues has sent us a [CSV](../../gloss.html#comma-separeted-values) file
-    containing temperature readings by Robert Olmstead,
-    which is formatted like this:
-
-    ~~~
-    Taken,Temp
-    619,-21.5
-    622,-15.5
-    ~~~
-
-    Write a small Python program that reads this file in
-    and prints out the SQL `insert` statements needed
-    to add these records to the survey database.
-    Note: you will need to add an entry for Olmstead
-    to the `Person` table.
-    If you are testing your program repeatedly,
-    you may want to investigate SQL's `insert or replace` command.
-
-3.  SQLite has several administrative commands that aren't part of the SQL standard.
-    One of them is `.dump`,
-    which prints the SQL commands needed to re-create the database.
-    Another is `.load`,
-    which reads a file created by `.dump` and restores the database.
-    A colleague of yours thinks that storing dump files (which are text) in version control
-    is a good way to track and manage changes to the database.
-    What are the pros and cons of this approach?
-    (Hint: records aren't stored in any particular order.)
-
-
-<div class="keypoints" markdown="1">
-#### Key Points
-
-*   Database tables are created using queries that specify their names and the names and properties of their fields.
-*   Records can be inserted, updated, or deleted using queries.
-*   It is simpler and safer to modify data when every record has a unique primary key.
-</div>
+> ## FIXME {.challenge}
+>
+> SQLite has several administrative commands that aren't part of the
+> SQL standard.  One of them is `.dump`, which prints the SQL commands
+> needed to re-create the database.  Another is `.load`, which reads a
+> file created by `.dump` and restores the database.  A colleague of
+> yours thinks that storing dump files (which are text) in version
+> control is a good way to track and manage changes to the database.
+> What are the pros and cons of this approach?  (Hint: records aren't
+> stored in any particular order.)
