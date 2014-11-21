@@ -1,18 +1,13 @@
 ---
-layout: lesson
-root: ../..
+layout: page
+title: Introduction to Databases and SQL
+subtitle: Sorting and Removing Duplicates
+minutes: 30
 ---
-
-## Sorting and Removing Duplicates
-
-
-<div class="objectives" markdown="1">
-#### Objectives
-
-*   Write queries that display results in a particular order.
-*   Write queries that eliminate duplicate values from data.
-</div>
-
+> ## Learning Objectives {.objectives}
+>
+> *   Write queries that display results in a particular order.
+> *   Write queries that eliminate duplicate values from data.
 
 Data is often redundant,
 so queries often return redundant information.
@@ -213,20 +208,11 @@ select distinct taken, person from Survey order by taken asc, person desc;</code
 </table></div>
 
 
-#### Challenges
+> ## FIXME {.challenge}
+>
+> Write a query that returns the distinct dates in the `Visited` table.
 
-1.  Write a query that returns the distinct dates in the `Visited` table.
-
-2.  Write a query that displays the full names of the scientists in the `Person` table, ordered by family name.
-
-
-<div class="keypoints" markdown="1">
-#### Key Points
-
-*   The records in a database table are not intrinsically ordered:
-    if we want to display them in some order,
-    we must specify that explicitly.
-*   The values in a database are not guaranteed to be unique:
-    if we want to eliminate duplicates,
-    we must specify that explicitly as well.
-</div>
+> ## FIXME {.challenge}
+>
+> Write a query that displays the full names of the scientists in the `Person` table,
+> ordered by family name.

@@ -1,21 +1,16 @@
 ---
-layout: lesson
-root: ../..
+layout: page
+title: Introduction to Databases and SQL
+subtitle: Combining Data
+minutes: 30
 ---
-
-## Combining Data
-
-
-<div class="objectives" markdown="1">
-#### Objectives
-
-*   Explain the operation of a query that joins two tables.
-*   Explain how to restrict the output of a query containing a join to only include meaningful combinations of values.
-*   Write queries that join tables on equal keys.
-*   Explain what primary and foreign keys are, and why they are useful.
-*   Explain what atomic values are, and why database fields should only contain atomic values.
-</div>
-
+> ## Learning Objectives {.objectives}
+> 
+> *   Explain the operation of a query that joins two tables.
+> *   Explain how to restrict the output of a query containing a join to only include meaningful combinations of values.
+> *   Write queries that join tables on equal keys.
+> *   Explain what primary and foreign keys are, and why they are useful.
+> *   Explain what atomic values are, and why database fields should only contain atomic values.
 
 In order to submit her data to a web site
 that aggregates historical meteorological data,
@@ -289,28 +284,18 @@ if it's in a certain form.
 As anthropologists say,
 the tool shapes the hand that shapes the tool.
 
+> ## FIXME {.challenge}
+>
+> Write a query that lists all radiation readings from the DR-1 site.
 
-#### Challenges
+> ## FIXME {.challenge}
+>
+> Write a query that lists all sites visited by people named "Frank".
 
-1.  Write a query that lists all radiation readings from the DR-1 site.
-
-2.  Write a query that lists all sites visited by people named "Frank".
-
-3.  Describe in your own words what the following query produces:
-
-    ~~~
-    select Site.name from Site join Visited
-    on Site.lat<-49.0 and Site.name=Visited.site and Visited.dated>='1932-00-00';
-    ~~~
-
-
-<div class="keypoints" markdown="1">
-#### Key Points
-
-*   Every fact should be represented in a database exactly once.
-*   A join produces all combinations of records from one table with records from another.
-*   A primary key is a field (or set of fields) whose values uniquely identify the records in a table.
-*   A foreign key is a field (or set of fields) in one table whose values are a primary key in another table.
-*   We can eliminate meaningless combinations of records by matching primary keys and foreign keys between tables.
-*   Keys should be atomic values to make joins simpler and more efficient.
-</div>
+> ## FIXME {.challenge}
+>
+> Describe in your own words what the following query produces:
+> ~~~
+> select Site.name from Site join Visited
+> on Site.lat<-49.0 and Site.name=Visited.site and Visited.dated>='1932-00-00';
+> ~~~

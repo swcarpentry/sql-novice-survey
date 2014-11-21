@@ -1,20 +1,15 @@
 ---
-layout: lesson
-root: ../..
+layout: page
+title: Introduction to Databases and SQL
+subtitle: Aggregation
+minutes: 30
 ---
-
-## Aggregation
-
-
-<div class="objectives" markdown="1">
-#### Objectives
-
-*   Define "aggregation" and give examples of its use.
-*   Write queries that compute aggregated values.
-*   Trace the execution of a query that performs aggregation.
-*   Explain how missing data is handled during aggregation.
-</div>
-
+> ## Learning Objectives {.objectives}
+> 
+> *   Define "aggregation" and give examples of its use.
+> *   Write queries that compute aggregated values.
+> *   Trace the execution of a query that performs aggregation.
+> *   Explain how missing data is handled during aggregation.
 
 We now want to calculate ranges and averages for our data.
 We know how to select all of the dates from the `Visited` table:
@@ -324,46 +319,42 @@ this query:
     (it doesn't matter which ones,
     since they're all equal).
 
+> ## FIXME {.challenge}
+>
+> How many temperature readings did Frank Pabodie record, and what was
+> their average value?
 
-#### Challenges
+> ## FIXME {.challenge}
+>
+> The average of a set of values is the sum of the values
+> divided by the number of values.
+> Does this mean that the `avg` function returns 2.0 or 3.0
+> when given the values 1.0, `null`, and 5.0?
 
-1.  How many temperature readings did Frank Pabodie record,
-    and what was their average value?
+> ## FIXME {.challenge}
+>
+> We want to calculate the difference between
+> each individual radiation reading
+> and the average of all the radiation readings.
+> We write the query:
+>
+> ~~~
+> select reading - avg(reading) from Survey where quant='rad';
+> ~~~
+>
+> What does this actually produce, and why?
 
-2.  The average of a set of values is the sum of the values
-    divided by the number of values.
-    Does this mean that the `avg` function returns 2.0 or 3.0
-    when given the values 1.0, `null`, and 5.0?
-
-3.  We want to calculate the difference between
-    each individual radiation reading
-    and the average of all the radiation readings.
-    We write the query:
-
-    ~~~
-    select reading - avg(reading) from Survey where quant='rad';
-    ~~~
-
-    What does this actually produce, and why?
-
-4.  The function `group_concat(field, separator)`
-    concatenates all the values in a field
-    using the specified separator character
-    (or ',' if the separator isn't specified).
-    Use this to produce a one-line list of scientists' names,
-    such as:
-
-    ~~~
-    William Dyer, Frank Pabodie, Anderson Lake, Valentina Roerich, Frank Danforth
-    ~~~
-
-    Can you find a way to order the list by surname?
-
-
-<div class="keypoints" markdown="1">
-#### Key Points
-
-*   An aggregation function combines many values to produce a single new value.
-*   Aggregation functions ignore `null` values.
-*   Aggregation happens after filtering.
-</div>
+> ## FIXME {.challenge}
+>
+> The function `group_concat(field, separator)`
+> concatenates all the values in a field
+> using the specified separator character
+> (or ',' if the separator isn't specified).
+> Use this to produce a one-line list of scientists' names,
+> such as:
+>
+> ~~~
+> William Dyer, Frank Pabodie, Anderson Lake, Valentina Roerich, Frank Danforth
+> ~~~
+>
+> Can you find a way to order the list by surname?

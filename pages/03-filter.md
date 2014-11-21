@@ -1,18 +1,13 @@
 ---
-layout: lesson
-root: ../..
+layout: page
+title: Introduction to Databases and SQL
+subtitle: Filtering
+minutes: 30
 ---
-
-## Filtering
-
-
-<div class="objectives" markdown="1">
-#### Objectives
-
-*   Write queries that select records that satisfy user-specified conditions.
-*   Explain the order in which the clauses in a query are executed.
-</div>
-
+> ## Learning Objectives {.objectives}
+>
+> *   Write queries that select records that satisfy user-specified conditions.
+> *   Explain the order in which the clauses in a query are executed.
 
 One of the most powerful features of a database is
 the ability to [filter](../../gloss.html#filter) data,
@@ -219,28 +214,31 @@ not to the entire rows as they are being processed.
 > or write a small program to generate ten thousand random (but plausible) records
 > and use that.
 
+> ## FIXME {.challenge}
+>
+> Suppose we want to select all sites that lie more than 30&deg; from the poles.
+> Our first query is:
+>
+> ~~~
+> select * from Site where (lat > -60) or (lat < 60);
+> ~~~
+>
+> Explain why this is wrong,
+> and rewrite the query so that it is correct.
 
-#### Challenges
+> ## FIXME {.challenge}
+>
+> Normalized salinity readings are supposed to be between 0.0 and 1.0.
+> Write a query that selects all records from `Survey`
+> with salinity values outside this range.
 
-1.  Suppose we want to select all sites that lie more than 30&deg; from the poles.
-    Our first query is:
-
-    ~~~
-    select * from Site where (lat > -60) or (lat < 60);
-    ~~~
-
-    Explain why this is wrong,
-    and rewrite the query so that it is correct.
-
-2.  Normalized salinity readings are supposed to be between 0.0 and 1.0.
-    Write a query that selects all records from `Survey`
-    with salinity values outside this range.
-
-3.  The SQL test `*column-name* like *pattern*`
-    is true if the value in the named column
-    matches the pattern given;
-    the character '%' can be used any number of times in the pattern
-    to mean "match zero or more characters".
+> ## FIXME {.challenge}
+>
+> The SQL test `*column-name* like *pattern*`
+> is true if the value in the named column
+> matches the pattern given;
+> the character '%' can be used any number of times in the pattern
+> to mean "match zero or more characters".
 
     <table>
       <tr> <th>Expression</th> <th>Value</th> </tr>
@@ -250,17 +248,9 @@ not to the entire rows as they are being processed.
       <tr> <td><code>'alpha' like 'a%'</code></td> <td>True</td> </tr>
       <tr> <td><code>'alpha' like 'a%p%'</code></td> <td>True</td> </tr>
     </table>
-    The expression `*column-name* not like *pattern*`
-    inverts the test.
-    Using `like`,
-    write a query that finds all the records in `Visited`
-    that *aren't* from sites labelled 'DR-something'.
 
-
-<div class="keypoints" markdown="1">
-#### Key Points
-
-*   Use `where` to filter records according to Boolean conditions.
-*   Filtering is done on whole records,
-    so conditions can use fields that are not actually displayed.
-</div>
+> The expression `*column-name* not like *pattern*`
+> inverts the test.
+> Using `like`,
+> write a query that finds all the records in `Visited`
+> that *aren't* from sites labelled 'DR-something'.
