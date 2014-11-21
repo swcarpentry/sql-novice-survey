@@ -1,6 +1,8 @@
 Software Carpentry: Introduction to SQL
 =======================================
 
+First encounter with SQL using the Antarctic survey data as an example.
+
 ## Time Estimates
 
 *   @tomwright01: 3 hours
