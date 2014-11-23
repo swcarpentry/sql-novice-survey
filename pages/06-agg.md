@@ -18,16 +18,16 @@ We know how to select all of the dates from the `Visited` table:
 select dated from Visited;
 ~~~
 
-<table>
-<tr><td>1927-02-08</td></tr>
-<tr><td>1927-02-10</td></tr>
-<tr><td>1939-01-07</td></tr>
-<tr><td>1930-01-12</td></tr>
-<tr><td>1930-02-26</td></tr>
-<tr><td>None</td></tr>
-<tr><td>1932-01-14</td></tr>
-<tr><td>1932-03-22</td></tr>
-</table>
+dated     
+----------
+1927-02-08
+1927-02-10
+1939-01-07
+1930-01-12
+1930-02-26
+---       
+1932-01-14
+1932-03-22
 
 but to combine them,
 we must use an **aggregation function**
@@ -39,9 +39,9 @@ and produces a single record as output:
 select min(dated) from Visited;
 ~~~
 
-<table>
-<tr><td>1927-02-08</td></tr>
-</table>
+min(dated)
+----------
+1927-02-08
 
 <img src="img/sql-aggregation.svg" alt="SQL Aggregation" />
 
@@ -49,9 +49,9 @@ select min(dated) from Visited;
 select max(dated) from Visited;
 ~~~
 
-<table>
-<tr><td>1939-01-07</td></tr>
-</table>
+max(dated)
+----------
+1939-01-07
 
 `min` and `max` are just two of
 the aggregation functions built into SQL.
@@ -63,25 +63,25 @@ and `sum`:
 select avg(reading) from Survey where quant="sal";
 ~~~
 
-<table>
-<tr><td>7.20333333333</td></tr>
-</table>
+avg(reading)    
+----------------
+7.20333333333333
 
 ~~~ {.sql}
 select count(reading) from Survey where quant="sal";
 ~~~
 
-<table>
-<tr><td>9</td></tr>
-</table>
+count(reading)
+--------------
+9             
 
 ~~~ {.sql}
 select sum(reading) from Survey where quant="sal";
 ~~~
 
-<table>
-<tr><td>64.83</td></tr>
-</table>
+sum(reading)
+------------
+64.83       
 
 We used `count(reading)` here,
 but we could just as easily have counted `quant`
@@ -99,9 +99,9 @@ find the range of sensible salinity measurements:
 select min(reading), max(reading) from Survey where quant="sal" and reading<=1.0;
 ~~~
 
-<table>
-<tr><td>0.05</td><td>0.21</td></tr>
-</table>
+min(reading)  max(reading)
+------------  ------------
+0.05          0.21        
 
 We can also combine aggregated results with raw results,
 although the output might surprise you:
@@ -110,9 +110,9 @@ although the output might surprise you:
 select person, count(*) from Survey where quant="sal" and reading<=1.0;
 ~~~
 
-<table>
-<tr><td>lake</td><td>7</td></tr>
-</table>
+person      count(*)  
+----------  ----------
+lake        7         
 
 Why does Lake's name appear rather than Roerich's or Dyer's?
 The answer is that when it has to aggregate a field,
@@ -130,9 +130,9 @@ rather than zero or some other arbitrary value:
 select person, max(reading), sum(reading) from Survey where quant="missing";
 ~~~
 
-<table>
-<tr><td>None</td><td>None</td><td>None</td></tr>
-</table>
+person      max(reading)  sum(reading)
+----------  ------------  ------------
+---         ---           ---         
 
 One final important feature of aggregation functions is that
 they are inconsistent with the rest of SQL in a very useful way.
@@ -153,9 +153,9 @@ This behavior lets us write our queries as:
 select min(dated) from Visited;
 ~~~
 
-<table>
-<tr><td>1927-02-08</td></tr>
-</table>
+min(dated)
+----------
+1927-02-08
 
 instead of always having to filter explicitly:
 
@@ -163,9 +163,9 @@ instead of always having to filter explicitly:
 select min(dated) from Visited where dated is not null;
 ~~~
 
-<table>
-<tr><td>1927-02-08</td></tr>
-</table>
+min(dated)
+----------
+1927-02-08
 
 Aggregating all records at once doesn't always make sense.
 For example,
@@ -179,9 +179,9 @@ from  Survey
 where quant="rad";
 ~~~
 
-<table>
-<tr><td>roe</td><td>8</td><td>6.56</td></tr>
-</table>
+person      count(reading)  round(avg(reading), 2)
+----------  --------------  ----------------------
+roe         8               6.56                  
 
 because the database manager selects a single arbitrary scientist's name
 rather than aggregating separately for each scientist.
@@ -195,9 +195,9 @@ where quant="rad"
 and   person="dyer";
 ~~~
 
-<table>
-<tr><td>dyer</td><td>2</td><td>8.81</td></tr>
-</table>
+person      count(reading)  round(avg(reading), 2)
+----------  --------------  ----------------------
+dyer        2               8.81                  
 
 but this would be tedious,
 and if she ever had a data set with fifty or five hundred scientists,
@@ -214,12 +214,12 @@ where    quant="rad"
 group by person;
 ~~~
 
-<table>
-<tr><td>dyer</td><td>2</td><td>8.81</td></tr>
-<tr><td>lake</td><td>2</td><td>1.82</td></tr>
-<tr><td>pb</td><td>3</td><td>6.66</td></tr>
-<tr><td>roe</td><td>1</td><td>11.25</td></tr>
-</table>
+person      count(reading)  round(avg(reading), 2)
+----------  --------------  ----------------------
+dyer        2               8.81                  
+lake        2               1.82                  
+pb          3               6.66                  
+roe         1               11.25                 
 
 `group by` does exactly what its name implies:
 groups all the records with the same value for the specified field together
@@ -241,19 +241,19 @@ from     Survey
 group by person, quant;
 ~~~
 
-<table>
-<tr><td>None</td><td>sal</td><td>1</td><td>0.06</td></tr>
-<tr><td>None</td><td>temp</td><td>1</td><td>-26.0</td></tr>
-<tr><td>dyer</td><td>rad</td><td>2</td><td>8.81</td></tr>
-<tr><td>dyer</td><td>sal</td><td>2</td><td>0.11</td></tr>
-<tr><td>lake</td><td>rad</td><td>2</td><td>1.82</td></tr>
-<tr><td>lake</td><td>sal</td><td>4</td><td>0.11</td></tr>
-<tr><td>lake</td><td>temp</td><td>1</td><td>-16.0</td></tr>
-<tr><td>pb</td><td>rad</td><td>3</td><td>6.66</td></tr>
-<tr><td>pb</td><td>temp</td><td>2</td><td>-20.0</td></tr>
-<tr><td>roe</td><td>rad</td><td>1</td><td>11.25</td></tr>
-<tr><td>roe</td><td>sal</td><td>2</td><td>32.05</td></tr>
-</table>
+person      quant       count(reading)  round(avg(reading), 2)
+----------  ----------  --------------  ----------------------
+---         sal         1               0.06                  
+---         temp        1               -26.0                 
+dyer        rad         2               8.81                  
+dyer        sal         2               0.11                  
+lake        rad         2               1.82                  
+lake        sal         4               0.11                  
+lake        temp        1               -16.0                 
+pb          rad         3               6.66                  
+pb          temp        2               -20.0                 
+roe         rad         1               11.25                 
+roe         sal         2               32.05                 
 
 Note that we have added `person` to the list of fields displayed,
 since the results wouldn't make much sense otherwise.
@@ -269,17 +269,17 @@ group by person, quant
 order by person, quant;
 ~~~
 
-<table>
-<tr><td>dyer</td><td>rad</td><td>2</td><td>8.81</td></tr>
-<tr><td>dyer</td><td>sal</td><td>2</td><td>0.11</td></tr>
-<tr><td>lake</td><td>rad</td><td>2</td><td>1.82</td></tr>
-<tr><td>lake</td><td>sal</td><td>4</td><td>0.11</td></tr>
-<tr><td>lake</td><td>temp</td><td>1</td><td>-16.0</td></tr>
-<tr><td>pb</td><td>rad</td><td>3</td><td>6.66</td></tr>
-<tr><td>pb</td><td>temp</td><td>2</td><td>-20.0</td></tr>
-<tr><td>roe</td><td>rad</td><td>1</td><td>11.25</td></tr>
-<tr><td>roe</td><td>sal</td><td>2</td><td>32.05</td></tr>
-</table>
+person      quant       count(reading)  round(avg(reading), 2)
+----------  ----------  --------------  ----------------------
+dyer        rad         2               8.81                  
+dyer        sal         2               0.11                  
+lake        rad         2               1.82                  
+lake        sal         4               0.11                  
+lake        temp        1               -16.0                 
+pb          rad         3               6.66                  
+pb          temp        2               -20.0                 
+roe         rad         1               11.25                 
+roe         sal         2               32.05                 
 
 Looking more closely,
 this query:

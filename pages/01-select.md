@@ -45,64 +45,60 @@ The tables below show the database we will use in our examples:
 
 > **Person**: people who took readings.
 > 
-> <table>
->   <tr> <th>ident</th> <th>personal</th> <th>family</th> </tr>
->   <tr> <td>dyer</td> <td>William</td> <td>Dyer</td> </tr>
->   <tr> <td>pb</td> <td>Frank</td> <td>Pabodie</td> </tr>
->   <tr> <td>lake</td> <td>Anderson</td> <td>Lake</td> </tr>
->   <tr> <td>roe</td> <td>Valentina</td> <td>Roerich</td> </tr>
->   <tr> <td>danforth</td> <td>Frank</td> <td>Danforth</td> </tr>
-> </table>
+> ident       personal    family    
+> ----------  ----------  ----------
+> dyer        William     Dyer      
+> pb          Frank       Pabodie   
+> lake        Anderson    Lake      
+> roe         Valentina   Roerich   
+> danforth    Frank       Danforth  
 
 > **Site**: locations where readings were taken.
 > 
-> <table>
->   <tr> <th>name</th> <th>lat</th> <th>long</th> </tr>
->   <tr> <td>DR-1</td> <td>-49.85</td> <td>-128.57</td> </tr>
->   <tr> <td>DR-3</td> <td>-47.15</td> <td>-126.72</td> </tr>
->   <tr> <td>MSK-4</td> <td>-48.87</td> <td>-123.4</td> </tr>
-> </table>
+> name        lat         long      
+> ----------  ----------  ----------
+> DR-1        -49.85      -128.57   
+> DR-3        -47.15      -126.72   
+> MSK-4       -48.87      -123.4    
 
 > **Visited**: when readings were taken at specific sites.
 > 
-> <table>
->   <tr> <th>ident</th> <th>site</th> <th>dated</th> </tr>
->   <tr> <td>619</td> <td>DR-1</td> <td>1927-02-08</td> </tr>
->   <tr> <td>622</td> <td>DR-1</td> <td>1927-02-10</td> </tr>
->   <tr> <td>734</td> <td>DR-3</td> <td>1939-01-07</td> </tr>
->   <tr> <td>735</td> <td>DR-3</td> <td>1930-01-12</td> </tr>
->   <tr> <td>751</td> <td>DR-3</td> <td>1930-02-26</td> </tr>
->   <tr> <td>752</td> <td>DR-3</td> <td></td> </tr>
->   <tr> <td>837</td> <td>MSK-4</td> <td>1932-01-14</td> </tr>
->   <tr> <td>844</td> <td>DR-1</td> <td>1932-03-22</td> </tr>
-> </table>
+> ident       site        dated     
+> ----------  ----------  ----------
+> 619         DR-1        1927-02-08
+> 622         DR-1        1927-02-10
+> 734         DR-3        1939-01-07
+> 735         DR-3        1930-01-12
+> 751         DR-3        1930-02-26
+> 752         DR-3        ---
+> 837         MSK-4       1932-01-14
+> 844         DR-1        1932-03-22
 
 > **Survey**: the actual readings.
 > 
-> <table>
->   <tr> <th>taken</th> <th>person</th> <th>quant</th> <th>reading</th> </tr>
->   <tr> <td>619</td> <td>dyer</td> <td>rad</td> <td>9.82</td> </tr>
->   <tr> <td>619</td> <td>dyer</td> <td>sal</td> <td>0.13</td> </tr>
->   <tr> <td>622</td> <td>dyer</td> <td>rad</td> <td>7.8</td> </tr>
->   <tr> <td>622</td> <td>dyer</td> <td>sal</td> <td>0.09</td> </tr>
->   <tr> <td>734</td> <td>pb</td> <td>rad</td> <td>8.41</td> </tr>
->   <tr> <td>734</td> <td>lake</td> <td>sal</td> <td>0.05</td> </tr>
->   <tr> <td>734</td> <td>pb</td> <td>temp</td> <td>-21.5</td> </tr>
->   <tr> <td>735</td> <td>pb</td> <td>rad</td> <td>7.22</td> </tr>
->   <tr> <td>735</td> <td></td> <td>sal</td> <td>0.06</td> </tr>
->   <tr> <td>735</td> <td></td> <td>temp</td> <td>-26.0</td> </tr>
->   <tr> <td>751</td> <td>pb</td> <td>rad</td> <td>4.35</td> </tr>
->   <tr> <td>751</td> <td>pb</td> <td>temp</td> <td>-18.5</td> </tr>
->   <tr> <td>751</td> <td>lake</td> <td>sal</td> <td>0.1</td> </tr>
->   <tr> <td>752</td> <td>lake</td> <td>rad</td> <td>2.19</td> </tr>
->   <tr> <td>752</td> <td>lake</td> <td>sal</td> <td>0.09</td> </tr>
->   <tr> <td>752</td> <td>lake</td> <td>temp</td> <td>-16.0</td> </tr>
->   <tr> <td>752</td> <td>roe</td> <td>sal</td> <td>41.6</td> </tr>
->   <tr> <td>837</td> <td>lake</td> <td>rad</td> <td>1.46</td> </tr>
->   <tr> <td>837</td> <td>lake</td> <td>sal</td> <td>0.21</td> </tr>
->   <tr> <td>837</td> <td>roe</td> <td>sal</td> <td>22.5</td> </tr>
->   <tr> <td>844</td> <td>roe</td> <td>rad</td> <td>11.25</td> </tr>
-> </table>
+> taken       person      quant       reading   
+> ----------  ----------  ----------  ----------
+> 619         dyer        rad         9.82      
+> 619         dyer        sal         0.13      
+> 622         dyer        rad         7.8       
+> 622         dyer        sal         0.09      
+> 734         pb          rad         8.41      
+> 734         lake        sal         0.05      
+> 734         pb          temp        -21.5     
+> 735         pb          rad         7.22      
+> 735         ---         sal         0.06      
+> 735         ---         temp        -26.0     
+> 751         pb          rad         4.35      
+> 751         pb          temp        -18.5     
+> 751         lake        sal         0.1       
+> 752         lake        rad         2.19      
+> 752         lake        sal         0.09      
+> 752         lake        temp        -16.0     
+> 752         roe         sal         41.6      
+> 837         lake        rad         1.46      
+> 837         lake        sal         0.21      
+> 837         roe         sal         22.5      
+> 844         roe         rad         11.25     
 
 Notice that three entries --- one in the `Visited` table,
 and two in the `Survey` table --- are shown in red
@@ -118,13 +114,13 @@ Our query and its output look like this:
 select family, personal from Person;
 ~~~
 
-<table>
-<tr><td>Dyer</td><td>William</td></tr>
-<tr><td>Pabodie</td><td>Frank</td></tr>
-<tr><td>Lake</td><td>Anderson</td></tr>
-<tr><td>Roerich</td><td>Valentina</td></tr>
-<tr><td>Danforth</td><td>Frank</td></tr>
-</table>
+family      personal  
+----------  ----------
+Dyer        William   
+Pabodie     Frank     
+Lake        Anderson  
+Roerich     Valentina 
+Danforth    Frank     
 
 The semi-colon at the end of the query
 tells the database manager that the query is complete and ready to run.
@@ -138,13 +134,13 @@ SQL is **case insensitive**.
 SeLeCt FaMiLy, PeRsOnAl FrOm PeRsOn;
 ~~~
 
-<table>
-<tr><td>Dyer</td><td>William</td></tr>
-<tr><td>Pabodie</td><td>Frank</td></tr>
-<tr><td>Lake</td><td>Anderson</td></tr>
-<tr><td>Roerich</td><td>Valentina</td></tr>
-<tr><td>Danforth</td><td>Frank</td></tr>
-</table>
+family      personal  
+----------  ----------
+Dyer        William   
+Pabodie     Frank     
+Lake        Anderson  
+Roerich     Valentina 
+Danforth    Frank     
 
 Whatever casing convention you choose,
 please be consistent:
@@ -162,13 +158,13 @@ we could swap the columns in the output by writing our query as:
 select personal, family from Person;
 ~~~
 
-<table>
-<tr><td>William</td><td>Dyer</td></tr>
-<tr><td>Frank</td><td>Pabodie</td></tr>
-<tr><td>Anderson</td><td>Lake</td></tr>
-<tr><td>Valentina</td><td>Roerich</td></tr>
-<tr><td>Frank</td><td>Danforth</td></tr>
-</table>
+personal    family    
+----------  ----------
+William     Dyer      
+Frank       Pabodie   
+Anderson    Lake      
+Valentina   Roerich   
+Frank       Danforth  
 
 or even repeat columns:
 
@@ -176,13 +172,13 @@ or even repeat columns:
 select ident, ident, ident from Person;
 ~~~
 
-<table>
-<tr><td>dyer</td><td>dyer</td><td>dyer</td></tr>
-<tr><td>pb</td><td>pb</td><td>pb</td></tr>
-<tr><td>lake</td><td>lake</td><td>lake</td></tr>
-<tr><td>roe</td><td>roe</td><td>roe</td></tr>
-<tr><td>danforth</td><td>danforth</td><td>danforth</td></tr>
-</table>
+ident       ident       ident     
+----------  ----------  ----------
+dyer        dyer        dyer      
+pb          pb          pb        
+lake        lake        lake      
+roe         roe         roe       
+danforth    danforth    danforth
 
 As a shortcut,
 we can select all of the columns in a table using `*`:
@@ -191,13 +187,13 @@ we can select all of the columns in a table using `*`:
 select * from Person;
 ~~~
 
-<table>
-<tr><td>dyer</td><td>William</td><td>Dyer</td></tr>
-<tr><td>pb</td><td>Frank</td><td>Pabodie</td></tr>
-<tr><td>lake</td><td>Anderson</td><td>Lake</td></tr>
-<tr><td>roe</td><td>Valentina</td><td>Roerich</td></tr>
-<tr><td>danforth</td><td>Frank</td><td>Danforth</td></tr>
-</table>
+ident       personal    family    
+----------  ----------  ----------
+dyer        William     Dyer      
+pb          Frank       Pabodie   
+lake        Anderson    Lake      
+roe         Valentina   Roerich   
+danforth    Frank       Danforth  
 
 > ## FIXME {.challenge}
 >

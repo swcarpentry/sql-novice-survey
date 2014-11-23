@@ -26,16 +26,16 @@ its date is null:
 select * from Visited;
 ~~~
 
-<table>
-<tr><td>619</td><td>DR-1</td><td>1927-02-08</td></tr>
-<tr><td>622</td><td>DR-1</td><td>1927-02-10</td></tr>
-<tr><td>734</td><td>DR-3</td><td>1939-01-07</td></tr>
-<tr><td>735</td><td>DR-3</td><td>1930-01-12</td></tr>
-<tr><td>751</td><td>DR-3</td><td>1930-02-26</td></tr>
-<tr><td>752</td><td>DR-3</td><td>None</td></tr>
-<tr><td>837</td><td>MSK-4</td><td>1932-01-14</td></tr>
-<tr><td>844</td><td>DR-1</td><td>1932-03-22</td></tr>
-</table>
+ident       site        dated     
+----------  ----------  ----------
+619         DR-1        1927-02-08
+622         DR-1        1927-02-10
+734         DR-3        1939-01-07
+735         DR-3        1930-01-12
+751         DR-3        1930-02-26
+752         DR-3        ---       
+837         MSK-4       1932-01-14
+844         DR-1        1932-03-22
 
 Null doesn't behave like other values.
 If we select the records that come before 1930:
@@ -44,10 +44,10 @@ If we select the records that come before 1930:
 select * from Visited where dated<"1930-00-00";
 ~~~
 
-<table>
-<tr><td>619</td><td>DR-1</td><td>1927-02-08</td></tr>
-<tr><td>622</td><td>DR-1</td><td>1927-02-10</td></tr>
-</table>
+ident       site        dated     
+----------  ----------  ----------
+619         DR-1        1927-02-08
+622         DR-1        1927-02-10
 
 we get two results,
 and if we select the ones that come during or after 1930:
@@ -56,13 +56,13 @@ and if we select the ones that come during or after 1930:
 select * from Visited where dated>="1930-00-00";
 ~~~
 
-<table>
-<tr><td>734</td><td>DR-3</td><td>1939-01-07</td></tr>
-<tr><td>735</td><td>DR-3</td><td>1930-01-12</td></tr>
-<tr><td>751</td><td>DR-3</td><td>1930-02-26</td></tr>
-<tr><td>837</td><td>MSK-4</td><td>1932-01-14</td></tr>
-<tr><td>844</td><td>DR-1</td><td>1932-03-22</td></tr>
-</table>
+ident       site        dated     
+----------  ----------  ----------
+734         DR-3        1939-01-07
+735         DR-3        1930-01-12
+751         DR-3        1930-02-26
+837         MSK-4       1932-01-14
+844         DR-1        1932-03-22
 
 we get five,
 but record #752 isn't in either set of results.
@@ -93,17 +93,9 @@ comparing things to null with = and != produces null:
 select * from Visited where dated=NULL;
 ~~~
 
-<table>
-
-</table>
-
 ~~~ {.sql}
 select * from Visited where dated!=NULL;
 ~~~
-
-<table>
-
-</table>
 
 To check whether a value is `null` or not,
 we must use a special test `is null`:
@@ -112,9 +104,9 @@ we must use a special test `is null`:
 select * from Visited where dated is NULL;
 ~~~
 
-<table>
-<tr><td>752</td><td>DR-3</td><td>None</td></tr>
-</table>
+ident       site        dated     
+----------  ----------  ----------
+752         DR-3        ---       
 
 or its inverse `is not null`:
 
@@ -122,15 +114,15 @@ or its inverse `is not null`:
 select * from Visited where dated is not NULL;
 ~~~
 
-<table>
-<tr><td>619</td><td>DR-1</td><td>1927-02-08</td></tr>
-<tr><td>622</td><td>DR-1</td><td>1927-02-10</td></tr>
-<tr><td>734</td><td>DR-3</td><td>1939-01-07</td></tr>
-<tr><td>735</td><td>DR-3</td><td>1930-01-12</td></tr>
-<tr><td>751</td><td>DR-3</td><td>1930-02-26</td></tr>
-<tr><td>837</td><td>MSK-4</td><td>1932-01-14</td></tr>
-<tr><td>844</td><td>DR-1</td><td>1932-03-22</td></tr>
-</table>
+ident       site        dated     
+----------  ----------  ----------
+619         DR-1        1927-02-08
+622         DR-1        1927-02-10
+734         DR-3        1939-01-07
+735         DR-3        1930-01-12
+751         DR-3        1930-02-26
+837         MSK-4       1932-01-14
+844         DR-1        1932-03-22
 
 Null values cause headaches wherever they appear.
 For example,
@@ -142,12 +134,12 @@ It's natural to write the query like this:
 select * from Survey where quant="sal" and person!="lake";
 ~~~
 
-<table>
-<tr><td>619</td><td>dyer</td><td>sal</td><td>0.13</td></tr>
-<tr><td>622</td><td>dyer</td><td>sal</td><td>0.09</td></tr>
-<tr><td>752</td><td>roe</td><td>sal</td><td>41.6</td></tr>
-<tr><td>837</td><td>roe</td><td>sal</td><td>22.5</td></tr>
-</table>
+taken       person      quant       reading   
+----------  ----------  ----------  ----------
+619         dyer        sal         0.13      
+622         dyer        sal         0.09      
+752         roe         sal         41.6      
+837         roe         sal         22.5      
 
 but this query filters omits the records
 where we don't know who took the measurement.
@@ -162,20 +154,18 @@ we need to add an explicit check:
 select * from Survey where quant="sal" and (person!="lake" or person is null);
 ~~~
 
-<table>
-<tr><td>619</td><td>dyer</td><td>sal</td><td>0.13</td></tr>
-<tr><td>622</td><td>dyer</td><td>sal</td><td>0.09</td></tr>
-<tr><td>735</td><td>None</td><td>sal</td><td>0.06</td></tr>
-<tr><td>752</td><td>roe</td><td>sal</td><td>41.6</td></tr>
-<tr><td>837</td><td>roe</td><td>sal</td><td>22.5</td></tr>
-</table>
+taken       person      quant       reading   
+----------  ----------  ----------  ----------
+619         dyer        sal         0.13      
+622         dyer        sal         0.09      
+735         ---         sal         0.06      
+752         roe         sal         41.6      
+837         roe         sal         22.5      
 
 We still have to decide whether this is the right thing to do or not.
 If we want to be absolutely sure that
 we aren't including any measurements by Lake in our results,
 we need to exclude all the records for which we don't know who did the work.
-
-#### Challenges
 
 > ## FIXME {.challenge}
 >
