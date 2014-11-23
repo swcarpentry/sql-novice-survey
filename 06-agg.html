@@ -39,7 +39,7 @@
 <p>We now want to calculate ranges and averages for our data. We know how to select all of the dates from the <code>Visited</code> table:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> dated <span class="kw">from</span> Visited;</code></pre>
 <h2 id="dated">dated</h2>
-<p>1927-02-08 1927-02-10 1939-01-07 1930-01-12 1930-02-26 ---<br />1932-01-14 1932-03-22</p>
+<p>1927-02-08 1927-02-10 1939-01-07 1930-01-12 1930-02-26 -null- 1932-01-14 1932-03-22</p>
 <p>but to combine them, we must use an <strong>aggregation function</strong> such as <code>min</code> or <code>max</code>. Each of these functions takes a set of records as input, and produces a single record as output:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> <span class="fu">min</span>(dated) <span class="kw">from</span> Visited;</code></pre>
 <h2 id="mindated">min(dated)</h2>
@@ -94,7 +94,22 @@
 <p>Why does Lake's name appear rather than Roerich's or Dyer's? The answer is that when it has to aggregate a field, but isn't told how to, the database manager chooses an actual value from the input set. It might use the first one processed, the last one, or something else entirely.</p>
 <p>Another important fact is that when there are no values to aggregate, aggregation's result is &quot;don't know&quot; rather than zero or some other arbitrary value:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> person, <span class="fu">max</span>(reading), <span class="fu">sum</span>(reading) <span class="kw">from</span> Survey <span class="kw">where</span> quant=<span class="ot">&quot;missing&quot;</span>;</code></pre>
-<p>person max(reading) sum(reading) ---------- ------------ ------------ --- --- ---</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">person</th>
+<th align="left">max(reading)</th>
+<th align="left">sum(reading)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">-null-</td>
+<td align="left">-null-</td>
+<td align="left">-null-</td>
+</tr>
+</tbody>
+</table>
 <p>One final important feature of aggregation functions is that they are inconsistent with the rest of SQL in a very useful way. If we add two values, and one of them is null, the result is null. By extension, if we use <code>sum</code> to add all the values in a set, and any of those values are null, the result should also be null. It's much more useful, though, for aggregation functions to ignore null values and only combine those that are non-null. This behavior lets us write our queries as:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> <span class="fu">min</span>(dated) <span class="kw">from</span> Visited;</code></pre>
 <h2 id="mindated-1">min(dated)</h2>

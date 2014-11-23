@@ -70,7 +70,7 @@ The tables below show the database we will use in our examples:
 > 734         DR-3        1939-01-07
 > 735         DR-3        1930-01-12
 > 751         DR-3        1930-02-26
-> 752         DR-3        ---
+> 752         DR-3        -null-
 > 837         MSK-4       1932-01-14
 > 844         DR-1        1932-03-22
 
@@ -86,8 +86,8 @@ The tables below show the database we will use in our examples:
 > 734         lake        sal         0.05      
 > 734         pb          temp        -21.5     
 > 735         pb          rad         7.22      
-> 735         ---         sal         0.06      
-> 735         ---         temp        -26.0     
+> 735         -null-      sal         0.06      
+> 735         -null-      temp        -26.0     
 > 751         pb          rad         4.35      
 > 751         pb          temp        -18.5     
 > 751         lake        sal         0.1       

@@ -33,7 +33,7 @@ ident       site        dated
 734         DR-3        1939-01-07
 735         DR-3        1930-01-12
 751         DR-3        1930-02-26
-752         DR-3        ---       
+752         DR-3        -null-
 837         MSK-4       1932-01-14
 844         DR-1        1932-03-22
 
@@ -106,7 +106,7 @@ select * from Visited where dated is NULL;
 
 ident       site        dated     
 ----------  ----------  ----------
-752         DR-3        ---       
+752         DR-3        -null-
 
 or its inverse `is not null`:
 
@@ -158,7 +158,7 @@ taken       person      quant       reading
 ----------  ----------  ----------  ----------
 619         dyer        sal         0.13      
 622         dyer        sal         0.09      
-735         ---         sal         0.06      
+735         -null-      sal         0.06      
 752         roe         sal         41.6      
 837         roe         sal         22.5      
 

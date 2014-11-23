@@ -43,8 +43,8 @@ based on values in columns that aren't then displayed:
 select ident from Visited where site="DR-1";
 ~~~
 
-ident     
-----------
+ident
+-----
 619       
 622       
 844       

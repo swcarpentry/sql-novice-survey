@@ -25,7 +25,7 @@ dated
 1939-01-07
 1930-01-12
 1930-02-26
----       
+-null-
 1932-01-14
 1932-03-22
 
@@ -132,7 +132,7 @@ select person, max(reading), sum(reading) from Survey where quant="missing";
 
 person      max(reading)  sum(reading)
 ----------  ------------  ------------
----         ---           ---         
+-null-      -null-        -null-
 
 One final important feature of aggregation functions is that
 they are inconsistent with the rest of SQL in a very useful way.

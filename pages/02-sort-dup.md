@@ -156,8 +156,8 @@ taken       person
 734         pb        
 734         lake      
 735         pb        
-735         ---       
-735         ---       
+735         -null-
+735         -null-
 751         pb        
 751         pb        
 751         lake      
@@ -183,7 +183,7 @@ taken       person
 734         pb        
 734         lake      
 735         pb        
-735         ---       
+735         -null-
 751         pb        
 751         lake      
 752         roe       
