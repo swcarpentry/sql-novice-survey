@@ -44,12 +44,12 @@ but it's better not to have to rely on it.
 Different database systems support different data types for table columns,
 but most provide the following:
 
-<table>
-  <tr> <td>integer</td> <td>a signed integer</td> </tr>
-  <tr> <td>real</td> <td>a floating point number</td> </tr>
-  <tr> <td>text</td> <td>a character string</td> </tr>
-  <tr> <td>blob</td> <td>a "binary large object", such as an image</td> </tr>
-</table>
+data type  use
+---------  -----------------------------------------
+integer    a signed integer
+real       a floating point number
+text       a character string
+blob       a "binary large object", such as an image
 
 Most databases also support Booleans and date/time values;
 SQLite uses the integers 0 and 1 for the former,

@@ -30,32 +30,32 @@ let's start by joining the `Site` and `Visited` tables:
 select * from Site join Visited;
 ~~~
 
-<table>
-<tr><td>DR-1</td><td>-49.85</td><td>-128.57</td><td>619</td><td>DR-1</td><td>1927-02-08</td></tr>
-<tr><td>DR-1</td><td>-49.85</td><td>-128.57</td><td>622</td><td>DR-1</td><td>1927-02-10</td></tr>
-<tr><td>DR-1</td><td>-49.85</td><td>-128.57</td><td>734</td><td>DR-3</td><td>1939-01-07</td></tr>
-<tr><td>DR-1</td><td>-49.85</td><td>-128.57</td><td>735</td><td>DR-3</td><td>1930-01-12</td></tr>
-<tr><td>DR-1</td><td>-49.85</td><td>-128.57</td><td>751</td><td>DR-3</td><td>1930-02-26</td></tr>
-<tr><td>DR-1</td><td>-49.85</td><td>-128.57</td><td>752</td><td>DR-3</td><td>None</td></tr>
-<tr><td>DR-1</td><td>-49.85</td><td>-128.57</td><td>837</td><td>MSK-4</td><td>1932-01-14</td></tr>
-<tr><td>DR-1</td><td>-49.85</td><td>-128.57</td><td>844</td><td>DR-1</td><td>1932-03-22</td></tr>
-<tr><td>DR-3</td><td>-47.15</td><td>-126.72</td><td>619</td><td>DR-1</td><td>1927-02-08</td></tr>
-<tr><td>DR-3</td><td>-47.15</td><td>-126.72</td><td>622</td><td>DR-1</td><td>1927-02-10</td></tr>
-<tr><td>DR-3</td><td>-47.15</td><td>-126.72</td><td>734</td><td>DR-3</td><td>1939-01-07</td></tr>
-<tr><td>DR-3</td><td>-47.15</td><td>-126.72</td><td>735</td><td>DR-3</td><td>1930-01-12</td></tr>
-<tr><td>DR-3</td><td>-47.15</td><td>-126.72</td><td>751</td><td>DR-3</td><td>1930-02-26</td></tr>
-<tr><td>DR-3</td><td>-47.15</td><td>-126.72</td><td>752</td><td>DR-3</td><td>None</td></tr>
-<tr><td>DR-3</td><td>-47.15</td><td>-126.72</td><td>837</td><td>MSK-4</td><td>1932-01-14</td></tr>
-<tr><td>DR-3</td><td>-47.15</td><td>-126.72</td><td>844</td><td>DR-1</td><td>1932-03-22</td></tr>
-<tr><td>MSK-4</td><td>-48.87</td><td>-123.4</td><td>619</td><td>DR-1</td><td>1927-02-08</td></tr>
-<tr><td>MSK-4</td><td>-48.87</td><td>-123.4</td><td>622</td><td>DR-1</td><td>1927-02-10</td></tr>
-<tr><td>MSK-4</td><td>-48.87</td><td>-123.4</td><td>734</td><td>DR-3</td><td>1939-01-07</td></tr>
-<tr><td>MSK-4</td><td>-48.87</td><td>-123.4</td><td>735</td><td>DR-3</td><td>1930-01-12</td></tr>
-<tr><td>MSK-4</td><td>-48.87</td><td>-123.4</td><td>751</td><td>DR-3</td><td>1930-02-26</td></tr>
-<tr><td>MSK-4</td><td>-48.87</td><td>-123.4</td><td>752</td><td>DR-3</td><td>None</td></tr>
-<tr><td>MSK-4</td><td>-48.87</td><td>-123.4</td><td>837</td><td>MSK-4</td><td>1932-01-14</td></tr>
-<tr><td>MSK-4</td><td>-48.87</td><td>-123.4</td><td>844</td><td>DR-1</td><td>1932-03-22</td></tr>
-</table>
+name        lat         long        ident       site        dated     
+----------  ----------  ----------  ----------  ----------  ----------
+DR-1        -49.85      -128.57     619         DR-1        1927-02-08
+DR-1        -49.85      -128.57     622         DR-1        1927-02-10
+DR-1        -49.85      -128.57     734         DR-3        1939-01-07
+DR-1        -49.85      -128.57     735         DR-3        1930-01-12
+DR-1        -49.85      -128.57     751         DR-3        1930-02-26
+DR-1        -49.85      -128.57     752         DR-3        ---       
+DR-1        -49.85      -128.57     837         MSK-4       1932-01-14
+DR-1        -49.85      -128.57     844         DR-1        1932-03-22
+DR-3        -47.15      -126.72     619         DR-1        1927-02-08
+DR-3        -47.15      -126.72     622         DR-1        1927-02-10
+DR-3        -47.15      -126.72     734         DR-3        1939-01-07
+DR-3        -47.15      -126.72     735         DR-3        1930-01-12
+DR-3        -47.15      -126.72     751         DR-3        1930-02-26
+DR-3        -47.15      -126.72     752         DR-3        ---       
+DR-3        -47.15      -126.72     837         MSK-4       1932-01-14
+DR-3        -47.15      -126.72     844         DR-1        1932-03-22
+MSK-4       -48.87      -123.4      619         DR-1        1927-02-08
+MSK-4       -48.87      -123.4      622         DR-1        1927-02-10
+MSK-4       -48.87      -123.4      734         DR-3        1939-01-07
+MSK-4       -48.87      -123.4      735         DR-3        1930-01-12
+MSK-4       -48.87      -123.4      751         DR-3        1930-02-26
+MSK-4       -48.87      -123.4      752         DR-3        ---       
+MSK-4       -48.87      -123.4      837         MSK-4       1932-01-14
+MSK-4       -48.87      -123.4      844         DR-1        1932-03-22
 
 `join` creates
 the **cross product**
@@ -80,16 +80,16 @@ we're only interested in combinations that have the same site name:
 select * from Site join Visited on Site.name=Visited.site;
 ~~~ {.sql}
 
-<table>
-<tr><td>DR-1</td><td>-49.85</td><td>-128.57</td><td>619</td><td>DR-1</td><td>1927-02-08</td></tr>
-<tr><td>DR-1</td><td>-49.85</td><td>-128.57</td><td>622</td><td>DR-1</td><td>1927-02-10</td></tr>
-<tr><td>DR-1</td><td>-49.85</td><td>-128.57</td><td>844</td><td>DR-1</td><td>1932-03-22</td></tr>
-<tr><td>DR-3</td><td>-47.15</td><td>-126.72</td><td>734</td><td>DR-3</td><td>1939-01-07</td></tr>
-<tr><td>DR-3</td><td>-47.15</td><td>-126.72</td><td>735</td><td>DR-3</td><td>1930-01-12</td></tr>
-<tr><td>DR-3</td><td>-47.15</td><td>-126.72</td><td>751</td><td>DR-3</td><td>1930-02-26</td></tr>
-<tr><td>DR-3</td><td>-47.15</td><td>-126.72</td><td>752</td><td>DR-3</td><td>None</td></tr>
-<tr><td>MSK-4</td><td>-48.87</td><td>-123.4</td><td>837</td><td>MSK-4</td><td>1932-01-14</td></tr>
-</table>
+name        lat         long        ident       site        dated     
+----------  ----------  ----------  ----------  ----------  ----------
+DR-1        -49.85      -128.57     619         DR-1        1927-02-08
+DR-1        -49.85      -128.57     622         DR-1        1927-02-10
+DR-1        -49.85      -128.57     844         DR-1        1932-03-22
+DR-3        -47.15      -126.72     734         DR-3        1939-01-07
+DR-3        -47.15      -126.72     735         DR-3        1930-01-12
+DR-3        -47.15      -126.72     751         DR-3        1930-02-26
+DR-3        -47.15      -126.72     752         DR-3        ---       
+MSK-4       -48.87      -123.4      837         MSK-4       1932-01-14
 
 `on` does the same job as `where`:
 it only keeps records that pass some test.
@@ -121,16 +121,16 @@ from   Site join Visited
 on     Site.name=Visited.site;
 ~~~
 
-<table>
-<tr><td>-49.85</td><td>-128.57</td><td>1927-02-08</td></tr>
-<tr><td>-49.85</td><td>-128.57</td><td>1927-02-10</td></tr>
-<tr><td>-49.85</td><td>-128.57</td><td>1932-03-22</td></tr>
-<tr><td>-47.15</td><td>-126.72</td><td>None</td></tr>
-<tr><td>-47.15</td><td>-126.72</td><td>1930-01-12</td></tr>
-<tr><td>-47.15</td><td>-126.72</td><td>1930-02-26</td></tr>
-<tr><td>-47.15</td><td>-126.72</td><td>1939-01-07</td></tr>
-<tr><td>-48.87</td><td>-123.4</td><td>1932-01-14</td></tr>
-</table>
+lat         long        dated     
+----------  ----------  ----------
+-49.85      -128.57     1927-02-08
+-49.85      -128.57     1927-02-10
+-49.85      -128.57     1932-03-22
+-47.15      -126.72     ---       
+-47.15      -126.72     1930-01-12
+-47.15      -126.72     1930-02-26
+-47.15      -126.72     1939-01-07
+-48.87      -123.4      1932-01-14
 
 If joining two tables is good,
 joining many tables must be better.
@@ -148,25 +148,25 @@ and    Visited.ident=Survey.taken
 and    Visited.dated is not null;
 ~~~
 
-<table>
-<tr><td>-49.85</td><td>-128.57</td><td>1927-02-08</td><td>rad</td><td>9.82</td></tr>
-<tr><td>-49.85</td><td>-128.57</td><td>1927-02-08</td><td>sal</td><td>0.13</td></tr>
-<tr><td>-49.85</td><td>-128.57</td><td>1927-02-10</td><td>rad</td><td>7.8</td></tr>
-<tr><td>-49.85</td><td>-128.57</td><td>1927-02-10</td><td>sal</td><td>0.09</td></tr>
-<tr><td>-47.15</td><td>-126.72</td><td>1939-01-07</td><td>rad</td><td>8.41</td></tr>
-<tr><td>-47.15</td><td>-126.72</td><td>1939-01-07</td><td>sal</td><td>0.05</td></tr>
-<tr><td>-47.15</td><td>-126.72</td><td>1939-01-07</td><td>temp</td><td>-21.5</td></tr>
-<tr><td>-47.15</td><td>-126.72</td><td>1930-01-12</td><td>rad</td><td>7.22</td></tr>
-<tr><td>-47.15</td><td>-126.72</td><td>1930-01-12</td><td>sal</td><td>0.06</td></tr>
-<tr><td>-47.15</td><td>-126.72</td><td>1930-01-12</td><td>temp</td><td>-26.0</td></tr>
-<tr><td>-47.15</td><td>-126.72</td><td>1930-02-26</td><td>rad</td><td>4.35</td></tr>
-<tr><td>-47.15</td><td>-126.72</td><td>1930-02-26</td><td>sal</td><td>0.1</td></tr>
-<tr><td>-47.15</td><td>-126.72</td><td>1930-02-26</td><td>temp</td><td>-18.5</td></tr>
-<tr><td>-48.87</td><td>-123.4</td><td>1932-01-14</td><td>rad</td><td>1.46</td></tr>
-<tr><td>-48.87</td><td>-123.4</td><td>1932-01-14</td><td>sal</td><td>0.21</td></tr>
-<tr><td>-48.87</td><td>-123.4</td><td>1932-01-14</td><td>sal</td><td>22.5</td></tr>
-<tr><td>-49.85</td><td>-128.57</td><td>1932-03-22</td><td>rad</td><td>11.25</td></tr>
-</table>
+lat         long        dated       quant       reading   
+----------  ----------  ----------  ----------  ----------
+-49.85      -128.57     1927-02-08  rad         9.82      
+-49.85      -128.57     1927-02-08  sal         0.13      
+-49.85      -128.57     1927-02-10  rad         7.8       
+-49.85      -128.57     1927-02-10  sal         0.09      
+-47.15      -126.72     1939-01-07  rad         8.41      
+-47.15      -126.72     1939-01-07  sal         0.05      
+-47.15      -126.72     1939-01-07  temp        -21.5     
+-47.15      -126.72     1930-01-12  rad         7.22      
+-47.15      -126.72     1930-01-12  sal         0.06      
+-47.15      -126.72     1930-01-12  temp        -26.0     
+-47.15      -126.72     1930-02-26  rad         4.35      
+-47.15      -126.72     1930-02-26  sal         0.1       
+-47.15      -126.72     1930-02-26  temp        -18.5     
+-48.87      -123.4      1932-01-14  rad         1.46      
+-48.87      -123.4      1932-01-14  sal         0.21      
+-48.87      -123.4      1932-01-14  sal         22.5      
+-49.85      -128.57     1932-03-22  rad         11.25     
 
 We can tell which records from `Site`, `Visited`, and `Survey`
 correspond with each other
@@ -207,13 +207,13 @@ and we can use those record numbers in queries:
 select rowid, * from Person;
 ~~~
 
-<table>
-<tr><td>1</td><td>dyer</td><td>William</td><td>Dyer</td></tr>
-<tr><td>2</td><td>pb</td><td>Frank</td><td>Pabodie</td></tr>
-<tr><td>3</td><td>lake</td><td>Anderson</td><td>Lake</td></tr>
-<tr><td>4</td><td>roe</td><td>Valentina</td><td>Roerich</td></tr>
-<tr><td>5</td><td>danforth</td><td>Frank</td><td>Danforth</td></tr>
-</table>
+rowid       ident       personal    family    
+----------  ----------  ----------  ----------
+1           dyer        William     Dyer      
+2           pb          Frank       Pabodie   
+3           lake        Anderson    Lake      
+4           roe         Valentina   Roerich   
+5           danforth    Frank       Danforth  
 
 ### Data Hygiene
 
@@ -239,16 +239,16 @@ The third rule is that there should be no redundant information.
 For example,
 we could get rid of the `Site` table and rewrite the `Visited` table like this:
 
-<table>
-  <tr> <td>619</td> <td>-49.85</td> <td>-128.57</td> <td>1927-02-08</td> </tr>
-  <tr> <td>622</td> <td>-49.85</td> <td>-128.57</td> <td>1927-02-10</td> </tr>
-  <tr> <td>734</td> <td>-47.15</td> <td>-126.72</td> <td>1939-01-07</td> </tr>
-  <tr> <td>735</td> <td>-47.15</td> <td>-126.72</td> <td>1930-01-12</td> </tr>
-  <tr> <td>751</td> <td>-47.15</td> <td>-126.72</td> <td>1930-02-26</td> </tr>
-  <tr> <td>752</td> <td>-47.15</td> <td>-126.72</td> <td>null</td> </tr>
-  <tr> <td>837</td> <td>-48.87</td> <td>-123.40</td> <td>1932-01-14</td> </tr>
-  <tr> <td>844</td> <td>-49.85</td> <td>-128.57</td> <td>1932-03-22</td> </tr>
-</table>
+ident  lat     long     dated
+-----  -----   -----    ----------
+619   -49.85   -128.57  1927-02-08
+622   -49.85   -128.57  1927-02-10
+734   -47.15   -126.72  1939-01-07
+735   -47.15   -126.72  1930-01-12
+751   -47.15   -126.72  1930-02-26
+752   -47.15   -126.72  ---
+837   -48.87   -123.40  1932-01-14
+844   -49.85   -128.57  1932-03-22
 
 In fact,
 we could use a single table that recorded all the information about each reading in each row,

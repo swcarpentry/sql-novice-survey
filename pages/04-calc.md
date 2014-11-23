@@ -18,16 +18,16 @@ as part of our query:
 select 1.05 * reading from Survey where quant="rad";
 ~~~
 
-<table>
-<tr><td>10.311</td></tr>
-<tr><td>8.19</td></tr>
-<tr><td>8.8305</td></tr>
-<tr><td>7.581</td></tr>
-<tr><td>4.5675</td></tr>
-<tr><td>2.2995</td></tr>
-<tr><td>1.533</td></tr>
-<tr><td>11.8125</td></tr>
-</table>
+1.05 * reading
+--------------
+10.311        
+8.19          
+8.8305        
+7.581         
+4.5675        
+2.2995        
+1.533         
+11.8125       
 
 When we run the query,
 the expression `1.05 * reading` is evaluated for each row.
@@ -43,12 +43,12 @@ and round to two decimal places:
 select taken, round(5*(reading-32)/9, 2) from Survey where quant="temp";
 ~~~
 
-<table>
-<tr><td>734</td><td>-29.72</td></tr>
-<tr><td>735</td><td>-32.22</td></tr>
-<tr><td>751</td><td>-28.06</td></tr>
-<tr><td>752</td><td>-26.67</td></tr>
-</table>
+taken       round(5*(reading-32)/9, 2)
+----------  --------------------------
+734         -29.72                    
+735         -32.22                    
+751         -28.06                    
+752         -26.67                    
 
 We can also combine values from different fields,
 for example by using the string concatenation operator `||`:
@@ -57,36 +57,13 @@ for example by using the string concatenation operator `||`:
 select personal || " " || family from Person;
 ~~~
 
-<table>
-<tr><td>William Dyer</td></tr>
-<tr><td>Frank Pabodie</td></tr>
-<tr><td>Anderson Lake</td></tr>
-<tr><td>Valentina Roerich</td></tr>
-<tr><td>Frank Danforth</td></tr>
-</table>
-
-> It may seem strange to use `personal` and `family` as field names
-> instead of `first` and `last`,
-> but it's a necessary first step toward handling cultural differences.
-> For example,
-> consider the following rules:
-> 
-> <table>
->   <tr> <th>Full Name</th> <th>Alphabetized Under</th> <th>Reason</th> </tr>
->   <tr> <td>Liu Xiaobo</td> <td>Liu</td> <td>Chinese family names come first</td> </tr>
->   <tr> <td> Leonardo da Vinci</td> <td>Leonardo</td> <td>"da Vinci" just means "from Vinci"</td> </tr>
->   <tr> <td> Catherine de Medici</td> <td>Medici</td> <td>family name</td> </tr>
->   <tr> <td> Jean de La Fontaine</td> <td>La Fontaine</td> <td>family name is "La Fontaine"</td> </tr>
->   <tr> <td> Juan Ponce de Leon</td> <td>Ponce de Leon</td> <td>full family name is "Ponce de Leon"</td> </tr>
->   <tr> <td> Gabriel Garcia Marquez</td> <td>Garcia Marquez</td> <td>double-barrelled Spanish surnames</td> </tr>
->   <tr> <td> Wernher von Braun</td> <td>von <em>or</em> Braun</td> <td>depending on whether he was in Germany or the US</td> </tr>
->   <tr> <td> Elizabeth Alexandra May Windsor</td> <td>Elizabeth</td> <td>monarchs alphabetize by the name under which they reigned</td> </tr>
->   <tr> <td> Thomas a Beckett</td> <td>Thomas</td> <td>and saints according to the names by which they were canonized</td> </tr>
-> </table>
-> 
-> Clearly,
-> even a two-part division into "personal" and "family"
-> isn't enough...
+personal || " " || family
+-------------------------
+William Dyer             
+Frank Pabodie            
+Anderson Lake            
+Valentina Roerich        
+Frank Danforth           
 
 > ## FIXME {.challenge}
 >
@@ -105,26 +82,26 @@ select personal || " " || family from Person;
 > select * from Person where ident="dyer" union select * from Person where ident="roe";
 > ~~~
 > 
-> <table>
-> <tr><td>dyer</td><td>William</td><td>Dyer</td></tr>
-> <tr><td>roe</td><td>Valentina</td><td>Roerich</td></tr>
-> </table>
+> ident       personal    family    
+> ----------  ----------  ----------
+> dyer        William     Dyer      
+> roe         Valentina   Roerich   
 > 
 > Use `union` to create a consolidated list of salinity measurements
 > in which Roerich's, and only Roerich's,
 > have been corrected as described in the previous challenge.
 > The output should be something like:
 > 
-> <table>
->   <tr> <td>619</td> <td>0.13</td> </tr>
->   <tr> <td>622</td> <td>0.09</td> </tr>
->   <tr> <td>734</td> <td>0.05</td> </tr>
->   <tr> <td>751</td> <td>0.1</td> </tr>
->   <tr> <td>752</td> <td>0.09</td> </tr>
->   <tr> <td>752</td> <td>0.416</td> </tr>
->   <tr> <td>837</td> <td>0.21</td> </tr>
->   <tr> <td>837</td> <td>0.225</td> </tr>
-> </table>
+> taken reading
+> ----- -------
+> 619   0.13
+> 622   0.09
+> 734   0.05
+> 751   0.1
+> 752   0.09
+> 752   0.416
+> 837   0.21
+> 837   0.225
 
 > ## FIXME {.challenge}
 >
@@ -135,11 +112,11 @@ select personal || " " || family from Person;
 > select distinct site from Visited;
 > ~~~
 > 
-> <table>
-> <tr><td>DR-1</td></tr>
-> <tr><td>DR-3</td></tr>
-> <tr><td>MSK-4</td></tr>
-> </table>
+> site        
+> ----------
+> DR-1      
+> DR-3      
+> MSK-4     
 > 
 > Some major site identifiers are two letters long and some are three.
 > The "in string" function `instr(X, Y)`

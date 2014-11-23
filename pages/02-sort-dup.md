@@ -20,29 +20,29 @@ we get this:
 select quant from Survey;
 ~~~
 
-<table>
-<tr><td>rad</td></tr>
-<tr><td>sal</td></tr>
-<tr><td>rad</td></tr>
-<tr><td>sal</td></tr>
-<tr><td>rad</td></tr>
-<tr><td>sal</td></tr>
-<tr><td>temp</td></tr>
-<tr><td>rad</td></tr>
-<tr><td>sal</td></tr>
-<tr><td>temp</td></tr>
-<tr><td>rad</td></tr>
-<tr><td>temp</td></tr>
-<tr><td>sal</td></tr>
-<tr><td>rad</td></tr>
-<tr><td>sal</td></tr>
-<tr><td>temp</td></tr>
-<tr><td>sal</td></tr>
-<tr><td>rad</td></tr>
-<tr><td>sal</td></tr>
-<tr><td>sal</td></tr>
-<tr><td>rad</td></tr>
-</table>
+quant     
+----------
+rad       
+sal       
+rad       
+sal       
+rad       
+sal       
+temp      
+rad       
+sal       
+temp      
+rad       
+temp      
+sal       
+rad       
+sal       
+temp      
+sal       
+rad       
+sal       
+sal       
+rad       
 
 We can eliminate the redundant output
 to make the result more readable
@@ -53,11 +53,11 @@ to our query:
 select distinct quant from Survey;
 ~~~
 
-<table>
-<tr><td>rad</td></tr>
-<tr><td>sal</td></tr>
-<tr><td>temp</td></tr>
-</table>
+quant     
+----------
+rad       
+sal       
+temp      
 
 If we select more than one column --- for example,
 both the survey site ID and the quantity measured --- then
@@ -67,27 +67,27 @@ the distinct pairs of values are returned:
 select distinct taken, quant from Survey;
 ~~~
 
-<table>
-<tr><td>619</td><td>rad</td></tr>
-<tr><td>619</td><td>sal</td></tr>
-<tr><td>622</td><td>rad</td></tr>
-<tr><td>622</td><td>sal</td></tr>
-<tr><td>734</td><td>rad</td></tr>
-<tr><td>734</td><td>sal</td></tr>
-<tr><td>734</td><td>temp</td></tr>
-<tr><td>735</td><td>rad</td></tr>
-<tr><td>735</td><td>sal</td></tr>
-<tr><td>735</td><td>temp</td></tr>
-<tr><td>751</td><td>rad</td></tr>
-<tr><td>751</td><td>temp</td></tr>
-<tr><td>751</td><td>sal</td></tr>
-<tr><td>752</td><td>rad</td></tr>
-<tr><td>752</td><td>sal</td></tr>
-<tr><td>752</td><td>temp</td></tr>
-<tr><td>837</td><td>rad</td></tr>
-<tr><td>837</td><td>sal</td></tr>
-<tr><td>844</td><td>rad</td></tr>
-</table>
+taken       quant     
+----------  ----------
+619         rad       
+619         sal       
+622         rad       
+622         sal       
+734         rad       
+734         sal       
+734         temp      
+735         rad       
+735         sal       
+735         temp      
+751         rad       
+751         temp      
+751         sal       
+752         rad       
+752         sal       
+752         temp      
+837         rad       
+837         sal       
+844         rad       
 
 Notice in both cases that duplicates are removed
 even if they didn't appear to be adjacent in the database.
@@ -107,13 +107,13 @@ We can do this in SQL by adding an `order by` clause to our query:
 select * from Person order by ident;
 ~~~
 
-<table>
-<tr><td>danforth</td><td>Frank</td><td>Danforth</td></tr>
-<tr><td>dyer</td><td>William</td><td>Dyer</td></tr>
-<tr><td>lake</td><td>Anderson</td><td>Lake</td></tr>
-<tr><td>pb</td><td>Frank</td><td>Pabodie</td></tr>
-<tr><td>roe</td><td>Valentina</td><td>Roerich</td></tr>
-</table>
+ident       personal    family    
+----------  ----------  ----------
+danforth    Frank       Danforth  
+dyer        William     Dyer      
+lake        Anderson    Lake      
+pb          Frank       Pabodie   
+roe         Valentina   Roerich   
 
 By default,
 results are sorted in ascending order
@@ -125,13 +125,13 @@ We can sort in the opposite order using `desc` (for "descending"):
 select * from person order by ident desc;
 ~~~
 
-<table>
-<tr><td>roe</td><td>Valentina</td><td>Roerich</td></tr>
-<tr><td>pb</td><td>Frank</td><td>Pabodie</td></tr>
-<tr><td>lake</td><td>Anderson</td><td>Lake</td></tr>
-<tr><td>dyer</td><td>William</td><td>Dyer</td></tr>
-<tr><td>danforth</td><td>Frank</td><td>Danforth</td></tr>
-</table>
+ident       personal    family    
+----------  ----------  ----------
+roe         Valentina   Roerich   
+pb          Frank       Pabodie   
+lake        Anderson    Lake      
+dyer        William     Dyer      
+danforth    Frank       Danforth  
 
 (And if we want to make it clear that we're sorting in ascending order,
 we can use `asc` instead of `desc`.)
@@ -146,29 +146,29 @@ within each group of equal `taken` values:
 select taken, person from Survey order by taken asc, person desc;
 ~~~
 
-<table>
-<tr><td>619</td><td>dyer</td></tr>
-<tr><td>619</td><td>dyer</td></tr>
-<tr><td>622</td><td>dyer</td></tr>
-<tr><td>622</td><td>dyer</td></tr>
-<tr><td>734</td><td>pb</td></tr>
-<tr><td>734</td><td>pb</td></tr>
-<tr><td>734</td><td>lake</td></tr>
-<tr><td>735</td><td>pb</td></tr>
-<tr><td>735</td><td>None</td></tr>
-<tr><td>735</td><td>None</td></tr>
-<tr><td>751</td><td>pb</td></tr>
-<tr><td>751</td><td>pb</td></tr>
-<tr><td>751</td><td>lake</td></tr>
-<tr><td>752</td><td>roe</td></tr>
-<tr><td>752</td><td>lake</td></tr>
-<tr><td>752</td><td>lake</td></tr>
-<tr><td>752</td><td>lake</td></tr>
-<tr><td>837</td><td>roe</td></tr>
-<tr><td>837</td><td>lake</td></tr>
-<tr><td>837</td><td>lake</td></tr>
-<tr><td>844</td><td>roe</td></tr>
-</table>
+taken       person    
+----------  ----------
+619         dyer      
+619         dyer      
+622         dyer      
+622         dyer      
+734         pb        
+734         pb        
+734         lake      
+735         pb        
+735         ---       
+735         ---       
+751         pb        
+751         pb        
+751         lake      
+752         roe       
+752         lake      
+752         lake      
+752         lake      
+837         roe       
+837         lake      
+837         lake      
+844         roe       
 
 This is easier to understand if we also remove duplicates:
 
@@ -176,21 +176,21 @@ This is easier to understand if we also remove duplicates:
 select distinct taken, person from Survey order by taken asc, person desc;
 ~~~
 
-<table>
-<tr><td>619</td><td>dyer</td></tr>
-<tr><td>622</td><td>dyer</td></tr>
-<tr><td>734</td><td>pb</td></tr>
-<tr><td>734</td><td>lake</td></tr>
-<tr><td>735</td><td>pb</td></tr>
-<tr><td>735</td><td>None</td></tr>
-<tr><td>751</td><td>pb</td></tr>
-<tr><td>751</td><td>lake</td></tr>
-<tr><td>752</td><td>roe</td></tr>
-<tr><td>752</td><td>lake</td></tr>
-<tr><td>837</td><td>roe</td></tr>
-<tr><td>837</td><td>lake</td></tr>
-<tr><td>844</td><td>roe</td></tr>
-</table>
+taken       person    
+----------  ----------
+619         dyer      
+622         dyer      
+734         pb        
+734         lake      
+735         pb        
+735         ---       
+751         pb        
+751         lake      
+752         roe       
+752         lake      
+837         roe       
+837         lake      
+844         roe       
 
 > ## FIXME {.challenge}
 >
