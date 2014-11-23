@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <title>Software Carpentry: Databases and SQL</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
+    <meta charset="UTF-8" />
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="banner">
+        <a href="http://software-carpentry.org" title="Software Carpentry">
+          <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
+        </a>
+      </div>
+      <div class="row-fluid">
+        <div class="span10 offset1">
+          <h1 class="title">Databases and SQL</h1>
+          <h2 class="subtitle">Filtering</h2>
+<div id="learning-objectives" class="objectives">
+<h2>Learning Objectives</h2>
+<ul>
+<li>Write queries that select records that satisfy user-specified conditions.</li>
+<li>Explain the order in which the clauses in a query are executed.</li>
+</ul>
+</div>
+<p>One of the most powerful features of a database is the ability to <strong>filter</strong> data, i.e., to select only those records that match certain criteria. For example, suppose we want to see when a particular site was visited. We can select these records from the <code>Visited</code> table by using a <code>where</code> clause in our query:</p>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> * <span class="kw">from</span> Visited <span class="kw">where</span> site=<span class="ot">&quot;DR-1&quot;</span>;</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">ident</th>
+<th align="left">site</th>
+<th align="left">dated</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">619</td>
+<td align="left">DR-1</td>
+<td align="left">1927-02-08</td>
+</tr>
+<tr class="even">
+<td align="left">622</td>
+<td align="left">DR-1</td>
+<td align="left">1927-02-10</td>
+</tr>
+<tr class="odd">
+<td align="left">844</td>
+<td align="left">DR-1</td>
+<td align="left">1932-03-22</td>
+</tr>
+</tbody>
+</table>
+<p>The database manager executes this query in two stages. First, it checks at each row in the <code>Visited</code> table to see which ones satisfy the <code>where</code>. It then uses the column names following the <code>select</code> keyword to determine what columns to display.</p>
+<p>This processing order means that we can filter records using <code>where</code> based on values in columns that aren't then displayed:</p>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> ident <span class="kw">from</span> Visited <span class="kw">where</span> site=<span class="ot">&quot;DR-1&quot;</span>;</code></pre>
+<h2 id="ident">ident</h2>
+<p>619<br />622<br />844</p>
+<p><img src="img/sql-filter.svg" alt="SQL Filtering in Action" /></p>
+<p>We can use many other Boolean operators to filter our data. For example, we can ask for all information from the DR-1 site collected since 1930:</p>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> * <span class="kw">from</span> Visited <span class="kw">where</span> (site=<span class="ot">&quot;DR-1&quot;</span>) <span class="kw">and</span> (dated&lt;=<span class="ot">&quot;1930-00-00&quot;</span>);</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">ident</th>
+<th align="left">site</th>
+<th align="left">dated</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">619</td>
+<td align="left">DR-1</td>
+<td align="left">1927-02-08</td>
+</tr>
+<tr class="even">
+<td align="left">622</td>
+<td align="left">DR-1</td>
+<td align="left">1927-02-10</td>
+</tr>
+</tbody>
+</table>
+<p>(The parentheses around the individual tests aren't strictly required, but they help make the query easier to read.)</p>
+<blockquote>
+<p>Most database managers have a special data type for dates. In fact, many have two: one for dates, such as &quot;May 31, 1971&quot;, and one for durations, such as &quot;31 days&quot;. SQLite doesn't: instead, it stores dates as either text (in the ISO-8601 standard format &quot;YYYY-MM-DD HH:MM:SS.SSSS&quot;), real numbers (the number of days since November 24, 4714 BCE), or integers (the number of seconds since midnight, January 1, 1970). If this sounds complicated, it is, but not nearly as complicated as figuring out <a href="http://en.wikipedia.org/wiki/Swedish_calendar">historical dates in Sweden</a>.</p>
+</blockquote>
+<p>If we want to find out what measurements were taken by either Lake or Roerich, we can combine the tests on their names using <code>or</code>:</p>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> * <span class="kw">from</span> Survey <span class="kw">where</span> person=<span class="ot">&quot;lake&quot;</span> <span class="kw">or</span> person=<span class="ot">&quot;roe&quot;</span>;</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">taken</th>
+<th align="left">person</th>
+<th align="left">quant</th>
+<th align="left">reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">734</td>
+<td align="left">lake</td>
+<td align="left">sal</td>
+<td align="left">0.05</td>
+</tr>
+<tr class="even">
+<td align="left">751</td>
+<td align="left">lake</td>
+<td align="left">sal</td>
+<td align="left">0.1</td>
+</tr>
+<tr class="odd">
+<td align="left">752</td>
+<td align="left">lake</td>
+<td align="left">rad</td>
+<td align="left">2.19</td>
+</tr>
+<tr class="even">
+<td align="left">752</td>
+<td align="left">lake</td>
+<td align="left">sal</td>
+<td align="left">0.09</td>
+</tr>
+<tr class="odd">
+<td align="left">752</td>
+<td align="left">lake</td>
+<td align="left">temp</td>
+<td align="left">-16.0</td>
+</tr>
+<tr class="even">
+<td align="left">752</td>
+<td align="left">roe</td>
+<td align="left">sal</td>
+<td align="left">41.6</td>
+</tr>
+<tr class="odd">
+<td align="left">837</td>
+<td align="left">lake</td>
+<td align="left">rad</td>
+<td align="left">1.46</td>
+</tr>
+<tr class="even">
+<td align="left">837</td>
+<td align="left">lake</td>
+<td align="left">sal</td>
+<td align="left">0.21</td>
+</tr>
+<tr class="odd">
+<td align="left">837</td>
+<td align="left">roe</td>
+<td align="left">sal</td>
+<td align="left">22.5</td>
+</tr>
+<tr class="even">
+<td align="left">844</td>
+<td align="left">roe</td>
+<td align="left">rad</td>
+<td align="left">11.25</td>
+</tr>
+</tbody>
+</table>
+<p>Alternatively, we can use <code>in</code> to see if a value is in a specific set:</p>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> * <span class="kw">from</span> Survey <span class="kw">where</span> person <span class="kw">in</span> (<span class="ot">&quot;lake&quot;</span>, <span class="ot">&quot;roe&quot;</span>);</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">taken</th>
+<th align="left">person</th>
+<th align="left">quant</th>
+<th align="left">reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">734</td>
+<td align="left">lake</td>
+<td align="left">sal</td>
+<td align="left">0.05</td>
+</tr>
+<tr class="even">
+<td align="left">751</td>
+<td align="left">lake</td>
+<td align="left">sal</td>
+<td align="left">0.1</td>
+</tr>
+<tr class="odd">
+<td align="left">752</td>
+<td align="left">lake</td>
+<td align="left">rad</td>
+<td align="left">2.19</td>
+</tr>
+<tr class="even">
+<td align="left">752</td>
+<td align="left">lake</td>
+<td align="left">sal</td>
+<td align="left">0.09</td>
+</tr>
+<tr class="odd">
+<td align="left">752</td>
+<td align="left">lake</td>
+<td align="left">temp</td>
+<td align="left">-16.0</td>
+</tr>
+<tr class="even">
+<td align="left">752</td>
+<td align="left">roe</td>
+<td align="left">sal</td>
+<td align="left">41.6</td>
+</tr>
+<tr class="odd">
+<td align="left">837</td>
+<td align="left">lake</td>
+<td align="left">rad</td>
+<td align="left">1.46</td>
+</tr>
+<tr class="even">
+<td align="left">837</td>
+<td align="left">lake</td>
+<td align="left">sal</td>
+<td align="left">0.21</td>
+</tr>
+<tr class="odd">
+<td align="left">837</td>
+<td align="left">roe</td>
+<td align="left">sal</td>
+<td align="left">22.5</td>
+</tr>
+<tr class="even">
+<td align="left">844</td>
+<td align="left">roe</td>
+<td align="left">rad</td>
+<td align="left">11.25</td>
+</tr>
+</tbody>
+</table>
+<p>We can combine <code>and</code> with <code>or</code>, but we need to be careful about which operator is executed first. If we <em>don't</em> use parentheses, we get this:</p>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> * <span class="kw">from</span> Survey <span class="kw">where</span> quant=<span class="ot">&quot;sal&quot;</span> <span class="kw">and</span> person=<span class="ot">&quot;lake&quot;</span> <span class="kw">or</span> person=<span class="ot">&quot;roe&quot;</span>;</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">taken</th>
+<th align="left">person</th>
+<th align="left">quant</th>
+<th align="left">reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">734</td>
+<td align="left">lake</td>
+<td align="left">sal</td>
+<td align="left">0.05</td>
+</tr>
+<tr class="even">
+<td align="left">751</td>
+<td align="left">lake</td>
+<td align="left">sal</td>
+<td align="left">0.1</td>
+</tr>
+<tr class="odd">
+<td align="left">752</td>
+<td align="left">lake</td>
+<td align="left">sal</td>
+<td align="left">0.09</td>
+</tr>
+<tr class="even">
+<td align="left">752</td>
+<td align="left">roe</td>
+<td align="left">sal</td>
+<td align="left">41.6</td>
+</tr>
+<tr class="odd">
+<td align="left">837</td>
+<td align="left">lake</td>
+<td align="left">sal</td>
+<td align="left">0.21</td>
+</tr>
+<tr class="even">
+<td align="left">837</td>
+<td align="left">roe</td>
+<td align="left">sal</td>
+<td align="left">22.5</td>
+</tr>
+<tr class="odd">
+<td align="left">844</td>
+<td align="left">roe</td>
+<td align="left">rad</td>
+<td align="left">11.25</td>
+</tr>
+</tbody>
+</table>
+<p>which is salinity measurements by Lake, and <em>any</em> measurement by Roerich. We probably want this instead:</p>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> * <span class="kw">from</span> Survey <span class="kw">where</span> quant=<span class="ot">&quot;sal&quot;</span> <span class="kw">and</span> (person=<span class="ot">&quot;lake&quot;</span> <span class="kw">or</span> person=<span class="ot">&quot;roe&quot;</span>);</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">taken</th>
+<th align="left">person</th>
+<th align="left">quant</th>
+<th align="left">reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">734</td>
+<td align="left">lake</td>
+<td align="left">sal</td>
+<td align="left">0.05</td>
+</tr>
+<tr class="even">
+<td align="left">751</td>
+<td align="left">lake</td>
+<td align="left">sal</td>
+<td align="left">0.1</td>
+</tr>
+<tr class="odd">
+<td align="left">752</td>
+<td align="left">lake</td>
+<td align="left">sal</td>
+<td align="left">0.09</td>
+</tr>
+<tr class="even">
+<td align="left">752</td>
+<td align="left">roe</td>
+<td align="left">sal</td>
+<td align="left">41.6</td>
+</tr>
+<tr class="odd">
+<td align="left">837</td>
+<td align="left">lake</td>
+<td align="left">sal</td>
+<td align="left">0.21</td>
+</tr>
+<tr class="even">
+<td align="left">837</td>
+<td align="left">roe</td>
+<td align="left">sal</td>
+<td align="left">22.5</td>
+</tr>
+</tbody>
+</table>
+<p>Finally, we can use <code>distinct</code> with <code>where</code> to give a second level of filtering:</p>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> <span class="kw">distinct</span> person, quant <span class="kw">from</span> Survey <span class="kw">where</span> person=<span class="ot">&quot;lake&quot;</span> <span class="kw">or</span> person=<span class="ot">&quot;roe&quot;</span>;</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">person</th>
+<th align="left">quant</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">lake</td>
+<td align="left">sal</td>
+</tr>
+<tr class="even">
+<td align="left">lake</td>
+<td align="left">rad</td>
+</tr>
+<tr class="odd">
+<td align="left">lake</td>
+<td align="left">temp</td>
+</tr>
+<tr class="even">
+<td align="left">roe</td>
+<td align="left">sal</td>
+</tr>
+<tr class="odd">
+<td align="left">roe</td>
+<td align="left">rad</td>
+</tr>
+</tbody>
+</table>
+<p>But remember: <code>distinct</code> is applied to the values displayed in the chosen columns, not to the entire rows as they are being processed.</p>
+<blockquote>
+<p>What we have just done is how most people &quot;grow&quot; their SQL queries. We started with something simple that did part of what we wanted, then added more clauses one by one, testing their effects as we went. This is a good strategy --- in fact, for complex queries it's often the <em>only</em> strategy --- but it depends on quick turnaround, and on us recognizing the right answer when we get it.</p>
+<p>The best way to achieve quick turnaround is often to put a subset of data in a temporary database and run our queries against that, or to fill a small database with synthesized records. For example, instead of trying our queries against an actual database of 20 million Australians, we could run it against a sample of ten thousand, or write a small program to generate ten thousand random (but plausible) records and use that.</p>
+</blockquote>
+<div id="fixme" class="challenge">
+<h2>FIXME</h2>
+<p>Suppose we want to select all sites that lie more than 30 degrees from the poles. Our first query is:</p>
+<pre><code>select * from Site where (lat &gt; -60) or (lat &lt; 60);</code></pre>
+<p>Explain why this is wrong, and rewrite the query so that it is correct.</p>
+</div>
+<div id="fixme-1" class="challenge">
+<h2>FIXME</h2>
+<p>Normalized salinity readings are supposed to be between 0.0 and 1.0. Write a query that selects all records from <code>Survey</code> with salinity values outside this range.</p>
+</div>
+<div id="fixme-2" class="challenge">
+<h2>FIXME</h2>
+<p>The SQL test <code>*column-name* like *pattern*</code> is true if the value in the named column matches the pattern given; the character '%' can be used any number of times in the pattern to mean &quot;match zero or more characters&quot;.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Expression</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>'a' like 'a'</code></td>
+<td align="left">True</td>
+</tr>
+<tr class="even">
+<td align="left"><code>'a' like '%a'</code></td>
+<td align="left">True</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>'b' like '%a'</code></td>
+<td align="left">False</td>
+</tr>
+<tr class="even">
+<td align="left"><code>'alpha' like 'a%'</code></td>
+<td align="left">True</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>'alpha' like 'a%p%'</code></td>
+<td align="left">True</td>
+</tr>
+</tbody>
+</table>
+<p>The expression <code>*column-name* not like *pattern*</code> inverts the test. Using <code>like</code>, write a query that finds all the records in <code>Visited</code> that <em>aren't</em> from sites labelled 'DR-something'.</p>
+</div>
+        </div>
+      </div>
+      <div class="footer">
+        <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Email</a>
+        <a class="label swc-blue-bg" href="http://github.com/swcarpentry">GitHub</a>
+        <a class="label swc-blue-bg" href="LICENSE.html">License</a>
+        <a class="bugreport label swc-blue-bg" href="mailto:admin@software-carpentry.org?subject=bug%20in%20{{page.path}}">Bug Report</a>
+      </div>
+    </div>
+    <!-- Javascript placed at the end of the document so the pages load faster -->
+    <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
+    <script src="http://software-carpentry.org/v5/js/bootstrap/bootstrap.min.js"></script>
+  </body>
+</html>
