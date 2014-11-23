@@ -62,7 +62,7 @@ select * from Site join Visited;</code></pre>
 
 
 `join` creates
-the [cross product](../../gloss.html#cross-product)
+the **cross product**
 of two tables,
 i.e.,
 it joins each record of one with each record of the other
@@ -178,8 +178,8 @@ and    Visited.dated is not null;</code></pre>
 We can tell which records from `Site`, `Visited`, and `Survey`
 correspond with each other
 because those tables contain
-[primary keys](../../gloss.html#primary-key)
-and [foreign keys](../../gloss.html#foreign-key).
+**primary keys**
+and **foreign keys**.
 A primary key is a value,
 or combination of values,
 that uniquely identifies each record in a table.
@@ -228,7 +228,7 @@ select rowid, * from Person;</code></pre>
 Now that we have seen how joins work,
 we can see why the relational model is so useful
 and how best to use it.
-The first rule is that every value should be [atomic](../../gloss.html#atomic-value),
+The first rule is that every value should be **atomic**,
 i.e.,
 not contain parts that we might want to work with separately.
 We store personal and family names in separate columns instead of putting the entire name in one column
