@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Introduction to Databases and SQL
+title: Databases and SQL
 subtitle: Filtering
 minutes: 30
 ---

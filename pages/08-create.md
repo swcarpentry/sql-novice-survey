@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Introduction to Databases and SQL
+title: Databases and SQL
 subtitle: Creating and Modifying Data
 minutes: 30
 ---

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Introduction to Databases and SQL
+title: Databases and SQL
 ---
 In the late 1920s and early 1930s,
 William Dyer,

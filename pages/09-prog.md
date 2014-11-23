@@ -1,8 +1,8 @@
 ---
 layout: page
-title: Introduction to Databases and SQL
+title: Databases and SQL
 subtitle: Programming with Databases
-minutes: 30
+minutes: 20
 ---
 > ## Learning Objectives {.objectives}
 > 
