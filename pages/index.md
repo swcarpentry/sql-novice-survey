@@ -42,8 +42,9 @@ and these lessons will show how to do that.
 5.  [Missing Data](05-null.html)
 6.  [Aggregation](06-agg.html)
 7.  [Combining Data](07-join.html)
-8.  [Creating and Modifying Data](08-create.html)
-9.  [Programming with Databases](09-prog.html)
+8.  [Data Hygiene](08-hygiene.html)
+9.  [Creating and Modifying Data](09-create.html)
+10. [Programming with Databases](10-prog.html)
 
 ## Other Resources
 
