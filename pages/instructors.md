@@ -98,7 +98,7 @@ HTTP request sent, awaiting response... 200 OK
 Length: 3297 (3.2K) [text/plain]
 Saving to: ‘gen-survey-database.sql’
 
-100%[=========================================================================================================================&gt;] 3,297       --.-K/s   in 0.01s   
+100%[=========================================================================================================================>] 3,297       --.-K/s   in 0.01s   
 
 2014-09-02 18:31:45 (264 KB/s) - ‘gen-survey-database.sql’ saved [3297/3297]</code></pre>
 
@@ -106,7 +106,7 @@ Saving to: ‘gen-survey-database.sql’
 Now that we have successfully pulled the single SQL file, lets generate the database "survey.db" and fill it according to the instructions with the data in "gen-survey-database.sql". To call the SQLite3 program, from the command line terminal, execute the following command:
 
 
-<pre class="in"><code>sqlite3 survey.db &lt; gen-survey-database.sql</code></pre>
+<pre class="in"><code>sqlite3 survey.db < gen-survey-database.sql</code></pre>
 
 
 ### Connecting and testing the SQLite DB installation
@@ -123,15 +123,15 @@ The command "sqlite3 survey.db" opens the database itself and drops you into the
 
 <pre class="in"><code>/novice/sql$ sqlite3 survey.db 
 SQLite version 3.7.15.2 2013-01-09 11:53:05
-Enter &#34;.help&#34; for instructions
-Enter SQL statements terminated with a &#34;;&#34;
-sqlite&gt;  </code></pre>
+Enter ".help" for instructions
+Enter SQL statements terminated with a ";"
+sqlite>  </code></pre>
 
 
 Let us check the list the names and files of attached databases with the command ".databases", as shown in the following output:
 
 
-<pre class="in"><code>sqlite&gt; .databases
+<pre class="in"><code>sqlite> .databases
 seq  name             file                                                      
 ---  ---------------  ----------------------------------------------------------
 0    main             ~/novice/sql/survey.db </code></pre>
@@ -146,7 +146,7 @@ You can check that the necessary tables "Person", "Survey", "Site" and "Visited"
 and the output of ".tables" would look like this:
 
 
-<pre class="in"><code>sqlite&gt; .tables
+<pre class="in"><code>sqlite> .tables
 Person   Site     Survey   Visited</code></pre>
 
 
@@ -159,7 +159,7 @@ Now, you are done with the setup and you can proceed to the next lesson. You can
  To exit SQLite3, type:
 
 
-<pre class="in"><code>sqlite&gt; .quit</code></pre>
+<pre class="in"><code>sqlite> .quit</code></pre>
 
 
 ### How to use the IPython notebook instead of the SQLite3 CLI

@@ -9,7 +9,7 @@ minutes: 30
 > *   Explain the three-valued logic databases use when manipulating missing information.
 > *   Write queries that handle missing information correctly.
 
-Real-world data is never complete&mdash;there are always holes.
+Real-world data is never complete --- there are always holes.
 Databases represent these holes using special value called `null`.
 `null` is not zero, `False`, or the empty string;
 it is a one-of-a-kind value that means "nothing here".
@@ -19,7 +19,7 @@ and some careful thinking.
 To start,
 let's have a look at the `Visited` table.
 There are eight records,
-but #752 doesn't have a date&mdash;or rather,
+but #752 doesn't have a date --- or rather,
 its date is null:
 
 ~~~ {.sql}
@@ -41,7 +41,7 @@ Null doesn't behave like other values.
 If we select the records that come before 1930:
 
 ~~~ {.sql}
-select * from Visited where dated&lt;&#39;1930-00-00&#39;;
+select * from Visited where dated<"1930-00-00";
 ~~~
 
 <table>
@@ -53,7 +53,7 @@ we get two results,
 and if we select the ones that come during or after 1930:
 
 ~~~ {.sql}
-select * from Visited where dated&gt;=&#39;1930-00-00&#39;;
+select * from Visited where dated>="1930-00-00";
 ~~~
 
 <table>
@@ -139,7 +139,7 @@ that weren't taken by Dyer.
 It's natural to write the query like this:
 
 ~~~ {.sql}
-select * from Survey where quant=&#39;sal&#39; and person!=&#39;lake&#39;;
+select * from Survey where quant="sal" and person!="lake";
 ~~~
 
 <table>
@@ -159,7 +159,7 @@ If we want to keep these records
 we need to add an explicit check:
 
 ~~~ {.sql}
-select * from Survey where quant=&#39;sal&#39; and (person!=&#39;lake&#39; or person is null);
+select * from Survey where quant="sal" and (person!="lake" or person is null);
 ~~~
 
 <table>

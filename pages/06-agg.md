@@ -96,7 +96,7 @@ for example,
 find the range of sensible salinity measurements:
 
 ~~~ {.sql}
-select min(reading), max(reading) from Survey where quant="sal" and reading&lt;=1.0;
+select min(reading), max(reading) from Survey where quant="sal" and reading<=1.0;
 ~~~
 
 <table>
@@ -107,7 +107,7 @@ We can also combine aggregated results with raw results,
 although the output might surprise you:
 
 ~~~ {.sql}
-select person, count(*) from Survey where quant="sal" and reading&lt;=1.0;
+select person, count(*) from Survey where quant="sal" and reading<=1.0;
 ~~~
 
 <table>

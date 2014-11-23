@@ -56,7 +56,7 @@ For example,
 we can ask for all information from the DR-1 site collected since 1930:
 
 ~~~ {.sql}
-select * from Visited where (site="DR-1") and (dated&gt;="1930-00-00");
+select * from Visited where (site="DR-1") and (dated<="1930-00-00");
 ~~~
 
 <table>
@@ -186,8 +186,8 @@ not to the entire rows as they are being processed.
 > We started with something simple that did part of what we wanted,
 > then added more clauses one by one,
 > testing their effects as we went.
-> This is a good strategy&mdash;in fact,
-> for complex queries it's often the *only* strategy&mdash;but
+> This is a good strategy --- in fact,
+> for complex queries it's often the *only* strategy --- but
 > it depends on quick turnaround,
 > and on us recognizing the right answer when we get it.
 >     
@@ -203,7 +203,7 @@ not to the entire rows as they are being processed.
 
 > ## FIXME {.challenge}
 >
-> Suppose we want to select all sites that lie more than 30&deg; from the poles.
+> Suppose we want to select all sites that lie more than 30 degrees from the poles.
 > Our first query is:
 >
 > ~~~
