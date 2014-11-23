@@ -59,8 +59,8 @@ select distinct quant from Survey;
 <tr><td>temp</td></tr>
 </table>
 
-If we select more than one column&mdash;for example,
-both the survey site ID and the quantity measured&mdash;then
+If we select more than one column --- for example,
+both the survey site ID and the quantity measured --- then
 the distinct pairs of values are returned:
 
 ~~~ {.sql}

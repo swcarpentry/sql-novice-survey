@@ -27,8 +27,8 @@ The database manager does whatever lookups and calculations the query specifies,
 returning the results in a tabular form
 that we can then use as a starting point for further queries.
   
-> Every database manager&mdash;Oracle,
-> IBM DB2, PostgreSQL, MySQL, Microsoft Access, and SQLite&mdash;stores
+> Every database manager --- Oracle,
+> IBM DB2, PostgreSQL, MySQL, Microsoft Access, and SQLite --- stores
 > data in a different way,
 > so a database created with one cannot be used directly by another.
 > However,
@@ -72,7 +72,7 @@ The tables below show the database we will use in our examples:
 >   <tr> <td>734</td> <td>DR-3</td> <td>1939-01-07</td> </tr>
 >   <tr> <td>735</td> <td>DR-3</td> <td>1930-01-12</td> </tr>
 >   <tr> <td>751</td> <td>DR-3</td> <td>1930-02-26</td> </tr>
->   <tr> <td>752</td> <td>DR-3</td> <td bgcolor="red">&nbsp;</td> </tr>
+>   <tr> <td>752</td> <td>DR-3</td> <td></td> </tr>
 >   <tr> <td>837</td> <td>MSK-4</td> <td>1932-01-14</td> </tr>
 >   <tr> <td>844</td> <td>DR-1</td> <td>1932-03-22</td> </tr>
 > </table>
@@ -89,8 +89,8 @@ The tables below show the database we will use in our examples:
 >   <tr> <td>734</td> <td>lake</td> <td>sal</td> <td>0.05</td> </tr>
 >   <tr> <td>734</td> <td>pb</td> <td>temp</td> <td>-21.5</td> </tr>
 >   <tr> <td>735</td> <td>pb</td> <td>rad</td> <td>7.22</td> </tr>
->   <tr> <td>735</td> <td bgcolor="red">&nbsp;</td> <td>sal</td> <td>0.06</td> </tr>
->   <tr> <td>735</td> <td bgcolor="red">&nbsp;</td> <td>temp</td> <td>-26.0</td> </tr>
+>   <tr> <td>735</td> <td></td> <td>sal</td> <td>0.06</td> </tr>
+>   <tr> <td>735</td> <td></td> <td>temp</td> <td>-26.0</td> </tr>
 >   <tr> <td>751</td> <td>pb</td> <td>rad</td> <td>4.35</td> </tr>
 >   <tr> <td>751</td> <td>pb</td> <td>temp</td> <td>-18.5</td> </tr>
 >   <tr> <td>751</td> <td>lake</td> <td>sal</td> <td>0.1</td> </tr>
@@ -104,8 +104,8 @@ The tables below show the database we will use in our examples:
 >   <tr> <td>844</td> <td>roe</td> <td>rad</td> <td>11.25</td> </tr>
 > </table>
 
-Notice that three entries&mdash;one in the `Visited` table,
-and two in the `Survey` table&mdash;are shown in red
+Notice that three entries --- one in the `Visited` table,
+and two in the `Survey` table --- are shown in red
 because they don't contain any actual data:
 we'll return to these missing values [later](05-null.html).
 For now,
