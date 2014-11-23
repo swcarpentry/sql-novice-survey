@@ -43,75 +43,66 @@ but that handful accounts for most of what scientists do.
 
 The tables below show the database we will use in our examples:
 
+> **Person**: people who took readings.
+> 
+> <table>
+>   <tr> <th>ident</th> <th>personal</th> <th>family</th> </tr>
+>   <tr> <td>dyer</td> <td>William</td> <td>Dyer</td> </tr>
+>   <tr> <td>pb</td> <td>Frank</td> <td>Pabodie</td> </tr>
+>   <tr> <td>lake</td> <td>Anderson</td> <td>Lake</td> </tr>
+>   <tr> <td>roe</td> <td>Valentina</td> <td>Roerich</td> </tr>
+>   <tr> <td>danforth</td> <td>Frank</td> <td>Danforth</td> </tr>
+> </table>
 
-<table>
-<tr>
-<td valign="top">
-<strong>Person</strong>: people who took readings.
+> **Site**: locations where readings were taken.
+> 
+> <table>
+>   <tr> <th>name</th> <th>lat</th> <th>long</th> </tr>
+>   <tr> <td>DR-1</td> <td>-49.85</td> <td>-128.57</td> </tr>
+>   <tr> <td>DR-3</td> <td>-47.15</td> <td>-126.72</td> </tr>
+>   <tr> <td>MSK-4</td> <td>-48.87</td> <td>-123.4</td> </tr>
+> </table>
 
-<table>
-  <tr> <th>ident</th> <th>personal</th> <th>family</th> </tr>
-  <tr> <td>dyer</td> <td>William</td> <td>Dyer</td> </tr>
-  <tr> <td>pb</td> <td>Frank</td> <td>Pabodie</td> </tr>
-  <tr> <td>lake</td> <td>Anderson</td> <td>Lake</td> </tr>
-  <tr> <td>roe</td> <td>Valentina</td> <td>Roerich</td> </tr>
-  <tr> <td>danforth</td> <td>Frank</td> <td>Danforth</td> </tr>
-</table>
+> **Visited**: when readings were taken at specific sites.
+> 
+> <table>
+>   <tr> <th>ident</th> <th>site</th> <th>dated</th> </tr>
+>   <tr> <td>619</td> <td>DR-1</td> <td>1927-02-08</td> </tr>
+>   <tr> <td>622</td> <td>DR-1</td> <td>1927-02-10</td> </tr>
+>   <tr> <td>734</td> <td>DR-3</td> <td>1939-01-07</td> </tr>
+>   <tr> <td>735</td> <td>DR-3</td> <td>1930-01-12</td> </tr>
+>   <tr> <td>751</td> <td>DR-3</td> <td>1930-02-26</td> </tr>
+>   <tr> <td>752</td> <td>DR-3</td> <td bgcolor="red">&nbsp;</td> </tr>
+>   <tr> <td>837</td> <td>MSK-4</td> <td>1932-01-14</td> </tr>
+>   <tr> <td>844</td> <td>DR-1</td> <td>1932-03-22</td> </tr>
+> </table>
 
-<strong>Site</strong>: locations where readings were taken.
-
-<table>
-  <tr> <th>name</th> <th>lat</th> <th>long</th> </tr>
-  <tr> <td>DR-1</td> <td>-49.85</td> <td>-128.57</td> </tr>
-  <tr> <td>DR-3</td> <td>-47.15</td> <td>-126.72</td> </tr>
-  <tr> <td>MSK-4</td> <td>-48.87</td> <td>-123.4</td> </tr>
-</table>
-
-<strong>Visited</strong>: when readings were taken at specific sites.
-
-<table>
-  <tr> <th>ident</th> <th>site</th> <th>dated</th> </tr>
-  <tr> <td>619</td> <td>DR-1</td> <td>1927-02-08</td> </tr>
-  <tr> <td>622</td> <td>DR-1</td> <td>1927-02-10</td> </tr>
-  <tr> <td>734</td> <td>DR-3</td> <td>1939-01-07</td> </tr>
-  <tr> <td>735</td> <td>DR-3</td> <td>1930-01-12</td> </tr>
-  <tr> <td>751</td> <td>DR-3</td> <td>1930-02-26</td> </tr>
-  <tr> <td>752</td> <td>DR-3</td> <td bgcolor="red">&nbsp;</td> </tr>
-  <tr> <td>837</td> <td>MSK-4</td> <td>1932-01-14</td> </tr>
-  <tr> <td>844</td> <td>DR-1</td> <td>1932-03-22</td> </tr>
-</table>
-</td>
-<td valign="top">
-<strong>Survey</strong>: the actual readings.
-
-<table>
-  <tr> <th>taken</th> <th>person</th> <th>quant</th> <th>reading</th> </tr>
-  <tr> <td>619</td> <td>dyer</td> <td>rad</td> <td>9.82</td> </tr>
-  <tr> <td>619</td> <td>dyer</td> <td>sal</td> <td>0.13</td> </tr>
-  <tr> <td>622</td> <td>dyer</td> <td>rad</td> <td>7.8</td> </tr>
-  <tr> <td>622</td> <td>dyer</td> <td>sal</td> <td>0.09</td> </tr>
-  <tr> <td>734</td> <td>pb</td> <td>rad</td> <td>8.41</td> </tr>
-  <tr> <td>734</td> <td>lake</td> <td>sal</td> <td>0.05</td> </tr>
-  <tr> <td>734</td> <td>pb</td> <td>temp</td> <td>-21.5</td> </tr>
-  <tr> <td>735</td> <td>pb</td> <td>rad</td> <td>7.22</td> </tr>
-  <tr> <td>735</td> <td bgcolor="red">&nbsp;</td> <td>sal</td> <td>0.06</td> </tr>
-  <tr> <td>735</td> <td bgcolor="red">&nbsp;</td> <td>temp</td> <td>-26.0</td> </tr>
-  <tr> <td>751</td> <td>pb</td> <td>rad</td> <td>4.35</td> </tr>
-  <tr> <td>751</td> <td>pb</td> <td>temp</td> <td>-18.5</td> </tr>
-  <tr> <td>751</td> <td>lake</td> <td>sal</td> <td>0.1</td> </tr>
-  <tr> <td>752</td> <td>lake</td> <td>rad</td> <td>2.19</td> </tr>
-  <tr> <td>752</td> <td>lake</td> <td>sal</td> <td>0.09</td> </tr>
-  <tr> <td>752</td> <td>lake</td> <td>temp</td> <td>-16.0</td> </tr>
-  <tr> <td>752</td> <td>roe</td> <td>sal</td> <td>41.6</td> </tr>
-  <tr> <td>837</td> <td>lake</td> <td>rad</td> <td>1.46</td> </tr>
-  <tr> <td>837</td> <td>lake</td> <td>sal</td> <td>0.21</td> </tr>
-  <tr> <td>837</td> <td>roe</td> <td>sal</td> <td>22.5</td> </tr>
-  <tr> <td>844</td> <td>roe</td> <td>rad</td> <td>11.25</td> </tr>
-</table>
-</td>
-</tr>
-</table>
-
+> **Survey**: the actual readings.
+> 
+> <table>
+>   <tr> <th>taken</th> <th>person</th> <th>quant</th> <th>reading</th> </tr>
+>   <tr> <td>619</td> <td>dyer</td> <td>rad</td> <td>9.82</td> </tr>
+>   <tr> <td>619</td> <td>dyer</td> <td>sal</td> <td>0.13</td> </tr>
+>   <tr> <td>622</td> <td>dyer</td> <td>rad</td> <td>7.8</td> </tr>
+>   <tr> <td>622</td> <td>dyer</td> <td>sal</td> <td>0.09</td> </tr>
+>   <tr> <td>734</td> <td>pb</td> <td>rad</td> <td>8.41</td> </tr>
+>   <tr> <td>734</td> <td>lake</td> <td>sal</td> <td>0.05</td> </tr>
+>   <tr> <td>734</td> <td>pb</td> <td>temp</td> <td>-21.5</td> </tr>
+>   <tr> <td>735</td> <td>pb</td> <td>rad</td> <td>7.22</td> </tr>
+>   <tr> <td>735</td> <td bgcolor="red">&nbsp;</td> <td>sal</td> <td>0.06</td> </tr>
+>   <tr> <td>735</td> <td bgcolor="red">&nbsp;</td> <td>temp</td> <td>-26.0</td> </tr>
+>   <tr> <td>751</td> <td>pb</td> <td>rad</td> <td>4.35</td> </tr>
+>   <tr> <td>751</td> <td>pb</td> <td>temp</td> <td>-18.5</td> </tr>
+>   <tr> <td>751</td> <td>lake</td> <td>sal</td> <td>0.1</td> </tr>
+>   <tr> <td>752</td> <td>lake</td> <td>rad</td> <td>2.19</td> </tr>
+>   <tr> <td>752</td> <td>lake</td> <td>sal</td> <td>0.09</td> </tr>
+>   <tr> <td>752</td> <td>lake</td> <td>temp</td> <td>-16.0</td> </tr>
+>   <tr> <td>752</td> <td>roe</td> <td>sal</td> <td>41.6</td> </tr>
+>   <tr> <td>837</td> <td>lake</td> <td>rad</td> <td>1.46</td> </tr>
+>   <tr> <td>837</td> <td>lake</td> <td>sal</td> <td>0.21</td> </tr>
+>   <tr> <td>837</td> <td>roe</td> <td>sal</td> <td>22.5</td> </tr>
+>   <tr> <td>844</td> <td>roe</td> <td>rad</td> <td>11.25</td> </tr>
+> </table>
 
 Notice that three entries&mdash;one in the `Visited` table,
 and two in the `Survey` table&mdash;are shown in red
@@ -123,21 +114,17 @@ We do this using the SQL command `select`,
 giving it the names of the columns we want and the table we want them from.
 Our query and its output look like this:
 
+~~~ {.sql}
+select family, personal from Person;
+~~~
 
-<pre class="in"><code>%load_ext sqlitemagic</code></pre>
-
-
-<pre class="in"><code>%%sqlite survey.db
-select family, personal from Person;</code></pre>
-
-<div class="out"><table>
+<table>
 <tr><td>Dyer</td><td>William</td></tr>
 <tr><td>Pabodie</td><td>Frank</td></tr>
 <tr><td>Lake</td><td>Anderson</td></tr>
 <tr><td>Roerich</td><td>Valentina</td></tr>
 <tr><td>Danforth</td><td>Frank</td></tr>
-</table></div>
-
+</table>
 
 The semi-colon at the end of the query
 tells the database manager that the query is complete and ready to run.
@@ -147,23 +134,21 @@ but we don't have to:
 as the example below shows,
 SQL is **case insensitive**.
 
+~~~ {.sql}
+SeLeCt FaMiLy, PeRsOnAl FrOm PeRsOn;
+~~~
 
-<pre class="in"><code>%%sqlite survey.db
-SeLeCt FaMiLy, PeRsOnAl FrOm PeRsOn;</code></pre>
-
-<div class="out"><table>
+<table>
 <tr><td>Dyer</td><td>William</td></tr>
 <tr><td>Pabodie</td><td>Frank</td></tr>
 <tr><td>Lake</td><td>Anderson</td></tr>
 <tr><td>Roerich</td><td>Valentina</td></tr>
 <tr><td>Danforth</td><td>Frank</td></tr>
-</table></div>
-
+</table>
 
 Whatever casing convention you choose,
 please be consistent:
 complex queries are hard enough to read without the extra cognitive load of random capitalization.
-
 
 Going back to our query,
 it's important to understand that
@@ -173,48 +158,46 @@ but we can control that in various ways.
 For example,
 we could swap the columns in the output by writing our query as:
 
+~~~ {.sql}
+select personal, family from Person;
+~~~
 
-<pre class="in"><code>%%sqlite survey.db
-select personal, family from Person;</code></pre>
-
-<div class="out"><table>
+<table>
 <tr><td>William</td><td>Dyer</td></tr>
 <tr><td>Frank</td><td>Pabodie</td></tr>
 <tr><td>Anderson</td><td>Lake</td></tr>
 <tr><td>Valentina</td><td>Roerich</td></tr>
 <tr><td>Frank</td><td>Danforth</td></tr>
-</table></div>
-
+</table>
 
 or even repeat columns:
 
+~~~ {.sql}
+select ident, ident, ident from Person;
+~~~
 
-<pre class="in"><code>%%sqlite survey.db
-select ident, ident, ident from Person;</code></pre>
-
-<div class="out"><table>
+<table>
 <tr><td>dyer</td><td>dyer</td><td>dyer</td></tr>
 <tr><td>pb</td><td>pb</td><td>pb</td></tr>
 <tr><td>lake</td><td>lake</td><td>lake</td></tr>
 <tr><td>roe</td><td>roe</td><td>roe</td></tr>
 <tr><td>danforth</td><td>danforth</td><td>danforth</td></tr>
-</table></div>
-
+</table>
 
 As a shortcut,
 we can select all of the columns in a table using `*`:
 
+~~~ {.sql}
+select * from Person;
+~~~
 
-<pre class="in"><code>%%sqlite survey.db
-select * from Person;</code></pre>
-
-<div class="out"><table>
+<table>
 <tr><td>dyer</td><td>William</td><td>Dyer</td></tr>
 <tr><td>pb</td><td>Frank</td><td>Pabodie</td></tr>
 <tr><td>lake</td><td>Anderson</td><td>Lake</td></tr>
 <tr><td>roe</td><td>Valentina</td><td>Roerich</td></tr>
 <tr><td>danforth</td><td>Frank</td><td>Danforth</td></tr>
-</table></div>
+</table>
 
 > ## FIXME {.challenge}
 >

@@ -22,13 +22,11 @@ There are eight records,
 but #752 doesn't have a date&mdash;or rather,
 its date is null:
 
-<pre class="in"><code>%load_ext sqlitemagic</code></pre>
+~~~ {.sql}
+select * from Visited;
+~~~
 
-
-<pre class="in"><code>%%sqlite survey.db
-select * from Visited;</code></pre>
-
-<div class="out"><table>
+<table>
 <tr><td>619</td><td>DR-1</td><td>1927-02-08</td></tr>
 <tr><td>622</td><td>DR-1</td><td>1927-02-10</td></tr>
 <tr><td>734</td><td>DR-3</td><td>1939-01-07</td></tr>
@@ -37,37 +35,34 @@ select * from Visited;</code></pre>
 <tr><td>752</td><td>DR-3</td><td>None</td></tr>
 <tr><td>837</td><td>MSK-4</td><td>1932-01-14</td></tr>
 <tr><td>844</td><td>DR-1</td><td>1932-03-22</td></tr>
-</table></div>
-
+</table>
 
 Null doesn't behave like other values.
 If we select the records that come before 1930:
 
+~~~ {.sql}
+select * from Visited where dated&lt;&#39;1930-00-00&#39;;
+~~~
 
-<pre class="in"><code>%%sqlite survey.db
-select * from Visited where dated&lt;&#39;1930-00-00&#39;;</code></pre>
-
-<div class="out"><table>
+<table>
 <tr><td>619</td><td>DR-1</td><td>1927-02-08</td></tr>
 <tr><td>622</td><td>DR-1</td><td>1927-02-10</td></tr>
-</table></div>
-
+</table>
 
 we get two results,
 and if we select the ones that come during or after 1930:
 
+~~~ {.sql}
+select * from Visited where dated&gt;=&#39;1930-00-00&#39;;
+~~~
 
-<pre class="in"><code>%%sqlite survey.db
-select * from Visited where dated&gt;=&#39;1930-00-00&#39;;</code></pre>
-
-<div class="out"><table>
+<table>
 <tr><td>734</td><td>DR-3</td><td>1939-01-07</td></tr>
 <tr><td>735</td><td>DR-3</td><td>1930-01-12</td></tr>
 <tr><td>751</td><td>DR-3</td><td>1930-02-26</td></tr>
 <tr><td>837</td><td>MSK-4</td><td>1932-01-14</td></tr>
 <tr><td>844</td><td>DR-1</td><td>1932-03-22</td></tr>
-</table></div>
-
+</table>
 
 we get five,
 but record #752 isn't in either set of results.
@@ -94,42 +89,40 @@ and so on.
 In particular,
 comparing things to null with = and != produces null:
 
+~~~ {.sql}
+select * from Visited where dated=NULL;
+~~~
 
-<pre class="in"><code>%%sqlite survey.db
-select * from Visited where dated=NULL;</code></pre>
+<table>
 
-<div class="out"><table>
+</table>
 
-</table></div>
+~~~ {.sql}
+select * from Visited where dated!=NULL;
+~~~
 
+<table>
 
-<pre class="in"><code>%%sqlite survey.db
-select * from Visited where dated!=NULL;</code></pre>
-
-<div class="out"><table>
-
-</table></div>
-
+</table>
 
 To check whether a value is `null` or not,
 we must use a special test `is null`:
 
+~~~ {.sql}
+select * from Visited where dated is NULL;
+~~~
 
-<pre class="in"><code>%%sqlite survey.db
-select * from Visited where dated is NULL;</code></pre>
-
-<div class="out"><table>
+<table>
 <tr><td>752</td><td>DR-3</td><td>None</td></tr>
-</table></div>
-
+</table>
 
 or its inverse `is not null`:
 
+~~~ {.sql}
+select * from Visited where dated is not NULL;
+~~~
 
-<pre class="in"><code>%%sqlite survey.db
-select * from Visited where dated is not NULL;</code></pre>
-
-<div class="out"><table>
+<table>
 <tr><td>619</td><td>DR-1</td><td>1927-02-08</td></tr>
 <tr><td>622</td><td>DR-1</td><td>1927-02-10</td></tr>
 <tr><td>734</td><td>DR-3</td><td>1939-01-07</td></tr>
@@ -137,8 +130,7 @@ select * from Visited where dated is not NULL;</code></pre>
 <tr><td>751</td><td>DR-3</td><td>1930-02-26</td></tr>
 <tr><td>837</td><td>MSK-4</td><td>1932-01-14</td></tr>
 <tr><td>844</td><td>DR-1</td><td>1932-03-22</td></tr>
-</table></div>
-
+</table>
 
 Null values cause headaches wherever they appear.
 For example,
@@ -146,17 +138,16 @@ suppose we want to find all the salinity measurements
 that weren't taken by Dyer.
 It's natural to write the query like this:
 
+~~~ {.sql}
+select * from Survey where quant=&#39;sal&#39; and person!=&#39;lake&#39;;
+~~~
 
-<pre class="in"><code>%%sqlite survey.db
-select * from Survey where quant=&#39;sal&#39; and person!=&#39;lake&#39;;</code></pre>
-
-<div class="out"><table>
+<table>
 <tr><td>619</td><td>dyer</td><td>sal</td><td>0.13</td></tr>
 <tr><td>622</td><td>dyer</td><td>sal</td><td>0.09</td></tr>
 <tr><td>752</td><td>roe</td><td>sal</td><td>41.6</td></tr>
 <tr><td>837</td><td>roe</td><td>sal</td><td>22.5</td></tr>
-</table></div>
-
+</table>
 
 but this query filters omits the records
 where we don't know who took the measurement.
@@ -167,24 +158,22 @@ so the record isn't kept in our results.
 If we want to keep these records
 we need to add an explicit check:
 
+~~~ {.sql}
+select * from Survey where quant=&#39;sal&#39; and (person!=&#39;lake&#39; or person is null);
+~~~
 
-<pre class="in"><code>%%sqlite survey.db
-select * from Survey where quant=&#39;sal&#39; and (person!=&#39;lake&#39; or person is null);</code></pre>
-
-<div class="out"><table>
+<table>
 <tr><td>619</td><td>dyer</td><td>sal</td><td>0.13</td></tr>
 <tr><td>622</td><td>dyer</td><td>sal</td><td>0.09</td></tr>
 <tr><td>735</td><td>None</td><td>sal</td><td>0.06</td></tr>
 <tr><td>752</td><td>roe</td><td>sal</td><td>41.6</td></tr>
 <tr><td>837</td><td>roe</td><td>sal</td><td>22.5</td></tr>
-</table></div>
-
+</table>
 
 We still have to decide whether this is the right thing to do or not.
 If we want to be absolutely sure that
 we aren't including any measurements by Lake in our results,
 we need to exclude all the records for which we don't know who did the work.
-
 
 #### Challenges
 
