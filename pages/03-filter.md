@@ -18,19 +18,15 @@ suppose we want to see when a particular site was visited.
 We can select these records from the `Visited` table
 by using a `where` clause in our query:
 
+~~~ {.sql}
+select * from Visited where site="DR-1";
+~~~
 
-<pre class="in"><code>%load_ext sqlitemagic</code></pre>
-
-
-<pre class="in"><code>%%sqlite survey.db
-select * from Visited where site=&#39;DR-1&#39;;</code></pre>
-
-<div class="out"><table>
+<table>
 <tr><td>619</td><td>DR-1</td><td>1927-02-08</td></tr>
 <tr><td>622</td><td>DR-1</td><td>1927-02-10</td></tr>
 <tr><td>844</td><td>DR-1</td><td>1932-03-22</td></tr>
-</table></div>
-
+</table>
 
 The database manager executes this query in two stages.
 First,
@@ -39,37 +35,33 @@ to see which ones satisfy the `where`.
 It then uses the column names following the `select` keyword
 to determine what columns to display.
 
-
 This processing order means that
 we can filter records using `where`
 based on values in columns that aren't then displayed:
 
+~~~ {.sql}
+select ident from Visited where site="DR-1";
+~~~
 
-<pre class="in"><code>%%sqlite survey.db
-select ident from Visited where site=&#39;DR-1&#39;;</code></pre>
-
-<div class="out"><table>
+<table>
 <tr><td>619</td></tr>
 <tr><td>622</td></tr>
 <tr><td>844</td></tr>
-</table></div>
-
+</table>
 
 <img src="img/sql-filter.svg" alt="SQL Filtering in Action" />
-
 
 We can use many other Boolean operators to filter our data.
 For example,
 we can ask for all information from the DR-1 site collected since 1930:
 
+~~~ {.sql}
+select * from Visited where (site="DR-1") and (dated&gt;="1930-00-00");
+~~~
 
-<pre class="in"><code>%%sqlite survey.db
-select * from Visited where (site=&#39;DR-1&#39;) and (dated&gt;=&#39;1930-00-00&#39;);</code></pre>
-
-<div class="out"><table>
+<table>
 <tr><td>844</td><td>DR-1</td><td>1932-03-22</td></tr>
-</table></div>
-
+</table>
 
 (The parentheses around the individual tests aren't strictly required,
 but they help make the query easier to read.)
@@ -93,15 +85,14 @@ but they help make the query easier to read.)
 > but not nearly as complicated as figuring out
 > [historical dates in Sweden](http://en.wikipedia.org/wiki/Swedish_calendar).
 
-
 If we want to find out what measurements were taken by either Lake or Roerich,
 we can combine the tests on their names using `or`:
 
+~~~ {.sql}
+select * from Survey where person="lake" or person="roe";
+~~~
 
-<pre class="in"><code>%%sqlite survey.db
-select * from Survey where person=&#39;lake&#39; or person=&#39;roe&#39;;</code></pre>
-
-<div class="out"><table>
+<table>
 <tr><td>734</td><td>lake</td><td>sal</td><td>0.05</td></tr>
 <tr><td>751</td><td>lake</td><td>sal</td><td>0.1</td></tr>
 <tr><td>752</td><td>lake</td><td>rad</td><td>2.19</td></tr>
@@ -112,17 +103,17 @@ select * from Survey where person=&#39;lake&#39; or person=&#39;roe&#39;;</code>
 <tr><td>837</td><td>lake</td><td>sal</td><td>0.21</td></tr>
 <tr><td>837</td><td>roe</td><td>sal</td><td>22.5</td></tr>
 <tr><td>844</td><td>roe</td><td>rad</td><td>11.25</td></tr>
-</table></div>
+</table>
 
 
 Alternatively,
 we can use `in` to see if a value is in a specific set:
 
+~~~ {.sql}
+select * from Survey where person in ("lake", "roe");
+~~~
 
-<pre class="in"><code>%%sqlite survey.db
-select * from Survey where person in (&#39;lake&#39;, &#39;roe&#39;);</code></pre>
-
-<div class="out"><table>
+<table>
 <tr><td>734</td><td>lake</td><td>sal</td><td>0.05</td></tr>
 <tr><td>751</td><td>lake</td><td>sal</td><td>0.1</td></tr>
 <tr><td>752</td><td>lake</td><td>rad</td><td>2.19</td></tr>
@@ -133,19 +124,18 @@ select * from Survey where person in (&#39;lake&#39;, &#39;roe&#39;);</code></pr
 <tr><td>837</td><td>lake</td><td>sal</td><td>0.21</td></tr>
 <tr><td>837</td><td>roe</td><td>sal</td><td>22.5</td></tr>
 <tr><td>844</td><td>roe</td><td>rad</td><td>11.25</td></tr>
-</table></div>
-
+</table>
 
 We can combine `and` with `or`,
 but we need to be careful about which operator is executed first.
 If we *don't* use parentheses,
 we get this:
 
+~~~ {.sql}
+select * from Survey where quant="sal" and person="lake" or person="roe";
+~~~
 
-<pre class="in"><code>%%sqlite survey.db
-select * from Survey where quant=&#39;sal&#39; and person=&#39;lake&#39; or person=&#39;roe&#39;;</code></pre>
-
-<div class="out"><table>
+<table>
 <tr><td>734</td><td>lake</td><td>sal</td><td>0.05</td></tr>
 <tr><td>751</td><td>lake</td><td>sal</td><td>0.1</td></tr>
 <tr><td>752</td><td>lake</td><td>sal</td><td>0.09</td></tr>
@@ -153,43 +143,40 @@ select * from Survey where quant=&#39;sal&#39; and person=&#39;lake&#39; or pers
 <tr><td>837</td><td>lake</td><td>sal</td><td>0.21</td></tr>
 <tr><td>837</td><td>roe</td><td>sal</td><td>22.5</td></tr>
 <tr><td>844</td><td>roe</td><td>rad</td><td>11.25</td></tr>
-</table></div>
-
+</table>
 
 which is salinity measurements by Lake,
 and *any* measurement by Roerich.
 We probably want this instead:
 
+~~~ {.sql}
+select * from Survey where quant="sal" and (person="lake" or person="roe");
+~~~
 
-<pre class="in"><code>%%sqlite survey.db
-select * from Survey where quant=&#39;sal&#39; and (person=&#39;lake&#39; or person=&#39;roe&#39;);</code></pre>
-
-<div class="out"><table>
+<table>
 <tr><td>734</td><td>lake</td><td>sal</td><td>0.05</td></tr>
 <tr><td>751</td><td>lake</td><td>sal</td><td>0.1</td></tr>
 <tr><td>752</td><td>lake</td><td>sal</td><td>0.09</td></tr>
 <tr><td>752</td><td>roe</td><td>sal</td><td>41.6</td></tr>
 <tr><td>837</td><td>lake</td><td>sal</td><td>0.21</td></tr>
 <tr><td>837</td><td>roe</td><td>sal</td><td>22.5</td></tr>
-</table></div>
-
+</table>
 
 Finally,
 we can use `distinct` with `where`
 to give a second level of filtering:
 
+~~~ {.sql}
+select distinct person, quant from Survey where person="lake" or person="roe";
+~~~
 
-<pre class="in"><code>%%sqlite survey.db
-select distinct person, quant from Survey where person=&#39;lake&#39; or person=&#39;roe&#39;;</code></pre>
-
-<div class="out"><table>
+<table>
 <tr><td>lake</td><td>sal</td></tr>
 <tr><td>lake</td><td>rad</td></tr>
 <tr><td>lake</td><td>temp</td></tr>
 <tr><td>roe</td><td>sal</td></tr>
 <tr><td>roe</td><td>rad</td></tr>
-</table></div>
-
+</table>
 
 But remember:
 `distinct` is applied to the values displayed in the chosen columns,
@@ -239,16 +226,16 @@ not to the entire rows as they are being processed.
 > matches the pattern given;
 > the character '%' can be used any number of times in the pattern
 > to mean "match zero or more characters".
-
-    <table>
-      <tr> <th>Expression</th> <th>Value</th> </tr>
-      <tr> <td><code>'a' like 'a'</code></td> <td>True</td> </tr>
-      <tr> <td><code>'a' like '%a'</code></td> <td>True</td> </tr>
-      <tr> <td><code>'b' like '%a'</code></td> <td>False</td> </tr>
-      <tr> <td><code>'alpha' like 'a%'</code></td> <td>True</td> </tr>
-      <tr> <td><code>'alpha' like 'a%p%'</code></td> <td>True</td> </tr>
-    </table>
-
+> 
+>     <table>
+>       <tr> <th>Expression</th> <th>Value</th> </tr>
+>       <tr> <td><code>'a' like 'a'</code></td> <td>True</td> </tr>
+>       <tr> <td><code>'a' like '%a'</code></td> <td>True</td> </tr>
+>       <tr> <td><code>'b' like '%a'</code></td> <td>False</td> </tr>
+>       <tr> <td><code>'alpha' like 'a%'</code></td> <td>True</td> </tr>
+>       <tr> <td><code>'alpha' like 'a%p%'</code></td> <td>True</td> </tr>
+>     </table>
+> 
 > The expression `*column-name* not like *pattern*`
 > inverts the test.
 > Using `like`,

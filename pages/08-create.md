@@ -24,7 +24,7 @@ its arguments are the names and types of the table's columns.
 For example,
 the following statements create the four tables in our survey database:
 
-~~~
+~~~ {.sql}
 create table Person(ident text, personal text, family text);
 create table Site(name text, lat real, long real);
 create table Visited(ident integer, site text, dated text);
@@ -33,7 +33,7 @@ create table Survey(taken integer, person text, quant real, reading real);
 
 We can get rid of one of our tables using:
 
-~~~
+~~~ {.sql}
 drop table Survey;
 ~~~
 
@@ -65,7 +65,7 @@ we can specify several kinds of constraints on its columns.
 For example,
 a better definition for the `Survey` table would be:
 
-~~~
+~~~ {.sql}
 create table Survey(
     taken   integer not null, -- where reading taken
     person  text,             -- may not know who took it
@@ -88,7 +88,7 @@ we can add, change, and remove records using our other set of commands,
 
 The simplest form of `insert` statement lists values in order:
 
-~~~
+~~~ {.sql}
 insert into Site values('DR-1', -49.85, -128.57);
 insert into Site values('DR-3', -47.15, -126.72);
 insert into Site values('MSK-4', -48.87, -123.40);
@@ -96,7 +96,7 @@ insert into Site values('MSK-4', -48.87, -123.40);
 
 We can also insert values into one table directly from another:
 
-~~~
+~~~ {.sql}
 create table JustLatLong(lat text, long text);
 insert into JustLatLong select lat, long from site;
 ~~~
@@ -109,7 +109,7 @@ and under what conditions we should update the values.
 For example, if we made a mistake when entering the lat and long values
 of the last `insert` statement above:
 
-~~~
+~~~ {.sql}
 update Site set lat=-47.87, long=-122.40 where name='MSK-4'
 ~~~
 
@@ -125,7 +125,7 @@ For example,
 once we realize that Frank Danforth didn't take any measurements,
 we can remove him from the `Person` table like this:
 
-~~~
+~~~ {.sql}
 delete from Person where ident = "danforth";
 ~~~
 
@@ -173,7 +173,7 @@ this technique is outside the scope of this chapter.
 > temperature readings by Robert Olmstead, which is formatted like
 > this:
 >
-> ~~~
+> ~~~ {.output}
 > Taken,Temp
 > 619,-21.5
 > 622,-15.5

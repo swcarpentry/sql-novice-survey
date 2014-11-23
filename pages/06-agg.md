@@ -14,14 +14,11 @@ minutes: 30
 We now want to calculate ranges and averages for our data.
 We know how to select all of the dates from the `Visited` table:
 
+~~~ {.sql}
+select dated from Visited;
+~~~
 
-<pre class="in"><code>%load_ext sqlitemagic</code></pre>
-
-
-<pre class="in"><code>%%sqlite survey.db
-select dated from Visited;</code></pre>
-
-<div class="out"><table>
+<table>
 <tr><td>1927-02-08</td></tr>
 <tr><td>1927-02-10</td></tr>
 <tr><td>1939-01-07</td></tr>
@@ -30,8 +27,7 @@ select dated from Visited;</code></pre>
 <tr><td>None</td></tr>
 <tr><td>1932-01-14</td></tr>
 <tr><td>1932-03-22</td></tr>
-</table></div>
-
+</table>
 
 but to combine them,
 we must use an **aggregation function**
@@ -39,25 +35,23 @@ such as `min` or `max`.
 Each of these functions takes a set of records as input,
 and produces a single record as output:
 
+~~~ {.sql}
+select min(dated) from Visited;
+~~~
 
-<pre class="in"><code>%%sqlite survey.db
-select min(dated) from Visited;</code></pre>
-
-<div class="out"><table>
+<table>
 <tr><td>1927-02-08</td></tr>
-</table></div>
-
+</table>
 
 <img src="img/sql-aggregation.svg" alt="SQL Aggregation" />
 
+~~~ {.sql}
+select max(dated) from Visited;
+~~~
 
-<pre class="in"><code>%%sqlite survey.db
-select max(dated) from Visited;</code></pre>
-
-<div class="out"><table>
+<table>
 <tr><td>1939-01-07</td></tr>
-</table></div>
-
+</table>
 
 `min` and `max` are just two of
 the aggregation functions built into SQL.
@@ -65,30 +59,29 @@ Three others are `avg`,
 `count`,
 and `sum`:
 
+~~~ {.sql}
+select avg(reading) from Survey where quant="sal";
+~~~
 
-<pre class="in"><code>%%sqlite survey.db
-select avg(reading) from Survey where quant=&#39;sal&#39;;</code></pre>
-
-<div class="out"><table>
+<table>
 <tr><td>7.20333333333</td></tr>
-</table></div>
+</table>
 
+~~~ {.sql}
+select count(reading) from Survey where quant="sal";
+~~~
 
-<pre class="in"><code>%%sqlite survey.db
-select count(reading) from Survey where quant=&#39;sal&#39;;</code></pre>
-
-<div class="out"><table>
+<table>
 <tr><td>9</td></tr>
-</table></div>
+</table>
 
+~~~ {.sql}
+select sum(reading) from Survey where quant="sal";
+~~~
 
-<pre class="in"><code>%%sqlite survey.db
-select sum(reading) from Survey where quant=&#39;sal&#39;;</code></pre>
-
-<div class="out"><table>
+<table>
 <tr><td>64.83</td></tr>
-</table></div>
-
+</table>
 
 We used `count(reading)` here,
 but we could just as easily have counted `quant`
@@ -102,26 +95,24 @@ We can,
 for example,
 find the range of sensible salinity measurements:
 
+~~~ {.sql}
+select min(reading), max(reading) from Survey where quant="sal" and reading&lt;=1.0;
+~~~
 
-<pre class="in"><code>%%sqlite survey.db
-select min(reading), max(reading) from Survey where quant=&#39;sal&#39; and reading&lt;=1.0;</code></pre>
-
-<div class="out"><table>
+<table>
 <tr><td>0.05</td><td>0.21</td></tr>
-</table></div>
-
+</table>
 
 We can also combine aggregated results with raw results,
 although the output might surprise you:
 
+~~~ {.sql}
+select person, count(*) from Survey where quant="sal" and reading&lt;=1.0;
+~~~
 
-<pre class="in"><code>%%sqlite survey.db
-select person, count(*) from Survey where quant=&#39;sal&#39; and reading&lt;=1.0;</code></pre>
-
-<div class="out"><table>
+<table>
 <tr><td>lake</td><td>7</td></tr>
-</table></div>
-
+</table>
 
 Why does Lake's name appear rather than Roerich's or Dyer's?
 The answer is that when it has to aggregate a field,
@@ -135,14 +126,13 @@ Another important fact is that when there are no values to aggregate,
 aggregation's result is "don't know"
 rather than zero or some other arbitrary value:
 
+~~~ {.sql}
+select person, max(reading), sum(reading) from Survey where quant="missing";
+~~~
 
-<pre class="in"><code>%%sqlite survey.db
-select person, max(reading), sum(reading) from Survey where quant=&#39;missing&#39;;</code></pre>
-
-<div class="out"><table>
+<table>
 <tr><td>None</td><td>None</td><td>None</td></tr>
-</table></div>
-
+</table>
 
 One final important feature of aggregation functions is that
 they are inconsistent with the rest of SQL in a very useful way.
@@ -159,25 +149,23 @@ for aggregation functions to ignore null values
 and only combine those that are non-null.
 This behavior lets us write our queries as:
 
+~~~ {.sql}
+select min(dated) from Visited;
+~~~
 
-<pre class="in"><code>%%sqlite survey.db
-select min(dated) from Visited;</code></pre>
-
-<div class="out"><table>
+<table>
 <tr><td>1927-02-08</td></tr>
-</table></div>
-
+</table>
 
 instead of always having to filter explicitly:
 
+~~~ {.sql}
+select min(dated) from Visited where dated is not null;
+~~~
 
-<pre class="in"><code>%%sqlite survey.db
-select min(dated) from Visited where dated is not null;</code></pre>
-
-<div class="out"><table>
+<table>
 <tr><td>1927-02-08</td></tr>
-</table></div>
-
+</table>
 
 Aggregating all records at once doesn't always make sense.
 For example,
@@ -185,33 +173,31 @@ suppose Gina suspects that there is a systematic bias in her data,
 and that some scientists' radiation readings are higher than others.
 We know that this doesn't work:
 
-
-<pre class="in"><code>%%sqlite survey.db
+~~~ {.sql}
 select person, count(reading), round(avg(reading), 2)
 from  Survey
-where quant=&#39;rad&#39;;</code></pre>
+where quant="rad";
+~~~
 
-<div class="out"><table>
+<table>
 <tr><td>roe</td><td>8</td><td>6.56</td></tr>
-</table></div>
-
+</table>
 
 because the database manager selects a single arbitrary scientist's name
 rather than aggregating separately for each scientist.
 Since there are only five scientists,
 she could write five queries of the form:
 
-
-<pre class="in"><code>%%sqlite survey.db
+~~~ {.sql}
 select person, count(reading), round(avg(reading), 2)
 from  Survey
-where quant=&#39;rad&#39;
-and   person=&#39;dyer&#39;;</code></pre>
+where quant="rad"
+and   person="dyer";
+~~~
 
-<div class="out"><table>
+<table>
 <tr><td>dyer</td><td>2</td><td>8.81</td></tr>
-</table></div>
-
+</table>
 
 but this would be tedious,
 and if she ever had a data set with fifty or five hundred scientists,
@@ -221,20 +207,19 @@ What we need to do is
 tell the database manager to aggregate the hours for each scientist separately
 using a `group by` clause:
 
-
-<pre class="in"><code>%%sqlite survey.db
+~~~ {.sql}
 select   person, count(reading), round(avg(reading), 2)
 from     Survey
-where    quant=&#39;rad&#39;
-group by person;</code></pre>
+where    quant="rad"
+group by person;
+~~~
 
-<div class="out"><table>
+<table>
 <tr><td>dyer</td><td>2</td><td>8.81</td></tr>
 <tr><td>lake</td><td>2</td><td>1.82</td></tr>
 <tr><td>pb</td><td>3</td><td>6.66</td></tr>
 <tr><td>roe</td><td>1</td><td>11.25</td></tr>
-</table></div>
-
+</table>
 
 `group by` does exactly what its name implies:
 groups all the records with the same value for the specified field together
@@ -244,20 +229,19 @@ it no longer matters that the database manager
 is picking an arbitrary one to display
 alongside the aggregated `reading` values.
 
-
 Just as we can sort by multiple criteria at once,
 we can also group by multiple criteria.
 To get the average reading by scientist and quantity measured,
 for example,
 we just add another field to the `group by` clause:
 
-
-<pre class="in"><code>%%sqlite survey.db
+~~~ {.sql}
 select   person, quant, count(reading), round(avg(reading), 2)
 from     Survey
-group by person, quant;</code></pre>
+group by person, quant;
+~~~
 
-<div class="out"><table>
+<table>
 <tr><td>None</td><td>sal</td><td>1</td><td>0.06</td></tr>
 <tr><td>None</td><td>temp</td><td>1</td><td>-26.0</td></tr>
 <tr><td>dyer</td><td>rad</td><td>2</td><td>8.81</td></tr>
@@ -269,8 +253,7 @@ group by person, quant;</code></pre>
 <tr><td>pb</td><td>temp</td><td>2</td><td>-20.0</td></tr>
 <tr><td>roe</td><td>rad</td><td>1</td><td>11.25</td></tr>
 <tr><td>roe</td><td>sal</td><td>2</td><td>32.05</td></tr>
-</table></div>
-
+</table>
 
 Note that we have added `person` to the list of fields displayed,
 since the results wouldn't make much sense otherwise.
@@ -278,15 +261,15 @@ since the results wouldn't make much sense otherwise.
 Let's go one step further and remove all the entries
 where we don't know who took the measurement:
 
-
-<pre class="in"><code>%%sqlite survey.db
+~~~ {.sql}
 select   person, quant, count(reading), round(avg(reading), 2)
 from     Survey
 where    person is not null
 group by person, quant
-order by person, quant;</code></pre>
+order by person, quant;
+~~~
 
-<div class="out"><table>
+<table>
 <tr><td>dyer</td><td>rad</td><td>2</td><td>8.81</td></tr>
 <tr><td>dyer</td><td>sal</td><td>2</td><td>0.11</td></tr>
 <tr><td>lake</td><td>rad</td><td>2</td><td>1.82</td></tr>
@@ -296,8 +279,7 @@ order by person, quant;</code></pre>
 <tr><td>pb</td><td>temp</td><td>2</td><td>-20.0</td></tr>
 <tr><td>roe</td><td>rad</td><td>1</td><td>11.25</td></tr>
 <tr><td>roe</td><td>sal</td><td>2</td><td>32.05</td></tr>
-</table></div>
-
+</table>
 
 Looking more closely,
 this query:
@@ -338,7 +320,7 @@ this query:
 > and the average of all the radiation readings.
 > We write the query:
 >
-> ~~~
+> ~~~ {.sql}
 > select reading - avg(reading) from Survey where quant='rad';
 > ~~~
 >
@@ -353,7 +335,7 @@ this query:
 > Use this to produce a one-line list of scientists' names,
 > such as:
 >
-> ~~~
+> ~~~ {.sql}
 > William Dyer, Frank Pabodie, Anderson Lake, Valentina Roerich, Frank Danforth
 > ~~~
 >
