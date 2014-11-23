@@ -10,18 +10,18 @@ minutes: 30
 > *   Explain the difference between a database and a database manager.
 > *   Write a query to select all values for specific fields from a single table.
 
-A [relational database](../../gloss.html#relational-database)
+A **relational database**
 is a way to store and manipulate information
-that is arranged as [tables](../../gloss.html#table).
-Each table has columns (also known as [fields](../../gloss.html#field)) which describe the data,
-and rows (also known as [records](../../gloss.html#record)) which contain the data.
+that is arranged as **tables**.
+Each table has columns (also known as **fields**) which describe the data,
+and rows (also known as **records**) which contain the data.
   
 When we are using a spreadsheet,
 we put formulas into cells to calculate new values based on old ones.
 When we are using a database,
 we send commands
-(usually called [queries](../../gloss.html#query))
-to a [database manager](../../gloss.html#database-manager):
+(usually called **queries**)
+to a **database manager**:
 a program that manipulates the database for us.
 The database manager does whatever lookups and calculations the query specifies,
 returning the results in a tabular form
@@ -35,7 +35,7 @@ that we can then use as a starting point for further queries.
 > every database manager can import and export data in a variety of formats,
 > so it *is* possible to move information from one to another.
 
-Queries are written in a language called [SQL](../../gloss.html#sql),
+Queries are written in a language called **SQL**,
 which stands for "Structured Query Language".
 SQL provides hundreds of different ways to analyze and recombine data;
 we will only look at a handful,
@@ -116,7 +116,7 @@ The tables below show the database we will use in our examples:
 Notice that three entries&mdash;one in the `Visited` table,
 and two in the `Survey` table&mdash;are shown in red
 because they don't contain any actual data:
-we'll return to these missing values [later](#s:null).
+we'll return to these missing values [later](05-null.html).
 For now,
 let's write an SQL query that displays scientists' names.
 We do this using the SQL command `select`,
@@ -145,7 +145,7 @@ We have written our commands and column names in lower case,
 and the table name in Title Case,
 but we don't have to:
 as the example below shows,
-SQL is [case insensitive](../../gloss.html#case-insensitive).
+SQL is **case insensitive**.
 
 
 <pre class="in"><code>%%sqlite survey.db

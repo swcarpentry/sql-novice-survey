@@ -69,8 +69,65 @@ subtitle: Reference
 
 ## Glossary
 
-Key Word 1
-:   Definition of first term
+aggregation function
+:   FIXME: definition
 
-Key Word 2
-:   Definition of second term
+atomic
+:   FIXME: definition
+
+cascading delete
+:   FIXME: definition
+
+case insensitive
+:   FIXME: definition
+
+cross product
+:   FIXME: definition
+
+comma-separated values (CSV)
+:   FIXME: definition
+
+cursor
+:   FIXME: definition
+
+database manager
+:   FIXME: definition
+
+fields
+:   FIXME: definition
+
+filter
+:   FIXME: definition
+
+foreign keys
+:   FIXME: definition
+
+prepared statement
+:   FIXME: definition
+
+primary keys
+:   FIXME: definition
+
+queries
+:   FIXME: definition
+
+records
+:   FIXME: definition
+
+referential integrity
+:   FIXME: definition
+
+relational database
+:   FIXME: definition
+
+sentinel value
+:   FIXME: definition
+
+SQL
+:   FIXME: definition
+
+SQL injection attack
+:   FIXME: definition
+
+tables
+:   FIXME: definition

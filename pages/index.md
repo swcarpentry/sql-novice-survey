@@ -29,13 +29,21 @@ and these lessons will show how to do that.
 
 > ## Prerequisites
 >
+> FIXME
 > A short paragraph describing what learners need to know
 > before tackling this lesson.
 
 ## Topics
 
-1.  [Topic Title 1](01-one.html)
-2.  [Topic Title 2](02-two.html)
+1.  [Selecting Data](01-select.html)
+2.  [Sorting and Removing Duplicates](02-sort-dup.html)
+3.  [Filtering](03-filter.html)
+4.  [Calculating New Values](04-calc.html)
+5.  [Missing Data](05-null.html)
+6.  [Aggregation](06-agg.html)
+7.  [Combining Data](07-join.html)
+8.  [Creating and Modifying Data](08-create.html)
+9.  [Programming with Databases](09-prog.html)
 
 ## Other Resources
 
