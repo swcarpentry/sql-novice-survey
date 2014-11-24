@@ -18,16 +18,16 @@ as part of our query:
 select 1.05 * reading from Survey where quant="rad";
 ~~~
 
-1.05 * reading
---------------
-10.311        
-8.19          
-8.8305        
-7.581         
-4.5675        
-2.2995        
-1.533         
-11.8125       
+|1.05 * reading|
+|--------------|
+|10.311        |
+|8.19          |
+|8.8305        |
+|7.581         |
+|4.5675        |
+|2.2995        |
+|1.533         |
+|11.8125       |
 
 When we run the query,
 the expression `1.05 * reading` is evaluated for each row.
@@ -43,12 +43,12 @@ and round to two decimal places:
 select taken, round(5*(reading-32)/9, 2) from Survey where quant="temp";
 ~~~
 
-taken       round(5*(reading-32)/9, 2)
-----------  --------------------------
-734         -29.72                    
-735         -32.22                    
-751         -28.06                    
-752         -26.67                    
+|taken|round(5*(reading-32)/9, 2)|
+|-----|--------------------------|
+|734  |-29.72                    |
+|735  |-32.22                    |
+|751  |-28.06                    |
+|752  |-26.67                    |
 
 We can also combine values from different fields,
 for example by using the string concatenation operator `||`:
@@ -57,13 +57,13 @@ for example by using the string concatenation operator `||`:
 select personal || " " || family from Person;
 ~~~
 
-personal || " " || family
--------------------------
-William Dyer             
-Frank Pabodie            
-Anderson Lake            
-Valentina Roerich        
-Frank Danforth           
+|personal || " " || family|
+|-------------------------|
+|William Dyer             |
+|Frank Pabodie            |
+|Anderson Lake            |
+|Valentina Roerich        |
+|Frank Danforth           |
 
 > ## FIXME {.challenge}
 >
@@ -82,26 +82,26 @@ Frank Danforth
 > select * from Person where ident="dyer" union select * from Person where ident="roe";
 > ~~~
 > 
-> ident       personal    family    
-> ----------  ----------  ----------
-> dyer        William     Dyer      
-> roe         Valentina   Roerich   
+> |ident|personal |family |
+> |-----|-------- |-------|
+> |dyer |William  |Dyer   |
+> |roe  |Valentina|Roerich|
 > 
 > Use `union` to create a consolidated list of salinity measurements
 > in which Roerich's, and only Roerich's,
 > have been corrected as described in the previous challenge.
 > The output should be something like:
 > 
-> taken reading
-> ----- -------
-> 619   0.13
-> 622   0.09
-> 734   0.05
-> 751   0.1
-> 752   0.09
-> 752   0.416
-> 837   0.21
-> 837   0.225
+> |taken|reading|
+> |-----|-------|
+> |619  |0.13   |
+> |622  |0.09   |
+> |734  |0.05   |
+> |751  |0.1    |
+> |752  |0.09   |
+> |752  |0.416  |
+> |837  |0.21   |
+> |837  |0.225  |
 
 > ## FIXME {.challenge}
 >
@@ -112,11 +112,11 @@ Frank Danforth
 > select distinct site from Visited;
 > ~~~
 > 
-> site        
-> ----------
-> DR-1      
-> DR-3      
-> MSK-4     
+> |site |
+> |-----|
+> |DR-1 |
+> |DR-3 |
+> |MSK-4|
 > 
 > Some major site identifiers are two letters long and some are three.
 > The "in string" function `instr(X, Y)`
