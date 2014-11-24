@@ -43,7 +43,7 @@ select min(dated) from Visited;
 |----------|
 |1927-02-08|
 
-<img src="img/sql-aggregation.svg" alt="SQL Aggregation" />
+<img src="fig/sql-aggregation.svg" alt="SQL Aggregation" />
 
 ~~~ {.sql}
 select max(dated) from Visited;

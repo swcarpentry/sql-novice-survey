@@ -49,7 +49,7 @@ select ident from Visited where site="DR-1";
 |622  |    
 |844  |    
 
-<img src="img/sql-filter.svg" alt="SQL Filtering in Action" />
+<img src="fig/sql-filter.svg" alt="SQL Filtering in Action" />
 
 We can use many other Boolean operators to filter our data.
 For example,
