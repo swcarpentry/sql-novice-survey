@@ -38,26 +38,107 @@
 </div>
 <p>We now want to calculate ranges and averages for our data. We know how to select all of the dates from the <code>Visited</code> table:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> dated <span class="kw">from</span> Visited;</code></pre>
-<h2 id="dated">dated</h2>
-<p>1927-02-08 1927-02-10 1939-01-07 1930-01-12 1930-02-26 ---<br />1932-01-14 1932-03-22</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">dated</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1927-02-08</td>
+</tr>
+<tr class="even">
+<td align="left">1927-02-10</td>
+</tr>
+<tr class="odd">
+<td align="left">1939-01-07</td>
+</tr>
+<tr class="even">
+<td align="left">1930-01-12</td>
+</tr>
+<tr class="odd">
+<td align="left">1930-02-26</td>
+</tr>
+<tr class="even">
+<td align="left">-null-</td>
+</tr>
+<tr class="odd">
+<td align="left">1932-01-14</td>
+</tr>
+<tr class="even">
+<td align="left">1932-03-22</td>
+</tr>
+</tbody>
+</table>
 <p>but to combine them, we must use an <strong>aggregation function</strong> such as <code>min</code> or <code>max</code>. Each of these functions takes a set of records as input, and produces a single record as output:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> <span class="fu">min</span>(dated) <span class="kw">from</span> Visited;</code></pre>
-<h2 id="mindated">min(dated)</h2>
-<p>1927-02-08</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">min(dated)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1927-02-08</td>
+</tr>
+</tbody>
+</table>
 <p><img src="img/sql-aggregation.svg" alt="SQL Aggregation" /></p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> <span class="fu">max</span>(dated) <span class="kw">from</span> Visited;</code></pre>
-<h2 id="maxdated">max(dated)</h2>
-<p>1939-01-07</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">max(dated)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1939-01-07</td>
+</tr>
+</tbody>
+</table>
 <p><code>min</code> and <code>max</code> are just two of the aggregation functions built into SQL. Three others are <code>avg</code>, <code>count</code>, and <code>sum</code>:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> <span class="fu">avg</span>(reading) <span class="kw">from</span> Survey <span class="kw">where</span> quant=<span class="ot">&quot;sal&quot;</span>;</code></pre>
-<h2 id="avgreading">avg(reading)</h2>
-<p>7.20333333333333</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">avg(reading)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">7.20333333333333</td>
+</tr>
+</tbody>
+</table>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> <span class="fu">count</span>(reading) <span class="kw">from</span> Survey <span class="kw">where</span> quant=<span class="ot">&quot;sal&quot;</span>;</code></pre>
-<h2 id="countreading">count(reading)</h2>
-<p>9</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">count(reading)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">9</td>
+</tr>
+</tbody>
+</table>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> <span class="fu">sum</span>(reading) <span class="kw">from</span> Survey <span class="kw">where</span> quant=<span class="ot">&quot;sal&quot;</span>;</code></pre>
-<h2 id="sumreading">sum(reading)</h2>
-<p>64.83</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">sum(reading)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">64.83</td>
+</tr>
+</tbody>
+</table>
 <p>We used <code>count(reading)</code> here, but we could just as easily have counted <code>quant</code> or any other field in the table, or even used <code>count(*)</code>, since the function doesn't care about the values themselves, just how many values there are.</p>
 <p>SQL lets us do several aggregations at once. We can, for example, find the range of sensible salinity measurements:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> <span class="fu">min</span>(reading), <span class="fu">max</span>(reading) <span class="kw">from</span> Survey <span class="kw">where</span> quant=<span class="ot">&quot;sal&quot;</span> <span class="kw">and</span> reading&lt;=<span class="fl">1.0</span>;</code></pre>
@@ -77,32 +158,54 @@
 </table>
 <p>We can also combine aggregated results with raw results, although the output might surprise you:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> person, <span class="fu">count</span>(*) <span class="kw">from</span> Survey <span class="kw">where</span> quant=<span class="ot">&quot;sal&quot;</span> <span class="kw">and</span> reading&lt;=<span class="fl">1.0</span>;</code></pre>
+<p>|person|count(*)| |------|--------| |lake |7 |</p>
+<p>Why does Lake's name appear rather than Roerich's or Dyer's? The answer is that when it has to aggregate a field, but isn't told how to, the database manager chooses an actual value from the input set. It might use the first one processed, the last one, or something else entirely.</p>
+<p>Another important fact is that when there are no values to aggregate, aggregation's result is &quot;don't know&quot; rather than zero or some other arbitrary value:</p>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> person, <span class="fu">max</span>(reading), <span class="fu">sum</span>(reading) <span class="kw">from</span> Survey <span class="kw">where</span> quant=<span class="ot">&quot;missing&quot;</span>;</code></pre>
 <table>
 <thead>
 <tr class="header">
 <th align="left">person</th>
-<th align="left">count(*)</th>
+<th align="left">max(reading)</th>
+<th align="left">sum(reading)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">lake</td>
-<td align="left">7</td>
+<td align="left">-null-</td>
+<td align="left">-null-</td>
+<td align="left">-null-</td>
 </tr>
 </tbody>
 </table>
-<p>Why does Lake's name appear rather than Roerich's or Dyer's? The answer is that when it has to aggregate a field, but isn't told how to, the database manager chooses an actual value from the input set. It might use the first one processed, the last one, or something else entirely.</p>
-<p>Another important fact is that when there are no values to aggregate, aggregation's result is &quot;don't know&quot; rather than zero or some other arbitrary value:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> person, <span class="fu">max</span>(reading), <span class="fu">sum</span>(reading) <span class="kw">from</span> Survey <span class="kw">where</span> quant=<span class="ot">&quot;missing&quot;</span>;</code></pre>
-<p>person max(reading) sum(reading) ---------- ------------ ------------ --- --- ---</p>
 <p>One final important feature of aggregation functions is that they are inconsistent with the rest of SQL in a very useful way. If we add two values, and one of them is null, the result is null. By extension, if we use <code>sum</code> to add all the values in a set, and any of those values are null, the result should also be null. It's much more useful, though, for aggregation functions to ignore null values and only combine those that are non-null. This behavior lets us write our queries as:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> <span class="fu">min</span>(dated) <span class="kw">from</span> Visited;</code></pre>
-<h2 id="mindated-1">min(dated)</h2>
-<p>1927-02-08</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">min(dated)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1927-02-08</td>
+</tr>
+</tbody>
+</table>
 <p>instead of always having to filter explicitly:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> <span class="fu">min</span>(dated) <span class="kw">from</span> Visited <span class="kw">where</span> dated <span class="kw">is</span> <span class="kw">not</span> <span class="kw">null</span>;</code></pre>
-<h2 id="mindated-2">min(dated)</h2>
-<p>1927-02-08</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">min(dated)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1927-02-08</td>
+</tr>
+</tbody>
+</table>
 <p>Aggregating all records at once doesn't always make sense. For example, suppose Gina suspects that there is a systematic bias in her data, and that some scientists' radiation readings are higher than others. We know that this doesn't work:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> person, <span class="fu">count</span>(reading), <span class="fu">round</span>(<span class="fu">avg</span>(reading), <span class="dv">2</span>)
 <span class="kw">from</span>  Survey
@@ -197,13 +300,13 @@
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">---</td>
+<td align="left">-null-</td>
 <td align="left">sal</td>
 <td align="left">1</td>
 <td align="left">0.06</td>
 </tr>
 <tr class="even">
-<td align="left">---</td>
+<td align="left">-null-</td>
 <td align="left">temp</td>
 <td align="left">1</td>
 <td align="left">-26.0</td>

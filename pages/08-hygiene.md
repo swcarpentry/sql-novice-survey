@@ -30,16 +30,16 @@ The third rule is that there should be no redundant information.
 For example,
 we could get rid of the `Site` table and rewrite the `Visited` table like this:
 
-ident  lat     long     dated
------  -----   -----    ----------
-619   -49.85   -128.57  1927-02-08
-622   -49.85   -128.57  1927-02-10
-734   -47.15   -126.72  1939-01-07
-735   -47.15   -126.72  1930-01-12
-751   -47.15   -126.72  1930-02-26
-752   -47.15   -126.72  ---
-837   -48.87   -123.40  1932-01-14
-844   -49.85   -128.57  1932-03-22
+|ident|lat   |long   |dated      |
+|-----|------|-------|-----------|
+|619  |-49.85|-128.57| 1927-02-08|
+|622  |-49.85|-128.57| 1927-02-10|
+|734  |-47.15|-126.72| 1939-01-07|
+|735  |-47.15|-126.72| 1930-01-12|
+|751  |-47.15|-126.72| 1930-02-26|
+|752  |-47.15|-126.72| -null-    |
+|837  |-48.87|-123.40| 1932-01-14|
+|844  |-49.85|-128.57| 1932-03-22|
 
 In fact,
 we could use a single table that recorded all the information about each reading in each row,

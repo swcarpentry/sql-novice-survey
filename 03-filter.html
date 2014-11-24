@@ -65,8 +65,24 @@
 <p>The database manager executes this query in two stages. First, it checks at each row in the <code>Visited</code> table to see which ones satisfy the <code>where</code>. It then uses the column names following the <code>select</code> keyword to determine what columns to display.</p>
 <p>This processing order means that we can filter records using <code>where</code> based on values in columns that aren't then displayed:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> ident <span class="kw">from</span> Visited <span class="kw">where</span> site=<span class="ot">&quot;DR-1&quot;</span>;</code></pre>
-<h2 id="ident">ident</h2>
-<p>619<br />622<br />844</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">ident</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">619</td>
+</tr>
+<tr class="even">
+<td align="left">622</td>
+</tr>
+<tr class="odd">
+<td align="left">844</td>
+</tr>
+</tbody>
+</table>
 <p><img src="img/sql-filter.svg" alt="SQL Filtering in Action" /></p>
 <p>We can use many other Boolean operators to filter our data. For example, we can ask for all information from the DR-1 site collected since 1930:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> * <span class="kw">from</span> Visited <span class="kw">where</span> (site=<span class="ot">&quot;DR-1&quot;</span>) <span class="kw">and</span> (dated&lt;=<span class="ot">&quot;1930-00-00&quot;</span>);</code></pre>

@@ -22,11 +22,11 @@ by using a `where` clause in our query:
 select * from Visited where site="DR-1";
 ~~~
 
-ident       site        dated     
-----------  ----------  ----------
-619         DR-1        1927-02-08
-622         DR-1        1927-02-10
-844         DR-1        1932-03-22
+|ident|site|dated     |
+|-----|----|----------|
+|619  |DR-1|1927-02-08|
+|622  |DR-1|1927-02-10|
+|844  |DR-1|1932-03-22|
 
 The database manager executes this query in two stages.
 First,
@@ -43,11 +43,11 @@ based on values in columns that aren't then displayed:
 select ident from Visited where site="DR-1";
 ~~~
 
-ident     
-----------
-619       
-622       
-844       
+|ident|
+|-----|
+|619  |    
+|622  |    
+|844  |    
 
 <img src="img/sql-filter.svg" alt="SQL Filtering in Action" />
 
@@ -59,10 +59,10 @@ we can ask for all information from the DR-1 site collected since 1930:
 select * from Visited where (site="DR-1") and (dated<="1930-00-00");
 ~~~
 
-ident       site        dated     
-----------  ----------  ----------
-619         DR-1        1927-02-08
-622         DR-1        1927-02-10
+|ident|site|dated     |
+|-----|----|----------|
+|619  |DR-1|1927-02-08|
+|622  |DR-1|1927-02-10|
 
 (The parentheses around the individual tests aren't strictly required,
 but they help make the query easier to read.)
@@ -93,18 +93,18 @@ we can combine the tests on their names using `or`:
 select * from Survey where person="lake" or person="roe";
 ~~~
 
-taken       person      quant       reading   
-----------  ----------  ----------  ----------
-734         lake        sal         0.05      
-751         lake        sal         0.1       
-752         lake        rad         2.19      
-752         lake        sal         0.09      
-752         lake        temp        -16.0     
-752         roe         sal         41.6      
-837         lake        rad         1.46      
-837         lake        sal         0.21      
-837         roe         sal         22.5      
-844         roe         rad         11.25     
+|taken|person|quant|reading|
+|-----|------|-----|-------|
+|734  |lake  |sal  |0.05   |
+|751  |lake  |sal  |0.1    |
+|752  |lake  |rad  |2.19   |
+|752  |lake  |sal  |0.09   |
+|752  |lake  |temp |-16.0  |
+|752  |roe   |sal  |41.6   |
+|837  |lake  |rad  |1.46   |
+|837  |lake  |sal  |0.21   |
+|837  |roe   |sal  |22.5   |
+|844  |roe   |rad  |11.25  |
 
 Alternatively,
 we can use `in` to see if a value is in a specific set:
@@ -113,18 +113,18 @@ we can use `in` to see if a value is in a specific set:
 select * from Survey where person in ("lake", "roe");
 ~~~
 
-taken       person      quant       reading   
-----------  ----------  ----------  ----------
-734         lake        sal         0.05      
-751         lake        sal         0.1       
-752         lake        rad         2.19      
-752         lake        sal         0.09      
-752         lake        temp        -16.0     
-752         roe         sal         41.6      
-837         lake        rad         1.46      
-837         lake        sal         0.21      
-837         roe         sal         22.5      
-844         roe         rad         11.25     
+|taken|person|quant|reading|
+|-----|------|-----|-------|
+|734  |lake  |sal  |0.05   |
+|751  |lake  |sal  |0.1    |
+|752  |lake  |rad  |2.19   |
+|752  |lake  |sal  |0.09   |
+|752  |lake  |temp |-16.0  |
+|752  |roe   |sal  |41.6   |
+|837  |lake  |rad  |1.46   |
+|837  |lake  |sal  |0.21   |
+|837  |roe   |sal  |22.5   |
+|844  |roe   |rad  |11.25  |
 
 We can combine `and` with `or`,
 but we need to be careful about which operator is executed first.
@@ -135,15 +135,15 @@ we get this:
 select * from Survey where quant="sal" and person="lake" or person="roe";
 ~~~
 
-taken       person      quant       reading   
-----------  ----------  ----------  ----------
-734         lake        sal         0.05      
-751         lake        sal         0.1       
-752         lake        sal         0.09      
-752         roe         sal         41.6      
-837         lake        sal         0.21      
-837         roe         sal         22.5      
-844         roe         rad         11.25     
+|taken|person|quant|reading|
+|-----|------|-----|-------|
+|734  |lake  |sal  |0.05   |
+|751  |lake  |sal  |0.1    |
+|752  |lake  |sal  |0.09   |
+|752  |roe   |sal  |41.6   |
+|837  |lake  |sal  |0.21   |
+|837  |roe   |sal  |22.5   |
+|844  |roe   |rad  |11.25  |
 
 which is salinity measurements by Lake,
 and *any* measurement by Roerich.
@@ -153,14 +153,14 @@ We probably want this instead:
 select * from Survey where quant="sal" and (person="lake" or person="roe");
 ~~~
 
-taken       person      quant       reading   
-----------  ----------  ----------  ----------
-734         lake        sal         0.05      
-751         lake        sal         0.1       
-752         lake        sal         0.09      
-752         roe         sal         41.6      
-837         lake        sal         0.21      
-837         roe         sal         22.5      
+|taken|person|quant|reading|
+|-----|------|-----|-------|
+|734  |lake  |sal  |0.05   |
+|751  |lake  |sal  |0.1    |
+|752  |lake  |sal  |0.09   |
+|752  |roe   |sal  |41.6   |
+|837  |lake  |sal  |0.21   |
+|837  |roe   |sal  |22.5   |
 
 Finally,
 we can use `distinct` with `where`
@@ -170,13 +170,13 @@ to give a second level of filtering:
 select distinct person, quant from Survey where person="lake" or person="roe";
 ~~~
 
-person      quant     
-----------  ----------
-lake        sal       
-lake        rad       
-lake        temp      
-roe         sal       
-roe         rad       
+|person|quant|
+|------|-----|
+|lake  |sal  |
+|lake  |rad  |
+|lake  |temp |
+|roe   |sal  |
+|roe   |rad  |
 
 But remember:
 `distinct` is applied to the values displayed in the chosen columns,
@@ -227,13 +227,13 @@ not to the entire rows as they are being processed.
 > the character '%' can be used any number of times in the pattern
 > to mean "match zero or more characters".
 > 
-> Expression            Value
-> --------------------- -----
-> `'a' like 'a'`        True
-> `'a' like '%a'`       True
-> `'b' like '%a'`       False
-> `'alpha' like 'a%'`   True
-> `'alpha' like 'a%p%'` True
+> |Expression           |Value|
+> |---------------------|-----|
+> |`'a' like 'a'`       |True |
+> |`'a' like '%a'`      |True |
+> |`'b' like '%a'`      |False|
+> |`'alpha' like 'a%'`  |True |
+> |`'alpha' like 'a%p%'`|True |
 > 
 > The expression `*column-name* not like *pattern*`
 > inverts the test.
