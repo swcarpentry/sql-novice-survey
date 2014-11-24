@@ -45,60 +45,60 @@ The tables below show the database we will use in our examples:
 
 > **Person**: people who took readings.
 > 
-> ident       personal    family    
-> ----------  ----------  ----------
-> dyer        William     Dyer      
-> pb          Frank       Pabodie   
-> lake        Anderson    Lake      
-> roe         Valentina   Roerich   
-> danforth    Frank       Danforth  
+> |ident   |personal |family    
+> |--------|---------|----------
+> |dyer    |William  |Dyer      
+> |pb      |Frank    |Pabodie   
+> |lake    |Anderson |Lake      
+> |roe     |Valentina|Roerich   
+> |danforth|Frank    |Danforth  
 
 > **Site**: locations where readings were taken.
 > 
-> name        lat         long      
-> ----------  ----------  ----------
-> DR-1        -49.85      -128.57   
-> DR-3        -47.15      -126.72   
-> MSK-4       -48.87      -123.4    
+> |name |lat   |long   |
+> |-----|------|-------|
+> |DR-1 |-49.85|-128.57|
+> |DR-3 |-47.15|-126.72|
+> |MSK-4|-48.87|-123.4 |
 
 > **Visited**: when readings were taken at specific sites.
 > 
-> ident       site        dated     
-> ----------  ----------  ----------
-> 619         DR-1        1927-02-08
-> 622         DR-1        1927-02-10
-> 734         DR-3        1939-01-07
-> 735         DR-3        1930-01-12
-> 751         DR-3        1930-02-26
-> 752         DR-3        -null-
-> 837         MSK-4       1932-01-14
-> 844         DR-1        1932-03-22
+> |ident|site |dated     |
+> |-----|-----|----------|
+> |619  |DR-1 |1927-02-08|
+> |622  |DR-1 |1927-02-10|
+> |734  |DR-3 |1939-01-07|
+> |735  |DR-3 |1930-01-12|
+> |751  |DR-3 |1930-02-26|
+> |752  |DR-3 |-null-    |
+> |837  |MSK-4|1932-01-14|
+> |844  |DR-1 |1932-03-22|
 
 > **Survey**: the actual readings.
 > 
-> taken       person      quant       reading   
-> ----------  ----------  ----------  ----------
-> 619         dyer        rad         9.82      
-> 619         dyer        sal         0.13      
-> 622         dyer        rad         7.8       
-> 622         dyer        sal         0.09      
-> 734         pb          rad         8.41      
-> 734         lake        sal         0.05      
-> 734         pb          temp        -21.5     
-> 735         pb          rad         7.22      
-> 735         -null-      sal         0.06      
-> 735         -null-      temp        -26.0     
-> 751         pb          rad         4.35      
-> 751         pb          temp        -18.5     
-> 751         lake        sal         0.1       
-> 752         lake        rad         2.19      
-> 752         lake        sal         0.09      
-> 752         lake        temp        -16.0     
-> 752         roe         sal         41.6      
-> 837         lake        rad         1.46      
-> 837         lake        sal         0.21      
-> 837         roe         sal         22.5      
-> 844         roe         rad         11.25     
+> |taken|person|quant|reading|
+> |-----|------|-----|-------|
+> |619  |dyer  |rad  |9.82   |
+> |619  |dyer  |sal  |0.13   |
+> |622  |dyer  |rad  |7.8    |
+> |622  |dyer  |sal  |0.09   |
+> |734  |pb    |rad  |8.41   |
+> |734  |lake  |sal  |0.05   |
+> |734  |pb    |temp |-21.5  |
+> |735  |pb    |rad  |7.22   |
+> |735  |-null-|sal  |0.06   |
+> |735  |-null-|temp |-26.0  |
+> |751  |pb    |rad  |4.35   |
+> |751  |pb    |temp |-18.5  |
+> |751  |lake  |sal  |0.1    |
+> |752  |lake  |rad  |2.19   |
+> |752  |lake  |sal  |0.09   |
+> |752  |lake  |temp |-16.0  |
+> |752  |roe   |sal  |41.6   |
+> |837  |lake  |rad  |1.46   |
+> |837  |lake  |sal  |0.21   |
+> |837  |roe   |sal  |22.5   |
+> |844  |roe   |rad  |11.25  |
 
 Notice that three entries --- one in the `Visited` table,
 and two in the `Survey` table --- are shown in red
@@ -114,13 +114,13 @@ Our query and its output look like this:
 select family, personal from Person;
 ~~~
 
-family      personal  
-----------  ----------
-Dyer        William   
-Pabodie     Frank     
-Lake        Anderson  
-Roerich     Valentina 
-Danforth    Frank     
+|family  |personal |
+|--------|---------|
+|Dyer    |William  |
+|Pabodie |Frank    |
+|Lake    |Anderson |
+|Roerich |Valentina|
+|Danforth|Frank    |
 
 The semi-colon at the end of the query
 tells the database manager that the query is complete and ready to run.
@@ -134,13 +134,13 @@ SQL is **case insensitive**.
 SeLeCt FaMiLy, PeRsOnAl FrOm PeRsOn;
 ~~~
 
-family      personal  
-----------  ----------
-Dyer        William   
-Pabodie     Frank     
-Lake        Anderson  
-Roerich     Valentina 
-Danforth    Frank     
+|family  |personal |
+|--------|---------|
+|Dyer    |William  |
+|Pabodie |Frank    |
+|Lake    |Anderson |
+|Roerich |Valentina|
+|Danforth|Frank    |
 
 Whatever casing convention you choose,
 please be consistent:
@@ -158,13 +158,13 @@ we could swap the columns in the output by writing our query as:
 select personal, family from Person;
 ~~~
 
-personal    family    
-----------  ----------
-William     Dyer      
-Frank       Pabodie   
-Anderson    Lake      
-Valentina   Roerich   
-Frank       Danforth  
+|personal |family  |
+|---------|--------|
+|William  |Dyer    |
+|Frank    |Pabodie |
+|Anderson |Lake    |
+|Valentina|Roerich |
+|Frank    |Danforth|
 
 or even repeat columns:
 
@@ -172,13 +172,13 @@ or even repeat columns:
 select ident, ident, ident from Person;
 ~~~
 
-ident       ident       ident     
-----------  ----------  ----------
-dyer        dyer        dyer      
-pb          pb          pb        
-lake        lake        lake      
-roe         roe         roe       
-danforth    danforth    danforth
+|ident   |ident   |ident   |
+|--------|--------|--------|
+|dyer    |dyer    |dyer    |
+|pb      |pb      |pb      |
+|lake    |lake    |lake    |
+|roe     |roe     |roe     |
+|danforth|danforth|danforth|
 
 As a shortcut,
 we can select all of the columns in a table using `*`:
@@ -187,13 +187,13 @@ we can select all of the columns in a table using `*`:
 select * from Person;
 ~~~
 
-ident       personal    family    
-----------  ----------  ----------
-dyer        William     Dyer      
-pb          Frank       Pabodie   
-lake        Anderson    Lake      
-roe         Valentina   Roerich   
-danforth    Frank       Danforth  
+|ident   |personal |family  |
+|--------|---------|--------|
+|dyer    |William  |Dyer    |
+|pb      |Frank    |Pabodie |
+|lake    |Anderson |Lake    |
+|roe     |Valentina|Roerich |
+|danforth|Frank    |Danforth|
 
 > ## FIXME {.challenge}
 >

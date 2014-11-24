@@ -79,7 +79,7 @@
 </tr>
 <tr class="odd">
 <td align="left">837</td>
-<td align="left">MSK-4</td>
+<td align="left">MSK-</td>
 <td align="left">1932-01-14</td>
 </tr>
 <tr class="even">
@@ -140,7 +140,7 @@
 </tr>
 <tr class="even">
 <td align="left">837</td>
-<td align="left">MSK-4</td>
+<td align="left">MSK-</td>
 <td align="left">1932-01-14</td>
 </tr>
 <tr class="odd">
@@ -153,6 +153,7 @@
 <p>we get five, but record #752 isn't in either set of results. The reason is that <code>null&lt;'1930-00-00'</code> is neither true nor false: null means, &quot;We don't know,&quot; and if we don't know the value on the left side of a comparison, we don't know whether the comparison is true or false. Since databases represent &quot;don't know&quot; as null, the value of <code>null&lt;'1930-00-00'</code> is actually <code>null</code>. <code>null&gt;='1930-00-00'</code> is also null because we can't answer to that question either. And since the only records kept by a <code>where</code> are those for which the test is true, record #752 isn't included in either set of results.</p>
 <p>Comparisons aren't the only operations that behave this way with nulls. <code>1+null</code> is <code>null</code>, <code>5*null</code> is <code>null</code>, <code>log(null)</code> is <code>null</code>, and so on. In particular, comparing things to null with = and != produces null:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> * <span class="kw">from</span> Visited <span class="kw">where</span> dated=NULL;</code></pre>
+<p>produces no output, and neither does:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> * <span class="kw">from</span> Visited <span class="kw">where</span> dated!=NULL;</code></pre>
 <p>To check whether a value is <code>null</code> or not, we must use a special test <code>is null</code>:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> * <span class="kw">from</span> Visited <span class="kw">where</span> dated <span class="kw">is</span> <span class="kw">NULL</span>;</code></pre>
@@ -210,7 +211,7 @@
 </tr>
 <tr class="even">
 <td align="left">837</td>
-<td align="left">MSK-4</td>
+<td align="left">MSK-</td>
 <td align="left">1932-01-14</td>
 </tr>
 <tr class="odd">

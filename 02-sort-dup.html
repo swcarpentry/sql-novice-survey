@@ -36,12 +36,98 @@
 </div>
 <p>Data is often redundant, so queries often return redundant information. For example, if we select the quantitites that have been measured from the <code>survey</code> table, we get this:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> quant <span class="kw">from</span> Survey;</code></pre>
-<h2 id="quant">quant</h2>
-<p>rad<br />sal<br />rad<br />sal<br />rad<br />sal<br />temp<br />rad<br />sal<br />temp<br />rad<br />temp<br />sal<br />rad<br />sal<br />temp<br />sal<br />rad<br />sal<br />sal<br />rad</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">quant</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">rad</td>
+</tr>
+<tr class="even">
+<td align="left">sal</td>
+</tr>
+<tr class="odd">
+<td align="left">rad</td>
+</tr>
+<tr class="even">
+<td align="left">sal</td>
+</tr>
+<tr class="odd">
+<td align="left">rad</td>
+</tr>
+<tr class="even">
+<td align="left">sal</td>
+</tr>
+<tr class="odd">
+<td align="left">temp</td>
+</tr>
+<tr class="even">
+<td align="left">rad</td>
+</tr>
+<tr class="odd">
+<td align="left">sal</td>
+</tr>
+<tr class="even">
+<td align="left">temp</td>
+</tr>
+<tr class="odd">
+<td align="left">rad</td>
+</tr>
+<tr class="even">
+<td align="left">temp</td>
+</tr>
+<tr class="odd">
+<td align="left">sal</td>
+</tr>
+<tr class="even">
+<td align="left">rad</td>
+</tr>
+<tr class="odd">
+<td align="left">sal</td>
+</tr>
+<tr class="even">
+<td align="left">temp</td>
+</tr>
+<tr class="odd">
+<td align="left">sal</td>
+</tr>
+<tr class="even">
+<td align="left">rad</td>
+</tr>
+<tr class="odd">
+<td align="left">sal</td>
+</tr>
+<tr class="even">
+<td align="left">sal</td>
+</tr>
+<tr class="odd">
+<td align="left">rad</td>
+</tr>
+</tbody>
+</table>
 <p>We can eliminate the redundant output to make the result more readable by adding the <code>distinct</code> keyword to our query:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> <span class="kw">distinct</span> quant <span class="kw">from</span> Survey;</code></pre>
-<h2 id="quant-1">quant</h2>
-<p>rad<br />sal<br />temp</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">quant</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">rad</td>
+</tr>
+<tr class="even">
+<td align="left">sal</td>
+</tr>
+<tr class="odd">
+<td align="left">temp</td>
+</tr>
+</tbody>
+</table>
 <p>If we select more than one column --- for example, both the survey site ID and the quantity measured --- then the distinct pairs of values are returned:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> <span class="kw">distinct</span> taken, quant <span class="kw">from</span> Survey;</code></pre>
 <table>
@@ -143,7 +229,7 @@
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">danforth</td>
+<td align="left">danfort</td>
 <td align="left">Frank</td>
 <td align="left">Danforth</td>
 </tr>
@@ -201,7 +287,7 @@
 <td align="left">Dyer</td>
 </tr>
 <tr class="odd">
-<td align="left">danforth</td>
+<td align="left">danfort</td>
 <td align="left">Frank</td>
 <td align="left">Danforth</td>
 </tr>
