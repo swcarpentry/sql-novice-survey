@@ -70,13 +70,20 @@ subtitle: Reference
 ## Glossary
 
 aggregation function
-:   FIXME: definition
+:   A function that combines multiple values to produce a
+single new value (e.g. sum, mean, median).
 
 atomic
-:   FIXME: definition
+:   Describes a value *not* divisible into parts that one
+might want to work with separately. For example, if one
+wanted to work with first and last names separately, the
+values "Ada" and "Lovelace" would be atomic, but the value
+"Ada Lovelace" wouldn't.
 
 cascading delete
-:   FIXME: definition
+:   An SQL constraint requiring that if a given record is
+deleted, all records referencing it (via foreign key) in
+other tables must also be deleted.
 
 case insensitive
 :   FIXME: definition
