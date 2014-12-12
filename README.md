@@ -1,5 +1,5 @@
-Software Carpentry: Introduction to SQL
-=======================================
+sql-novice-survey
+=================
 
 First encounter with SQL using the Antarctic survey data as an example.
 
