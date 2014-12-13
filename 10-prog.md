@@ -4,7 +4,7 @@ title: Databases and SQL
 subtitle: Programming with Databases
 minutes: 20
 ---
-> ## Learning Objectives {.objectives}
+> ## Learning Objectives
 > 
 > *   Write short programs that execute SQL queries.
 > *   Trace the execution of a program that contains an SQL query.
@@ -29,7 +29,7 @@ results = cursor.fetchall()
 for r in results:
     print r
 cursor.close()
-connection.close()</code></pre>
+connection.close()
 ~~~
 ~~~ {.output}
 (-49.85, -128.57)

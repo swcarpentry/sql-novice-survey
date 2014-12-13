@@ -4,7 +4,7 @@ title: Databases and SQL
 subtitle: Selecting Data
 minutes: 30
 ---
-> ## Learning Objectives {.objectives}
+> ## Learning Objectives
 >
 > *   Explain the difference between a table, a record, and a field.
 > *   Explain the difference between a database and a database manager.

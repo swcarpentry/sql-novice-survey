@@ -4,7 +4,7 @@ title: Databases and SQL
 subtitle: Data Hygiene
 minutes: 30
 ---
-> ## Learning Objectives {.objectives}
+> ## Learning Objectives
 > 
 > *   FIXME
 

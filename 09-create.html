@@ -28,7 +28,7 @@
           <h1 class="title">Databases and SQL</h1>
           <h2 class="subtitle">Creating and Modifying Data</h2>
 <div id="learning-objectives" class="objectives">
-<h2>Learning Objectives</h2>
+<h2 id="learning-objectives" class="objectives">Learning Objectives</h2>
 <ul>
 <li>Write queries that creates tables.</li>
 <li>Write queries to insert, modify, and delete records.</li>
@@ -99,7 +99,7 @@
 <p>But what if we removed Anderson Lake instead? Our <code>Survey</code> table would still contain seven records of measurements he'd taken, but that's never supposed to happen: <code>Survey.person</code> is a foreign key into the <code>Person</code> table, and all our queries assume there will be a row in the latter matching every value in the former.</p>
 <p>This problem is called <strong>referential integrity</strong>: we need to ensure that all references between tables can always be resolved correctly. One way to do this is to delete all the records that use <code>'lake'</code> as a foreign key before deleting the record that uses it as a primary key. If our database manager supports it, we can automate this using <strong>cascading delete</strong>. However, this technique is outside the scope of this chapter.</p>
 <blockquote>
-<h2>Hybrid Storage Models</h2>
+<h2 id="hybrid-storage-models">Hybrid Storage Models</h2>
 <p>Many applications use a hybrid storage model instead of putting everything into a database: the actual data (such as astronomical images) is stored in files, while the database stores the files' names, their modification dates, the region of the sky they cover, their spectral characteristics, and so on. This is also how most music player software is built: the database inside the application keeps track of the MP3 files, but the files themselves live on disk.</p>
 </blockquote>
 <div id="fixme" class="challenge">
