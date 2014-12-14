@@ -54,9 +54,9 @@
 <li><p>Discussion of second challenge.</p></li>
 </ol>
 <hr />
-<h1 id="sqlite-setup">SQLite Setup</h1>
+<h2 id="sqlite-setup">SQLite Setup</h2>
 <p>This lesson will demonstrate how to install the example database to be used in the next chapters. To be able to follow the instructions, you need to know how to move around in your directory using the command line and how to execute commands from the command line. If you are not familiar with these topics, please read the <a href="http://software-carpentry.org/v5/novice/shell/index.html">Unix Shell guide</a>. In a later chapter, you will learn how to create and fill a database, but first we would like to demonstrate how an SQLite database works and therefore we provide the database up-front.</p>
-<h4 id="objectives">Objectives</h4>
+<h2 id="objectives">Objectives</h2>
 <ul>
 <li>Establish the example database to be used in the next chapters.</li>
 <li>Check that the database is available and which tables are to be found.</li>
@@ -65,57 +65,56 @@
 <p>In order to execute the following lessons interactively, please install SQLite as mentioned in the <a href="http://software-carpentry.org/v5/setup.html">setup instructions</a>.</p>
 <p>Then, generate a directory &quot;software_carpentry_sql&quot; at your chosen location, e.g.:</p>
 <ol style="list-style-type: decimal">
-<li>Open a command line terminal window.<br /></li>
-<li>Type</li>
+<li>Open a command line terminal window.</li>
+<li><p>Type</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">mkdir</span> ~/swc/sql</code></pre></li>
+<li><p>Change into that directory</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span> ~/swc/sql</code></pre></li>
 </ol>
-<pre class="in"><code>mkdir ~/swc/sql</code></pre>
-<ol start="3" style="list-style-type: decimal">
-<li>Change into that directory</li>
-</ol>
-<pre class="in"><code>cd ~/swc/sql</code></pre>
-<h3 id="how-to-download-the-gen-survey-database.sql-file-from-github">How to download the &quot;gen-survey-database.sql&quot; file from github</h3>
-<p>After changing into the &quot;~/swc/sql&quot; directory, from within the directory you will now download the SQL file &quot;gen-survey-database.sql&quot; located on github: https://github.com/swcarpentry/bc/blob/master/novice/sql/gen-survey-database.sql</p>
+<h2 id="how-to-download-the-gen-survey-database.sql-file-from-github">How to download the <code>gen-survey-database.sql</code> file from github</h2>
+<p>After changing into the <code>~/swc/sql</code> directory, from within the directory you will now download the SQL file <code>gen-survey-database.sql</code> located on github: https://github.com/swcarpentry/bc/blob/master/novice/sql/gen-survey-database.sql</p>
 <p>Since this file is within a git repository, you will pull the single file locally without cloning the entire git repo. For this purpose, you can use either <a href="http://en.wikipedia.org/wiki/Wget">GNU Wget</a>, a command-line web-crawler software that supports downloading via HTTP, HTTPS, and FTP protocols; or use <a href="http://en.wikipedia.org/wiki/CURL">cURL</a>, a library and command-line tool for transferring data using various protocols. Both these tools are cross-platform and are supported for various operating systems.</p>
 <p>After installing Wget (or cURL) locally, run the following command on your terminal:</p>
-<p><i>[Tip: If you prefer to use cURL, replace &quot;wget&quot; with &quot;curl -O&quot; in the following command.]</i></p>
-<pre class="in"><code>mom@durga:~/swc/sql$ wget https://raw.githubusercontent.com/swcarpentry/bc/master/novice/sql/gen-survey-database.sql</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">wget</span> https://raw.githubusercontent.com/swcarpentry/bc/master/novice/sql/gen-survey-database.sql</code></pre>
+<p>or</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">curl</span> -O https://raw.githubusercontent.com/swcarpentry/bc/master/novice/sql/gen-survey-database.sql</code></pre>
 <p>With the above command, Wget generates an HTTP request to pull the single raw file &quot;gen-survey-database.sql&quot; from github into your current directory and upon successful completion, your terminal will display the following output:</p>
-<pre class="in"><code>--2014-09-02 18:31:43--  https://raw.githubusercontent.com/swcarpentry/bc/master/novice/sql/gen-survey-database.sql
+<pre class="output"><code>--2014-09-02 18:31:43--  https://raw.githubusercontent.com/swcarpentry/bc/master/novice/sql/gen-survey-database.sql
 Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 103.245.222.133
 Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|103.245.222.133|:443... connected.
 HTTP request sent, awaiting response... 200 OK
 Length: 3297 (3.2K) [text/plain]
 Saving to: ‘gen-survey-database.sql’
 
-100%[=========================================================================================================================>] 3,297       --.-K/s   in 0.01s   
+100%[=========================================================================================================================&gt;] 3,297       --.-K/s   in 0.01s
 
 2014-09-02 18:31:45 (264 KB/s) - ‘gen-survey-database.sql’ saved [3297/3297]</code></pre>
 <p>Now that we have successfully pulled the single SQL file, lets generate the database &quot;survey.db&quot; and fill it according to the instructions with the data in &quot;gen-survey-database.sql&quot;. To call the SQLite3 program, from the command line terminal, execute the following command:</p>
-<pre class="in"><code>sqlite3 survey.db < gen-survey-database.sql</code></pre>
-<h3 id="connecting-and-testing-the-sqlite-db-installation">Connecting and testing the SQLite DB installation</h3>
+<pre class="in"><code>sqlite3 survey.db &lt; gen-survey-database.sql</code></pre>
+<h2 id="connecting-and-testing-the-sqlite-db-installation">Connecting and testing the SQLite DB installation</h2>
 <p>In order to connect to the created database, you need to start SQLite from within the folder where you have created the database. So, from within the &quot;~/swc/sql&quot; directory, type:</p>
 <pre class="in"><code>sqlite3 survey.db</code></pre>
 <p>The command &quot;sqlite3 survey.db&quot; opens the database itself and drops you into the database command line prompt. In SQLite a database is a flat file, which needs to be explicitly opened. SQLite is then started which is indicated by the change of the command line prompt to &quot;sqlite&quot;, as shown in the following output:</p>
-<pre class="in"><code>/novice/sql$ sqlite3 survey.db 
+<pre class="in"><code>/novice/sql$ sqlite3 survey.db
 SQLite version 3.7.15.2 2013-01-09 11:53:05
-Enter ".help" for instructions
-Enter SQL statements terminated with a ";"
-sqlite>  </code></pre>
+Enter &quot;.help&quot; for instructions
+Enter SQL statements terminated with a &quot;;&quot;
+sqlite&gt;</code></pre>
 <p>Let us check the list the names and files of attached databases with the command &quot;.databases&quot;, as shown in the following output:</p>
-<pre class="in"><code>sqlite> .databases
-seq  name             file                                                      
+<pre class="in"><code>sqlite&gt; .databases
+seq  name             file
 ---  ---------------  ----------------------------------------------------------
-0    main             ~/novice/sql/survey.db </code></pre>
+0    main             ~/novice/sql/survey.db</code></pre>
 <p>You can check that the necessary tables &quot;Person&quot;, &quot;Survey&quot;, &quot;Site&quot; and &quot;Visited&quot; exist by typing:</p>
 <pre class="in"><code>.tables</code></pre>
 <p>and the output of &quot;.tables&quot; would look like this:</p>
-<pre class="in"><code>sqlite> .tables
+<pre class="in"><code>sqlite&gt; .tables
 Person   Site     Survey   Visited</code></pre>
 <p>Now, you are done with the setup and you can proceed to the next lesson. You can conduct the following exercises in the current command line SQLite session. Since the IPython magic methods (the first rows in each command starting with %) will only work in an IPython notebook, you can omit them while using SQLite3 in the terminal. If you prefer to use the ipython notebook, you can quit SQLite3.</p>
-<h3 id="how-to-exit-the-sqlite3-db-command-line-interface-cli">How to exit the SQLite3 DB command line interface (CLI)</h3>
+<h2 id="how-to-exit-the-sqlite3-db-command-line-interface-cli">How to exit the SQLite3 DB command line interface (CLI)</h2>
 <p>To exit SQLite3, type:</p>
-<pre class="in"><code>sqlite> .quit</code></pre>
-<h3 id="how-to-use-the-ipython-notebook-instead-of-the-sqlite3-cli">How to use the IPython notebook instead of the SQLite3 CLI</h3>
+<pre class="in"><code>sqlite&gt; .quit</code></pre>
+<h2 id="how-to-use-the-ipython-notebook-instead-of-the-sqlite3-cli">How to use the IPython notebook instead of the SQLite3 CLI</h2>
 <p>If you prefer to use an IPython notebook to follow the examples, check if IPython is installed on your machine. If it is not installed, follow the <a href="http://ipython.org/install.html">installation instructions</a>.</p>
 <p>If IPython is already installed on your local machine, to open a notebook, type &quot;ipython notebook&quot; from within the ~/swc/sql folder.</p>
 <pre class="in"><code>~/swc/sql$ ipython notebook</code></pre>
