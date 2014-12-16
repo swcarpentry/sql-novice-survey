@@ -162,6 +162,26 @@ select * from Survey where quant="sal" and (person="lake" or person="roe");
 |837  |lake  |sal  |0.21   |
 |837  |roe   |sal  |22.5   |
 
+We can also filter by partial matches.  For example if we want to know something just about the site names beginning with "DR" we can use the `like` keyword.  The percent symbol acts as a wildcard, matching any characters in that place.  It can be used at the beginning, middle, or end of your string.  
+
+~~~ {.sql}
+select * from Visited where site like "DR%";
+~~~
+
+
+|ident|site |dated     | 
+|-----|-----|----------|
+|619  |DR-1 |1927-02-08|
+|622  |DR-1 |1927-02-10|
+|734  |DR-3 |1939-01-07|
+|735  |DR-3 |1930-01-12|
+|751  |DR-3 |1930-02-26|
+|752  |DR-3 |          |
+|844  |DR-1 |1932-03-22|
+
+
+
+
 Finally,
 we can use `distinct` with `where`
 to give a second level of filtering:
