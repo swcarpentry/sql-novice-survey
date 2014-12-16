@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <title>Software Carpentry: Databases and SQL</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
+    <meta charset="UTF-8" />
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="banner">
+        <a href="http://software-carpentry.org" title="Software Carpentry">
+          <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
+        </a>
+      </div>
+      <div class="row-fluid">
+        <div class="span10 offset1">
+          <h1 class="title">Databases and SQL</h1>
+          <h2 class="subtitle">Creating and Modifying Data</h2>
+<div id="learning-objectives" class="objectives">
+<h2>Learning Objectives</h2>
+<ul>
+<li>Write queries that creates tables.</li>
+<li>Write queries to insert, modify, and delete records.</li>
+</ul>
+</div>
+<p>So far we have only looked at how to get information out of a database, both because that is more frequent than adding information, and because most other operations only make sense once queries are understood. If we want to create and modify data, we need to know two other sets of commands.</p>
+<p>The first pair are <code>create table</code> and <code>drop table</code>. While they are written as two words, they are actually single commands. The first one creates a new table; its arguments are the names and types of the table's columns. For example, the following statements create the four tables in our survey database:</p>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">create</span> <span class="kw">table</span> Person(ident text, personal text, family text);
+<span class="kw">create</span> <span class="kw">table</span> Site(name text, lat <span class="dt">real</span>, <span class="dt">long</span> <span class="dt">real</span>);
+<span class="kw">create</span> <span class="kw">table</span> Visited(ident <span class="dt">integer</span>, site text, dated text);
+<span class="kw">create</span> <span class="kw">table</span> Survey(taken <span class="dt">integer</span>, person text, quant <span class="dt">real</span>, reading <span class="dt">real</span>);</code></pre>
+<p>We can get rid of one of our tables using:</p>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">drop</span> <span class="kw">table</span> Survey;</code></pre>
+<p>Be very careful when doing this: most databases have some support for undoing changes, but it's better not to have to rely on it.</p>
+<p>Different database systems support different data types for table columns, but most provide the following:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">data type</th>
+<th align="left">use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">integer</td>
+<td align="left">a signed integer</td>
+</tr>
+<tr class="even">
+<td align="left">real</td>
+<td align="left">a floating point number</td>
+</tr>
+<tr class="odd">
+<td align="left">text</td>
+<td align="left">a character string</td>
+</tr>
+<tr class="even">
+<td align="left">blob</td>
+<td align="left">a &quot;binary large object&quot;, such as an image</td>
+</tr>
+</tbody>
+</table>
+<p>Most databases also support Booleans and date/time values; SQLite uses the integers 0 and 1 for the former, and represents the latter as discussed <a href="#a:dates">earlier</a>. An increasing number of databases also support geographic data types, such as latitude and longitude. Keeping track of what particular systems do or do not offer, and what names they give different data types, is an unending portability headache.</p>
+<p>When we create a table, we can specify several kinds of constraints on its columns. For example, a better definition for the <code>Survey</code> table would be:</p>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">create</span> <span class="kw">table</span> Survey(
+    taken   <span class="dt">integer</span> <span class="kw">not</span> <span class="kw">null</span>, <span class="co">-- where reading taken</span>
+    person  text,             <span class="co">-- may not know who took it</span>
+    quant   <span class="dt">real</span> <span class="kw">not</span> <span class="kw">null</span>,    <span class="co">-- the quantity measured</span>
+    reading <span class="dt">real</span> <span class="kw">not</span> <span class="kw">null</span>,    <span class="co">-- the actual reading</span>
+    <span class="kw">primary</span> <span class="kw">key</span>(taken, quant),
+    <span class="kw">foreign</span> <span class="kw">key</span>(taken) <span class="kw">references</span> Visited(ident),
+    <span class="kw">foreign</span> <span class="kw">key</span>(person) <span class="kw">references</span> Person(ident)
+);</code></pre>
+<p>Once again, exactly what constraints are avialable and what they're called depends on which database manager we are using.</p>
+<p>Once tables have been created, we can add, change, and remove records using our other set of commands, <code>insert</code>, <code>update</code>, and <code>delete</code>.</p>
+<p>The simplest form of <code>insert</code> statement lists values in order:</p>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">insert</span> <span class="kw">into</span> Site <span class="kw">values</span>(<span class="st">&#39;DR-1&#39;</span>, -<span class="fl">49.85</span>, -<span class="fl">128.57</span>);
+<span class="kw">insert</span> <span class="kw">into</span> Site <span class="kw">values</span>(<span class="st">&#39;DR-3&#39;</span>, -<span class="fl">47.15</span>, -<span class="fl">126.72</span>);
+<span class="kw">insert</span> <span class="kw">into</span> Site <span class="kw">values</span>(<span class="st">&#39;MSK-4&#39;</span>, -<span class="fl">48.87</span>, -<span class="fl">123.40</span>);</code></pre>
+<p>We can also insert values into one table directly from another:</p>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">create</span> <span class="kw">table</span> JustLatLong(lat text, <span class="dt">long</span> text);
+<span class="kw">insert</span> <span class="kw">into</span> JustLatLong <span class="kw">select</span> lat, <span class="dt">long</span> <span class="kw">from</span> site;</code></pre>
+<p>Modifying existing records is done using the <code>update</code> statement. To do this we tell the database which table we want to update, what we want to change the values to for any or all of the fields, and under what conditions we should update the values.</p>
+<p>For example, if we made a mistake when entering the lat and long values of the last <code>insert</code> statement above:</p>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">update</span> Site <span class="kw">set</span> lat=-<span class="fl">47.87</span>, long=-<span class="fl">122.40</span> <span class="kw">where</span> name=<span class="st">&#39;MSK-4&#39;</span></code></pre>
+<p>Be care to not forget the <code>where</code> clause or the update statement will modify <em>all</em> of the records in the database.</p>
+<p>Deleting records can be a bit trickier, because we have to ensure that the database remains internally consistent. If all we care about is a single table, we can use the <code>delete</code> command with a <code>where</code> clause that matches the records we want to discard. For example, once we realize that Frank Danforth didn't take any measurements, we can remove him from the <code>Person</code> table like this:</p>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">delete</span> <span class="kw">from</span> Person <span class="kw">where</span> ident = <span class="ot">&quot;danforth&quot;</span>;</code></pre>
+<p>But what if we removed Anderson Lake instead? Our <code>Survey</code> table would still contain seven records of measurements he'd taken, but that's never supposed to happen: <code>Survey.person</code> is a foreign key into the <code>Person</code> table, and all our queries assume there will be a row in the latter matching every value in the former.</p>
+<p>This problem is called <strong>referential integrity</strong>: we need to ensure that all references between tables can always be resolved correctly. One way to do this is to delete all the records that use <code>'lake'</code> as a foreign key before deleting the record that uses it as a primary key. If our database manager supports it, we can automate this using <strong>cascading delete</strong>. However, this technique is outside the scope of this chapter.</p>
+<blockquote>
+<h2>Hybrid Storage Models</h2>
+<p>Many applications use a hybrid storage model instead of putting everything into a database: the actual data (such as astronomical images) is stored in files, while the database stores the files' names, their modification dates, the region of the sky they cover, their spectral characteristics, and so on. This is also how most music player software is built: the database inside the application keeps track of the MP3 files, but the files themselves live on disk.</p>
+</blockquote>
+<div id="fixme" class="challenge">
+<h2>FIXME</h2>
+<p>Write an SQL statement to replace all uses of <code>null</code> in <code>Survey.person</code> with the string <code>'unknown'</code>.</p>
+</div>
+<div id="fixme-1" class="challenge">
+<h2>FIXME</h2>
+<p>One of our colleagues has sent us a <strong>CSV</strong> file containing temperature readings by Robert Olmstead, which is formatted like this:</p>
+<pre class="output"><code>Taken,Temp
+619,-21.5
+622,-15.5</code></pre>
+<p>Write a small Python program that reads this file in and prints out the SQL <code>insert</code> statements needed to add these records to the survey database. Note: you will need to add an entry for Olmstead to the <code>Person</code> table. If you are testing your program repeatedly, you may want to investigate SQL's <code>insert or replace</code> command.</p>
+</div>
+<div id="fixme-2" class="challenge">
+<h2>FIXME</h2>
+<p>SQLite has several administrative commands that aren't part of the SQL standard. One of them is <code>.dump</code>, which prints the SQL commands needed to re-create the database. Another is <code>.load</code>, which reads a file created by <code>.dump</code> and restores the database. A colleague of yours thinks that storing dump files (which are text) in version control is a good way to track and manage changes to the database. What are the pros and cons of this approach? (Hint: records aren't stored in any particular order.)</p>
+</div>
+        </div>
+      </div>
+      <div class="footer">
+        <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Email</a>
+        <a class="label swc-blue-bg" href="http://github.com/swcarpentry">GitHub</a>
+        <a class="label swc-blue-bg" href="LICENSE.html">License</a>
+        <a class="bugreport label swc-blue-bg" href="mailto:admin@software-carpentry.org?subject=bug%20in%20{{page.path}}">Bug Report</a>
+      </div>
+    </div>
+    <!-- Javascript placed at the end of the document so the pages load faster -->
+    <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
+    <script src="http://software-carpentry.org/v5/js/bootstrap/bootstrap.min.js"></script>
+  </body>
+</html>

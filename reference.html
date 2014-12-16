@@ -27,40 +27,40 @@
         <div class="span10 offset1">
           <h1 class="title">Introduction to Databases and SQL</h1>
           <h2 class="subtitle">Reference</h2>
-<h2 id="selecting-data">Selecting Data</h2>
+<h2 id="selecting-data"><a href="01-select.html">Selecting Data</a></h2>
 <ul>
 <li>A relational database stores information in tables, each of which has a fixed set of columns and a variable number of records.</li>
 <li>A database manager is a program that manipulates information stored in a database.</li>
 <li>We write queries in a specialized language called SQL to extract information from databases.</li>
 <li>SQL is case-insensitive.</li>
 </ul>
-<h2 id="sorting-and-removing-duplicates">Sorting and Removing Duplicates</h2>
+<h2 id="sorting-and-removing-duplicates"><a href="02-sort-dup.html">Sorting and Removing Duplicates</a></h2>
 <ul>
 <li>The records in a database table are not intrinsically ordered: if we want to display them in some order, we must specify that explicitly.</li>
 <li>The values in a database are not guaranteed to be unique: if we want to eliminate duplicates, we must specify that explicitly as well.</li>
 </ul>
-<h2 id="filtering">Filtering</h2>
+<h2 id="filtering"><a href="03-filter.html">Filtering</a></h2>
 <ul>
 <li>Use <code>where</code> to filter records according to Boolean conditions.</li>
 <li>Filtering is done on whole records, so conditions can use fields that are not actually displayed.</li>
 </ul>
-<h2 id="calculating-new-values">Calculating New Values</h2>
+<h2 id="calculating-new-values"><a href="04-calc.htl">Calculating New Values</a></h2>
 <ul>
 <li>SQL can perform calculations using the values in a record as part of a query.</li>
 </ul>
-<h2 id="missing-data">Missing Data</h2>
+<h2 id="missing-data"><a href="05-null.html">Missing Data</a></h2>
 <ul>
 <li>Databases use <code>null</code> to represent missing information.</li>
 <li>Any arithmetic or Boolean operation involving <code>null</code> produces <code>null</code> as a result.</li>
 <li>The only operators that can safely be used with <code>null</code> are <code>is null</code> and <code>is not null</code>.</li>
 </ul>
-<h2 id="aggregation">Aggregation</h2>
+<h2 id="aggregation"><a href="06-agg.html">Aggregation</a></h2>
 <ul>
 <li>An aggregation function combines many values to produce a single new value.</li>
 <li>Aggregation functions ignore <code>null</code> values.</li>
 <li>Aggregation happens after filtering.</li>
 </ul>
-<h2 id="combining-data">Combining Data</h2>
+<h2 id="combining-data"><a href="07-join.html">Combining Data</a></h2>
 <ul>
 <li>Every fact should be represented in a database exactly once.</li>
 <li>A join produces all combinations of records from one table with records from another.</li>
@@ -69,29 +69,33 @@
 <li>We can eliminate meaningless combinations of records by matching primary keys and foreign keys between tables.</li>
 <li>Keys should be atomic values to make joins simpler and more efficient.</li>
 </ul>
-<h2 id="creating-and-modifying-data">Creating and Modifying Data</h2>
+<h2 id="data-hygiene"><a href="08-hygiene.html">Data Hygiene</a></h2>
+<ul>
+<li>FIXME</li>
+</ul>
+<h2 id="creating-and-modifying-data"><a href="09-create.html">Creating and Modifying Data</a></h2>
 <ul>
 <li>Database tables are created using queries that specify their names and the names and properties of their fields.</li>
 <li>Records can be inserted, updated, or deleted using queries.</li>
 <li>It is simpler and safer to modify data when every record has a unique primary key.</li>
 </ul>
-<h2 id="programming-with-databases">Programming with Databases</h2>
+<h2 id="programming-with-databases"><a href="10-prog.html">Programming with Databases</a></h2>
 <ul>
-<li><p>We usually write database applications in a general-purpose language, and embed SQL queries in it.</p></li>
-<li><p>To connect to a database, a program must use a library specific to that database manager.</p></li>
-<li><p>A program may open one or more connections to a single database, and have one or more cursors active in each.</p></li>
-<li><p>Programs can read query results in batches or all at once.</p></li>
+<li>We usually write database applications in a general-purpose language, and embed SQL queries in it.</li>
+<li>To connect to a database, a program must use a library specific to that database manager.</li>
+<li>A program may open one or more connections to a single database, and have one or more cursors active in each.</li>
+<li>Programs can read query results in batches or all at once.</li>
 </ul>
 <h2 id="glossary">Glossary</h2>
 <dl>
 <dt>aggregation function</dt>
-<dd>FIXME: definition
+<dd>A function that combines multiple values to produce a single new value (e.g. sum, mean, median).
 </dd>
 <dt>atomic</dt>
-<dd>FIXME: definition
+<dd>Describes a value <em>not</em> divisible into parts that one might want to work with separately. For example, if one wanted to work with first and last names separately, the values &quot;Ada&quot; and &quot;Lovelace&quot; would be atomic, but the value &quot;Ada Lovelace&quot; wouldn't.
 </dd>
 <dt>cascading delete</dt>
-<dd>FIXME: definition
+<dd>An SQL constraint requiring that if a given record is deleted, all records referencing it (via foreign key) in other tables must also be deleted.
 </dd>
 <dt>case insensitive</dt>
 <dd>FIXME: definition
