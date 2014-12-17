@@ -4,7 +4,7 @@ title: Databases and SQL
 subtitle: Filtering
 minutes: 30
 ---
-> ## Learning Objectives {.objectives}
+> ## Learning Objectives
 >
 > *   Write queries that select records that satisfy user-specified conditions.
 > *   Explain the order in which the clauses in a query are executed.

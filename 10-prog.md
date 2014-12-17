@@ -4,7 +4,7 @@ title: Databases and SQL
 subtitle: Programming with Databases
 minutes: 20
 ---
-> ## Learning Objectives {.objectives}
+> ## Learning Objectives
 > 
 > *   Write short programs that execute SQL queries.
 > *   Trace the execution of a program that contains an SQL query.
