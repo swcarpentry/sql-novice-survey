@@ -4,7 +4,7 @@ title: Databases and SQL
 subtitle: Aggregation
 minutes: 30
 ---
-> ## Learning Objectives {.objectives}
+> ## Learning Objectives
 > 
 > *   Define "aggregation" and give examples of its use.
 > *   Write queries that compute aggregated values.

@@ -4,7 +4,7 @@ title: Databases and SQL
 subtitle: Combining Data
 minutes: 30
 ---
-> ## Learning Objectives {.objectives}
+> ## Learning Objectives
 > 
 > *   Explain the operation of a query that joins two tables.
 > *   Explain how to restrict the output of a query containing a join to only include meaningful combinations of values.
