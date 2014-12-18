@@ -17,3 +17,6 @@ First encounter with SQL using the Antarctic survey data as an example.
 
 *   Run `sqlite3 survey.db < gen-survey-database.sql` to re-create
     survey database before loading notebooks.
+
+## Contributions
+*   Run `make preview` to regenerate HTML from markdown.
