@@ -95,6 +95,10 @@ Again,
 it's important to remember that rows aren't actually ordered:
 they're just displayed that way.
 
+> ## Challenge
+>
+> Write a query that selects distinct `site`s from the `Visited` table.
+
 As we mentioned earlier,
 database records are not stored in any particular order.
 This means that query results aren't necessarily sorted,
@@ -135,7 +139,7 @@ select * from person order by ident desc;
 
 (And if we want to make it clear that we're sorting in ascending order,
 we can use `asc` instead of `desc`.)
-  
+
 We can also sort on several fields at once.
 For example,
 this query sorts results first in ascending order by `taken`,
@@ -192,15 +196,8 @@ select distinct taken, person from Survey order by taken asc, person desc;
 |837  |lake  |
 |844  |roe   |
 
-> ## FIXME {.challenge}
->
-> Write a query that selects distinct dates from the `Site` table.
 
-> ## FIXME {.challenge}
->
-> Write a query that returns the distinct dates in the `Visited` table.
-
-> ## FIXME {.challenge}
+> ## Challenge
 >
 > Write a query that displays the full names of the scientists in the `Person` table,
 > ordered by family name.

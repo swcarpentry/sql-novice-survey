@@ -217,6 +217,10 @@
 </tbody>
 </table>
 <p>Notice in both cases that duplicates are removed even if they didn't appear to be adjacent in the database. Again, it's important to remember that rows aren't actually ordered: they're just displayed that way.</p>
+<div id="challenge" class="challenge">
+<h2>Challenge</h2>
+<p>Write a query that selects distinct <code>site</code>s from the <code>Visited</code> table.</p>
+</div>
 <p>As we mentioned earlier, database records are not stored in any particular order. This means that query results aren't necessarily sorted, and even if they are, we often want to sort them in a different way, e.g., by the name of the project instead of by the name of the scientist. We can do this in SQL by adding an <code>order by</code> clause to our query:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> * <span class="kw">from</span> Person <span class="kw">order</span> <span class="kw">by</span> ident;</code></pre>
 <table>
@@ -454,16 +458,8 @@
 </tr>
 </tbody>
 </table>
-<div id="fixme" class="challenge">
-<h2>FIXME</h2>
-<p>Write a query that selects distinct dates from the <code>Site</code> table.</p>
-</div>
-<div id="fixme-1" class="challenge">
-<h2>FIXME</h2>
-<p>Write a query that returns the distinct dates in the <code>Visited</code> table.</p>
-</div>
-<div id="fixme-2" class="challenge">
-<h2>FIXME</h2>
+<div id="challenge-1" class="challenge">
+<h2>Challenge</h2>
 <p>Write a query that displays the full names of the scientists in the <code>Person</code> table, ordered by family name.</p>
 </div>
         </div>
