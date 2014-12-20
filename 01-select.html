@@ -28,7 +28,7 @@
           <h1 class="title">Databases and SQL</h1>
           <h2 class="subtitle">Selecting Data</h2>
 <div id="learning-objectives" class="objectives">
-<h2>Learning Objectives</h2>
+<h2 id="learning-objectives" class="objectives">Learning Objectives</h2>
 <ul>
 <li>Explain the difference between a table, a record, and a field.</li>
 <li>Explain the difference between a database and a database manager.</li>
@@ -305,7 +305,7 @@
 </tbody>
 </table>
 </blockquote>
-<p>Notice that three entries --- one in the <code>Visited</code> table, and two in the <code>Survey</code> table --- are shown in red because they don't contain any actual data: we'll return to these missing values <a href="05-null.html">later</a>. For now, let's write an SQL query that displays scientists' names. We do this using the SQL command <code>select</code>, giving it the names of the columns we want and the table we want them from. Our query and its output look like this:</p>
+<p>Notice that three entries --- one in the <code>Visited</code> table, and two in the <code>Survey</code> table --- don't contain any actual data, but instead have a special <code>-null-</code> entry: we'll return to these missing values <a href="05-null.html">later</a>. For now, let's write an SQL query that displays scientists' names. We do this using the SQL command <code>select</code>, giving it the names of the columns we want and the table we want them from. Our query and its output look like this:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> family, personal <span class="kw">from</span> Person;</code></pre>
 <table>
 <thead>

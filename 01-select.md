@@ -101,8 +101,8 @@ The tables below show the database we will use in our examples:
 > |844  |roe   |rad  |11.25  |
 
 Notice that three entries --- one in the `Visited` table,
-and two in the `Survey` table --- are shown in red
-because they don't contain any actual data:
+and two in the `Survey` table --- don't contain any actual
+data, but instead have a special `-null-` entry:
 we'll return to these missing values [later](05-null.html).
 For now,
 let's write an SQL query that displays scientists' names.
