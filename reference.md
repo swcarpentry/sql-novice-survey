@@ -82,17 +82,17 @@ atomic
     "Ada Lovelace" wouldn't.
 
 cascading delete
-:   An SQL constraint requiring that if a given record is
-    deleted, all records referencing it (via foreign key) in
-    other tables must also be deleted.
+:   An [SQL](#sql) constraint requiring that if a given [record](#record-database) is
+    deleted, all records referencing it (via [foreign key](#foreign-key) in
+    other [tables](#table-database) must also be deleted.
 
-case insensitive
+case-insensitive
 :   Treating text as if upper and lower case characters of the same letter were the same.
-See also: [case sensitive](#case-sensitive).
+See also: [case-sensitive](#case-sensitive).
 
 case-sensitive
 :   Treating text as if upper and lower case characters of the same letter were different.
-See also: [case insensitive](#case-insensitive).
+See also: [case-insensitive](#case-insensitive).
 
 comma-separated values (CSV)
 :   A common textual representation for tables
@@ -118,13 +118,12 @@ they read data from [standard input](#standard-input),
 process it,
 and write the result to [standard output](#standard-output).
 
-foreign keys
-:   One or more values in a [database table](#table-database)
-that identify a [records](#record-database) in another table.
+foreign key
+:   A value in a [database table](#table-database)
+that identifies a [record](#record-database) in another table.
 
 prepared statement
 :   A template for an [SQL](#sql) query in which some values can be filled in.
-
 
 primary key
 :   One or more [fields](#field-database) in a [database table](#table-database)
