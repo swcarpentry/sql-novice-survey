@@ -95,7 +95,7 @@
 <dd>Describes a value <em>not</em> divisible into parts that one might want to work with separately. For example, if one wanted to work with first and last names separately, the values &quot;Ada&quot; and &quot;Lovelace&quot; would be atomic, but the value &quot;Ada Lovelace&quot; wouldn't.
 </dd>
 <dt><span id="cascading-delete">cascading delete</span></dt>
-<dd>An <a href="#sql">SQL</a> constraint requiring that if a given <a href="#record-database">record</a> is deleted, all records referencing it (via <a href="#foreign-key">foreign key</a> in other <a href="#table-database">tables</a> must also be deleted.
+<dd>An <a href="#sql">SQL</a> constraint requiring that if a given <a href="#record">record</a> is deleted, all records referencing it (via <a href="#foreign-key">foreign key</a> in other <a href="#table">tables</a> must also be deleted.
 </dd>
 <dt><span id="case-insensitive">case-insensitive</span></dt>
 <dd>Treating text as if upper and lower case characters of the same letter were the same. See also: <a href="#case-sensitive">case-sensitive</a>.
@@ -116,31 +116,31 @@
 <dd>A program that manages a <a href="#relational-database">relational database</a>.
 </dd>
 <dt><span id="field">field</span></dt>
-<dd>(of a database): a set of data values of a particular type, one for each <a href="#record-database">record</a> in a <a href="#table-database">table</a>.
+<dd>(of a database): a set of data values of a particular type, one for each <a href="#record">record</a> in a <a href="#table">table</a>.
 </dd>
 <dt><span id="filter">filter</span></dt>
 <dd>A program that transforms a stream of data. Many Unix command-line tools are written as filters: they read data from <a href="#standard-input">standard input</a>, process it, and write the result to <a href="#standard-output">standard output</a>.
 </dd>
 <dt><span id="foreign-key">foreign key</span></dt>
-<dd>A value in a <a href="#table-database">database table</a> that identifies a <a href="#record-database">record</a> in another table.
+<dd>A value in a <a href="#table">database table</a> that identifies a <a href="#record">record</a> in another table.
 </dd>
 <dt><span id="prepared-statement">prepared statement</span></dt>
 <dd>A template for an <a href="#sql">SQL</a> query in which some values can be filled in.
 </dd>
 <dt><span id="primary-key">primary key</span></dt>
-<dd>One or more <a href="#field-database">fields</a> in a <a href="#table-database">database table</a> whose values are guaranteed to be unique for each <a href="#record-database">record</a>, i.e., whose values uniquely identify the entry.
+<dd>One or more <a href="#field">fields</a> in a <a href="#table">database table</a> whose values are guaranteed to be unique for each <a href="#record">record</a>, i.e., whose values uniquely identify the entry.
 </dd>
 <dt><span id="query">query</span></dt>
 <dd>A database operation that reads values but does not modify anything. Queries are expressed in a special-purpose language called <a href="#sql">SQL</a>.
 </dd>
 <dt><span id="record">record</span></dt>
-<dd>A set of related values making up a single entry in a <a href="#table-database">database table</a>, typically shown as a row. See also: <a href="#field-database">field</a>.
+<dd>A set of related values making up a single entry in a <a href="#table">database table</a>, typically shown as a row. See also: <a href="#field">field</a>.
 </dd>
 <dt><span id="referential-integrity">referential integrity</span></dt>
-<dd>The internal consistency of values in a database. If an entry in one table contains a <a href="#foreign-key">foreign key</a>, but the corresponding <a href="#record-database">records</a> don't exist, referential integrity has been violated.
+<dd>The internal consistency of values in a database. If an entry in one table contains a <a href="#foreign-key">foreign key</a>, but the corresponding <a href="#record">records</a> don't exist, referential integrity has been violated.
 </dd>
 <dt><span id="relational-database">relational database</span></dt>
-<dd>A collection of data organized into <a href="#table-database">tables</a>.
+<dd>A collection of data organized into <a href="#table">tables</a>.
 </dd>
 <dt><span id="sentinel-value">sentinel value</span></dt>
 <dd>A value in a collection that has a special meaning, such as 999 to mean &quot;age unknown&quot;.
@@ -152,7 +152,7 @@
 <dd>An attack on a program in which the user's input contains malicious SQL statements. If this text is copied directly into an SQL statement, it will be executed in the database.
 </dd>
 <dt><span id="table">table</span></dt>
-<dd>(in a database): A set of data in a <a href="#relational-database">relational database</a> organized into a set of <a href="#record-database">records</a>, each having the same named <a href="#field-database">fields</a>.
+<dd>(in a database): A set of data in a <a href="#relational-database">relational database</a> organized into a set of <a href="#record">records</a>, each having the same named <a href="#field">fields</a>.
 </dd>
 </dl>
         </div>
