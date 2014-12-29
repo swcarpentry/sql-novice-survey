@@ -122,6 +122,10 @@ foreign key
 :   A value in a [database table](#table)
 that identifies a [record](#record) in another table.
 
+pipe
+:   A connection from the output of one program to the input of another.
+When two or more programs are connected in this way, they are called a "pipeline".
+
 prepared statement
 :   A template for an [SQL](#sql) query in which some values can be filled in.
 
@@ -163,6 +167,21 @@ SQL injection attack
 :   An attack on a program in which the user's input contains malicious SQL statements.
 If this text is copied directly into an SQL statement,
 it will be executed in the database.
+
+standard input
+:   A process's default input stream.
+In interactive command-line applications,
+it is typically connected to the keyboard;;
+in a [pipe](#pipe),
+it receives data from the [standard output](#standard-output) of the preceding process.
+
+standard output
+:   A process's default output stream.
+In interactive command-line applications,
+data sent to standard output is displayed on the screen;
+in a [pipe](#pipe),
+it is passed to the [standard input](#standard-input) of the next process.
+
 
 table
 :   (in a database):
