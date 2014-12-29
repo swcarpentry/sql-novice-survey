@@ -87,55 +87,86 @@ cascading delete
     other tables must also be deleted.
 
 case insensitive
-:   FIXME: definition
+:   Treating text as if upper and lower case characters of the same letter were the same.
+See also: [case sensitive](#case-sensitive).
 
-cross product
-:   FIXME: definition
+case-sensitive
+:   Treating text as if upper and lower case characters of the same letter were different.
+See also: [case insensitive](#case-insensitive).
 
 comma-separated values (CSV)
-:   FIXME: definition
+:   A common textual representation for tables
+in which the values in each row are separated by commas.
+
+cross product
+:   A pairing of all elements of one set with all elements of another.
 
 cursor
-:   FIXME: definition
+:   A pointer into a database that keeps track of outstanding operations.
 
 database manager
-:   FIXME: definition
+:   A program that manages a [relational database](#relational-database).
 
-fields
-:   FIXME: definition
+field
+:   (of a database): a set of data values of a particular type,
+one for each [record](#record-database) in a [table](#table-database).
 
 filter
-:   FIXME: definition
+:   A program that transforms a stream of data.
+Many Unix command-line tools are written as filters:
+they read data from [standard input](#standard-input),
+process it,
+and write the result to [standard output](#standard-output).
 
 foreign keys
-:   FIXME: definition
+:   One or more values in a [database table](#table-database)
+that identify a [records](#record-database) in another table.
 
 prepared statement
-:   FIXME: definition
+:   A template for an [SQL](#sql) query in which some values can be filled in.
 
-primary keys
-:   FIXME: definition
 
-queries
-:   FIXME: definition
+primary key
+:   One or more [fields](#field-database) in a [database table](#table-database)
+whose values are guaranteed to be unique for each [record](#record-database),
+i.e.,
+whose values uniquely identify the entry.
 
-records
-:   FIXME: definition
+query
+:   A database operation that reads values but does not modify anything.
+Queries are expressed in a special-purpose language called [SQL](#sql).
+
+record
+:   A set of related values making up a single entry in a [database table](#table-database),
+typically shown as a row.
+See also: [field](#field-database).
+
 
 referential integrity
-:   FIXME: definition
+:   The internal consistency of values in a database.
+If an entry in one table contains a [foreign key](#foreign-key),
+but the corresponding [records](#record-database) don't exist,
+referential integrity has been violated.
 
 relational database
-:   FIXME: definition
+:   A collection of data organized into [tables](#table-database).
 
 sentinel value
-:   FIXME: definition
+:   A value in a collection that has a special meaning,
+such as 999 to mean "age unknown".
+
 
 SQL
-:   FIXME: definition
+:   (Structured Query Language):
+A special-purpose language for describing operations on [relational databases](#relational-database).
 
 SQL injection attack
-:   FIXME: definition
+:   An attack on a program in which the user's input contains malicious SQL statements.
+If this text is copied directly into an SQL statement,
+it will be executed in the database.
 
-tables
-:   FIXME: definition
+table
+:   (in a database):
+A set of data in a [relational database](#relational-database)
+organized into a set of [records](#record-database),
+each having the same named [fields](#field-database).
