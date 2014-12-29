@@ -88,15 +88,15 @@ cascading delete
 
 case-insensitive
 :   Treating text as if upper and lower case characters of the same letter were the same.
-See also: [case-sensitive](#case-sensitive).
+    See also: [case-sensitive](#case-sensitive).
 
 case-sensitive
 :   Treating text as if upper and lower case characters of the same letter were different.
-See also: [case-insensitive](#case-insensitive).
+    See also: [case-insensitive](#case-insensitive).
 
 comma-separated values (CSV)
 :   A common textual representation for tables
-in which the values in each row are separated by commas.
+    in which the values in each row are separated by commas.
 
 cross product
 :   A pairing of all elements of one set with all elements of another.
@@ -109,61 +109,59 @@ database manager
 
 field
 :   (of a database): a set of data values of a particular type,
-one for each [record](#record) in a [table](#table).
+    one for each [record](#record) in a [table](#table).
 
 filter
 :   CHECKME (in a database):
-To select only those [records](#record) that match certain criteria.
+    To select only those [records](#record) that match certain criteria.
 
 foreign key
 :   A value in a [database table](#table)
-that identifies a [record](#record) in another table.
+    that identifies a [record](#record) in another table.
 
 prepared statement
 :   A template for an [SQL](#sql) query in which some values can be filled in.
 
 primary key
 :   One or more [fields](#field) in a [database table](#table)
-whose values are guaranteed to be unique for each [record](#record),
-i.e.,
-whose values uniquely identify the entry.
+    whose values are guaranteed to be unique for each [record](#record),
+    i.e., whose values uniquely identify the entry.
 
 query
 :   A database operation that reads values but does not modify anything.
-Queries are expressed in a special-purpose language called [SQL](#sql).
+    Queries are expressed in a special-purpose language called [SQL](#sql).
 
 record
 :   A set of related values making up a single entry in a [database table](#table),
-typically shown as a row.
-See also: [field](#field).
+    typically shown as a row. See also: [field](#field).
 
 
 referential integrity
 :   The internal consistency of values in a database.
-If an entry in one table contains a [foreign key](#foreign-key),
-but the corresponding [records](#record) don't exist,
-referential integrity has been violated.
+    If an entry in one table contains a [foreign key](#foreign-key),
+    but the corresponding [records](#record) don't exist,
+    referential integrity has been violated.
 
 relational database
 :   A collection of data organized into [tables](#table).
 
 sentinel value
 :   A value in a collection that has a special meaning,
-such as 999 to mean "age unknown".
+    such as 999 to mean "age unknown".
 
 
 SQL
 :   (Structured Query Language):
-A special-purpose language for describing operations on [relational databases](#relational-database).
+    A special-purpose language for describing operations on [relational databases](#relational-database).
 
 SQL injection attack
 :   An attack on a program in which the user's input contains malicious SQL statements.
-If this text is copied directly into an SQL statement,
-it will be executed in the database.
+    If this text is copied directly into an SQL statement,
+    it will be executed in the database.
 
 
 table
 :   (in a database):
-A set of data in a [relational database](#relational-database)
-organized into a set of [records](#record),
-each having the same named [fields](#field).
+    A set of data in a [relational database](#relational-database)
+    organized into a set of [records](#record),
+    each having the same named [fields](#field).
