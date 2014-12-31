@@ -48,6 +48,7 @@ behind its running example).
 
 *   `code/gen-survey-database.sql`: re-generate survey database used in examples.
 *   `code/sqlitemagic.py`: IPython Notebook plugin to handle SQLite databases.
+*   `code/buildDB.py`: generates a database file for use with the python + sql lesson.
 *   `data/*.csv`: CSV versions of data in sample survey database.
 
 ## Notes

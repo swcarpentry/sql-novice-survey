@@ -15,7 +15,7 @@ cursor.execute("create table if not exists Survey(taken integer, person text, qu
 
 #define table population routine:
 def populate(tableName, columnNames, nCols, dbConnection):
-        fileName = tableName + '.csv'
+        fileName = '../data/' + tableName + '.csv'
 
         csvReader = csv.reader(open(fileName), delimiter=',', quotechar='"')
 
