@@ -28,7 +28,7 @@
           <h1 class="title">Databases and SQL</h1>
           <h2 class="subtitle">Missing Data</h2>
 <div id="learning-objectives" class="objectives">
-<h2>Learning Objectives</h2>
+<h2 id="learning-objectives" class="objectives">Learning Objectives</h2>
 <ul>
 <li>Explain how databases represent missing information.</li>
 <li>Explain the three-valued logic databases use when manipulating missing information.</li>
@@ -221,7 +221,7 @@
 </tr>
 </tbody>
 </table>
-<p>Null values cause headaches wherever they appear. For example, suppose we want to find all the salinity measurements that weren't taken by Dyer. It's natural to write the query like this:</p>
+<p>Null values can cause headaches wherever they appear. For example, suppose we want to find all the salinity measurements that weren't taken by Lake. It's natural to write the query like this:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> * <span class="kw">from</span> Survey <span class="kw">where</span> quant=<span class="ot">&quot;sal&quot;</span> <span class="kw">and</span> person!=<span class="ot">&quot;lake&quot;</span>;</code></pre>
 <table>
 <thead>
@@ -304,20 +304,16 @@
 </tbody>
 </table>
 <p>We still have to decide whether this is the right thing to do or not. If we want to be absolutely sure that we aren't including any measurements by Lake in our results, we need to exclude all the records for which we don't know who did the work.</p>
-<div id="fixme" class="challenge">
-<h2>FIXME</h2>
-<p>Write a query that sorts the records in <code>Visited</code> by date, omitting entries for which the date is not known (i.e., is null).</p>
-</div>
-<div id="fixme-1" class="challenge">
-<h2>FIXME</h2>
-<p>What do you expect the query:</p>
-<pre><code>select * from Visited where dated in (&#39;1927-02-08&#39;, null);</code></pre>
-<p>to produce? What does it actually produce?</p>
-</div>
-<div id="fixme-2" class="challenge">
-<h2>FIXME</h2>
-<p>Some database designers prefer to use a <strong>sentinel value</strong>) to mark missing data rather than <code>null</code>. For example, they will use the date &quot;0000-00-00&quot; to mark a missing date, or -1.0 to mark a missing salinity or radiation reading (since actual readings cannot be negative). What does this simplify? What burdens or risks does it introduce?</p>
-</div>
+<p>In contrast to arithmetic or Boolean operators, aggregation functions that combine multiple values, such as <code>min</code>, <code>max</code> or <code>avg</code>, <em>ignore</em> <code>null</code> values. In the majority of cases, this is a desirable output: for example, unknown values are thus not affecting our data when we are averaging it. Aggregation functions will be addressed in more detail in <a href="06-agg.html">the next section</a>.</p>
+<h2 id="challenges" class="challenge">Challenges</h2>
+<ol style="list-style-type: decimal">
+<li><p>Write a query that sorts the records in <code>Visited</code> by date, omitting entries for which the date is not known (i.e., is <code>null</code>).</p></li>
+<li><p>What do you expect following query to produce:</p>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> * <span class="kw">from</span> Visited <span class="kw">where</span> dated <span class="kw">in</span> (<span class="st">&#39;1927-02-08&#39;</span>, <span class="kw">null</span>);</code></pre>
+<p>What does it actually produce?</p></li>
+<li><p>Some database designers prefer to use a <strong>sentinel value</strong> to mark missing data rather than <code>null</code>. For example, they will use the date &quot;0000-00-00&quot; to mark a missing date, or -1.0 to mark a missing salinity or radiation reading (since actual readings cannot be negative).</p>
+<p>What does this simplify? What burdens or risks does it introduce?</p></li>
+</ol>
         </div>
       </div>
       <div class="footer">

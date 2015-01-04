@@ -127,10 +127,10 @@ select * from Visited where dated is not NULL;
 |837  |MSK-|1932-01-14|
 |844  |DR-1|1932-03-22|
 
-Null values cause headaches wherever they appear.
+Null values can cause headaches wherever they appear.
 For example,
 suppose we want to find all the salinity measurements
-that weren't taken by Dyer.
+that weren't taken by Lake.
 It's natural to write the query like this:
 
 ~~~ {.sql}
@@ -170,31 +170,19 @@ If we want to be absolutely sure that
 we aren't including any measurements by Lake in our results,
 we need to exclude all the records for which we don't know who did the work.
 
-> ## FIXME {.challenge}
->
-> Write a query that sorts the records in `Visited` by date,
-> omitting entries for which the date is not known
-> (i.e., is null).
+In contrast to arithmetic or Boolean operators, aggregation functions that combine multiple values, such as `min`, `max` or `avg`, *ignore* `null` values. In the majority of cases, this is a desirable output: for example, unknown values are thus not affecting our data when we are averaging it. Aggregation functions will be addressed in more detail in [the next section](06-agg.html).
 
-> ## FIXME {.challenge}
->
-> What do you expect the query:
->
-> ~~~
-> select * from Visited where dated in ('1927-02-08', null);
-> ~~~
->
-> to produce?
-> What does it actually produce?
+## Challenges {.challenge}
+1. Write a query that sorts the records in `Visited` by date, omitting entries for which the date is not known (i.e., is `null`).
 
-> ## FIXME {.challenge}
->
-> Some database designers prefer to use
-> a **sentinel value**)
-> to mark missing data rather than `null`.
-> For example,
-> they will use the date "0000-00-00" to mark a missing date,
-> or -1.0 to mark a missing salinity or radiation reading
-> (since actual readings cannot be negative).
-> What does this simplify?
-> What burdens or risks does it introduce?
+1. What do you expect following query to produce:
+
+	~~~  {.sql}
+	select * from Visited where dated in ('1927-02-08', null);
+	~~~
+
+	What does it actually produce?
+
+1. Some database designers prefer to use a **sentinel value** to mark missing data rather than `null`. For example, they will use the date "0000-00-00" to mark a missing date, or -1.0 to mark a missing salinity or radiation reading (since actual readings cannot be negative). 
+
+	What does this simplify? What burdens or risks does it introduce?
