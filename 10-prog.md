@@ -117,7 +117,7 @@ If we insert this string into our query,
 the result is:
 
 ~~~ {.sql}
-select personal || ' ' || family from Person where ident='dyer'; drop tale Survey; select '';
+select personal || ' ' || family from Person where ident='dyer'; drop table Survey; select '';
 ~~~
 
 If we execute this,
