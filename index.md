@@ -27,7 +27,7 @@ they don't handle large or complex data sets very well.
 We would therefore like to put this data in a database,
 and these lessons will show how to do that.
 
-> ## Prerequisites
+> ## Prerequisites {.prereq}
 >
 > FIXME
 > A short paragraph describing what learners need to know
