@@ -54,6 +54,20 @@
 <li><p>Discussion of second challenge.</p></li>
 </ol>
 <hr />
+<h2 id="time-estimates">Time Estimates</h2>
+<ul>
+<li><span class="citation">@tomwright01</span>: 3 hours</li>
+</ul>
+<h2 id="resources">Resources</h2>
+<ul>
+<li><code>code/gen-survey-database.sql</code>: re-generate survey database used in examples.</li>
+<li><code>code/sqlitemagic.py</code>: IPython Notebook plugin to handle SQLite databases.</li>
+<li><code>data/*.csv</code>: CSV versions of data in sample survey database.</li>
+</ul>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>Run <code>sqlite3 survey.db &lt; gen-survey-database.sql</code> to re-create survey database before loading notebooks.</li>
+</ul>
 <h1 id="sqlite-setup">SQLite Setup</h1>
 <p>This lesson will demonstrate how to install the example database to be used in the next chapters. To be able to follow the instructions, you need to know how to move around in your directory using the command line and how to execute commands from the command line. If you are not familiar with these topics, please read the <a href="http://software-carpentry.org/v5/novice/shell/index.html">Unix Shell guide</a>. In a later chapter, you will learn how to create and fill a database, but first we would like to demonstrate how an SQLite database works and therefore we provide the database up-front.</p>
 <h4 id="objectives">Objectives</h4>
@@ -123,10 +137,10 @@ Person   Site     Survey   Visited</code></pre>
         </div>
       </div>
       <div class="footer">
-        <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Email</a>
-        <a class="label swc-blue-bg" href="http://github.com/swcarpentry">GitHub</a>
+        <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
+        <a class="label swc-blue-bg" href="https://github.com/swcarpentry/sql-novice-survey">Source</a>
+        <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Contact</a>
         <a class="label swc-blue-bg" href="LICENSE.html">License</a>
-        <a class="bugreport label swc-blue-bg" href="mailto:admin@software-carpentry.org?subject=bug%20in%20{{page.path}}">Bug Report</a>
       </div>
     </div>
     <!-- Javascript placed at the end of the document so the pages load faster -->
