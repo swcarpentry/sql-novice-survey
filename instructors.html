@@ -27,33 +27,18 @@
         <div class="span10 offset1">
           <h1 class="title">Lesson Title</h1>
           <h2 class="subtitle">Instructor's Guide</h2>
-<h2 id="legend">Legend</h2>
-<p>One or more paragraphs laying out the lesson's legend (i.e., the story behind its running example).</p>
-<h2 id="overall">Overall</h2>
+<p>Relational databases are not as widely used in science as in business, but they are still a common way to store large data sets with complex structure. Even when the data itself isn't in a database, the metadata could be: for example, meteorological data might be stored in files on disk, but data about when and where observations were made, data ranges, and so on could be in a database to make it easier for scientists to find what they want to.</p>
 <ul>
-<li><p>FIXME</p></li>
-<li><p>FIXME</p></li>
-</ul>
-<h2 id="topic-title-one"><a href="01-one.html">Topic Title One</a></h2>
-<ul>
-<li><p>Point</p></li>
-<li><p>Point</p></li>
-<li><p>Be sure to describe what learners are expected to do during the topic (watch, type along, pair program, etc.)</p></li>
-</ul>
+<li><p>The first few sections (up to &quot;Missing Data&quot;) usually go very quickly. The pace usually slows down a bit when null values are discussed mostly because learners have a lot of details to keep straight by this point. Things <em>really</em> slow down during the discussion of joins, but this is the key idea in the whole lesson: important ideas like primary keys and referential integrity only make sense once learners have seen how they're used in joins. It's worth going over things a couple of times if necessary (with lots of examples).</p></li>
+<li><p>The sections on creating and modifying data, and programming with databases, can be dropped if time is short. Of the two, people seem to care most about how to add data (which only takes a few minutes to demonstrate).</p></li>
+<li><p>Simple calculations are actually easier to do in a spreadsheet; the advantages of using a database become clear as soon as filtering and joins are needed. Instructors may therefore want to show a spreadsheet with the information from the four database tables consolidated into a single sheet, and demonstrate what's needed in both systems to answer questions like, &quot;What was the average radiation reading in 1931?&quot;</p></li>
+<li>Some advanced learners may have heard that NoSQL databases (i.e., ones that don't use the relational model) are the next big thing, and ask why we're not teaching those. The answers are:
 <ol style="list-style-type: decimal">
-<li><p>Discussion of first challenge.</p></li>
-<li><p>Discussion of second challenge.</p></li>
-</ol>
-<h2 id="topic-title-two"><a href="02-two.html">Topic Title Two</a></h2>
-<ul>
-<li><p>Point</p></li>
-<li><p>Point</p></li>
+<li>Relational databases are far more widely used than NoSQL databases.</li>
+<li>We have far more experience with relational databases than with any other kind, so we have a better idea of what to teach and how to teach it.</li>
+<li>NoSQL databases are as different from each other as they are from relational databases. Until a leader emerges, it isn't clear <em>which</em> NoSQL database we should teach.</li>
+</ol></li>
 </ul>
-<ol style="list-style-type: decimal">
-<li><p>Discussion of first challenge.</p></li>
-<li><p>Discussion of second challenge.</p></li>
-</ol>
-<hr />
 <h2 id="time-estimates">Time Estimates</h2>
 <ul>
 <li><span class="citation">@tomwright01</span>: 3 hours</li>
@@ -64,76 +49,30 @@
 <li><code>code/sqlitemagic.py</code>: IPython Notebook plugin to handle SQLite databases.</li>
 <li><code>data/*.csv</code>: CSV versions of data in sample survey database.</li>
 </ul>
-<h2 id="notes">Notes</h2>
-<ul>
-<li>Run <code>sqlite3 survey.db &lt; gen-survey-database.sql</code> to re-create survey database before loading notebooks.</li>
-</ul>
-<h1 id="sqlite-setup">SQLite Setup</h1>
-<p>This lesson will demonstrate how to install the example database to be used in the next chapters. To be able to follow the instructions, you need to know how to move around in your directory using the command line and how to execute commands from the command line. If you are not familiar with these topics, please read the <a href="http://software-carpentry.org/v5/novice/shell/index.html">Unix Shell guide</a>. In a later chapter, you will learn how to create and fill a database, but first we would like to demonstrate how an SQLite database works and therefore we provide the database up-front.</p>
-<h4 id="objectives">Objectives</h4>
-<ul>
-<li>Establish the example database to be used in the next chapters.</li>
-<li>Check that the database is available and which tables are to be found.</li>
-</ul>
-<h2 id="installation">Installation</h2>
-<p>In order to execute the following lessons interactively, please install SQLite as mentioned in the <a href="http://software-carpentry.org/v5/setup.html">setup instructions</a>.</p>
-<p>Then, generate a directory &quot;software_carpentry_sql&quot; at your chosen location, e.g.:</p>
-<ol style="list-style-type: decimal">
-<li>Open a command line terminal window.<br /></li>
-<li>Type</li>
-</ol>
-<pre class="in"><code>mkdir ~/swc/sql</code></pre>
-<ol start="3" style="list-style-type: decimal">
-<li>Change into that directory</li>
-</ol>
-<pre class="in"><code>cd ~/swc/sql</code></pre>
-<h3 id="how-to-download-the-gen-survey-database.sql-file-from-github">How to download the &quot;gen-survey-database.sql&quot; file from github</h3>
-<p>After changing into the &quot;~/swc/sql&quot; directory, from within the directory you will now download the SQL file &quot;gen-survey-database.sql&quot; located on github: https://github.com/swcarpentry/bc/blob/master/novice/sql/gen-survey-database.sql</p>
-<p>Since this file is within a git repository, you will pull the single file locally without cloning the entire git repo. For this purpose, you can use either <a href="http://en.wikipedia.org/wiki/Wget">GNU Wget</a>, a command-line web-crawler software that supports downloading via HTTP, HTTPS, and FTP protocols; or use <a href="http://en.wikipedia.org/wiki/CURL">cURL</a>, a library and command-line tool for transferring data using various protocols. Both these tools are cross-platform and are supported for various operating systems.</p>
-<p>After installing Wget (or cURL) locally, run the following command on your terminal:</p>
-<p><i>[Tip: If you prefer to use cURL, replace &quot;wget&quot; with &quot;curl -O&quot; in the following command.]</i></p>
-<pre class="in"><code>mom@durga:~/swc/sql$ wget https://raw.githubusercontent.com/swcarpentry/bc/master/novice/sql/gen-survey-database.sql</code></pre>
-<p>With the above command, Wget generates an HTTP request to pull the single raw file &quot;gen-survey-database.sql&quot; from github into your current directory and upon successful completion, your terminal will display the following output:</p>
-<pre class="in"><code>--2014-09-02 18:31:43--  https://raw.githubusercontent.com/swcarpentry/bc/master/novice/sql/gen-survey-database.sql
-Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 103.245.222.133
-Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|103.245.222.133|:443... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 3297 (3.2K) [text/plain]
-Saving to: ‘gen-survey-database.sql’
-
-100%[=========================================================================================================================>] 3,297       --.-K/s   in 0.01s   
-
-2014-09-02 18:31:45 (264 KB/s) - ‘gen-survey-database.sql’ saved [3297/3297]</code></pre>
-<p>Now that we have successfully pulled the single SQL file, lets generate the database &quot;survey.db&quot; and fill it according to the instructions with the data in &quot;gen-survey-database.sql&quot;. To call the SQLite3 program, from the command line terminal, execute the following command:</p>
-<pre class="in"><code>sqlite3 survey.db < gen-survey-database.sql</code></pre>
-<h3 id="connecting-and-testing-the-sqlite-db-installation">Connecting and testing the SQLite DB installation</h3>
-<p>In order to connect to the created database, you need to start SQLite from within the folder where you have created the database. So, from within the &quot;~/swc/sql&quot; directory, type:</p>
-<pre class="in"><code>sqlite3 survey.db</code></pre>
-<p>The command &quot;sqlite3 survey.db&quot; opens the database itself and drops you into the database command line prompt. In SQLite a database is a flat file, which needs to be explicitly opened. SQLite is then started which is indicated by the change of the command line prompt to &quot;sqlite&quot;, as shown in the following output:</p>
-<pre class="in"><code>/novice/sql$ sqlite3 survey.db 
-SQLite version 3.7.15.2 2013-01-09 11:53:05
-Enter ".help" for instructions
-Enter SQL statements terminated with a ";"
-sqlite>  </code></pre>
-<p>Let us check the list the names and files of attached databases with the command &quot;.databases&quot;, as shown in the following output:</p>
-<pre class="in"><code>sqlite> .databases
-seq  name             file                                                      
----  ---------------  ----------------------------------------------------------
-0    main             ~/novice/sql/survey.db </code></pre>
-<p>You can check that the necessary tables &quot;Person&quot;, &quot;Survey&quot;, &quot;Site&quot; and &quot;Visited&quot; exist by typing:</p>
-<pre class="in"><code>.tables</code></pre>
-<p>and the output of &quot;.tables&quot; would look like this:</p>
-<pre class="in"><code>sqlite> .tables
-Person   Site     Survey   Visited</code></pre>
-<p>Now, you are done with the setup and you can proceed to the next lesson. You can conduct the following exercises in the current command line SQLite session. Since the IPython magic methods (the first rows in each command starting with %) will only work in an IPython notebook, you can omit them while using SQLite3 in the terminal. If you prefer to use the ipython notebook, you can quit SQLite3.</p>
-<h3 id="how-to-exit-the-sqlite3-db-command-line-interface-cli">How to exit the SQLite3 DB command line interface (CLI)</h3>
+<h2 id="sqlite-setup">SQLite Setup</h2>
+<p>In order to do these lessons, you will need to have the database they rely on. To create it, download the SQL file <code>code/gen-survey-database.sql</code> from this repository. You can get this file without cloning this lesson's GitHub repository by clicking on the link below and save the file to your local machine:</p>
+<p><a href="https://raw.githubusercontent.com/swcarpentry/sqlite-novice-survey/gh-pages/code/gen-survey-database.sql" class="uri">https://raw.githubusercontent.com/swcarpentry/sqlite-novice-survey/gh-pages/code/gen-survey-database.sql</a></p>
+<p>Once you have the file, you can create the database <code>survey.db</code> like this:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">sqlite3</span> survey.db <span class="kw">&lt;</span> gen-survey-database.sql</code></pre>
+<p>In order to connect to the created database, you need to start SQLite <em>from within the folder that contains the database file <code>survey.db</code></em>. To do this, type:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">sqlite3</span> survey.db</code></pre>
+<p>This command opens the database itself and drops you into the database command line prompt:</p>
+<pre><code>SQLite version 3.7.15.2 2013-01-09 11:53:05
+Enter &quot;.help&quot; for instructions
+Enter SQL statements terminated with a &quot;;&quot;
+sqlite&gt;</code></pre>
+<p>You can check that you are connected to the right database like this:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sqlite&gt;</span> .databases
+<span class="kw">seq</span>  name             file                                                      
+<span class="kw">---</span>  ---------------  ----------------------------------------------------------
+<span class="kw">0</span>    main             ~/survey.db</code></pre>
+<p>(Note that the path shown under <code>file</code> will probably be different on your machine.) You can check that the necessary tables <code>Person</code>, <code>Survey</code>, <code>Site</code> and <code>Visited</code> exist by typing:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sqlite&gt;</span> .tables</code></pre>
+<p>Its output should be:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">Person</span>   Site     Survey   Visited</code></pre>
+<h2 id="how-to-exit-sqlite3">How to Exit SQLite3</h2>
 <p>To exit SQLite3, type:</p>
-<pre class="in"><code>sqlite> .quit</code></pre>
-<h3 id="how-to-use-the-ipython-notebook-instead-of-the-sqlite3-cli">How to use the IPython notebook instead of the SQLite3 CLI</h3>
-<p>If you prefer to use an IPython notebook to follow the examples, check if IPython is installed on your machine. If it is not installed, follow the <a href="http://ipython.org/install.html">installation instructions</a>.</p>
-<p>If IPython is already installed on your local machine, to open a notebook, type &quot;ipython notebook&quot; from within the ~/swc/sql folder.</p>
-<pre class="in"><code>~/swc/sql$ ipython notebook</code></pre>
-<p>The above command will launch the IPython kernel displaying an interactive notebook on your default browser, which can be edited as you learn. The commands shown in the next lessons can be executed as they are in the IPython notebook. When you are done, to keep your changes, remember to save your notebook.</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sqlite&gt;</span> .quit</code></pre>
         </div>
       </div>
       <div class="footer">
