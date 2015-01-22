@@ -4,7 +4,7 @@ title: Databases and SQL
 subtitle: Calculating New Values
 minutes: 30
 ---
-> ## Learning Objectives
+> ## Learning Objectives {.objectives}
 >
 > *   Write queries that calculate new values for each selected record.
 

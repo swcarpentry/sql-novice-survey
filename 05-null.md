@@ -4,7 +4,7 @@ title: Databases and SQL
 subtitle: Missing Data
 minutes: 30
 ---
-> ## Learning Objectives
+> ## Learning Objectives {.objectives}
 >
 > *   Explain how databases represent missing information.
 > *   Explain the three-valued logic databases use when manipulating missing information.
