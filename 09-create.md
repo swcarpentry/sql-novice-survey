@@ -4,7 +4,7 @@ title: Databases and SQL
 subtitle: Creating and Modifying Data
 minutes: 30
 ---
-> ## Learning Objectives
+> ## Learning Objectives {.objectives}
 > 
 > *   Write queries that creates tables.
 > *   Write queries to insert, modify, and delete records.
