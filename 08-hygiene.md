@@ -4,9 +4,15 @@ title: Databases and SQL
 subtitle: Data Hygiene
 minutes: 30
 ---
-> ## Learning Objectives
-> 
-> *   FIXME
+> ## Learning Objectives {.objectives}
+>
+> *   Explain what an atomic value is.
+> *   Distinguish between atomic and non-atomic values.
+> *   Explain why every value in a database should be atomic.
+> *   Explain what a primary key is and why every record should have one.
+> *   Identify primary keys in database tables.
+> *   Explain why database entries should not contain redundant information.
+> *   Identify redundant information in databases.
 
 Now that we have seen how joins work,
 we can see why the relational model is so useful
