@@ -29,9 +29,12 @@ and these lessons will show how to do that.
 
 > ## Prerequisites
 >
-> FIXME
-> A short paragraph describing what learners need to know
-> before tackling this lesson.
+> If SQLite is being used from the shell,
+> learners will need to be able to navigate directories
+> and run simple commands from the command line.
+> If a GUI such as the Firefox SQLite plugin is being used,
+> learners will need to know how to install browser plugins
+> (and have permission to do so).
 
 ## Topics
 
