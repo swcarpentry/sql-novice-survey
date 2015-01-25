@@ -30,7 +30,13 @@
 <div id="learning-objectives" class="objectives">
 <h2>Learning Objectives</h2>
 <ul>
-<li>FIXME</li>
+<li>Explain what an atomic value is.</li>
+<li>Distinguish between atomic and non-atomic values.</li>
+<li>Explain why every value in a database should be atomic.</li>
+<li>Explain what a primary key is and why every record should have one.</li>
+<li>Identify primary keys in database tables.</li>
+<li>Explain why database entries should not contain redundant information.</li>
+<li>Identify redundant information in databases.</li>
 </ul>
 </div>
 <p>Now that we have seen how joins work, we can see why the relational model is so useful and how best to use it. The first rule is that every value should be <strong>atomic</strong>, i.e., not contain parts that we might want to work with separately. We store personal and family names in separate columns instead of putting the entire name in one column so that we don't have to use substring operations to get the name's components. More importantly, we store the two parts of the name separately because splitting on spaces is unreliable: just think of a name like &quot;Eloise St. Cyr&quot; or &quot;Jan Mikkel Steubart&quot;.</p>

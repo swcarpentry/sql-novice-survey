@@ -4,7 +4,7 @@ title: Databases and SQL
 subtitle: Sorting and Removing Duplicates
 minutes: 30
 ---
-> ## Learning Objectives
+> ## Learning Objectives {.objectives}
 >
 > *   Write queries that display results in a particular order.
 > *   Write queries that eliminate duplicate values from data.
