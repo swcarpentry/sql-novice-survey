@@ -272,6 +272,11 @@ section.content {
     background:#2b3990;
 }
 
+/* In tables the default font color and the header color are very close */
+tr.header {
+    background: #e0ffff;
+}
+
 .header h1 {
     line-height: 1.1;
     margin: 60px 0px 80px;
