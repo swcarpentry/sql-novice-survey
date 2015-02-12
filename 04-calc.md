@@ -66,7 +66,7 @@ select personal || " " || family from Person;
 |Valentina Roerich        |
 |Frank Danforth           |
 
-> ## FIXME {.challenge}
+> ## Fixing Salinity Readings {.challenge}
 >
 > After further reading,
 > we realize that Valentina Roerich
@@ -75,7 +75,7 @@ select personal || " " || family from Person;
 > from the `Survey` table
 > with the values divided by 100.
 
-> ## FIXME {.challenge}
+> ## Unions {.challenge}
 >
 > The `union` operator combines the results of two queries:
 >
@@ -104,7 +104,7 @@ select personal || " " || family from Person;
 > |837  |0.21   |
 > |837  |0.225  |
 
-> ## FIXME {.challenge}
+> ## Selecting Major Site Identifiers {.challenge}
 >
 > The site identifiers in the `Visited` table have two parts
 > separated by a '-':

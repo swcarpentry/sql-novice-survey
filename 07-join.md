@@ -215,15 +215,15 @@ select rowid, * from Person;
 |4    |roe     |Valentina|Roerich |
 |5    |danforth|Frank    |Danforth|
 
-> ## FIXME {.challenge}
+> ## Listing Radiation Readings {.challenge}
 >
 > Write a query that lists all radiation readings from the DR-1 site.
 
-> ## FIXME {.challenge}
+> ## Where's Frank? {.challenge}
 >
 > Write a query that lists all sites visited by people named "Frank".
 
-> ## FIXME {.challenge}
+> ## Reading Queries {.challenge}
 >
 > Describe in your own words what the following query produces:
 >

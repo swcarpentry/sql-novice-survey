@@ -201,7 +201,7 @@ not to the entire rows as they are being processed.
 > or write a small program to generate ten thousand random (but plausible) records
 > and use that.
 
-> ## FIXME {.challenge}
+> ## Fix This Query {.challenge}
 >
 > Suppose we want to select all sites that lie more than 30 degrees from the poles.
 > Our first query is:
@@ -213,13 +213,13 @@ not to the entire rows as they are being processed.
 > Explain why this is wrong,
 > and rewrite the query so that it is correct.
 
-> ## FIXME {.challenge}
+> ## Finding Outliers {.challenge}
 >
 > Normalized salinity readings are supposed to be between 0.0 and 1.0.
 > Write a query that selects all records from `Survey`
 > with salinity values outside this range.
 
-> ## FIXME {.challenge}
+> ## Matching Patterns {.challenge}
 >
 > The SQL test `*column-name* like *pattern*`
 > is true if the value in the named column

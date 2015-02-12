@@ -167,7 +167,7 @@ and translates any special characters in the values
 into their escaped equivalents
 so that they are safe to use.
 
-> ## FIXME {.challenge}
+> ## Filling a Table vs. Printing Values {.challenge}
 >
 > Write a Python program that creates a new database in a file called
 > `original.db` containing a single table called `Pressure`, with a
@@ -176,7 +176,7 @@ so that they are safe to use.
 > How long does it take to run a program that simply writes those
 > random numbers to a file?
 
-> ## FIXME {.challenge}
+> ## Filtering in SQL vs. Filtering in Python {.challenge}
 >
 > Write a Python program that creates a new database called
 > `backup.db` with the same structure as `original.db` and copies all
