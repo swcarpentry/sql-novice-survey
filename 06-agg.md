@@ -30,7 +30,7 @@ select dated from Visited;
 |1932-03-22|
 
 but to combine them,
-we must use an **aggregation function**
+we must use an [aggregation function](reference.html#aggregation-function)
 such as `min` or `max`.
 Each of these functions takes a set of records as input,
 and produces a single record as output:

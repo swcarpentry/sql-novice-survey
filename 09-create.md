@@ -137,14 +137,14 @@ but that's never supposed to happen:
 and all our queries assume there will be a row in the latter
 matching every value in the former.
   
-This problem is called **referential integrity**:
+This problem is called [referential integrity](reference.html#referential-integrity):
 we need to ensure that all references between tables can always be resolved correctly.
 One way to do this is to delete all the records
 that use `'lake'` as a foreign key
 before deleting the record that uses it as a primary key.
 If our database manager supports it,
 we can automate this
-using **cascading delete**.
+using [cascading delete](reference.html#cascading-delete).
 However,
 this technique is outside the scope of this chapter.
 
@@ -169,7 +169,7 @@ this technique is outside the scope of this chapter.
 
 > ## FIXME {.challenge}
 >
-> One of our colleagues has sent us a **CSV** file containing
+> One of our colleagues has sent us a [CSV](reference.html#comma-separated-values) file containing
 > temperature readings by Robert Olmstead, which is formatted like
 > this:
 >

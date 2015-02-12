@@ -190,7 +190,7 @@ we need to exclude all the records for which we don't know who did the work.
 > ## FIXME {.challenge}
 >
 > Some database designers prefer to use
-> a **sentinel value**)
+> a [sentinel value](reference.html#sentinel-value))
 > to mark missing data rather than `null`.
 > For example,
 > they will use the date "0000-00-00" to mark a missing date,

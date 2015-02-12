@@ -10,18 +10,18 @@ minutes: 30
 > *   Explain the difference between a database and a database manager.
 > *   Write a query to select all values for specific fields from a single table.
 
-A **relational database**
+A [relational database](reference.html#relational-database)
 is a way to store and manipulate information
-that is arranged as **tables**.
-Each table has columns (also known as **fields**) which describe the data,
-and rows (also known as **records**) which contain the data.
+that is arranged as [tables](reference.html#table).
+Each table has columns (also known as [fields](reference.html#field)) which describe the data,
+and rows (also known as [records](reference.html#record)) which contain the data.
   
 When we are using a spreadsheet,
 we put formulas into cells to calculate new values based on old ones.
 When we are using a database,
 we send commands
-(usually called **queries**)
-to a **database manager**:
+(usually called [queries](reference.html#query))
+to a [database manager](reference.html#database-manager):
 a program that manipulates the database for us.
 The database manager does whatever lookups and calculations the query specifies,
 returning the results in a tabular form
@@ -35,7 +35,7 @@ that we can then use as a starting point for further queries.
 > every database manager can import and export data in a variety of formats,
 > so it *is* possible to move information from one to another.
 
-Queries are written in a language called **SQL**,
+Queries are written in a language called [SQL](reference.html#sql),
 which stands for "Structured Query Language".
 SQL provides hundreds of different ways to analyze and recombine data;
 we will only look at a handful,
@@ -128,7 +128,7 @@ We have written our commands and column names in lower case,
 and the table name in Title Case,
 but we don't have to:
 as the example below shows,
-SQL is **case insensitive**.
+SQL is [case insensitive](reference.html#case-insensitive).
 
 ~~~ {.sql}
 SeLeCt FaMiLy, PeRsOnAl FrOm PeRsOn;
