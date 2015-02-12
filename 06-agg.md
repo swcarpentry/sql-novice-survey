@@ -301,19 +301,19 @@ this query:
     (it doesn't matter which ones,
     since they're all equal).
 
-> ## FIXME {.challenge}
+> ## Counting Temperature Readings {.challenge}
 >
-> How many temperature readings did Frank Pabodie record, and what was
-> their average value?
+> How many temperature readings did Frank Pabodie record,
+> and what was their average value?
 
-> ## FIXME {.challenge}
+> ## Averaging with NULL {.challenge}
 >
 > The average of a set of values is the sum of the values
 > divided by the number of values.
 > Does this mean that the `avg` function returns 2.0 or 3.0
 > when given the values 1.0, `null`, and 5.0?
 
-> ## FIXME {.challenge}
+> ## What Does This Query Do? {.challenge}
 >
 > We want to calculate the difference between
 > each individual radiation reading
@@ -326,7 +326,7 @@ this query:
 >
 > What does this actually produce, and why?
 
-> ## FIXME {.challenge}
+> ## Ordering When Concatenating {.challenge}
 >
 > The function `group_concat(field, separator)`
 > concatenates all the values in a field

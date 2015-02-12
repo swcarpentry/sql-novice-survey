@@ -3,7 +3,33 @@ layout: page
 title: Lesson Title
 subtitle: Instructor's Guide
 ---
-FIXME: start instructor's guide.
+## Legend
+
+FIXME
+
+## Overall
+
+*   FIXME
+
+## [Selecting Data](01-select.html)
+
+## [Sorting and Removing Duplicates](02-sort-dup.html)
+
+## [Filtering](03-filter.html)
+
+## [Calculating New Values](04-calc.html)
+
+## [Missing Data](05-null.html)
+
+## [Aggregation](06-agg.html)
+
+## [Combining Data](07-join.html)
+
+## [Data Hygiene](08-hygiene.html)
+
+## [Creating and Modifying Data](09-create.html)
+
+## [Programming with Databases](10-prog.html)
 
 ----------------------------------------
 
@@ -22,23 +48,7 @@ FIXME: start instructor's guide.
 *   Run `sqlite3 survey.db < gen-survey-database.sql` to re-create
     survey database before loading notebooks.
 
-# SQLite Setup 
-
-This lesson will demonstrate how to install the example database to be used in the next chapters.
-To be able to follow the instructions,
-you need to know how to move around in your directory using the command line
-and how to execute commands from the command line.
-In a later chapter,
-you will learn how to create and fill a database,
-but first we would like to demonstrate how a database works
-so we will provide the database up-front.
-
-#### Objectives
-
-*   Establish the example database to be used in the next chapters.
-*   Check that the database is available and which tables are to be found.
-
-## Installation
+## SQLite Setup 
 
 In order to execute the following lessons interactively,
 please install SQLite as mentioned in the setup instructions for your workshop,

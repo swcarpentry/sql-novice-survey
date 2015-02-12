@@ -73,6 +73,20 @@ if it's in a certain form.
 As anthropologists say,
 the tool shapes the hand that shapes the tool.
 
-> ## FIXME {.challenge}
+> ## Identifying Atomic Values {.challenge}
 >
-> FIXME
+> Which of the following are atomic values? Which are not? Why?
+>
+> *   New Zealand
+> *   87 Turing Avenue
+> *   January 25, 1971
+> *   the XY coordinate (0.5, 3.3)
+
+> ## Identifying a Primary Key {.challenge}
+>
+> What is the primary key in this table?
+> I.e., what value or combination of values uniquely identifies a record?
+>
+> |latitude|longitude|date      |temperature|
+> |--------|---------|----------|-----------|
+> |57.3    |-22.5    |2015-01-09|-14.2      |

@@ -148,7 +148,7 @@ using [cascading delete](reference.html#cascading-delete).
 However,
 this technique is outside the scope of this chapter.
 
-> ## Hybrid Storage Models
+> ## Hybrid Storage Models {.callout}
 >
 > Many applications use a hybrid storage model
 > instead of putting everything into a database:
@@ -162,12 +162,12 @@ this technique is outside the scope of this chapter.
 > the database inside the application keeps track of the MP3 files,
 > but the files themselves live on disk.
 
-> ## FIXME {.challenge}
+> ## Replacing NULL {.challenge}
 >
 > Write an SQL statement to replace all uses of `null` in
 > `Survey.person` with the string `'unknown'`.
 
-> ## FIXME {.challenge}
+> ## Generating Insert Statements {.challenge}
 >
 > One of our colleagues has sent us a [CSV](reference.html#comma-separated-values) file containing
 > temperature readings by Robert Olmstead, which is formatted like
@@ -185,7 +185,7 @@ this technique is outside the scope of this chapter.
 > to the `Person` table.  If you are testing your program repeatedly,
 > you may want to investigate SQL's `insert or replace` command.
 
-> ## FIXME {.challenge}
+> ## Backing Up with SQL {.challenge}
 >
 > SQLite has several administrative commands that aren't part of the
 > SQL standard.  One of them is `.dump`, which prints the SQL commands

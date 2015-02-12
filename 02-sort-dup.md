@@ -192,15 +192,11 @@ select distinct taken, person from Survey order by taken asc, person desc;
 |837  |lake  |
 |844  |roe   |
 
-> ## FIXME {.challenge}
+> ## Finding Distinct Dates {.challenge}
 >
 > Write a query that selects distinct dates from the `Site` table.
 
-> ## FIXME {.challenge}
->
-> Write a query that returns the distinct dates in the `Visited` table.
-
-> ## FIXME {.challenge}
+> ## Displaying Full Names {.challenge}
 >
 > Write a query that displays the full names of the scientists in the `Person` table,
 > ordered by family name.

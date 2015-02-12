@@ -170,13 +170,13 @@ If we want to be absolutely sure that
 we aren't including any measurements by Lake in our results,
 we need to exclude all the records for which we don't know who did the work.
 
-> ## FIXME {.challenge}
+> ## Sorting by Known Date {.challenge}
 >
 > Write a query that sorts the records in `Visited` by date,
 > omitting entries for which the date is not known
 > (i.e., is null).
 
-> ## FIXME {.challenge}
+> ## NULL in a Set {.challenge}
 >
 > What do you expect the query:
 >
@@ -187,7 +187,7 @@ we need to exclude all the records for which we don't know who did the work.
 > to produce?
 > What does it actually produce?
 
-> ## FIXME {.challenge}
+> ## Pros and Cons of Sentinels {.challenge}
 >
 > Some database designers prefer to use
 > a [sentinel value](reference.html#sentinel-value))

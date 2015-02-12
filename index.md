@@ -27,7 +27,7 @@ they don't handle large or complex data sets very well.
 We would therefore like to put this data in a database,
 and these lessons will show how to do that.
 
-> ## Prerequisites
+> ## Prerequisites {.prereq}
 >
 > If SQLite is being used from the shell,
 > learners will need to be able to navigate directories
