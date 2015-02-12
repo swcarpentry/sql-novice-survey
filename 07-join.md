@@ -58,7 +58,7 @@ select * from Site join Visited;
 |MSK-4|-48.87|-123.4 |844  |DR-1  |1932-03-22|
 
 `join` creates
-the **cross product**
+the [cross product](reference.html#cross-product)
 of two tables,
 i.e.,
 it joins each record of one with each record of the other
@@ -171,8 +171,8 @@ and    Visited.dated is not null;
 We can tell which records from `Site`, `Visited`, and `Survey`
 correspond with each other
 because those tables contain
-**primary keys**
-and **foreign keys**.
+[primary keys](reference.html#primary-key)
+and foreign keys](reference.html#foreign-key).
 A primary key is a value,
 or combination of values,
 that uniquely identifies each record in a table.

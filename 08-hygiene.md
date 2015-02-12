@@ -17,7 +17,7 @@ minutes: 30
 Now that we have seen how joins work,
 we can see why the relational model is so useful
 and how best to use it.
-The first rule is that every value should be **atomic**,
+The first rule is that every value should be [atomic](reference.html#atomic),
 i.e.,
 not contain parts that we might want to work with separately.
 We store personal and family names in separate columns instead of putting the entire name in one column

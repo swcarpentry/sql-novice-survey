@@ -10,7 +10,7 @@ minutes: 30
 > *   Explain the order in which the clauses in a query are executed.
 
 One of the most powerful features of a database is
-the ability to **filter** data,
+the ability to [filter](reference.html#filter) data,
 i.e.,
 to select only those records that match certain criteria.
 For example,

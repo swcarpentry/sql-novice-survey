@@ -26,7 +26,7 @@ subtitle: Reference
 *   Filtering is done on whole records,
     so conditions can use fields that are not actually displayed.
 
-## [Calculating New Values](04-calc.htl)
+## [Calculating New Values](04-calc.html)
 
 *   SQL can perform calculations using the values in a record as part of a query.
 
@@ -53,7 +53,9 @@ subtitle: Reference
 
 ## [Data Hygiene](08-hygiene.html)
 
-*   FIXME
+*   Every value in a database should be atomic.
+*   Every record in a database should have a primary key.
+*   Database entries should not contain redundant information.
 
 ## [Creating and Modifying Data](09-create.html)
 
@@ -87,55 +89,78 @@ cascading delete
     other tables must also be deleted.
 
 case insensitive
-:   FIXME: definition
+:   Treating text as if upper and lower case characters were the same.
+    See also: [case sensitive](#case-sensitive).
+
+case sensitive
+:   Treating upper and lower case characters as different.
+    See also: [case insensitive](#case-insensitive).
 
 cross product
-:   FIXME: definition
+:   A pairing of all elements of one set with all elements of another.
 
 comma-separated values (CSV)
-:   FIXME: definition
+:   A common textual representation for tables
+    in which the values in each row are separated by commas.
 
 cursor
-:   FIXME: definition
+:   A pointer into a database that keeps track of outstanding operations.
 
 database manager
-:   FIXME: definition
+:   A program that manages a database,
+    such as SQLite.
 
 fields
-:   FIXME: definition
+:   A set of data values of a particular type,
+    one for each [record](#record) in a [table](#table).
 
 filter
-:   FIXME: definition
+:   To select only the records that meet certain conditions.
 
-foreign keys
-:   FIXME: definition
+foreign key
+:   One or more values in a [database table](#table-database)
+    that identify a [records](#record-database) in another table.
 
 prepared statement
-:   FIXME: definition
+:   A template for an [SQL](#sql) query in which some values can be filled in.
 
-primary keys
-:   FIXME: definition
+primary key
+:   One or more [fields](#field) in a [database table](#table)
+    whose values are guaranteed to be unique for each [record](#record),
+    i.e.,
+    whose values uniquely identify the entry.
 
-queries
-:   FIXME: definition
+query
+:   A database operation that reads values but does not modify anything.
+    Queries are expressed in a special-purpose language called [SQL](#sql).
 
-records
-:   FIXME: definition
+record
+:   A set of related values making up a single entry in a [database table](#table),
+    typically shown as a row.
+    See also: [field](#field).
 
 referential integrity
-:   FIXME: definition
+:   The internal consistency of values in a database.
+    If an entry in one table contains a [foreign key](#foreign-key),
+    but the corresponding [records](#record) don't exist,
+    referential integrity has been violated.
 
 relational database
-:   FIXME: definition
+:   A collection of data organized into [tables](#table).
 
 sentinel value
-:   FIXME: definition
+:   A value in a collection that has a special meaning,
+    such as 999 to mean "age unknown".
 
 SQL
-:   FIXME: definition
+:   A special-purpose language for describing operations on [relational databases](#relational-database).
 
 SQL injection attack
-:   FIXME: definition
+:   An attack on a program in which the user's input contains malicious SQL statements.
+    If this text is copied directly into an SQL statement,
+    it will be executed in the database.
 
-tables
-:   FIXME: definition
+table
+:   A set of data in a [relational database](#relational-database)
+    organized into a set of [records](#record),
+    each having the same named [fields](#field).
