@@ -192,15 +192,15 @@ select distinct taken, person from Survey order by taken asc, person desc;
 |837  |lake  |
 |844  |roe   |
 
-> ## FIXME {.challenge}
+> ## How do we get unduplicated site's names?  {.challenge}
 >
 > Write a query that selects distinct dates from the `Site` table.
 
-> ## FIXME {.challenge}
+> ## How can we get all distinct quantitites that have been measured ordered alphabetically? {.challenge}
 >
-> Write a query that returns the distinct dates in the `Visited` table.
+> Write a query, using what you've learned.
 
-> ## FIXME {.challenge}
+> ## Now you can select a defined group and order the results. {.challenge}
 >
 > Write a query that displays the full names of the scientists in the `Person` table,
 > ordered by family name.
