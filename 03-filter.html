@@ -29,7 +29,7 @@
         <div class="span10 offset1">
           <h1 class="title">Databases and SQL</h1>
           <h2 class="subtitle">Filtering</h2>
-<div id="learning-objectives" class="objectives">
+<div id="learning-objectives" class="objectives objectives">
 <h2>Learning Objectives</h2>
 <ul>
 <li>Write queries that select records that satisfy user-specified conditions.</li>
@@ -67,24 +67,7 @@
 <p>The database manager executes this query in two stages. First, it checks at each row in the <code>Visited</code> table to see which ones satisfy the <code>where</code>. It then uses the column names following the <code>select</code> keyword to determine what columns to display.</p>
 <p>This processing order means that we can filter records using <code>where</code> based on values in columns that aren't then displayed:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> ident <span class="kw">from</span> Visited <span class="kw">where</span> site=<span class="ot">&quot;DR-1&quot;</span>;</code></pre>
-<table>
-<thead>
-<tr class="header">
-<th align="left">ident</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">619</td>
-</tr>
-<tr class="even">
-<td align="left">622</td>
-</tr>
-<tr class="odd">
-<td align="left">844</td>
-</tr>
-</tbody>
-</table>
+<p>|ident| |-----| |619 |<br />|622 |<br />|844 |</p>
 <p><img src="fig/sql-filter.svg" alt="SQL Filtering in Action" /></p>
 <p>We can use many other Boolean operators to filter our data. For example, we can ask for all information from the DR-1 site collected since 1930:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> * <span class="kw">from</span> Visited <span class="kw">where</span> (site=<span class="ot">&quot;DR-1&quot;</span>) <span class="kw">and</span> (dated&lt;=<span class="ot">&quot;1930-00-00&quot;</span>);</code></pre>
@@ -364,6 +347,54 @@
 <td align="left">roe</td>
 <td align="left">sal</td>
 <td align="left">22.5</td>
+</tr>
+</tbody>
+</table>
+<p>We can also filter by partial matches. For example if we want to know something just about the site names beginning with &quot;DR&quot; we can use the <code>like</code> keyword. The percent symbol acts as a wildcard, matching any characters in that place. It can be used at the beginning, middle, or end of your string.</p>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> * <span class="kw">from</span> Visited <span class="kw">where</span> site <span class="kw">like</span> <span class="ot">&quot;DR%&quot;</span>;</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">ident</th>
+<th align="left">site</th>
+<th align="left">dated</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">619</td>
+<td align="left">DR-1</td>
+<td align="left">1927-02-08</td>
+</tr>
+<tr class="even">
+<td align="left">622</td>
+<td align="left">DR-1</td>
+<td align="left">1927-02-10</td>
+</tr>
+<tr class="odd">
+<td align="left">734</td>
+<td align="left">DR-3</td>
+<td align="left">1939-01-07</td>
+</tr>
+<tr class="even">
+<td align="left">735</td>
+<td align="left">DR-3</td>
+<td align="left">1930-01-12</td>
+</tr>
+<tr class="odd">
+<td align="left">751</td>
+<td align="left">DR-3</td>
+<td align="left">1930-02-26</td>
+</tr>
+<tr class="even">
+<td align="left">752</td>
+<td align="left">DR-3</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">844</td>
+<td align="left">DR-1</td>
+<td align="left">1932-03-22</td>
 </tr>
 </tbody>
 </table>
