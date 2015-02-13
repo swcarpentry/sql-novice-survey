@@ -65,16 +65,17 @@ it joins each record of one with each record of the other
 to give all possible combinations.
 Since there are three records in `Site`
 and eight in `Visited`,
-the join's output has 24 records.
+the join's output has 24 records (3 * 8 = 24) .
 And since each table has three fields,
-the output has six fields.
+the output has six fields (3 + 3 = 6).
   
 What the join *hasn't* done is
 figure out if the records being joined have anything to do with each other.
 It has no way of knowing whether they do or not until we tell it how.
 To do that,
 we add a clause specifying that
-we're only interested in combinations that have the same site name:
+we're only interested in combinations that have the same site name, 
+thus we need to use a filter:
 
 ~~~ {.sql}
 select * from Site join Visited on Site.name=Visited.site;
@@ -219,7 +220,7 @@ select rowid, * from Person;
 >
 > Write a query that lists all radiation readings from the DR-1 site.
 
-> ## FIXME {.challenge}
+> ## How do you get all sites that Frank has visited? {.challenge}
 >
 > Write a query that lists all sites visited by people named "Frank".
 
