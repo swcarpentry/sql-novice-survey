@@ -195,11 +195,11 @@ select * from Person;
 |roe     |Valentina|Roerich |
 |danforth|Frank    |Danforth|
 
-> ## FIXME {.challenge}
+> ## Getting what we are looking for {.challenge}
 >
 > Write a query that selects only site names from the `Site` table.
 
-> ## FIXME {.challenge}
+> ## Formatting your query, options: {.challenge}
 >
 > Many people format queries as:
 >
