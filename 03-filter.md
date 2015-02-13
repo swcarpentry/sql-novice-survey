@@ -45,9 +45,9 @@ select ident from Visited where site="DR-1";
 
 |ident|
 |-----|
-|619  |    
-|622  |    
-|844  |    
+|619  |
+|622  |
+|844  |
 
 <img src="fig/sql-filter.svg" alt="SQL Filtering in Action" />
 
@@ -190,7 +190,7 @@ not to the entire rows as they are being processed.
 > for complex queries it's often the *only* strategy --- but
 > it depends on quick turnaround,
 > and on us recognizing the right answer when we get it.
->     
+>
 > The best way to achieve quick turnaround is often
 > to put a subset of data in a temporary database
 > and run our queries against that,
@@ -226,7 +226,7 @@ not to the entire rows as they are being processed.
 > matches the pattern given;
 > the character '%' can be used any number of times in the pattern
 > to mean "match zero or more characters".
-> 
+>
 > |Expression           |Value|
 > |---------------------|-----|
 > |`'a' like 'a'`       |True |
@@ -234,7 +234,7 @@ not to the entire rows as they are being processed.
 > |`'b' like '%a'`      |False|
 > |`'alpha' like 'a%'`  |True |
 > |`'alpha' like 'a%p%'`|True |
-> 
+>
 > The expression `*column-name* not like *pattern*`
 > inverts the test.
 > Using `like`,

@@ -48,7 +48,7 @@ FIXME
 *   Run `sqlite3 survey.db < gen-survey-database.sql` to re-create
     survey database before loading notebooks.
 
-## SQLite Setup 
+## SQLite Setup
 
 In order to execute the following lessons interactively,
 please install SQLite as mentioned in the setup instructions for your workshop,
@@ -118,7 +118,7 @@ run SQLite on `survey.db` *without* the `.schema` command:
 $ sqlite3 survey.db
 SQLite version 3.8.5 2014-08-15 22:37:57
 Enter ".help" for usage hints.
-sqlite> 
+sqlite>
 ~~~
 
 As shown above,
@@ -133,7 +133,7 @@ you can check the names and files of attached databases with the command `.datab
 
 ~~~ {.bash}
 sqlite> .databases
-seq  name             file                                                      
+seq  name             file
 ---  ---------------  ----------------------------------------------------------
 0    main             /Users/alan_turing/swc_sql/survey.db
 ~~~
@@ -150,5 +150,5 @@ use `.quit`:
 
 ~~~ {.bash}
 sqlite> .quit
-$ 
+$
 ~~~
