@@ -5,10 +5,12 @@
     <meta name="generator" content="pandoc">
     <title>Software Carpentry: Databases and SQL</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-responsive.css" />
     <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc-workshop-and-lesson.css" />
+    <link rel="stylesheet" type="text/css" href="css/lesson.css" />
     <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
     <meta charset="UTF-8" />
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -16,8 +18,8 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   </head>
-  <body>
-    <div class="container">
+  <body class="lesson">
+    <div class="container container-full-width card">
       <div class="banner">
         <a href="http://software-carpentry.org" title="Software Carpentry">
           <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
@@ -28,19 +30,19 @@
           <h1 class="title">Databases and SQL</h1>
           <h2 class="subtitle">Selecting Data</h2>
 <div id="learning-objectives" class="objectives">
-<h2 id="learning-objectives" class="objectives">Learning Objectives</h2>
+<h2>Learning Objectives</h2>
 <ul>
 <li>Explain the difference between a table, a record, and a field.</li>
 <li>Explain the difference between a database and a database manager.</li>
 <li>Write a query to select all values for specific fields from a single table.</li>
 </ul>
 </div>
-<p>A <strong>relational database</strong> is a way to store and manipulate information that is arranged as <strong>tables</strong>. Each table has columns (also known as <strong>fields</strong>) which describe the data, and rows (also known as <strong>records</strong>) which contain the data.</p>
-<p>When we are using a spreadsheet, we put formulas into cells to calculate new values based on old ones. When we are using a database, we send commands (usually called <strong>queries</strong>) to a <strong>database manager</strong>: a program that manipulates the database for us. The database manager does whatever lookups and calculations the query specifies, returning the results in a tabular form that we can then use as a starting point for further queries.</p>
+<p>A <a href="reference.html#relational-database">relational database</a> is a way to store and manipulate information that is arranged as <a href="reference.html#table">tables</a>. Each table has columns (also known as <a href="reference.html#field">fields</a>) which describe the data, and rows (also known as <a href="reference.html#record">records</a>) which contain the data.</p>
+<p>When we are using a spreadsheet, we put formulas into cells to calculate new values based on old ones. When we are using a database, we send commands (usually called <a href="reference.html#query">queries</a>) to a <a href="reference.html#database-manager">database manager</a>: a program that manipulates the database for us. The database manager does whatever lookups and calculations the query specifies, returning the results in a tabular form that we can then use as a starting point for further queries.</p>
 <blockquote>
 <p>Every database manager --- Oracle, IBM DB2, PostgreSQL, MySQL, Microsoft Access, and SQLite --- stores data in a different way, so a database created with one cannot be used directly by another. However, every database manager can import and export data in a variety of formats, so it <em>is</em> possible to move information from one to another.</p>
 </blockquote>
-<p>Queries are written in a language called <strong>SQL</strong>, which stands for &quot;Structured Query Language&quot;. SQL provides hundreds of different ways to analyze and recombine data; we will only look at a handful, but that handful accounts for most of what scientists do.</p>
+<p>Queries are written in a language called <a href="reference.html#sql">SQL</a>, which stands for &quot;Structured Query Language&quot;. SQL provides hundreds of different ways to analyze and recombine data; we will only look at a handful, but that handful accounts for most of what scientists do.</p>
 <p>The tables below show the database we will use in our examples:</p>
 <blockquote>
 <p><strong>Person</strong>: people who took readings.</p>
@@ -337,7 +339,7 @@
 </tr>
 </tbody>
 </table>
-<p>The semi-colon at the end of the query tells the database manager that the query is complete and ready to run. We have written our commands and column names in lower case, and the table name in Title Case, but we don't have to: as the example below shows, SQL is <strong>case insensitive</strong>.</p>
+<p>The semi-colon at the end of the query tells the database manager that the query is complete and ready to run. We have written our commands and column names in lower case, and the table name in Title Case, but we don't have to: as the example below shows, SQL is <a href="reference.html#case-insensitive">case insensitive</a>.</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SeLeCt</span> FaMiLy, PeRsOnAl <span class="kw">FrOm</span> PeRsOn;</code></pre>
 <table>
 <thead>
@@ -478,12 +480,12 @@
 </tr>
 </tbody>
 </table>
-<div id="fixme" class="challenge">
-<h2>FIXME</h2>
+<div id="selecting-site-names" class="challenge">
+<h2>Selecting Site Names</h2>
 <p>Write a query that selects only site names from the <code>Site</code> table.</p>
 </div>
-<div id="fixme-1" class="challenge">
-<h2>FIXME</h2>
+<div id="query-style" class="challenge">
+<h2>Query Style</h2>
 <p>Many people format queries as:</p>
 <pre><code>SELECT personal, family FROM person;</code></pre>
 <p>or as:</p>

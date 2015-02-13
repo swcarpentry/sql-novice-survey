@@ -5,10 +5,12 @@
     <meta name="generator" content="pandoc">
     <title>Software Carpentry: Databases and SQL</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-responsive.css" />
     <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc-workshop-and-lesson.css" />
+    <link rel="stylesheet" type="text/css" href="css/lesson.css" />
     <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
     <meta charset="UTF-8" />
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -16,8 +18,8 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   </head>
-  <body>
-    <div class="container">
+  <body class="lesson">
+    <div class="container container-full-width card">
       <div class="banner">
         <a href="http://software-carpentry.org" title="Software Carpentry">
           <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
@@ -50,7 +52,7 @@ connection.close()&lt;/code&gt;&lt;/pre&gt;</code></pre>
 (-47.15, -126.72)
 (-48.87, -123.4)</code></pre>
 <p>The program starts by importing the <code>sqlite3</code> library. If we were connecting to MySQL, DB2, or some other database, we would import a different library, but all of them provide the same functions, so that the rest of our program does not have to change (at least, not much) if we switch from one database to another.</p>
-<p>Line 2 establishes a connection to the database. Since we're using SQLite, all we need to specify is the name of the database file. Other systems may require us to provide a username and password as well. Line 3 then uses this connection to create a <strong>cursor</strong>. Just like the cursor in an editor, its role is to keep track of where we are in the database.</p>
+<p>Line 2 establishes a connection to the database. Since we're using SQLite, all we need to specify is the name of the database file. Other systems may require us to provide a username and password as well. Line 3 then uses this connection to create a <a href="reference.html#cursor">cursor</a>. Just like the cursor in an editor, its role is to keep track of where we are in the database.</p>
 <p>On line 4, we use that cursor to ask the database to execute a query for us. The query is written in SQL, and passed to <code>cursor.execute</code> as a string. It's our job to make sure that SQL is properly formatted; if it isn't, or if something goes wrong when it is being executed, the database will report an error.</p>
 <p>The database returns the results of the query to us in response to the <code>cursor.fetchall</code> call on line 5. This result is a list with one entry for each record in the result set; if we loop over that list (line 6) and print those list entries (line 7), we can see that each one is a tuple with one element for each field we asked for.</p>
 <p>Finally, lines 8 and 9 close our cursor and our connection, since the database can only keep a limited number of these open at one time. Since establishing a connection takes time, though, we shouldn't open a connection, do one operation, then close the connection, only to reopen it a few microseconds later to do another operation. Instead, it's normal to create one connection that stays open for the lifetime of the program.</p>
@@ -74,8 +76,8 @@ connection.close()&lt;/code&gt;&lt;/pre&gt;</code></pre>
 <p>It looks like there's garbage after the name of the project, but it is very carefully chosen garbage. If we insert this string into our query, the result is:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> personal || <span class="st">&#39; &#39;</span> || family <span class="kw">from</span> Person <span class="kw">where</span> ident=<span class="st">&#39;dyer&#39;</span>; <span class="kw">drop</span> <span class="kw">table</span> Survey; <span class="kw">select</span> <span class="st">&#39;&#39;</span>;</code></pre>
 <p>If we execute this, it will erase one of the tables in our database.</p>
-<p>This is called an <strong>SQL injection attack</strong>, and it has been used to attack thousands of programs over the years. In particular, many web sites that take data from users insert values directly into queries without checking them carefully first.</p>
-<p>Since a villain might try to smuggle commands into our queries in many different ways, the safest way to deal with this threat is to replace characters like quotes with their escaped equivalents, so that we can safely put whatever the user gives us inside a string. We can do this by using a <strong>prepared statement</strong> instead of formatting our statements as strings. Here's what our example program looks like if we do this:</p>
+<p>This is called an <a href="reference.html#sql-injection-attack">SQL injection attack</a>, and it has been used to attack thousands of programs over the years. In particular, many web sites that take data from users insert values directly into queries without checking them carefully first.</p>
+<p>Since a villain might try to smuggle commands into our queries in many different ways, the safest way to deal with this threat is to replace characters like quotes with their escaped equivalents, so that we can safely put whatever the user gives us inside a string. We can do this by using a <a href="reference.html#prepared-statement">prepared statement</a> instead of formatting our statements as strings. Here's what our example program looks like if we do this:</p>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> get_name(database_file, person_ident):
     query = <span class="st">&quot;select personal || &#39;; &#39;; || family from Person where ident=?;&quot;</span>
 
@@ -91,12 +93,12 @@ connection.close()&lt;/code&gt;&lt;/pre&gt;</code></pre>
 <span class="dt">print</span> <span class="st">&quot;full name for dyer:&quot;</span>, get_name(<span class="st">&#39;;survey.db&#39;</span>;, <span class="st">&#39;;dyer&#39;</span>;)</code></pre>
 <pre class="output"><code>full name for dyer: William Dyer</code></pre>
 <p>The key changes are in the query string and the <code>execute</code> call. Instead of formatting the query ourselves, we put question marks in the query template where we want to insert values. When we call <code>execute</code>, we provide a list that contains as many values as there are question marks in the query. The library matches values to question marks in order, and translates any special characters in the values into their escaped equivalents so that they are safe to use.</p>
-<div id="fixme" class="challenge">
-<h2>FIXME</h2>
+<div id="filling-a-table-vs.-printing-values" class="challenge">
+<h2>Filling a Table vs. Printing Values</h2>
 <p>Write a Python program that creates a new database in a file called <code>original.db</code> containing a single table called <code>Pressure</code>, with a single field called <code>reading</code>, and inserts 100,000 random numbers between 10.0 and 25.0. How long does it take this program to run? How long does it take to run a program that simply writes those random numbers to a file?</p>
 </div>
-<div id="fixme-1" class="challenge">
-<h2>FIXME</h2>
+<div id="filtering-in-sql-vs.-filtering-in-python" class="challenge">
+<h2>Filtering in SQL vs. Filtering in Python</h2>
 <p>Write a Python program that creates a new database called <code>backup.db</code> with the same structure as <code>original.db</code> and copies all the values greater than 20.0 from <code>original.db</code> to <code>backup.db</code>. Which is faster: filtering values in the query, or reading everything into memory and filtering in Python?</p>
 </div>
         </div>

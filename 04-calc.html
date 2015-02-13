@@ -5,10 +5,12 @@
     <meta name="generator" content="pandoc">
     <title>Software Carpentry: Databases and SQL</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-responsive.css" />
     <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc-workshop-and-lesson.css" />
+    <link rel="stylesheet" type="text/css" href="css/lesson.css" />
     <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
     <meta charset="UTF-8" />
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -16,8 +18,8 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   </head>
-  <body>
-    <div class="container">
+  <body class="lesson">
+    <div class="container container-full-width card">
       <div class="banner">
         <a href="http://software-carpentry.org" title="Software Carpentry">
           <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
@@ -97,12 +99,12 @@
 </tr>
 </tbody>
 </table>
-<div id="fixme" class="challenge">
-<h2>FIXME</h2>
+<div id="fixing-salinity-readings" class="challenge">
+<h2>Fixing Salinity Readings</h2>
 <p>After further reading, we realize that Valentina Roerich was reporting salinity as percentages. Write a query that returns all of her salinity measurements from the <code>Survey</code> table with the values divided by 100.</p>
 </div>
-<div id="fixme-1" class="challenge">
-<h2>FIXME</h2>
+<div id="unions" class="challenge">
+<h2>Unions</h2>
 <p>The <code>union</code> operator combines the results of two queries:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> * <span class="kw">from</span> Person <span class="kw">where</span> ident=<span class="ot">&quot;dyer&quot;</span> <span class="kw">union</span> <span class="kw">select</span> * <span class="kw">from</span> Person <span class="kw">where</span> ident=<span class="ot">&quot;roe&quot;</span>;</code></pre>
 <table>
@@ -170,8 +172,8 @@
 </tbody>
 </table>
 </div>
-<div id="fixme-2" class="challenge">
-<h2>FIXME</h2>
+<div id="selecting-major-site-identifiers" class="challenge">
+<h2>Selecting Major Site Identifiers</h2>
 <p>The site identifiers in the <code>Visited</code> table have two parts separated by a '-':</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> <span class="kw">distinct</span> site <span class="kw">from</span> Visited;</code></pre>
 <table>

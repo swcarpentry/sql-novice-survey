@@ -5,10 +5,12 @@
     <meta name="generator" content="pandoc">
     <title>Software Carpentry: Introduction to Databases and SQL</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-responsive.css" />
     <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc-workshop-and-lesson.css" />
+    <link rel="stylesheet" type="text/css" href="css/lesson.css" />
     <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
     <meta charset="UTF-8" />
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -16,8 +18,8 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   </head>
-  <body>
-    <div class="container">
+  <body class="lesson">
+    <div class="container container-full-width card">
       <div class="banner">
         <a href="http://software-carpentry.org" title="Software Carpentry">
           <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
@@ -44,7 +46,7 @@
 <li>Use <code>where</code> to filter records according to Boolean conditions.</li>
 <li>Filtering is done on whole records, so conditions can use fields that are not actually displayed.</li>
 </ul>
-<h2 id="calculating-new-values"><a href="04-calc.htl">Calculating New Values</a></h2>
+<h2 id="calculating-new-values"><a href="04-calc.html">Calculating New Values</a></h2>
 <ul>
 <li>SQL can perform calculations using the values in a record as part of a query.</li>
 </ul>
@@ -71,7 +73,9 @@
 </ul>
 <h2 id="data-hygiene"><a href="08-hygiene.html">Data Hygiene</a></h2>
 <ul>
-<li>FIXME</li>
+<li>Every value in a database should be atomic.</li>
+<li>Every record in a database should have a primary key.</li>
+<li>Database entries should not contain redundant information.</li>
 </ul>
 <h2 id="creating-and-modifying-data"><a href="09-create.html">Creating and Modifying Data</a></h2>
 <ul>
@@ -92,64 +96,67 @@
 <dd>A function that combines multiple values to produce a single new value (e.g. sum, mean, median).
 </dd>
 <dt><span id="atomic">atomic</span></dt>
-<dd>Describes a value <em>not</em> divisible into parts that one might want to work with separately. For example, if one wanted to work with first and last names separately, the values &quot;Ada&quot; and &quot;Lovelace&quot; would be atomic, but the value &quot;Ada Lovelace&quot; wouldn't.
+<dd>Describes a value <em>not</em> divisible into parts that one might want to work with separately. For example, if one wanted to work with first and last names separately, the values &quot;Ada&quot; and &quot;Lovelace&quot; would be atomic, but the value &quot;Ada Lovelace&quot; would not.
 </dd>
 <dt><span id="cascading-delete">cascading delete</span></dt>
 <dd>An SQL constraint requiring that if a given record is deleted, all records referencing it (via foreign key) in other tables must also be deleted.
 </dd>
 <dt><span id="case-insensitive">case insensitive</span></dt>
-<dd>FIXME: definition
+<dd>Treating text as if upper and lower case characters were the same. See also: <a href="#case-sensitive">case sensitive</a>.
+</dd>
+<dt><span id="case-sensitive">case sensitive</span></dt>
+<dd>Treating upper and lower case characters as different. See also: <a href="#case-insensitive">case insensitive</a>.
 </dd>
 <dt><span id="cross-product">cross product</span></dt>
-<dd>FIXME: definition
+<dd>A pairing of all elements of one set with all elements of another.
 </dd>
 <dt><span id="comma-separated-values-(csv)">comma-separated values (CSV)</span></dt>
-<dd>FIXME: definition
+<dd>A common textual representation for tables in which the values in each row are separated by commas.
 </dd>
 <dt><span id="cursor">cursor</span></dt>
-<dd>FIXME: definition
+<dd>A pointer into a database that keeps track of outstanding operations.
 </dd>
 <dt><span id="database-manager">database manager</span></dt>
-<dd>FIXME: definition
+<dd>A program that manages a database, such as SQLite.
 </dd>
 <dt><span id="fields">fields</span></dt>
-<dd>FIXME: definition
+<dd>A set of data values of a particular type, one for each <a href="#record">record</a> in a <a href="#table">table</a>.
 </dd>
 <dt><span id="filter">filter</span></dt>
-<dd>FIXME: definition
+<dd>To select only the records that meet certain conditions.
 </dd>
-<dt><span id="foreign-keys">foreign keys</span></dt>
-<dd>FIXME: definition
+<dt><span id="foreign-key">foreign key</span></dt>
+<dd>One or more values in a <a href="#table-database">database table</a> that identify a <a href="#record-database">records</a> in another table.
 </dd>
 <dt><span id="prepared-statement">prepared statement</span></dt>
-<dd>FIXME: definition
+<dd>A template for an <a href="#sql">SQL</a> query in which some values can be filled in.
 </dd>
-<dt><span id="primary-keys">primary keys</span></dt>
-<dd>FIXME: definition
+<dt><span id="primary-key">primary key</span></dt>
+<dd>One or more <a href="#field">fields</a> in a <a href="#table">database table</a> whose values are guaranteed to be unique for each <a href="#record">record</a>, i.e., whose values uniquely identify the entry.
 </dd>
-<dt><span id="queries">queries</span></dt>
-<dd>FIXME: definition
+<dt><span id="query">query</span></dt>
+<dd>A database operation that reads values but does not modify anything. Queries are expressed in a special-purpose language called <a href="#sql">SQL</a>.
 </dd>
-<dt><span id="records">records</span></dt>
-<dd>FIXME: definition
+<dt><span id="record">record</span></dt>
+<dd>A set of related values making up a single entry in a <a href="#table">database table</a>, typically shown as a row. See also: <a href="#field">field</a>.
 </dd>
 <dt><span id="referential-integrity">referential integrity</span></dt>
-<dd>FIXME: definition
+<dd>The internal consistency of values in a database. If an entry in one table contains a <a href="#foreign-key">foreign key</a>, but the corresponding <a href="#record">records</a> don't exist, referential integrity has been violated.
 </dd>
 <dt><span id="relational-database">relational database</span></dt>
-<dd>FIXME: definition
+<dd>A collection of data organized into <a href="#table">tables</a>.
 </dd>
 <dt><span id="sentinel-value">sentinel value</span></dt>
-<dd>FIXME: definition
+<dd>A value in a collection that has a special meaning, such as 999 to mean &quot;age unknown&quot;.
 </dd>
 <dt><span id="sql">SQL</span></dt>
-<dd>FIXME: definition
+<dd>A special-purpose language for describing operations on <a href="#relational-database">relational databases</a>.
 </dd>
 <dt><span id="sql-injection-attack">SQL injection attack</span></dt>
-<dd>FIXME: definition
+<dd>An attack on a program in which the user's input contains malicious SQL statements. If this text is copied directly into an SQL statement, it will be executed in the database.
 </dd>
-<dt><span id="tables">tables</span></dt>
-<dd>FIXME: definition
+<dt><span id="table">table</span></dt>
+<dd>A set of data in a <a href="#relational-database">relational database</a> organized into a set of <a href="#record">records</a>, each having the same named <a href="#field">fields</a>.
 </dd>
 </dl>
         </div>

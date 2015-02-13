@@ -5,10 +5,12 @@
     <meta name="generator" content="pandoc">
     <title>Software Carpentry: Databases and SQL</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-responsive.css" />
     <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc-workshop-and-lesson.css" />
+    <link rel="stylesheet" type="text/css" href="css/lesson.css" />
     <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
     <meta charset="UTF-8" />
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -16,8 +18,8 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   </head>
-  <body>
-    <div class="container">
+  <body class="lesson">
+    <div class="container container-full-width card">
       <div class="banner">
         <a href="http://software-carpentry.org" title="Software Carpentry">
           <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
@@ -34,7 +36,7 @@
 <li>Explain the order in which the clauses in a query are executed.</li>
 </ul>
 </div>
-<p>One of the most powerful features of a database is the ability to <strong>filter</strong> data, i.e., to select only those records that match certain criteria. For example, suppose we want to see when a particular site was visited. We can select these records from the <code>Visited</code> table by using a <code>where</code> clause in our query:</p>
+<p>One of the most powerful features of a database is the ability to <a href="reference.html#filter">filter</a> data, i.e., to select only those records that match certain criteria. For example, suppose we want to see when a particular site was visited. We can select these records from the <code>Visited</code> table by using a <code>where</code> clause in our query:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> * <span class="kw">from</span> Visited <span class="kw">where</span> site=<span class="ot">&quot;DR-1&quot;</span>;</code></pre>
 <table>
 <thead>
@@ -402,18 +404,18 @@
 <p>What we have just done is how most people &quot;grow&quot; their SQL queries. We started with something simple that did part of what we wanted, then added more clauses one by one, testing their effects as we went. This is a good strategy --- in fact, for complex queries it's often the <em>only</em> strategy --- but it depends on quick turnaround, and on us recognizing the right answer when we get it.</p>
 <p>The best way to achieve quick turnaround is often to put a subset of data in a temporary database and run our queries against that, or to fill a small database with synthesized records. For example, instead of trying our queries against an actual database of 20 million Australians, we could run it against a sample of ten thousand, or write a small program to generate ten thousand random (but plausible) records and use that.</p>
 </blockquote>
-<div id="fixme" class="challenge">
-<h2>FIXME</h2>
+<div id="fix-this-query" class="challenge">
+<h2>Fix This Query</h2>
 <p>Suppose we want to select all sites that lie more than 30 degrees from the poles. Our first query is:</p>
 <pre><code>select * from Site where (lat &gt; -60) or (lat &lt; 60);</code></pre>
 <p>Explain why this is wrong, and rewrite the query so that it is correct.</p>
 </div>
-<div id="fixme-1" class="challenge">
-<h2>FIXME</h2>
+<div id="finding-outliers" class="challenge">
+<h2>Finding Outliers</h2>
 <p>Normalized salinity readings are supposed to be between 0.0 and 1.0. Write a query that selects all records from <code>Survey</code> with salinity values outside this range.</p>
 </div>
-<div id="fixme-2" class="challenge">
-<h2>FIXME</h2>
+<div id="matching-patterns" class="challenge">
+<h2>Matching Patterns</h2>
 <p>The SQL test <code>*column-name* like *pattern*</code> is true if the value in the named column matches the pattern given; the character '%' can be used any number of times in the pattern to mean &quot;match zero or more characters&quot;.</p>
 <table>
 <thead>

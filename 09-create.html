@@ -5,10 +5,12 @@
     <meta name="generator" content="pandoc">
     <title>Software Carpentry: Databases and SQL</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-responsive.css" />
     <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc-workshop-and-lesson.css" />
+    <link rel="stylesheet" type="text/css" href="css/lesson.css" />
     <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
     <meta charset="UTF-8" />
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -16,8 +18,8 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   </head>
-  <body>
-    <div class="container">
+  <body class="lesson">
+    <div class="container container-full-width card">
       <div class="banner">
         <a href="http://software-carpentry.org" title="Software Carpentry">
           <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
@@ -97,25 +99,25 @@
 <p>Deleting records can be a bit trickier, because we have to ensure that the database remains internally consistent. If all we care about is a single table, we can use the <code>delete</code> command with a <code>where</code> clause that matches the records we want to discard. For example, once we realize that Frank Danforth didn't take any measurements, we can remove him from the <code>Person</code> table like this:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">delete</span> <span class="kw">from</span> Person <span class="kw">where</span> ident = <span class="ot">&quot;danforth&quot;</span>;</code></pre>
 <p>But what if we removed Anderson Lake instead? Our <code>Survey</code> table would still contain seven records of measurements he'd taken, but that's never supposed to happen: <code>Survey.person</code> is a foreign key into the <code>Person</code> table, and all our queries assume there will be a row in the latter matching every value in the former.</p>
-<p>This problem is called <strong>referential integrity</strong>: we need to ensure that all references between tables can always be resolved correctly. One way to do this is to delete all the records that use <code>'lake'</code> as a foreign key before deleting the record that uses it as a primary key. If our database manager supports it, we can automate this using <strong>cascading delete</strong>. However, this technique is outside the scope of this chapter.</p>
-<blockquote>
+<p>This problem is called <a href="reference.html#referential-integrity">referential integrity</a>: we need to ensure that all references between tables can always be resolved correctly. One way to do this is to delete all the records that use <code>'lake'</code> as a foreign key before deleting the record that uses it as a primary key. If our database manager supports it, we can automate this using <a href="reference.html#cascading-delete">cascading delete</a>. However, this technique is outside the scope of this chapter.</p>
+<div id="hybrid-storage-models" class="callout">
 <h2>Hybrid Storage Models</h2>
 <p>Many applications use a hybrid storage model instead of putting everything into a database: the actual data (such as astronomical images) is stored in files, while the database stores the files' names, their modification dates, the region of the sky they cover, their spectral characteristics, and so on. This is also how most music player software is built: the database inside the application keeps track of the MP3 files, but the files themselves live on disk.</p>
-</blockquote>
-<div id="fixme" class="challenge">
-<h2>FIXME</h2>
+</div>
+<div id="replacing-null" class="challenge">
+<h2>Replacing NULL</h2>
 <p>Write an SQL statement to replace all uses of <code>null</code> in <code>Survey.person</code> with the string <code>'unknown'</code>.</p>
 </div>
-<div id="fixme-1" class="challenge">
-<h2>FIXME</h2>
-<p>One of our colleagues has sent us a <strong>CSV</strong> file containing temperature readings by Robert Olmstead, which is formatted like this:</p>
+<div id="generating-insert-statements" class="challenge">
+<h2>Generating Insert Statements</h2>
+<p>One of our colleagues has sent us a <a href="reference.html#comma-separated-values">CSV</a> file containing temperature readings by Robert Olmstead, which is formatted like this:</p>
 <pre class="output"><code>Taken,Temp
 619,-21.5
 622,-15.5</code></pre>
 <p>Write a small Python program that reads this file in and prints out the SQL <code>insert</code> statements needed to add these records to the survey database. Note: you will need to add an entry for Olmstead to the <code>Person</code> table. If you are testing your program repeatedly, you may want to investigate SQL's <code>insert or replace</code> command.</p>
 </div>
-<div id="fixme-2" class="challenge">
-<h2>FIXME</h2>
+<div id="backing-up-with-sql" class="challenge">
+<h2>Backing Up with SQL</h2>
 <p>SQLite has several administrative commands that aren't part of the SQL standard. One of them is <code>.dump</code>, which prints the SQL commands needed to re-create the database. Another is <code>.load</code>, which reads a file created by <code>.dump</code> and restores the database. A colleague of yours thinks that storing dump files (which are text) in version control is a good way to track and manage changes to the database. What are the pros and cons of this approach? (Hint: records aren't stored in any particular order.)</p>
 </div>
         </div>
