@@ -5,7 +5,7 @@ subtitle: Creating and Modifying Data
 minutes: 30
 ---
 > ## Learning Objectives {.objectives}
-> 
+>
 > *   Write queries that creates tables.
 > *   Write queries to insert, modify, and delete records.
 
@@ -40,7 +40,7 @@ drop table Survey;
 Be very careful when doing this:
 most databases have some support for undoing changes,
 but it's better not to have to rely on it.
-  
+
 Different database systems support different data types for table columns,
 but most provide the following:
 
@@ -59,7 +59,7 @@ such as latitude and longitude.
 Keeping track of what particular systems do or do not offer,
 and what names they give different data types,
 is an unending portability headache.
-  
+
 When we create a table,
 we can specify several kinds of constraints on its columns.
 For example,
@@ -136,7 +136,7 @@ but that's never supposed to happen:
 `Survey.person` is a foreign key into the `Person` table,
 and all our queries assume there will be a row in the latter
 matching every value in the former.
-  
+
 This problem is called [referential integrity](reference.html#referential-integrity):
 we need to ensure that all references between tables can always be resolved correctly.
 One way to do this is to delete all the records

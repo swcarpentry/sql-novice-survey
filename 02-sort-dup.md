@@ -135,7 +135,7 @@ select * from person order by ident desc;
 
 (And if we want to make it clear that we're sorting in ascending order,
 we can use `asc` instead of `desc`.)
-  
+
 We can also sort on several fields at once.
 For example,
 this query sorts results first in ascending order by `taken`,

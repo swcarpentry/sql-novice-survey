@@ -5,7 +5,7 @@ subtitle: Programming with Databases
 minutes: 20
 ---
 > ## Learning Objectives {.objectives}
-> 
+>
 > *   Write short programs that execute SQL queries.
 > *   Trace the execution of a program that contains an SQL query.
 > *   Explain why most database applications are written in a general-purpose language rather than in SQL.
@@ -122,13 +122,13 @@ select personal || ' ' || family from Person where ident='dyer'; drop table Surv
 
 If we execute this,
 it will erase one of the tables in our database.
-  
+
 This is called an [SQL injection attack](reference.html#sql-injection-attack),
 and it has been used to attack thousands of programs over the years.
 In particular,
 many web sites that take data from users insert values directly into queries
 without checking them carefully first.
-  
+
 Since a villain might try to smuggle commands into our queries in many different ways,
 the safest way to deal with this threat is
 to replace characters like quotes with their escaped equivalents,

@@ -12,7 +12,7 @@ subtitle: Reference
 *   SQL is case-insensitive.
 
 ## [Sorting and Removing Duplicates](02-sort-dup.html)
- 
+
 *   The records in a database table are not intrinsically ordered:
     if we want to display them in some order,
     we must specify that explicitly.

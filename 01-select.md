@@ -15,7 +15,7 @@ is a way to store and manipulate information
 that is arranged as [tables](reference.html#table).
 Each table has columns (also known as [fields](reference.html#field)) which describe the data,
 and rows (also known as [records](reference.html#record)) which contain the data.
-  
+
 When we are using a spreadsheet,
 we put formulas into cells to calculate new values based on old ones.
 When we are using a database,
@@ -26,7 +26,7 @@ a program that manipulates the database for us.
 The database manager does whatever lookups and calculations the query specifies,
 returning the results in a tabular form
 that we can then use as a starting point for further queries.
-  
+
 > Every database manager --- Oracle,
 > IBM DB2, PostgreSQL, MySQL, Microsoft Access, and SQLite --- stores
 > data in a different way,
@@ -44,17 +44,17 @@ but that handful accounts for most of what scientists do.
 The tables below show the database we will use in our examples:
 
 > **Person**: people who took readings.
-> 
-> |ident   |personal |family    
+>
+> |ident   |personal |family
 > |--------|---------|----------
-> |dyer    |William  |Dyer      
-> |pb      |Frank    |Pabodie   
-> |lake    |Anderson |Lake      
-> |roe     |Valentina|Roerich   
-> |danforth|Frank    |Danforth  
+> |dyer    |William  |Dyer
+> |pb      |Frank    |Pabodie
+> |lake    |Anderson |Lake
+> |roe     |Valentina|Roerich
+> |danforth|Frank    |Danforth
 
 > **Site**: locations where readings were taken.
-> 
+>
 > |name |lat   |long   |
 > |-----|------|-------|
 > |DR-1 |-49.85|-128.57|
@@ -62,7 +62,7 @@ The tables below show the database we will use in our examples:
 > |MSK-4|-48.87|-123.4 |
 
 > **Visited**: when readings were taken at specific sites.
-> 
+>
 > |ident|site |dated     |
 > |-----|-----|----------|
 > |619  |DR-1 |1927-02-08|
@@ -75,7 +75,7 @@ The tables below show the database we will use in our examples:
 > |844  |DR-1 |1932-03-22|
 
 > **Survey**: the actual readings.
-> 
+>
 > |taken|person|quant|reading|
 > |-----|------|-----|-------|
 > |619  |dyer  |rad  |9.82   |

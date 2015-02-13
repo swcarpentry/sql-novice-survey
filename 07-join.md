@@ -5,7 +5,7 @@ subtitle: Combining Data
 minutes: 30
 ---
 > ## Learning Objectives {.objectives}
-> 
+>
 > *   Explain the operation of a query that joins two tables.
 > *   Explain how to restrict the output of a query containing a join to only include meaningful combinations of values.
 > *   Write queries that join tables on equal keys.
@@ -68,13 +68,13 @@ and eight in `Visited`,
 the join's output has 24 records (3 * 8 = 24) .
 And since each table has three fields,
 the output has six fields (3 + 3 = 6).
-  
+
 What the join *hasn't* done is
 figure out if the records being joined have anything to do with each other.
 It has no way of knowing whether they do or not until we tell it how.
 To do that,
 we add a clause specifying that
-we're only interested in combinations that have the same site name, 
+we're only interested in combinations that have the same site name,
 thus we need to use a filter:
 
 ~~~ {.sql}
@@ -102,7 +102,7 @@ Once we add this to our query,
 the database manager throws away records
 that combined information about two different sites,
 leaving us with just the ones we want.
-  
+
 Notice that we used `table.field` to specify field names
 in the output of the join.
 We do this because tables can have fields with the same name,

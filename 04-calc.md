@@ -82,17 +82,17 @@ select personal || " " || family from Person;
 > ~~~ {.sql}
 > select * from Person where ident="dyer" union select * from Person where ident="roe";
 > ~~~
-> 
+>
 > |ident|personal |family |
 > |-----|-------- |-------|
 > |dyer |William  |Dyer   |
 > |roe  |Valentina|Roerich|
-> 
+>
 > Use `union` to create a consolidated list of salinity measurements
 > in which Roerich's, and only Roerich's,
 > have been corrected as described in the previous challenge.
 > The output should be something like:
-> 
+>
 > |taken|reading|
 > |-----|-------|
 > |619  |0.13   |
@@ -112,13 +112,13 @@ select personal || " " || family from Person;
 > ~~~ {.sql}
 > select distinct site from Visited;
 > ~~~
-> 
+>
 > |site |
 > |-----|
 > |DR-1 |
 > |DR-3 |
 > |MSK-4|
-> 
+>
 > Some major site identifiers are two letters long and some are three.
 > The "in string" function `instr(X, Y)`
 > returns the 1-based index of the first occurrence of string Y in string X,

@@ -5,7 +5,7 @@ subtitle: Aggregation
 minutes: 30
 ---
 > ## Learning Objectives {.objectives}
-> 
+>
 > *   Define "aggregation" and give examples of its use.
 > *   Write queries that compute aggregated values.
 > *   Trace the execution of a query that performs aggregation.
