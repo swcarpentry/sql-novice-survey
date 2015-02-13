@@ -163,3 +163,9 @@ table
 :   A set of data in a [relational database](#relational-database)
     organized into a set of [records](#record),
     each having the same named [fields](#field).
+
+wildcard
+:   A character used in pattern matching.
+    In SQL's `like` operator,
+    the wildcard "%" matches zero or more characters,
+    so that `%able%` matches "fixable" and "tablets".

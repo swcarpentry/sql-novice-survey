@@ -29,7 +29,7 @@
         <div class="span10 offset1">
           <h1 class="title">Databases and SQL</h1>
           <h2 class="subtitle">Filtering</h2>
-<div id="learning-objectives" class="objectives objectives">
+<div id="learning-objectives" class="objectives">
 <h2>Learning Objectives</h2>
 <ul>
 <li>Write queries that select records that satisfy user-specified conditions.</li>
@@ -67,7 +67,24 @@
 <p>The database manager executes this query in two stages. First, it checks at each row in the <code>Visited</code> table to see which ones satisfy the <code>where</code>. It then uses the column names following the <code>select</code> keyword to determine what columns to display.</p>
 <p>This processing order means that we can filter records using <code>where</code> based on values in columns that aren't then displayed:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> ident <span class="kw">from</span> Visited <span class="kw">where</span> site=<span class="ot">&quot;DR-1&quot;</span>;</code></pre>
-<p>|ident| |-----| |619 |<br />|622 |<br />|844 |</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">ident</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">619</td>
+</tr>
+<tr class="even">
+<td align="left">622</td>
+</tr>
+<tr class="odd">
+<td align="left">844</td>
+</tr>
+</tbody>
+</table>
 <p><img src="fig/sql-filter.svg" alt="SQL Filtering in Action" /></p>
 <p>We can use many other Boolean operators to filter our data. For example, we can ask for all information from the DR-1 site collected since 1930:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> * <span class="kw">from</span> Visited <span class="kw">where</span> (site=<span class="ot">&quot;DR-1&quot;</span>) <span class="kw">and</span> (dated&lt;=<span class="ot">&quot;1930-00-00&quot;</span>);</code></pre>
@@ -350,7 +367,7 @@
 </tr>
 </tbody>
 </table>
-<p>We can also filter by partial matches. For example if we want to know something just about the site names beginning with &quot;DR&quot; we can use the <code>like</code> keyword. The percent symbol acts as a wildcard, matching any characters in that place. It can be used at the beginning, middle, or end of your string.</p>
+<p>We can also filter by partial matches. For example, if we want to know something just about the site names beginning with &quot;DR&quot; we can use the <code>like</code> keyword. The percent symbol acts as a <a href="reference.html#wildcard">wildcard</a>, matching any characters in that place. It can be used at the beginning, middle, or end of the string:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> * <span class="kw">from</span> Visited <span class="kw">where</span> site <span class="kw">like</span> <span class="ot">&quot;DR%&quot;</span>;</code></pre>
 <table>
 <thead>
@@ -447,38 +464,14 @@
 </div>
 <div id="matching-patterns" class="challenge">
 <h2>Matching Patterns</h2>
-<p>The SQL test <code>*column-name* like *pattern*</code> is true if the value in the named column matches the pattern given; the character '%' can be used any number of times in the pattern to mean &quot;match zero or more characters&quot;.</p>
-<table>
-<thead>
-<tr class="header">
-<th align="left">Expression</th>
-<th align="left">Value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left"><code>'a' like 'a'</code></td>
-<td align="left">True</td>
-</tr>
-<tr class="even">
-<td align="left"><code>'a' like '%a'</code></td>
-<td align="left">True</td>
-</tr>
-<tr class="odd">
-<td align="left"><code>'b' like '%a'</code></td>
-<td align="left">False</td>
-</tr>
-<tr class="even">
-<td align="left"><code>'alpha' like 'a%'</code></td>
-<td align="left">True</td>
-</tr>
-<tr class="odd">
-<td align="left"><code>'alpha' like 'a%p%'</code></td>
-<td align="left">True</td>
-</tr>
-</tbody>
-</table>
-<p>The expression <code>*column-name* not like *pattern*</code> inverts the test. Using <code>like</code>, write a query that finds all the records in <code>Visited</code> that <em>aren't</em> from sites labelled 'DR-something'.</p>
+<p>Which of these expressions are true?</p>
+<ul>
+<li><code>'a' like 'a'</code></li>
+<li><code>'a' like '%a'</code></li>
+<li><code>'beta' like '%a'</code></li>
+<li><code>'alpha' like 'a%%'</code></li>
+<li><code>'alpha' like 'a%p%'</code></li>
+</ul>
 </div>
         </div>
       </div>

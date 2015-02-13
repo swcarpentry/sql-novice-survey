@@ -162,12 +162,16 @@ select * from Survey where quant="sal" and (person="lake" or person="roe");
 |837  |lake  |sal  |0.21   |
 |837  |roe   |sal  |22.5   |
 
-We can also filter by partial matches.  For example if we want to know something just about the site names beginning with "DR" we can use the `like` keyword.  The percent symbol acts as a wildcard, matching any characters in that place.  It can be used at the beginning, middle, or end of your string.  
+We can also filter by partial matches.
+For example,
+if we want to know something just about the site names beginning with "DR" we can use the `like` keyword.
+The percent symbol acts as a [wildcard](reference.html#wildcard),
+matching any characters in that place.
+It can be used at the beginning, middle, or end of the string:
 
 ~~~ {.sql}
 select * from Visited where site like "DR%";
 ~~~
-
 
 |ident|site |dated     | 
 |-----|-----|----------|
@@ -241,22 +245,10 @@ not to the entire rows as they are being processed.
 
 > ## Matching Patterns {.challenge}
 >
-> The SQL test `*column-name* like *pattern*`
-> is true if the value in the named column
-> matches the pattern given;
-> the character '%' can be used any number of times in the pattern
-> to mean "match zero or more characters".
+> Which of these expressions are true?
 >
-> |Expression           |Value|
-> |---------------------|-----|
-> |`'a' like 'a'`       |True |
-> |`'a' like '%a'`      |True |
-> |`'b' like '%a'`      |False|
-> |`'alpha' like 'a%'`  |True |
-> |`'alpha' like 'a%p%'`|True |
->
-> The expression `*column-name* not like *pattern*`
-> inverts the test.
-> Using `like`,
-> write a query that finds all the records in `Visited`
-> that *aren't* from sites labelled 'DR-something'.
+> * `'a' like 'a'`
+> * `'a' like '%a'`
+> * `'beta' like '%a'`
+> * `'alpha' like 'a%%'`
+> * `'alpha' like 'a%p%'`
