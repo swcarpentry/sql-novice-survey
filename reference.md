@@ -83,9 +83,9 @@ atomic
     "Ada Lovelace" would not.
 
 cascading delete
-:   An SQL constraint requiring that if a given record is
-    deleted, all records referencing it (via foreign key) in
-    other tables must also be deleted.
+:   An [SQL](#sql) constraint requiring that if a given [record](#record) is
+    deleted, all records referencing it (via [foreign key](#foreign-key)) in
+    other [tables](#table) must also be deleted.
 
 case insensitive
 :   Treating text as if upper and lower case characters were the same.
@@ -101,6 +101,9 @@ cross product
 comma-separated values (CSV)
 :   A common textual representation for tables
     in which the values in each row are separated by commas.
+
+cross product
+:   A pairing of all elements of one set with all elements of another.
 
 cursor
 :   A pointer into a database that keeps track of outstanding operations.
