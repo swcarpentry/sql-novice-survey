@@ -232,3 +232,11 @@ select rowid, * from Person;
 > select Site.name from Site join Visited
 > on Site.lat<-49.0 and Site.name=Visited.site and Visited.dated>='1932-00-00';
 > ~~~
+
+> ## Optional challenge, test your self {.challenge}
+> Write a query that shows each site with exact location (lat, long) ordered by visited date, 
+> followed by the name and lastname of the person who visited the site 
+> and the type of measurement taken and its reading. Please avoid all null values.
+> Tip: you should get 15 records with 8 fields.
+>
+
