@@ -17,7 +17,7 @@ from the `survey` table,
 we get this:
 
 ~~~ {.sql}
-select quant from Survey;
+select quant from survey;
 ~~~
 
 |quant|
@@ -50,7 +50,7 @@ by adding the `distinct` keyword
 to our query:
 
 ~~~ {.sql}
-select distinct quant from Survey;
+select distinct quant from survey;
 ~~~
 
 |quant|
@@ -104,7 +104,7 @@ e.g., by the name of the project instead of by the name of the scientist.
 We can do this in SQL by adding an `order by` clause to our query:
 
 ~~~ {.sql}
-select * from Person order by ident;
+select * from person order by ident;
 ~~~
 
 |ident  |personal |family  |
@@ -143,7 +143,7 @@ and then in descending order by `person`
 within each group of equal `taken` values:
 
 ~~~ {.sql}
-select taken, person from Survey order by taken asc, person desc;
+select taken, person from survey order by taken asc, person desc;
 ~~~
 
 |taken|person|
@@ -173,7 +173,7 @@ select taken, person from Survey order by taken asc, person desc;
 This is easier to understand if we also remove duplicates:
 
 ~~~ {.sql}
-select distinct taken, person from Survey order by taken asc, person desc;
+select distinct taken, person from survey order by taken asc, person desc;
 ~~~
 
 |taken|person|
