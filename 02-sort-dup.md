@@ -194,7 +194,7 @@ select distinct taken, person from Survey order by taken asc, person desc;
 
 > ## Finding Distinct Dates {.challenge}
 >
-> Write a query that selects distinct dates from the `Site` table.
+> Write a query that selects distinct dates from the `Visited` table.
 
 > ## Displaying Full Names {.challenge}
 >
