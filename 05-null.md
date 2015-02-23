@@ -24,7 +24,7 @@ but #752 doesn't have a date --- or rather,
 its date is null:
 
 ~~~ {.sql}
-select * from Visited;
+SELECT * FROM Visited;
 ~~~
 
 |ident|site|dated     |
@@ -42,7 +42,7 @@ Null doesn't behave like other values.
 If we select the records that come before 1930:
 
 ~~~ {.sql}
-select * from Visited where dated<"1930-00-00";
+SELECT * FROM Visited WHERE dated<"1930-00-00";
 ~~~
 
 |ident|site|dated     |
@@ -54,7 +54,7 @@ we get two results,
 and if we select the ones that come during or after 1930:
 
 ~~~ {.sql}
-select * from Visited where dated>="1930-00-00";
+SELECT * FROM Visited WHERE dated>="1930-00-00";
 ~~~
 
 |ident|site|dated     |
@@ -78,7 +78,7 @@ the value of `null<'1930-00-00'`
 is actually `null`.
 `null>='1930-00-00'` is also null
 because we can't answer to that question either.
-And since the only records kept by a `where`
+And since the only records kept by a `WHERE`
 are those for which the test is true,
 record #752 isn't included in either set of results.
 
@@ -91,30 +91,30 @@ In particular,
 comparing things to null with = and != produces null:
 
 ~~~ {.sql}
-select * from Visited where dated=NULL;
+SELECT * FROM Visited WHERE dated=NULL;
 ~~~
 
 produces no output, and neither does:
 
 ~~~ {.sql}
-select * from Visited where dated!=NULL;
+SELECT * FROM Visited WHERE dated!=NULL;
 ~~~
 
 To check whether a value is `null` or not,
-we must use a special test `is null`:
+we must use a special test `IS NULL`:
 
 ~~~ {.sql}
-select * from Visited where dated is NULL;
+SELECT * FROM Visited WHERE dated IS NULL;
 ~~~
 
 |ident|site|dated     |
 |-----|----|----------|
 |752  |DR-3|-null-    |
 
-or its inverse `is not null`:
+or its inverse `IS NOT NULL`:
 
 ~~~ {.sql}
-select * from Visited where dated is not NULL;
+SELECT * FROM Visited WHERE dated IS NOT NULL;
 ~~~
 
 |ident|site|dated     |
@@ -134,7 +134,7 @@ that weren't taken by Dyer.
 It's natural to write the query like this:
 
 ~~~ {.sql}
-select * from Survey where quant="sal" and person!="lake";
+SELECT * FROM Survey WHERE quant="sal" AND person!="lake";
 ~~~
 
 |taken|person|quant|reading|
@@ -154,7 +154,7 @@ If we want to keep these records
 we need to add an explicit check:
 
 ~~~ {.sql}
-select * from Survey where quant="sal" and (person!="lake" or person is null);
+SELECT * FROM Survey WHERE quant="sal" AND (person!="lake" OR person IS NULL);
 ~~~
 
 |taken|person|quant|reading|
@@ -181,7 +181,7 @@ we need to exclude all the records for which we don't know who did the work.
 > What do you expect the query:
 >
 > ~~~
-> select * from Visited where dated in ('1927-02-08', null);
+> SELECT * FROM Visited WHERE dated IN ('1927-02-08', NULL);
 > ~~~
 >
 > to produce?
