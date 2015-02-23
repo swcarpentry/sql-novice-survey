@@ -44,12 +44,12 @@ and round to two decimal places:
 SELECT taken, round(5*(reading-32)/9, 2) FROM Survey WHERE quant="temp";
 ~~~
 
-|taken|round(5*(reading-32)/9, 2)|
-|-----|--------------------------|
-|734  |-29.72                    |
-|735  |-32.22                    |
-|751  |-28.06                    |
-|752  |-26.67                    |
+|taken|round(5\*(reading-32)/9, 2)|
+|-----|---------------------------|
+|734  |-29.72                     |
+|735  |-32.22                     |
+|751  |-28.06                     |
+|752  |-26.67                     |
 
 We can also combine values from different fields,
 for example by using the string concatenation operator `||`:

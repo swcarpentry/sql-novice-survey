@@ -118,7 +118,7 @@ out of our join:
 
 ~~~ {.sql}
 SELECT Site.lat, Site.long, Visited.dated
-FROM   Site join Visited
+FROM   Site JOIN Visited
 ON     Site.name=Visited.site;
 ~~~
 
@@ -143,7 +143,7 @@ that don't make sense:
 
 ~~~ {.sql}
 SELECT Site.lat, Site.long, Visited.dated, Survey.quant, Survey.reading
-FROM   Site join Visited join Survey
+FROM   Site JOIN Visited JOIN Survey
 ON     Site.name=Visited.site
 AND    Visited.ident=Survey.taken
 AND    Visited.dated IS NOT NULL;
