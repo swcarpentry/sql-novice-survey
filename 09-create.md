@@ -101,7 +101,7 @@ CREATE TABLE JustLatLong(lat text, long text);
 INSERT INTO JustLatLong SELECT lat, long FROM site;
 ~~~
 
-Modifying existing records is done using the `update` statement.
+Modifying existing records is done using the `UPDATE` statement.
 To do this we tell the database which table we want to update,
 what we want to change the values to for any or all of the fields,
 and under what conditions we should update the values.
@@ -180,10 +180,10 @@ this technique is outside the scope of this chapter.
 > ~~~
 >
 > Write a small Python program that reads this file in and prints out
-> the SQL `insert` statements needed to add these records to the
+> the SQL `INSERT` statements needed to add these records to the
 > survey database.  Note: you will need to add an entry for Olmstead
 > to the `Person` table.  If you are testing your program repeatedly,
-> you may want to investigate SQL's `insert or replace` command.
+> you may want to investigate SQL's `INSERT or REPLACE` command.
 
 > ## Backing Up with SQL {.challenge}
 >

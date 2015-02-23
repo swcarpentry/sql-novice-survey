@@ -130,7 +130,7 @@ SELECT * FROM Visited WHERE dated IS NOT NULL;
 Null values cause headaches wherever they appear.
 For example,
 suppose we want to find all the salinity measurements
-that weren't taken by Dyer.
+that weren't taken by Lake.
 It's natural to write the query like this:
 
 ~~~ {.sql}

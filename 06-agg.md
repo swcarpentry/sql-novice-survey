@@ -110,7 +110,7 @@ although the output might surprise you:
 SELECT person, count(*) FROM Survey WHERE quant="sal" AND reading<=1.0;
 ~~~
 
-|person|count(*)|
+|person|count(\*)|
 |------|--------|
 |lake  |7       |
 

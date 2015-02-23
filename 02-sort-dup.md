@@ -46,7 +46,7 @@ SELECT quant FROM Survey;
 
 We can eliminate the redundant output
 to make the result more readable
-by adding the `distinct` keyword
+by adding the `DISTINCT` keyword
 to our query:
 
 ~~~ {.sql}
@@ -101,7 +101,7 @@ This means that query results aren't necessarily sorted,
 and even if they are,
 we often want to sort them in a different way,
 e.g., by the name of the project instead of by the name of the scientist.
-We can do this in SQL by adding an `order by` clause to our query:
+We can do this in SQL by adding an `ORDER BY` clause to our query:
 
 ~~~ {.sql}
 SELECT * FROM Person ORDER BY ident;
