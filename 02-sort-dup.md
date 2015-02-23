@@ -17,7 +17,7 @@ from the `survey` table,
 we get this:
 
 ~~~ {.sql}
-select quant from Survey;
+SELECT quant FROM Survey;
 ~~~
 
 |quant|
@@ -50,7 +50,7 @@ by adding the `distinct` keyword
 to our query:
 
 ~~~ {.sql}
-select distinct quant from Survey;
+SELECT DISTINCT quant FROM Survey;
 ~~~
 
 |quant|
@@ -64,7 +64,7 @@ both the survey site ID and the quantity measured --- then
 the distinct pairs of values are returned:
 
 ~~~ {.sql}
-select distinct taken, quant from Survey;
+SELECT DISTINCT taken, quant FROM Survey;
 ~~~
 
 |taken|quant|
@@ -104,7 +104,7 @@ e.g., by the name of the project instead of by the name of the scientist.
 We can do this in SQL by adding an `order by` clause to our query:
 
 ~~~ {.sql}
-select * from Person order by ident;
+SELECT * FROM Person ORDER BY ident;
 ~~~
 
 |ident  |personal |family  |
@@ -119,10 +119,10 @@ By default,
 results are sorted in ascending order
 (i.e.,
 from least to greatest).
-We can sort in the opposite order using `desc` (for "descending"):
+We can sort in the opposite order using `DESC` (for "descending"):
 
 ~~~ {.sql}
-select * from person order by ident desc;
+SELECT * FROM person ORDER BY ident DESC;
 ~~~
 
 |ident  |personal |family  |
@@ -134,7 +134,7 @@ select * from person order by ident desc;
 |danfort|Frank    |Danforth|
 
 (And if we want to make it clear that we're sorting in ascending order,
-we can use `asc` instead of `desc`.)
+we can use `ASC` instead of `DESC`.)
 
 We can also sort on several fields at once.
 For example,
@@ -143,7 +143,7 @@ and then in descending order by `person`
 within each group of equal `taken` values:
 
 ~~~ {.sql}
-select taken, person from Survey order by taken asc, person desc;
+SELECT taken, person FROM Survey ORDER BY taken ASC, person DESC;
 ~~~
 
 |taken|person|
@@ -173,7 +173,7 @@ select taken, person from Survey order by taken asc, person desc;
 This is easier to understand if we also remove duplicates:
 
 ~~~ {.sql}
-select distinct taken, person from Survey order by taken asc, person desc;
+SELECT DISTINCT taken, person FROM Survey ORDER BY taken ASC, person DESC;
 ~~~
 
 |taken|person|

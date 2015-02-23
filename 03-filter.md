@@ -16,10 +16,10 @@ to select only those records that match certain criteria.
 For example,
 suppose we want to see when a particular site was visited.
 We can select these records from the `Visited` table
-by using a `where` clause in our query:
+by using a `WHERE` clause in our query:
 
 ~~~ {.sql}
-select * from Visited where site="DR-1";
+SELECT * FROM Visited WHERE site="DR-1";
 ~~~
 
 |ident|site|dated     |
@@ -31,16 +31,16 @@ select * from Visited where site="DR-1";
 The database manager executes this query in two stages.
 First,
 it checks at each row in the `Visited` table
-to see which ones satisfy the `where`.
-It then uses the column names following the `select` keyword
+to see which ones satisfy the `WHERE`.
+It then uses the column names following the `SELECT` keyword
 to determine what columns to display.
 
 This processing order means that
-we can filter records using `where`
+we can filter records using `WHERE`
 based on values in columns that aren't then displayed:
 
 ~~~ {.sql}
-select ident from Visited where site="DR-1";
+SELECT ident FROM Visited WHERE site="DR-1";
 ~~~
 
 |ident|
@@ -56,7 +56,7 @@ For example,
 we can ask for all information from the DR-1 site collected since 1930:
 
 ~~~ {.sql}
-select * from Visited where (site="DR-1") and (dated<="1930-00-00");
+SELECT * FROM Visited WHERE (site="DR-1") AND (dated<="1930-00-00");
 ~~~
 
 |ident|site|dated     |
@@ -87,10 +87,10 @@ but they help make the query easier to read.)
 > [historical dates in Sweden](http://en.wikipedia.org/wiki/Swedish_calendar).
 
 If we want to find out what measurements were taken by either Lake or Roerich,
-we can combine the tests on their names using `or`:
+we can combine the tests on their names using `OR`:
 
 ~~~ {.sql}
-select * from Survey where person="lake" or person="roe";
+SELECT * FROM Survey WHERE person="lake" OR person="roe";
 ~~~
 
 |taken|person|quant|reading|
@@ -107,10 +107,10 @@ select * from Survey where person="lake" or person="roe";
 |844  |roe   |rad  |11.25  |
 
 Alternatively,
-we can use `in` to see if a value is in a specific set:
+we can use `IN` to see if a value is in a specific set:
 
 ~~~ {.sql}
-select * from Survey where person in ("lake", "roe");
+SELECT * FROM Survey WHERE person IN ("lake", "roe");
 ~~~
 
 |taken|person|quant|reading|
@@ -126,13 +126,13 @@ select * from Survey where person in ("lake", "roe");
 |837  |roe   |sal  |22.5   |
 |844  |roe   |rad  |11.25  |
 
-We can combine `and` with `or`,
+We can combine `AND` with `OR`,
 but we need to be careful about which operator is executed first.
 If we *don't* use parentheses,
 we get this:
 
 ~~~ {.sql}
-select * from Survey where quant="sal" and person="lake" or person="roe";
+SELECT * FROM Survey WHERE quant="sal" AND person="lake" OR person="roe";
 ~~~
 
 |taken|person|quant|reading|
@@ -150,7 +150,7 @@ and *any* measurement by Roerich.
 We probably want this instead:
 
 ~~~ {.sql}
-select * from Survey where quant="sal" and (person="lake" or person="roe");
+SELECT * FROM Survey WHERE quant="sal" AND (person="lake" OR person="roe");
 ~~~
 
 |taken|person|quant|reading|
@@ -164,13 +164,13 @@ select * from Survey where quant="sal" and (person="lake" or person="roe");
 
 We can also filter by partial matches.
 For example,
-if we want to know something just about the site names beginning with "DR" we can use the `like` keyword.
+if we want to know something just about the site names beginning with "DR" we can use the `LIKE` keyword.
 The percent symbol acts as a [wildcard](reference.html#wildcard),
 matching any characters in that place.
 It can be used at the beginning, middle, or end of the string:
 
 ~~~ {.sql}
-select * from Visited where site like "DR%";
+SELECT * FROM Visited WHERE site LIKE "DR%";
 ~~~
 
 |ident|site |dated     | 
@@ -187,11 +187,11 @@ select * from Visited where site like "DR%";
 
 
 Finally,
-we can use `distinct` with `where`
+we can use `DISTINCT` with `WHERE`
 to give a second level of filtering:
 
 ~~~ {.sql}
-select distinct person, quant from Survey where person="lake" or person="roe";
+SELECT DISTINCT person, quant FROM Survey WHERE person="lake" OR person="roe";
 ~~~
 
 |person|quant|
@@ -203,7 +203,7 @@ select distinct person, quant from Survey where person="lake" or person="roe";
 |roe   |rad  |
 
 But remember:
-`distinct` is applied to the values displayed in the chosen columns,
+`DISTINCT` is applied to the values displayed in the chosen columns,
 not to the entire rows as they are being processed.
 
 > What we have just done is how most people "grow" their SQL queries.
@@ -231,7 +231,7 @@ not to the entire rows as they are being processed.
 > Our first query is:
 >
 > ~~~
-> select * from Site where (lat > -60) or (lat < 60);
+> SELECT * FROM Site WHERE (lat > -60) OR (lat < 60);
 > ~~~
 >
 > Explain why this is wrong,
@@ -247,8 +247,8 @@ not to the entire rows as they are being processed.
 >
 > Which of these expressions are true?
 >
-> * `'a' like 'a'`
-> * `'a' like '%a'`
-> * `'beta' like '%a'`
-> * `'alpha' like 'a%%'`
-> * `'alpha' like 'a%p%'`
+> * `'a' LIKE 'a'`
+> * `'a' LIKE '%a'`
+> * `'beta' LIKE '%a'`
+> * `'alpha' LIKE 'a%%'`
+> * `'alpha' LIKE 'a%p%'`
