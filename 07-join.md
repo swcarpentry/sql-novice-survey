@@ -22,12 +22,12 @@ while the dates of measurements are in the `Visited` table
 and the readings themselves are in the `Survey` table.
 She needs to combine these tables somehow.
 
-The SQL command to do this is `join`.
+The SQL command to do this is `JOIN`.
 To see how it works,
 let's start by joining the `Site` and `Visited` tables:
 
 ~~~ {.sql}
-select * from Site join Visited;
+SELECT * FROM Site JOIN Visited;
 ~~~
 
 |name |lat   |long   |ident|site  |dated     |
@@ -57,7 +57,7 @@ select * from Site join Visited;
 |MSK-4|-48.87|-123.4 |837  |MSK-4 |1932-01-14|
 |MSK-4|-48.87|-123.4 |844  |DR-1  |1932-03-22|
 
-`join` creates
+`JOIN` creates
 the [cross product](reference.html#cross-product)
 of two tables,
 i.e.,
@@ -78,7 +78,7 @@ we're only interested in combinations that have the same site name,
 thus we need to use a filter:
 
 ~~~ {.sql}
-select * from Site join Visited on Site.name=Visited.site;
+SELECT * FROM Site JOIN Visited ON Site.name=Visited.site;
 ~~~
 
 |name |lat   |long   |ident|site |dated     |
@@ -92,11 +92,11 @@ select * from Site join Visited on Site.name=Visited.site;
 |DR-3 |-47.15|-126.72|752  |DR-3 |-null-    |
 |MSK-4|-48.87|-123.4 |837  |MSK-4|1932-01-14|
 
-`on` does the same job as `where`:
+`ON` does the same job as `WHERE`:
 it only keeps records that pass some test.
-(The difference between the two is that `on` filters records
+(The difference between the two is that `ON` filters records
 as they're being created,
-while `where` waits until the join is done
+while `WHERE` waits until the join is done
 and then does the filtering.)
 Once we add this to our query,
 the database manager throws away records
@@ -117,9 +117,9 @@ to select the three columns we actually want
 out of our join:
 
 ~~~ {.sql}
-select Site.lat, Site.long, Visited.dated
-from   Site join Visited
-on     Site.name=Visited.site;
+SELECT Site.lat, Site.long, Visited.dated
+FROM   Site JOIN Visited
+ON     Site.name=Visited.site;
 ~~~
 
 |lat   |long   |dated     |
@@ -138,15 +138,15 @@ joining many tables must be better.
 In fact,
 we can join any number of tables
 simply by adding more `join` clauses to our query,
-and more `on` tests to filter out combinations of records
+and more `ON` tests to filter out combinations of records
 that don't make sense:
 
 ~~~ {.sql}
-select Site.lat, Site.long, Visited.dated, Survey.quant, Survey.reading
-from   Site join Visited join Survey
-on     Site.name=Visited.site
-and    Visited.ident=Survey.taken
-and    Visited.dated is not null;
+SELECT Site.lat, Site.long, Visited.dated, Survey.quant, Survey.reading
+FROM   Site JOIN Visited JOIN Survey
+ON     Site.name=Visited.site
+AND    Visited.ident=Survey.taken
+AND    Visited.dated IS NOT NULL;
 ~~~
 
 |lat   |long   |dated     |quant|reading|
@@ -205,7 +205,7 @@ SQLite automatically numbers records as they're added to tables,
 and we can use those record numbers in queries:
 
 ~~~ {.sql}
-select rowid, * from Person;
+SELECT rowid, * FROM Person;
 ~~~
 
 |rowid|ident   |personal |family  |
@@ -229,6 +229,6 @@ select rowid, * from Person;
 > Describe in your own words what the following query produces:
 >
 > ~~~ {.sql}
-> select Site.name from Site join Visited
-> on Site.lat<-49.0 and Site.name=Visited.site and Visited.dated>='1932-00-00';
+> SELECT Site.name FROM Site JOIN Visited
+> ON Site.lat<-49.0 AND Site.name=Visited.site AND Visited.dated>='1932-00-00';
 > ~~~

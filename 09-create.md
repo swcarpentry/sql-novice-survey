@@ -16,7 +16,7 @@ once queries are understood.
 If we want to create and modify data,
 we need to know two other sets of commands.
 
-The first pair are `create table` and `drop table`.
+The first pair are `CREATE TABLE` and `DROP TABLE`.
 While they are written as two words,
 they are actually single commands.
 The first one creates a new table;
@@ -25,16 +25,16 @@ For example,
 the following statements create the four tables in our survey database:
 
 ~~~ {.sql}
-create table Person(ident text, personal text, family text);
-create table Site(name text, lat real, long real);
-create table Visited(ident integer, site text, dated text);
-create table Survey(taken integer, person text, quant real, reading real);
+CREATE TABLE Person(ident text, personal text, family text);
+CREATE TABLE Site(name text, lat real, long real);
+CREATE TABLE Visited(ident integer, site text, dated text);
+CREATE TABLE Survey(taken integer, person text, quant real, reading real);
 ~~~
 
 We can get rid of one of our tables using:
 
 ~~~ {.sql}
-drop table Survey;
+DROP TABLE Survey;
 ~~~
 
 Be very careful when doing this:
@@ -66,7 +66,7 @@ For example,
 a better definition for the `Survey` table would be:
 
 ~~~ {.sql}
-create table Survey(
+CREATE TABLE Survey(
     taken   integer not null, -- where reading taken
     person  text,             -- may not know who took it
     quant   real not null,    -- the quantity measured
@@ -84,33 +84,33 @@ depends on which database manager we are using.
 
 Once tables have been created,
 we can add, change, and remove records using our other set of commands,
-`insert`, `update`, and `delete`.
+`INSERT`, `UPDATE`, and `DELETE`.
 
-The simplest form of `insert` statement lists values in order:
+The simplest form of `INSERT` statement lists values in order:
 
 ~~~ {.sql}
-insert into Site values('DR-1', -49.85, -128.57);
-insert into Site values('DR-3', -47.15, -126.72);
-insert into Site values('MSK-4', -48.87, -123.40);
+INSERT INTO Site values('DR-1', -49.85, -128.57);
+INSERT INTO Site values('DR-3', -47.15, -126.72);
+INSERT INTO Site values('MSK-4', -48.87, -123.40);
 ~~~
 
 We can also insert values into one table directly from another:
 
 ~~~ {.sql}
-create table JustLatLong(lat text, long text);
-insert into JustLatLong select lat, long from site;
+CREATE TABLE JustLatLong(lat text, long text);
+INSERT INTO JustLatLong SELECT lat, long FROM site;
 ~~~
 
-Modifying existing records is done using the `update` statement.
+Modifying existing records is done using the `UPDATE` statement.
 To do this we tell the database which table we want to update,
 what we want to change the values to for any or all of the fields,
 and under what conditions we should update the values.
 
 For example, if we made a mistake when entering the lat and long values
-of the last `insert` statement above:
+of the last `INSERT` statement above:
 
 ~~~ {.sql}
-update Site set lat=-47.87, long=-122.40 where name='MSK-4'
+UPDATE Site SET lat=-47.87, long=-122.40 WHERE name='MSK-4'
 ~~~
 
 Be care to not forget the `where` clause or the update statement will
@@ -119,14 +119,14 @@ modify *all* of the records in the database.
 Deleting records can be a bit trickier,
 because we have to ensure that the database remains internally consistent.
 If all we care about is a single table,
-we can use the `delete` command with a `where` clause
+we can use the `DELETE` command with a `WHERE` clause
 that matches the records we want to discard.
 For example,
 once we realize that Frank Danforth didn't take any measurements,
 we can remove him from the `Person` table like this:
 
 ~~~ {.sql}
-delete from Person where ident = "danforth";
+DELETE FROM Person WHERE ident = "danforth";
 ~~~
 
 But what if we removed Anderson Lake instead?
@@ -180,10 +180,10 @@ this technique is outside the scope of this chapter.
 > ~~~
 >
 > Write a small Python program that reads this file in and prints out
-> the SQL `insert` statements needed to add these records to the
+> the SQL `INSERT` statements needed to add these records to the
 > survey database.  Note: you will need to add an entry for Olmstead
 > to the `Person` table.  If you are testing your program repeatedly,
-> you may want to investigate SQL's `insert or replace` command.
+> you may want to investigate SQL's `INSERT or REPLACE` command.
 
 > ## Backing Up with SQL {.challenge}
 >

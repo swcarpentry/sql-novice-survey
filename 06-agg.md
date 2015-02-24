@@ -15,7 +15,7 @@ We now want to calculate ranges and averages for our data.
 We know how to select all of the dates from the `Visited` table:
 
 ~~~ {.sql}
-select dated from Visited;
+SELECT dated FROM Visited;
 ~~~
 
 |dated     |
@@ -36,7 +36,7 @@ Each of these functions takes a set of records as input,
 and produces a single record as output:
 
 ~~~ {.sql}
-select min(dated) from Visited;
+SELECT min(dated) FROM Visited;
 ~~~
 
 |min(dated)|
@@ -46,7 +46,7 @@ select min(dated) from Visited;
 <img src="fig/sql-aggregation.svg" alt="SQL Aggregation" />
 
 ~~~ {.sql}
-select max(dated) from Visited;
+SELECT max(dated) FROM Visited;
 ~~~
 
 |max(dated)|
@@ -60,7 +60,7 @@ Three others are `avg`,
 and `sum`:
 
 ~~~ {.sql}
-select avg(reading) from Survey where quant="sal";
+SELECT avg(reading) FROM Survey WHERE quant="sal";
 ~~~
 
 |avg(reading)    |
@@ -68,7 +68,7 @@ select avg(reading) from Survey where quant="sal";
 |7.20333333333333|
 
 ~~~ {.sql}
-select count(reading) from Survey where quant="sal";
+SELECT count(reading) FROM Survey WHERE quant="sal";
 ~~~
 
 |count(reading)|
@@ -76,7 +76,7 @@ select count(reading) from Survey where quant="sal";
 |9             |
 
 ~~~ {.sql}
-select sum(reading) from Survey where quant="sal";
+SELECT sum(reading) FROM Survey WHERE quant="sal";
 ~~~
 
 |sum(reading)|
@@ -96,7 +96,7 @@ for example,
 find the range of sensible salinity measurements:
 
 ~~~ {.sql}
-select min(reading), max(reading) from Survey where quant="sal" and reading<=1.0;
+SELECT min(reading), max(reading) FROM Survey WHERE quant="sal" AND reading<=1.0;
 ~~~
 
 |min(reading)|max(reading)|
@@ -107,10 +107,10 @@ We can also combine aggregated results with raw results,
 although the output might surprise you:
 
 ~~~ {.sql}
-select person, count(*) from Survey where quant="sal" and reading<=1.0;
+SELECT person, count(*) FROM Survey WHERE quant="sal" AND reading<=1.0;
 ~~~
 
-|person|count(*)|
+|person|count(\*)|
 |------|--------|
 |lake  |7       |
 
@@ -127,7 +127,7 @@ aggregation's result is "don't know"
 rather than zero or some other arbitrary value:
 
 ~~~ {.sql}
-select person, max(reading), sum(reading) from Survey where quant="missing";
+SELECT person, max(reading), sum(reading) FROM Survey WHERE quant="missing";
 ~~~
 
 |person|max(reading)|sum(reading)|
@@ -150,7 +150,7 @@ and only combine those that are non-null.
 This behavior lets us write our queries as:
 
 ~~~ {.sql}
-select min(dated) from Visited;
+SELECT min(dated) FROM Visited;
 ~~~
 
 |min(dated)|
@@ -160,7 +160,7 @@ select min(dated) from Visited;
 instead of always having to filter explicitly:
 
 ~~~ {.sql}
-select min(dated) from Visited where dated is not null;
+SELECT min(dated) FROM Visited WHERE dated IS NOT NULL;
 ~~~
 
 |min(dated)|
@@ -174,9 +174,9 @@ and that some scientists' radiation readings are higher than others.
 We know that this doesn't work:
 
 ~~~ {.sql}
-select person, count(reading), round(avg(reading), 2)
-from  Survey
-where quant="rad";
+SELECT person, count(reading), round(avg(reading), 2)
+FROM  Survey
+WHERE quant="rad";
 ~~~
 
 |person|count(reading)|round(avg(reading), 2)|
@@ -189,10 +189,10 @@ Since there are only five scientists,
 she could write five queries of the form:
 
 ~~~ {.sql}
-select person, count(reading), round(avg(reading), 2)
-from  Survey
-where quant="rad"
-and   person="dyer";
+SELECT person, count(reading), round(avg(reading), 2)
+FROM  Survey
+WHERE quant="rad"
+AND   person="dyer";
 ~~~
 
 person|count(reading)|round(avg(reading), 2)|
@@ -205,13 +205,13 @@ the chances of her getting all of those queries right is small.
 
 What we need to do is
 tell the database manager to aggregate the hours for each scientist separately
-using a `group by` clause:
+using a `GROUP BY` clause:
 
 ~~~ {.sql}
-select   person, count(reading), round(avg(reading), 2)
-from     Survey
-where    quant="rad"
-group by person;
+SELECT   person, count(reading), round(avg(reading), 2)
+FROM     Survey
+WHERE    quant="rad"
+GROUP BY person;
 ~~~
 
 person|count(reading)|round(avg(reading), 2)|
@@ -221,7 +221,7 @@ lake  |2             |1.82                  |
 pb    |3             |6.66                  |
 roe   |1             |11.25                 |
 
-`group by` does exactly what its name implies:
+`GROUP BY` does exactly what its name implies:
 groups all the records with the same value for the specified field together
 so that aggregation can process each batch separately.
 Since all the records in each batch have the same value for `person`,
@@ -233,12 +233,12 @@ Just as we can sort by multiple criteria at once,
 we can also group by multiple criteria.
 To get the average reading by scientist and quantity measured,
 for example,
-we just add another field to the `group by` clause:
+we just add another field to the `GROUP BY` clause:
 
 ~~~ {.sql}
-select   person, quant, count(reading), round(avg(reading), 2)
-from     Survey
-group by person, quant;
+SELECT   person, quant, count(reading), round(avg(reading), 2)
+FROM     Survey
+GROUP BY person, quant;
 ~~~
 
 |person|quant|count(reading)|round(avg(reading), 2)|
@@ -262,11 +262,11 @@ Let's go one step further and remove all the entries
 where we don't know who took the measurement:
 
 ~~~ {.sql}
-select   person, quant, count(reading), round(avg(reading), 2)
-from     Survey
-where    person is not null
-group by person, quant
-order by person, quant;
+SELECT   person, quant, count(reading), round(avg(reading), 2)
+FROM     Survey
+WHERE    person IS NOT NULL
+GROUP BY person, quant
+ORDER BY person, quant;
 ~~~
 
 |person|quant|count(reading)|round(avg(reading), 2)|
@@ -321,7 +321,7 @@ this query:
 > We write the query:
 >
 > ~~~ {.sql}
-> select reading - avg(reading) from Survey where quant='rad';
+> SELECT reading - avg(reading) FROM Survey WHERE quant='rad';
 > ~~~
 >
 > What does this actually produce, and why?

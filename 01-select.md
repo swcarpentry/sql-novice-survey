@@ -111,7 +111,7 @@ giving it the names of the columns we want and the table we want them from.
 Our query and its output look like this:
 
 ~~~ {.sql}
-select family, personal from Person;
+SELECT family, personal FROM Person;
 ~~~
 
 |family  |personal |
@@ -145,6 +145,8 @@ SeLeCt FaMiLy, PeRsOnAl FrOm PeRsOn;
 Whatever casing convention you choose,
 please be consistent:
 complex queries are hard enough to read without the extra cognitive load of random capitalization.
+One convention is to use UPPER CASE for SQL statements, to distinguish them from tables and column
+names. This is the convention that we will use for this lesson.
 
 Going back to our query,
 it's important to understand that
@@ -155,7 +157,7 @@ For example,
 we could swap the columns in the output by writing our query as:
 
 ~~~ {.sql}
-select personal, family from Person;
+SELECT personal, family FROM Person;
 ~~~
 
 |personal |family  |
@@ -169,7 +171,7 @@ select personal, family from Person;
 or even repeat columns:
 
 ~~~ {.sql}
-select ident, ident, ident from Person;
+SELECT ident, ident, ident FROM Person;
 ~~~
 
 |ident   |ident   |ident   |
@@ -184,7 +186,7 @@ As a shortcut,
 we can select all of the columns in a table using `*`:
 
 ~~~ {.sql}
-select * from Person;
+SELECT * FROM Person;
 ~~~
 
 |ident   |personal |family  |
