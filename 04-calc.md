@@ -16,7 +16,7 @@ we can do this calculation on the fly
 as part of our query:
 
 ~~~ {.sql}
-select 1.05 * reading from Survey where quant="rad";
+SELECT 1.05 * reading FROM Survey WHERE quant="rad";
 ~~~
 
 |1.05 * reading|
@@ -41,21 +41,21 @@ we can convert temperature readings from Fahrenheit to Celsius
 and round to two decimal places:
 
 ~~~ {.sql}
-select taken, round(5*(reading-32)/9, 2) from Survey where quant="temp";
+SELECT taken, round(5*(reading-32)/9, 2) FROM Survey WHERE quant="temp";
 ~~~
 
-|taken|round(5*(reading-32)/9, 2)|
-|-----|--------------------------|
-|734  |-29.72                    |
-|735  |-32.22                    |
-|751  |-28.06                    |
-|752  |-26.67                    |
+|taken|round(5\*(reading-32)/9, 2)|
+|-----|---------------------------|
+|734  |-29.72                     |
+|735  |-32.22                     |
+|751  |-28.06                     |
+|752  |-26.67                     |
 
 We can also combine values from different fields,
 for example by using the string concatenation operator `||`:
 
 ~~~ {.sql}
-select personal || " " || family from Person;
+SELECT personal || " " || family FROM Person;
 ~~~
 
 |personal || " " || family|
@@ -77,10 +77,10 @@ select personal || " " || family from Person;
 
 > ## Unions {.challenge}
 >
-> The `union` operator combines the results of two queries:
+> The `UNION` operator combines the results of two queries:
 >
 > ~~~ {.sql}
-> select * from Person where ident="dyer" union select * from Person where ident="roe";
+> SELECT * FROM Person WHERE ident="dyer" UNION SELECT * FROM Person WHERE ident="roe";
 > ~~~
 >
 > |ident|personal |family |
@@ -88,7 +88,7 @@ select personal || " " || family from Person;
 > |dyer |William  |Dyer   |
 > |roe  |Valentina|Roerich|
 >
-> Use `union` to create a consolidated list of salinity measurements
+> Use `UNION` to create a consolidated list of salinity measurements
 > in which Roerich's, and only Roerich's,
 > have been corrected as described in the previous challenge.
 > The output should be something like:
@@ -110,7 +110,7 @@ select personal || " " || family from Person;
 > separated by a '-':
 >
 > ~~~ {.sql}
-> select distinct site from Visited;
+> SELECT DISTINCT site FROM Visited;
 > ~~~
 >
 > |site |

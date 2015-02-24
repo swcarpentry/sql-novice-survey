@@ -37,7 +37,7 @@
 </ul>
 </div>
 <p>Data is often redundant, so queries often return redundant information. For example, if we select the quantitites that have been measured from the <code>survey</code> table, we get this:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> quant <span class="kw">from</span> Survey;</code></pre>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> quant <span class="kw">FROM</span> Survey;</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -110,8 +110,8 @@
 </tr>
 </tbody>
 </table>
-<p>We can eliminate the redundant output to make the result more readable by adding the <code>distinct</code> keyword to our query:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> <span class="kw">distinct</span> quant <span class="kw">from</span> Survey;</code></pre>
+<p>We can eliminate the redundant output to make the result more readable by adding the <code>DISTINCT</code> keyword to our query:</p>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> quant <span class="kw">FROM</span> Survey;</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -131,7 +131,7 @@
 </tbody>
 </table>
 <p>If we select more than one column --- for example, both the survey site ID and the quantity measured --- then the distinct pairs of values are returned:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> <span class="kw">distinct</span> taken, quant <span class="kw">from</span> Survey;</code></pre>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> taken, quant <span class="kw">FROM</span> Survey;</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -219,8 +219,8 @@
 </tbody>
 </table>
 <p>Notice in both cases that duplicates are removed even if they didn't appear to be adjacent in the database. Again, it's important to remember that rows aren't actually ordered: they're just displayed that way.</p>
-<p>As we mentioned earlier, database records are not stored in any particular order. This means that query results aren't necessarily sorted, and even if they are, we often want to sort them in a different way, e.g., by the name of the project instead of by the name of the scientist. We can do this in SQL by adding an <code>order by</code> clause to our query:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> * <span class="kw">from</span> Person <span class="kw">order</span> <span class="kw">by</span> ident;</code></pre>
+<p>As we mentioned earlier, database records are not stored in any particular order. This means that query results aren't necessarily sorted, and even if they are, we often want to sort them in a different way, e.g., by the name of the project instead of by the name of the scientist. We can do this in SQL by adding an <code>ORDER BY</code> clause to our query:</p>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> Person <span class="kw">ORDER</span> <span class="kw">BY</span> ident;</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -257,8 +257,8 @@
 </tr>
 </tbody>
 </table>
-<p>By default, results are sorted in ascending order (i.e., from least to greatest). We can sort in the opposite order using <code>desc</code> (for &quot;descending&quot;):</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> * <span class="kw">from</span> person <span class="kw">order</span> <span class="kw">by</span> ident <span class="kw">desc</span>;</code></pre>
+<p>By default, results are sorted in ascending order (i.e., from least to greatest). We can sort in the opposite order using <code>DESC</code> (for &quot;descending&quot;):</p>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> person <span class="kw">ORDER</span> <span class="kw">BY</span> ident <span class="kw">DESC</span>;</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -295,9 +295,9 @@
 </tr>
 </tbody>
 </table>
-<p>(And if we want to make it clear that we're sorting in ascending order, we can use <code>asc</code> instead of <code>desc</code>.)</p>
+<p>(And if we want to make it clear that we're sorting in ascending order, we can use <code>ASC</code> instead of <code>DESC</code>.)</p>
 <p>We can also sort on several fields at once. For example, this query sorts results first in ascending order by <code>taken</code>, and then in descending order by <code>person</code> within each group of equal <code>taken</code> values:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> taken, person <span class="kw">from</span> Survey <span class="kw">order</span> <span class="kw">by</span> taken <span class="kw">asc</span>, person <span class="kw">desc</span>;</code></pre>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> taken, person <span class="kw">FROM</span> Survey <span class="kw">ORDER</span> <span class="kw">BY</span> taken <span class="kw">ASC</span>, person <span class="kw">DESC</span>;</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -393,7 +393,7 @@
 </tbody>
 </table>
 <p>This is easier to understand if we also remove duplicates:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> <span class="kw">distinct</span> taken, person <span class="kw">from</span> Survey <span class="kw">order</span> <span class="kw">by</span> taken <span class="kw">asc</span>, person <span class="kw">desc</span>;</code></pre>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> taken, person <span class="kw">FROM</span> Survey <span class="kw">ORDER</span> <span class="kw">BY</span> taken <span class="kw">ASC</span>, person <span class="kw">DESC</span>;</code></pre>
 <table>
 <thead>
 <tr class="header">

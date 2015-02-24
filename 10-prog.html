@@ -42,7 +42,7 @@
 <pre class="sourceCode python"><code class="sourceCode python"><span class="ch">import</span> sqlite3
 connection = sqlite3.<span class="ot">connect</span>(<span class="st">&quot;survey.db&quot;</span>)
 cursor = connection.cursor()
-cursor.execute(<span class="st">&quot;select site.lat, site.long from site;&quot;</span>)
+cursor.execute(<span class="st">&quot;SELECT site.lat, site.long FROM site;&quot;</span>)
 results = cursor.fetchall()
 <span class="kw">for</span> r in results:
     <span class="dt">print</span> r
@@ -58,7 +58,7 @@ connection.close()&lt;/code&gt;&lt;/pre&gt;</code></pre>
 <p>Finally, lines 8 and 9 close our cursor and our connection, since the database can only keep a limited number of these open at one time. Since establishing a connection takes time, though, we shouldn't open a connection, do one operation, then close the connection, only to reopen it a few microseconds later to do another operation. Instead, it's normal to create one connection that stays open for the lifetime of the program.</p>
 <p>Queries in real applications will often depend on values provided by users. For example, this function takes a user's ID as a parameter and returns their name:</p>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> get_name(database_file, person_ident):
-    query = <span class="st">&quot;select personal || &#39;; &#39;; || family from Person where ident=&#39;;&quot;</span> + person_ident + <span class="st">&quot;&#39;;;&quot;</span>
+    query = <span class="st">&quot;SELECT personal || &#39;; &#39;; || family FROM Person WHERE ident=&#39;;&quot;</span> + person_ident + <span class="st">&quot;&#39;;;&quot;</span>
 
     connection = sqlite3.<span class="ot">connect</span>(database_file)
     cursor = connection.cursor()
@@ -72,14 +72,14 @@ connection.close()&lt;/code&gt;&lt;/pre&gt;</code></pre>
 <span class="dt">print</span> <span class="st">&quot;full name for dyer:&quot;</span>, get_name(<span class="st">&#39;;survey.db&#39;</span>;, <span class="st">&#39;;dyer&#39;</span>;)</code></pre>
 <pre class="output"><code>full name for dyer: William Dyer</code></pre>
 <p>We use string concatenation on the first line of this function to construct a query containing the user ID we have been given. This seems simple enough, but what happens if someone gives us this string as input?</p>
-<pre class="sourceCode sql"><code class="sourceCode sql">dyer<span class="st">&#39;; drop table Survey; select &#39;</span></code></pre>
+<pre class="sourceCode sql"><code class="sourceCode sql">dyer<span class="st">&#39;; DROP TABLE Survey; SELECT &#39;</span></code></pre>
 <p>It looks like there's garbage after the name of the project, but it is very carefully chosen garbage. If we insert this string into our query, the result is:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> personal || <span class="st">&#39; &#39;</span> || family <span class="kw">from</span> Person <span class="kw">where</span> ident=<span class="st">&#39;dyer&#39;</span>; <span class="kw">drop</span> <span class="kw">table</span> Survey; <span class="kw">select</span> <span class="st">&#39;&#39;</span>;</code></pre>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> personal || <span class="st">&#39; &#39;</span> || family <span class="kw">FROM</span> Person <span class="kw">WHERE</span> ident=<span class="st">&#39;dyer&#39;</span>; <span class="kw">DROP</span> <span class="kw">TABLE</span> Survey; <span class="kw">SELECT</span> <span class="st">&#39;&#39;</span>;</code></pre>
 <p>If we execute this, it will erase one of the tables in our database.</p>
 <p>This is called an <a href="reference.html#sql-injection-attack">SQL injection attack</a>, and it has been used to attack thousands of programs over the years. In particular, many web sites that take data from users insert values directly into queries without checking them carefully first.</p>
 <p>Since a villain might try to smuggle commands into our queries in many different ways, the safest way to deal with this threat is to replace characters like quotes with their escaped equivalents, so that we can safely put whatever the user gives us inside a string. We can do this by using a <a href="reference.html#prepared-statement">prepared statement</a> instead of formatting our statements as strings. Here's what our example program looks like if we do this:</p>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> get_name(database_file, person_ident):
-    query = <span class="st">&quot;select personal || &#39;; &#39;; || family from Person where ident=?;&quot;</span>
+    query = <span class="st">&quot;SELECT personal || &#39;; &#39;; || family FROM Person WHERE ident=?;&quot;</span>
 
     connection = sqlite3.<span class="ot">connect</span>(database_file)
     cursor = connection.cursor()

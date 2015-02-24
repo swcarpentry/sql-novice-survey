@@ -39,7 +39,7 @@
 </div>
 <p>Real-world data is never complete --- there are always holes. Databases represent these holes using special value called <code>null</code>. <code>null</code> is not zero, <code>False</code>, or the empty string; it is a one-of-a-kind value that means &quot;nothing here&quot;. Dealing with <code>null</code> requires a few special tricks and some careful thinking.</p>
 <p>To start, let's have a look at the <code>Visited</code> table. There are eight records, but #752 doesn't have a date --- or rather, its date is null:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> * <span class="kw">from</span> Visited;</code></pre>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> Visited;</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -92,7 +92,7 @@
 </tbody>
 </table>
 <p>Null doesn't behave like other values. If we select the records that come before 1930:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> * <span class="kw">from</span> Visited <span class="kw">where</span> dated&lt;<span class="ot">&quot;1930-00-00&quot;</span>;</code></pre>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated&lt;<span class="ot">&quot;1930-00-00&quot;</span>;</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -115,7 +115,7 @@
 </tbody>
 </table>
 <p>we get two results, and if we select the ones that come during or after 1930:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> * <span class="kw">from</span> Visited <span class="kw">where</span> dated&gt;=<span class="ot">&quot;1930-00-00&quot;</span>;</code></pre>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated&gt;=<span class="ot">&quot;1930-00-00&quot;</span>;</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -152,13 +152,13 @@
 </tr>
 </tbody>
 </table>
-<p>we get five, but record #752 isn't in either set of results. The reason is that <code>null&lt;'1930-00-00'</code> is neither true nor false: null means, &quot;We don't know,&quot; and if we don't know the value on the left side of a comparison, we don't know whether the comparison is true or false. Since databases represent &quot;don't know&quot; as null, the value of <code>null&lt;'1930-00-00'</code> is actually <code>null</code>. <code>null&gt;='1930-00-00'</code> is also null because we can't answer to that question either. And since the only records kept by a <code>where</code> are those for which the test is true, record #752 isn't included in either set of results.</p>
+<p>we get five, but record #752 isn't in either set of results. The reason is that <code>null&lt;'1930-00-00'</code> is neither true nor false: null means, &quot;We don't know,&quot; and if we don't know the value on the left side of a comparison, we don't know whether the comparison is true or false. Since databases represent &quot;don't know&quot; as null, the value of <code>null&lt;'1930-00-00'</code> is actually <code>null</code>. <code>null&gt;='1930-00-00'</code> is also null because we can't answer to that question either. And since the only records kept by a <code>WHERE</code> are those for which the test is true, record #752 isn't included in either set of results.</p>
 <p>Comparisons aren't the only operations that behave this way with nulls. <code>1+null</code> is <code>null</code>, <code>5*null</code> is <code>null</code>, <code>log(null)</code> is <code>null</code>, and so on. In particular, comparing things to null with = and != produces null:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> * <span class="kw">from</span> Visited <span class="kw">where</span> dated=NULL;</code></pre>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated=NULL;</code></pre>
 <p>produces no output, and neither does:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> * <span class="kw">from</span> Visited <span class="kw">where</span> dated!=NULL;</code></pre>
-<p>To check whether a value is <code>null</code> or not, we must use a special test <code>is null</code>:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> * <span class="kw">from</span> Visited <span class="kw">where</span> dated <span class="kw">is</span> <span class="kw">NULL</span>;</code></pre>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated!=NULL;</code></pre>
+<p>To check whether a value is <code>null</code> or not, we must use a special test <code>IS NULL</code>:</p>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="kw">IS</span> <span class="kw">NULL</span>;</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -175,8 +175,8 @@
 </tr>
 </tbody>
 </table>
-<p>or its inverse <code>is not null</code>:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> * <span class="kw">from</span> Visited <span class="kw">where</span> dated <span class="kw">is</span> <span class="kw">not</span> <span class="kw">NULL</span>;</code></pre>
+<p>or its inverse <code>IS NOT NULL</code>:</p>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span>;</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -223,8 +223,8 @@
 </tr>
 </tbody>
 </table>
-<p>Null values cause headaches wherever they appear. For example, suppose we want to find all the salinity measurements that weren't taken by Dyer. It's natural to write the query like this:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> * <span class="kw">from</span> Survey <span class="kw">where</span> quant=<span class="ot">&quot;sal&quot;</span> <span class="kw">and</span> person!=<span class="ot">&quot;lake&quot;</span>;</code></pre>
+<p>Null values cause headaches wherever they appear. For example, suppose we want to find all the salinity measurements that weren't taken by Lake. It's natural to write the query like this:</p>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant=<span class="ot">&quot;sal&quot;</span> <span class="kw">AND</span> person!=<span class="ot">&quot;lake&quot;</span>;</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -262,7 +262,7 @@
 </tbody>
 </table>
 <p>but this query filters omits the records where we don't know who took the measurement. Once again, the reason is that when <code>person</code> is <code>null</code>, the <code>!=</code> comparison produces <code>null</code>, so the record isn't kept in our results. If we want to keep these records we need to add an explicit check:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> * <span class="kw">from</span> Survey <span class="kw">where</span> quant=<span class="ot">&quot;sal&quot;</span> <span class="kw">and</span> (person!=<span class="ot">&quot;lake&quot;</span> <span class="kw">or</span> person <span class="kw">is</span> <span class="kw">null</span>);</code></pre>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant=<span class="ot">&quot;sal&quot;</span> <span class="kw">AND</span> (person!=<span class="ot">&quot;lake&quot;</span> <span class="kw">OR</span> person <span class="kw">IS</span> <span class="kw">NULL</span>);</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -313,7 +313,7 @@
 <div id="null-in-a-set" class="challenge">
 <h2>NULL in a Set</h2>
 <p>What do you expect the query:</p>
-<pre><code>select * from Visited where dated in (&#39;1927-02-08&#39;, null);</code></pre>
+<pre><code>SELECT * FROM Visited WHERE dated IN (&#39;1927-02-08&#39;, NULL);</code></pre>
 <p>to produce? What does it actually produce?</p>
 </div>
 <div id="pros-and-cons-of-sentinels" class="challenge">

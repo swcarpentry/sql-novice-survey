@@ -40,8 +40,8 @@
 </ul>
 </div>
 <p>In order to submit her data to a web site that aggregates historical meteorological data, Gina needs to format it as latitude, longitude, date, quantity, and reading. However, her latitudes and longitudes are in the <code>Site</code> table, while the dates of measurements are in the <code>Visited</code> table and the readings themselves are in the <code>Survey</code> table. She needs to combine these tables somehow.</p>
-<p>The SQL command to do this is <code>join</code>. To see how it works, let's start by joining the <code>Site</code> and <code>Visited</code> tables:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> * <span class="kw">from</span> Site <span class="kw">join</span> Visited;</code></pre>
+<p>The SQL command to do this is <code>JOIN</code>. To see how it works, let's start by joining the <code>Site</code> and <code>Visited</code> tables:</p>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> Site <span class="kw">JOIN</span> Visited;</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -248,9 +248,9 @@
 </tr>
 </tbody>
 </table>
-<p><code>join</code> creates the <a href="reference.html#cross-product">cross product</a> of two tables, i.e., it joins each record of one with each record of the other to give all possible combinations. Since there are three records in <code>Site</code> and eight in <code>Visited</code>, the join's output has 24 records (3 * 8 = 24) . And since each table has three fields, the output has six fields (3 + 3 = 6).</p>
+<p><code>JOIN</code> creates the <a href="reference.html#cross-product">cross product</a> of two tables, i.e., it joins each record of one with each record of the other to give all possible combinations. Since there are three records in <code>Site</code> and eight in <code>Visited</code>, the join's output has 24 records (3 * 8 = 24) . And since each table has three fields, the output has six fields (3 + 3 = 6).</p>
 <p>What the join <em>hasn't</em> done is figure out if the records being joined have anything to do with each other. It has no way of knowing whether they do or not until we tell it how. To do that, we add a clause specifying that we're only interested in combinations that have the same site name, thus we need to use a filter:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> * <span class="kw">from</span> Site <span class="kw">join</span> Visited <span class="kw">on</span> Site.name=Visited.site;</code></pre>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> Site <span class="kw">JOIN</span> Visited <span class="kw">ON</span> Site.name=Visited.site;</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -329,12 +329,12 @@
 </tr>
 </tbody>
 </table>
-<p><code>on</code> does the same job as <code>where</code>: it only keeps records that pass some test. (The difference between the two is that <code>on</code> filters records as they're being created, while <code>where</code> waits until the join is done and then does the filtering.) Once we add this to our query, the database manager throws away records that combined information about two different sites, leaving us with just the ones we want.</p>
+<p><code>ON</code> does the same job as <code>WHERE</code>: it only keeps records that pass some test. (The difference between the two is that <code>ON</code> filters records as they're being created, while <code>WHERE</code> waits until the join is done and then does the filtering.) Once we add this to our query, the database manager throws away records that combined information about two different sites, leaving us with just the ones we want.</p>
 <p>Notice that we used <code>table.field</code> to specify field names in the output of the join. We do this because tables can have fields with the same name, and we need to be specific which ones we're talking about. For example, if we joined the <code>person</code> and <code>visited</code> tables, the result would inherit a field called <code>ident</code> from each of the original tables.</p>
 <p>We can now use the same dotted notation to select the three columns we actually want out of our join:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> Site.lat, Site.long, Visited.dated
-<span class="kw">from</span>   Site <span class="kw">join</span> Visited
-<span class="kw">on</span>     Site.name=Visited.site;</code></pre>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> Site.lat, Site.long, Visited.dated
+<span class="kw">FROM</span>   Site <span class="kw">JOIN</span> Visited
+<span class="kw">ON</span>     Site.name=Visited.site;</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -386,12 +386,12 @@
 </tr>
 </tbody>
 </table>
-<p>If joining two tables is good, joining many tables must be better. In fact, we can join any number of tables simply by adding more <code>join</code> clauses to our query, and more <code>on</code> tests to filter out combinations of records that don't make sense:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> Site.lat, Site.long, Visited.dated, Survey.quant, Survey.reading
-<span class="kw">from</span>   Site <span class="kw">join</span> Visited <span class="kw">join</span> Survey
-<span class="kw">on</span>     Site.name=Visited.site
-<span class="kw">and</span>    Visited.ident=Survey.taken
-<span class="kw">and</span>    Visited.dated <span class="kw">is</span> <span class="kw">not</span> <span class="kw">null</span>;</code></pre>
+<p>If joining two tables is good, joining many tables must be better. In fact, we can join any number of tables simply by adding more <code>join</code> clauses to our query, and more <code>ON</code> tests to filter out combinations of records that don't make sense:</p>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> Site.lat, Site.long, Visited.dated, Survey.quant, Survey.reading
+<span class="kw">FROM</span>   Site <span class="kw">JOIN</span> Visited <span class="kw">JOIN</span> Survey
+<span class="kw">ON</span>     Site.name=Visited.site
+<span class="kw">AND</span>    Visited.ident=Survey.taken
+<span class="kw">AND</span>    Visited.dated <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span>;</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -526,7 +526,7 @@
 </table>
 <p>We can tell which records from <code>Site</code>, <code>Visited</code>, and <code>Survey</code> correspond with each other because those tables contain <a href="reference.html#primary-key">primary keys</a> and foreign keys](reference.html#foreign-key). A primary key is a value, or combination of values, that uniquely identifies each record in a table. A foreign key is a value (or combination of values) from one table that identifies a unique record in another table. Another way of saying this is that a foreign key is the primary key of one table that appears in some other table. In our database, <code>Person.ident</code> is the primary key in the <code>Person</code> table, while <code>Survey.person</code> is a foreign key relating the <code>Survey</code> table's entries to entries in <code>Person</code>.</p>
 <p>Most database designers believe that every table should have a well-defined primary key. They also believe that this key should be separate from the data itself, so that if we ever need to change the data, we only need to make one change in one place. One easy way to do this is to create an arbitrary, unique ID for each record as we add it to the database. This is actually very common: those IDs have names like &quot;student numbers&quot; and &quot;patient numbers&quot;, and they almost always turn out to have originally been a unique record identifier in some database system or other. As the query below demonstrates, SQLite automatically numbers records as they're added to tables, and we can use those record numbers in queries:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> <span class="dt">rowid</span>, * <span class="kw">from</span> Person;</code></pre>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> <span class="dt">rowid</span>, * <span class="kw">FROM</span> Person;</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -580,8 +580,8 @@
 <div id="reading-queries" class="challenge">
 <h2>Reading Queries</h2>
 <p>Describe in your own words what the following query produces:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> Site.name <span class="kw">from</span> Site <span class="kw">join</span> Visited
-<span class="kw">on</span> Site.lat&lt;-<span class="fl">49.0</span> <span class="kw">and</span> Site.name=Visited.site <span class="kw">and</span> Visited.dated&gt;=<span class="st">&#39;1932-00-00&#39;</span>;</code></pre>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> Site.name <span class="kw">FROM</span> Site <span class="kw">JOIN</span> Visited
+<span class="kw">ON</span> Site.lat&lt;-<span class="fl">49.0</span> <span class="kw">AND</span> Site.name=Visited.site <span class="kw">AND</span> Visited.dated&gt;=<span class="st">&#39;1932-00-00&#39;</span>;</code></pre>
 </div>
         </div>
       </div>

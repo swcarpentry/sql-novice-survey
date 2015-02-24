@@ -24,7 +24,7 @@ from an SQLite database stored in a file called `survey.db`:
 import sqlite3
 connection = sqlite3.connect("survey.db")
 cursor = connection.cursor()
-cursor.execute("select site.lat, site.long from site;")
+cursor.execute("SELECT site.lat, site.long FROM site;")
 results = cursor.fetchall()
 for r in results:
     print r
@@ -85,7 +85,7 @@ this function takes a user's ID as a parameter and returns their name:
 
 ~~~ {.python}
 def get_name(database_file, person_ident):
-    query = "select personal || '; '; || family from Person where ident=';" + person_ident + "';;"
+    query = "SELECT personal || '; '; || family FROM Person WHERE ident=';" + person_ident + "';;"
 
     connection = sqlite3.connect(database_file)
     cursor = connection.cursor()
@@ -108,7 +108,7 @@ This seems simple enough,
 but what happens if someone gives us this string as input?
 
 ~~~ {.sql}
-dyer'; drop table Survey; select '
+dyer'; DROP TABLE Survey; SELECT '
 ~~~
 
 It looks like there's garbage after the name of the project,
@@ -117,7 +117,7 @@ If we insert this string into our query,
 the result is:
 
 ~~~ {.sql}
-select personal || ' ' || family from Person where ident='dyer'; drop table Survey; select '';
+SELECT personal || ' ' || family FROM Person WHERE ident='dyer'; DROP TABLE Survey; SELECT '';
 ~~~
 
 If we execute this,
@@ -139,7 +139,7 @@ Here's what our example program looks like if we do this:
 
 ~~~ {.python}
 def get_name(database_file, person_ident):
-    query = "select personal || '; '; || family from Person where ident=?;"
+    query = "SELECT personal || '; '; || family FROM Person WHERE ident=?;"
 
     connection = sqlite3.connect(database_file)
     cursor = connection.cursor()

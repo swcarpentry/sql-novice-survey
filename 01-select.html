@@ -308,7 +308,7 @@
 </table>
 </blockquote>
 <p>Notice that three entries --- one in the <code>Visited</code> table, and two in the <code>Survey</code> table --- don't contain any actual data, but instead have a special <code>-null-</code> entry: we'll return to these missing values <a href="05-null.html">later</a>. For now, let's write an SQL query that displays scientists' names. We do this using the SQL command <code>select</code>, giving it the names of the columns we want and the table we want them from. Our query and its output look like this:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> family, personal <span class="kw">from</span> Person;</code></pre>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> family, personal <span class="kw">FROM</span> Person;</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -371,9 +371,9 @@
 </tr>
 </tbody>
 </table>
-<p>Whatever casing convention you choose, please be consistent: complex queries are hard enough to read without the extra cognitive load of random capitalization.</p>
+<p>Whatever casing convention you choose, please be consistent: complex queries are hard enough to read without the extra cognitive load of random capitalization. One convention is to use UPPER CASE for SQL statements, to distinguish them from tables and column names. This is the convention that we will use for this lesson.</p>
 <p>Going back to our query, it's important to understand that the rows and columns in a database table aren't actually stored in any particular order. They will always be <em>displayed</em> in some order, but we can control that in various ways. For example, we could swap the columns in the output by writing our query as:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> personal, family <span class="kw">from</span> Person;</code></pre>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> personal, family <span class="kw">FROM</span> Person;</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -405,7 +405,7 @@
 </tbody>
 </table>
 <p>or even repeat columns:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> ident, ident, ident <span class="kw">from</span> Person;</code></pre>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> ident, ident, ident <span class="kw">FROM</span> Person;</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -443,7 +443,7 @@
 </tbody>
 </table>
 <p>As a shortcut, we can select all of the columns in a table using <code>*</code>:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> * <span class="kw">from</span> Person;</code></pre>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> Person;</code></pre>
 <table>
 <thead>
 <tr class="header">
