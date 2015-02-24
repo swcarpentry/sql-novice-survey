@@ -238,10 +238,10 @@
    <path fill="none" stroke="rgb(0,0,0)" id="Drawing_36_0" stroke-linejoin="round" d="M 1200,6600 L 6000,6600"/>
   </g>
   <g id="Drawing_37">
-   <rect fill="none" stroke="none" x="6834" y="1117" width="3416" height="684"/>
+   <rect fill="none" stroke="none" x="6834" y="1117" width="3631" height="684"/>
    <g fill="rgb(0,0,0)" stroke="none" font-family="Arial embedded" font-size="388" font-style="normal" font-weight="400">
     <text x="7084" y="1593">
-     <tspan x="7084 7300 7406 7516 7774 8032 8248 8506 8786 9023 9133 9349 9565 9671 9886">1. SELECT date </tspan></text>
+     <tspan x="7084 7300 7406 7516 7774 8032 8248 8506 8786 9023 9133 9349 9565 9671 9886 10102">1. SELECT dated </tspan></text>
    </g>
   </g>
   <g>
