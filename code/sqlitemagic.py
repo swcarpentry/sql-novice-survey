@@ -52,6 +52,7 @@ class SqliteMagic(Magics):
         return '<table>\n' + header_row + '\n'.join(self.rowify(r) for r in rows) + '\n</table>'
 
     def rowify(self, row):
+        row = list(row)
         for i, r in enumerate(row):
             if r is None:
                 row[i] = "NULL"
