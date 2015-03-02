@@ -29,7 +29,7 @@ results = cursor.fetchall()
 for r in results:
     print r
 cursor.close()
-connection.close()</code></pre>
+connection.close()
 ~~~
 ~~~ {.output}
 (-49.85, -128.57)
