@@ -67,6 +67,8 @@ SELECT * FROM Visited WHERE (site="DR-1") AND (dated<="1930-00-00");
 (The parentheses around the individual tests aren't strictly required,
 but they help make the query easier to read.)
 
+> ## Date types {.callout}
+>
 > Most database managers have a special data type for dates.
 > In fact, many have two:
 > one for dates,
