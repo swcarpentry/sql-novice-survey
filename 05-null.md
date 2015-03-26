@@ -42,7 +42,7 @@ Null doesn't behave like other values.
 If we select the records that come before 1930:
 
 ~~~ {.sql}
-SELECT * FROM Visited WHERE dated<'1930-00-00';
+SELECT * FROM Visited WHERE dated<"1930-01-01";
 ~~~
 
 |ident|site|dated     |
@@ -54,7 +54,7 @@ we get two results,
 and if we select the ones that come during or after 1930:
 
 ~~~ {.sql}
-SELECT * FROM Visited WHERE dated>='1930-00-00';
+SELECT * FROM Visited WHERE dated>="1930-01-01";
 ~~~
 
 |ident|site|dated     |
@@ -68,15 +68,15 @@ SELECT * FROM Visited WHERE dated>='1930-00-00';
 we get five,
 but record #752 isn't in either set of results.
 The reason is that
-`null<'1930-00-00'`
+`null<'1930-01-01'`
 is neither true nor false:
 null means, "We don't know,"
 and if we don't know the value on the left side of a comparison,
 we don't know whether the comparison is true or false.
 Since databases represent "don't know" as null,
-the value of `null<'1930-00-00'`
+the value of `null<'1930-01-01'`
 is actually `null`.
-`null>='1930-00-00'` is also null
+`null>='1930-01-01'` is also null
 because we can't answer to that question either.
 And since the only records kept by a `WHERE`
 are those for which the test is true,
