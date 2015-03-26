@@ -53,7 +53,7 @@ SELECT ident FROM Visited WHERE site="DR-1";
 
 We can use many other Boolean operators to filter our data.
 For example,
-we can ask for all information from the DR-1 site collected since 1930:
+we can ask for all information from the DR-1 site collected before 1930:
 
 ~~~ {.sql}
 SELECT * FROM Visited WHERE (site="DR-1") AND (dated<="1930-00-00");
