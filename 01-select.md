@@ -106,7 +106,7 @@ data, but instead have a special `-null-` entry:
 we'll return to these missing values [later](05-null.html).
 For now,
 let's write an SQL query that displays scientists' names.
-We do this using the SQL command `select`,
+We do this using the SQL command `SELECT`,
 giving it the names of the columns we want and the table we want them from.
 Our query and its output look like this:
 
