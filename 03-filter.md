@@ -56,7 +56,7 @@ For example,
 we can ask for all information from the DR-1 site collected before 1930:
 
 ~~~ {.sql}
-SELECT * FROM Visited WHERE (site="DR-1") AND (dated<="1930-01-01");
+SELECT * FROM Visited WHERE site="DR-1" AND dated<="1930-00-00";
 ~~~
 
 |ident|site|dated     |
@@ -64,11 +64,14 @@ SELECT * FROM Visited WHERE (site="DR-1") AND (dated<="1930-01-01");
 |619  |DR-1|1927-02-08|
 |622  |DR-1|1927-02-10|
 
+<<<<<<< HEAD
 (The parentheses around the individual tests aren't strictly required,
 but they help make the query easier to read.)
 
 > ## Date types {.callout}
 >
+=======
+>>>>>>> 06563c2f46681b04db26066a231d9dc237c0ffa0
 > Most database managers have a special data type for dates.
 > In fact, many have two:
 > one for dates,
