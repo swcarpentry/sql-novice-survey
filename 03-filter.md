@@ -19,7 +19,7 @@ We can select these records from the `Visited` table
 by using a `WHERE` clause in our query:
 
 ~~~ {.sql}
-SELECT * FROM Visited WHERE site="DR-1";
+SELECT * FROM Visited WHERE site='DR-1';
 ~~~
 
 |ident|site|dated     |
@@ -40,7 +40,7 @@ we can filter records using `WHERE`
 based on values in columns that aren't then displayed:
 
 ~~~ {.sql}
-SELECT ident FROM Visited WHERE site="DR-1";
+SELECT ident FROM Visited WHERE site='DR-1';
 ~~~
 
 |ident|
@@ -92,7 +92,7 @@ If we want to find out what measurements were taken by either Lake or Roerich,
 we can combine the tests on their names using `OR`:
 
 ~~~ {.sql}
-SELECT * FROM Survey WHERE person="lake" OR person="roe";
+SELECT * FROM Survey WHERE person='lake' OR person='roe';
 ~~~
 
 |taken|person|quant|reading|
@@ -112,7 +112,7 @@ Alternatively,
 we can use `IN` to see if a value is in a specific set:
 
 ~~~ {.sql}
-SELECT * FROM Survey WHERE person IN ("lake", "roe");
+SELECT * FROM Survey WHERE person IN ('lake', 'roe');
 ~~~
 
 |taken|person|quant|reading|
@@ -134,7 +134,7 @@ If we *don't* use parentheses,
 we get this:
 
 ~~~ {.sql}
-SELECT * FROM Survey WHERE quant="sal" AND person="lake" OR person="roe";
+SELECT * FROM Survey WHERE quant='sal' AND person='lake' OR person='roe';
 ~~~
 
 |taken|person|quant|reading|
@@ -152,7 +152,7 @@ and *any* measurement by Roerich.
 We probably want this instead:
 
 ~~~ {.sql}
-SELECT * FROM Survey WHERE quant="sal" AND (person="lake" OR person="roe");
+SELECT * FROM Survey WHERE quant='sal' AND (person='lake' OR person='roe');
 ~~~
 
 |taken|person|quant|reading|
@@ -172,7 +172,7 @@ matching any characters in that place.
 It can be used at the beginning, middle, or end of the string:
 
 ~~~ {.sql}
-SELECT * FROM Visited WHERE site LIKE "DR%";
+SELECT * FROM Visited WHERE site LIKE 'DR%';
 ~~~
 
 |ident|site |dated     | 
@@ -193,7 +193,7 @@ we can use `DISTINCT` with `WHERE`
 to give a second level of filtering:
 
 ~~~ {.sql}
-SELECT DISTINCT person, quant FROM Survey WHERE person="lake" OR person="roe";
+SELECT DISTINCT person, quant FROM Survey WHERE person='lake' OR person='roe';
 ~~~
 
 |person|quant|
