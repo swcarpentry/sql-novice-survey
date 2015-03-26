@@ -27,6 +27,8 @@ The database manager does whatever lookups and calculations the query specifies,
 returning the results in a tabular form
 that we can then use as a starting point for further queries.
 
+> ## Changing database managers {.callout}
+>
 > Every database manager --- Oracle,
 > IBM DB2, PostgreSQL, MySQL, Microsoft Access, and SQLite --- stores
 > data in a different way,
