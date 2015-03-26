@@ -60,7 +60,7 @@ Three others are `avg`,
 and `sum`:
 
 ~~~ {.sql}
-SELECT avg(reading) FROM Survey WHERE quant="sal";
+SELECT avg(reading) FROM Survey WHERE quant='sal';
 ~~~
 
 |avg(reading)    |
@@ -68,7 +68,7 @@ SELECT avg(reading) FROM Survey WHERE quant="sal";
 |7.20333333333333|
 
 ~~~ {.sql}
-SELECT count(reading) FROM Survey WHERE quant="sal";
+SELECT count(reading) FROM Survey WHERE quant='sal';
 ~~~
 
 |count(reading)|
@@ -76,7 +76,7 @@ SELECT count(reading) FROM Survey WHERE quant="sal";
 |9             |
 
 ~~~ {.sql}
-SELECT sum(reading) FROM Survey WHERE quant="sal";
+SELECT sum(reading) FROM Survey WHERE quant='sal';
 ~~~
 
 |sum(reading)|
@@ -96,7 +96,7 @@ for example,
 find the range of sensible salinity measurements:
 
 ~~~ {.sql}
-SELECT min(reading), max(reading) FROM Survey WHERE quant="sal" AND reading<=1.0;
+SELECT min(reading), max(reading) FROM Survey WHERE quant='sal' AND reading<=1.0;
 ~~~
 
 |min(reading)|max(reading)|
@@ -107,7 +107,7 @@ We can also combine aggregated results with raw results,
 although the output might surprise you:
 
 ~~~ {.sql}
-SELECT person, count(*) FROM Survey WHERE quant="sal" AND reading<=1.0;
+SELECT person, count(*) FROM Survey WHERE quant='sal' AND reading<=1.0;
 ~~~
 
 |person|count(\*)|
@@ -127,7 +127,7 @@ aggregation's result is "don't know"
 rather than zero or some other arbitrary value:
 
 ~~~ {.sql}
-SELECT person, max(reading), sum(reading) FROM Survey WHERE quant="missing";
+SELECT person, max(reading), sum(reading) FROM Survey WHERE quant='missing';
 ~~~
 
 |person|max(reading)|sum(reading)|
@@ -176,7 +176,7 @@ We know that this doesn't work:
 ~~~ {.sql}
 SELECT person, count(reading), round(avg(reading), 2)
 FROM  Survey
-WHERE quant="rad";
+WHERE quant='rad';
 ~~~
 
 |person|count(reading)|round(avg(reading), 2)|
@@ -191,8 +191,8 @@ she could write five queries of the form:
 ~~~ {.sql}
 SELECT person, count(reading), round(avg(reading), 2)
 FROM  Survey
-WHERE quant="rad"
-AND   person="dyer";
+WHERE quant='rad'
+AND   person='dyer';
 ~~~
 
 person|count(reading)|round(avg(reading), 2)|
@@ -210,7 +210,7 @@ using a `GROUP BY` clause:
 ~~~ {.sql}
 SELECT   person, count(reading), round(avg(reading), 2)
 FROM     Survey
-WHERE    quant="rad"
+WHERE    quant='rad'
 GROUP BY person;
 ~~~
 
