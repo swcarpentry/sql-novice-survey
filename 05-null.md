@@ -42,7 +42,7 @@ Null doesn't behave like other values.
 If we select the records that come before 1930:
 
 ~~~ {.sql}
-SELECT * FROM Visited WHERE dated<"1930-00-00";
+SELECT * FROM Visited WHERE dated<'1930-00-00';
 ~~~
 
 |ident|site|dated     |
@@ -54,7 +54,7 @@ we get two results,
 and if we select the ones that come during or after 1930:
 
 ~~~ {.sql}
-SELECT * FROM Visited WHERE dated>="1930-00-00";
+SELECT * FROM Visited WHERE dated>='1930-00-00';
 ~~~
 
 |ident|site|dated     |
@@ -134,7 +134,7 @@ that weren't taken by Lake.
 It's natural to write the query like this:
 
 ~~~ {.sql}
-SELECT * FROM Survey WHERE quant="sal" AND person!="lake";
+SELECT * FROM Survey WHERE quant='sal' AND person!='lake';
 ~~~
 
 |taken|person|quant|reading|
@@ -154,7 +154,7 @@ If we want to keep these records
 we need to add an explicit check:
 
 ~~~ {.sql}
-SELECT * FROM Survey WHERE quant="sal" AND (person!="lake" OR person IS NULL);
+SELECT * FROM Survey WHERE quant='sal' AND (person!='lake' OR person IS NULL);
 ~~~
 
 |taken|person|quant|reading|
