@@ -61,7 +61,18 @@ to make it easier for scientists to find what they want to.
 
 ## [Filtering](03-filter.html)
 
-*   FIXME
+We're suggesting that learners lookup the more esoteric query
+manipulations as they find a need for them (because listing a bunch in
+the lesson is not very exciting without a need to motivate them).
+That can be intimidating for a new user, so you should spend some time
+showing students how to lookup documentation online, find the relevant
+section of the documentation, and then understand what they're
+reading.  You should definitely do this for `LIKE` (which is the last
+thing we cover before recommending this approach, so it's fresh in
+their minds), but you might want to also go over `DISTINCT` (if you
+feel like the learners are bored, and want to speed up and hit
+something new) or `ORDER BY` (if you feel like the learners are
+confused, and want to slow down and review something old).
 
 ## [Calculating New Values](04-calc.html)
 
