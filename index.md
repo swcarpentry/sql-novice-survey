@@ -38,6 +38,7 @@ and these lessons will show how to do that.
 
 ## Topics
 
+0.  [Setting up](00-setup.html)
 1.  [Selecting Data](01-select.html)
 2.  [Sorting and Removing Duplicates](02-sort-dup.html)
 3.  [Filtering](03-filter.html)

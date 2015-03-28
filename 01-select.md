@@ -27,6 +27,8 @@ The database manager does whatever lookups and calculations the query specifies,
 returning the results in a tabular form
 that we can then use as a starting point for further queries.
 
+> ## Changing database managers {.callout}
+>
 > Every database manager --- Oracle,
 > IBM DB2, PostgreSQL, MySQL, Microsoft Access, and SQLite --- stores
 > data in a different way,
@@ -106,7 +108,7 @@ data, but instead have a special `-null-` entry:
 we'll return to these missing values [later](05-null.html).
 For now,
 let's write an SQL query that displays scientists' names.
-We do this using the SQL command `select`,
+We do this using the SQL command `SELECT`,
 giving it the names of the columns we want and the table we want them from.
 Our query and its output look like this:
 
@@ -142,6 +144,7 @@ SeLeCt FaMiLy, PeRsOnAl FrOm PeRsOn;
 |Roerich |Valentina|
 |Danforth|Frank    |
 
+You can use SQL's case insensitivity to your advantage. For instance, some people choose to write SQL keywords (such as `SELECT` and `FROM`) in capital letters and **field** and **table** names in lower case. This can make it easier to locate parts of an SQL statement. For instance, you can scan the statement, quickly locate the prominent `FROM` keyword and know the table name follows.
 Whatever casing convention you choose,
 please be consistent:
 complex queries are hard enough to read without the extra cognitive load of random capitalization.

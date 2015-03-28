@@ -126,7 +126,7 @@ once we realize that Frank Danforth didn't take any measurements,
 we can remove him from the `Person` table like this:
 
 ~~~ {.sql}
-DELETE FROM Person WHERE ident = "danforth";
+DELETE FROM Person WHERE ident = 'danforth';
 ~~~
 
 But what if we removed Anderson Lake instead?
