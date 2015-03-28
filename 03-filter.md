@@ -163,7 +163,7 @@ SELECT * FROM Survey WHERE quant='sal' AND (person='lake' OR person='roe');
 
 We can also filter by partial matches.
 For example,
-if we want to know something just about the site names beginning with "DR" we can use the `LIKE` keyword.
+if we want to know something just about the site names beginning with "DR" we can use the [`LIKE` keyword][LIKE].
 The percent symbol acts as a [wildcard](reference.html#wildcard),
 matching any characters in that place.
 It can be used at the beginning, middle, or end of the string:
@@ -182,47 +182,21 @@ SELECT * FROM Visited WHERE site LIKE 'DR%';
 |752  |DR-3 |          |
 |844  |DR-1 |1932-03-22|
 
-
-
-
-Finally,
-we can use `DISTINCT` with `WHERE`
-to give a second level of filtering:
-
-~~~ {.sql}
-SELECT DISTINCT person, quant FROM Survey WHERE person='lake' OR person='roe';
-~~~
-
-|person|quant|
-|------|-----|
-|lake  |sal  |
-|lake  |rad  |
-|lake  |temp |
-|roe   |sal  |
-|roe   |rad  |
-
-But remember:
-`DISTINCT` is applied to the values displayed in the chosen columns,
-not to the entire rows as they are being processed.
-
-> What we have just done is how most people "grow" their SQL queries.
-> We started with something simple that did part of what we wanted,
-> then added more clauses one by one,
-> testing their effects as we went.
-> This is a good strategy --- in fact,
-> for complex queries it's often the *only* strategy --- but
-> it depends on quick turnaround,
-> and on us recognizing the right answer when we get it.
->
-> The best way to achieve quick turnaround is often
-> to put a subset of data in a temporary database
-> and run our queries against that,
-> or to fill a small database with synthesized records.
-> For example,
-> instead of trying our queries against an actual database of 20 million Australians,
-> we could run it against a sample of ten thousand,
-> or write a small program to generate ten thousand random (but plausible) records
-> and use that.
+There are many, many ways you can manipulate queries in SQL (selecting
+only [`DISTINCT`][DISTINCT] values, aggregating with [`GROUP
+BY`][GROUP-BY], etc.).  Instead of covering them all now, we'll hit
+the most common ones and leave you to learn the rest when you find
+yourself needing them.  Search engines are great for this (for example
+"sql select unique values" will give you lots of hits about
+[`DISTINCT`][DISTINCT]), and the documentation for your database
+manager are also a good resource.  For example, the [`LIKE`][LIKE]
+docs referenced earlier does a good job laying out the syntax and
+effect of the `LIKE` operator (I found the relevant docs by asking a
+search engine for "sqlite like comparison").  When the offical
+documentation is too dense, you can almost always find a good blog
+post or tutorial that covers a particular construct at a slower pace
+and a higher level.  That will give a general framework for the idea,
+and when you go back to the docs they should make more sense.
 
 > ## Fix This Query {.challenge}
 >
@@ -251,3 +225,7 @@ not to the entire rows as they are being processed.
 > * `'beta' LIKE '%a'`
 > * `'alpha' LIKE 'a%%'`
 > * `'alpha' LIKE 'a%p%'`
+
+[LIKE]: https://www.sqlite.org/lang_expr.html#like
+[DISTINCT]: https://www.sqlite.org/lang_select.html#distinct
+[GROUP-BY]: https://www.sqlite.org/lang_select.html#resultset
