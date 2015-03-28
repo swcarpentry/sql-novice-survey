@@ -56,7 +56,7 @@ For example,
 we can ask for all information from the DR-1 site collected before 1930:
 
 ~~~ {.sql}
-SELECT * FROM Visited WHERE site='DR-1' AND dated<'1930-00-00';
+SELECT * FROM Visited WHERE site='DR-1' AND dated<'1930-01-01';
 ~~~
 
 |ident|site|dated     |
