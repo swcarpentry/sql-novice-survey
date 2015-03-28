@@ -7,10 +7,8 @@
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
     <link rel="stylesheet" type="text/css" href="css/swc.css" />
-    <link rel="stylesheet" type="text/css" href="css/swc-workshop-and-lesson.css" />
-    <link rel="stylesheet" type="text/css" href="css/lesson.css" />
     <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
     <meta charset="UTF-8" />
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -19,18 +17,21 @@
     <![endif]-->
   </head>
   <body class="lesson">
-    <div class="container container-full-width card">
+    <div class="container card">
       <div class="banner">
         <a href="http://software-carpentry.org" title="Software Carpentry">
           <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
         </a>
       </div>
-      <div class="row-fluid">
-        <div class="span10 offset1">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
           <h1 class="title">Databases and SQL</h1>
           <h2 class="subtitle">Combining Data</h2>
-<div id="learning-objectives" class="objectives">
-<h2>Learning Objectives</h2>
+<div id="learning-objectives" class="objectives panel panel-warning">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+</div>
+<div class="panel-body">
 <ul>
 <li>Explain the operation of a query that joins two tables.</li>
 <li>Explain how to restrict the output of a query containing a join to only include meaningful combinations of values.</li>
@@ -38,6 +39,7 @@
 <li>Explain what primary and foreign keys are, and why they are useful.</li>
 <li>Explain what atomic values are, and why database fields should only contain atomic values.</li>
 </ul>
+</div>
 </div>
 <p>In order to submit her data to a web site that aggregates historical meteorological data, Gina needs to format it as latitude, longitude, date, quantity, and reading. However, her latitudes and longitudes are in the <code>Site</code> table, while the dates of measurements are in the <code>Visited</code> table and the readings themselves are in the <code>Survey</code> table. She needs to combine these tables somehow.</p>
 <p>The SQL command to do this is <code>JOIN</code>. To see how it works, let's start by joining the <code>Site</code> and <code>Visited</code> tables:</p>
@@ -569,19 +571,31 @@
 </tr>
 </tbody>
 </table>
-<div id="listing-radiation-readings" class="challenge">
-<h2>Listing Radiation Readings</h2>
+<div id="listing-radiation-readings" class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Listing Radiation Readings</h2>
+</div>
+<div class="panel-body">
 <p>Write a query that lists all radiation readings from the DR-1 site.</p>
 </div>
-<div id="wheres-frank" class="challenge">
-<h2>Where's Frank?</h2>
+</div>
+<div id="wheres-frank" class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Where's Frank?</h2>
+</div>
+<div class="panel-body">
 <p>Write a query that lists all sites visited by people named &quot;Frank&quot;.</p>
 </div>
-<div id="reading-queries" class="challenge">
-<h2>Reading Queries</h2>
+</div>
+<div id="reading-queries" class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Reading Queries</h2>
+</div>
+<div class="panel-body">
 <p>Describe in your own words what the following query produces:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> Site.name <span class="kw">FROM</span> Site <span class="kw">JOIN</span> Visited
 <span class="kw">ON</span> Site.lat&lt;-<span class="fl">49.0</span> <span class="kw">AND</span> Site.name=Visited.site <span class="kw">AND</span> Visited.dated&gt;=<span class="st">&#39;1932-00-00&#39;</span>;</code></pre>
+</div>
 </div>
         </div>
       </div>
@@ -594,6 +608,6 @@
     </div>
     <!-- Javascript placed at the end of the document so the pages load faster -->
     <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
-    <script src="http://software-carpentry.org/v5/js/bootstrap/bootstrap.min.js"></script>
+    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
   </body>
 </html>
