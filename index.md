@@ -43,7 +43,6 @@ These lessons will show how to use a database to explore the expeditions' data.
 1.  [Selecting Data](01-select.html)
 2.  [Sorting and Removing Duplicates](02-sort-dup.html)
 3.  [Filtering](03-filter.html)
-4.  [Calculating New Values](04-calc.html)
 5.  [Missing Data](05-null.html)
 6.  [Aggregation](06-agg.html)
 7.  [Combining Data](07-join.html)

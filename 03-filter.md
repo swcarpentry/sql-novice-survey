@@ -183,12 +183,14 @@ SELECT * FROM Visited WHERE site LIKE 'DR%';
 |844  |DR-1 |1932-03-22|
 
 There are many, many ways you can manipulate queries in SQL (selecting
-only [`DISTINCT`][DISTINCT] values, aggregating with [`GROUP
-BY`][GROUP-BY], etc.).  Instead of covering them all now, we'll hit
-the most common ones and leave you to learn the rest when you find
-yourself needing them.  Search engines are great for this (for example
-"sql select unique values" will give you lots of hits about
-[`DISTINCT`][DISTINCT]), and the documentation for your database
+only [`DISTINCT`][DISTINCT] values; aggregating with [`GROUP
+BY`][GROUP-BY]; combining queries with [`UNION`][UNION]; [scaling][]
+and [rounding][] numerical values; [concatenating][], [searching][],
+and [slicing][] strings; etc.).  Instead of covering them all now,
+we'll hit the most common ones and leave you to learn the rest when
+you find yourself needing them.  Search engines are great for this
+(for example "sql select unique values" will give you lots of hits
+about [`DISTINCT`][DISTINCT]), and the documentation for your database
 manager are also a good resource.  For example, the [`LIKE`][LIKE]
 docs referenced earlier does a good job laying out the syntax and
 effect of the `LIKE` operator (I found the relevant docs by asking a
@@ -229,3 +231,9 @@ and when you go back to the docs they should make more sense.
 [LIKE]: https://www.sqlite.org/lang_expr.html#like
 [DISTINCT]: https://www.sqlite.org/lang_select.html#distinct
 [GROUP-BY]: https://www.sqlite.org/lang_select.html#resultset
+[UNION]: https://www.sqlite.org/lang_select.html#compound
+[scaling]: https://www.sqlite.org/lang_expr.html#binaryops
+[rounding]: https://www.sqlite.org/lang_corefunc.html#round
+[concatenating]: https://www.sqlite.org/lang_expr.html#binaryops
+[searching]: https://www.sqlite.org/lang_corefunc.html#instr
+[slicing]: https://www.sqlite.org/lang_corefunc.html#substr

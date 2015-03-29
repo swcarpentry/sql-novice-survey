@@ -74,10 +74,6 @@ feel like the learners are bored, and want to speed up and hit
 something new) or `ORDER BY` (if you feel like the learners are
 confused, and want to slow down and review something old).
 
-## [Calculating New Values](04-calc.html)
-
-*   FIXME
-
 ## [Missing Data](05-null.html)
 
 *   FIXME
