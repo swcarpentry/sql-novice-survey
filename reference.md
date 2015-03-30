@@ -49,7 +49,6 @@ subtitle: Reference
 *   A primary key is a field (or set of fields) whose values uniquely identify the records in a table.
 *   A foreign key is a field (or set of fields) in one table whose values are a primary key in another table.
 *   We can eliminate meaningless combinations of records by matching primary keys and foreign keys between tables.
-*   Keys should be atomic values to make joins simpler and more efficient.
 
 ## [Data Hygiene](08-hygiene.html)
 
