@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Databases and SQL
-subtitle: Data Hygiene
+subtitle: Schema Design
 minutes: 30
 ---
 > ## Learning Objectives {.objectives}

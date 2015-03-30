@@ -26,23 +26,7 @@ subtitle: Reference
 *   Filtering is done on whole records,
     so conditions can use fields that are not actually displayed.
 
-## [Calculating New Values](04-calc.html)
-
-*   SQL can perform calculations using the values in a record as part of a query.
-
-## [Missing Data](05-null.html)
-
-*   Databases use `null` to represent missing information.
-*   Any arithmetic or Boolean operation involving `null` produces `null` as a result.
-*   The only operators that can safely be used with `null` are `is null` and `is not null`.
-
-## [Aggregation](06-agg.html)
-
-*   An aggregation function combines many values to produce a single new value.
-*   Aggregation functions ignore `null` values.
-*   Aggregation happens after filtering.
-
-## [Combining Data](07-join.html)
+## [Combining Data](04-join.html)
 
 *   Every fact should be represented in a database exactly once.
 *   A join produces all combinations of records from one table with records from another.
@@ -51,19 +35,31 @@ subtitle: Reference
 *   We can eliminate meaningless combinations of records by matching primary keys and foreign keys between tables.
 *   Keys should be atomic values to make joins simpler and more efficient.
 
-## [Data Hygiene](08-hygiene.html)
+## [Schema Design](05-schema-design.html)
 
 *   Every value in a database should be atomic.
 *   Every record in a database should have a primary key.
 *   Database entries should not contain redundant information.
 
-## [Creating and Modifying Data](09-create.html)
+## [Creating and Modifying Data](06-create.html)
 
 *   Database tables are created using queries that specify their names and the names and properties of their fields.
 *   Records can be inserted, updated, or deleted using queries.
 *   It is simpler and safer to modify data when every record has a unique primary key.
 
-## [Programming with Databases](10-prog.html)
+## [Missing Data](07-null.html)
+
+*   Databases use `null` to represent missing information.
+*   Any arithmetic or Boolean operation involving `null` produces `null` as a result.
+*   The only operators that can safely be used with `null` are `is null` and `is not null`.
+
+## [Aggregation](08-agg.html)
+
+*   An aggregation function combines many values to produce a single new value.
+*   Aggregation functions ignore `null` values.
+*   Aggregation happens after filtering.
+
+## [Programming with Databases](09-prog.html)
 
 *   We usually write database applications in a general-purpose language, and embed SQL queries in it.
 *   To connect to a database, a program must use a library specific to that database manager.

@@ -74,27 +74,27 @@ feel like the learners are bored, and want to speed up and hit
 something new) or `ORDER BY` (if you feel like the learners are
 confused, and want to slow down and review something old).
 
-## [Missing Data](05-null.html)
+## [Combining Data](04-join.html)
 
 *   FIXME
 
-## [Aggregation](06-agg.html)
+## [Schema Design](05-schema-design.html)
 
 *   FIXME
 
-## [Combining Data](07-join.html)
+## [Creating and Modifying Data](06-create.html)
 
 *   FIXME
 
-## [Data Hygiene](08-hygiene.html)
+## [Missing Data](07-null.html)
 
 *   FIXME
 
-## [Creating and Modifying Data](09-create.html)
+## [Aggregation](08-agg.html)
 
 *   FIXME
 
-## [Programming with Databases](10-prog.html)
+## [Programming with Databases](09-prog.html)
 
 *   FIXME
 
