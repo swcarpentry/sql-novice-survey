@@ -10,7 +10,6 @@ minutes: 30
 > *   Explain how to restrict the output of a query containing a join to only include meaningful combinations of values.
 > *   Write queries that join tables on equal keys.
 > *   Explain what primary and foreign keys are, and why they are useful.
-> *   Explain what atomic values are, and why database fields should only contain atomic values.
 
 In order to submit her data to a web site
 that aggregates historical meteorological data,
