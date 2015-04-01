@@ -15,7 +15,7 @@ We have scanned and [OCR](https://en.wikipedia.org/wiki/Optical_character_recogn
 and we now want to store that information
 in a way that will make search and analysis easy.
 
-We basically have three options:
+Thee common options for storage are
 text files,
 a spreadsheet,
 or a database.
