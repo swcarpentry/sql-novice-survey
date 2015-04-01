@@ -17,8 +17,8 @@ in a way that will make search and analysis easy.
 
 Thee common options for storage are
 text files,
-a spreadsheet,
-or a database.
+spreadsheets,
+and databases.
 Text files are easiest to create,
 and work well with version control,
 but then we would then have to build search and analysis tools ourselves.
