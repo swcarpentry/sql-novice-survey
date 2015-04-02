@@ -78,7 +78,7 @@ CREATE TABLE Survey(
 ~~~
 
 Once again,
-exactly what constraints are avialable
+exactly what constraints are available
 and what they're called
 depends on which database manager we are using.
 
