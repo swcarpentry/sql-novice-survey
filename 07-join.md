@@ -137,7 +137,7 @@ If joining two tables is good,
 joining many tables must be better.
 In fact,
 we can join any number of tables
-simply by adding more `join` clauses to our query,
+simply by adding more `JOIN` clauses to our query,
 and more `ON` tests to filter out combinations of records
 that don't make sense:
 
