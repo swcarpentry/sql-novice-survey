@@ -143,10 +143,10 @@ that don't make sense:
 
 ~~~ {.sql}
 SELECT Site.lat, Site.long, Visited.dated, Survey.quant, Survey.reading
-FROM   Site JOIN Visited JOIN Survey
-ON     Site.name=Visited.site
-AND    Visited.ident=Survey.taken
-AND    Visited.dated IS NOT NULL;
+FROM   Site
+JOIN   Visited ON Site.name=Visited.site
+JOIN   Survey ON Visited.ident=Survey.taken
+WHERE  Visited.dated IS NOT NULL;
 ~~~
 
 |lat   |long   |dated     |quant|reading|
