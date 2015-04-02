@@ -15,7 +15,7 @@ We have scanned and [OCR](https://en.wikipedia.org/wiki/Optical_character_recogn
 and we now want to store that information
 in a way that will make search and analysis easy.
 
-Thee common options for storage are
+Three common options for storage are
 text files,
 spreadsheets,
 and databases.
@@ -26,7 +26,7 @@ Spreadsheets are good for doing simple analyses,
 but they don't handle large or complex data sets well.
 Databases, however, include powerful tools for search and analysis,
 and can handle large, complex data sets.
-These lessons will show how to use a database to explore the expeditions data.
+These lessons will show how to use a database to explore the expeditions' data.
 
 > ## Prerequisites {.prereq}
 >
