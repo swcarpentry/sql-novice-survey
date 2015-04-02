@@ -11,7 +11,7 @@ minutes: 30
 > *   Write queries that handle missing information correctly.
 
 Real-world data is never complete --- there are always holes.
-Databases represent these holes using special value called `null`.
+Databases represent these holes using a special value called `null`.
 `null` is not zero, `False`, or the empty string;
 it is a one-of-a-kind value that means "nothing here".
 Dealing with `null` requires a few special tricks
