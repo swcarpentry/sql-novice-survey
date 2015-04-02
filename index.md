@@ -11,7 +11,7 @@ in the South Pacific,
 and then onward to Antarctica.
 Two years ago,
 their expeditions were found in a storage locker at Miskatonic University.
-We have scanned and [OCR](https://en.wikipedia.org/wiki/Optical_character_recognition)'d the data they contain,
+We have scanned and [OCR][]'d the data they contain,
 and we now want to store that information
 in a way that will make search and analysis easy.
 
@@ -57,3 +57,5 @@ These lessons will show how to use a database to explore the expeditions' data.
 *   [Reference](reference.html)
 *   [Discussion](discussion.html)
 *   [Instructor's Guide](instructors.html)
+
+[OCR]: https://en.wikipedia.org/wiki/Optical_character_recognition
