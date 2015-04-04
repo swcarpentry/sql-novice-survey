@@ -1,7 +1,7 @@
 -- The `Person` table is used to explain the most basic queries.
 -- Note that `danforth` has no measurements.
 create table Person(
-	ident    text,
+	id       text,
 	personal text,
 	family	 text
 );
@@ -29,7 +29,7 @@ insert into Site values('MSK-4', -48.87, -123.40);
 -- of specific measurements, and also provides their dates.
 -- Note that #752 is missing a date; we use this to talk about NULL.
 create table Visited(
-	ident integer,
+	id    integer,
 	site  text,
 	dated text
 );

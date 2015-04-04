@@ -25,9 +25,9 @@ For example,
 the following statements create the four tables in our survey database:
 
 ~~~ {.sql}
-CREATE TABLE Person(ident text, personal text, family text);
+CREATE TABLE Person(id text, personal text, family text);
 CREATE TABLE Site(name text, lat real, long real);
-CREATE TABLE Visited(ident integer, site text, dated text);
+CREATE TABLE Visited(id integer, site text, dated text);
 CREATE TABLE Survey(taken integer, person text, quant real, reading real);
 ~~~
 
@@ -72,8 +72,8 @@ CREATE TABLE Survey(
     quant   real not null,    -- the quantity measured
     reading real not null,    -- the actual reading
     primary key(taken, quant),
-    foreign key(taken) references Visited(ident),
-    foreign key(person) references Person(ident)
+    foreign key(taken) references Visited(id),
+    foreign key(person) references Person(id)
 );
 ~~~
 
@@ -126,7 +126,7 @@ once we realize that Frank Danforth didn't take any measurements,
 we can remove him from the `Person` table like this:
 
 ~~~ {.sql}
-DELETE FROM Person WHERE ident = 'danforth';
+DELETE FROM Person WHERE id = 'danforth';
 ~~~
 
 But what if we removed Anderson Lake instead?
