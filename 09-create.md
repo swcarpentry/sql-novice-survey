@@ -6,8 +6,8 @@ minutes: 30
 ---
 > ## Learning Objectives {.objectives}
 >
-> *   Write queries that creates tables.
-> *   Write queries to insert, modify, and delete records.
+> *   Write statements that creates tables.
+> *   Write statements to insert, modify, and delete records.
 
 So far we have only looked at how to get information out of a database,
 both because that is more frequent than adding information,
