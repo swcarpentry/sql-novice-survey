@@ -201,7 +201,7 @@ those IDs have names like "student numbers" and "patient numbers",
 and they almost always turn out to have originally been
 a unique record identifier in some database system or other.
 As the query below demonstrates,
-SQLite automatically numbers records as they're added to tables,
+SQLite [automatically numbers records][rowid] as they're added to tables,
 and we can use those record numbers in queries:
 
 ~~~ {.sql}
@@ -239,3 +239,4 @@ SELECT rowid, * FROM Person;
 > and the type of measurement taken and its reading. Please avoid all null values.
 > Tip: you should get 15 records with 8 fields.
 
+[rowid]: https://www.sqlite.org/lang_createtable.html#rowid
