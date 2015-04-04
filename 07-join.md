@@ -234,6 +234,7 @@ SELECT rowid, * FROM Person;
 > ~~~
 
 > ## Who has been where? {.challenge}
+>
 > Write a query that shows each site with exact location (lat, long) ordered by visited date, 
 > followed by personal name and family name of the person who visited the site 
 > and the type of measurement taken and its reading. Please avoid all null values.
