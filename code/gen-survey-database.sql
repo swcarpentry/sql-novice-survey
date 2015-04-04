@@ -74,7 +74,7 @@ insert into Survey values(752, 'lake', 'rad',    2.19);
 insert into Survey values(752, 'lake', 'sal',    0.09);
 insert into Survey values(752, 'lake', 'temp', -16.00);
 insert into Survey values(752, 'roe',  'sal',   41.60);
-insert into Survey values(837, 'lake', 'rad',    1.46);
+insert into Survey values(837, 'lake', 'rad',    null);
 insert into Survey values(837, 'lake', 'sal',    0.21);
 insert into Survey values(837, 'roe',  'sal',   22.50);
 insert into Survey values(844, 'roe',  'rad',   11.25);
