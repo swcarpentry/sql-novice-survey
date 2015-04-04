@@ -51,7 +51,7 @@ SELECT max(dated) FROM Visited;
 
 |max(dated)|
 |----------|
-|1930-01-07|
+|1932-03-22|
 
 `min` and `max` are just two of
 the aggregation functions built into SQL.
