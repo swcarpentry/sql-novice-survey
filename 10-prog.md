@@ -84,8 +84,8 @@ For example,
 this function takes a user's ID as a parameter and returns their name:
 
 ~~~ {.python}
-def get_name(database_file, person_ident):
-    query = "SELECT personal || '; '; || family FROM Person WHERE ident=';" + person_ident + "';;"
+def get_name(database_file, person_id):
+    query = "SELECT personal || '; '; || family FROM Person WHERE id=';" + person_id + "';;"
 
     connection = sqlite3.connect(database_file)
     cursor = connection.cursor()
@@ -117,7 +117,7 @@ If we insert this string into our query,
 the result is:
 
 ~~~ {.sql}
-SELECT personal || ' ' || family FROM Person WHERE ident='dyer'; DROP TABLE Survey; SELECT '';
+SELECT personal || ' ' || family FROM Person WHERE id='dyer'; DROP TABLE Survey; SELECT '';
 ~~~
 
 If we execute this,
@@ -138,12 +138,12 @@ instead of formatting our statements as strings.
 Here's what our example program looks like if we do this:
 
 ~~~ {.python}
-def get_name(database_file, person_ident):
-    query = "SELECT personal || '; '; || family FROM Person WHERE ident=?;"
+def get_name(database_file, person_id):
+    query = "SELECT personal || '; '; || family FROM Person WHERE id=?;"
 
     connection = sqlite3.connect(database_file)
     cursor = connection.cursor()
-    cursor.execute(query, [person_ident])
+    cursor.execute(query, [person_id])
     results = cursor.fetchall()
     cursor.close()
     connection.close()

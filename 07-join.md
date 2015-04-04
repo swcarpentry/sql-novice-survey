@@ -30,7 +30,7 @@ let's start by joining the `Site` and `Visited` tables:
 SELECT * FROM Site JOIN Visited;
 ~~~
 
-|name |lat   |long   |ident|site  |dated     |
+|name |lat   |long   |id   |site  |dated     |
 |-----|------|-------|-----|------|----------|
 |DR-1 |-49.85|-128.57|619  |DR-1  |1927-02-08|
 |DR-1 |-49.85|-128.57|622  |DR-1  |1927-02-10|
@@ -81,7 +81,7 @@ thus we need to use a filter:
 SELECT * FROM Site JOIN Visited ON Site.name=Visited.site;
 ~~~
 
-|name |lat   |long   |ident|site |dated     |
+|name |lat   |long   |id   |site |dated     |
 |-----|------|-------|-----|-----|----------|
 |DR-1 |-49.85|-128.57|619  |DR-1 |1927-02-08|
 |DR-1 |-49.85|-128.57|622  |DR-1 |1927-02-10|
@@ -109,7 +109,7 @@ We do this because tables can have fields with the same name,
 and we need to be specific which ones we're talking about.
 For example,
 if we joined the `person` and `visited` tables,
-the result would inherit a field called `ident`
+the result would inherit a field called `id`
 from each of the original tables.
 
 We can now use the same dotted notation
@@ -145,7 +145,7 @@ that don't make sense:
 SELECT Site.lat, Site.long, Visited.dated, Survey.quant, Survey.reading
 FROM   Site JOIN Visited JOIN Survey
 ON     Site.name=Visited.site
-AND    Visited.ident=Survey.taken
+AND    Visited.id=Survey.taken
 AND    Visited.dated IS NOT NULL;
 ~~~
 
@@ -183,7 +183,7 @@ Another way of saying this is that
 a foreign key is the primary key of one table
 that appears in some other table.
 In our database,
-`Person.ident` is the primary key in the `Person` table,
+`Person.id` is the primary key in the `Person` table,
 while `Survey.person` is a foreign key
 relating the `Survey` table's entries
 to entries in `Person`.
@@ -208,7 +208,7 @@ and we can use those record numbers in queries:
 SELECT rowid, * FROM Person;
 ~~~
 
-|rowid|ident   |personal |family  |
+|rowid|id      |personal |family  |
 |-----|--------|---------|--------|
 |1    |dyer    |William  |Dyer    |
 |2    |pb      |Frank    |Pabodie |
