@@ -36,7 +36,7 @@ create table Visited(
 
 insert into Visited values(619, 'DR-1',  '1927-02-08');
 insert into Visited values(622, 'DR-1',  '1927-02-10');
-insert into Visited values(734, 'DR-3',  '1939-01-07');
+insert into Visited values(734, 'DR-3',  '1930-01-07');
 insert into Visited values(735, 'DR-3',  '1930-01-12');
 insert into Visited values(751, 'DR-3',  '1930-02-26');
 insert into Visited values(752, 'DR-3',  null);
