@@ -11,21 +11,22 @@ in the South Pacific,
 and then onward to Antarctica.
 Two years ago,
 their expeditions were found in a storage locker at Miskatonic University.
-We have scanned and OCR'd the data they contain,
+We have scanned and [OCR][]'d the data they contain,
 and we now want to store that information
 in a way that will make search and analysis easy.
 
-We basically have three options:
+Three common options for storage are
 text files,
-a spreadsheet,
-or a database.
+spreadsheets,
+and databases.
 Text files are easiest to create,
 and work well with version control,
-but then we would then have to build search and analysis tools ourselves.
-Spreadsheets are good for doing simple analysis,
-they don't handle large or complex data sets very well.
-We would therefore like to put this data in a database,
-and these lessons will show how to do that.
+but then we would have to build search and analysis tools ourselves.
+Spreadsheets are good for doing simple analyses,
+but they don't handle large or complex data sets well.
+Databases, however, include powerful tools for search and analysis,
+and can handle large, complex data sets.
+These lessons will show how to use a database to explore the expeditions' data.
 
 > ## Prerequisites {.prereq}
 >
@@ -56,3 +57,5 @@ and these lessons will show how to do that.
 *   [Reference](reference.html)
 *   [Discussion](discussion.html)
 *   [Instructor's Guide](instructors.html)
+
+[OCR]: https://en.wikipedia.org/wiki/Optical_character_recognition
