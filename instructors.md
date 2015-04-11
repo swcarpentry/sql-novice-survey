@@ -61,33 +61,40 @@ to make it easier for scientists to find what they want to.
 
 ## [Filtering](03-filter.html)
 
-*   FIXME
+We're suggesting that learners lookup the more esoteric query
+manipulations as they find a need for them (because listing a bunch in
+the lesson is not very exciting without a need to motivate them).
+That can be intimidating for a new user, so you should spend some time
+showing students how to lookup documentation online, find the relevant
+section of the documentation, and then understand what they're
+reading.  You should definitely do this for `LIKE` (which is the last
+thing we cover before recommending this approach, so it's fresh in
+their minds), but you might want to also go over `DISTINCT` (if you
+feel like the learners are bored, and want to speed up and hit
+something new) or `ORDER BY` (if you feel like the learners are
+confused, and want to slow down and review something old).
 
-## [Calculating New Values](04-calc.html)
-
-*   FIXME
-
-## [Missing Data](05-null.html)
-
-*   FIXME
-
-## [Aggregation](06-agg.html)
-
-*   FIXME
-
-## [Combining Data](07-join.html)
-
-*   FIXME
-
-## [Data Hygiene](08-hygiene.html)
+## [Combining Data](04-join.html)
 
 *   FIXME
 
-## [Creating and Modifying Data](09-create.html)
+## [Schema Design](05-schema-design.html)
 
 *   FIXME
 
-## [Programming with Databases](10-prog.html)
+## [Creating and Modifying Data](06-create.html)
+
+*   FIXME
+
+## [Missing Data](07-null.html)
+
+*   FIXME
+
+## [Aggregation](08-agg.html)
+
+*   FIXME
+
+## [Programming with Databases](09-prog.html)
 
 *   FIXME
 
