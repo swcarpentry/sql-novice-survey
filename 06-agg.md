@@ -181,7 +181,7 @@ WHERE quant='rad';
 
 |person|count(reading)|round(avg(reading), 2)|
 |------|--------------|----------------------|
-|roe   |8             |6.56                  |
+|roe   |7             |7.29                  |
 
 because the database manager selects a single arbitrary scientist's name
 rather than aggregating separately for each scientist.
@@ -217,7 +217,7 @@ GROUP BY person;
 person|count(reading)|round(avg(reading), 2)|
 ------|--------------|----------------------|
 dyer  |2             |8.81                  |
-lake  |2             |1.82                  |
+lake  |1             |2.19                  |
 pb    |3             |6.66                  |
 roe   |1             |11.25                 |
 
@@ -247,7 +247,7 @@ GROUP BY person, quant;
 |-null-|temp |1             |-26.0                 |
 |dyer  |rad  |2             |8.81                  |
 |dyer  |sal  |2             |0.11                  |
-|lake  |rad  |2             |1.82                  |
+|lake  |rad  |1             |2.19                  |
 |lake  |sal  |4             |0.11                  |
 |lake  |temp |1             |-16.0                 |
 |pb    |rad  |3             |6.66                  |
@@ -273,7 +273,7 @@ ORDER BY person, quant;
 |------|-----|--------------|----------------------|
 |dyer  |rad  |2             |8.81                  |
 |dyer  |sal  |2             |0.11                  |
-|lake  |rad  |2             |1.82                  |
+|lake  |rad  |1             |2.19                  |
 |lake  |sal  |4             |0.11                  |
 |lake  |temp |1             |-16.0                 |
 |pb    |rad  |3             |6.66                  |
