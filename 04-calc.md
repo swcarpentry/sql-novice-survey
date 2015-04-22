@@ -27,7 +27,7 @@ SELECT 1.05 * reading FROM Survey WHERE quant='rad';
 |7.581         |
 |4.5675        |
 |2.2995        |
-|1.533         |
+|              |
 |11.8125       |
 
 When we run the query,
