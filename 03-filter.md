@@ -100,7 +100,7 @@ SELECT * FROM Survey WHERE person='lake' OR person='roe';
 |752  |lake  |sal  |0.09   |
 |752  |lake  |temp |-16.0  |
 |752  |roe   |sal  |41.6   |
-|837  |lake  |rad  |1.46   |
+|837  |lake  |rad  |       |
 |837  |lake  |sal  |0.21   |
 |837  |roe   |sal  |22.5   |
 |844  |roe   |rad  |11.25  |
