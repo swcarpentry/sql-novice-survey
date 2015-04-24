@@ -34,9 +34,11 @@ Type
 
     sqlite3 survey.db
 
-Then type the SQLite command <code>.tables</code> to list the tables in the database, and
-an SQL <code>SELECT</code> command. You should see
-something like the following.
+Then type the SQLite command <code>.tables</code> to list the tables in the database, and this SQL command: 
+
+<code>select * from Site;</code>
+
+Make sure to include the semi-colon **;** at the end of the statement. You should see something like the following.
 
     SQLite version 3.8.8 2015-01-16 12:08:06
     Enter ".help" for usage hints.
@@ -59,28 +61,11 @@ You can change some SQLite settings to make the output easier to read:
     MSK-4       -48.87      -123.4
 
 
-#### IPython notebook
+#### Helpful Commands
 
-Create a new IPython notebook and run
-
-    import sqlite3
-
-This should complete without an error.
-
-In another cell, run
-
-    %install_ext https://raw.githubusercontent.com/benwaugh/sql-novice-survey/gh-pages/code/sqlitemagic.py
-
-This should give the following output:
-
-    Installed sqlitemagic.py. To use it, type:
-      %load_ext sqlitemagic
-
-Run this command as intructed, and then in a new cell run this:
-
-    %%sqlite survey.db
-    select * from Site
-
-You should see the contents of the <code>Site</code> table.
+* For a list of useful system commands, enter <code>.help</code>
+* To exit sqlite and return to the shell command line, you can use either 
+	* <code>.quit</code> *or*
+	* <code>.exit</code>
 
 
