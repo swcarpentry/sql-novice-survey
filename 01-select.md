@@ -102,8 +102,8 @@ The tables below show the database we will use in our examples:
 > |837  |roe   |sal  |22.5   |
 > |844  |roe   |rad  |11.25  |
 
-Notice that three entries --- one in the `Visited` table,
-and two in the `Survey` table --- don't contain any actual
+Notice that four entries --- one in the `Visited` table,
+and three in the `Survey` table --- don't contain any actual
 data, but instead have a special `-null-` entry:
 we'll return to these missing values [later](05-null.html).
 For now,
