@@ -16,7 +16,7 @@ once queries are understood.
 If we want to create and modify data,
 we need to know two other sets of commands.
 
-The first pair are `CREATE TABLE` and `DROP TABLE`.
+The first pair are [`CREATE TABLE`][CREATE-TABLE] and [`DROP TABLE`][DROP-TABLE].
 While they are written as two words,
 they are actually single commands.
 The first one creates a new table;
@@ -195,3 +195,6 @@ this technique is outside the scope of this chapter.
 > control is a good way to track and manage changes to the database.
 > What are the pros and cons of this approach?  (Hint: records aren't
 > stored in any particular order.)
+
+[CREATE-TABLE]: https://www.sqlite.org/lang_createtable.html
+[DROP-TABLE]: https://www.sqlite.org/lang_droptable.html
