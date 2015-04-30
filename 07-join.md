@@ -100,12 +100,12 @@ the database manager throws away records
 that combined information about two different sites,
 leaving us with just the ones we want.
 
-Notice that we used `table.field` to specify field names
+Notice that we used `Table.field` to specify field names
 in the output of the join.
 We do this because tables can have fields with the same name,
 and we need to be specific which ones we're talking about.
 For example,
-if we joined the `person` and `visited` tables,
+if we joined the `Person` and `Visited` tables,
 the result would inherit a field called `ident`
 from each of the original tables.
 

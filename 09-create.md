@@ -25,10 +25,10 @@ For example,
 the following statements create the four tables in our survey database:
 
 ~~~ {.sql}
-CREATE TABLE Person(ident text, personal text, family text);
-CREATE TABLE Site(name text, lat real, long real);
-CREATE TABLE Visited(ident integer, site text, dated text);
-CREATE TABLE Survey(taken integer, person text, quant real, reading real);
+CREATE TABLE Person(ident TEXT, personal TEXT, family TEXT);
+CREATE TABLE Site(name TEXT, lat REAL, long REAL);
+CREATE TABLE Visited(ident INTEGER, site TEXT, dated TEXT);
+CREATE TABLE Survey(taken INTEGER, person TEXT, quant REAL, reading REAL);
 ~~~
 
 We can get rid of one of our tables using:
@@ -46,10 +46,10 @@ but most provide the following:
 
 data type  use
 ---------  -----------------------------------------
-integer    a signed integer
-real       a floating point number
-text       a character string
-blob       a "binary large object", such as an image
+INTEGER    a signed integer
+REAL       a floating point number
+TEXT       a character string
+BLOB       a "binary large object", such as an image
 
 Most databases also support Booleans and date/time values;
 SQLite uses the integers 0 and 1 for the former,
