@@ -68,8 +68,7 @@ Stepping back,
 data and the tools used to store it have a symbiotic relationship:
 we use tables and joins because it's efficient,
 provided our data is organized a certain way,
-but organize our data that way because we have tools to manipulate it efficiently
-if it's in a certain form.
+but organize our data that way because we have tools to manipulate it efficiently.
 As anthropologists say,
 the tool shapes the hand that shapes the tool.
 
