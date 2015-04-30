@@ -124,7 +124,7 @@ SELECT family, personal FROM Person;
 |Roerich |Valentina|
 |Danforth|Frank    |
 
-The semi-colon at the end of the query
+The semicolon at the end of the query
 tells the database manager that the query is complete and ready to run.
 We have written our commands and column names in lower case,
 and the table name in Title Case,
