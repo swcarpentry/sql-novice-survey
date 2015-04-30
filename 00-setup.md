@@ -34,9 +34,11 @@ Type
 
     sqlite3 survey.db
 
-Then type the SQLite command <code>.tables</code> to list the tables in the database, and
-an SQL <code>SELECT</code> command. You should see
-something like the following.
+Then type the SQLite command <code>.tables</code> to list the tables in the database, and this SQL command:
+
+<code>select * from Site;</code>
+
+Make sure to include the semi-colon **;** at the end of the statement. You should see something like the following.
 
     SQLite version 3.8.8 2015-01-16 12:08:06
     Enter ".help" for usage hints.
@@ -59,5 +61,9 @@ You can change some SQLite settings to make the output easier to read:
     MSK-4       -48.87      -123.4
 
 
+#### Helpful Commands
 
-
+* For a list of useful system commands, enter <code>.help</code>
+* To exit sqlite and return to the shell command line, you can use either
+	* <code>.quit</code> *or*
+	* <code>.exit</code>
