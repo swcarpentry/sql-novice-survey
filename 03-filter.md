@@ -100,7 +100,7 @@ SELECT * FROM Survey WHERE person='lake' OR person='roe';
 |752  |lake  |sal  |0.09   |
 |752  |lake  |temp |-16.0  |
 |752  |roe   |sal  |41.6   |
-|837  |lake  |rad  |1.46   |
+|837  |lake  |rad  |       |
 |837  |lake  |sal  |0.21   |
 |837  |roe   |sal  |22.5   |
 |844  |roe   |rad  |11.25  |
@@ -226,11 +226,11 @@ not to the entire rows as they are being processed.
 
 > ## Fix This Query {.challenge}
 >
-> Suppose we want to select all sites that lie more than 30 degrees from the poles.
+> Suppose we want to select all sites that lie more than 42 degrees from the poles.
 > Our first query is:
 >
 > ~~~
-> SELECT * FROM Site WHERE (lat > -60) OR (lat < 60);
+> SELECT * FROM Site WHERE (lat > -48) OR (lat < 48);
 > ~~~
 >
 > Explain why this is wrong,
