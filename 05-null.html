@@ -225,8 +225,8 @@
 </tr>
 </tbody>
 </table>
-<p>Null values cause headaches wherever they appear. For example, suppose we want to find all the salinity measurements that weren't taken by Lake. It's natural to write the query like this:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant=<span class="st">&#39;sal&#39;</span> <span class="kw">AND</span> person!=<span class="st">&#39;lake&#39;</span>;</code></pre>
+<p>Null values can cause headaches wherever they appear. For example, suppose we want to find all the salinity measurements that weren't taken by Lake. It's natural to write the query like this:</p>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">select</span> * <span class="kw">from</span> Survey <span class="kw">where</span> quant=<span class="ot">&quot;sal&quot;</span> <span class="kw">and</span> person!=<span class="ot">&quot;lake&quot;</span>;</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -308,6 +308,7 @@
 </tbody>
 </table>
 <p>We still have to decide whether this is the right thing to do or not. If we want to be absolutely sure that we aren't including any measurements by Lake in our results, we need to exclude all the records for which we don't know who did the work.</p>
+<p>In contrast to arithmetic or Boolean operators, aggregation functions that combine multiple values, such as <code>min</code>, <code>max</code> or <code>avg</code>, <em>ignore</em> <code>null</code> values. In the majority of cases, this is a desirable output: for example, unknown values are thus not affecting our data when we are averaging it. Aggregation functions will be addressed in more detail in <a href="06-agg.html">the next section</a>.</p>
 <div id="sorting-by-known-date" class="challenge panel panel-success">
 <div class="panel-heading">
 <h2><span class="glyphicon glyphicon-pencil"></span>Sorting by Known Date</h2>
