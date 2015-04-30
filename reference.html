@@ -23,6 +23,7 @@
           <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
         </a>
       </div>
+      <article>
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
           <h1 class="title">Introduction to Databases and SQL</h1>
@@ -67,7 +68,6 @@
 <li>A primary key is a field (or set of fields) whose values uniquely identify the records in a table.</li>
 <li>A foreign key is a field (or set of fields) in one table whose values are a primary key in another table.</li>
 <li>We can eliminate meaningless combinations of records by matching primary keys and foreign keys between tables.</li>
-<li>Keys should be atomic values to make joins simpler and more efficient.</li>
 </ul>
 <h2 id="data-hygiene"><a href="08-hygiene.html">Data Hygiene</a></h2>
 <ul>
@@ -91,10 +91,10 @@
 <h2 id="glossary">Glossary</h2>
 <dl>
 <dt><span id="aggregation-function">aggregation function</span></dt>
-<dd>A function that combines multiple values to produce a single new value (e.g. sum, mean, median).
+<dd>A function that combines multiple values to produce a single new value (e.g. sum, mean, median).
 </dd>
 <dt><span id="atomic">atomic</span></dt>
-<dd>Describes a value <em>not</em> divisible into parts that one might want to work with separately. For example, if one wanted to work with first and last names separately, the values &quot;Ada&quot; and &quot;Lovelace&quot; would be atomic, but the value &quot;Ada Lovelace&quot; would not.
+<dd>Describes a value <em>not</em> divisible into parts that one might want to work with separately. For example, if one wanted to work with first and last names separately, the values “Ada” and “Lovelace” would be atomic, but the value “Ada Lovelace” would not.
 </dd>
 <dt><span id="cascading-delete">cascading delete</span></dt>
 <dd>An <a href="#sql">SQL</a> constraint requiring that if a given <a href="#record">record</a> is deleted, all records referencing it (via <a href="#foreign-key">foreign key</a>) in other <a href="#table">tables</a> must also be deleted.
@@ -142,29 +142,30 @@
 <dd>A set of related values making up a single entry in a <a href="#table">database table</a>, typically shown as a row. See also: <a href="#field">field</a>.
 </dd>
 <dt><span id="referential-integrity">referential integrity</span></dt>
-<dd>The internal consistency of values in a database. If an entry in one table contains a <a href="#foreign-key">foreign key</a>, but the corresponding <a href="#record">records</a> don't exist, referential integrity has been violated.
+<dd>The internal consistency of values in a database. If an entry in one table contains a <a href="#foreign-key">foreign key</a>, but the corresponding <a href="#record">records</a> don’t exist, referential integrity has been violated.
 </dd>
 <dt><span id="relational-database">relational database</span></dt>
 <dd>A collection of data organized into <a href="#table">tables</a>.
 </dd>
 <dt><span id="sentinel-value">sentinel value</span></dt>
-<dd>A value in a collection that has a special meaning, such as 999 to mean &quot;age unknown&quot;.
+<dd>A value in a collection that has a special meaning, such as 999 to mean “age unknown”.
 </dd>
 <dt><span id="sql">SQL</span></dt>
 <dd>A special-purpose language for describing operations on <a href="#relational-database">relational databases</a>.
 </dd>
 <dt><span id="sql-injection-attack">SQL injection attack</span></dt>
-<dd>An attack on a program in which the user's input contains malicious SQL statements. If this text is copied directly into an SQL statement, it will be executed in the database.
+<dd>An attack on a program in which the user’s input contains malicious SQL statements. If this text is copied directly into an SQL statement, it will be executed in the database.
 </dd>
 <dt><span id="table">table</span></dt>
 <dd>A set of data in a <a href="#relational-database">relational database</a> organized into a set of <a href="#record">records</a>, each having the same named <a href="#field">fields</a>.
 </dd>
 <dt><span id="wildcard">wildcard</span></dt>
-<dd>A character used in pattern matching. In SQL's <code>like</code> operator, the wildcard &quot;%&quot; matches zero or more characters, so that <code>%able%</code> matches &quot;fixable&quot; and &quot;tablets&quot;.
+<dd>A character used in pattern matching. In SQL’s <code>like</code> operator, the wildcard “%” matches zero or more characters, so that <code>%able%</code> matches “fixable” and “tablets”.
 </dd>
 </dl>
         </div>
       </div>
+      </article>
       <div class="footer">
         <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
         <a class="label swc-blue-bg" href="https://github.com/swcarpentry/sql-novice-survey">Source</a>

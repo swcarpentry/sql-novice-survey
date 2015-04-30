@@ -23,6 +23,7 @@
           <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
         </a>
       </div>
+      <article>
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
           <h1 class="title">Databases and SQL</h1>
@@ -33,7 +34,7 @@
 </div>
 <div class="panel-body">
 <ul>
-<li>Define &quot;aggregation&quot; and give examples of its use.</li>
+<li>Define “aggregation” and give examples of its use.</li>
 <li>Write queries that compute aggregated values.</li>
 <li>Trace the execution of a query that performs aggregation.</li>
 <li>Explain how missing data is handled during aggregation.</li>
@@ -56,7 +57,7 @@
 <td align="left">1927-02-10</td>
 </tr>
 <tr class="odd">
-<td align="left">1939-01-07</td>
+<td align="left">1930-01-07</td>
 </tr>
 <tr class="even">
 <td align="left">1930-01-12</td>
@@ -99,7 +100,7 @@
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">1939-01-07</td>
+<td align="left">1932-03-22</td>
 </tr>
 </tbody>
 </table>
@@ -143,7 +144,7 @@
 </tr>
 </tbody>
 </table>
-<p>We used <code>count(reading)</code> here, but we could just as easily have counted <code>quant</code> or any other field in the table, or even used <code>count(*)</code>, since the function doesn't care about the values themselves, just how many values there are.</p>
+<p>We used <code>count(reading)</code> here, but we could just as easily have counted <code>quant</code> or any other field in the table, or even used <code>count(*)</code>, since the function doesn’t care about the values themselves, just how many values there are.</p>
 <p>SQL lets us do several aggregations at once. We can, for example, find the range of sensible salinity measurements:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> <span class="fu">min</span>(reading), <span class="fu">max</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant=<span class="st">&#39;sal&#39;</span> <span class="kw">AND</span> reading&lt;=<span class="fl">1.0</span>;</code></pre>
 <table>
@@ -176,8 +177,8 @@
 </tr>
 </tbody>
 </table>
-<p>Why does Lake's name appear rather than Roerich's or Dyer's? The answer is that when it has to aggregate a field, but isn't told how to, the database manager chooses an actual value from the input set. It might use the first one processed, the last one, or something else entirely.</p>
-<p>Another important fact is that when there are no values to aggregate, aggregation's result is &quot;don't know&quot; rather than zero or some other arbitrary value:</p>
+<p>Why does Lake’s name appear rather than Roerich’s or Dyer’s? The answer is that when it has to aggregate a field, but isn’t told how to, the database manager chooses an actual value from the input set. It might use the first one processed, the last one, or something else entirely.</p>
+<p>Another important fact is that when there are no values to aggregate, aggregation’s result is “don’t know” rather than zero or some other arbitrary value:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> person, <span class="fu">max</span>(reading), <span class="fu">sum</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant=<span class="st">&#39;missing&#39;</span>;</code></pre>
 <table>
 <thead>
@@ -195,7 +196,7 @@
 </tr>
 </tbody>
 </table>
-<p>One final important feature of aggregation functions is that they are inconsistent with the rest of SQL in a very useful way. If we add two values, and one of them is null, the result is null. By extension, if we use <code>sum</code> to add all the values in a set, and any of those values are null, the result should also be null. It's much more useful, though, for aggregation functions to ignore null values and only combine those that are non-null. This behavior lets us write our queries as:</p>
+<p>One final important feature of aggregation functions is that they are inconsistent with the rest of SQL in a very useful way. If we add two values, and one of them is null, the result is null. By extension, if we use <code>sum</code> to add all the values in a set, and any of those values are null, the result should also be null. It’s much more useful, though, for aggregation functions to ignore null values and only combine those that are non-null. This behavior lets us write our queries as:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> <span class="fu">min</span>(dated) <span class="kw">FROM</span> Visited;</code></pre>
 <table>
 <thead>
@@ -223,7 +224,7 @@
 </tr>
 </tbody>
 </table>
-<p>Aggregating all records at once doesn't always make sense. For example, suppose Gina suspects that there is a systematic bias in her data, and that some scientists' radiation readings are higher than others. We know that this doesn't work:</p>
+<p>Aggregating all records at once doesn’t always make sense. For example, suppose Gina suspects that there is a systematic bias in her data, and that some scientists’ radiation readings are higher than others. We know that this doesn’t work:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> person, <span class="fu">count</span>(reading), <span class="fu">round</span>(<span class="fu">avg</span>(reading), <span class="dv">2</span>)
 <span class="kw">FROM</span>  Survey
 <span class="kw">WHERE</span> quant=<span class="st">&#39;rad&#39;</span>;</code></pre>
@@ -243,7 +244,7 @@
 </tr>
 </tbody>
 </table>
-<p>because the database manager selects a single arbitrary scientist's name rather than aggregating separately for each scientist. Since there are only five scientists, she could write five queries of the form:</p>
+<p>because the database manager selects a single arbitrary scientist’s name rather than aggregating separately for each scientist. Since there are only five scientists, she could write five queries of the form:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> person, <span class="fu">count</span>(reading), <span class="fu">round</span>(<span class="fu">avg</span>(reading), <span class="dv">2</span>)
 <span class="kw">FROM</span>  Survey
 <span class="kw">WHERE</span> quant=<span class="st">&#39;rad&#39;</span>
@@ -384,8 +385,8 @@
 </tr>
 </tbody>
 </table>
-<p>Note that we have added <code>person</code> to the list of fields displayed, since the results wouldn't make much sense otherwise.</p>
-<p>Let's go one step further and remove all the entries where we don't know who took the measurement:</p>
+<p>Note that we have added <code>person</code> to the list of fields displayed, since the results wouldn’t make much sense otherwise.</p>
+<p>Let’s go one step further and remove all the entries where we don’t know who took the measurement:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span>   person, quant, <span class="fu">count</span>(reading), <span class="fu">round</span>(<span class="fu">avg</span>(reading), <span class="dv">2</span>)
 <span class="kw">FROM</span>     Survey
 <span class="kw">WHERE</span>    person <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span>
@@ -462,7 +463,7 @@
 <li><p>selected records from the <code>Survey</code> table where the <code>person</code> field was not null;</p></li>
 <li><p>grouped those records into subsets so that the <code>person</code> and <code>quant</code> values in each subset were the same;</p></li>
 <li><p>ordered those subsets first by <code>person</code>, and then within each sub-group by <code>quant</code>; and</p></li>
-<li><p>counted the number of records in each subset, calculated the average <code>reading</code> in each, and chose a <code>person</code> and <code>quant</code> value from each (it doesn't matter which ones, since they're all equal).</p></li>
+<li><p>counted the number of records in each subset, calculated the average <code>reading</code> in each, and chose a <code>person</code> and <code>quant</code> value from each (it doesn’t matter which ones, since they’re all equal).</p></li>
 </ol>
 <div id="counting-temperature-readings" class="challenge panel panel-success">
 <div class="panel-heading">
@@ -495,13 +496,14 @@
 <h2><span class="glyphicon glyphicon-pencil"></span>Ordering When Concatenating</h2>
 </div>
 <div class="panel-body">
-<p>The function <code>group_concat(field, separator)</code> concatenates all the values in a field using the specified separator character (or ',' if the separator isn't specified). Use this to produce a one-line list of scientists' names, such as:</p>
+<p>The function <code>group_concat(field, separator)</code> concatenates all the values in a field using the specified separator character (or ‘,’ if the separator isn’t specified). Use this to produce a one-line list of scientists’ names, such as:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql">William Dyer, Frank Pabodie, Anderson Lake, Valentina Roerich, Frank Danforth</code></pre>
 <p>Can you find a way to order the list by surname?</p>
 </div>
 </div>
         </div>
       </div>
+      </article>
       <div class="footer">
         <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
         <a class="label swc-blue-bg" href="https://github.com/swcarpentry/sql-novice-survey">Source</a>

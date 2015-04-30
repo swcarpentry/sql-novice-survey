@@ -23,6 +23,7 @@
           <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
         </a>
       </div>
+      <article>
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
           <h1 class="title">Databases and SQL</h1>
@@ -46,10 +47,10 @@
 <h2><span class="glyphicon glyphicon-pushpin"></span>Changing database managers</h2>
 </div>
 <div class="panel-body">
-<p>Every database manager --- Oracle, IBM DB2, PostgreSQL, MySQL, Microsoft Access, and SQLite --- stores data in a different way, so a database created with one cannot be used directly by another. However, every database manager can import and export data in a variety of formats, so it <em>is</em> possible to move information from one to another.</p>
+<p>Every database manager — Oracle, IBM DB2, PostgreSQL, MySQL, Microsoft Access, and SQLite — stores data in a different way, so a database created with one cannot be used directly by another. However, every database manager can import and export data in a variety of formats, so it <em>is</em> possible to move information from one to another.</p>
 </div>
 </div>
-<p>Queries are written in a language called <a href="reference.html#sql">SQL</a>, which stands for &quot;Structured Query Language&quot;. SQL provides hundreds of different ways to analyze and recombine data; we will only look at a handful, but that handful accounts for most of what scientists do.</p>
+<p>Queries are written in a language called <a href="reference.html#sql">SQL</a>, which stands for “Structured Query Language”. SQL provides hundreds of different ways to analyze and recombine data; we will only look at a handful, but that handful accounts for most of what scientists do.</p>
 <p>The tables below show the database we will use in our examples:</p>
 <blockquote>
 <p><strong>Person</strong>: people who took readings.</p>
@@ -143,7 +144,7 @@
 <tr class="odd">
 <td align="left">734</td>
 <td align="left">DR-3</td>
-<td align="left">1939-01-07</td>
+<td align="left">1930-01-07</td>
 </tr>
 <tr class="even">
 <td align="left">735</td>
@@ -314,7 +315,7 @@
 </tbody>
 </table>
 </blockquote>
-<p>Notice that three entries --- one in the <code>Visited</code> table, and two in the <code>Survey</code> table --- don't contain any actual data, but instead have a special <code>-null-</code> entry: we'll return to these missing values <a href="05-null.html">later</a>. For now, let's write an SQL query that displays scientists' names. We do this using the SQL command <code>SELECT</code>, giving it the names of the columns we want and the table we want them from. Our query and its output look like this:</p>
+<p>Notice that three entries — one in the <code>Visited</code> table, and two in the <code>Survey</code> table — don’t contain any actual data, but instead have a special <code>-null-</code> entry: we’ll return to these missing values <a href="05-null.html">later</a>. For now, let’s write an SQL query that displays scientists’ names. We do this using the SQL command <code>SELECT</code>, giving it the names of the columns we want and the table we want them from. Our query and its output look like this:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> family, personal <span class="kw">FROM</span> Person;</code></pre>
 <table>
 <thead>
@@ -346,7 +347,7 @@
 </tr>
 </tbody>
 </table>
-<p>The semi-colon at the end of the query tells the database manager that the query is complete and ready to run. We have written our commands and column names in lower case, and the table name in Title Case, but we don't have to: as the example below shows, SQL is <a href="reference.html#case-insensitive">case insensitive</a>.</p>
+<p>The semicolon at the end of the query tells the database manager that the query is complete and ready to run. We have written our commands and column names in lower case, and the table name in Title Case, but we don’t have to: as the example below shows, SQL is <a href="reference.html#case-insensitive">case insensitive</a>.</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SeLeCt</span> FaMiLy, PeRsOnAl <span class="kw">FrOm</span> PeRsOn;</code></pre>
 <table>
 <thead>
@@ -378,8 +379,8 @@
 </tr>
 </tbody>
 </table>
-<p>You can use SQL's case insensitivity to your advantage. For instance, some people choose to write SQL keywords (such as <code>SELECT</code> and <code>FROM</code>) in capital letters and <strong>field</strong> and <strong>table</strong> names in lower case. This can make it easier to locate parts of an SQL statement. For instance, you can scan the statement, quickly locate the prominent <code>FROM</code> keyword and know the table name follows. Whatever casing convention you choose, please be consistent: complex queries are hard enough to read without the extra cognitive load of random capitalization. One convention is to use UPPER CASE for SQL statements, to distinguish them from tables and column names. This is the convention that we will use for this lesson.</p>
-<p>Going back to our query, it's important to understand that the rows and columns in a database table aren't actually stored in any particular order. They will always be <em>displayed</em> in some order, but we can control that in various ways. For example, we could swap the columns in the output by writing our query as:</p>
+<p>You can use SQL’s case insensitivity to your advantage. For instance, some people choose to write SQL keywords (such as <code>SELECT</code> and <code>FROM</code>) in capital letters and <strong>field</strong> and <strong>table</strong> names in lower case. This can make it easier to locate parts of an SQL statement. For instance, you can scan the statement, quickly locate the prominent <code>FROM</code> keyword and know the table name follows. Whatever casing convention you choose, please be consistent: complex queries are hard enough to read without the extra cognitive load of random capitalization. One convention is to use UPPER CASE for SQL statements, to distinguish them from tables and column names. This is the convention that we will use for this lesson.</p>
+<p>Going back to our query, it’s important to understand that the rows and columns in a database table aren’t actually stored in any particular order. They will always be <em>displayed</em> in some order, but we can control that in various ways. For example, we could swap the columns in the output by writing our query as:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> personal, family <span class="kw">FROM</span> Person;</code></pre>
 <table>
 <thead>
@@ -509,6 +510,7 @@
 </div>
         </div>
       </div>
+      </article>
       <div class="footer">
         <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
         <a class="label swc-blue-bg" href="https://github.com/swcarpentry/sql-novice-survey">Source</a>

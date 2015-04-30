@@ -23,6 +23,7 @@
           <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
         </a>
       </div>
+      <article>
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
           <h1 class="title">Databases and SQL</h1>
@@ -162,7 +163,7 @@
 </tr>
 </tbody>
 </table>
-<p>Use <code>UNION</code> to create a consolidated list of salinity measurements in which Roerich's, and only Roerich's, have been corrected as described in the previous challenge. The output should be something like:</p>
+<p>Use <code>UNION</code> to create a consolidated list of salinity measurements in which Roerich’s, and only Roerich’s, have been corrected as described in the previous challenge. The output should be something like:</p>
 <table>
 <thead>
 <tr class="header">
@@ -212,7 +213,7 @@
 <h2><span class="glyphicon glyphicon-pencil"></span>Selecting Major Site Identifiers</h2>
 </div>
 <div class="panel-body">
-<p>The site identifiers in the <code>Visited</code> table have two parts separated by a '-':</p>
+<p>The site identifiers in the <code>Visited</code> table have two parts separated by a ‘-’:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> site <span class="kw">FROM</span> Visited;</code></pre>
 <table>
 <thead>
@@ -232,11 +233,12 @@
 </tr>
 </tbody>
 </table>
-<p>Some major site identifiers are two letters long and some are three. The &quot;in string&quot; function <code>instr(X, Y)</code> returns the 1-based index of the first occurrence of string Y in string X, or 0 if Y does not exist in X. The substring function <code>substr(X, I)</code> returns the substring of X starting at index I. Use these two functions to produce a list of unique major site identifiers. (For this data, the list should contain only &quot;DR&quot; and &quot;MSK&quot;).</p>
+<p>Some major site identifiers are two letters long and some are three. The “in string” function <code>instr(X, Y)</code> returns the 1-based index of the first occurrence of string Y in string X, or 0 if Y does not exist in X. The substring function <code>substr(X, I)</code> returns the substring of X starting at index I. Use these two functions to produce a list of unique major site identifiers. (For this data, the list should contain only “DR” and “MSK”).</p>
 </div>
 </div>
         </div>
       </div>
+      </article>
       <div class="footer">
         <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
         <a class="label swc-blue-bg" href="https://github.com/swcarpentry/sql-novice-survey">Source</a>

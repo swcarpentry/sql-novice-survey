@@ -23,6 +23,7 @@
           <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
         </a>
       </div>
+      <article>
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
           <h1 class="title">Databases and SQL</h1>
@@ -132,7 +133,7 @@
 </tr>
 </tbody>
 </table>
-<p>If we select more than one column --- for example, both the survey site ID and the quantity measured --- then the distinct pairs of values are returned:</p>
+<p>If we select more than one column — for example, both the survey site ID and the quantity measured — then the distinct pairs of values are returned:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> taken, quant <span class="kw">FROM</span> Survey;</code></pre>
 <table>
 <thead>
@@ -220,8 +221,8 @@
 </tr>
 </tbody>
 </table>
-<p>Notice in both cases that duplicates are removed even if they didn't appear to be adjacent in the database. Again, it's important to remember that rows aren't actually ordered: they're just displayed that way.</p>
-<p>As we mentioned earlier, database records are not stored in any particular order. This means that query results aren't necessarily sorted, and even if they are, we often want to sort them in a different way, e.g., by the name of the project instead of by the name of the scientist. We can do this in SQL by adding an <code>ORDER BY</code> clause to our query:</p>
+<p>Notice in both cases that duplicates are removed even if they didn’t appear to be adjacent in the database. Again, it’s important to remember that rows aren’t actually ordered: they’re just displayed that way.</p>
+<p>As we mentioned earlier, database records are not stored in any particular order. This means that query results aren’t necessarily sorted, and even if they are, we often want to sort them in a different way, e.g., by the name of the project instead of by the name of the scientist. We can do this in SQL by adding an <code>ORDER BY</code> clause to our query:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> Person <span class="kw">ORDER</span> <span class="kw">BY</span> ident;</code></pre>
 <table>
 <thead>
@@ -259,7 +260,7 @@
 </tr>
 </tbody>
 </table>
-<p>By default, results are sorted in ascending order (i.e., from least to greatest). We can sort in the opposite order using <code>DESC</code> (for &quot;descending&quot;):</p>
+<p>By default, results are sorted in ascending order (i.e., from least to greatest). We can sort in the opposite order using <code>DESC</code> (for “descending”):</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> person <span class="kw">ORDER</span> <span class="kw">BY</span> ident <span class="kw">DESC</span>;</code></pre>
 <table>
 <thead>
@@ -297,7 +298,7 @@
 </tr>
 </tbody>
 </table>
-<p>(And if we want to make it clear that we're sorting in ascending order, we can use <code>ASC</code> instead of <code>DESC</code>.)</p>
+<p>(And if we want to make it clear that we’re sorting in ascending order, we can use <code>ASC</code> instead of <code>DESC</code>.)</p>
 <p>We can also sort on several fields at once. For example, this query sorts results first in ascending order by <code>taken</code>, and then in descending order by <code>person</code> within each group of equal <code>taken</code> values:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> taken, person <span class="kw">FROM</span> Survey <span class="kw">ORDER</span> <span class="kw">BY</span> taken <span class="kw">ASC</span>, person <span class="kw">DESC</span>;</code></pre>
 <table>
@@ -476,6 +477,7 @@
 </div>
         </div>
       </div>
+      </article>
       <div class="footer">
         <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
         <a class="label swc-blue-bg" href="https://github.com/swcarpentry/sql-novice-survey">Source</a>

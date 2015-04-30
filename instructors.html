@@ -23,22 +23,23 @@
           <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
         </a>
       </div>
+      <article>
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
           <h1 class="title">Lesson Title</h1>
-          <h2 class="subtitle">Instructor's Guide</h2>
+          <h2 class="subtitle">Instructor’s Guide</h2>
 <h2 id="legend">Legend</h2>
-<p>Relational databases are not as widely used in science as in business, but they are still a common way to store large data sets with complex structure. Even when the data itself isn't in a database, the metadata could be: for example, meteorological data might be stored in files on disk, but data about when and where observations were made, data ranges, and so on could be in a database to make it easier for scientists to find what they want to.</p>
+<p>Relational databases are not as widely used in science as in business, but they are still a common way to store large data sets with complex structure. Even when the data itself isn’t in a database, the metadata could be: for example, meteorological data might be stored in files on disk, but data about when and where observations were made, data ranges, and so on could be in a database to make it easier for scientists to find what they want to.</p>
 <h2 id="overall">Overall</h2>
 <ul>
-<li><p>The first few sections (up to &quot;Missing Data&quot;) usually go very quickly. The pace usually slows down a bit when null values are discussed mostly because learners have a lot of details to keep straight by this point. Things <em>really</em> slow down during the discussion of joins, but this is the key idea in the whole lesson: important ideas like primary keys and referential integrity only make sense once learners have seen how they're used in joins. It's worth going over things a couple of times if necessary (with lots of examples).</p></li>
+<li><p>The first few sections (up to “Missing Data”) usually go very quickly. The pace usually slows down a bit when null values are discussed mostly because learners have a lot of details to keep straight by this point. Things <em>really</em> slow down during the discussion of joins, but this is the key idea in the whole lesson: important ideas like primary keys and referential integrity only make sense once learners have seen how they’re used in joins. It’s worth going over things a couple of times if necessary (with lots of examples).</p></li>
 <li><p>The sections on creating and modifying data, and programming with databases, can be dropped if time is short. Of the two, people seem to care most about how to add data (which only takes a few minutes to demonstrate).</p></li>
-<li><p>Simple calculations are actually easier to do in a spreadsheet; the advantages of using a database become clear as soon as filtering and joins are needed. Instructors may therefore want to show a spreadsheet with the information from the four database tables consolidated into a single sheet, and demonstrate what's needed in both systems to answer questions like, &quot;What was the average radiation reading in 1931?&quot;</p></li>
-<li>Some advanced learners may have heard that NoSQL databases (i.e., ones that don't use the relational model) are the next big thing, and ask why we're not teaching those. The answers are:
+<li><p>Simple calculations are actually easier to do in a spreadsheet; the advantages of using a database become clear as soon as filtering and joins are needed. Instructors may therefore want to show a spreadsheet with the information from the four database tables consolidated into a single sheet, and demonstrate what’s needed in both systems to answer questions like, “What was the average radiation reading in 1931?”</p></li>
+<li>Some advanced learners may have heard that NoSQL databases (i.e., ones that don’t use the relational model) are the next big thing, and ask why we’re not teaching those. The answers are:
 <ol style="list-style-type: decimal">
 <li>Relational databases are far more widely used than NoSQL databases.</li>
 <li>We have far more experience with relational databases than with any other kind, so we have a better idea of what to teach and how to teach it.</li>
-<li>NoSQL databases are as different from each other as they are from relational databases. Until a leader emerges, it isn't clear <em>which</em> NoSQL database we should teach.</li>
+<li>NoSQL databases are as different from each other as they are from relational databases. Until a leader emerges, it isn’t clear <em>which</em> NoSQL database we should teach.</li>
 </ol></li>
 </ul>
 <h2 id="selecting-data"><a href="01-select.html">Selecting Data</a></h2>
@@ -122,7 +123,7 @@ $ <span class="kw">cd</span> swc_sql</code></pre>
        <span class="kw">quant</span>   text,
        <span class="kw">reading</span> real
 );</code></pre>
-<p>If there is no output, the most likely cause is that the database <code>survey.db</code> isn't in the directory where you're running the command. In this case, SQLite creates a new, empty database for you (just as a text editor creates a new, empty document if you ask it to open a file that doesn't exist yet).</p>
+<p>If there is no output, the most likely cause is that the database <code>survey.db</code> isn’t in the directory where you’re running the command. In this case, SQLite creates a new, empty database for you (just as a text editor creates a new, empty document if you ask it to open a file that doesn’t exist yet).</p>
 <p>To run commands interactively, run SQLite on <code>survey.db</code> <em>without</em> the <code>.schema</code> command:</p>
 <pre><code>$ sqlite3 survey.db
 SQLite version 3.8.5 2014-08-15 22:37:57
@@ -134,7 +135,7 @@ sqlite&gt;</code></pre>
 <span class="kw">seq</span>  name             file
 <span class="kw">---</span>  ---------------  ----------------------------------------------------------
 <span class="kw">0</span>    main             /Users/alan_turing/swc_sql/survey.db</code></pre>
-<p>and check that the necessary tables &quot;Person&quot;, &quot;Survey&quot;, &quot;Site&quot; and &quot;Visited&quot; exist by typing:</p>
+<p>and check that the necessary tables “Person”, “Survey”, “Site” and “Visited” exist by typing:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sqlite&gt;</span> .tables
 <span class="kw">Person</span>   Site     Survey   Visited<span class="kw">&lt;</span>/code<span class="kw">&gt;&lt;</span>/pre<span class="kw">&gt;</span></code></pre>
 <p>To exit SQLite and return to the Bash shell, use <code>.quit</code>:</p>
@@ -142,6 +143,7 @@ sqlite&gt;</code></pre>
 $</code></pre>
         </div>
       </div>
+      </article>
       <div class="footer">
         <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
         <a class="label swc-blue-bg" href="https://github.com/swcarpentry/sql-novice-survey">Source</a>
