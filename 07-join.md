@@ -91,12 +91,10 @@ SELECT * FROM Site JOIN Visited ON Site.name=Visited.site;
 |DR-3 |-47.15|-126.72|752  |DR-3 |-null-    |
 |MSK-4|-48.87|-123.4 |837  |MSK-4|1932-01-14|
 
-`ON` does the same job as `WHERE`:
-it only keeps records that pass some test.
-(The difference between the two is that `ON` filters records
-as they're being created,
-while `WHERE` waits until the join is done
-and then does the filtering.)
+`ON` is very similar to `WHERE`,
+and for all the queries in this lesson you can use them interchangeably.
+There are differences in how they affect [outer joins][OUTER],
+but that's beyond the scope of this lesson.
 Once we add this to our query,
 the database manager throws away records
 that combined information about two different sites,
@@ -136,16 +134,16 @@ If joining two tables is good,
 joining many tables must be better.
 In fact,
 we can join any number of tables
-simply by adding more `join` clauses to our query,
+simply by adding more `JOIN` clauses to our query,
 and more `ON` tests to filter out combinations of records
 that don't make sense:
 
 ~~~ {.sql}
 SELECT Site.lat, Site.long, Visited.dated, Survey.quant, Survey.reading
-FROM   Site JOIN Visited JOIN Survey
-ON     Site.name=Visited.site
-AND    Visited.ident=Survey.taken
-AND    Visited.dated IS NOT NULL;
+FROM   Site
+JOIN   Visited ON Site.name=Visited.site
+JOIN   Survey ON Visited.ident=Survey.taken
+WHERE  Visited.dated IS NOT NULL;
 ~~~
 
 |lat   |long   |dated     |quant|reading|
@@ -238,3 +236,4 @@ SELECT rowid, * FROM Person;
 > and the type of measurement taken and its reading. Please avoid all null values.
 > Tip: you should get 15 records with 8 fields.
 
+[OUTER]: http://en.wikipedia.org/wiki/Join_%28SQL%29#Outer_join
