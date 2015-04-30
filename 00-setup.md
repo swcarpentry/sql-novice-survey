@@ -59,28 +59,5 @@ You can change some SQLite settings to make the output easier to read:
     MSK-4       -48.87      -123.4
 
 
-#### IPython notebook
-
-Create a new IPython notebook and run
-
-    import sqlite3
-
-This should complete without an error.
-
-In another cell, run
-
-    %install_ext https://raw.githubusercontent.com/benwaugh/sql-novice-survey/gh-pages/code/sqlitemagic.py
-
-This should give the following output:
-
-    Installed sqlitemagic.py. To use it, type:
-      %load_ext sqlitemagic
-
-Run this command as intructed, and then in a new cell run this:
-
-    %%sqlite survey.db
-    select * from Site
-
-You should see the contents of the <code>Site</code> table.
 
 
