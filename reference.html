@@ -91,76 +91,76 @@
 <h2 id="glossary">Glossary</h2>
 <dl>
 <dt><span id="aggregation-function">aggregation function</span></dt>
-<dd><p>A function that combines multiple values to produce a single new value (e.g. sum, mean, median).</p>
+<dd>A function that combines multiple values to produce a single new value (e.g. sum, mean, median).
 </dd>
 <dt><span id="atomic">atomic</span></dt>
-<dd><p>Describes a value <em>not</em> divisible into parts that one might want to work with separately. For example, if one wanted to work with first and last names separately, the values “Ada” and “Lovelace” would be atomic, but the value “Ada Lovelace” would not.</p>
+<dd>Describes a value <em>not</em> divisible into parts that one might want to work with separately. For example, if one wanted to work with first and last names separately, the values “Ada” and “Lovelace” would be atomic, but the value “Ada Lovelace” would not.
 </dd>
 <dt><span id="cascading-delete">cascading delete</span></dt>
-<dd><p>An <a href="#sql">SQL</a> constraint requiring that if a given <a href="#record">record</a> is deleted, all records referencing it (via <a href="#foreign-key">foreign key</a>) in other <a href="#table">tables</a> must also be deleted.</p>
+<dd>An <a href="#sql">SQL</a> constraint requiring that if a given <a href="#record">record</a> is deleted, all records referencing it (via <a href="#foreign-key">foreign key</a>) in other <a href="#table">tables</a> must also be deleted.
 </dd>
 <dt><span id="case-insensitive">case insensitive</span></dt>
-<dd><p>Treating text as if upper and lower case characters were the same. See also: <a href="#case-sensitive">case sensitive</a>.</p>
+<dd>Treating text as if upper and lower case characters were the same. See also: <a href="#case-sensitive">case sensitive</a>.
 </dd>
 <dt><span id="case-sensitive">case sensitive</span></dt>
-<dd><p>Treating upper and lower case characters as different. See also: <a href="#case-insensitive">case insensitive</a>.</p>
+<dd>Treating upper and lower case characters as different. See also: <a href="#case-insensitive">case insensitive</a>.
 </dd>
 <dt><span id="cross-product">cross product</span></dt>
-<dd><p>A pairing of all elements of one set with all elements of another.</p>
+<dd>A pairing of all elements of one set with all elements of another.
 </dd>
 <dt><span id="comma-separated-values-(csv)">comma-separated values (CSV)</span></dt>
-<dd><p>A common textual representation for tables in which the values in each row are separated by commas.</p>
+<dd>A common textual representation for tables in which the values in each row are separated by commas.
 </dd>
 <dt><span id="cross-product">cross product</span></dt>
-<dd><p>A pairing of all elements of one set with all elements of another.</p>
+<dd>A pairing of all elements of one set with all elements of another.
 </dd>
 <dt><span id="cursor">cursor</span></dt>
-<dd><p>A pointer into a database that keeps track of outstanding operations.</p>
+<dd>A pointer into a database that keeps track of outstanding operations.
 </dd>
 <dt><span id="database-manager">database manager</span></dt>
-<dd><p>A program that manages a database, such as SQLite.</p>
+<dd>A program that manages a database, such as SQLite.
 </dd>
 <dt><span id="fields">fields</span></dt>
-<dd><p>A set of data values of a particular type, one for each <a href="#record">record</a> in a <a href="#table">table</a>.</p>
+<dd>A set of data values of a particular type, one for each <a href="#record">record</a> in a <a href="#table">table</a>.
 </dd>
 <dt><span id="filter">filter</span></dt>
-<dd><p>To select only the records that meet certain conditions.</p>
+<dd>To select only the records that meet certain conditions.
 </dd>
 <dt><span id="foreign-key">foreign key</span></dt>
-<dd><p>One or more values in a <a href="#table-database">database table</a> that identify a <a href="#record-database">records</a> in another table.</p>
+<dd>One or more values in a <a href="#table-database">database table</a> that identify a <a href="#record-database">records</a> in another table.
 </dd>
 <dt><span id="prepared-statement">prepared statement</span></dt>
-<dd><p>A template for an <a href="#sql">SQL</a> query in which some values can be filled in.</p>
+<dd>A template for an <a href="#sql">SQL</a> query in which some values can be filled in.
 </dd>
 <dt><span id="primary-key">primary key</span></dt>
-<dd><p>One or more <a href="#field">fields</a> in a <a href="#table">database table</a> whose values are guaranteed to be unique for each <a href="#record">record</a>, i.e., whose values uniquely identify the entry.</p>
+<dd>One or more <a href="#field">fields</a> in a <a href="#table">database table</a> whose values are guaranteed to be unique for each <a href="#record">record</a>, i.e., whose values uniquely identify the entry.
 </dd>
 <dt><span id="query">query</span></dt>
-<dd><p>A database operation that reads values but does not modify anything. Queries are expressed in a special-purpose language called <a href="#sql">SQL</a>.</p>
+<dd>A database operation that reads values but does not modify anything. Queries are expressed in a special-purpose language called <a href="#sql">SQL</a>.
 </dd>
 <dt><span id="record">record</span></dt>
-<dd><p>A set of related values making up a single entry in a <a href="#table">database table</a>, typically shown as a row. See also: <a href="#field">field</a>.</p>
+<dd>A set of related values making up a single entry in a <a href="#table">database table</a>, typically shown as a row. See also: <a href="#field">field</a>.
 </dd>
 <dt><span id="referential-integrity">referential integrity</span></dt>
-<dd><p>The internal consistency of values in a database. If an entry in one table contains a <a href="#foreign-key">foreign key</a>, but the corresponding <a href="#record">records</a> don’t exist, referential integrity has been violated.</p>
+<dd>The internal consistency of values in a database. If an entry in one table contains a <a href="#foreign-key">foreign key</a>, but the corresponding <a href="#record">records</a> don’t exist, referential integrity has been violated.
 </dd>
 <dt><span id="relational-database">relational database</span></dt>
-<dd><p>A collection of data organized into <a href="#table">tables</a>.</p>
+<dd>A collection of data organized into <a href="#table">tables</a>.
 </dd>
 <dt><span id="sentinel-value">sentinel value</span></dt>
-<dd><p>A value in a collection that has a special meaning, such as 999 to mean “age unknown”.</p>
+<dd>A value in a collection that has a special meaning, such as 999 to mean “age unknown”.
 </dd>
 <dt><span id="sql">SQL</span></dt>
-<dd><p>A special-purpose language for describing operations on <a href="#relational-database">relational databases</a>.</p>
+<dd>A special-purpose language for describing operations on <a href="#relational-database">relational databases</a>.
 </dd>
 <dt><span id="sql-injection-attack">SQL injection attack</span></dt>
-<dd><p>An attack on a program in which the user’s input contains malicious SQL statements. If this text is copied directly into an SQL statement, it will be executed in the database.</p>
+<dd>An attack on a program in which the user’s input contains malicious SQL statements. If this text is copied directly into an SQL statement, it will be executed in the database.
 </dd>
 <dt><span id="table">table</span></dt>
-<dd><p>A set of data in a <a href="#relational-database">relational database</a> organized into a set of <a href="#record">records</a>, each having the same named <a href="#field">fields</a>.</p>
+<dd>A set of data in a <a href="#relational-database">relational database</a> organized into a set of <a href="#record">records</a>, each having the same named <a href="#field">fields</a>.
 </dd>
 <dt><span id="wildcard">wildcard</span></dt>
-<dd><p>A character used in pattern matching. In SQL’s <code>like</code> operator, the wildcard “%” matches zero or more characters, so that <code>%able%</code> matches “fixable” and “tablets”.</p>
+<dd>A character used in pattern matching. In SQL’s <code>like</code> operator, the wildcard “%” matches zero or more characters, so that <code>%able%</code> matches “fixable” and “tablets”.
 </dd>
 </dl>
         </div>
