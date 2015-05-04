@@ -11,6 +11,7 @@ minutes: 30
 
 
 In beginning our examination of the Antarctic data, we want to know:
+
 * what kind of quantity measurements were taken at each site; 
 * which scientists took measurements on the expedition;
 * the sites where each scientist took measurements
@@ -29,30 +30,30 @@ we get this:
 SELECT quant FROM Survey;
 ~~~
 
-|quant|
-|-----|
-|rad  |
-|sal  |
-|rad  |
-|sal  |
-|rad  |
-|sal  |
-|temp |
-|rad  |
-|sal  |
-|temp |
-|rad  |
-|temp |
-|sal  |
-|rad  |
-|sal  |
-|temp |
-|sal  |
-|rad  |
-|sal  |
-|sal  |
-|rad  |
-
+<table>
+<tr><th>quant</th></tr>
+<tr><td>rad  </td></tr>
+<tr><td>sal  </td></tr>
+<tr><td>rad  </td></tr>
+<tr><td>sal  </td></tr>
+<tr><td>rad  </td></tr>
+<tr><td>sal  </td></tr>
+<tr><td>temp </td></tr>
+<tr><td>rad  </td></tr>
+<tr><td>sal  </td></tr>
+<tr><td>temp </td></tr>
+<tr><td>rad  </td></tr>
+<tr><td>temp </td></tr>
+<tr><td>sal  </td></tr>
+<tr><td>rad  </td></tr>
+<tr><td>sal  </td></tr>
+<tr><td>temp </td></tr>
+<tr><td>sal  </td></tr>
+<tr><td>rad  </td></tr>
+<tr><td>sal  </td></tr>
+<tr><td>sal  </td></tr>
+<tr><td>rad  </td></tr>
+</table>
 
 This result makes it difficult to see all of the different types of `quant` in the Survey table.
 We can eliminate the redundant output to make the result more readable by adding the `DISTINCT` keyword
@@ -62,12 +63,12 @@ to our query:
 SELECT DISTINCT quant FROM Survey;
 ~~~
 
-|quant|
-|-----|
-|rad  |
-|sal  |
-|temp |
-
+<table>
+<tr><th>quant</th></tr>
+<tr><td>rad  </td></tr>
+<tr><td>sal  </td></tr>
+<tr><td>temp </td></tr>
+</table>
 
 If we want to determine which sites have which quant measurement, 
 we can use the `DISTINCT` keyword on multiple columns.
