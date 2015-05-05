@@ -11,9 +11,9 @@ minutes: 30
 > *   Write a query to select all values for specific fields from a single table.
 
 A [relational database](reference.html#relational-database)
-is a way to store and manipulate information
-that is arranged as [tables](reference.html#table).
-Each table has columns (also known as [fields](reference.html#field)) which describe the data,
+is a way to store and manipulate information. 
+Databases are arranged as [tables](reference.html#table).
+Each table has columns (also known as [fields](reference.html#field)) that describe the data,
 and rows (also known as [records](reference.html#record)) which contain the data.
 
 When we are using a spreadsheet,
@@ -39,8 +39,8 @@ that we can then use as a starting point for further queries.
 
 Queries are written in a language called [SQL](reference.html#sql),
 which stands for "Structured Query Language".
-SQL provides hundreds of different ways to analyze and recombine data;
-we will only look at a handful,
+SQL provides hundreds of different ways to analyze and recombine data.
+We will only look at a handful of queries,
 but that handful accounts for most of what scientists do.
 
 The tables below show the database we will use in our examples:
