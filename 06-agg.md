@@ -255,7 +255,7 @@ GROUP BY person, quant;
 |roe   |rad  |1             |11.25                 |
 |roe   |sal  |2             |32.05                 |
 
-Note that we have added `person` to the list of fields displayed,
+Note that we have added `quant` to the list of fields displayed,
 since the results wouldn't make much sense otherwise.
 
 Let's go one step further and remove all the entries
