@@ -122,7 +122,7 @@ It might use the first one processed,
 the last one,
 or something else entirely.
 
-Another important fact is that when there are no values to aggregate,
+Another important fact is that when there are no values to aggregate --- for example here where the there are no rows satisfying the `WHERE` clause ---
 aggregation's result is "don't know"
 rather than zero or some other arbitrary value:
 
@@ -255,7 +255,7 @@ GROUP BY person, quant;
 |roe   |rad  |1             |11.25                 |
 |roe   |sal  |2             |32.05                 |
 
-Note that we have added `person` to the list of fields displayed,
+Note that we have added `quant` to the list of fields displayed,
 since the results wouldn't make much sense otherwise.
 
 Let's go one step further and remove all the entries
