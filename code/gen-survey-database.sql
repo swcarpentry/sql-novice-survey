@@ -1,5 +1,6 @@
 -- The `Person` table is used to explain the most basic queries.
 -- Note that `danforth` has no measurements.
+DROP TABLE IF EXISTS Person;
 CREATE TABLE Person(
 	ident    TEXT,
 	personal TEXT,
@@ -15,6 +16,7 @@ INSERT INTO Person VALUES('danforth', 'Frank',     'Danforth');
 -- The `Site` table is equally simple.  Use it to explain the
 -- difference between databases and spreadsheets: in a spreadsheet,
 -- the lat/long of measurements would probably be duplicated.
+DROP TABLE IF EXISTS Site;
 CREATE TABLE Site(
 	name TEXT,
 	lat  REAL,
@@ -28,6 +30,7 @@ INSERT INTO Site VALUES('MSK-4', -48.87, -123.40);
 -- `Visited` is an enhanced `join` table: it connects to the lat/long
 -- of specific measurements, and also provides their dates.
 -- Note that #752 is missing a date; we use this to talk about NULL.
+DROP TABLE IF EXISTS Visited;
 CREATE TABLE Visited(
 	ident INTEGER,
 	site  TEXT,
@@ -50,6 +53,7 @@ INSERT INTO Visited VALUES(844, 'DR-1',  '1932-03-22');
 -- there are two cases where we don't know who took the measurement,
 -- and that in most cases we don't have an entry (null or not) for the
 -- temperature.
+DROP TABLE IF EXISTS Survey;
 CREATE TABLE Survey(
 	taken   INTEGER,
 	person  TEXT,
