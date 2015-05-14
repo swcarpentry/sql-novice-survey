@@ -51,53 +51,43 @@ to make it easier for scientists to find what they want to.
     3.  NoSQL databases are as different from each other as they are from relational databases.
         Until a leader emerges, it isn't clear *which* NoSQL database we should teach.
 
-<!-- No specific notes to add at this time
+<!-- No specific notes to add.  Save these headers as place-holders for now
 ## [Selecting Data](01-select.html)
 
-*   FIXME
 
 ## [Sorting and Removing Duplicates](02-sort-dup.html)
 
-*   FIXME
 
 ## [Filtering](03-filter.html)
 
-*   FIXME
 
 ## [Calculating New Values](04-calc.html)
 
-*   FIXME
 
 ## [Missing Data](05-null.html)
 
-*   FIXME
 
 ## [Aggregation](06-agg.html)
 
-*   FIXME
 
 ## [Combining Data](07-join.html)
 
-*   FIXME
 
 ## [Data Hygiene](08-hygiene.html)
 
-*   FIXME
 
 ## [Creating and Modifying Data](09-create.html)
 
-*   FIXME
 
 ## [Programming with Databases](10-prog.html)
 
-*   FIXME
 
 -->
 
 ## Time Estimates
 
 *   @tomwright01: 3 hours
-*   @mckays630: 3 hrs (up to Aggregation); there is no way I would ever get throughh all of the lessons in 3 hours.
+*   @mckays630: 3 hrs (up to Aggregation, using only shell interface)
 
 ## Resources
 

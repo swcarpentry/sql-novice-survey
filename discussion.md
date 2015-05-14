@@ -4,7 +4,7 @@ title: Databases and SQL
 subtitle: Discussion
 ---
 
-# General Discussion
+## General Discussion
 
 ## Setup
 
