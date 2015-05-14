@@ -36,10 +36,11 @@ These lessons will show how to use a database to explore the expeditions' data.
 > If a GUI such as the Firefox SQLite plugin is being used,
 > learners will need to know how to install browser plugins
 > (and have permission to do so).
+>
+> Check the [discussion page](discussion.html) for database setup instructions
 
 ## Topics
 
-0.  [Setting up](00-setup.html)
 1.  [Selecting Data](01-select.html)
 2.  [Sorting and Removing Duplicates](02-sort-dup.html)
 3.  [Filtering](03-filter.html)
