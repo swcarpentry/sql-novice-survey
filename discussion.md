@@ -4,8 +4,6 @@ title: Databases and SQL
 subtitle: Discussion
 ---
 
-## General Discussion
-
 ## Setup
 
 For the SQL lessons, 
