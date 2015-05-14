@@ -51,6 +51,7 @@ to make it easier for scientists to find what they want to.
     3.  NoSQL databases are as different from each other as they are from relational databases.
         Until a leader emerges, it isn't clear *which* NoSQL database we should teach.
 
+<!-- No specific notes to add at this time
 ## [Selecting Data](01-select.html)
 
 *   FIXME
@@ -91,9 +92,12 @@ to make it easier for scientists to find what they want to.
 
 *   FIXME
 
+-->
+
 ## Time Estimates
 
 *   @tomwright01: 3 hours
+*   @mckays630: 3 hrs (up to Aggregation); there is no way I would ever get throughh all of the lessons in 3 hours.
 
 ## Resources
 
@@ -205,3 +209,5 @@ use `.quit`:
 sqlite> .quit
 $
 ~~~
+
+Note: There also instructions targeted at participants in the general discussion page (discussion.html)
