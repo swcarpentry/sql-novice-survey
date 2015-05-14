@@ -200,4 +200,4 @@ sqlite> .quit
 $
 ~~~
 
-Note: There also instructions targeted at participants in the general discussion page (discussion.html)
+Note: There also instructions targeted at participants in the general [discussion page](discussion.html)
