@@ -37,7 +37,7 @@ These lessons will show how to use a database to explore the expeditions' data.
 > learners will need to know how to install browser plugins
 > (and have permission to do so).
 >
-> Check the [discussion page](discussion.html) for database setup instructions
+> Check [Discussion](discussion.html) for database setup instructions
 
 ## Topics
 
