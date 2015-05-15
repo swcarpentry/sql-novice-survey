@@ -45,6 +45,8 @@ but that handful accounts for most of what scientists do.
 
 The tables below show the database we will use in our examples:
 
+<img src="fig/sql-tables.svg" alt="4 SQL Tables in One Image" />
+
 > **Person**: people who took readings.
 >
 > |ident   |personal |family
