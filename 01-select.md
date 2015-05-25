@@ -169,7 +169,22 @@ complex queries are hard enough to read without the extra cognitive load of rand
 One convention is to use UPPER CASE for SQL statements, to distinguish them from tables and column
 names. This is the convention that we will use for this lesson.
 
-Going back to our query,
+While we are on the topic of SQL's syntax, one aspect of SQL's syntax
+that can frustrate novices and experts alike is forgetting to finish a
+command with `;` (semicolon).  When you press enter for a command
+without adding the `;` to the end, it can look something like this:
+
+~~~ {.sql}
+SELECT * FROM Person
+...>
+...>
+~~~
+
+This is SQL's prompt, where it is waiting for additional commands or
+for a `;` to let SQL know to finish.  This is easy to fix!  Just type
+`;` and press enter!
+
+Now, going back to our query,
 it's important to understand that
 the rows and columns in a database table aren't actually stored in any particular order.
 They will always be *displayed* in some order,
