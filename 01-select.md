@@ -43,6 +43,24 @@ SQL provides hundreds of different ways to analyze and recombine data.
 We will only look at a handful of queries,
 but that handful accounts for most of what scientists do.
 
+> ## Getting into and out of SQLite {.callout}
+>
+> In order to use the SQLite commands *interactively*, we need to
+> enter into the SQLite console.  So, open up a terminal, and run
+> 
+>     $ cd /path/to/survey/data/
+>     $ sqlite3 survey.db
+> 
+> The SQLite command is `sqlite3` and you are telling SQLite to open up
+> the `survey.db`.  You need to specify the `.db` file otherwise, SQLite
+> will open up a temporary, empty database.
+> 
+> To get out of SQLite, type out `.exit` or `.quit`.  For some
+> terminals, `Ctrl-D` can also work.  If you forget any SQLite `.` (dot)
+> command, type `.help`.
+
+Before we get into the data and using SQLite to select the data, 
+
 The tables below show the database we will use in our examples:
 
 > **Person**: people who took readings.
