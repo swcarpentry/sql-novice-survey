@@ -229,7 +229,7 @@ not to the entire rows as they are being processed.
 > Suppose we want to select all sites that lie more than 30 degrees from the poles.
 > Our first query is:
 >
-> ~~~
+> ~~~ {.sql}
 > SELECT * FROM Site WHERE (lat > -60) OR (lat < 60);
 > ~~~
 >
