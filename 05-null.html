@@ -30,7 +30,7 @@
           <h2 class="subtitle">Missing Data</h2>
 <div id="learning-objectives" class="objectives panel panel-warning">
 <div class="panel-heading">
-<h2 id="learning-objectives" class="objectives panel panel-warning"><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+<h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
 </div>
 <div class="panel-body">
 <ul>
@@ -312,7 +312,7 @@
 <p>In contrast to arithmetic or Boolean operators, aggregation functions that combine multiple values, such as <code>min</code>, <code>max</code> or <code>avg</code>, <em>ignore</em> <code>null</code> values. In the majority of cases, this is a desirable output: for example, unknown values are thus not affecting our data when we are averaging it. Aggregation functions will be addressed in more detail in <a href="06-agg.html">the next section</a>.</p>
 <div id="sorting-by-known-date" class="challenge panel panel-success">
 <div class="panel-heading">
-<h2 id="sorting-by-known-date" class="challenge panel panel-success"><span class="glyphicon glyphicon-pencil"></span>Sorting by Known Date</h2>
+<h2><span class="glyphicon glyphicon-pencil"></span>Sorting by Known Date</h2>
 </div>
 <div class="panel-body">
 <p>Write a query that sorts the records in <code>Visited</code> by date, omitting entries for which the date is not known (i.e., is null).</p>
@@ -320,17 +320,17 @@
 </div>
 <div id="null-in-a-set" class="challenge panel panel-success">
 <div class="panel-heading">
-<h2 id="null-in-a-set" class="challenge panel panel-success"><span class="glyphicon glyphicon-pencil"></span>NULL in a Set</h2>
+<h2><span class="glyphicon glyphicon-pencil"></span>NULL in a Set</h2>
 </div>
 <div class="panel-body">
 <p>What do you expect the query:</p>
-<pre><code>SELECT * FROM Visited WHERE dated IN (&#39;1927-02-08&#39;, NULL);</code></pre>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="kw">IN</span> (<span class="st">&#39;1927-02-08&#39;</span>, <span class="kw">NULL</span>);</code></pre>
 <p>to produce? What does it actually produce?</p>
 </div>
 </div>
 <div id="pros-and-cons-of-sentinels" class="challenge panel panel-success">
 <div class="panel-heading">
-<h2 id="pros-and-cons-of-sentinels" class="challenge panel panel-success"><span class="glyphicon glyphicon-pencil"></span>Pros and Cons of Sentinels</h2>
+<h2><span class="glyphicon glyphicon-pencil"></span>Pros and Cons of Sentinels</h2>
 </div>
 <div class="panel-body">
 <p>Some database designers prefer to use a <a href="reference.html#sentinel-value">sentinel value</a>) to mark missing data rather than <code>null</code>. For example, they will use the date “0000-00-00” to mark a missing date, or -1.0 to mark a missing salinity or radiation reading (since actual readings cannot be negative). What does this simplify? What burdens or risks does it introduce?</p>
