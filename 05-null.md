@@ -182,7 +182,7 @@ In contrast to arithmetic or Boolean operators, aggregation functions that combi
 >
 > What do you expect the query:
 >
-> ~~~
+> ~~~ {.sql}
 > SELECT * FROM Visited WHERE dated IN ('1927-02-08', NULL);
 > ~~~
 >
