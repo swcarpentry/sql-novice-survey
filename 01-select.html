@@ -26,11 +26,11 @@
       <article>
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
-          <h1 class="title">Databases and SQL</h1>
+                    <a href="index.html"><h1 class="title">Databases and SQL</h1></a>
           <h2 class="subtitle">Selecting Data</h2>
-<div id="learning-objectives" class="objectives panel panel-warning">
+          <section class="objectives panel panel-warning">
 <div class="panel-heading">
-<h2 id="learning-objectives" class="objectives panel panel-warning"><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+<h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
 </div>
 <div class="panel-body">
 <ul>
@@ -39,17 +39,17 @@
 <li>Write a query to select all values for specific fields from a single table.</li>
 </ul>
 </div>
-</div>
+</section>
 <p>A <a href="reference.html#relational-database">relational database</a> is a way to store and manipulate information. Databases are arranged as <a href="reference.html#table">tables</a>. Each table has columns (also known as <a href="reference.html#field">fields</a>) that describe the data, and rows (also known as <a href="reference.html#record">records</a>) which contain the data.</p>
 <p>When we are using a spreadsheet, we put formulas into cells to calculate new values based on old ones. When we are using a database, we send commands (usually called <a href="reference.html#query">queries</a>) to a <a href="reference.html#database-manager">database manager</a>: a program that manipulates the database for us. The database manager does whatever lookups and calculations the query specifies, returning the results in a tabular form that we can then use as a starting point for further queries.</p>
-<div id="changing-database-managers" class="callout panel panel-info">
+<aside class="callout panel panel-info">
 <div class="panel-heading">
-<h2 id="changing-database-managers" class="callout panel panel-info"><span class="glyphicon glyphicon-pushpin"></span>Changing database managers</h2>
+<h2><span class="glyphicon glyphicon-pushpin"></span>Changing database managers</h2>
 </div>
 <div class="panel-body">
 <p>Every database manager — Oracle, IBM DB2, PostgreSQL, MySQL, Microsoft Access, and SQLite — stores data in a different way, so a database created with one cannot be used directly by another. However, every database manager can import and export data in a variety of formats, so it <em>is</em> possible to move information from one to another.</p>
 </div>
-</div>
+</aside>
 <p>Queries are written in a language called <a href="reference.html#sql">SQL</a>, which stands for “Structured Query Language”. SQL provides hundreds of different ways to analyze and recombine data. We will only look at a handful of queries, but that handful accounts for most of what scientists do.</p>
 <p>The tables below show the database we will use in our examples:</p>
 <blockquote>
@@ -488,17 +488,17 @@
 </tr>
 </tbody>
 </table>
-<div id="selecting-site-names" class="challenge panel panel-success">
+<section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2 id="selecting-site-names" class="challenge panel panel-success"><span class="glyphicon glyphicon-pencil"></span>Selecting Site Names</h2>
+<h2><span class="glyphicon glyphicon-pencil"></span>Selecting Site Names</h2>
 </div>
 <div class="panel-body">
 <p>Write a query that selects only site names from the <code>Site</code> table.</p>
 </div>
-</div>
-<div id="query-style" class="challenge panel panel-success">
+</section>
+<section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2 id="query-style" class="challenge panel panel-success"><span class="glyphicon glyphicon-pencil"></span>Query Style</h2>
+<h2><span class="glyphicon glyphicon-pencil"></span>Query Style</h2>
 </div>
 <div class="panel-body">
 <p>Many people format queries as:</p>
@@ -507,7 +507,7 @@
 <pre><code>select Personal, Family from PERSON;</code></pre>
 <p>What style do you find easiest to read, and why?</p>
 </div>
-</div>
+</section>
         </div>
       </div>
       </article>

@@ -26,11 +26,11 @@
       <article>
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
-          <h1 class="title">Databases and SQL</h1>
+                    <a href="index.html"><h1 class="title">Databases and SQL</h1></a>
           <h2 class="subtitle">Aggregation</h2>
-<div id="learning-objectives" class="objectives panel panel-warning">
+          <section class="objectives panel panel-warning">
 <div class="panel-heading">
-<h2 id="learning-objectives" class="objectives panel panel-warning"><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+<h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
 </div>
 <div class="panel-body">
 <ul>
@@ -40,7 +40,7 @@
 <li>Explain how missing data is handled during aggregation.</li>
 </ul>
 </div>
-</div>
+</section>
 <p>We now want to calculate ranges and averages for our data. We know how to select all of the dates from the <code>Visited</code> table:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> dated <span class="kw">FROM</span> Visited;</code></pre>
 <table>
@@ -465,42 +465,42 @@
 <li><p>ordered those subsets first by <code>person</code>, and then within each sub-group by <code>quant</code>; and</p></li>
 <li><p>counted the number of records in each subset, calculated the average <code>reading</code> in each, and chose a <code>person</code> and <code>quant</code> value from each (it doesn’t matter which ones, since they’re all equal).</p></li>
 </ol>
-<div id="counting-temperature-readings" class="challenge panel panel-success">
+<section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2 id="counting-temperature-readings" class="challenge panel panel-success"><span class="glyphicon glyphicon-pencil"></span>Counting Temperature Readings</h2>
+<h2><span class="glyphicon glyphicon-pencil"></span>Counting Temperature Readings</h2>
 </div>
 <div class="panel-body">
 <p>How many temperature readings did Frank Pabodie record, and what was their average value?</p>
 </div>
-</div>
-<div id="averaging-with-null" class="challenge panel panel-success">
+</section>
+<section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2 id="averaging-with-null" class="challenge panel panel-success"><span class="glyphicon glyphicon-pencil"></span>Averaging with NULL</h2>
+<h2><span class="glyphicon glyphicon-pencil"></span>Averaging with NULL</h2>
 </div>
 <div class="panel-body">
 <p>The average of a set of values is the sum of the values divided by the number of values. Does this mean that the <code>avg</code> function returns 2.0 or 3.0 when given the values 1.0, <code>null</code>, and 5.0?</p>
 </div>
-</div>
-<div id="what-does-this-query-do" class="challenge panel panel-success">
+</section>
+<section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2 id="what-does-this-query-do" class="challenge panel panel-success"><span class="glyphicon glyphicon-pencil"></span>What Does This Query Do?</h2>
+<h2><span class="glyphicon glyphicon-pencil"></span>What Does This Query Do?</h2>
 </div>
 <div class="panel-body">
 <p>We want to calculate the difference between each individual radiation reading and the average of all the radiation readings. We write the query:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> reading - <span class="fu">avg</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant=<span class="st">&#39;rad&#39;</span>;</code></pre>
 <p>What does this actually produce, and why?</p>
 </div>
-</div>
-<div id="ordering-when-concatenating" class="challenge panel panel-success">
+</section>
+<section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2 id="ordering-when-concatenating" class="challenge panel panel-success"><span class="glyphicon glyphicon-pencil"></span>Ordering When Concatenating</h2>
+<h2><span class="glyphicon glyphicon-pencil"></span>Ordering When Concatenating</h2>
 </div>
 <div class="panel-body">
 <p>The function <code>group_concat(field, separator)</code> concatenates all the values in a field using the specified separator character (or ‘,’ if the separator isn’t specified). Use this to produce a one-line list of scientists’ names, such as:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql">William Dyer, Frank Pabodie, Anderson Lake, Valentina Roerich, Frank Danforth</code></pre>
 <p>Can you find a way to order the list by surname?</p>
 </div>
-</div>
+</section>
         </div>
       </div>
       </article>

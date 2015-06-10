@@ -26,11 +26,11 @@
       <article>
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
-          <h1 class="title">Databases and SQL</h1>
+                    <a href="index.html"><h1 class="title">Databases and SQL</h1></a>
           <h2 class="subtitle">Creating and Modifying Data</h2>
-<div id="learning-objectives" class="objectives panel panel-warning">
+          <section class="objectives panel panel-warning">
 <div class="panel-heading">
-<h2 id="learning-objectives" class="objectives panel panel-warning"><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+<h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
 </div>
 <div class="panel-body">
 <ul>
@@ -38,7 +38,7 @@
 <li>Write statements to insert, modify, and delete records.</li>
 </ul>
 </div>
-</div>
+</section>
 <p>So far we have only looked at how to get information out of a database, both because that is more frequent than adding information, and because most other operations only make sense once queries are understood. If we want to create and modify data, we need to know two other sets of commands.</p>
 <p>The first pair are <a href="https://www.sqlite.org/lang_createtable.html"><code>CREATE TABLE</code></a> and <a href="https://www.sqlite.org/lang_droptable.html"><code>DROP TABLE</code></a>. While they are written as two words, they are actually single commands. The first one creates a new table; its arguments are the names and types of the table’s columns. For example, the following statements create the four tables in our survey database:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">CREATE</span> <span class="kw">TABLE</span> Person(ident TEXT, personal TEXT, family TEXT);
@@ -103,25 +103,25 @@
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">DELETE</span> <span class="kw">FROM</span> Person <span class="kw">WHERE</span> ident = <span class="st">&#39;danforth&#39;</span>;</code></pre>
 <p>But what if we removed Anderson Lake instead? Our <code>Survey</code> table would still contain seven records of measurements he’d taken, but that’s never supposed to happen: <code>Survey.person</code> is a foreign key into the <code>Person</code> table, and all our queries assume there will be a row in the latter matching every value in the former.</p>
 <p>This problem is called <a href="reference.html#referential-integrity">referential integrity</a>: we need to ensure that all references between tables can always be resolved correctly. One way to do this is to delete all the records that use <code>'lake'</code> as a foreign key before deleting the record that uses it as a primary key. If our database manager supports it, we can automate this using <a href="reference.html#cascading-delete">cascading delete</a>. However, this technique is outside the scope of this chapter.</p>
-<div id="hybrid-storage-models" class="callout panel panel-info">
+<aside class="callout panel panel-info">
 <div class="panel-heading">
-<h2 id="hybrid-storage-models" class="callout panel panel-info"><span class="glyphicon glyphicon-pushpin"></span>Hybrid Storage Models</h2>
+<h2><span class="glyphicon glyphicon-pushpin"></span>Hybrid Storage Models</h2>
 </div>
 <div class="panel-body">
 <p>Many applications use a hybrid storage model instead of putting everything into a database: the actual data (such as astronomical images) is stored in files, while the database stores the files’ names, their modification dates, the region of the sky they cover, their spectral characteristics, and so on. This is also how most music player software is built: the database inside the application keeps track of the MP3 files, but the files themselves live on disk.</p>
 </div>
-</div>
-<div id="replacing-null" class="challenge panel panel-success">
+</aside>
+<section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2 id="replacing-null" class="challenge panel panel-success"><span class="glyphicon glyphicon-pencil"></span>Replacing NULL</h2>
+<h2><span class="glyphicon glyphicon-pencil"></span>Replacing NULL</h2>
 </div>
 <div class="panel-body">
 <p>Write an SQL statement to replace all uses of <code>null</code> in <code>Survey.person</code> with the string <code>'unknown'</code>.</p>
 </div>
-</div>
-<div id="generating-insert-statements" class="challenge panel panel-success">
+</section>
+<section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2 id="generating-insert-statements" class="challenge panel panel-success"><span class="glyphicon glyphicon-pencil"></span>Generating Insert Statements</h2>
+<h2><span class="glyphicon glyphicon-pencil"></span>Generating Insert Statements</h2>
 </div>
 <div class="panel-body">
 <p>One of our colleagues has sent us a <a href="reference.html#comma-separated-values">CSV</a> file containing temperature readings by Robert Olmstead, which is formatted like this:</p>
@@ -130,15 +130,15 @@
 622,-15.5</code></pre>
 <p>Write a small Python program that reads this file in and prints out the SQL <code>INSERT</code> statements needed to add these records to the survey database. Note: you will need to add an entry for Olmstead to the <code>Person</code> table. If you are testing your program repeatedly, you may want to investigate SQL’s <code>INSERT or REPLACE</code> command.</p>
 </div>
-</div>
-<div id="backing-up-with-sql" class="challenge panel panel-success">
+</section>
+<section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2 id="backing-up-with-sql" class="challenge panel panel-success"><span class="glyphicon glyphicon-pencil"></span>Backing Up with SQL</h2>
+<h2><span class="glyphicon glyphicon-pencil"></span>Backing Up with SQL</h2>
 </div>
 <div class="panel-body">
 <p>SQLite has several administrative commands that aren’t part of the SQL standard. One of them is <code>.dump</code>, which prints the SQL commands needed to re-create the database. Another is <code>.load</code>, which reads a file created by <code>.dump</code> and restores the database. A colleague of yours thinks that storing dump files (which are text) in version control is a good way to track and manage changes to the database. What are the pros and cons of this approach? (Hint: records aren’t stored in any particular order.)</p>
 </div>
-</div>
+</section>
         </div>
       </div>
       </article>

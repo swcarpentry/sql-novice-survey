@@ -26,9 +26,9 @@
       <article>
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
-          <h1 class="title">Databases and SQL</h1>
+                    <a href="index.html"><h1 class="title">Databases and SQL</h1></a>
           <h2 class="subtitle">Missing Data</h2>
-<div id="learning-objectives" class="objectives panel panel-warning">
+          <section class="objectives panel panel-warning">
 <div class="panel-heading">
 <h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
 </div>
@@ -39,7 +39,7 @@
 <li>Write queries that handle missing information correctly.</li>
 </ul>
 </div>
-</div>
+</section>
 <p>Real-world data is never complete — there are always holes. Databases represent these holes using a special value called <code>null</code>. <code>null</code> is not zero, <code>False</code>, or the empty string; it is a one-of-a-kind value that means “nothing here”. Dealing with <code>null</code> requires a few special tricks and some careful thinking.</p>
 <p>To start, let’s have a look at the <code>Visited</code> table. There are eight records, but #752 doesn’t have a date — or rather, its date is null:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> Visited;</code></pre>
@@ -310,15 +310,15 @@
 </table>
 <p>We still have to decide whether this is the right thing to do or not. If we want to be absolutely sure that we aren’t including any measurements by Lake in our results, we need to exclude all the records for which we don’t know who did the work.</p>
 <p>In contrast to arithmetic or Boolean operators, aggregation functions that combine multiple values, such as <code>min</code>, <code>max</code> or <code>avg</code>, <em>ignore</em> <code>null</code> values. In the majority of cases, this is a desirable output: for example, unknown values are thus not affecting our data when we are averaging it. Aggregation functions will be addressed in more detail in <a href="06-agg.html">the next section</a>.</p>
-<div id="sorting-by-known-date" class="challenge panel panel-success">
+<section class="challenge panel panel-success">
 <div class="panel-heading">
 <h2><span class="glyphicon glyphicon-pencil"></span>Sorting by Known Date</h2>
 </div>
 <div class="panel-body">
 <p>Write a query that sorts the records in <code>Visited</code> by date, omitting entries for which the date is not known (i.e., is null).</p>
 </div>
-</div>
-<div id="null-in-a-set" class="challenge panel panel-success">
+</section>
+<section class="challenge panel panel-success">
 <div class="panel-heading">
 <h2><span class="glyphicon glyphicon-pencil"></span>NULL in a Set</h2>
 </div>
@@ -327,15 +327,15 @@
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="kw">IN</span> (<span class="st">&#39;1927-02-08&#39;</span>, <span class="kw">NULL</span>);</code></pre>
 <p>to produce? What does it actually produce?</p>
 </div>
-</div>
-<div id="pros-and-cons-of-sentinels" class="challenge panel panel-success">
+</section>
+<section class="challenge panel panel-success">
 <div class="panel-heading">
 <h2><span class="glyphicon glyphicon-pencil"></span>Pros and Cons of Sentinels</h2>
 </div>
 <div class="panel-body">
 <p>Some database designers prefer to use a <a href="reference.html#sentinel-value">sentinel value</a>) to mark missing data rather than <code>null</code>. For example, they will use the date “0000-00-00” to mark a missing date, or -1.0 to mark a missing salinity or radiation reading (since actual readings cannot be negative). What does this simplify? What burdens or risks does it introduce?</p>
 </div>
-</div>
+</section>
         </div>
       </div>
       </article>

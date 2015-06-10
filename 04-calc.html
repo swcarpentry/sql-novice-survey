@@ -26,18 +26,18 @@
       <article>
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
-          <h1 class="title">Databases and SQL</h1>
+                    <a href="index.html"><h1 class="title">Databases and SQL</h1></a>
           <h2 class="subtitle">Calculating New Values</h2>
-<div id="learning-objectives" class="objectives panel panel-warning">
+          <section class="objectives panel panel-warning">
 <div class="panel-heading">
-<h2 id="learning-objectives" class="objectives panel panel-warning"><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+<h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
 </div>
 <div class="panel-body">
 <ul>
 <li>Write queries that calculate new values for each selected record.</li>
 </ul>
 </div>
-</div>
+</section>
 <p>After carefully re-reading the expedition logs, we realize that the radiation measurements they report may need to be corrected upward by 5%. Rather than modifying the stored data, we can do this calculation on the fly as part of our query:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> <span class="fl">1.05</span> * reading <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant=<span class="st">&#39;rad&#39;</span>;</code></pre>
 <table>
@@ -127,17 +127,17 @@
 </tr>
 </tbody>
 </table>
-<div id="fixing-salinity-readings" class="challenge panel panel-success">
+<section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2 id="fixing-salinity-readings" class="challenge panel panel-success"><span class="glyphicon glyphicon-pencil"></span>Fixing Salinity Readings</h2>
+<h2><span class="glyphicon glyphicon-pencil"></span>Fixing Salinity Readings</h2>
 </div>
 <div class="panel-body">
 <p>After further reading, we realize that Valentina Roerich was reporting salinity as percentages. Write a query that returns all of her salinity measurements from the <code>Survey</code> table with the values divided by 100.</p>
 </div>
-</div>
-<div id="unions" class="challenge panel panel-success">
+</section>
+<section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2 id="unions" class="challenge panel panel-success"><span class="glyphicon glyphicon-pencil"></span>Unions</h2>
+<h2><span class="glyphicon glyphicon-pencil"></span>Unions</h2>
 </div>
 <div class="panel-body">
 <p>The <code>UNION</code> operator combines the results of two queries:</p>
@@ -207,10 +207,10 @@
 </tbody>
 </table>
 </div>
-</div>
-<div id="selecting-major-site-identifiers" class="challenge panel panel-success">
+</section>
+<section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2 id="selecting-major-site-identifiers" class="challenge panel panel-success"><span class="glyphicon glyphicon-pencil"></span>Selecting Major Site Identifiers</h2>
+<h2><span class="glyphicon glyphicon-pencil"></span>Selecting Major Site Identifiers</h2>
 </div>
 <div class="panel-body">
 <p>The site identifiers in the <code>Visited</code> table have two parts separated by a ‘-’:</p>
@@ -235,7 +235,7 @@
 </table>
 <p>Some major site identifiers are two letters long and some are three. The “in string” function <code>instr(X, Y)</code> returns the 1-based index of the first occurrence of string Y in string X, or 0 if Y does not exist in X. The substring function <code>substr(X, I)</code> returns the substring of X starting at index I. Use these two functions to produce a list of unique major site identifiers. (For this data, the list should contain only “DR” and “MSK”).</p>
 </div>
-</div>
+</section>
         </div>
       </div>
       </article>
