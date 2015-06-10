@@ -3,7 +3,22 @@ layout: page
 title: Lesson Title
 subtitle: Instructor's Guide
 ---
-## Legend
+> ### database (dā'tə-bās') noun {.callout}
+> "A collection of data arranged for ease and speed of search and retrieval by a computer"
+> - The American Heritage® Science Dictionary
+
+*   Three common options for storing data
+*   Text
+    *   Easy to create, work well with version control
+    *   But then we have to build search and analysis tools ourselves
+*   Spreadsheets
+    *   Good for simple analyses
+    *   But don't handle large or complex data sets well
+*   Databases
+    *   Include powerful tools for search and analysis
+    *   Can handle large, complex data sets.
+
+## Overall
 
 Relational databases are not as widely used in science as in business,
 but they are still a common way to store large data sets with complex structure.
@@ -15,8 +30,6 @@ but data about when and where observations were made,
 data ranges,
 and so on could be in a database
 to make it easier for scientists to find what they want to.
-
-## Overall
 
 *   The first few sections (up to "Missing Data") usually go very quickly.
     The pace usually slows down a bit when null values are discussed
