@@ -110,7 +110,7 @@ For example, if we made a mistake when entering the lat and long values
 of the last `INSERT` statement above:
 
 ~~~ {.sql}
-UPDATE Site SET lat=-47.87, long=-122.40 WHERE name='MSK-4'
+UPDATE Site SET lat=-47.87, long=-122.40 WHERE name='MSK-4';
 ~~~
 
 Be careful to not forget the `where` clause or the update statement will
