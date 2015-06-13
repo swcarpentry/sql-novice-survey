@@ -157,7 +157,7 @@ and then in descending order by `person`
 within each group of equal `taken` values:
 
 ~~~ {.sql}
-SELECT taken, person, quant FROM Survey ORDER BY quant ASC, person DESC;
+SELECT taken, person, quant FROM Survey ORDER BY taken ASC, person DESC;
 ~~~
 |taken|person|quant|
 |-----|------|-----|
