@@ -350,7 +350,7 @@ temp
 </table>
 <p>(And if we want to make it clear that we’re sorting in ascending order, we can use <code>ASC</code> instead of <code>DESC</code>.)</p>
 <p>In order to look at which scientist measured quantities at each site, we can look again at the <code>Survey</code> table. We can also sort on several fields at once. For example, this query sorts results first in ascending order by <code>taken</code>, and then in descending order by <code>person</code> within each group of equal <code>taken</code> values:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> taken, person, quant <span class="kw">FROM</span> Survey <span class="kw">ORDER</span> <span class="kw">BY</span> quant <span class="kw">ASC</span>, person <span class="kw">DESC</span>;</code></pre>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> taken, person, quant <span class="kw">FROM</span> Survey <span class="kw">ORDER</span> <span class="kw">BY</span> taken <span class="kw">ASC</span>, person <span class="kw">DESC</span>;</code></pre>
 <table>
 <thead>
 <tr class="header">
