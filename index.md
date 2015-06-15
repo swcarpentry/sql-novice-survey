@@ -54,7 +54,6 @@ These lessons will show how to use a database to explore the expeditions' data.
 
 ## Other Resources
 
-*   [Motivation](motivation.html)
 *   [Reference](reference.html)
 *   [Discussion](discussion.html)
 *   [Instructor's Guide](instructors.html)
