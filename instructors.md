@@ -101,6 +101,7 @@ to make it easier for scientists to find what they want to.
 
 *   @tomwright01: 3 hours
 *   @mckays630: 3 hrs (up to Aggregation, using only shell interface)
+*   @benwaugh: 3 hours (rather rushed, touching only briefly on aggregation in order to leave 30 minutes for combining data)
 
 ## Resources
 
