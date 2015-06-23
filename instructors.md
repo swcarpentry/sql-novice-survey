@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Lesson Title
+title: Databases and SQL
 subtitle: Instructor's Guide
 ---
 > ### database (dā'tə-bās') noun {.callout}
