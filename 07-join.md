@@ -60,7 +60,7 @@ SELECT * FROM Site JOIN Visited;
 the [cross product](reference.html#cross-product)
 of two tables,
 i.e.,
-it joins each record of one with each record of the other
+it joins each record of one table with each record of the other table
 to give all possible combinations.
 Since there are three records in `Site`
 and eight in `Visited`,
