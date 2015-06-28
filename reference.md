@@ -86,9 +86,6 @@ case insensitive
 case sensitive
 :   Treating upper and lower case characters as different. See also: [case insensitive](#case-insensitive).
 
-cross product
-:   A pairing of all elements of one set with all elements of another.
-
 comma-separated values (CSV)
 :   A common textual representation for tables in which the values in each row are separated by commas.
 
