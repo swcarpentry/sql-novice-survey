@@ -250,7 +250,7 @@
 </tr>
 </tbody>
 </table>
-<p><code>JOIN</code> creates the <a href="reference.html#cross-product">cross product</a> of two tables, i.e., it joins each record of one with each record of the other to give all possible combinations. Since there are three records in <code>Site</code> and eight in <code>Visited</code>, the join’s output has 24 records (3 * 8 = 24) . And since each table has three fields, the output has six fields (3 + 3 = 6).</p>
+<p><code>JOIN</code> creates the <a href="reference.html#cross-product">cross product</a> of two tables, i.e., it joins each record of one table with each record of the other table to give all possible combinations. Since there are three records in <code>Site</code> and eight in <code>Visited</code>, the join’s output has 24 records (3 * 8 = 24) . And since each table has three fields, the output has six fields (3 + 3 = 6).</p>
 <p>What the join <em>hasn’t</em> done is figure out if the records being joined have anything to do with each other. It has no way of knowing whether they do or not until we tell it how. To do that, we add a clause specifying that we’re only interested in combinations that have the same site name, thus we need to use a filter:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> Site <span class="kw">JOIN</span> Visited <span class="kw">ON</span> Site.name=Visited.site;</code></pre>
 <table>
