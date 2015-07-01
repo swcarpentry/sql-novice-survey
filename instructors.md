@@ -202,7 +202,7 @@ and check that the necessary tables "Person", "Survey", "Site" and "Visited" exi
 
 ~~~ {.bash}
 sqlite> .tables
-Person   Site     Survey   Visited</code></pre>
+Person   Site     Survey   Visited
 ~~~
 
 To exit SQLite and return to the Bash shell,
