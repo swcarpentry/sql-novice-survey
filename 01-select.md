@@ -72,7 +72,7 @@ The tables below show the database we will use in our examples:
 > |734  |DR-3 |1930-01-07|
 > |735  |DR-3 |1930-01-12|
 > |751  |DR-3 |1930-02-26|
-> |752  |DR-3 |-null-    |
+> |752  |DR-3 |          |
 > |837  |MSK-4|1932-01-14|
 > |844  |DR-1 |1932-03-22|
 
