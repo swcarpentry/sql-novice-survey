@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="generator" content="pandoc">
-    <title>Software Carpentry: Lesson Title</title>
+    <title>Software Carpentry: Databases and SQL</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
@@ -26,7 +26,7 @@
       <article>
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
-                    <a href="index.html"><h1 class="title">Lesson Title</h1></a>
+                    <a href="index.html"><h1 class="title">Databases and SQL</h1></a>
           <h2 class="subtitle">Instructor’s Guide</h2>
           <aside class="callout panel panel-info">
 <div class="panel-heading">
@@ -103,6 +103,7 @@
 <ul>
 <li><span class="citation">@tomwright01</span>: 3 hours</li>
 <li><span class="citation">@mckays630</span>: 3 hrs (up to Aggregation, using only shell interface)</li>
+<li><span class="citation">@benwaugh</span>: 3 hours (rather rushed, touching only briefly on aggregation in order to leave 30 minutes for combining data)</li>
 </ul>
 <h2 id="resources">Resources</h2>
 <ul>
@@ -160,6 +161,11 @@ sqlite&gt;</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sqlite&gt;</span> .quit
 $</code></pre>
 <p>Note: There also instructions targeted at participants in the general <a href="discussion.html">discussion page</a></p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p>The command history and line editing features provided by <code>readline</code> are invaluable with a command-line tool like <code>sqlite3</code>. Participants should be encouraged strongly to start with a simple SQL statement and then use the up-arrow key to go back and add clauses one at a time, or fix problems, rather than typing each command from scratch. Unfortunately on some Linux and Mac OSX systems participants have found that the arrow keys do not scroll through the command history as expected.</p>
+<p>A workaround for this it to use the <a href="https://github.com/hanslub42/rlwrap">rlwrap</a> (readline wrapper) command when starting SQLite:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">rlwrap</span> sqlite3 survey.db</code></pre>
+<p>Availability: the <code>rlwrap</code> package is available in the standard Fedora repository (but wasn’t needed when I <span class="citation">[@benwaugh]</span> taught this) and appears to be available in <a href="http://packages.ubuntu.com/precise/rlwrap">Ubuntu</a> too, and in <a href="https://news.ycombinator.com/item?id=5087790">OSX using Homebrew</a>.</p>
         </div>
       </div>
       </article>
