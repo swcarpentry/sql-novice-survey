@@ -34,7 +34,7 @@ that we can then use as a starting point for further queries.
 > data in a different way,
 > so a database created with one cannot be used directly by another.
 > However,
-> every database manager can import and export data in a variety of formats,
+> every database manager can import and export data in a variety of formats, like .csv,
 > so it *is* possible to move information from one to another.
 
 Queries are written in a language called [SQL](reference.html#sql),
