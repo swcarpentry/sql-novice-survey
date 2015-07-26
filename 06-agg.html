@@ -178,7 +178,7 @@
 </tbody>
 </table>
 <p>Why does Lake’s name appear rather than Roerich’s or Dyer’s? The answer is that when it has to aggregate a field, but isn’t told how to, the database manager chooses an actual value from the input set. It might use the first one processed, the last one, or something else entirely.</p>
-<p>Another important fact is that when there are no values to aggregate — for example here where the there are no rows satisfying the <code>WHERE</code> clause — aggregation’s result is “don’t know” rather than zero or some other arbitrary value:</p>
+<p>Another important fact is that when there are no values to aggregate — for example, where there are no rows satisfying the <code>WHERE</code> clause — aggregation’s result is “don’t know” rather than zero or some other arbitrary value:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> person, <span class="fu">max</span>(reading), <span class="fu">sum</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant=<span class="st">&#39;missing&#39;</span>;</code></pre>
 <table>
 <thead>
