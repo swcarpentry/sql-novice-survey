@@ -122,7 +122,7 @@ It might use the first one processed,
 the last one,
 or something else entirely.
 
-Another important fact is that when there are no values to aggregate --- for example here where the there are no rows satisfying the `WHERE` clause ---
+Another important fact is that when there are no values to aggregate --- for example, where there are no rows satisfying the `WHERE` clause ---
 aggregation's result is "don't know"
 rather than zero or some other arbitrary value:
 
