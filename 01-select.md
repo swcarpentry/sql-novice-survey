@@ -106,6 +106,60 @@ Notice that three entries --- one in the `Visited` table,
 and two in the `Survey` table --- don't contain any actual
 data, but instead have a special `-null-` entry:
 we'll return to these missing values [later](05-null.html).
+
+
+> ## Checking if data is available {.callout}
+>
+> On the shell command line,
+> change the working directory to the one where you saved `survey.db`.
+> If you saved it at your Desktop you should use
+>
+> ~~~{.bash}
+> $ cd Desktop
+> $ ls | grep survey.db
+> ~~~
+> ~~~{.output}
+> survey.db
+> ~~~
+>
+> If you get the same output, you can run
+>
+> ~~~{.bash}
+> $ sqlite3 survey.db
+> ~~~
+> ~~~{.output}
+> SQLite version 3.8.8 2015-01-16 12:08:06
+> Enter ".help" for usage hints.
+> sqlite>
+> ~~~
+>
+> that instructs SQLite to load the database in the `survey.db` file.
+>
+> For a list of useful system commands, enter `.help`.
+>
+> All SQLite-specific commands are prefixed with a `.` to distinguish them from SQL commands.
+> Type `.tables` to list the tables in the database.
+>
+> ~~~{.sqlite}
+> .tables
+> ~~~
+> ~~~{.output}
+> Person   Site     Survey   Visited
+> ~~~
+>
+> You can change some SQLite settings to make the output easier to read.
+> First,
+> set the output mode to display left-aligned columns.
+> Then turn on the display of column headers.
+>
+> ~~~{.sqlite}
+> .mode column
+> .header on
+> ~~~
+>
+> To exit SQLite and return to the shell command line,
+> you can use either `.quit` or `.exit`.
+
 For now,
 let's write an SQL query that displays scientists' names.
 We do this using the SQL command `SELECT`,
