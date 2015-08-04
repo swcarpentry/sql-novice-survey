@@ -24,7 +24,7 @@ from an SQLite database stored in a file called `survey.db`:
 import sqlite3
 connection = sqlite3.connect("survey.db")
 cursor = connection.cursor()
-cursor.execute("SELECT site.lat, site.long FROM site;")
+cursor.execute("SELECT Site.lat, Site.long FROM Site;")
 results = cursor.fetchall()
 for r in results:
     print r

@@ -98,7 +98,7 @@ We can also insert values into one table directly from another:
 
 ~~~ {.sql}
 CREATE TABLE JustLatLong(lat text, long text);
-INSERT INTO JustLatLong SELECT lat, long FROM site;
+INSERT INTO JustLatLong SELECT lat, long FROM Site;
 ~~~
 
 Modifying existing records is done using the `UPDATE` statement.

@@ -94,7 +94,7 @@
 <span class="kw">INSERT</span> <span class="kw">INTO</span> Site <span class="kw">values</span>(<span class="st">&#39;MSK-4&#39;</span>, -<span class="fl">48.87</span>, -<span class="fl">123.40</span>);</code></pre>
 <p>We can also insert values into one table directly from another:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">CREATE</span> <span class="kw">TABLE</span> JustLatLong(lat text, <span class="dt">long</span> text);
-<span class="kw">INSERT</span> <span class="kw">INTO</span> JustLatLong <span class="kw">SELECT</span> lat, <span class="dt">long</span> <span class="kw">FROM</span> site;</code></pre>
+<span class="kw">INSERT</span> <span class="kw">INTO</span> JustLatLong <span class="kw">SELECT</span> lat, <span class="dt">long</span> <span class="kw">FROM</span> Site;</code></pre>
 <p>Modifying existing records is done using the <code>UPDATE</code> statement. To do this we tell the database which table we want to update, what we want to change the values to for any or all of the fields, and under what conditions we should update the values.</p>
 <p>For example, if we made a mistake when entering the lat and long values of the last <code>INSERT</code> statement above:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">UPDATE</span> Site <span class="kw">SET</span> lat=-<span class="fl">47.87</span>, long=-<span class="fl">122.40</span> <span class="kw">WHERE</span> name=<span class="st">&#39;MSK-4&#39;</span>;</code></pre>

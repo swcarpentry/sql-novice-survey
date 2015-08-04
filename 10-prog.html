@@ -45,7 +45,7 @@
 <pre class="sourceCode python"><code class="sourceCode python"><span class="ch">import</span> sqlite3
 connection = sqlite3.<span class="ot">connect</span>(<span class="st">&quot;survey.db&quot;</span>)
 cursor = connection.cursor()
-cursor.execute(<span class="st">&quot;SELECT site.lat, site.long FROM site;&quot;</span>)
+cursor.execute(<span class="st">&quot;SELECT Site.lat, Site.long FROM Site;&quot;</span>)
 results = cursor.fetchall()
 <span class="kw">for</span> r in results:
     <span class="dt">print</span> r
