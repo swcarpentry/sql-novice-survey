@@ -24,12 +24,12 @@ from an SQLite database stored in a file called `survey.db`:
 import sqlite3
 connection = sqlite3.connect("survey.db")
 cursor = connection.cursor()
-cursor.execute("SELECT site.lat, site.long FROM site;")
+cursor.execute("SELECT Site.lat, Site.long FROM Site;")
 results = cursor.fetchall()
 for r in results:
     print r
 cursor.close()
-connection.close()</code></pre>
+connection.close()
 ~~~
 ~~~ {.output}
 (-49.85, -128.57)
@@ -85,7 +85,7 @@ this function takes a user's ID as a parameter and returns their name:
 
 ~~~ {.python}
 def get_name(database_file, person_ident):
-    query = "SELECT personal || '; '; || family FROM Person WHERE ident=';" + person_ident + "';;"
+    query = "SELECT personal || ' ' || family FROM Person WHERE ident='" + person_ident + "';"
 
     connection = sqlite3.connect(database_file)
     cursor = connection.cursor()
@@ -96,7 +96,7 @@ def get_name(database_file, person_ident):
 
     return results[0][0]
 
-print "full name for dyer:", get_name(';survey.db';, ';dyer';)
+print "full name for dyer:", get_name('survey.db', 'dyer')
 ~~~
 ~~~ {.output}
 full name for dyer: William Dyer
@@ -139,7 +139,7 @@ Here's what our example program looks like if we do this:
 
 ~~~ {.python}
 def get_name(database_file, person_ident):
-    query = "SELECT personal || '; '; || family FROM Person WHERE ident=?;"
+    query = "SELECT personal || ' ' || family FROM Person WHERE ident=?;"
 
     connection = sqlite3.connect(database_file)
     cursor = connection.cursor()
@@ -150,7 +150,7 @@ def get_name(database_file, person_ident):
 
     return results[0][0]
 
-print "full name for dyer:", get_name(';survey.db';, ';dyer';)
+print "full name for dyer:", get_name('survey.db', 'dyer')
 ~~~
 ~~~ {.output}
 full name for dyer: William Dyer

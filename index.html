@@ -7,10 +7,8 @@
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
     <link rel="stylesheet" type="text/css" href="css/swc.css" />
-    <link rel="stylesheet" type="text/css" href="css/swc-workshop-and-lesson.css" />
-    <link rel="stylesheet" type="text/css" href="css/lesson.css" />
     <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
     <meta charset="UTF-8" />
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -19,22 +17,27 @@
     <![endif]-->
   </head>
   <body class="lesson">
-    <div class="container container-full-width card">
+    <div class="container card">
       <div class="banner">
         <a href="http://software-carpentry.org" title="Software Carpentry">
           <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
         </a>
       </div>
-      <div class="row-fluid">
-        <div class="span10 offset1">
-          <h1 class="title">Databases and SQL</h1>
-          
-<p>In the late 1920s and early 1930s, William Dyer, Frank Pabodie, and Valentina Roerich led expeditions to the <a href="http://en.wikipedia.org/wiki/Pole_of_inaccessibility">Pole of Inaccessibility</a> in the South Pacific, and then onward to Antarctica. Two years ago, their expeditions were found in a storage locker at Miskatonic University. We have scanned and OCR'd the data they contain, and we now want to store that information in a way that will make search and analysis easy.</p>
-<p>We basically have three options: text files, a spreadsheet, or a database. Text files are easiest to create, and work well with version control, but then we would then have to build search and analysis tools ourselves. Spreadsheets are good for doing simple analysis, they don't handle large or complex data sets very well. We would therefore like to put this data in a database, and these lessons will show how to do that.</p>
-<div id="prerequisites" class="prereq">
-<h2>Prerequisites</h2>
-<p>If SQLite is being used from the shell, learners will need to be able to navigate directories and run simple commands from the command line. If a GUI such as the Firefox SQLite plugin is being used, learners will need to know how to install browser plugins (and have permission to do so).</p>
+      <article>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+                    <h1 class="title">Databases and SQL</h1>
+          <p>In the late 1920s and early 1930s, William Dyer, Frank Pabodie, and Valentina Roerich led expeditions to the <a href="http://en.wikipedia.org/wiki/Pole_of_inaccessibility">Pole of Inaccessibility</a> in the South Pacific, and then onward to Antarctica. Two years ago, their expeditions were found in a storage locker at Miskatonic University. We have scanned and <a href="https://en.wikipedia.org/wiki/Optical_character_recognition">OCR</a>’d the data they contain, and we now want to store that information in a way that will make search and analysis easy.</p>
+<p>Three common options for storage are text files, spreadsheets, and databases. Text files are easiest to create, and work well with version control, but then we would have to build search and analysis tools ourselves. Spreadsheets are good for doing simple analyses, but they don’t handle large or complex data sets well. Databases, however, include powerful tools for search and analysis, and can handle large, complex data sets. These lessons will show how to use a database to explore the expeditions’ data.</p>
+<section class="prereq panel panel-warning">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-education"></span>Prerequisites</h2>
 </div>
+<div class="panel-body">
+<p>If SQLite is being used from the shell, learners will need to be able to navigate directories and run simple commands from the command line. If a GUI such as the Firefox SQLite plugin is being used, learners will need to know how to install browser plugins (and have permission to do so).</p>
+<p>Check <a href="discussion.html">Discussion</a> for database setup instructions</p>
+</div>
+</section>
 <h2 id="topics">Topics</h2>
 <ol style="list-style-type: decimal">
 <li><a href="01-select.html">Selecting Data</a></li>
@@ -50,13 +53,13 @@
 </ol>
 <h2 id="other-resources">Other Resources</h2>
 <ul>
-<li><a href="motivation.html">Motivation</a></li>
 <li><a href="reference.html">Reference</a></li>
 <li><a href="discussion.html">Discussion</a></li>
-<li><a href="instructors.html">Instructor's Guide</a></li>
+<li><a href="instructors.html">Instructor’s Guide</a></li>
 </ul>
         </div>
       </div>
+      </article>
       <div class="footer">
         <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
         <a class="label swc-blue-bg" href="https://github.com/swcarpentry/sql-novice-survey">Source</a>
@@ -66,6 +69,6 @@
     </div>
     <!-- Javascript placed at the end of the document so the pages load faster -->
     <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
-    <script src="http://software-carpentry.org/v5/js/bootstrap/bootstrap.min.js"></script>
+    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
   </body>
 </html>

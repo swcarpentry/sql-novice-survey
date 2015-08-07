@@ -7,10 +7,8 @@
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
     <link rel="stylesheet" type="text/css" href="css/swc.css" />
-    <link rel="stylesheet" type="text/css" href="css/swc-workshop-and-lesson.css" />
-    <link rel="stylesheet" type="text/css" href="css/lesson.css" />
     <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
     <meta charset="UTF-8" />
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -19,118 +17,173 @@
     <![endif]-->
   </head>
   <body class="lesson">
-    <div class="container container-full-width card">
+    <div class="container card">
       <div class="banner">
         <a href="http://software-carpentry.org" title="Software Carpentry">
           <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
         </a>
       </div>
-      <div class="row-fluid">
-        <div class="span10 offset1">
-          <h1 class="title">Databases and SQL</h1>
+      <article>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+                    <a href="index.html"><h1 class="title">Databases and SQL</h1></a>
           <h2 class="subtitle">Sorting and Removing Duplicates</h2>
-<div id="learning-objectives" class="objectives">
-<h2>Learning Objectives</h2>
+          <section class="objectives panel panel-warning">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+</div>
+<div class="panel-body">
 <ul>
 <li>Write queries that display results in a particular order.</li>
 <li>Write queries that eliminate duplicate values from data.</li>
 </ul>
 </div>
-<p>Data is often redundant, so queries often return redundant information. For example, if we select the quantitites that have been measured from the <code>survey</code> table, we get this:</p>
+</section>
+<p>In beginning our examination of the Antarctic data, we want to know:</p>
+<ul>
+<li>what kind of quantity measurements were taken at each site;</li>
+<li>which scientists took measurements on the expedition;</li>
+<li>the sites where each scientist took measurements</li>
+</ul>
+<p>To determine which measurements were taken at each site, we can examine the <code>Survey</code> table. Data is often redundant, so queries often return redundant information. For example, if we select the quantitites that have been measured from the <code>Survey</code> table, we get this:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> quant <span class="kw">FROM</span> Survey;</code></pre>
 <table>
-<thead>
-<tr class="header">
-<th align="left">quant</th>
+<tr>
+<th>
+quant
+</th>
 </tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">rad</td>
+<tr>
+<td>
+rad
+</td>
 </tr>
-<tr class="even">
-<td align="left">sal</td>
+<tr>
+<td>
+sal
+</td>
 </tr>
-<tr class="odd">
-<td align="left">rad</td>
+<tr>
+<td>
+rad
+</td>
 </tr>
-<tr class="even">
-<td align="left">sal</td>
+<tr>
+<td>
+sal
+</td>
 </tr>
-<tr class="odd">
-<td align="left">rad</td>
+<tr>
+<td>
+rad
+</td>
 </tr>
-<tr class="even">
-<td align="left">sal</td>
+<tr>
+<td>
+sal
+</td>
 </tr>
-<tr class="odd">
-<td align="left">temp</td>
+<tr>
+<td>
+temp
+</td>
 </tr>
-<tr class="even">
-<td align="left">rad</td>
+<tr>
+<td>
+rad
+</td>
 </tr>
-<tr class="odd">
-<td align="left">sal</td>
+<tr>
+<td>
+sal
+</td>
 </tr>
-<tr class="even">
-<td align="left">temp</td>
+<tr>
+<td>
+temp
+</td>
 </tr>
-<tr class="odd">
-<td align="left">rad</td>
+<tr>
+<td>
+rad
+</td>
 </tr>
-<tr class="even">
-<td align="left">temp</td>
+<tr>
+<td>
+temp
+</td>
 </tr>
-<tr class="odd">
-<td align="left">sal</td>
+<tr>
+<td>
+sal
+</td>
 </tr>
-<tr class="even">
-<td align="left">rad</td>
+<tr>
+<td>
+rad
+</td>
 </tr>
-<tr class="odd">
-<td align="left">sal</td>
+<tr>
+<td>
+sal
+</td>
 </tr>
-<tr class="even">
-<td align="left">temp</td>
+<tr>
+<td>
+temp
+</td>
 </tr>
-<tr class="odd">
-<td align="left">sal</td>
+<tr>
+<td>
+sal
+</td>
 </tr>
-<tr class="even">
-<td align="left">rad</td>
+<tr>
+<td>
+rad
+</td>
 </tr>
-<tr class="odd">
-<td align="left">sal</td>
+<tr>
+<td>
+sal
+</td>
 </tr>
-<tr class="even">
-<td align="left">sal</td>
+<tr>
+<td>
+sal
+</td>
 </tr>
-<tr class="odd">
-<td align="left">rad</td>
+<tr>
+<td>
+rad
+</td>
 </tr>
-</tbody>
 </table>
-<p>We can eliminate the redundant output to make the result more readable by adding the <code>DISTINCT</code> keyword to our query:</p>
+<p>This result makes it difficult to see all of the different types of <code>quant</code> in the Survey table. We can eliminate the redundant output to make the result more readable by adding the <code>DISTINCT</code> keyword to our query:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> quant <span class="kw">FROM</span> Survey;</code></pre>
 <table>
-<thead>
-<tr class="header">
-<th align="left">quant</th>
+<tr>
+<th>
+quant
+</th>
 </tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">rad</td>
+<tr>
+<td>
+rad
+</td>
 </tr>
-<tr class="even">
-<td align="left">sal</td>
+<tr>
+<td>
+sal
+</td>
 </tr>
-<tr class="odd">
-<td align="left">temp</td>
+<tr>
+<td>
+temp
+</td>
 </tr>
-</tbody>
 </table>
-<p>If we select more than one column --- for example, both the survey site ID and the quantity measured --- then the distinct pairs of values are returned:</p>
+<p>If we want to determine which sites have which quant measurement, we can use the <code>DISTINCT</code> keyword on multiple columns. If we select more than one column, the distinct <em>pairs</em> of values are returned:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> taken, quant <span class="kw">FROM</span> Survey;</code></pre>
 <table>
 <thead>
@@ -218,8 +271,8 @@
 </tr>
 </tbody>
 </table>
-<p>Notice in both cases that duplicates are removed even if they didn't appear to be adjacent in the database. Again, it's important to remember that rows aren't actually ordered: they're just displayed that way.</p>
-<p>As we mentioned earlier, database records are not stored in any particular order. This means that query results aren't necessarily sorted, and even if they are, we often want to sort them in a different way, e.g., by the name of the project instead of by the name of the scientist. We can do this in SQL by adding an <code>ORDER BY</code> clause to our query:</p>
+<p>Notice in both cases that duplicates are removed even if the rows they come from didn’t appear to be adjacent in the database table.</p>
+<p>Our next task is to identify the scientists on the expedition by looking at the <code>Person</code> table. As we mentioned earlier, database records are not stored in any particular order. This means that query results aren’t necessarily sorted, and even if they are, we often want to sort them in a different way, e.g., by their identifier instead of by their personal name. We can do this in SQL by adding an <code>ORDER BY</code> clause to our query:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> Person <span class="kw">ORDER</span> <span class="kw">BY</span> ident;</code></pre>
 <table>
 <thead>
@@ -257,8 +310,8 @@
 </tr>
 </tbody>
 </table>
-<p>By default, results are sorted in ascending order (i.e., from least to greatest). We can sort in the opposite order using <code>DESC</code> (for &quot;descending&quot;):</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> person <span class="kw">ORDER</span> <span class="kw">BY</span> ident <span class="kw">DESC</span>;</code></pre>
+<p>By default, results are sorted in ascending order (i.e., from least to greatest). We can sort in the opposite order using <code>DESC</code> (for “descending”):</p>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> Person <span class="kw">ORDER</span> <span class="kw">BY</span> ident <span class="kw">DESC</span>;</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -295,177 +348,201 @@
 </tr>
 </tbody>
 </table>
-<p>(And if we want to make it clear that we're sorting in ascending order, we can use <code>ASC</code> instead of <code>DESC</code>.)</p>
-<p>We can also sort on several fields at once. For example, this query sorts results first in ascending order by <code>taken</code>, and then in descending order by <code>person</code> within each group of equal <code>taken</code> values:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> taken, person <span class="kw">FROM</span> Survey <span class="kw">ORDER</span> <span class="kw">BY</span> taken <span class="kw">ASC</span>, person <span class="kw">DESC</span>;</code></pre>
+<p>(And if we want to make it clear that we’re sorting in ascending order, we can use <code>ASC</code> instead of <code>DESC</code>.)</p>
+<p>In order to look at which scientist measured quantities at each site, we can look again at the <code>Survey</code> table. We can also sort on several fields at once. For example, this query sorts results first in ascending order by <code>taken</code>, and then in descending order by <code>person</code> within each group of equal <code>taken</code> values:</p>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> taken, person, quant <span class="kw">FROM</span> Survey <span class="kw">ORDER</span> <span class="kw">BY</span> taken <span class="kw">ASC</span>, person <span class="kw">DESC</span>;</code></pre>
 <table>
 <thead>
 <tr class="header">
 <th align="left">taken</th>
 <th align="left">person</th>
+<th align="left">quant</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td align="left">619</td>
 <td align="left">dyer</td>
+<td align="left">rad</td>
 </tr>
 <tr class="even">
 <td align="left">619</td>
 <td align="left">dyer</td>
+<td align="left">sal</td>
 </tr>
 <tr class="odd">
 <td align="left">622</td>
 <td align="left">dyer</td>
+<td align="left">rad</td>
 </tr>
 <tr class="even">
 <td align="left">622</td>
 <td align="left">dyer</td>
+<td align="left">sal</td>
 </tr>
 <tr class="odd">
 <td align="left">734</td>
 <td align="left">pb</td>
+<td align="left">rad</td>
 </tr>
 <tr class="even">
 <td align="left">734</td>
 <td align="left">pb</td>
+<td align="left">temp</td>
 </tr>
 <tr class="odd">
 <td align="left">734</td>
 <td align="left">lake</td>
+<td align="left">sal</td>
 </tr>
 <tr class="even">
 <td align="left">735</td>
 <td align="left">pb</td>
+<td align="left">rad</td>
 </tr>
 <tr class="odd">
 <td align="left">735</td>
 <td align="left">-null-</td>
+<td align="left">sal</td>
 </tr>
 <tr class="even">
 <td align="left">735</td>
 <td align="left">-null-</td>
+<td align="left">temp</td>
 </tr>
 <tr class="odd">
 <td align="left">751</td>
 <td align="left">pb</td>
+<td align="left">rad</td>
 </tr>
 <tr class="even">
 <td align="left">751</td>
 <td align="left">pb</td>
+<td align="left">temp</td>
 </tr>
 <tr class="odd">
 <td align="left">751</td>
 <td align="left">lake</td>
+<td align="left">sal</td>
 </tr>
 <tr class="even">
 <td align="left">752</td>
 <td align="left">roe</td>
+<td align="left">sal</td>
 </tr>
 <tr class="odd">
 <td align="left">752</td>
 <td align="left">lake</td>
+<td align="left">rad</td>
 </tr>
 <tr class="even">
 <td align="left">752</td>
 <td align="left">lake</td>
+<td align="left">sal</td>
 </tr>
 <tr class="odd">
 <td align="left">752</td>
 <td align="left">lake</td>
+<td align="left">temp</td>
 </tr>
 <tr class="even">
 <td align="left">837</td>
 <td align="left">roe</td>
+<td align="left">sal</td>
 </tr>
 <tr class="odd">
 <td align="left">837</td>
 <td align="left">lake</td>
+<td align="left">rad</td>
 </tr>
 <tr class="even">
 <td align="left">837</td>
 <td align="left">lake</td>
+<td align="left">sal</td>
 </tr>
 <tr class="odd">
 <td align="left">844</td>
 <td align="left">roe</td>
+<td align="left">rad</td>
 </tr>
 </tbody>
 </table>
-<p>This is easier to understand if we also remove duplicates:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> taken, person <span class="kw">FROM</span> Survey <span class="kw">ORDER</span> <span class="kw">BY</span> taken <span class="kw">ASC</span>, person <span class="kw">DESC</span>;</code></pre>
+<p>This query gives us a good idea of which scientist was at which site, and what measurements they performed while they were there.</p>
+<p>Looking at the table, it seems like some scientists specialized in certain kinds of measurements. We can examine which scientists performed which measurements by selecting the appropriate columns and removing duplicates.</p>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> quant, person <span class="kw">FROM</span> Survey <span class="kw">ORDER</span> <span class="kw">BY</span> quant <span class="kw">ASC</span>;</code></pre>
 <table>
 <thead>
 <tr class="header">
-<th align="left">taken</th>
+<th align="left">quant</th>
 <th align="left">person</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">619</td>
+<td align="left">rad</td>
 <td align="left">dyer</td>
 </tr>
 <tr class="even">
-<td align="left">622</td>
-<td align="left">dyer</td>
-</tr>
-<tr class="odd">
-<td align="left">734</td>
+<td align="left">rad</td>
 <td align="left">pb</td>
 </tr>
+<tr class="odd">
+<td align="left">rad</td>
+<td align="left">lake</td>
+</tr>
 <tr class="even">
-<td align="left">734</td>
+<td align="left">rad</td>
+<td align="left">roe</td>
+</tr>
+<tr class="odd">
+<td align="left">sal</td>
+<td align="left">dyer</td>
+</tr>
+<tr class="even">
+<td align="left">sal</td>
 <td align="left">lake</td>
 </tr>
 <tr class="odd">
-<td align="left">735</td>
+<td align="left">sal</td>
+<td align="left">-null-</td>
+</tr>
+<tr class="even">
+<td align="left">sal</td>
+<td align="left">roe</td>
+</tr>
+<tr class="odd">
+<td align="left">temp</td>
 <td align="left">pb</td>
 </tr>
 <tr class="even">
-<td align="left">735</td>
+<td align="left">temp</td>
 <td align="left">-null-</td>
 </tr>
 <tr class="odd">
-<td align="left">751</td>
-<td align="left">pb</td>
-</tr>
-<tr class="even">
-<td align="left">751</td>
+<td align="left">temp</td>
 <td align="left">lake</td>
-</tr>
-<tr class="odd">
-<td align="left">752</td>
-<td align="left">roe</td>
-</tr>
-<tr class="even">
-<td align="left">752</td>
-<td align="left">lake</td>
-</tr>
-<tr class="odd">
-<td align="left">837</td>
-<td align="left">roe</td>
-</tr>
-<tr class="even">
-<td align="left">837</td>
-<td align="left">lake</td>
-</tr>
-<tr class="odd">
-<td align="left">844</td>
-<td align="left">roe</td>
 </tr>
 </tbody>
 </table>
-<div id="finding-distinct-dates" class="challenge">
-<h2>Finding Distinct Dates</h2>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Finding Distinct Dates</h2>
+</div>
+<div class="panel-body">
 <p>Write a query that selects distinct dates from the <code>Visited</code> table.</p>
 </div>
-<div id="displaying-full-names" class="challenge">
-<h2>Displaying Full Names</h2>
+</section>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Displaying Full Names</h2>
+</div>
+<div class="panel-body">
 <p>Write a query that displays the full names of the scientists in the <code>Person</code> table, ordered by family name.</p>
 </div>
+</section>
         </div>
       </div>
+      </article>
       <div class="footer">
         <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
         <a class="label swc-blue-bg" href="https://github.com/swcarpentry/sql-novice-survey">Source</a>
@@ -475,6 +552,6 @@
     </div>
     <!-- Javascript placed at the end of the document so the pages load faster -->
     <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
-    <script src="http://software-carpentry.org/v5/js/bootstrap/bootstrap.min.js"></script>
+    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
   </body>
 </html>

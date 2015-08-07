@@ -6,8 +6,8 @@ minutes: 30
 ---
 > ## Learning Objectives {.objectives}
 >
-> *   Write queries that creates tables.
-> *   Write queries to insert, modify, and delete records.
+> *   Write statements that creates tables.
+> *   Write statements to insert, modify, and delete records.
 
 So far we have only looked at how to get information out of a database,
 both because that is more frequent than adding information,
@@ -16,7 +16,7 @@ once queries are understood.
 If we want to create and modify data,
 we need to know two other sets of commands.
 
-The first pair are `CREATE TABLE` and `DROP TABLE`.
+The first pair are [`CREATE TABLE`][CREATE-TABLE] and [`DROP TABLE`][DROP-TABLE].
 While they are written as two words,
 they are actually single commands.
 The first one creates a new table;
@@ -25,10 +25,10 @@ For example,
 the following statements create the four tables in our survey database:
 
 ~~~ {.sql}
-CREATE TABLE Person(ident text, personal text, family text);
-CREATE TABLE Site(name text, lat real, long real);
-CREATE TABLE Visited(ident integer, site text, dated text);
-CREATE TABLE Survey(taken integer, person text, quant real, reading real);
+CREATE TABLE Person(ident TEXT, personal TEXT, family TEXT);
+CREATE TABLE Site(name TEXT, lat REAL, long REAL);
+CREATE TABLE Visited(ident INTEGER, site TEXT, dated TEXT);
+CREATE TABLE Survey(taken INTEGER, person TEXT, quant REAL, reading REAL);
 ~~~
 
 We can get rid of one of our tables using:
@@ -46,10 +46,10 @@ but most provide the following:
 
 data type  use
 ---------  -----------------------------------------
-integer    a signed integer
-real       a floating point number
-text       a character string
-blob       a "binary large object", such as an image
+INTEGER    a signed integer
+REAL       a floating point number
+TEXT       a character string
+BLOB       a "binary large object", such as an image
 
 Most databases also support Booleans and date/time values;
 SQLite uses the integers 0 and 1 for the former,
@@ -78,7 +78,7 @@ CREATE TABLE Survey(
 ~~~
 
 Once again,
-exactly what constraints are avialable
+exactly what constraints are available
 and what they're called
 depends on which database manager we are using.
 
@@ -98,7 +98,7 @@ We can also insert values into one table directly from another:
 
 ~~~ {.sql}
 CREATE TABLE JustLatLong(lat text, long text);
-INSERT INTO JustLatLong SELECT lat, long FROM site;
+INSERT INTO JustLatLong SELECT lat, long FROM Site;
 ~~~
 
 Modifying existing records is done using the `UPDATE` statement.
@@ -110,10 +110,10 @@ For example, if we made a mistake when entering the lat and long values
 of the last `INSERT` statement above:
 
 ~~~ {.sql}
-UPDATE Site SET lat=-47.87, long=-122.40 WHERE name='MSK-4'
+UPDATE Site SET lat=-47.87, long=-122.40 WHERE name='MSK-4';
 ~~~
 
-Be care to not forget the `where` clause or the update statement will
+Be careful to not forget the `where` clause or the update statement will
 modify *all* of the records in the database.
 
 Deleting records can be a bit trickier,
@@ -126,7 +126,7 @@ once we realize that Frank Danforth didn't take any measurements,
 we can remove him from the `Person` table like this:
 
 ~~~ {.sql}
-DELETE FROM Person WHERE ident = "danforth";
+DELETE FROM Person WHERE ident = 'danforth';
 ~~~
 
 But what if we removed Anderson Lake instead?
@@ -195,3 +195,6 @@ this technique is outside the scope of this chapter.
 > control is a good way to track and manage changes to the database.
 > What are the pros and cons of this approach?  (Hint: records aren't
 > stored in any particular order.)
+
+[CREATE-TABLE]: https://www.sqlite.org/lang_createtable.html
+[DROP-TABLE]: https://www.sqlite.org/lang_droptable.html

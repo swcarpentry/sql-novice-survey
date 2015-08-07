@@ -40,7 +40,7 @@ we could get rid of the `Site` table and rewrite the `Visited` table like this:
 |-----|------|-------|-----------|
 |619  |-49.85|-128.57| 1927-02-08|
 |622  |-49.85|-128.57| 1927-02-10|
-|734  |-47.15|-126.72| 1939-01-07|
+|734  |-47.15|-126.72| 1930-01-07|
 |735  |-47.15|-126.72| 1930-01-12|
 |751  |-47.15|-126.72| 1930-02-26|
 |752  |-47.15|-126.72| -null-    |
@@ -68,8 +68,7 @@ Stepping back,
 data and the tools used to store it have a symbiotic relationship:
 we use tables and joins because it's efficient,
 provided our data is organized a certain way,
-but organize our data that way because we have tools to manipulate it efficiently
-if it's in a certain form.
+but organize our data that way because we have tools to manipulate it efficiently.
 As anthropologists say,
 the tool shapes the hand that shapes the tool.
 

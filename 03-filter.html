@@ -7,10 +7,8 @@
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
     <link rel="stylesheet" type="text/css" href="css/swc.css" />
-    <link rel="stylesheet" type="text/css" href="css/swc-workshop-and-lesson.css" />
-    <link rel="stylesheet" type="text/css" href="css/lesson.css" />
     <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
     <meta charset="UTF-8" />
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -19,25 +17,30 @@
     <![endif]-->
   </head>
   <body class="lesson">
-    <div class="container container-full-width card">
+    <div class="container card">
       <div class="banner">
         <a href="http://software-carpentry.org" title="Software Carpentry">
           <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
         </a>
       </div>
-      <div class="row-fluid">
-        <div class="span10 offset1">
-          <h1 class="title">Databases and SQL</h1>
+      <article>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+                    <a href="index.html"><h1 class="title">Databases and SQL</h1></a>
           <h2 class="subtitle">Filtering</h2>
-<div id="learning-objectives" class="objectives">
-<h2>Learning Objectives</h2>
+          <section class="objectives panel panel-warning">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+</div>
+<div class="panel-body">
 <ul>
 <li>Write queries that select records that satisfy user-specified conditions.</li>
 <li>Explain the order in which the clauses in a query are executed.</li>
 </ul>
 </div>
+</section>
 <p>One of the most powerful features of a database is the ability to <a href="reference.html#filter">filter</a> data, i.e., to select only those records that match certain criteria. For example, suppose we want to see when a particular site was visited. We can select these records from the <code>Visited</code> table by using a <code>WHERE</code> clause in our query:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> site=<span class="ot">&quot;DR-1&quot;</span>;</code></pre>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> site=<span class="st">&#39;DR-1&#39;</span>;</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -65,8 +68,8 @@
 </tbody>
 </table>
 <p>The database manager executes this query in two stages. First, it checks at each row in the <code>Visited</code> table to see which ones satisfy the <code>WHERE</code>. It then uses the column names following the <code>SELECT</code> keyword to determine what columns to display.</p>
-<p>This processing order means that we can filter records using <code>WHERE</code> based on values in columns that aren't then displayed:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> ident <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> site=<span class="ot">&quot;DR-1&quot;</span>;</code></pre>
+<p>This processing order means that we can filter records using <code>WHERE</code> based on values in columns that aren’t then displayed:</p>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> ident <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> site=<span class="st">&#39;DR-1&#39;</span>;</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -86,8 +89,8 @@
 </tbody>
 </table>
 <p><img src="fig/sql-filter.svg" alt="SQL Filtering in Action" /></p>
-<p>We can use many other Boolean operators to filter our data. For example, we can ask for all information from the DR-1 site collected since 1930:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> (site=<span class="ot">&quot;DR-1&quot;</span>) <span class="kw">AND</span> (dated&lt;=<span class="ot">&quot;1930-00-00&quot;</span>);</code></pre>
+<p>We can use many other Boolean operators to filter our data. For example, we can ask for all information from the DR-1 site collected before 1930:</p>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> site=<span class="st">&#39;DR-1&#39;</span> <span class="kw">AND</span> dated&lt;<span class="st">&#39;1930-01-01&#39;</span>;</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -109,12 +112,16 @@
 </tr>
 </tbody>
 </table>
-<p>(The parentheses around the individual tests aren't strictly required, but they help make the query easier to read.)</p>
-<blockquote>
-<p>Most database managers have a special data type for dates. In fact, many have two: one for dates, such as &quot;May 31, 1971&quot;, and one for durations, such as &quot;31 days&quot;. SQLite doesn't: instead, it stores dates as either text (in the ISO-8601 standard format &quot;YYYY-MM-DD HH:MM:SS.SSSS&quot;), real numbers (the number of days since November 24, 4714 BCE), or integers (the number of seconds since midnight, January 1, 1970). If this sounds complicated, it is, but not nearly as complicated as figuring out <a href="http://en.wikipedia.org/wiki/Swedish_calendar">historical dates in Sweden</a>.</p>
-</blockquote>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pushpin"></span>Date types</h2>
+</div>
+<div class="panel-body">
+<p>Most database managers have a special data type for dates. In fact, many have two: one for dates, such as “May 31, 1971”, and one for durations, such as “31 days”. SQLite doesn’t: instead, it stores dates as either text (in the ISO-8601 standard format “YYYY-MM-DD HH:MM:SS.SSSS”), real numbers (the number of days since November 24, 4714 BCE), or integers (the number of seconds since midnight, January 1, 1970). If this sounds complicated, it is, but not nearly as complicated as figuring out <a href="http://en.wikipedia.org/wiki/Swedish_calendar">historical dates in Sweden</a>.</p>
+</div>
+</aside>
 <p>If we want to find out what measurements were taken by either Lake or Roerich, we can combine the tests on their names using <code>OR</code>:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> person=<span class="ot">&quot;lake&quot;</span> <span class="kw">OR</span> person=<span class="ot">&quot;roe&quot;</span>;</code></pre>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> person=<span class="st">&#39;lake&#39;</span> <span class="kw">OR</span> person=<span class="st">&#39;roe&#39;</span>;</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -188,7 +195,7 @@
 </tbody>
 </table>
 <p>Alternatively, we can use <code>IN</code> to see if a value is in a specific set:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> person <span class="kw">IN</span> (<span class="ot">&quot;lake&quot;</span>, <span class="ot">&quot;roe&quot;</span>);</code></pre>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> person <span class="kw">IN</span> (<span class="st">&#39;lake&#39;</span>, <span class="st">&#39;roe&#39;</span>);</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -261,8 +268,8 @@
 </tr>
 </tbody>
 </table>
-<p>We can combine <code>AND</code> with <code>OR</code>, but we need to be careful about which operator is executed first. If we <em>don't</em> use parentheses, we get this:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant=<span class="ot">&quot;sal&quot;</span> <span class="kw">AND</span> person=<span class="ot">&quot;lake&quot;</span> <span class="kw">OR</span> person=<span class="ot">&quot;roe&quot;</span>;</code></pre>
+<p>We can combine <code>AND</code> with <code>OR</code>, but we need to be careful about which operator is executed first. If we <em>don’t</em> use parentheses, we get this:</p>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant=<span class="st">&#39;sal&#39;</span> <span class="kw">AND</span> person=<span class="st">&#39;lake&#39;</span> <span class="kw">OR</span> person=<span class="st">&#39;roe&#39;</span>;</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -318,7 +325,7 @@
 </tbody>
 </table>
 <p>which is salinity measurements by Lake, and <em>any</em> measurement by Roerich. We probably want this instead:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant=<span class="ot">&quot;sal&quot;</span> <span class="kw">AND</span> (person=<span class="ot">&quot;lake&quot;</span> <span class="kw">OR</span> person=<span class="ot">&quot;roe&quot;</span>);</code></pre>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant=<span class="st">&#39;sal&#39;</span> <span class="kw">AND</span> (person=<span class="st">&#39;lake&#39;</span> <span class="kw">OR</span> person=<span class="st">&#39;roe&#39;</span>);</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -367,8 +374,8 @@
 </tr>
 </tbody>
 </table>
-<p>We can also filter by partial matches. For example, if we want to know something just about the site names beginning with &quot;DR&quot; we can use the <code>LIKE</code> keyword. The percent symbol acts as a <a href="reference.html#wildcard">wildcard</a>, matching any characters in that place. It can be used at the beginning, middle, or end of the string:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> site <span class="kw">LIKE</span> <span class="ot">&quot;DR%&quot;</span>;</code></pre>
+<p>We can also filter by partial matches. For example, if we want to know something just about the site names beginning with “DR” we can use the <code>LIKE</code> keyword. The percent symbol acts as a <a href="reference.html#wildcard">wildcard</a>, matching any characters in that place. It can be used at the beginning, middle, or end of the string:</p>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> site <span class="kw">LIKE</span> <span class="st">&#39;DR%&#39;</span>;</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -391,7 +398,7 @@
 <tr class="odd">
 <td align="left">734</td>
 <td align="left">DR-3</td>
-<td align="left">1939-01-07</td>
+<td align="left">1930-01-07</td>
 </tr>
 <tr class="even">
 <td align="left">735</td>
@@ -416,7 +423,7 @@
 </tbody>
 </table>
 <p>Finally, we can use <code>DISTINCT</code> with <code>WHERE</code> to give a second level of filtering:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> person, quant <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> person=<span class="ot">&quot;lake&quot;</span> <span class="kw">OR</span> person=<span class="ot">&quot;roe&quot;</span>;</code></pre>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> person, quant <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> person=<span class="st">&#39;lake&#39;</span> <span class="kw">OR</span> person=<span class="st">&#39;roe&#39;</span>;</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -449,21 +456,32 @@
 </table>
 <p>But remember: <code>DISTINCT</code> is applied to the values displayed in the chosen columns, not to the entire rows as they are being processed.</p>
 <blockquote>
-<p>What we have just done is how most people &quot;grow&quot; their SQL queries. We started with something simple that did part of what we wanted, then added more clauses one by one, testing their effects as we went. This is a good strategy --- in fact, for complex queries it's often the <em>only</em> strategy --- but it depends on quick turnaround, and on us recognizing the right answer when we get it.</p>
+<p>What we have just done is how most people “grow” their SQL queries. We started with something simple that did part of what we wanted, then added more clauses one by one, testing their effects as we went. This is a good strategy — in fact, for complex queries it’s often the <em>only</em> strategy — but it depends on quick turnaround, and on us recognizing the right answer when we get it.</p>
 <p>The best way to achieve quick turnaround is often to put a subset of data in a temporary database and run our queries against that, or to fill a small database with synthesized records. For example, instead of trying our queries against an actual database of 20 million Australians, we could run it against a sample of ten thousand, or write a small program to generate ten thousand random (but plausible) records and use that.</p>
 </blockquote>
-<div id="fix-this-query" class="challenge">
-<h2>Fix This Query</h2>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Fix This Query</h2>
+</div>
+<div class="panel-body">
 <p>Suppose we want to select all sites that lie more than 30 degrees from the poles. Our first query is:</p>
-<pre><code>SELECT * FROM Site WHERE (lat &gt; -60) OR (lat &lt; 60);</code></pre>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> Site <span class="kw">WHERE</span> (lat &gt; -<span class="dv">60</span>) <span class="kw">OR</span> (lat &lt; <span class="dv">60</span>);</code></pre>
 <p>Explain why this is wrong, and rewrite the query so that it is correct.</p>
 </div>
-<div id="finding-outliers" class="challenge">
-<h2>Finding Outliers</h2>
+</section>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Finding Outliers</h2>
+</div>
+<div class="panel-body">
 <p>Normalized salinity readings are supposed to be between 0.0 and 1.0. Write a query that selects all records from <code>Survey</code> with salinity values outside this range.</p>
 </div>
-<div id="matching-patterns" class="challenge">
-<h2>Matching Patterns</h2>
+</section>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Matching Patterns</h2>
+</div>
+<div class="panel-body">
 <p>Which of these expressions are true?</p>
 <ul>
 <li><code>'a' LIKE 'a'</code></li>
@@ -473,8 +491,10 @@
 <li><code>'alpha' LIKE 'a%p%'</code></li>
 </ul>
 </div>
+</section>
         </div>
       </div>
+      </article>
       <div class="footer">
         <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
         <a class="label swc-blue-bg" href="https://github.com/swcarpentry/sql-novice-survey">Source</a>
@@ -484,6 +504,6 @@
     </div>
     <!-- Javascript placed at the end of the document so the pages load faster -->
     <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
-    <script src="http://software-carpentry.org/v5/js/bootstrap/bootstrap.min.js"></script>
+    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
   </body>
 </html>

@@ -7,10 +7,8 @@
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
     <link rel="stylesheet" type="text/css" href="css/swc.css" />
-    <link rel="stylesheet" type="text/css" href="css/swc-workshop-and-lesson.css" />
-    <link rel="stylesheet" type="text/css" href="css/lesson.css" />
     <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
     <meta charset="UTF-8" />
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -19,24 +17,29 @@
     <![endif]-->
   </head>
   <body class="lesson">
-    <div class="container container-full-width card">
+    <div class="container card">
       <div class="banner">
         <a href="http://software-carpentry.org" title="Software Carpentry">
           <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
         </a>
       </div>
-      <div class="row-fluid">
-        <div class="span10 offset1">
-          <h1 class="title">Databases and SQL</h1>
+      <article>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+                    <a href="index.html"><h1 class="title">Databases and SQL</h1></a>
           <h2 class="subtitle">Calculating New Values</h2>
-<div id="learning-objectives" class="objectives">
-<h2>Learning Objectives</h2>
+          <section class="objectives panel panel-warning">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+</div>
+<div class="panel-body">
 <ul>
 <li>Write queries that calculate new values for each selected record.</li>
 </ul>
 </div>
+</section>
 <p>After carefully re-reading the expedition logs, we realize that the radiation measurements they report may need to be corrected upward by 5%. Rather than modifying the stored data, we can do this calculation on the fly as part of our query:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> <span class="fl">1.05</span> * reading <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant=<span class="ot">&quot;rad&quot;</span>;</code></pre>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> <span class="fl">1.05</span> * reading <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant=<span class="st">&#39;rad&#39;</span>;</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -71,7 +74,7 @@
 </tbody>
 </table>
 <p>When we run the query, the expression <code>1.05 * reading</code> is evaluated for each row. Expressions can use any of the fields, all of usual arithmetic operators, and a variety of common functions. (Exactly which ones depends on which database manager is being used.) For example, we can convert temperature readings from Fahrenheit to Celsius and round to two decimal places:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> taken, <span class="fu">round</span>(<span class="dv">5</span>*(reading<span class="dv">-32</span>)/<span class="dv">9</span>, <span class="dv">2</span>) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant=<span class="ot">&quot;temp&quot;</span>;</code></pre>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> taken, <span class="fu">round</span>(<span class="dv">5</span>*(reading<span class="dv">-32</span>)/<span class="dv">9</span>, <span class="dv">2</span>) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant=<span class="st">&#39;temp&#39;</span>;</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -99,7 +102,7 @@
 </tbody>
 </table>
 <p>We can also combine values from different fields, for example by using the string concatenation operator <code>||</code>:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> personal || <span class="ot">&quot; &quot;</span> || family <span class="kw">FROM</span> Person;</code></pre>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> personal || <span class="st">&#39; &#39;</span> || family <span class="kw">FROM</span> Person;</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -124,14 +127,21 @@
 </tr>
 </tbody>
 </table>
-<div id="fixing-salinity-readings" class="challenge">
-<h2>Fixing Salinity Readings</h2>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Fixing Salinity Readings</h2>
+</div>
+<div class="panel-body">
 <p>After further reading, we realize that Valentina Roerich was reporting salinity as percentages. Write a query that returns all of her salinity measurements from the <code>Survey</code> table with the values divided by 100.</p>
 </div>
-<div id="unions" class="challenge">
-<h2>Unions</h2>
+</section>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Unions</h2>
+</div>
+<div class="panel-body">
 <p>The <code>UNION</code> operator combines the results of two queries:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> Person <span class="kw">WHERE</span> ident=<span class="ot">&quot;dyer&quot;</span> <span class="kw">UNION</span> <span class="kw">SELECT</span> * <span class="kw">FROM</span> Person <span class="kw">WHERE</span> ident=<span class="ot">&quot;roe&quot;</span>;</code></pre>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> Person <span class="kw">WHERE</span> ident=<span class="st">&#39;dyer&#39;</span> <span class="kw">UNION</span> <span class="kw">SELECT</span> * <span class="kw">FROM</span> Person <span class="kw">WHERE</span> ident=<span class="st">&#39;roe&#39;</span>;</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -153,7 +163,7 @@
 </tr>
 </tbody>
 </table>
-<p>Use <code>UNION</code> to create a consolidated list of salinity measurements in which Roerich's, and only Roerich's, have been corrected as described in the previous challenge. The output should be something like:</p>
+<p>Use <code>UNION</code> to create a consolidated list of salinity measurements in which Roerich’s, and only Roerich’s, have been corrected as described in the previous challenge. The output should be something like:</p>
 <table>
 <thead>
 <tr class="header">
@@ -197,9 +207,13 @@
 </tbody>
 </table>
 </div>
-<div id="selecting-major-site-identifiers" class="challenge">
-<h2>Selecting Major Site Identifiers</h2>
-<p>The site identifiers in the <code>Visited</code> table have two parts separated by a '-':</p>
+</section>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Selecting Major Site Identifiers</h2>
+</div>
+<div class="panel-body">
+<p>The site identifiers in the <code>Visited</code> table have two parts separated by a ‘-’:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> site <span class="kw">FROM</span> Visited;</code></pre>
 <table>
 <thead>
@@ -219,10 +233,12 @@
 </tr>
 </tbody>
 </table>
-<p>Some major site identifiers are two letters long and some are three. The &quot;in string&quot; function <code>instr(X, Y)</code> returns the 1-based index of the first occurrence of string Y in string X, or 0 if Y does not exist in X. The substring function <code>substr(X, I)</code> returns the substring of X starting at index I. Use these two functions to produce a list of unique major site identifiers. (For this data, the list should contain only &quot;DR&quot; and &quot;MSK&quot;).</p>
+<p>Some major site identifiers are two letters long and some are three. The “in string” function <code>instr(X, Y)</code> returns the 1-based index of the first occurrence of string Y in string X, or 0 if Y does not exist in X. The substring function <code>substr(X, I, [L])</code> returns the substring of X starting at index I, with an optional length L. Use these two functions to produce a list of unique major site identifiers. (For this data, the list should contain only “DR” and “MSK”).</p>
 </div>
+</section>
         </div>
       </div>
+      </article>
       <div class="footer">
         <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
         <a class="label swc-blue-bg" href="https://github.com/swcarpentry/sql-novice-survey">Source</a>
@@ -232,6 +248,6 @@
     </div>
     <!-- Javascript placed at the end of the document so the pages load faster -->
     <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
-    <script src="http://software-carpentry.org/v5/js/bootstrap/bootstrap.min.js"></script>
+    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
   </body>
 </html>

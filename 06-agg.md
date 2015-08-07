@@ -22,7 +22,7 @@ SELECT dated FROM Visited;
 |----------|
 |1927-02-08|
 |1927-02-10|
-|1939-01-07|
+|1930-01-07|
 |1930-01-12|
 |1930-02-26|
 |-null-    |
@@ -51,7 +51,7 @@ SELECT max(dated) FROM Visited;
 
 |max(dated)|
 |----------|
-|1939-01-07|
+|1932-03-22|
 
 `min` and `max` are just two of
 the aggregation functions built into SQL.
@@ -60,7 +60,7 @@ Three others are `avg`,
 and `sum`:
 
 ~~~ {.sql}
-SELECT avg(reading) FROM Survey WHERE quant="sal";
+SELECT avg(reading) FROM Survey WHERE quant='sal';
 ~~~
 
 |avg(reading)    |
@@ -68,7 +68,7 @@ SELECT avg(reading) FROM Survey WHERE quant="sal";
 |7.20333333333333|
 
 ~~~ {.sql}
-SELECT count(reading) FROM Survey WHERE quant="sal";
+SELECT count(reading) FROM Survey WHERE quant='sal';
 ~~~
 
 |count(reading)|
@@ -76,7 +76,7 @@ SELECT count(reading) FROM Survey WHERE quant="sal";
 |9             |
 
 ~~~ {.sql}
-SELECT sum(reading) FROM Survey WHERE quant="sal";
+SELECT sum(reading) FROM Survey WHERE quant='sal';
 ~~~
 
 |sum(reading)|
@@ -96,7 +96,7 @@ for example,
 find the range of sensible salinity measurements:
 
 ~~~ {.sql}
-SELECT min(reading), max(reading) FROM Survey WHERE quant="sal" AND reading<=1.0;
+SELECT min(reading), max(reading) FROM Survey WHERE quant='sal' AND reading<=1.0;
 ~~~
 
 |min(reading)|max(reading)|
@@ -107,7 +107,7 @@ We can also combine aggregated results with raw results,
 although the output might surprise you:
 
 ~~~ {.sql}
-SELECT person, count(*) FROM Survey WHERE quant="sal" AND reading<=1.0;
+SELECT person, count(*) FROM Survey WHERE quant='sal' AND reading<=1.0;
 ~~~
 
 |person|count(\*)|
@@ -122,12 +122,12 @@ It might use the first one processed,
 the last one,
 or something else entirely.
 
-Another important fact is that when there are no values to aggregate,
+Another important fact is that when there are no values to aggregate --- for example, where there are no rows satisfying the `WHERE` clause ---
 aggregation's result is "don't know"
 rather than zero or some other arbitrary value:
 
 ~~~ {.sql}
-SELECT person, max(reading), sum(reading) FROM Survey WHERE quant="missing";
+SELECT person, max(reading), sum(reading) FROM Survey WHERE quant='missing';
 ~~~
 
 |person|max(reading)|sum(reading)|
@@ -176,7 +176,7 @@ We know that this doesn't work:
 ~~~ {.sql}
 SELECT person, count(reading), round(avg(reading), 2)
 FROM  Survey
-WHERE quant="rad";
+WHERE quant='rad';
 ~~~
 
 |person|count(reading)|round(avg(reading), 2)|
@@ -191,8 +191,8 @@ she could write five queries of the form:
 ~~~ {.sql}
 SELECT person, count(reading), round(avg(reading), 2)
 FROM  Survey
-WHERE quant="rad"
-AND   person="dyer";
+WHERE quant='rad'
+AND   person='dyer';
 ~~~
 
 person|count(reading)|round(avg(reading), 2)|
@@ -210,7 +210,7 @@ using a `GROUP BY` clause:
 ~~~ {.sql}
 SELECT   person, count(reading), round(avg(reading), 2)
 FROM     Survey
-WHERE    quant="rad"
+WHERE    quant='rad'
 GROUP BY person;
 ~~~
 
@@ -255,7 +255,7 @@ GROUP BY person, quant;
 |roe   |rad  |1             |11.25                 |
 |roe   |sal  |2             |32.05                 |
 
-Note that we have added `person` to the list of fields displayed,
+Note that we have added `quant` to the list of fields displayed,
 since the results wouldn't make much sense otherwise.
 
 Let's go one step further and remove all the entries
