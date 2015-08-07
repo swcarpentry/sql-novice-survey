@@ -19,7 +19,7 @@ We can select these records from the `Visited` table
 by using a `WHERE` clause in our query:
 
 ~~~ {.sql}
-SELECT * FROM Visited WHERE site="DR-1";
+SELECT * FROM Visited WHERE site='DR-1';
 ~~~
 
 |ident|site|dated     |
@@ -40,7 +40,7 @@ we can filter records using `WHERE`
 based on values in columns that aren't then displayed:
 
 ~~~ {.sql}
-SELECT ident FROM Visited WHERE site="DR-1";
+SELECT ident FROM Visited WHERE site='DR-1';
 ~~~
 
 |ident|
@@ -53,10 +53,10 @@ SELECT ident FROM Visited WHERE site="DR-1";
 
 We can use many other Boolean operators to filter our data.
 For example,
-we can ask for all information from the DR-1 site collected since 1930:
+we can ask for all information from the DR-1 site collected before 1930:
 
 ~~~ {.sql}
-SELECT * FROM Visited WHERE (site="DR-1") AND (dated<="1930-00-00");
+SELECT * FROM Visited WHERE site='DR-1' AND dated<'1930-01-01';
 ~~~
 
 |ident|site|dated     |
@@ -64,9 +64,8 @@ SELECT * FROM Visited WHERE (site="DR-1") AND (dated<="1930-00-00");
 |619  |DR-1|1927-02-08|
 |622  |DR-1|1927-02-10|
 
-(The parentheses around the individual tests aren't strictly required,
-but they help make the query easier to read.)
-
+> ## Date types {.callout}
+>
 > Most database managers have a special data type for dates.
 > In fact, many have two:
 > one for dates,
@@ -90,7 +89,7 @@ If we want to find out what measurements were taken by either Lake or Roerich,
 we can combine the tests on their names using `OR`:
 
 ~~~ {.sql}
-SELECT * FROM Survey WHERE person="lake" OR person="roe";
+SELECT * FROM Survey WHERE person='lake' OR person='roe';
 ~~~
 
 |taken|person|quant|reading|
@@ -110,7 +109,7 @@ Alternatively,
 we can use `IN` to see if a value is in a specific set:
 
 ~~~ {.sql}
-SELECT * FROM Survey WHERE person IN ("lake", "roe");
+SELECT * FROM Survey WHERE person IN ('lake', 'roe');
 ~~~
 
 |taken|person|quant|reading|
@@ -132,7 +131,7 @@ If we *don't* use parentheses,
 we get this:
 
 ~~~ {.sql}
-SELECT * FROM Survey WHERE quant="sal" AND person="lake" OR person="roe";
+SELECT * FROM Survey WHERE quant='sal' AND person='lake' OR person='roe';
 ~~~
 
 |taken|person|quant|reading|
@@ -150,7 +149,7 @@ and *any* measurement by Roerich.
 We probably want this instead:
 
 ~~~ {.sql}
-SELECT * FROM Survey WHERE quant="sal" AND (person="lake" OR person="roe");
+SELECT * FROM Survey WHERE quant='sal' AND (person='lake' OR person='roe');
 ~~~
 
 |taken|person|quant|reading|
@@ -170,14 +169,14 @@ matching any characters in that place.
 It can be used at the beginning, middle, or end of the string:
 
 ~~~ {.sql}
-SELECT * FROM Visited WHERE site LIKE "DR%";
+SELECT * FROM Visited WHERE site LIKE 'DR%';
 ~~~
 
 |ident|site |dated     | 
 |-----|-----|----------|
 |619  |DR-1 |1927-02-08|
 |622  |DR-1 |1927-02-10|
-|734  |DR-3 |1939-01-07|
+|734  |DR-3 |1930-01-07|
 |735  |DR-3 |1930-01-12|
 |751  |DR-3 |1930-02-26|
 |752  |DR-3 |          |
@@ -191,7 +190,7 @@ we can use `DISTINCT` with `WHERE`
 to give a second level of filtering:
 
 ~~~ {.sql}
-SELECT DISTINCT person, quant FROM Survey WHERE person="lake" OR person="roe";
+SELECT DISTINCT person, quant FROM Survey WHERE person='lake' OR person='roe';
 ~~~
 
 |person|quant|
@@ -230,7 +229,7 @@ not to the entire rows as they are being processed.
 > Suppose we want to select all sites that lie more than 30 degrees from the poles.
 > Our first query is:
 >
-> ~~~
+> ~~~ {.sql}
 > SELECT * FROM Site WHERE (lat > -60) OR (lat < 60);
 > ~~~
 >

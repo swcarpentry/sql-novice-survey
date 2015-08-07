@@ -1,9 +1,24 @@
 ---
 layout: page
-title: Lesson Title
+title: Databases and SQL
 subtitle: Instructor's Guide
 ---
-## Legend
+> ### database (dā'tə-bās') noun {.callout}
+> "A collection of data arranged for ease and speed of search and retrieval by a computer"
+> - The American Heritage® Science Dictionary
+
+*   Three common options for storing data
+*   Text
+    *   Easy to create, work well with version control
+    *   But then we have to build search and analysis tools ourselves
+*   Spreadsheets
+    *   Good for simple analyses
+    *   But don't handle large or complex data sets well
+*   Databases
+    *   Include powerful tools for search and analysis
+    *   Can handle large, complex data sets.
+
+## Overall
 
 Relational databases are not as widely used in science as in business,
 but they are still a common way to store large data sets with complex structure.
@@ -15,8 +30,6 @@ but data about when and where observations were made,
 data ranges,
 and so on could be in a database
 to make it easier for scientists to find what they want to.
-
-## Overall
 
 *   The first few sections (up to "Missing Data") usually go very quickly.
     The pace usually slows down a bit when null values are discussed
@@ -51,49 +64,44 @@ to make it easier for scientists to find what they want to.
     3.  NoSQL databases are as different from each other as they are from relational databases.
         Until a leader emerges, it isn't clear *which* NoSQL database we should teach.
 
+<!-- No specific notes to add.  Save these headers as place-holders for now
 ## [Selecting Data](01-select.html)
 
-*   FIXME
 
 ## [Sorting and Removing Duplicates](02-sort-dup.html)
 
-*   FIXME
 
 ## [Filtering](03-filter.html)
 
-*   FIXME
 
 ## [Calculating New Values](04-calc.html)
 
-*   FIXME
 
 ## [Missing Data](05-null.html)
 
-*   FIXME
 
 ## [Aggregation](06-agg.html)
 
-*   FIXME
 
 ## [Combining Data](07-join.html)
 
-*   FIXME
 
 ## [Data Hygiene](08-hygiene.html)
 
-*   FIXME
 
 ## [Creating and Modifying Data](09-create.html)
 
-*   FIXME
 
 ## [Programming with Databases](10-prog.html)
 
-*   FIXME
+
+-->
 
 ## Time Estimates
 
 *   @tomwright01: 3 hours
+*   @mckays630: 3 hrs (up to Aggregation, using only shell interface)
+*   @benwaugh: 3 hours (rather rushed, touching only briefly on aggregation in order to leave 30 minutes for combining data)
 
 ## Resources
 
@@ -195,7 +203,7 @@ and check that the necessary tables "Person", "Survey", "Site" and "Visited" exi
 
 ~~~ {.bash}
 sqlite> .tables
-Person   Site     Survey   Visited</code></pre>
+Person   Site     Survey   Visited
 ~~~
 
 To exit SQLite and return to the Bash shell,
@@ -205,3 +213,27 @@ use `.quit`:
 sqlite> .quit
 $
 ~~~
+
+Note: There also instructions targeted at participants in the general [discussion page](discussion.html)
+
+## Troubleshooting
+
+The command history and line editing features provided by `readline` are
+invaluable with a command-line tool like `sqlite3`. Participants should be
+encouraged strongly to start with a simple SQL statement and then use the
+up-arrow key to go back and add clauses one at a time, or fix problems, rather
+than typing each command from scratch. Unfortunately on some Linux and Mac OSX
+systems participants have found that the arrow keys do not scroll through the
+command history as expected.
+
+A workaround for this it to use the [rlwrap](https://github.com/hanslub42/rlwrap)
+(readline wrapper) command when starting SQLite:
+
+~~~ {.bash}
+$ rlwrap sqlite3 survey.db
+~~~
+
+Availability: the `rlwrap` package is available in the standard Fedora
+repository (but wasn't needed when I [@benwaugh] taught this) and appears
+to be available in [Ubuntu](http://packages.ubuntu.com/precise/rlwrap) too,
+and in [OSX using Homebrew](https://news.ycombinator.com/item?id=5087790).

@@ -16,7 +16,7 @@ we can do this calculation on the fly
 as part of our query:
 
 ~~~ {.sql}
-SELECT 1.05 * reading FROM Survey WHERE quant="rad";
+SELECT 1.05 * reading FROM Survey WHERE quant='rad';
 ~~~
 
 |1.05 * reading|
@@ -41,7 +41,7 @@ we can convert temperature readings from Fahrenheit to Celsius
 and round to two decimal places:
 
 ~~~ {.sql}
-SELECT taken, round(5*(reading-32)/9, 2) FROM Survey WHERE quant="temp";
+SELECT taken, round(5*(reading-32)/9, 2) FROM Survey WHERE quant='temp';
 ~~~
 
 |taken|round(5\*(reading-32)/9, 2)|
@@ -55,10 +55,10 @@ We can also combine values from different fields,
 for example by using the string concatenation operator `||`:
 
 ~~~ {.sql}
-SELECT personal || " " || family FROM Person;
+SELECT personal || ' ' || family FROM Person;
 ~~~
 
-|personal || " " || family|
+|personal || ' ' || family|
 |-------------------------|
 |William Dyer             |
 |Frank Pabodie            |
@@ -80,7 +80,7 @@ SELECT personal || " " || family FROM Person;
 > The `UNION` operator combines the results of two queries:
 >
 > ~~~ {.sql}
-> SELECT * FROM Person WHERE ident="dyer" UNION SELECT * FROM Person WHERE ident="roe";
+> SELECT * FROM Person WHERE ident='dyer' UNION SELECT * FROM Person WHERE ident='roe';
 > ~~~
 >
 > |ident|personal |family |
@@ -123,8 +123,8 @@ SELECT personal || " " || family FROM Person;
 > The "in string" function `instr(X, Y)`
 > returns the 1-based index of the first occurrence of string Y in string X,
 > or 0 if Y does not exist in X.
-> The substring function `substr(X, I)`
-> returns the substring of X starting at index I.
+> The substring function `substr(X, I, [L])`
+> returns the substring of X starting at index I, with an optional length L.
 > Use these two functions to produce a list of unique major site identifiers.
 > (For this data,
 > the list should contain only "DR" and "MSK").

@@ -11,7 +11,7 @@ minutes: 30
 > *   Write queries that handle missing information correctly.
 
 Real-world data is never complete --- there are always holes.
-Databases represent these holes using special value called `null`.
+Databases represent these holes using a special value called `null`.
 `null` is not zero, `False`, or the empty string;
 it is a one-of-a-kind value that means "nothing here".
 Dealing with `null` requires a few special tricks
@@ -31,7 +31,7 @@ SELECT * FROM Visited;
 |-----|----|----------|
 |619  |DR-1|1927-02-08|
 |622  |DR-1|1927-02-10|
-|734  |DR-3|1939-01-07|
+|734  |DR-3|1930-01-07|
 |735  |DR-3|1930-01-12|
 |751  |DR-3|1930-02-26|
 |752  |DR-3|-null-    |
@@ -42,7 +42,7 @@ Null doesn't behave like other values.
 If we select the records that come before 1930:
 
 ~~~ {.sql}
-SELECT * FROM Visited WHERE dated<"1930-00-00";
+SELECT * FROM Visited WHERE dated<'1930-01-01';
 ~~~
 
 |ident|site|dated     |
@@ -54,12 +54,12 @@ we get two results,
 and if we select the ones that come during or after 1930:
 
 ~~~ {.sql}
-SELECT * FROM Visited WHERE dated>="1930-00-00";
+SELECT * FROM Visited WHERE dated>='1930-01-01';
 ~~~
 
 |ident|site|dated     |
 |-----|----|----------|
-|734  |DR-3|1939-01-07|
+|734  |DR-3|1930-01-07|
 |735  |DR-3|1930-01-12|
 |751  |DR-3|1930-02-26|
 |837  |MSK-|1932-01-14|
@@ -68,15 +68,15 @@ SELECT * FROM Visited WHERE dated>="1930-00-00";
 we get five,
 but record #752 isn't in either set of results.
 The reason is that
-`null<'1930-00-00'`
+`null<'1930-01-01'`
 is neither true nor false:
 null means, "We don't know,"
 and if we don't know the value on the left side of a comparison,
 we don't know whether the comparison is true or false.
 Since databases represent "don't know" as null,
-the value of `null<'1930-00-00'`
+the value of `null<'1930-01-01'`
 is actually `null`.
-`null>='1930-00-00'` is also null
+`null>='1930-01-01'` is also null
 because we can't answer to that question either.
 And since the only records kept by a `WHERE`
 are those for which the test is true,
@@ -121,20 +121,20 @@ SELECT * FROM Visited WHERE dated IS NOT NULL;
 |-----|----|----------|
 |619  |DR-1|1927-02-08|
 |622  |DR-1|1927-02-10|
-|734  |DR-3|1939-01-07|
+|734  |DR-3|1930-01-07|
 |735  |DR-3|1930-01-12|
 |751  |DR-3|1930-02-26|
 |837  |MSK-|1932-01-14|
 |844  |DR-1|1932-03-22|
 
-Null values cause headaches wherever they appear.
+Null values can cause headaches wherever they appear.
 For example,
 suppose we want to find all the salinity measurements
 that weren't taken by Lake.
 It's natural to write the query like this:
 
 ~~~ {.sql}
-SELECT * FROM Survey WHERE quant="sal" AND person!="lake";
+SELECT * FROM Survey WHERE quant='sal' AND person!='lake';
 ~~~
 
 |taken|person|quant|reading|
@@ -154,7 +154,7 @@ If we want to keep these records
 we need to add an explicit check:
 
 ~~~ {.sql}
-SELECT * FROM Survey WHERE quant="sal" AND (person!="lake" OR person IS NULL);
+SELECT * FROM Survey WHERE quant='sal' AND (person!='lake' OR person IS NULL);
 ~~~
 
 |taken|person|quant|reading|
@@ -170,6 +170,8 @@ If we want to be absolutely sure that
 we aren't including any measurements by Lake in our results,
 we need to exclude all the records for which we don't know who did the work.
 
+In contrast to arithmetic or Boolean operators, aggregation functions that combine multiple values, such as `min`, `max` or `avg`, *ignore* `null` values. In the majority of cases, this is a desirable output: for example, unknown values are thus not affecting our data when we are averaging it. Aggregation functions will be addressed in more detail in [the next section](06-agg.html).
+
 > ## Sorting by Known Date {.challenge}
 >
 > Write a query that sorts the records in `Visited` by date,
@@ -180,7 +182,7 @@ we need to exclude all the records for which we don't know who did the work.
 >
 > What do you expect the query:
 >
-> ~~~
+> ~~~ {.sql}
 > SELECT * FROM Visited WHERE dated IN ('1927-02-08', NULL);
 > ~~~
 >

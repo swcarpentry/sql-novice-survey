@@ -11,9 +11,9 @@ minutes: 30
 > *   Write a query to select all values for specific fields from a single table.
 
 A [relational database](reference.html#relational-database)
-is a way to store and manipulate information
-that is arranged as [tables](reference.html#table).
-Each table has columns (also known as [fields](reference.html#field)) which describe the data,
+is a way to store and manipulate information. 
+Databases are arranged as [tables](reference.html#table).
+Each table has columns (also known as [fields](reference.html#field)) that describe the data,
 and rows (also known as [records](reference.html#record)) which contain the data.
 
 When we are using a spreadsheet,
@@ -27,18 +27,20 @@ The database manager does whatever lookups and calculations the query specifies,
 returning the results in a tabular form
 that we can then use as a starting point for further queries.
 
+> ## Changing database managers {.callout}
+>
 > Every database manager --- Oracle,
 > IBM DB2, PostgreSQL, MySQL, Microsoft Access, and SQLite --- stores
 > data in a different way,
 > so a database created with one cannot be used directly by another.
 > However,
-> every database manager can import and export data in a variety of formats,
+> every database manager can import and export data in a variety of formats, like .csv,
 > so it *is* possible to move information from one to another.
 
 Queries are written in a language called [SQL](reference.html#sql),
 which stands for "Structured Query Language".
-SQL provides hundreds of different ways to analyze and recombine data;
-we will only look at a handful,
+SQL provides hundreds of different ways to analyze and recombine data.
+We will only look at a handful of queries,
 but that handful accounts for most of what scientists do.
 
 The tables below show the database we will use in our examples:
@@ -67,7 +69,7 @@ The tables below show the database we will use in our examples:
 > |-----|-----|----------|
 > |619  |DR-1 |1927-02-08|
 > |622  |DR-1 |1927-02-10|
-> |734  |DR-3 |1939-01-07|
+> |734  |DR-3 |1930-01-07|
 > |735  |DR-3 |1930-01-12|
 > |751  |DR-3 |1930-02-26|
 > |752  |DR-3 |-null-    |
@@ -106,7 +108,7 @@ data, but instead have a special `-null-` entry:
 we'll return to these missing values [later](05-null.html).
 For now,
 let's write an SQL query that displays scientists' names.
-We do this using the SQL command `select`,
+We do this using the SQL command `SELECT`,
 giving it the names of the columns we want and the table we want them from.
 Our query and its output look like this:
 
@@ -122,7 +124,7 @@ SELECT family, personal FROM Person;
 |Roerich |Valentina|
 |Danforth|Frank    |
 
-The semi-colon at the end of the query
+The semicolon at the end of the query
 tells the database manager that the query is complete and ready to run.
 We have written our commands and column names in lower case,
 and the table name in Title Case,
@@ -142,6 +144,7 @@ SeLeCt FaMiLy, PeRsOnAl FrOm PeRsOn;
 |Roerich |Valentina|
 |Danforth|Frank    |
 
+You can use SQL's case insensitivity to your advantage. For instance, some people choose to write SQL keywords (such as `SELECT` and `FROM`) in capital letters and **field** and **table** names in lower case. This can make it easier to locate parts of an SQL statement. For instance, you can scan the statement, quickly locate the prominent `FROM` keyword and know the table name follows.
 Whatever casing convention you choose,
 please be consistent:
 complex queries are hard enough to read without the extra cognitive load of random capitalization.
