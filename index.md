@@ -36,8 +36,85 @@ These lessons will show how to use a database to explore the expeditions' data.
 > If a GUI such as the Firefox SQLite plugin is being used,
 > learners will need to know how to install browser plugins
 > (and have permission to do so).
+
+
+> ## Getting ready {.getready}
 >
-> Check [Discussion](discussion.html) for database setup instructions
+> ####Step 1: Install SQLite
+> You will need a working SQLite installation, as well as a set of sample files
+> in order to follow this lesson. 
+>
+> If you are using Windows
+> you will need a working shell. In our workshops, we recommend [Git Bash](https://msysgit.github.io/).
+> After you've installed Git Bash, running the
+> [Software Carpentry Installer](https://github.com/swcarpentry/windows-installer)
+> will provide you with a working SQLite installation.
+> Alternatively, if you already have a working shell, you can 
+> download and install the [SQLite program](http://www.sqlite.org/download.html)
+> on its own.
+> SQLite comes pre-installed on Mac and Linux, so there is nothing to be done
+> in this step if you use either of these operating systems.
+>
+> ####Step 2: Download the sample files
+> 1. Make a new folder in your Desktop called `sql-novice-survey`.
+> 2. Download [survey.db](http://files.software-carpentry.org/survey.db) and move the file to this folder.
+> 3. You can access this folder from the Unix shell with:
+>
+> ~~~ {.input}
+> $ cd && cd Desktop/sql-novice-survey
+> ~~~
+>
+> ####Step 3: Start SQLite
+> 1. Make sure you are in the folder where you downloaded the survey.db file
+>    (see step 2 above):
+>
+> 	  ~~~ {.input}
+>     $ ls
+>     ~~~
+>
+>     should produce the following result:
+>
+>     ~~~ {.output}
+>     sqlite.db
+>     ~~~
+> 2. Start SQLite with
+>
+> 	  ~~~ {.input}
+>     $ sqlite3 survey.db
+>     ~~~
+>
+>     You should get something like
+>
+>     ~~~ {.output}
+>     SQLite version 3.8.8 2015-01-16 12:08:06
+>     Enter ".help" for usage hints.
+>     sqlite>
+>     ~~~
+>
+> 3. Check that the database was properly loaded:
+>
+>     ~~~ {.input}
+>     sqlite> .tables
+>     ~~~
+>
+>     should produce
+>
+>     ~~~ {.output}
+>     Person   Site     Survey   Visited
+>     ~~~
+>
+>     If you don't see a list of tables, exit SQLite by typing `.quit` and make sure you are
+>     in the folder where you've downloaded the sample database (step 2).
+>
+> 4. Configure SQLite for easier readabilty:
+>
+>     ~~~ {.input}
+>     sqlite> .mode column
+>     sqlite> .headers on
+>     ~~~
+>
+> More detailed setup instructions are available in the [Discussion](discussion.html) section.
+
 
 ## Topics
 

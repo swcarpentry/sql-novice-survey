@@ -111,7 +111,7 @@ but what happens if someone gives us this string as input?
 dyer'; DROP TABLE Survey; SELECT '
 ~~~
 
-It looks like there's garbage after the name of the project,
+It looks like there's garbage after the user's ID,
 but it is very carefully chosen garbage.
 If we insert this string into our query,
 the result is:
