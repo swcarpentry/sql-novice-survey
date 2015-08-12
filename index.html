@@ -31,11 +31,49 @@
 <p>Three common options for storage are text files, spreadsheets, and databases. Text files are easiest to create, and work well with version control, but then we would have to build search and analysis tools ourselves. Spreadsheets are good for doing simple analyses, but they don’t handle large or complex data sets well. Databases, however, include powerful tools for search and analysis, and can handle large, complex data sets. These lessons will show how to use a database to explore the expeditions’ data.</p>
 <section class="prereq panel panel-warning">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-education"></span>Prerequisites</h2>
+<h2 id="prerequisites"><span class="glyphicon glyphicon-education"></span>Prerequisites</h2>
 </div>
 <div class="panel-body">
 <p>If SQLite is being used from the shell, learners will need to be able to navigate directories and run simple commands from the command line. If a GUI such as the Firefox SQLite plugin is being used, learners will need to know how to install browser plugins (and have permission to do so).</p>
-<p>Check <a href="discussion.html">Discussion</a> for database setup instructions</p>
+</div>
+</section>
+<section class="getready panel panel-warning">
+<div class="panel-heading">
+<h2 id="getting-ready"><span class="glyphicon glyphicon-check"></span>Getting ready</h2>
+</div>
+<div class="panel-body">
+<h4 id="step-1-install-sqlite">Step 1: Install SQLite</h4>
+<p>You will need a working SQLite installation, as well as a set of sample files in order to follow this lesson.</p>
+<p>If you are using Windows you will need a working shell. In our workshops, we recommend <a href="https://msysgit.github.io/">Git Bash</a>. After you’ve installed Git Bash, running the <a href="https://github.com/swcarpentry/windows-installer">Software Carpentry Installer</a> will provide you with a working SQLite installation. Alternatively, if you already have a working shell, you can download and install the <a href="http://www.sqlite.org/download.html">SQLite program</a> on its own. SQLite comes pre-installed on Mac and Linux, so there is nothing to be done in this step if you use either of these operating systems.</p>
+<h4 id="step-2-download-the-sample-files">Step 2: Download the sample files</h4>
+<ol style="list-style-type: decimal">
+<li>Make a new folder in your Desktop called <code>sql-novice-survey</code>.</li>
+<li>Download <a href="http://files.software-carpentry.org/survey.db">survey.db</a> and move the file to this folder.</li>
+<li>You can access this folder from the Unix shell with:</li>
+</ol>
+<pre class="input"><code>$ cd &amp;&amp; cd Desktop/sql-novice-survey</code></pre>
+<h4 id="step-3-start-sqlite">Step 3: Start SQLite</h4>
+<ol style="list-style-type: decimal">
+<li><p>Make sure you are in the folder where you downloaded the survey.db file (see step 2 above):</p>
+<pre class="input"><code>$ ls</code></pre>
+<p>should produce the following result:</p>
+<pre class="output"><code>sqlite.db</code></pre></li>
+<li><p>Start SQLite with</p>
+<pre class="input"><code>$ sqlite3 survey.db</code></pre>
+<p>You should get something like</p>
+<pre class="output"><code>SQLite version 3.8.8 2015-01-16 12:08:06
+Enter &quot;.help&quot; for usage hints.
+sqlite&gt;</code></pre></li>
+<li><p>Check that the database was properly loaded:</p>
+<pre class="input"><code>sqlite&gt; .tables</code></pre>
+<p>should produce</p>
+<pre class="output"><code>Person   Site     Survey   Visited</code></pre>
+<p>If you don’t see a list of tables, exit SQLite by typing <code>.quit</code> and make sure you are in the folder where you’ve downloaded the sample database (step 2).</p></li>
+<li><p>Configure SQLite for easier readabilty:</p>
+<pre class="input"><code>sqlite&gt; .mode column
+sqlite&gt; .headers on</code></pre></li>
+</ol>
+<p>More detailed setup instructions are available in the <a href="discussion.html">Discussion</a> section.</p>
 </div>
 </section>
 <h2 id="topics">Topics</h2>
