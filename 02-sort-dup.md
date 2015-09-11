@@ -22,7 +22,7 @@ we can examine the `Survey` table.
 Data is often redundant,
 so queries often return redundant information.
 For example,
-if we select the quantitites that have been measured
+if we select the quantities that have been measured
 from the `Survey` table,
 we get this:
 
