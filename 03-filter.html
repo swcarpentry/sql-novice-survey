@@ -67,7 +67,7 @@
 </tr>
 </tbody>
 </table>
-<p>The database manager executes this query in two stages. First, it checks at each row in the <code>Visited</code> table to see which ones satisfy the <code>WHERE</code>. It then uses the column names following the <code>SELECT</code> keyword to determine what columns to display.</p>
+<p>The database manager executes this query in two stages. First, it checks at each row in the <code>Visited</code> table to see which ones satisfy the <code>WHERE</code>. It then uses the column names following the <code>SELECT</code> keyword to determine which columns to display.</p>
 <p>This processing order means that we can filter records using <code>WHERE</code> based on values in columns that aren’t then displayed:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> ident <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> site=<span class="st">&#39;DR-1&#39;</span>;</code></pre>
 <table>
