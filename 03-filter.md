@@ -33,7 +33,7 @@ First,
 it checks at each row in the `Visited` table
 to see which ones satisfy the `WHERE`.
 It then uses the column names following the `SELECT` keyword
-to determine what columns to display.
+to determine which columns to display.
 
 This processing order means that
 we can filter records using `WHERE`
@@ -172,7 +172,7 @@ It can be used at the beginning, middle, or end of the string:
 SELECT * FROM Visited WHERE site LIKE 'DR%';
 ~~~
 
-|ident|site |dated     | 
+|ident|site |dated     |
 |-----|-----|----------|
 |619  |DR-1 |1927-02-08|
 |622  |DR-1 |1927-02-10|
