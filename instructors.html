@@ -107,60 +107,16 @@
 </ul>
 <h2 id="resources">Resources</h2>
 <ul>
-<li><code>code/gen-survey-database.sql</code>: re-generate survey database used in examples.</li>
-<li><code>code/sqlitemagic.py</code>: IPython Notebook plugin to handle SQLite databases.</li>
 <li><code>data/*.csv</code>: CSV versions of data in sample survey database.</li>
+<li><code>tools/create-db.sql</code>: generate survey database used in examples based on CSV.</li>
+<li><code>tools/sqlitemagic.py</code>: IPython Notebook plugin to handle SQLite databases.</li>
 </ul>
 <h2 id="sqlite-setup">SQLite Setup</h2>
-<p>In order to execute the following lessons interactively, please install SQLite as mentioned in the setup instructions for your workshop, then create a directory <code>swc_sql</code>:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">mkdir</span> swc_sql
-$ <span class="kw">cd</span> swc_sql</code></pre>
-<p>Next, download the SQL file <code>survey.sql</code> from <a href="http://files.software-carpentry.org/survey.sql" class="uri">http://files.software-carpentry.org/survey.sql</a> and the database file <code>survey.db</code> from <a href="http://files.software-carpentry.org/survey.db" class="uri">http://files.software-carpentry.org/survey.db</a> and move both files to your <code>swc_sql</code> directory. When you are done, <code>ls</code> should show that they are present:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ls</span>
-<span class="kw">survey.db</span>    survey.sql</code></pre>
-<p>To test that your version of SQLite can read the database, run this command:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">sqlite3</span> survey.db .schema</code></pre>
-<p>(You <em>must</em> include the period at the start of <code>.schema</code>.) The output should look like this:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">CREATE</span> TABLE Person(
-       <span class="kw">ident</span>    text,
-       <span class="kw">personal</span> text,
-       <span class="kw">family</span>    text
-);
-<span class="kw">CREATE</span> TABLE Site(
-       <span class="kw">name</span> text,
-       <span class="kw">lat</span>  real,
-       <span class="kw">long</span> real
-);
-<span class="kw">CREATE</span> TABLE Visited(
-       <span class="kw">ident</span> integer,
-       <span class="kw">site</span>  text,
-       <span class="kw">dated</span> text
-);
-<span class="kw">CREATE</span> TABLE Survey(
-       <span class="kw">taken</span>   integer,
-       <span class="kw">person</span>  text,
-       <span class="kw">quant</span>   text,
-       <span class="kw">reading</span> real
-);</code></pre>
-<p>If there is no output, the most likely cause is that the database <code>survey.db</code> isn’t in the directory where you’re running the command. In this case, SQLite creates a new, empty database for you (just as a text editor creates a new, empty document if you ask it to open a file that doesn’t exist yet).</p>
-<p>To run commands interactively, run SQLite on <code>survey.db</code> <em>without</em> the <code>.schema</code> command:</p>
-<pre><code>$ sqlite3 survey.db
-SQLite version 3.8.5 2014-08-15 22:37:57
-Enter &quot;.help&quot; for usage hints.
-sqlite&gt;</code></pre>
-<p>As shown above, this should give you a prompt that looks like <code>sqlite&gt;</code>. You can now start typing commands, or, as the startup line suggests, type <code>.help</code> (again, with a period at the start) to get help.</p>
-<p>Finally, you can check the names and files of attached databases with the command <code>.databases</code>:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sqlite&gt;</span> .databases
-<span class="kw">seq</span>  name             file
-<span class="kw">---</span>  ---------------  ----------------------------------------------------------
-<span class="kw">0</span>    main             /Users/alan_turing/swc_sql/survey.db</code></pre>
-<p>and check that the necessary tables “Person”, “Survey”, “Site” and “Visited” exist by typing:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sqlite&gt;</span> .tables
-<span class="kw">Person</span>   Site     Survey   Visited</code></pre>
-<p>To exit SQLite and return to the Bash shell, use <code>.quit</code>:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sqlite&gt;</span> .quit
-$</code></pre>
-<p>Note: There also instructions targeted at participants in the general <a href="discussion.html">discussion page</a></p>
+<p>In order to execute the following lessons interactively, please install SQLite as mentioned in the setup instructions for your workshop. Then</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> clone http://github.com/swcarpentry/sql-novice-survey.git
+$ <span class="kw">cd</span> sql-novice-survey</code></pre>
+<p>Next, create the database that will be used.</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">sqlite3</span> survey.db .read tools/create-db.sql</code></pre>
 <h2 id="troubleshooting">Troubleshooting</h2>
 <p>The command history and line editing features provided by <code>readline</code> are invaluable with a command-line tool like <code>sqlite3</code>. Participants should be encouraged strongly to start with a simple SQL statement and then use the up-arrow key to go back and add clauses one at a time, or fix problems, rather than typing each command from scratch. Unfortunately on some Linux and Mac OSX systems participants have found that the arrow keys do not scroll through the command history as expected.</p>
 <p>A workaround for this it to use the <a href="https://github.com/hanslub42/rlwrap">rlwrap</a> (readline wrapper) command when starting SQLite:</p>

@@ -315,7 +315,33 @@
 </tbody>
 </table>
 </blockquote>
-<p>Notice that three entries — one in the <code>Visited</code> table, and two in the <code>Survey</code> table — don’t contain any actual data, but instead have a special <code>-null-</code> entry: we’ll return to these missing values <a href="05-null.html">later</a>. For now, let’s write an SQL query that displays scientists’ names. We do this using the SQL command <code>SELECT</code>, giving it the names of the columns we want and the table we want them from. Our query and its output look like this:</p>
+<p>Notice that three entries — one in the <code>Visited</code> table, and two in the <code>Survey</code> table — don’t contain any actual data, but instead have a special <code>-null-</code> entry: we’ll return to these missing values <a href="05-null.html">later</a>.</p>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pushpin"></span>Checking if data is available</h2>
+</div>
+<div class="panel-body">
+<p>On the shell command line, change the working directory to the one where you saved <code>survey.db</code>. If you saved it at your Desktop you should use</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span> Desktop
+$ <span class="kw">ls</span> <span class="kw">|</span> <span class="kw">grep</span> survey.db</code></pre>
+<pre class="output"><code>survey.db</code></pre>
+<p>If you get the same output, you can run</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">sqlite3</span> survey.db</code></pre>
+<pre class="output"><code>SQLite version 3.8.8 2015-01-16 12:08:06
+Enter &quot;.help&quot; for usage hints.
+sqlite&gt;</code></pre>
+<p>that instructs SQLite to load the database in the <code>survey.db</code> file.</p>
+<p>For a list of useful system commands, enter <code>.help</code>.</p>
+<p>All SQLite-specific commands are prefixed with a <code>.</code> to distinguish them from SQL commands. Type <code>.tables</code> to list the tables in the database.</p>
+<pre class="sqlite"><code>.tables</code></pre>
+<pre class="output"><code>Person   Site     Survey   Visited</code></pre>
+<p>You can change some SQLite settings to make the output easier to read. First, set the output mode to display left-aligned columns. Then turn on the display of column headers.</p>
+<pre class="sqlite"><code>.mode column
+.header on</code></pre>
+<p>To exit SQLite and return to the shell command line, you can use either <code>.quit</code> or <code>.exit</code>.</p>
+</div>
+</aside>
+<p>For now, let’s write an SQL query that displays scientists’ names. We do this using the SQL command <code>SELECT</code>, giving it the names of the columns we want and the table we want them from. Our query and its output look like this:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> family, personal <span class="kw">FROM</span> Person;</code></pre>
 <table>
 <thead>
