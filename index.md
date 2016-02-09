@@ -39,6 +39,19 @@ These lessons will show how to use a database to explore the expeditions' data.
 >
 > Check [Discussion](discussion.html) for database setup instructions
 
+> ## Getting ready {.getready}
+>
+> You need to download some files to follow this lesson:
+>
+> 1. Make a new folder in your Desktop called `sql-novice-survey`.
+> 2. Download [sql-novice-survey-data.zip](./sql-novice-survey-data.zip) and move the file to this folder.
+> 3. If it's not unzipped yet, double-click on it to unzip it. You should end up with a new folder called `data`.
+> 4. You can access this folder from the Unix shell with:
+>
+> ~~~ {.input}
+> $ cd && cd Desktop/sql-novice-survey/data
+> ~~~
+
 ## Topics
 
 1.  [Selecting Data](01-select.html)
