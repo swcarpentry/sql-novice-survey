@@ -30,14 +30,8 @@ These lessons will show how to use a database to explore the expeditions' data.
 
 > ## Prerequisites {.prereq}
 >
-> If SQLite is being used from the shell,
-> learners will need to be able to navigate directories
-> and run simple commands from the command line.
-> If a GUI such as the Firefox SQLite plugin is being used,
-> learners will need to know how to install browser plugins
-> (and have permission to do so).
->
-> Check [Discussion](discussion.html) for database setup instructions
+> -    UNIX shell plus SQLite3 or Firefox SQLite plugin.
+> -    [survey.db](http://files.software-carpentry.org/survey.db)
 
 > ## Getting ready {.getready}
 >
