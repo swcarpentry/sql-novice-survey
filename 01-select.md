@@ -43,6 +43,24 @@ SQL provides hundreds of different ways to analyze and recombine data.
 We will only look at a handful of queries,
 but that handful accounts for most of what scientists do.
 
+> ## Getting into and out of SQLite {.callout}
+>
+> In order to use the SQLite commands *interactively*, we need to
+> enter into the SQLite console.  So, open up a terminal, and run
+> 
+>     $ cd /path/to/survey/data/
+>     $ sqlite3 survey.db
+> 
+> The SQLite command is `sqlite3` and you are telling SQLite to open up
+> the `survey.db`.  You need to specify the `.db` file otherwise, SQLite
+> will open up a temporary, empty database.
+> 
+> To get out of SQLite, type out `.exit` or `.quit`.  For some
+> terminals, `Ctrl-D` can also work.  If you forget any SQLite `.` (dot)
+> command, type `.help`.
+
+Before we get into the data and using SQLite to select the data, 
+
 The tables below show the database we will use in our examples:
 
 > **Person**: people who took readings.
@@ -205,7 +223,22 @@ complex queries are hard enough to read without the extra cognitive load of rand
 One convention is to use UPPER CASE for SQL statements, to distinguish them from tables and column
 names. This is the convention that we will use for this lesson.
 
-Going back to our query,
+While we are on the topic of SQL's syntax, one aspect of SQL's syntax
+that can frustrate novices and experts alike is forgetting to finish a
+command with `;` (semicolon).  When you press enter for a command
+without adding the `;` to the end, it can look something like this:
+
+~~~ {.sql}
+SELECT * FROM Person
+...>
+...>
+~~~
+
+This is SQL's prompt, where it is waiting for additional commands or
+for a `;` to let SQL know to finish.  This is easy to fix!  Just type
+`;` and press enter!
+
+Now, going back to our query,
 it's important to understand that
 the rows and columns in a database table aren't actually stored in any particular order.
 They will always be *displayed* in some order,
