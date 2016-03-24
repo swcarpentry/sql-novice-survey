@@ -40,39 +40,7 @@
 </section>
 <p>After carefully re-reading the expedition logs, we realize that the radiation measurements they report may need to be corrected upward by 5%. Rather than modifying the stored data, we can do this calculation on the fly as part of our query:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> <span class="fl">1.05</span> * reading <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant=<span class="st">&#39;rad&#39;</span>;</code></pre>
-<table>
-<thead>
-<tr class="header">
-<th align="left">1.05 * reading</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">10.311</td>
-</tr>
-<tr class="even">
-<td align="left">8.19</td>
-</tr>
-<tr class="odd">
-<td align="left">8.8305</td>
-</tr>
-<tr class="even">
-<td align="left">7.581</td>
-</tr>
-<tr class="odd">
-<td align="left">4.5675</td>
-</tr>
-<tr class="even">
-<td align="left">2.2995</td>
-</tr>
-<tr class="odd">
-<td align="left">1.533</td>
-</tr>
-<tr class="even">
-<td align="left">11.8125</td>
-</tr>
-</tbody>
-</table>
+<p>|1.05 * reading| |————–| |10.311 | |8.19 | |8.8305 | |7.581 | |4.5675 | |2.2995 | |1.533 | |11.8125 |</p>
 <p>When we run the query, the expression <code>1.05 * reading</code> is evaluated for each row. Expressions can use any of the fields, all of usual arithmetic operators, and a variety of common functions. (Exactly which ones depends on which database manager is being used.) For example, we can convert temperature readings from Fahrenheit to Celsius and round to two decimal places:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> taken, <span class="fu">round</span>(<span class="dv">5</span>*(reading<span class="dv">-32</span>)/<span class="dv">9</span>, <span class="dv">2</span>) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant=<span class="st">&#39;temp&#39;</span>;</code></pre>
 <table>
@@ -103,30 +71,7 @@
 </table>
 <p>We can also combine values from different fields, for example by using the string concatenation operator <code>||</code>:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> personal || <span class="st">&#39; &#39;</span> || family <span class="kw">FROM</span> Person;</code></pre>
-<table>
-<thead>
-<tr class="header">
-<th align="left">personal</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">William Dyer</td>
-</tr>
-<tr class="even">
-<td align="left">Frank Pabodie</td>
-</tr>
-<tr class="odd">
-<td align="left">Anderson Lake</td>
-</tr>
-<tr class="even">
-<td align="left">Valentina Roerich</td>
-</tr>
-<tr class="odd">
-<td align="left">Frank Danforth</td>
-</tr>
-</tbody>
-</table>
+<p>|personal || ‘’ || family| |————————-| |William Dyer | |Frank Pabodie | |Anderson Lake | |Valentina Roerich | |Frank Danforth |</p>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
 <h2><span class="glyphicon glyphicon-pencil"></span>Fixing Salinity Readings</h2>
@@ -215,24 +160,7 @@
 <div class="panel-body">
 <p>The site identifiers in the <code>Visited</code> table have two parts separated by a ‘-’:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> site <span class="kw">FROM</span> Visited;</code></pre>
-<table>
-<thead>
-<tr class="header">
-<th align="left">site</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">DR-1</td>
-</tr>
-<tr class="even">
-<td align="left">DR-3</td>
-</tr>
-<tr class="odd">
-<td align="left">MSK-4</td>
-</tr>
-</tbody>
-</table>
+<p>|site | |—–| |DR-1 | |DR-3 | |MSK-4|</p>
 <p>Some major site identifiers are two letters long and some are three. The “in string” function <code>instr(X, Y)</code> returns the 1-based index of the first occurrence of string Y in string X, or 0 if Y does not exist in X. The substring function <code>substr(X, I, [L])</code> returns the substring of X starting at index I, with an optional length L. Use these two functions to produce a list of unique major site identifiers. (For this data, the list should contain only “DR” and “MSK”).</p>
 </div>
 </section>
