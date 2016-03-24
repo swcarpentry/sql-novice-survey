@@ -18,16 +18,16 @@ We know how to select all of the dates from the `Visited` table:
 SELECT dated FROM Visited;
 ~~~
 
-|dated     |
-|----------|
-|1927-02-08|
-|1927-02-10|
-|1930-01-07|
-|1930-01-12|
-|1930-02-26|
-|-null-    |
-|1932-01-14|
-|1932-03-22|
+  dated
+  ----------
+  1927-02-08
+  1927-02-10
+  1930-01-07
+  1930-01-12
+  1930-02-26
+  -null-
+  1932-01-14
+  1932-03-22
 
 but to combine them,
 we must use an [aggregation function](reference.html#aggregation-function)
@@ -39,9 +39,9 @@ and produces a single record as output:
 SELECT min(dated) FROM Visited;
 ~~~
 
-|min(dated)|
-|----------|
-|1927-02-08|
+  min(dated)
+  ----------
+  1927-02-08
 
 <img src="fig/sql-aggregation.svg" alt="SQL Aggregation" />
 
@@ -49,9 +49,9 @@ SELECT min(dated) FROM Visited;
 SELECT max(dated) FROM Visited;
 ~~~
 
-|max(dated)|
-|----------|
-|1932-03-22|
+  max(dated)
+  ----------
+  1932-03-22
 
 `min` and `max` are just two of
 the aggregation functions built into SQL.
@@ -63,25 +63,25 @@ and `sum`:
 SELECT avg(reading) FROM Survey WHERE quant='sal';
 ~~~
 
-|avg(reading)    |
-|----------------|
-|7.20333333333333|
+  avg(reading)
+  ----------------
+  7.20333333333333
 
 ~~~ {.sql}
 SELECT count(reading) FROM Survey WHERE quant='sal';
 ~~~
 
-|count(reading)|
-|--------------|
-|9             |
+  count(reading)
+  --------------
+  9
 
 ~~~ {.sql}
 SELECT sum(reading) FROM Survey WHERE quant='sal';
 ~~~
 
-|sum(reading)|
-|------------|
-|64.83       |
+  sum(reading)
+  ------------
+  64.83
 
 We used `count(reading)` here,
 but we could just as easily have counted `quant`
@@ -153,9 +153,9 @@ This behavior lets us write our queries as:
 SELECT min(dated) FROM Visited;
 ~~~
 
-|min(dated)|
-|----------|
-|1927-02-08|
+  min(dated)
+  ----------
+  1927-02-08
 
 instead of always having to filter explicitly:
 
@@ -163,9 +163,9 @@ instead of always having to filter explicitly:
 SELECT min(dated) FROM Visited WHERE dated IS NOT NULL;
 ~~~
 
-|min(dated)|
-|----------|
-|1927-02-08|
+  min(dated)
+  ----------
+  1927-02-08
 
 Aggregating all records at once doesn't always make sense.
 For example,
