@@ -43,11 +43,11 @@ based on values in columns that aren't then displayed:
 SELECT ident FROM Visited WHERE site='DR-1';
 ~~~
 
-|ident|
-|-----|
-|619  |
-|622  |
-|844  |
+  ident
+  -----
+  619
+  622
+  844
 
 <img src="fig/sql-filter.svg" alt="SQL Filtering in Action" />
 
