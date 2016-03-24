@@ -3,7 +3,10 @@ layout: page
 title: Databases and SQL
 subtitle: Instructor's Guide
 ---
-> ### database (dā'tə-bās') noun {.callout}
+## Overall
+
+database (dā'tə-bās') noun:
+
 > "A collection of data arranged for ease and speed of search and retrieval by a computer"
 > - The American Heritage® Science Dictionary
 
@@ -17,8 +20,6 @@ subtitle: Instructor's Guide
 *   Databases
     *   Include powerful tools for search and analysis
     *   Can handle large, complex data sets.
-
-## Overall
 
 Relational databases are not as widely used in science as in business,
 but they are still a common way to store large data sets with complex structure.

@@ -19,16 +19,16 @@ as part of our query:
 SELECT 1.05 * reading FROM Survey WHERE quant='rad';
 ~~~
 
-|1.05 * reading|
-|--------------|
-|10.311        |
-|8.19          |
-|8.8305        |
-|7.581         |
-|4.5675        |
-|2.2995        |
-|1.533         |
-|11.8125       |
+  1.05 * reading
+  --------------
+  10.311
+  8.19
+  8.8305
+  7.581
+  4.5675
+  2.2995
+  1.533
+  11.8125
 
 When we run the query,
 the expression `1.05 * reading` is evaluated for each row.
@@ -58,13 +58,13 @@ for example by using the string concatenation operator `||`:
 SELECT personal || ' ' || family FROM Person;
 ~~~
 
-|personal || ' ' || family|
-|-------------------------|
-|William Dyer             |
-|Frank Pabodie            |
-|Anderson Lake            |
-|Valentina Roerich        |
-|Frank Danforth           |
+  personal || ' ' || family
+  -------------------------
+  William Dyer
+  Frank Pabodie
+  Anderson Lake
+  Valentina Roerich
+  Frank Danforth
 
 > ## Fixing Salinity Readings {.challenge}
 >
@@ -113,11 +113,11 @@ SELECT personal || ' ' || family FROM Person;
 > SELECT DISTINCT site FROM Visited;
 > ~~~
 >
-> |site |
-> |-----|
-> |DR-1 |
-> |DR-3 |
-> |MSK-4|
+>   site
+>   -----
+>   DR-1
+>   DR-3
+>   MSK-4
 >
 > Some major site identifiers are two letters long and some are three.
 > The "in string" function `instr(X, Y)`

@@ -18,16 +18,16 @@ We know how to select all of the dates from the `Visited` table:
 SELECT dated FROM Visited;
 ~~~
 
-|dated     |
-|----------|
-|1927-02-08|
-|1927-02-10|
-|1930-01-07|
-|1930-01-12|
-|1930-02-26|
-|-null-    |
-|1932-01-14|
-|1932-03-22|
+  dated
+  ----------
+  1927-02-08
+  1927-02-10
+  1930-01-07
+  1930-01-12
+  1930-02-26
+  -null-
+  1932-01-14
+  1932-03-22
 
 but to combine them,
 we must use an [aggregation function](reference.html#aggregation-function)
@@ -39,9 +39,9 @@ and produces a single record as output:
 SELECT min(dated) FROM Visited;
 ~~~
 
-|min(dated)|
-|----------|
-|1927-02-08|
+  min(dated)
+  ----------
+  1927-02-08
 
 <img src="fig/sql-aggregation.svg" alt="SQL Aggregation" />
 
@@ -49,9 +49,9 @@ SELECT min(dated) FROM Visited;
 SELECT max(dated) FROM Visited;
 ~~~
 
-|max(dated)|
-|----------|
-|1932-03-22|
+  max(dated)
+  ----------
+  1932-03-22
 
 `min` and `max` are just two of
 the aggregation functions built into SQL.
@@ -63,25 +63,25 @@ and `sum`:
 SELECT avg(reading) FROM Survey WHERE quant='sal';
 ~~~
 
-|avg(reading)    |
-|----------------|
-|7.20333333333333|
+  avg(reading)
+  ----------------
+  7.20333333333333
 
 ~~~ {.sql}
 SELECT count(reading) FROM Survey WHERE quant='sal';
 ~~~
 
-|count(reading)|
-|--------------|
-|9             |
+  count(reading)
+  --------------
+  9
 
 ~~~ {.sql}
 SELECT sum(reading) FROM Survey WHERE quant='sal';
 ~~~
 
-|sum(reading)|
-|------------|
-|64.83       |
+  sum(reading)
+  ------------
+  64.83
 
 We used `count(reading)` here,
 but we could just as easily have counted `quant`
@@ -153,9 +153,9 @@ This behavior lets us write our queries as:
 SELECT min(dated) FROM Visited;
 ~~~
 
-|min(dated)|
-|----------|
-|1927-02-08|
+  min(dated)
+  ----------
+  1927-02-08
 
 instead of always having to filter explicitly:
 
@@ -163,13 +163,13 @@ instead of always having to filter explicitly:
 SELECT min(dated) FROM Visited WHERE dated IS NOT NULL;
 ~~~
 
-|min(dated)|
-|----------|
-|1927-02-08|
+  min(dated)
+  ----------
+  1927-02-08
 
 Aggregating all records at once doesn't always make sense.
 For example,
-suppose Gina suspects that there is a systematic bias in her data,
+suppose we suspect that there is a systematic bias in ouw data,
 and that some scientists' radiation readings are higher than others.
 We know that this doesn't work:
 
@@ -186,7 +186,7 @@ WHERE quant='rad';
 because the database manager selects a single arbitrary scientist's name
 rather than aggregating separately for each scientist.
 Since there are only five scientists,
-she could write five queries of the form:
+we could write five queries of the form:
 
 ~~~ {.sql}
 SELECT person, count(reading), round(avg(reading), 2)
@@ -200,8 +200,8 @@ person|count(reading)|round(avg(reading), 2)|
 dyer  |2             |8.81                  |
 
 but this would be tedious,
-and if she ever had a data set with fifty or five hundred scientists,
-the chances of her getting all of those queries right is small.
+and if we ever had a data set with fifty or five hundred scientists,
+the chances of us getting all of those queries right is small.
 
 What we need to do is
 tell the database manager to aggregate the hours for each scientist separately
