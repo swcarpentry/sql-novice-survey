@@ -30,30 +30,29 @@ we get this:
 SELECT quant FROM Survey;
 ~~~
 
-<table>
-<tr><th>quant</th></tr>
-<tr><td>rad  </td></tr>
-<tr><td>sal  </td></tr>
-<tr><td>rad  </td></tr>
-<tr><td>sal  </td></tr>
-<tr><td>rad  </td></tr>
-<tr><td>sal  </td></tr>
-<tr><td>temp </td></tr>
-<tr><td>rad  </td></tr>
-<tr><td>sal  </td></tr>
-<tr><td>temp </td></tr>
-<tr><td>rad  </td></tr>
-<tr><td>temp </td></tr>
-<tr><td>sal  </td></tr>
-<tr><td>rad  </td></tr>
-<tr><td>sal  </td></tr>
-<tr><td>temp </td></tr>
-<tr><td>sal  </td></tr>
-<tr><td>rad  </td></tr>
-<tr><td>sal  </td></tr>
-<tr><td>sal  </td></tr>
-<tr><td>rad  </td></tr>
-</table>
+|quant|
+|-----|
+|rad  |
+|sal  |
+|rad  |
+|sal  |
+|rad  |
+|sal  |
+|temp |
+|rad  |
+|sal  |
+|temp |
+|rad  |
+|temp |
+|sal  |
+|rad  |
+|sal  |
+|temp |
+|sal  |
+|rad  |
+|sal  |
+|sal  |
+|rad  |
 
 This result makes it difficult to see all of the different types of `quant` in the Survey table.
 We can eliminate the redundant output to make the result more readable by adding the `DISTINCT` keyword
@@ -63,12 +62,11 @@ to our query:
 SELECT DISTINCT quant FROM Survey;
 ~~~
 
-<table>
-<tr><th>quant</th></tr>
-<tr><td>rad  </td></tr>
-<tr><td>sal  </td></tr>
-<tr><td>temp </td></tr>
-</table>
+|quant|
+|-----|
+|rad  |
+|sal  |
+|temp |
 
 If we want to determine which sites have which quant measurement, 
 we can use the `DISTINCT` keyword on multiple columns.
