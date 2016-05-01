@@ -192,7 +192,7 @@ In contrast to arithmetic or Boolean operators, aggregation functions that combi
 > ## Pros and Cons of Sentinels {.challenge}
 >
 > Some database designers prefer to use
-> a [sentinel value](reference.html#sentinel-value))
+> a [sentinel value](reference.html#sentinel-value)
 > to mark missing data rather than `null`.
 > For example,
 > they will use the date "0000-00-00" to mark a missing date,
