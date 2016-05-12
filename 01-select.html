@@ -51,6 +51,19 @@
 </div>
 </aside>
 <p>Queries are written in a language called <a href="reference.html#sql">SQL</a>, which stands for “Structured Query Language”. SQL provides hundreds of different ways to analyze and recombine data. We will only look at a handful of queries, but that handful accounts for most of what scientists do.</p>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pushpin"></span>Getting into and out of SQLite</h2>
+</div>
+<div class="panel-body">
+<p>In order to use the SQLite commands <em>interactively</em>, we need to enter into the SQLite console. So, open up a terminal, and run</p>
+<pre><code>$ cd /path/to/survey/data/
+$ sqlite3 survey.db</code></pre>
+<p>The SQLite command is <code>sqlite3</code> and you are telling SQLite to open up the <code>survey.db</code>. You need to specify the <code>.db</code> file otherwise, SQLite will open up a temporary, empty database.</p>
+<p>To get out of SQLite, type out <code>.exit</code> or <code>.quit</code>. For some terminals, <code>Ctrl-D</code> can also work. If you forget any SQLite <code>.</code> (dot) command, type <code>.help</code>.</p>
+</div>
+</aside>
+<p>Before we get into the data and using SQLite to select the data,</p>
 <p>The tables below show the database we will use in our examples:</p>
 <blockquote>
 <p><strong>Person</strong>: people who took readings.</p>
@@ -406,7 +419,12 @@ sqlite&gt;</code></pre>
 </tbody>
 </table>
 <p>You can use SQL’s case insensitivity to your advantage. For instance, some people choose to write SQL keywords (such as <code>SELECT</code> and <code>FROM</code>) in capital letters and <strong>field</strong> and <strong>table</strong> names in lower case. This can make it easier to locate parts of an SQL statement. For instance, you can scan the statement, quickly locate the prominent <code>FROM</code> keyword and know the table name follows. Whatever casing convention you choose, please be consistent: complex queries are hard enough to read without the extra cognitive load of random capitalization. One convention is to use UPPER CASE for SQL statements, to distinguish them from tables and column names. This is the convention that we will use for this lesson.</p>
-<p>Going back to our query, it’s important to understand that the rows and columns in a database table aren’t actually stored in any particular order. They will always be <em>displayed</em> in some order, but we can control that in various ways. For example, we could swap the columns in the output by writing our query as:</p>
+<p>While we are on the topic of SQL’s syntax, one aspect of SQL’s syntax that can frustrate novices and experts alike is forgetting to finish a command with <code>;</code> (semicolon). When you press enter for a command without adding the <code>;</code> to the end, it can look something like this:</p>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> Person
+...&gt;
+...&gt;</code></pre>
+<p>This is SQL’s prompt, where it is waiting for additional commands or for a <code>;</code> to let SQL know to finish. This is easy to fix! Just type <code>;</code> and press enter!</p>
+<p>Now, going back to our query, it’s important to understand that the rows and columns in a database table aren’t actually stored in any particular order. They will always be <em>displayed</em> in some order, but we can control that in various ways. For example, we could swap the columns in the output by writing our query as:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> personal, family <span class="kw">FROM</span> Person;</code></pre>
 <table>
 <thead>
@@ -547,5 +565,16 @@ sqlite&gt;</code></pre>
     <!-- Javascript placed at the end of the document so the pages load faster -->
     <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
     <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
+    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', 'UA-37305346-2', 'auto');
+      ga('send', 'pageview');
+    
+    </script>
   </body>
 </html>
