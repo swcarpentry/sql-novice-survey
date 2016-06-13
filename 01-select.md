@@ -198,8 +198,8 @@ SELECT family, personal FROM Person;
 
 The semicolon at the end of the query
 tells the database manager that the query is complete and ready to run.
-We have written our commands and column names in lower case,
-and the table name in Title Case,
+We have written our commands in upper case and the names for the table and columns
+in lower case,
 but we don't have to:
 as the example below shows,
 SQL is [case insensitive](reference.html#case-insensitive).
