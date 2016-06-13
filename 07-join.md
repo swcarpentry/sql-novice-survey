@@ -21,6 +21,9 @@ while the dates of measurements are in the `Visited` table
 and the readings themselves are in the `Survey` table.
 We need to combine these tables somehow.
 
+This figure shows the relations between the tables
+<img src="fig/sql-join-structure.svg" alt="Survey database structure" />
+
 The SQL command to do this is `JOIN`.
 To see how it works,
 let's start by joining the `Site` and `Visited` tables:
