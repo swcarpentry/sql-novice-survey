@@ -80,13 +80,13 @@ SELECT personal || ' ' || family FROM Person;
 > The `UNION` operator combines the results of two queries:
 >
 > ~~~ {.sql}
-> SELECT * FROM Person WHERE ident='dyer' UNION SELECT * FROM Person WHERE ident='roe';
+> SELECT * FROM Person WHERE id='dyer' UNION SELECT * FROM Person WHERE id='roe';
 > ~~~
 >
-> |ident|personal |family |
-> |-----|-------- |-------|
-> |dyer |William  |Dyer   |
-> |roe  |Valentina|Roerich|
+> |id  |personal |family |
+> |----|-------- |-------|
+> |dyer|William  |Dyer   |
+> |roe |Valentina|Roerich|
 >
 > Use `UNION` to create a consolidated list of salinity measurements
 > in which Roerich's, and only Roerich's,
