@@ -45,12 +45,12 @@
 </div>
 </section>
 <p>Now that we have seen how joins work, we can see why the relational model is so useful and how best to use it. The first rule is that every value should be <a href="reference.html#atomic">atomic</a>, i.e., not contain parts that we might want to work with separately. We store personal and family names in separate columns instead of putting the entire name in one column so that we don’t have to use substring operations to get the name’s components. More importantly, we store the two parts of the name separately because splitting on spaces is unreliable: just think of a name like “Eloise St. Cyr” or “Jan Mikkel Steubart”.</p>
-<p>The second rule is that every record should have a unique primary key. This can be a serial number that has no intrinsic meaning, one of the values in the record (like the <code>ident</code> field in the <code>Person</code> table), or even a combination of values: the triple <code>(taken, person, quant)</code> from the <code>Survey</code> table uniquely identifies every measurement.</p>
+<p>The second rule is that every record should have a unique primary key. This can be a serial number that has no intrinsic meaning, one of the values in the record (like the <code>id</code> field in the <code>Person</code> table), or even a combination of values: the triple <code>(taken, person, quant)</code> from the <code>Survey</code> table uniquely identifies every measurement.</p>
 <p>The third rule is that there should be no redundant information. For example, we could get rid of the <code>Site</code> table and rewrite the <code>Visited</code> table like this:</p>
 <table>
 <thead>
 <tr class="header">
-<th align="left">ident</th>
+<th align="left">id</th>
 <th align="left">lat</th>
 <th align="left">long</th>
 <th align="left">dated</th>

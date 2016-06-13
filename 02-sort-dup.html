@@ -273,11 +273,11 @@ temp
 </table>
 <p>Notice in both cases that duplicates are removed even if the rows they come from didn’t appear to be adjacent in the database table.</p>
 <p>Our next task is to identify the scientists on the expedition by looking at the <code>Person</code> table. As we mentioned earlier, database records are not stored in any particular order. This means that query results aren’t necessarily sorted, and even if they are, we often want to sort them in a different way, e.g., by their identifier instead of by their personal name. We can do this in SQL by adding an <code>ORDER BY</code> clause to our query:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> Person <span class="kw">ORDER</span> <span class="kw">BY</span> ident;</code></pre>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> Person <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="kw">id</span>;</code></pre>
 <table>
 <thead>
 <tr class="header">
-<th align="left">ident</th>
+<th align="left">id</th>
 <th align="left">personal</th>
 <th align="left">family</th>
 </tr>
@@ -311,11 +311,11 @@ temp
 </tbody>
 </table>
 <p>By default, results are sorted in ascending order (i.e., from least to greatest). We can sort in the opposite order using <code>DESC</code> (for “descending”):</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> Person <span class="kw">ORDER</span> <span class="kw">BY</span> ident <span class="kw">DESC</span>;</code></pre>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> person <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="kw">id</span> <span class="kw">DESC</span>;</code></pre>
 <table>
 <thead>
 <tr class="header">
-<th align="left">ident</th>
+<th align="left">id</th>
 <th align="left">personal</th>
 <th align="left">family</th>
 </tr>

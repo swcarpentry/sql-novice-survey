@@ -50,7 +50,7 @@
 <th align="left">name</th>
 <th align="left">lat</th>
 <th align="left">long</th>
-<th align="left">ident</th>
+<th align="left">id</th>
 <th align="left">site</th>
 <th align="left">dated</th>
 </tr>
@@ -259,7 +259,7 @@
 <th align="left">name</th>
 <th align="left">lat</th>
 <th align="left">long</th>
-<th align="left">ident</th>
+<th align="left">id</th>
 <th align="left">site</th>
 <th align="left">dated</th>
 </tr>
@@ -332,7 +332,7 @@
 </tbody>
 </table>
 <p><code>ON</code> is very similar to <code>WHERE</code>, and for all the queries in this lesson you can use them interchangeably. There are differences in how they affect <a href="http://en.wikipedia.org/wiki/Join_%28SQL%29#Outer_join">outer joins</a>, but that’s beyond the scope of this lesson. Once we add this to our query, the database manager throws away records that combined information about two different sites, leaving us with just the ones we want.</p>
-<p>Notice that we used <code>Table.field</code> to specify field names in the output of the join. We do this because tables can have fields with the same name, and we need to be specific which ones we’re talking about. For example, if we joined the <code>Person</code> and <code>Visited</code> tables, the result would inherit a field called <code>ident</code> from each of the original tables.</p>
+<p>Notice that we used <code>Table.field</code> to specify field names in the output of the join. We do this because tables can have fields with the same name, and we need to be specific which ones we’re talking about. For example, if we joined the <code>Person</code> and <code>Visited</code> tables, the result would inherit a field called <code>id</code> from each of the original tables.</p>
 <p>We can now use the same dotted notation to select the three columns we actually want out of our join:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> Site.lat, Site.long, Visited.dated
 <span class="kw">FROM</span>   Site <span class="kw">JOIN</span> Visited
@@ -390,10 +390,10 @@
 </table>
 <p>If joining two tables is good, joining many tables must be better. In fact, we can join any number of tables simply by adding more <code>JOIN</code> clauses to our query, and more <code>ON</code> tests to filter out combinations of records that don’t make sense:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> Site.lat, Site.long, Visited.dated, Survey.quant, Survey.reading
-<span class="kw">FROM</span>   Site
-<span class="kw">JOIN</span>   Visited <span class="kw">ON</span> Site.name=Visited.site
-<span class="kw">JOIN</span>   Survey <span class="kw">ON</span> Visited.ident=Survey.taken
-<span class="kw">WHERE</span>  Visited.dated <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span>;</code></pre>
+<span class="kw">FROM</span>   Site <span class="kw">JOIN</span> Visited <span class="kw">JOIN</span> Survey
+<span class="kw">ON</span>     Site.name=Visited.site
+<span class="kw">AND</span>    Visited.id=Survey.taken
+<span class="kw">AND</span>    Visited.dated <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span>;</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -526,14 +526,14 @@
 </tr>
 </tbody>
 </table>
-<p>We can tell which records from <code>Site</code>, <code>Visited</code>, and <code>Survey</code> correspond with each other because those tables contain <a href="reference.html#primary-key">primary keys</a> and <a href="reference.html#foreign-key">foreign keys</a>. A primary key is a value, or combination of values, that uniquely identifies each record in a table. A foreign key is a value (or combination of values) from one table that identifies a unique record in another table. Another way of saying this is that a foreign key is the primary key of one table that appears in some other table. In our database, <code>Person.ident</code> is the primary key in the <code>Person</code> table, while <code>Survey.person</code> is a foreign key relating the <code>Survey</code> table’s entries to entries in <code>Person</code>.</p>
+<p>We can tell which records from <code>Site</code>, <code>Visited</code>, and <code>Survey</code> correspond with each other because those tables contain <a href="reference.html#primary-key">primary keys</a> and <a href="reference.html#foreign-key">foreign keys</a>. A primary key is a value, or combination of values, that uniquely identifies each record in a table. A foreign key is a value (or combination of values) from one table that identifies a unique record in another table. Another way of saying this is that a foreign key is the primary key of one table that appears in some other table. In our database, <code>Person.id</code> is the primary key in the <code>Person</code> table, while <code>Survey.person</code> is a foreign key relating the <code>Survey</code> table’s entries to entries in <code>Person</code>.</p>
 <p>Most database designers believe that every table should have a well-defined primary key. They also believe that this key should be separate from the data itself, so that if we ever need to change the data, we only need to make one change in one place. One easy way to do this is to create an arbitrary, unique ID for each record as we add it to the database. This is actually very common: those IDs have names like “student numbers” and “patient numbers”, and they almost always turn out to have originally been a unique record identifier in some database system or other. As the query below demonstrates, SQLite <a href="https://www.sqlite.org/lang_createtable.html#rowid">automatically numbers records</a> as they’re added to tables, and we can use those record numbers in queries:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> <span class="dt">rowid</span>, * <span class="kw">FROM</span> Person;</code></pre>
 <table>
 <thead>
 <tr class="header">
 <th align="left">rowid</th>
-<th align="left">ident</th>
+<th align="left">id</th>
 <th align="left">personal</th>
 <th align="left">family</th>
 </tr>

@@ -115,8 +115,14 @@
 <p>In order to execute the following lessons interactively, please install SQLite as mentioned in the setup instructions for your workshop. Then</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> clone http://github.com/swcarpentry/sql-novice-survey.git
 $ <span class="kw">cd</span> sql-novice-survey</code></pre>
-<p>Next, create the database that will be used.</p>
+<p>Next, create the database that will be used:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">sqlite3</span> survey.db .read tools/create-db.sql</code></pre>
+<p>This reads commands from <code>tools/create-db.sql</code>, which sets up the tables and loads data from the CSV files in the <code>data</code> directory.</p>
+<p>To run commands interactively, run SQLite on <code>survey.db</code>:</p>
+<pre><code>$ sqlite3 survey.db
+SQLite version 3.8.5 2014-08-15 22:37:57
+Enter &quot;.help&quot; for usage hints.
+sqlite&gt;</code></pre>
 <h2 id="troubleshooting">Troubleshooting</h2>
 <p>The command history and line editing features provided by <code>readline</code> are invaluable with a command-line tool like <code>sqlite3</code>. Participants should be encouraged strongly to start with a simple SQL statement and then use the up-arrow key to go back and add clauses one at a time, or fix problems, rather than typing each command from scratch. Unfortunately on some Linux and Mac OSX systems participants have found that the arrow keys do not scroll through the command history as expected.</p>
 <p>A workaround for this it to use the <a href="https://github.com/hanslub42/rlwrap">rlwrap</a> (readline wrapper) command when starting SQLite:</p>

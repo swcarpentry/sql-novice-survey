@@ -41,10 +41,10 @@
 </section>
 <p>So far we have only looked at how to get information out of a database, both because that is more frequent than adding information, and because most other operations only make sense once queries are understood. If we want to create and modify data, we need to know two other sets of commands.</p>
 <p>The first pair are <a href="https://www.sqlite.org/lang_createtable.html"><code>CREATE TABLE</code></a> and <a href="https://www.sqlite.org/lang_droptable.html"><code>DROP TABLE</code></a>. While they are written as two words, they are actually single commands. The first one creates a new table; its arguments are the names and types of the table’s columns. For example, the following statements create the four tables in our survey database:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">CREATE</span> <span class="kw">TABLE</span> Person(ident TEXT, personal TEXT, family TEXT);
-<span class="kw">CREATE</span> <span class="kw">TABLE</span> Site(name TEXT, lat <span class="dt">REAL</span>, <span class="dt">long</span> <span class="dt">REAL</span>);
-<span class="kw">CREATE</span> <span class="kw">TABLE</span> Visited(ident <span class="dt">INTEGER</span>, site TEXT, dated TEXT);
-<span class="kw">CREATE</span> <span class="kw">TABLE</span> Survey(taken <span class="dt">INTEGER</span>, person TEXT, quant <span class="dt">REAL</span>, reading <span class="dt">REAL</span>);</code></pre>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">CREATE</span> <span class="kw">TABLE</span> Person(<span class="kw">id</span> text, personal text, family text);
+<span class="kw">CREATE</span> <span class="kw">TABLE</span> Site(name text, lat <span class="dt">real</span>, <span class="dt">long</span> <span class="dt">real</span>);
+<span class="kw">CREATE</span> <span class="kw">TABLE</span> Visited(<span class="kw">id</span> <span class="dt">integer</span>, site text, dated text);
+<span class="kw">CREATE</span> <span class="kw">TABLE</span> Survey(taken <span class="dt">integer</span>, person text, quant <span class="dt">real</span>, reading <span class="dt">real</span>);</code></pre>
 <p>We can get rid of one of our tables using:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">DROP</span> <span class="kw">TABLE</span> Survey;</code></pre>
 <p>Be very careful when doing this: most databases have some support for undoing changes, but it’s better not to have to rely on it.</p>
@@ -83,8 +83,8 @@
     quant   <span class="dt">real</span> <span class="kw">not</span> <span class="kw">null</span>,    <span class="co">-- the quantity measured</span>
     reading <span class="dt">real</span> <span class="kw">not</span> <span class="kw">null</span>,    <span class="co">-- the actual reading</span>
     <span class="kw">primary</span> <span class="kw">key</span>(taken, quant),
-    <span class="kw">foreign</span> <span class="kw">key</span>(taken) <span class="kw">references</span> Visited(ident),
-    <span class="kw">foreign</span> <span class="kw">key</span>(person) <span class="kw">references</span> Person(ident)
+    <span class="kw">foreign</span> <span class="kw">key</span>(taken) <span class="kw">references</span> Visited(<span class="kw">id</span>),
+    <span class="kw">foreign</span> <span class="kw">key</span>(person) <span class="kw">references</span> Person(<span class="kw">id</span>)
 );</code></pre>
 <p>Once again, exactly what constraints are available and what they’re called depends on which database manager we are using.</p>
 <p>Once tables have been created, we can add, change, and remove records using our other set of commands, <code>INSERT</code>, <code>UPDATE</code>, and <code>DELETE</code>.</p>
@@ -100,7 +100,7 @@
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">UPDATE</span> Site <span class="kw">SET</span> lat=-<span class="fl">47.87</span>, long=-<span class="fl">122.40</span> <span class="kw">WHERE</span> name=<span class="st">&#39;MSK-4&#39;</span>;</code></pre>
 <p>Be careful to not forget the <code>where</code> clause or the update statement will modify <em>all</em> of the records in the database.</p>
 <p>Deleting records can be a bit trickier, because we have to ensure that the database remains internally consistent. If all we care about is a single table, we can use the <code>DELETE</code> command with a <code>WHERE</code> clause that matches the records we want to discard. For example, once we realize that Frank Danforth didn’t take any measurements, we can remove him from the <code>Person</code> table like this:</p>
-<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">DELETE</span> <span class="kw">FROM</span> Person <span class="kw">WHERE</span> ident = <span class="st">&#39;danforth&#39;</span>;</code></pre>
+<pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">DELETE</span> <span class="kw">FROM</span> Person <span class="kw">WHERE</span> <span class="kw">id</span> = <span class="st">&#39;danforth&#39;</span>;</code></pre>
 <p>But what if we removed Anderson Lake instead? Our <code>Survey</code> table would still contain seven records of measurements he’d taken, but that’s never supposed to happen: <code>Survey.person</code> is a foreign key into the <code>Person</code> table, and all our queries assume there will be a row in the latter matching every value in the former.</p>
 <p>This problem is called <a href="reference.html#referential-integrity">referential integrity</a>: we need to ensure that all references between tables can always be resolved correctly. One way to do this is to delete all the records that use <code>'lake'</code> as a foreign key before deleting the record that uses it as a primary key. If our database manager supports it, we can automate this using <a href="reference.html#cascading-delete">cascading delete</a>. However, this technique is outside the scope of this chapter.</p>
 <aside class="callout panel panel-info">
