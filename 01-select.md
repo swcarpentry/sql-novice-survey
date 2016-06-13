@@ -49,10 +49,10 @@ but that handful accounts for most of what scientists do.
 > enter into the SQLite console.  So, open up a terminal, and run
 > 
 >     $ cd /path/to/survey/data/
->     $ sqlite3 survey.db
+>     $ sqlite3 survey.sqlite
 > 
 > The SQLite command is `sqlite3` and you are telling SQLite to open up
-> the `survey.db`.  You need to specify the `.db` file otherwise, SQLite
+> the `survey.sqlite`.  You need to specify the `.db` file otherwise, SQLite
 > will open up a temporary, empty database.
 > 
 > To get out of SQLite, type out `.exit` or `.quit`.  For some
@@ -129,21 +129,21 @@ we'll return to these missing values [later](05-null.html).
 > ## Checking if data is available {.callout}
 >
 > On the shell command line,
-> change the working directory to the one where you saved `survey.db`.
+> change the working directory to the one where you saved `survey.sqlite`.
 > If you saved it at your Desktop you should use
 >
 > ~~~ {.bash}
 > $ cd Desktop
-> $ ls | grep survey.db
+> $ ls | grep survey.sqlite
 > ~~~
 > ~~~ {.output}
-> survey.db
+> survey.sqlite
 > ~~~
 >
 > If you get the same output, you can run
 >
 > ~~~ {.bash}
-> $ sqlite3 survey.db
+> $ sqlite3 survey.sqlite
 > ~~~
 > ~~~ {.output}
 > SQLite version 3.8.8 2015-01-16 12:08:06
@@ -151,7 +151,7 @@ we'll return to these missing values [later](05-null.html).
 > sqlite>
 > ~~~
 >
-> that instructs SQLite to load the database in the `survey.db` file.
+> that instructs SQLite to load the database in the `survey.sqlite` file.
 >
 > For a list of useful system commands, enter `.help`.
 >

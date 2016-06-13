@@ -124,17 +124,17 @@ Next,
 create the database that will be used:
 
 ~~~ {.bash}
-$ sqlite3 survey.db .read tools/create-db.sql
+$ sqlite3 survey.sqlite .read tools/create-db.sql
 ~~~
 
 This reads commands from `tools/create-db.sql`,
 which sets up the tables and loads data from the CSV files in the `data` directory.
 
 To run commands interactively,
-run SQLite on `survey.db`:
+run SQLite on `survey.sqlite`:
 
 ~~~
-$ sqlite3 survey.db
+$ sqlite3 survey.sqlite
 SQLite version 3.8.5 2014-08-15 22:37:57
 Enter ".help" for usage hints.
 sqlite>
@@ -154,7 +154,7 @@ A workaround for this it to use the [rlwrap](https://github.com/hanslub42/rlwrap
 (readline wrapper) command when starting SQLite:
 
 ~~~ {.bash}
-$ rlwrap sqlite3 survey.db
+$ rlwrap sqlite3 survey.sqlite
 ~~~
 
 Availability: the `rlwrap` package is available in the standard Fedora

@@ -18,11 +18,11 @@ library and function names may differ,
 but the concepts are the same.
 
 Here's a short Python program that selects latitudes and longitudes
-from an SQLite database stored in a file called `survey.db`:
+from an SQLite database stored in a file called `survey.sqlite`:
 
 ~~~ {.python}
 import sqlite3
-connection = sqlite3.connect("survey.db")
+connection = sqlite3.connect("survey.sqlite")
 cursor = connection.cursor()
 cursor.execute("SELECT Site.lat, Site.long FROM Site;")
 results = cursor.fetchall()
@@ -96,7 +96,7 @@ def get_name(database_file, person_id):
 
     return results[0][0]
 
-print "full name for dyer:", get_name('survey.db', 'dyer')
+print "full name for dyer:", get_name('survey.sqlite', 'dyer')
 ~~~
 ~~~ {.output}
 full name for dyer: William Dyer
@@ -150,7 +150,7 @@ def get_name(database_file, person_id):
 
     return results[0][0]
 
-print "full name for dyer:", get_name('survey.db', 'dyer')
+print "full name for dyer:", get_name('survey.sqlite', 'dyer')
 ~~~
 ~~~ {.output}
 full name for dyer: William Dyer
