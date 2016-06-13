@@ -132,20 +132,20 @@ we'll return to these missing values [later](05-null.html).
 > change the working directory to the one where you saved `survey.db`.
 > If you saved it at your Desktop you should use
 >
-> ~~~{.bash}
+> ~~~ {.bash}
 > $ cd Desktop
 > $ ls | grep survey.db
 > ~~~
-> ~~~{.output}
+> ~~~ {.output}
 > survey.db
 > ~~~
 >
 > If you get the same output, you can run
 >
-> ~~~{.bash}
+> ~~~ {.bash}
 > $ sqlite3 survey.db
 > ~~~
-> ~~~{.output}
+> ~~~ {.output}
 > SQLite version 3.8.8 2015-01-16 12:08:06
 > Enter ".help" for usage hints.
 > sqlite>
@@ -158,10 +158,10 @@ we'll return to these missing values [later](05-null.html).
 > All SQLite-specific commands are prefixed with a `.` to distinguish them from SQL commands.
 > Type `.tables` to list the tables in the database.
 >
-> ~~~{.sqlite}
+> ~~~ {.sql}
 > .tables
 > ~~~
-> ~~~{.output}
+> ~~~ {.output}
 > Person   Site     Survey   Visited
 > ~~~
 >
@@ -170,7 +170,7 @@ we'll return to these missing values [later](05-null.html).
 > set the output mode to display left-aligned columns.
 > Then turn on the display of column headers.
 >
-> ~~~{.sqlite}
+> ~~~ {.sql}
 > .mode column
 > .header on
 > ~~~
@@ -295,13 +295,13 @@ SELECT * FROM Person;
 >
 > Many people format queries as:
 >
-> ~~~
+> ~~~ {.sql}
 > SELECT personal, family FROM person;
 > ~~~
 >
 > or as:
 >
-> ~~~
+> ~~~ {.sql}
 > select Personal, Family from PERSON;
 > ~~~
 >
