@@ -11,15 +11,15 @@ minutes: 30
 > *   Write queries that join tables on equal keys.
 > *   Explain what primary and foreign keys are, and why they are useful.
 
-In order to submit her data to a web site
+In order to submit our data to a web site
 that aggregates historical meteorological data,
-Gina needs to format it as
+we might need to format it as
 latitude, longitude, date, quantity, and reading.
 However,
-her latitudes and longitudes are in the `Site` table,
+our latitudes and longitudes are in the `Site` table,
 while the dates of measurements are in the `Visited` table
 and the readings themselves are in the `Survey` table.
-She needs to combine these tables somehow.
+We need to combine these tables somehow.
 
 The SQL command to do this is `JOIN`.
 To see how it works,

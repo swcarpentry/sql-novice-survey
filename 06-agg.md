@@ -169,7 +169,7 @@ SELECT min(dated) FROM Visited WHERE dated IS NOT NULL;
 
 Aggregating all records at once doesn't always make sense.
 For example,
-suppose Gina suspects that there is a systematic bias in her data,
+suppose we suspect that there is a systematic bias in our data,
 and that some scientists' radiation readings are higher than others.
 We know that this doesn't work:
 
@@ -186,7 +186,7 @@ WHERE quant='rad';
 because the database manager selects a single arbitrary scientist's name
 rather than aggregating separately for each scientist.
 Since there are only five scientists,
-she could write five queries of the form:
+we could write five queries of the form:
 
 ~~~ {.sql}
 SELECT person, count(reading), round(avg(reading), 2)
@@ -200,8 +200,8 @@ person|count(reading)|round(avg(reading), 2)|
 dyer  |2             |8.81                  |
 
 but this would be tedious,
-and if she ever had a data set with fifty or five hundred scientists,
-the chances of her getting all of those queries right is small.
+and if we ever had a data set with fifty or five hundred scientists,
+the chances of us getting all of those queries right is small.
 
 What we need to do is
 tell the database manager to aggregate the hours for each scientist separately
