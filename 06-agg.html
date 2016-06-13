@@ -224,7 +224,7 @@
 </tr>
 </tbody>
 </table>
-<p>Aggregating all records at once doesn’t always make sense. For example, suppose Gina suspects that there is a systematic bias in her data, and that some scientists’ radiation readings are higher than others. We know that this doesn’t work:</p>
+<p>Aggregating all records at once doesn’t always make sense. For example, suppose we suspect that there is a systematic bias in our data, and that some scientists’ radiation readings are higher than others. We know that this doesn’t work:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> person, <span class="fu">count</span>(reading), <span class="fu">round</span>(<span class="fu">avg</span>(reading), <span class="dv">2</span>)
 <span class="kw">FROM</span>  Survey
 <span class="kw">WHERE</span> quant=<span class="st">&#39;rad&#39;</span>;</code></pre>
@@ -244,7 +244,7 @@
 </tr>
 </tbody>
 </table>
-<p>because the database manager selects a single arbitrary scientist’s name rather than aggregating separately for each scientist. Since there are only five scientists, she could write five queries of the form:</p>
+<p>because the database manager selects a single arbitrary scientist’s name rather than aggregating separately for each scientist. Since there are only five scientists, we could write five queries of the form:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> person, <span class="fu">count</span>(reading), <span class="fu">round</span>(<span class="fu">avg</span>(reading), <span class="dv">2</span>)
 <span class="kw">FROM</span>  Survey
 <span class="kw">WHERE</span> quant=<span class="st">&#39;rad&#39;</span>
@@ -265,7 +265,7 @@
 </tr>
 </tbody>
 </table>
-<p>but this would be tedious, and if she ever had a data set with fifty or five hundred scientists, the chances of her getting all of those queries right is small.</p>
+<p>but this would be tedious, and if we ever had a data set with fifty or five hundred scientists, the chances of us getting all of those queries right is small.</p>
 <p>What we need to do is tell the database manager to aggregate the hours for each scientist separately using a <code>GROUP BY</code> clause:</p>
 <pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span>   person, <span class="fu">count</span>(reading), <span class="fu">round</span>(<span class="fu">avg</span>(reading), <span class="dv">2</span>)
 <span class="kw">FROM</span>     Survey
