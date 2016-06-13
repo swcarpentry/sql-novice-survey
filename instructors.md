@@ -121,10 +121,23 @@ $ cd sql-novice-survey
 ~~~
 
 Next,
-create the database that will be used.
+create the database that will be used:
 
 ~~~ {.bash}
 $ sqlite3 survey.db .read tools/create-db.sql
+~~~
+
+This reads commands from `tools/create-db.sql`,
+which sets up the tables and loads data from the CSV files in the `data` directory.
+
+To run commands interactively,
+run SQLite on `survey.db`:
+
+~~~
+$ sqlite3 survey.db
+SQLite version 3.8.5 2014-08-15 22:37:57
+Enter ".help" for usage hints.
+sqlite>
 ~~~
 
 ## Troubleshooting

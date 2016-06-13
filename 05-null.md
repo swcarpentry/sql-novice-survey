@@ -27,7 +27,7 @@ its date is null:
 SELECT * FROM Visited;
 ~~~
 
-|ident|site|dated     |
+|id   |site|dated     |
 |-----|----|----------|
 |619  |DR-1|1927-02-08|
 |622  |DR-1|1927-02-10|
@@ -45,7 +45,7 @@ If we select the records that come before 1930:
 SELECT * FROM Visited WHERE dated<'1930-01-01';
 ~~~
 
-|ident|site|dated     |
+|id   |site|dated     |
 |-----|----|----------|
 |619  |DR-1|1927-02-08|
 |622  |DR-1|1927-02-10|
@@ -57,7 +57,7 @@ and if we select the ones that come during or after 1930:
 SELECT * FROM Visited WHERE dated>='1930-01-01';
 ~~~
 
-|ident|site|dated     |
+|id   |site|dated     |
 |-----|----|----------|
 |734  |DR-3|1930-01-07|
 |735  |DR-3|1930-01-12|
@@ -107,7 +107,7 @@ we must use a special test `IS NULL`:
 SELECT * FROM Visited WHERE dated IS NULL;
 ~~~
 
-|ident|site|dated     |
+|id   |site|dated     |
 |-----|----|----------|
 |752  |DR-3|-null-    |
 
@@ -117,7 +117,7 @@ or its inverse `IS NOT NULL`:
 SELECT * FROM Visited WHERE dated IS NOT NULL;
 ~~~
 
-|ident|site|dated     |
+|id   |site|dated     |
 |-----|----|----------|
 |619  |DR-1|1927-02-08|
 |622  |DR-1|1927-02-10|

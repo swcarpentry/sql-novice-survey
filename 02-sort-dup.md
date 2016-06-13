@@ -115,10 +115,10 @@ e.g., by their identifier instead of by their personal name.
 We can do this in SQL by adding an `ORDER BY` clause to our query:
 
 ~~~ {.sql}
-SELECT * FROM Person ORDER BY ident;
+SELECT * FROM Person ORDER BY id;
 ~~~
 
-|ident  |personal |family  |
+|id     |personal |family  |
 |-------|---------|--------|
 |danfort|Frank    |Danforth|
 |dyer   |William  |Dyer    |
@@ -133,10 +133,10 @@ from least to greatest).
 We can sort in the opposite order using `DESC` (for "descending"):
 
 ~~~ {.sql}
-SELECT * FROM Person ORDER BY ident DESC;
+SELECT * FROM person ORDER BY id DESC;
 ~~~
 
-|ident  |personal |family  |
+|id     |personal |family  |
 |-------|---------|--------|
 |roe    |Valentina|Roerich |
 |pb     |Frank    |Pabodie |
