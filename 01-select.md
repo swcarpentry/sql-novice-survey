@@ -65,7 +65,7 @@ The tables below show the database we will use in our examples:
 
 > **Person**: people who took readings.
 >
-> |ident   |personal |family
+> |id      |personal |family
 > |--------|---------|----------
 > |dyer    |William  |Dyer
 > |pb      |Frank    |Pabodie
@@ -83,7 +83,7 @@ The tables below show the database we will use in our examples:
 
 > **Visited**: when readings were taken at specific sites.
 >
-> |ident|site |dated     |
+> |id   |site |dated     |
 > |-----|-----|----------|
 > |619  |DR-1 |1927-02-08|
 > |622  |DR-1 |1927-02-10|
@@ -261,10 +261,10 @@ SELECT personal, family FROM Person;
 or even repeat columns:
 
 ~~~ {.sql}
-SELECT ident, ident, ident FROM Person;
+SELECT id, id, id FROM Person;
 ~~~
 
-|ident   |ident   |ident   |
+|id      |id      |id      |
 |--------|--------|--------|
 |dyer    |dyer    |dyer    |
 |pb      |pb      |pb      |
@@ -279,7 +279,7 @@ we can select all of the columns in a table using `*`:
 SELECT * FROM Person;
 ~~~
 
-|ident   |personal |family  |
+|id      |personal |family  |
 |--------|---------|--------|
 |dyer    |William  |Dyer    |
 |pb      |Frank    |Pabodie |
