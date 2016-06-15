@@ -26,9 +26,10 @@ if we select the quantities that have been measured
 from the `Survey` table,
 we get this:
 
-~~~ {.sql}
+~~~
 SELECT quant FROM Survey;
 ~~~
+{: .source}
 
 |quant|
 |-----|
@@ -58,9 +59,10 @@ This result makes it difficult to see all of the different types of `quant` in t
 We can eliminate the redundant output to make the result more readable by adding the `DISTINCT` keyword
 to our query:
 
-~~~ {.sql}
+~~~
 SELECT DISTINCT quant FROM Survey;
 ~~~
+{: .source}
 
 |quant|
 |-----|
@@ -73,9 +75,10 @@ we can use the `DISTINCT` keyword on multiple columns.
 If we select more than one column,
 the distinct *pairs* of values are returned:
 
-~~~ {.sql}
+~~~
 SELECT DISTINCT taken, quant FROM Survey;
 ~~~
+{: .source}
 
 |taken|quant|
 |-----|-----|
@@ -112,9 +115,10 @@ we often want to sort them in a different way,
 e.g., by their identifier instead of by their personal name.
 We can do this in SQL by adding an `ORDER BY` clause to our query:
 
-~~~ {.sql}
+~~~
 SELECT * FROM Person ORDER BY id;
 ~~~
+{: .source}
 
 |id     |personal |family  |
 |-------|---------|--------|
@@ -130,9 +134,10 @@ results are sorted in ascending order
 from least to greatest).
 We can sort in the opposite order using `DESC` (for "descending"):
 
-~~~ {.sql}
+~~~
 SELECT * FROM person ORDER BY id DESC;
 ~~~
+{: .source}
 
 |id     |personal |family  |
 |-------|---------|--------|
@@ -154,9 +159,11 @@ this query sorts results first in ascending order by `taken`,
 and then in descending order by `person`
 within each group of equal `taken` values:
 
-~~~ {.sql}
+~~~
 SELECT taken, person, quant FROM Survey ORDER BY taken ASC, person DESC;
 ~~~
+{: .source}
+
 |taken|person|quant|
 |-----|------|-----|
 |619  |dyer  |rad  |
@@ -188,9 +195,10 @@ Looking at the table,
 it seems like some scientists specialized in certain kinds of measurements. 
 We can examine which scientists performed which measurements by selecting the appropriate columns and removing duplicates. 
 
-~~~ {.sql}
+~~~
 SELECT DISTINCT quant, person FROM Survey ORDER BY quant ASC;
 ~~~
+{: .source}
 
 |quant|person|
 |-----|------|
@@ -206,11 +214,13 @@ SELECT DISTINCT quant, person FROM Survey ORDER BY quant ASC;
 |temp |-null-|
 |temp |lake  |
 
-> ## Finding Distinct Dates {.challenge}
+> ## Finding Distinct Dates
 >
 > Write a query that selects distinct dates from the `Visited` table.
+{: .challenge}
 
-> ## Displaying Full Names {.challenge}
+> ## Displaying Full Names
 >
 > Write a query that displays the full names of the scientists in the `Person` table,
 > ordered by family name.
+{: .challenge}
