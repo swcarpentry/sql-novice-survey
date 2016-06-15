@@ -1,20 +1,16 @@
 ---
 title: "Missing Data"
-teaching: 0
-exercises: 0
+teaching: 15
+exercises: 15
 questions:
 - "FIXME"
 objectives:
-- "FIXME"
+- "Explain how databases represent missing information."
+- "Explain the three-valued logic databases use when manipulating missing information."
+- "Write queries that handle missing information correctly."
 keypoints:
 - "FIXME"
 ---
-> ## Learning Objectives {.objectives}
->
-> *   Explain how databases represent missing information.
-> *   Explain the three-valued logic databases use when manipulating missing information.
-> *   Write queries that handle missing information correctly.
-
 Real-world data is never complete --- there are always holes.
 Databases represent these holes using a special value called `null`.
 `null` is not zero, `False`, or the empty string;

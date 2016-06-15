@@ -1,21 +1,17 @@
 ---
 title: "Combining Data"
-teaching: 0
-exercises: 0
+teaching: 20
+exercises: 20
 questions:
 - "FIXME"
 objectives:
-- "FIXME"
+- "Explain the operation of a query that joins two tables."
+- "Explain how to restrict the output of a query containing a join to only include meaningful combinations of values."
+- "Write queries that join tables on equal keys."
+- "Explain what primary and foreign keys are, and why they are useful."
 keypoints:
 - "FIXME"
 ---
-> ## Learning Objectives {.objectives}
->
-> *   Explain the operation of a query that joins two tables.
-> *   Explain how to restrict the output of a query containing a join to only include meaningful combinations of values.
-> *   Write queries that join tables on equal keys.
-> *   Explain what primary and foreign keys are, and why they are useful.
-
 In order to submit our data to a web site
 that aggregates historical meteorological data,
 we might need to format it as

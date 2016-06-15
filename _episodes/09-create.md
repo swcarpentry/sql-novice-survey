@@ -1,19 +1,15 @@
 ---
 title: "Creating and Modifying Data"
-teaching: 0
-exercises: 0
+teaching: 15
+exercises: 10
 questions:
 - "FIXME"
 objectives:
-- "FIXME"
+- "Write statements that creates tables."
+- "Write statements to insert, modify, and delete records."
 keypoints:
 - "FIXME"
 ---
-> ## Learning Objectives {.objectives}
->
-> *   Write statements that creates tables.
-> *   Write statements to insert, modify, and delete records.
-
 So far we have only looked at how to get information out of a database,
 both because that is more frequent than adding information,
 and because most other operations only make sense

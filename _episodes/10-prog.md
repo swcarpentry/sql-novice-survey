@@ -1,20 +1,16 @@
 ---
 title: "Programming with Databases"
-teaching: 0
-exercises: 0
+teaching: 20
+exercises: 15
 questions:
 - "FIXME"
 objectives:
-- "FIXME"
+- "Write short programs that execute SQL queries."
+- "Trace the execution of a program that contains an SQL query."
+- "Explain why most database applications are written in a general-purpose language rather than in SQL."
 keypoints:
 - "FIXME"
 ---
-> ## Learning Objectives {.objectives}
->
-> *   Write short programs that execute SQL queries.
-> *   Trace the execution of a program that contains an SQL query.
-> *   Explain why most database applications are written in a general-purpose language rather than in SQL.
-
 To close,
 let's have a look at how to access a database from
 a general-purpose programming language like Python.

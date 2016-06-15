@@ -1,19 +1,15 @@
 ---
 title: "Filtering"
-teaching: 0
-exercises: 0
+teaching: 10
+exercises: 10
 questions:
 - "FIXME"
 objectives:
-- "FIXME"
+- "Write queries that select records that satisfy user-specified conditions."
+- "Explain the order in which the clauses in a query are executed."
 keypoints:
 - "FIXME"
 ---
-> ## Learning Objectives {.objectives}
->
-> *   Write queries that select records that satisfy user-specified conditions.
-> *   Explain the order in which the clauses in a query are executed.
-
 One of the most powerful features of a database is
 the ability to [filter](reference.html#filter) data,
 i.e.,

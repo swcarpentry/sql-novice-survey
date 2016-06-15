@@ -1,20 +1,16 @@
 ---
 title: "Selecting Data"
-teaching: 0
-exercises: 0
+teaching: 10
+exercises: 5
 questions:
 - "FIXME"
 objectives:
-- "FIXME"
+- "Explain the difference between a table, a record, and a field."
+- "Explain the difference between a database and a database manager."
+- "Write a query to select all values for specific fields from a single table."
 keypoints:
 - "FIXME"
 ---
-> ## Learning Objectives {.objectives}
->
-> *   Explain the difference between a table, a record, and a field.
-> *   Explain the difference between a database and a database manager.
-> *   Write a query to select all values for specific fields from a single table.
-
 A [relational database](reference.html#relational-database)
 is a way to store and manipulate information. 
 Databases are arranged as [tables](reference.html#table).
