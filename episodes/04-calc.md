@@ -1,18 +1,14 @@
 ---
 title: "Calculating New Values"
-teaching: 0
-exercises: 0
+teaching: 5
+exercises: 5
 questions:
 - "FIXME"
 objectives:
-- "FIXME"
+- "Write queries that calculate new values for each selected record."
 keypoints:
 - "FIXME"
 ---
-> ## Learning Objectives {.objectives}
->
-> *   Write queries that calculate new values for each selected record.
-
 After carefully re-reading the expedition logs,
 we realize that the radiation measurements they report
 may need to be corrected upward by 5%.

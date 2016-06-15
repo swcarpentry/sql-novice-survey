@@ -1,20 +1,15 @@
 ---
 title: "Sorting and Removing Duplicates"
-teaching: 0
-exercises: 0
+teaching: 10
+exercises: 10
 questions:
 - "FIXME"
 objectives:
-- "FIXME"
+- "Write queries that display results in a particular order."
+- "Write queries that eliminate duplicate values from data."
 keypoints:
 - "FIXME"
 ---
-> ## Learning Objectives {.objectives}
->
-> *   Write queries that display results in a particular order.
-> *   Write queries that eliminate duplicate values from data.
-
-
 In beginning our examination of the Antarctic data, we want to know:
 
 * what kind of quantity measurements were taken at each site; 
