@@ -24,9 +24,10 @@ There are eight records,
 but #752 doesn't have a date --- or rather,
 its date is null:
 
-~~~ {.sql}
+~~~
 SELECT * FROM Visited;
 ~~~
+{: .source}
 
 |id   |site|dated     |
 |-----|----|----------|
@@ -42,9 +43,10 @@ SELECT * FROM Visited;
 Null doesn't behave like other values.
 If we select the records that come before 1930:
 
-~~~ {.sql}
+~~~
 SELECT * FROM Visited WHERE dated<'1930-01-01';
 ~~~
+{: .source}
 
 |id   |site|dated     |
 |-----|----|----------|
@@ -54,9 +56,10 @@ SELECT * FROM Visited WHERE dated<'1930-01-01';
 we get two results,
 and if we select the ones that come during or after 1930:
 
-~~~ {.sql}
+~~~
 SELECT * FROM Visited WHERE dated>='1930-01-01';
 ~~~
+{: .source}
 
 |id   |site|dated     |
 |-----|----|----------|
@@ -91,22 +94,25 @@ and so on.
 In particular,
 comparing things to null with = and != produces null:
 
-~~~ {.sql}
+~~~
 SELECT * FROM Visited WHERE dated=NULL;
 ~~~
+{: .source}
 
 produces no output, and neither does:
 
-~~~ {.sql}
+~~~
 SELECT * FROM Visited WHERE dated!=NULL;
 ~~~
+{: .source}
 
 To check whether a value is `null` or not,
 we must use a special test `IS NULL`:
 
-~~~ {.sql}
+~~~
 SELECT * FROM Visited WHERE dated IS NULL;
 ~~~
+{: .source}
 
 |id   |site|dated     |
 |-----|----|----------|
@@ -114,9 +120,10 @@ SELECT * FROM Visited WHERE dated IS NULL;
 
 or its inverse `IS NOT NULL`:
 
-~~~ {.sql}
+~~~
 SELECT * FROM Visited WHERE dated IS NOT NULL;
 ~~~
+{: .source}
 
 |id   |site|dated     |
 |-----|----|----------|
@@ -134,9 +141,10 @@ suppose we want to find all the salinity measurements
 that weren't taken by Lake.
 It's natural to write the query like this:
 
-~~~ {.sql}
+~~~
 SELECT * FROM Survey WHERE quant='sal' AND person!='lake';
 ~~~
+{: .source}
 
 |taken|person|quant|reading|
 |-----|------|-----|-------|
@@ -154,9 +162,10 @@ so the record isn't kept in our results.
 If we want to keep these records
 we need to add an explicit check:
 
-~~~ {.sql}
+~~~
 SELECT * FROM Survey WHERE quant='sal' AND (person!='lake' OR person IS NULL);
 ~~~
+{: .source}
 
 |taken|person|quant|reading|
 |-----|------|-----|-------|
@@ -173,24 +182,27 @@ we need to exclude all the records for which we don't know who did the work.
 
 In contrast to arithmetic or Boolean operators, aggregation functions that combine multiple values, such as `min`, `max` or `avg`, *ignore* `null` values. In the majority of cases, this is a desirable output: for example, unknown values are thus not affecting our data when we are averaging it. Aggregation functions will be addressed in more detail in [the next section](06-agg.html).
 
-> ## Sorting by Known Date {.challenge}
+> ## Sorting by Known Date
 >
 > Write a query that sorts the records in `Visited` by date,
 > omitting entries for which the date is not known
 > (i.e., is null).
+{: .challenge}
 
-> ## NULL in a Set {.challenge}
+> ## NULL in a Set
 >
 > What do you expect the query:
 >
-> ~~~ {.sql}
+> ~~~
 > SELECT * FROM Visited WHERE dated IN ('1927-02-08', NULL);
 > ~~~
+> {: .source}
 >
 > to produce?
 > What does it actually produce?
+{: .challenge}
 
-> ## Pros and Cons of Sentinels {.challenge}
+> ## Pros and Cons of Sentinels
 >
 > Some database designers prefer to use
 > a [sentinel value](reference.html#sentinel-value)
@@ -201,3 +213,4 @@ In contrast to arithmetic or Boolean operators, aggregation functions that combi
 > (since actual readings cannot be negative).
 > What does this simplify?
 > What burdens or risks does it introduce?
+{: .challenge}

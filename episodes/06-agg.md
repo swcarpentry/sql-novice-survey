@@ -5,7 +5,7 @@ exercises: 10
 questions:
 - "FIXME"
 objectives:
-- "Define "aggregation" and give examples of its use."
+- "Define aggregation and give examples of its use."
 - "Write queries that compute aggregated values."
 - "Trace the execution of a query that performs aggregation."
 - "Explain how missing data is handled during aggregation."
@@ -15,9 +15,10 @@ keypoints:
 We now want to calculate ranges and averages for our data.
 We know how to select all of the dates from the `Visited` table:
 
-~~~ {.sql}
+~~~
 SELECT dated FROM Visited;
 ~~~
+{: .source}
 
 |dated     |
 |----------|
@@ -36,19 +37,21 @@ such as `min` or `max`.
 Each of these functions takes a set of records as input,
 and produces a single record as output:
 
-~~~ {.sql}
+~~~
 SELECT min(dated) FROM Visited;
 ~~~
+{: .source}
 
 |min(dated)|
 |----------|
 |1927-02-08|
 
-<img src="fig/sql-aggregation.svg" alt="SQL Aggregation" />
+![SQL Aggregation]({{ site.root }}/fig/sql-aggregation.svg)
 
-~~~ {.sql}
+~~~
 SELECT max(dated) FROM Visited;
 ~~~
+{: .source}
 
 |max(dated)|
 |----------|
@@ -60,25 +63,28 @@ Three others are `avg`,
 `count`,
 and `sum`:
 
-~~~ {.sql}
+~~~
 SELECT avg(reading) FROM Survey WHERE quant='sal';
 ~~~
+{: .source}
 
 |avg(reading)    |
 |----------------|
 |7.20333333333333|
 
-~~~ {.sql}
+~~~
 SELECT count(reading) FROM Survey WHERE quant='sal';
 ~~~
+{: .source}
 
 |count(reading)|
 |--------------|
 |9             |
 
-~~~ {.sql}
+~~~
 SELECT sum(reading) FROM Survey WHERE quant='sal';
 ~~~
+{: .source}
 
 |sum(reading)|
 |------------|
@@ -96,9 +102,10 @@ We can,
 for example,
 find the range of sensible salinity measurements:
 
-~~~ {.sql}
+~~~
 SELECT min(reading), max(reading) FROM Survey WHERE quant='sal' AND reading<=1.0;
 ~~~
+{: .source}
 
 |min(reading)|max(reading)|
 |------------|------------|
@@ -107,9 +114,10 @@ SELECT min(reading), max(reading) FROM Survey WHERE quant='sal' AND reading<=1.0
 We can also combine aggregated results with raw results,
 although the output might surprise you:
 
-~~~ {.sql}
+~~~
 SELECT person, count(*) FROM Survey WHERE quant='sal' AND reading<=1.0;
 ~~~
+{: .source}
 
 |person|count(\*)|
 |------|--------|
@@ -123,13 +131,15 @@ It might use the first one processed,
 the last one,
 or something else entirely.
 
-Another important fact is that when there are no values to aggregate --- for example, where there are no rows satisfying the `WHERE` clause ---
+Another important fact is that when there are no values to aggregate ---
+for example, where there are no rows satisfying the `WHERE` clause ---
 aggregation's result is "don't know"
 rather than zero or some other arbitrary value:
 
-~~~ {.sql}
+~~~
 SELECT person, max(reading), sum(reading) FROM Survey WHERE quant='missing';
 ~~~
+{: .source}
 
 |person|max(reading)|sum(reading)|
 |------|------------|------------|
@@ -150,9 +160,10 @@ for aggregation functions to ignore null values
 and only combine those that are non-null.
 This behavior lets us write our queries as:
 
-~~~ {.sql}
+~~~
 SELECT min(dated) FROM Visited;
 ~~~
+{: .source}
 
 |min(dated)|
 |----------|
@@ -160,9 +171,10 @@ SELECT min(dated) FROM Visited;
 
 instead of always having to filter explicitly:
 
-~~~ {.sql}
+~~~
 SELECT min(dated) FROM Visited WHERE dated IS NOT NULL;
 ~~~
+{: .source}
 
 |min(dated)|
 |----------|
@@ -174,11 +186,12 @@ suppose we suspect that there is a systematic bias in our data,
 and that some scientists' radiation readings are higher than others.
 We know that this doesn't work:
 
-~~~ {.sql}
+~~~
 SELECT person, count(reading), round(avg(reading), 2)
 FROM  Survey
 WHERE quant='rad';
 ~~~
+{: .source}
 
 |person|count(reading)|round(avg(reading), 2)|
 |------|--------------|----------------------|
@@ -189,12 +202,13 @@ rather than aggregating separately for each scientist.
 Since there are only five scientists,
 we could write five queries of the form:
 
-~~~ {.sql}
+~~~
 SELECT person, count(reading), round(avg(reading), 2)
 FROM  Survey
 WHERE quant='rad'
 AND   person='dyer';
 ~~~
+{: .source}
 
 person|count(reading)|round(avg(reading), 2)|
 ------|--------------|----------------------|
@@ -208,12 +222,13 @@ What we need to do is
 tell the database manager to aggregate the hours for each scientist separately
 using a `GROUP BY` clause:
 
-~~~ {.sql}
+~~~
 SELECT   person, count(reading), round(avg(reading), 2)
 FROM     Survey
 WHERE    quant='rad'
 GROUP BY person;
 ~~~
+{: .source}
 
 person|count(reading)|round(avg(reading), 2)|
 ------|--------------|----------------------|
@@ -236,11 +251,12 @@ To get the average reading by scientist and quantity measured,
 for example,
 we just add another field to the `GROUP BY` clause:
 
-~~~ {.sql}
+~~~
 SELECT   person, quant, count(reading), round(avg(reading), 2)
 FROM     Survey
 GROUP BY person, quant;
 ~~~
+{: .source}
 
 |person|quant|count(reading)|round(avg(reading), 2)|
 |------|-----|--------------|----------------------|
@@ -262,13 +278,14 @@ since the results wouldn't make much sense otherwise.
 Let's go one step further and remove all the entries
 where we don't know who took the measurement:
 
-~~~ {.sql}
+~~~
 SELECT   person, quant, count(reading), round(avg(reading), 2)
 FROM     Survey
 WHERE    person IS NOT NULL
 GROUP BY person, quant
 ORDER BY person, quant;
 ~~~
+{: .source}
 
 |person|quant|count(reading)|round(avg(reading), 2)|
 |------|-----|--------------|----------------------|
@@ -302,32 +319,36 @@ this query:
     (it doesn't matter which ones,
     since they're all equal).
 
-> ## Counting Temperature Readings {.challenge}
+> ## Counting Temperature Readings
 >
 > How many temperature readings did Frank Pabodie record,
 > and what was their average value?
+{: .challenge}
 
-> ## Averaging with NULL {.challenge}
+> ## Averaging with NULL
 >
 > The average of a set of values is the sum of the values
 > divided by the number of values.
 > Does this mean that the `avg` function returns 2.0 or 3.0
 > when given the values 1.0, `null`, and 5.0?
+{: .challenge}
 
-> ## What Does This Query Do? {.challenge}
+> ## What Does This Query Do?
 >
 > We want to calculate the difference between
 > each individual radiation reading
 > and the average of all the radiation readings.
 > We write the query:
 >
-> ~~~ {.sql}
+> ~~~
 > SELECT reading - avg(reading) FROM Survey WHERE quant='rad';
 > ~~~
+> {: .source}
 >
 > What does this actually produce, and why?
+{: .challenge}
 
-> ## Ordering When Concatenating {.challenge}
+> ## Ordering When Concatenating
 >
 > The function `group_concat(field, separator)`
 > concatenates all the values in a field
@@ -336,8 +357,10 @@ this query:
 > Use this to produce a one-line list of scientists' names,
 > such as:
 >
-> ~~~ {.sql}
+> ~~~
 > William Dyer, Frank Pabodie, Anderson Lake, Valentina Roerich, Frank Danforth
 > ~~~
+> {: .source}
 >
 > Can you find a way to order the list by surname?
+{: .challenge}

@@ -22,16 +22,18 @@ while the dates of measurements are in the `Visited` table
 and the readings themselves are in the `Survey` table.
 We need to combine these tables somehow.
 
-This figure shows the relations between the tables
-<img src="fig/sql-join-structure.svg" alt="Survey database structure" />
+This figure shows the relations between the tables:
+
+![Survey Database Structure]({{ site.root }}/fig/sql-join-structure.svg)
 
 The SQL command to do this is `JOIN`.
 To see how it works,
 let's start by joining the `Site` and `Visited` tables:
 
-~~~ {.sql}
+~~~
 SELECT * FROM Site JOIN Visited;
 ~~~
+{: .source}
 
 |name |lat   |long   |id   |site  |dated     |
 |-----|------|-------|-----|------|----------|
@@ -80,9 +82,10 @@ we add a clause specifying that
 we're only interested in combinations that have the same site name,
 thus we need to use a filter:
 
-~~~ {.sql}
+~~~
 SELECT * FROM Site JOIN Visited ON Site.name=Visited.site;
 ~~~
+{: .source}
 
 |name |lat   |long   |id   |site |dated     |
 |-----|------|-------|-----|-----|----------|
@@ -117,11 +120,12 @@ We can now use the same dotted notation
 to select the three columns we actually want
 out of our join:
 
-~~~ {.sql}
+~~~
 SELECT Site.lat, Site.long, Visited.dated
 FROM   Site JOIN Visited
 ON     Site.name=Visited.site;
 ~~~
+{: .source}
 
 |lat   |long   |dated     |
 |------|-------|----------|
@@ -142,13 +146,14 @@ simply by adding more `JOIN` clauses to our query,
 and more `ON` tests to filter out combinations of records
 that don't make sense:
 
-~~~ {.sql}
+~~~
 SELECT Site.lat, Site.long, Visited.dated, Survey.quant, Survey.reading
 FROM   Site JOIN Visited JOIN Survey
 ON     Site.name=Visited.site
 AND    Visited.id=Survey.taken
 AND    Visited.dated IS NOT NULL;
 ~~~
+{: .source}
 
 |lat   |long   |dated     |quant|reading|
 |------|-------|----------|-----|-------|
@@ -205,9 +210,10 @@ As the query below demonstrates,
 SQLite [automatically numbers records][rowid] as they're added to tables,
 and we can use those record numbers in queries:
 
-~~~ {.sql}
+~~~
 SELECT rowid, * FROM Person;
 ~~~
+{: .source}
 
 |rowid|id      |personal |family  |
 |-----|--------|---------|--------|
@@ -217,29 +223,34 @@ SELECT rowid, * FROM Person;
 |4    |roe     |Valentina|Roerich |
 |5    |danforth|Frank    |Danforth|
 
-> ## Listing Radiation Readings {.challenge}
+> ## Listing Radiation Readings
 >
 > Write a query that lists all radiation readings from the DR-1 site.
+{: .challenge}
 
-> ## Where's Frank? {.challenge}
+> ## Where's Frank?
 >
 > Write a query that lists all sites visited by people named "Frank".
+{: .challenge}
 
-> ## Reading Queries {.challenge}
+> ## Reading Queries
 >
 > Describe in your own words what the following query produces:
 >
-> ~~~ {.sql}
+> ~~~
 > SELECT Site.name FROM Site JOIN Visited
 > ON Site.lat<-49.0 AND Site.name=Visited.site AND Visited.dated>='1932-01-01';
 > ~~~
+> {: .source}
+{: .challenge}
 
-> ## Who has been where? {.challenge}
+> ## Who has been where?
 >
 > Write a query that shows each site with exact location (lat, long) ordered by visited date,
 > followed by personal name and family name of the person who visited the site
 > and the type of measurement taken and its reading. Please avoid all null values.
 > Tip: you should get 15 records with 8 fields.
+{: .challenge}
 
 [OUTER]: http://en.wikipedia.org/wiki/Join_%28SQL%29#Outer_join
 [rowid]: https://www.sqlite.org/lang_createtable.html#rowid

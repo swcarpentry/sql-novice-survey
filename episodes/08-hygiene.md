@@ -73,7 +73,7 @@ but organize our data that way because we have tools to manipulate it efficientl
 As anthropologists say,
 the tool shapes the hand that shapes the tool.
 
-> ## Identifying Atomic Values {.challenge}
+> ## Identifying Atomic Values
 >
 > Which of the following are atomic values? Which are not? Why?
 >
@@ -81,8 +81,9 @@ the tool shapes the hand that shapes the tool.
 > *   87 Turing Avenue
 > *   January 25, 1971
 > *   the XY coordinate (0.5, 3.3)
+{: .challenge}
 
-> ## Identifying a Primary Key {.challenge}
+> ## Identifying a Primary Key
 >
 > What is the primary key in this table?
 > I.e., what value or combination of values uniquely identifies a record?
@@ -90,3 +91,4 @@ the tool shapes the hand that shapes the tool.
 > |latitude|longitude|date      |temperature|
 > |--------|---------|----------|-----------|
 > |57.3    |-22.5    |2015-01-09|-14.2      |
+{: .challenge}
