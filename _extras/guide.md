@@ -106,8 +106,7 @@ to make it easier for scientists to find what they want to.
 ## Resources
 
 *   `data/*.csv`: CSV versions of data in sample survey database.
-*   `tools/create-db.sql`: generate survey database used in examples based on CSV.
-*   `tools/sqlitemagic.py`: IPython Notebook plugin to handle SQLite databases.
+*   `bin/create-db.sql`: generate survey database used in examples based on CSV.
 
 ## SQLite Setup
 
@@ -124,10 +123,10 @@ Next,
 create the database that will be used:
 
 ~~~ {.bash}
-$ sqlite3 survey.sqlite .read tools/create-db.sql
+$ sqlite3 survey.sqlite .read bin/create-db.sql
 ~~~
 
-This reads commands from `tools/create-db.sql`,
+This reads commands from `bin/create-db.sql`,
 which sets up the tables and loads data from the CSV files in the `data` directory.
 
 To run commands interactively,
