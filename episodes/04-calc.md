@@ -1,8 +1,13 @@
 ---
-layout: page
-title: Databases and SQL
-subtitle: Calculating New Values
-minutes: 30
+title: 'Calculating New Values"
+teaching: 0
+exercises: 0
+questions:
+- "FIXME"
+objectives:
+- "FIXME"
+keypoints:
+- "FIXME"
 ---
 > ## Learning Objectives {.objectives}
 >

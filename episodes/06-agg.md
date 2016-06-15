@@ -1,8 +1,13 @@
 ---
-layout: page
-title: Databases and SQL
-subtitle: Aggregation
-minutes: 30
+title: "Aggregation"
+teaching: 0
+exercises: 0
+questions:
+- "FIXME"
+objectives:
+- "FIXME"
+keypoints:
+- "FIXME"
 ---
 > ## Learning Objectives {.objectives}
 >
