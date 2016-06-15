@@ -1,5 +1,5 @@
 ---
-layout: lesson_homepage
+layout: lesson
 ---
 In the late 1920s and early 1930s,
 William Dyer,

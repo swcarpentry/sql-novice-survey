@@ -1,8 +1,13 @@
 ---
-layout: page
-title: Databases and SQL
-subtitle: Programming with Databases
-minutes: 20
+title: "Programming with Databases"
+teaching: 0
+exercises: 0
+questions:
+- "FIXME"
+objectives:
+- "FIXME"
+keypoints:
+- "FIXME"
 ---
 > ## Learning Objectives {.objectives}
 >

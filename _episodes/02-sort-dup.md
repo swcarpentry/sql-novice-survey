@@ -1,8 +1,13 @@
 ---
-layout: page
-title: Databases and SQL
-subtitle: Sorting and Removing Duplicates
-minutes: 30
+title: "Sorting and Removing Duplicates"
+teaching: 0
+exercises: 0
+questions:
+- "FIXME"
+objectives:
+- "FIXME"
+keypoints:
+- "FIXME"
 ---
 > ## Learning Objectives {.objectives}
 >

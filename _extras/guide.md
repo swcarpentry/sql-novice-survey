@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Databases and SQL
-subtitle: Instructor's Guide
+title: "Instructor's Guide"
+permalink: /guide/
 ---
 > ### database (dā'tə-bās') noun {.callout}
 > "A collection of data arranged for ease and speed of search and retrieval by a computer"

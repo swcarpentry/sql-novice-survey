@@ -1,7 +1,7 @@
 ---
-layout: page
-title: Introduction to Databases and SQL
-subtitle: Reference
+layout: reference
+title: Reference
+permalink: /reference/
 ---
 ## [Selecting Data](01-select.html)
 
