@@ -32,7 +32,7 @@ for r in results:
 cursor.close()
 connection.close()
 ~~~
-{: .source}
+{: .python}
 ~~~
 (-49.85, -128.57)
 (-47.15, -126.72)
@@ -101,7 +101,7 @@ def get_name(database_file, person_id):
 
 print "full name for dyer:", get_name('survey.sqlite', 'dyer')
 ~~~
-{: .source}
+{: .python}
 ~~~
 full name for dyer: William Dyer
 ~~~
@@ -125,7 +125,7 @@ the result is:
 ~~~
 SELECT personal || ' ' || family FROM Person WHERE id='dyer'; DROP TABLE Survey; SELECT '';
 ~~~
-{: .source}
+{: .sql}
 
 If we execute this,
 it will erase one of the tables in our database.
@@ -159,7 +159,7 @@ def get_name(database_file, person_id):
 
 print "full name for dyer:", get_name('survey.sqlite', 'dyer')
 ~~~
-{: .source}
+{: .python}
 ~~~
 full name for dyer: William Dyer
 ~~~

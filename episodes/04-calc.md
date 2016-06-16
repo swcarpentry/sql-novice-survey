@@ -19,7 +19,7 @@ as part of our query:
 ~~~
 SELECT 1.05 * reading FROM Survey WHERE quant='rad';
 ~~~
-{: .source}
+{: .sql}
 
 |1.05 * reading|
 |--------------|
@@ -45,21 +45,21 @@ and round to two decimal places:
 ~~~
 SELECT taken, round(5*(reading-32)/9, 2) FROM Survey WHERE quant='temp';
 ~~~
-{: .source}
+{: .sql}
 
-|taken|round(5\*(reading-32)/9, 2)|
-|-----|---------------------------|
-|734  |-29.72                     |
-|735  |-32.22                     |
-|751  |-28.06                     |
-|752  |-26.67                     |
+|taken|round(5*(reading-32)/9, 2)|
+|-----|--------------------------|
+|734  |-29.72                    |
+|735  |-32.22                    |
+|751  |-28.06                    |
+|752  |-26.67                    |
 
 As you can see from this example, though, the string describing our new field (generated from the equation) can become quite unwieldy. SQL allows us to rename our fields, any field for that matter, whether it was calculated or one of the existing fields in our database, for succinctness and clarity. For example, we could write the previous query as: 
 
 ~~~
 SELECT taken, round(5*(reading-32)/9, 2) as Celsius FROM Survey WHERE quant='temp';
 ~~~
-{: .source}
+{: .sql}
 
 |taken|Celsius|
 |-----|-------|
@@ -74,7 +74,7 @@ for example by using the string concatenation operator `||`:
 ~~~
 SELECT personal || ' ' || family FROM Person;
 ~~~
-{: .source}
+{: .sql}
 
 |personal || ' ' || family|
 |-------------------------|
@@ -101,7 +101,7 @@ SELECT personal || ' ' || family FROM Person;
 > ~~~
 > SELECT * FROM Person WHERE id='dyer' UNION SELECT * FROM Person WHERE id='roe';
 > ~~~
-> {: .source}
+> {: .sql}
 >
 > |id  |personal |family |
 > |----|-------- |-------|
@@ -133,7 +133,7 @@ SELECT personal || ' ' || family FROM Person;
 > ~~~
 > SELECT DISTINCT site FROM Visited;
 > ~~~
-> {: .source}
+> {: .sql}
 >
 > |site |
 > |-----|

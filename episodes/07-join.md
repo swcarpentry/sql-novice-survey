@@ -33,7 +33,7 @@ let's start by joining the `Site` and `Visited` tables:
 ~~~
 SELECT * FROM Site JOIN Visited;
 ~~~
-{: .source}
+{: .sql}
 
 |name |lat   |long   |id   |site  |dated     |
 |-----|------|-------|-----|------|----------|
@@ -85,7 +85,7 @@ thus we need to use a filter:
 ~~~
 SELECT * FROM Site JOIN Visited ON Site.name=Visited.site;
 ~~~
-{: .source}
+{: .sql}
 
 |name |lat   |long   |id   |site |dated     |
 |-----|------|-------|-----|-----|----------|
@@ -125,7 +125,7 @@ SELECT Site.lat, Site.long, Visited.dated
 FROM   Site JOIN Visited
 ON     Site.name=Visited.site;
 ~~~
-{: .source}
+{: .sql}
 
 |lat   |long   |dated     |
 |------|-------|----------|
@@ -153,7 +153,7 @@ ON     Site.name=Visited.site
 AND    Visited.id=Survey.taken
 AND    Visited.dated IS NOT NULL;
 ~~~
-{: .source}
+{: .sql}
 
 |lat   |long   |dated     |quant|reading|
 |------|-------|----------|-----|-------|
@@ -213,7 +213,7 @@ and we can use those record numbers in queries:
 ~~~
 SELECT rowid, * FROM Person;
 ~~~
-{: .source}
+{: .sql}
 
 |rowid|id      |personal |family  |
 |-----|--------|---------|--------|
@@ -241,7 +241,7 @@ SELECT rowid, * FROM Person;
 > SELECT Site.name FROM Site JOIN Visited
 > ON Site.lat<-49.0 AND Site.name=Visited.site AND Visited.dated>='1932-01-01';
 > ~~~
-> {: .source}
+> {: .sql}
 {: .challenge}
 
 > ## Who has been where?

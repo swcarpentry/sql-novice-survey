@@ -27,7 +27,7 @@ its date is null:
 ~~~
 SELECT * FROM Visited;
 ~~~
-{: .source}
+{: .sql}
 
 |id   |site|dated     |
 |-----|----|----------|
@@ -46,7 +46,7 @@ If we select the records that come before 1930:
 ~~~
 SELECT * FROM Visited WHERE dated<'1930-01-01';
 ~~~
-{: .source}
+{: .sql}
 
 |id   |site|dated     |
 |-----|----|----------|
@@ -59,7 +59,7 @@ and if we select the ones that come during or after 1930:
 ~~~
 SELECT * FROM Visited WHERE dated>='1930-01-01';
 ~~~
-{: .source}
+{: .sql}
 
 |id   |site|dated     |
 |-----|----|----------|
@@ -97,14 +97,14 @@ comparing things to null with = and != produces null:
 ~~~
 SELECT * FROM Visited WHERE dated=NULL;
 ~~~
-{: .source}
+{: .sql}
 
 produces no output, and neither does:
 
 ~~~
 SELECT * FROM Visited WHERE dated!=NULL;
 ~~~
-{: .source}
+{: .sql}
 
 To check whether a value is `null` or not,
 we must use a special test `IS NULL`:
@@ -112,7 +112,7 @@ we must use a special test `IS NULL`:
 ~~~
 SELECT * FROM Visited WHERE dated IS NULL;
 ~~~
-{: .source}
+{: .sql}
 
 |id   |site|dated     |
 |-----|----|----------|
@@ -123,7 +123,7 @@ or its inverse `IS NOT NULL`:
 ~~~
 SELECT * FROM Visited WHERE dated IS NOT NULL;
 ~~~
-{: .source}
+{: .sql}
 
 |id   |site|dated     |
 |-----|----|----------|
@@ -144,7 +144,7 @@ It's natural to write the query like this:
 ~~~
 SELECT * FROM Survey WHERE quant='sal' AND person!='lake';
 ~~~
-{: .source}
+{: .sql}
 
 |taken|person|quant|reading|
 |-----|------|-----|-------|
@@ -165,7 +165,7 @@ we need to add an explicit check:
 ~~~
 SELECT * FROM Survey WHERE quant='sal' AND (person!='lake' OR person IS NULL);
 ~~~
-{: .source}
+{: .sql}
 
 |taken|person|quant|reading|
 |-----|------|-----|-------|
@@ -196,7 +196,7 @@ In contrast to arithmetic or Boolean operators, aggregation functions that combi
 > ~~~
 > SELECT * FROM Visited WHERE dated IN ('1927-02-08', NULL);
 > ~~~
-> {: .source}
+> {: .sql}
 >
 > to produce?
 > What does it actually produce?

@@ -22,7 +22,7 @@ by using a `WHERE` clause in our query:
 ~~~
 SELECT * FROM Visited WHERE site='DR-1';
 ~~~
-{: .source}
+{: .sql}
 
 |id   |site|dated     |
 |-----|----|----------|
@@ -44,7 +44,7 @@ based on values in columns that aren't then displayed:
 ~~~
 SELECT id FROM Visited WHERE site='DR-1';
 ~~~
-{: .source}
+{: .sql}
 
 |id   |
 |-----|
@@ -61,7 +61,7 @@ we can ask for all information from the DR-1 site collected before 1930:
 ~~~
 SELECT * FROM Visited WHERE site='DR-1' AND dated<'1930-01-01';
 ~~~
-{: .source}
+{: .sql}
 
 |id   |site|dated     |
 |-----|----|----------|
@@ -96,7 +96,7 @@ we can combine the tests on their names using `OR`:
 ~~~
 SELECT * FROM Survey WHERE person='lake' OR person='roe';
 ~~~
-{: .source}
+{: .sql}
 
 |taken|person|quant|reading|
 |-----|------|-----|-------|
@@ -117,7 +117,7 @@ we can use `IN` to see if a value is in a specific set:
 ~~~
 SELECT * FROM Survey WHERE person IN ('lake', 'roe');
 ~~~
-{: .source}
+{: .sql}
 
 |taken|person|quant|reading|
 |-----|------|-----|-------|
@@ -140,7 +140,7 @@ we get this:
 ~~~
 SELECT * FROM Survey WHERE quant='sal' AND person='lake' OR person='roe';
 ~~~
-{: .source}
+{: .sql}
 
 |taken|person|quant|reading|
 |-----|------|-----|-------|
@@ -159,7 +159,7 @@ We probably want this instead:
 ~~~
 SELECT * FROM Survey WHERE quant='sal' AND (person='lake' OR person='roe');
 ~~~
-{: .source}
+{: .sql}
 
 |taken|person|quant|reading|
 |-----|------|-----|-------|
@@ -180,7 +180,7 @@ It can be used at the beginning, middle, or end of the string:
 ~~~
 SELECT * FROM Visited WHERE site LIKE 'DR%';
 ~~~
-{: .source}
+{: .sql}
 
 |id   |site |dated     |
 |-----|-----|----------|
@@ -200,7 +200,7 @@ to give a second level of filtering:
 ~~~
 SELECT DISTINCT person, quant FROM Survey WHERE person='lake' OR person='roe';
 ~~~
-{: .source}
+{: .sql}
 
 |person|quant|
 |------|-----|
@@ -244,7 +244,7 @@ not to the entire rows as they are being processed.
 > ~~~
 > SELECT * FROM Site WHERE (lat > -60) OR (lat < 60);
 > ~~~
-> {: .source}
+> {: .sql}
 >
 > Explain why this is wrong,
 > and rewrite the query so that it is correct.
