@@ -100,7 +100,7 @@ SELECT * FROM Site JOIN Visited ON Site.name=Visited.site;
 
 `ON` is very similar to `WHERE`,
 and for all the queries in this lesson you can use them interchangeably.
-There are differences in how they affect [outer joins][OUTER],
+There are differences in how they affect [outer joins][outer],
 but that's beyond the scope of this lesson.
 Once we add this to our query,
 the database manager throws away records
@@ -252,5 +252,5 @@ SELECT rowid, * FROM Person;
 > Tip: you should get 15 records with 8 fields.
 {: .challenge}
 
-[OUTER]: http://en.wikipedia.org/wiki/Join_%28SQL%29#Outer_join
+[outer]: http://en.wikipedia.org/wiki/Join_%28SQL%29#Outer_join
 [rowid]: https://www.sqlite.org/lang_createtable.html#rowid

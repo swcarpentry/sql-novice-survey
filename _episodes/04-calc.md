@@ -54,7 +54,12 @@ SELECT taken, round(5*(reading-32)/9, 2) FROM Survey WHERE quant='temp';
 |751  |-28.06                    |
 |752  |-26.67                    |
 
-As you can see from this example, though, the string describing our new field (generated from the equation) can become quite unwieldy. SQL allows us to rename our fields, any field for that matter, whether it was calculated or one of the existing fields in our database, for succinctness and clarity. For example, we could write the previous query as: 
+As you can see from this example, though, the string describing our
+new field (generated from the equation) can become quite unwieldy. SQL
+allows us to rename our fields, any field for that matter, whether it
+was calculated or one of the existing fields in our database, for
+succinctness and clarity. For example, we could write the previous
+query as:
 
 ~~~
 SELECT taken, round(5*(reading-32)/9, 2) as Celsius FROM Survey WHERE quant='temp';
