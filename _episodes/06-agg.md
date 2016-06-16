@@ -18,7 +18,7 @@ We know how to select all of the dates from the `Visited` table:
 ~~~
 SELECT dated FROM Visited;
 ~~~
-{: .source}
+{: .sql}
 
 |dated     |
 |----------|
@@ -40,7 +40,7 @@ and produces a single record as output:
 ~~~
 SELECT min(dated) FROM Visited;
 ~~~
-{: .source}
+{: .sql}
 
 |min(dated)|
 |----------|
@@ -51,7 +51,7 @@ SELECT min(dated) FROM Visited;
 ~~~
 SELECT max(dated) FROM Visited;
 ~~~
-{: .source}
+{: .sql}
 
 |max(dated)|
 |----------|
@@ -66,7 +66,7 @@ and `sum`:
 ~~~
 SELECT avg(reading) FROM Survey WHERE quant='sal';
 ~~~
-{: .source}
+{: .sql}
 
 |avg(reading)    |
 |----------------|
@@ -75,7 +75,7 @@ SELECT avg(reading) FROM Survey WHERE quant='sal';
 ~~~
 SELECT count(reading) FROM Survey WHERE quant='sal';
 ~~~
-{: .source}
+{: .sql}
 
 |count(reading)|
 |--------------|
@@ -84,7 +84,7 @@ SELECT count(reading) FROM Survey WHERE quant='sal';
 ~~~
 SELECT sum(reading) FROM Survey WHERE quant='sal';
 ~~~
-{: .source}
+{: .sql}
 
 |sum(reading)|
 |------------|
@@ -105,7 +105,7 @@ find the range of sensible salinity measurements:
 ~~~
 SELECT min(reading), max(reading) FROM Survey WHERE quant='sal' AND reading<=1.0;
 ~~~
-{: .source}
+{: .sql}
 
 |min(reading)|max(reading)|
 |------------|------------|
@@ -117,7 +117,7 @@ although the output might surprise you:
 ~~~
 SELECT person, count(*) FROM Survey WHERE quant='sal' AND reading<=1.0;
 ~~~
-{: .source}
+{: .sql}
 
 |person|count(\*)|
 |------|--------|
@@ -139,7 +139,7 @@ rather than zero or some other arbitrary value:
 ~~~
 SELECT person, max(reading), sum(reading) FROM Survey WHERE quant='missing';
 ~~~
-{: .source}
+{: .sql}
 
 |person|max(reading)|sum(reading)|
 |------|------------|------------|
@@ -163,7 +163,7 @@ This behavior lets us write our queries as:
 ~~~
 SELECT min(dated) FROM Visited;
 ~~~
-{: .source}
+{: .sql}
 
 |min(dated)|
 |----------|
@@ -174,7 +174,7 @@ instead of always having to filter explicitly:
 ~~~
 SELECT min(dated) FROM Visited WHERE dated IS NOT NULL;
 ~~~
-{: .source}
+{: .sql}
 
 |min(dated)|
 |----------|
@@ -191,7 +191,7 @@ SELECT person, count(reading), round(avg(reading), 2)
 FROM  Survey
 WHERE quant='rad';
 ~~~
-{: .source}
+{: .sql}
 
 |person|count(reading)|round(avg(reading), 2)|
 |------|--------------|----------------------|
@@ -208,7 +208,7 @@ FROM  Survey
 WHERE quant='rad'
 AND   person='dyer';
 ~~~
-{: .source}
+{: .sql}
 
 person|count(reading)|round(avg(reading), 2)|
 ------|--------------|----------------------|
@@ -228,7 +228,7 @@ FROM     Survey
 WHERE    quant='rad'
 GROUP BY person;
 ~~~
-{: .source}
+{: .sql}
 
 person|count(reading)|round(avg(reading), 2)|
 ------|--------------|----------------------|
@@ -256,7 +256,7 @@ SELECT   person, quant, count(reading), round(avg(reading), 2)
 FROM     Survey
 GROUP BY person, quant;
 ~~~
-{: .source}
+{: .sql}
 
 |person|quant|count(reading)|round(avg(reading), 2)|
 |------|-----|--------------|----------------------|
@@ -285,7 +285,7 @@ WHERE    person IS NOT NULL
 GROUP BY person, quant
 ORDER BY person, quant;
 ~~~
-{: .source}
+{: .sql}
 
 |person|quant|count(reading)|round(avg(reading), 2)|
 |------|-----|--------------|----------------------|
@@ -343,7 +343,7 @@ this query:
 > ~~~
 > SELECT reading - avg(reading) FROM Survey WHERE quant='rad';
 > ~~~
-> {: .source}
+> {: .sql}
 >
 > What does this actually produce, and why?
 {: .challenge}
@@ -360,7 +360,7 @@ this query:
 > ~~~
 > William Dyer, Frank Pabodie, Anderson Lake, Valentina Roerich, Frank Danforth
 > ~~~
-> {: .source}
+> {: .sql}
 >
 > Can you find a way to order the list by surname?
 {: .challenge}

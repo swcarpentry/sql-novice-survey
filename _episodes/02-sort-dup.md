@@ -29,7 +29,7 @@ we get this:
 ~~~
 SELECT quant FROM Survey;
 ~~~
-{: .source}
+{: .sql}
 
 |quant|
 |-----|
@@ -62,7 +62,7 @@ to our query:
 ~~~
 SELECT DISTINCT quant FROM Survey;
 ~~~
-{: .source}
+{: .sql}
 
 |quant|
 |-----|
@@ -78,7 +78,7 @@ the distinct *pairs* of values are returned:
 ~~~
 SELECT DISTINCT taken, quant FROM Survey;
 ~~~
-{: .source}
+{: .sql}
 
 |taken|quant|
 |-----|-----|
@@ -118,7 +118,7 @@ We can do this in SQL by adding an `ORDER BY` clause to our query:
 ~~~
 SELECT * FROM Person ORDER BY id;
 ~~~
-{: .source}
+{: .sql}
 
 |id     |personal |family  |
 |-------|---------|--------|
@@ -137,7 +137,7 @@ We can sort in the opposite order using `DESC` (for "descending"):
 ~~~
 SELECT * FROM person ORDER BY id DESC;
 ~~~
-{: .source}
+{: .sql}
 
 |id     |personal |family  |
 |-------|---------|--------|
@@ -162,7 +162,7 @@ within each group of equal `taken` values:
 ~~~
 SELECT taken, person, quant FROM Survey ORDER BY taken ASC, person DESC;
 ~~~
-{: .source}
+{: .sql}
 
 |taken|person|quant|
 |-----|------|-----|
@@ -198,7 +198,7 @@ We can examine which scientists performed which measurements by selecting the ap
 ~~~
 SELECT DISTINCT quant, person FROM Survey ORDER BY quant ASC;
 ~~~
-{: .source}
+{: .sql}
 
 |quant|person|
 |-----|------|

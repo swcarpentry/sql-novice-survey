@@ -54,7 +54,7 @@ but that handful accounts for most of what scientists do.
 > $ cd /path/to/survey/data/
 > $ sqlite3 survey.sqlite
 > ~~~
-> {: .source}
+> {: .bash}
 > 
 > The SQLite command is `sqlite3` and you are telling SQLite to open up
 > the `survey.sqlite`.  You need to specify the `.db` file otherwise, SQLite
@@ -151,7 +151,7 @@ we'll return to these missing values [later](05-null.html).
 > $ cd Desktop
 > $ ls | grep survey.sqlite
 > ~~~
-> {: .source}
+> {: .bash}
 > ~~~
 > survey.sqlite
 > ~~~
@@ -162,7 +162,7 @@ we'll return to these missing values [later](05-null.html).
 > ~~~
 > $ sqlite3 survey.sqlite
 > ~~~
-> {: .source}
+> {: .bash}
 > ~~~
 > SQLite version 3.8.8 2015-01-16 12:08:06
 > Enter ".help" for usage hints.
@@ -180,7 +180,7 @@ we'll return to these missing values [later](05-null.html).
 > ~~~
 > .tables
 > ~~~
-> {: .source}
+> {: .sql}
 > ~~~
 > Person   Site     Survey   Visited
 > ~~~
@@ -195,7 +195,7 @@ we'll return to these missing values [later](05-null.html).
 > .mode column
 > .header on
 > ~~~
-> {: .source}
+> {: .sql}
 >
 > To exit SQLite and return to the shell command line,
 > you can use either `.quit` or `.exit`.
@@ -210,7 +210,7 @@ Our query and its output look like this:
 ~~~
 SELECT family, personal FROM Person;
 ~~~
-{: .source}
+{: .sql}
 
 |family  |personal |
 |--------|---------|
@@ -231,7 +231,7 @@ SQL is [case insensitive](reference.html#case-insensitive).
 ~~~
 SeLeCt FaMiLy, PeRsOnAl FrOm PeRsOn;
 ~~~
-{: .source}
+{: .sql}
 
 |family  |personal |
 |--------|---------|
@@ -258,7 +258,7 @@ SELECT * FROM Person
 ...>
 ...>
 ~~~
-{: .source}
+{: .sql}
 
 This is SQL's prompt, where it is waiting for additional commands or
 for a `;` to let SQL know to finish.  This is easy to fix!  Just type
@@ -275,7 +275,7 @@ we could swap the columns in the output by writing our query as:
 ~~~
 SELECT personal, family FROM Person;
 ~~~
-{: .source}
+{: .sql}
 
 |personal |family  |
 |---------|--------|
@@ -290,7 +290,7 @@ or even repeat columns:
 ~~~
 SELECT id, id, id FROM Person;
 ~~~
-{: .source}
+{: .sql}
 
 |id      |id      |id      |
 |--------|--------|--------|
@@ -306,7 +306,7 @@ we can select all of the columns in a table using `*`:
 ~~~
 SELECT * FROM Person;
 ~~~
-{: .source}
+{: .sql}
 
 |id      |personal |family  |
 |--------|---------|--------|
@@ -328,14 +328,14 @@ SELECT * FROM Person;
 > ~~~
 > SELECT personal, family FROM person;
 > ~~~
-> {: .source}
+> {: .sql}
 >
 > or as:
 >
 > ~~~
 > select Personal, Family from PERSON;
 > ~~~
-> {: .source}
+> {: .sql}
 >
 > What style do you find easiest to read, and why?
 {: .challenge}

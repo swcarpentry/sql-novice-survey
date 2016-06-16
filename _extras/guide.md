@@ -80,7 +80,7 @@ Then:
 $ git clone http://github.com/swcarpentry/sql-novice-survey.git
 $ cd sql-novice-survey
 ~~~
-{: .source}
+{: .bash}
 
 Next,
 create the database that will be used:
@@ -88,7 +88,7 @@ create the database that will be used:
 ~~~
 $ sqlite3 survey.sqlite .read bin/create-db.sql
 ~~~
-{: .source}
+{: .bash}
 
 This reads commands from `bin/create-db.sql`,
 which sets up the tables and loads data from the CSV files in the `data` directory.
@@ -102,7 +102,7 @@ SQLite version 3.8.5 2014-08-15 22:37:57
 Enter ".help" for usage hints.
 sqlite>
 ~~~
-{: .source}
+{: .bash}
 
 ## Troubleshooting
 
@@ -120,7 +120,7 @@ A workaround for this it to use the [rlwrap](https://github.com/hanslub42/rlwrap
 ~~~
 $ rlwrap sqlite3 survey.sqlite
 ~~~
-{: .source}
+{: .bash}
 
 The `rlwrap` package is available in the standard Fedora repository
 (but wasn't needed when I [@benwaugh] taught this) and appears to be

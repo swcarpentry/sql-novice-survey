@@ -31,14 +31,14 @@ CREATE TABLE Site(name text, lat real, long real);
 CREATE TABLE Visited(id integer, site text, dated text);
 CREATE TABLE Survey(taken integer, person text, quant real, reading real);
 ~~~
-{: .source}
+{: .sql}
 
 We can get rid of one of our tables using:
 
 ~~~
 DROP TABLE Survey;
 ~~~
-{: .source}
+{: .sql}
 
 Be very careful when doing this:
 most databases have some support for undoing changes,
@@ -79,7 +79,7 @@ CREATE TABLE Survey(
     foreign key(person) references Person(id)
 );
 ~~~
-{: .source}
+{: .sql}
 
 Once again,
 exactly what constraints are available
@@ -97,7 +97,7 @@ INSERT INTO Site values('DR-1', -49.85, -128.57);
 INSERT INTO Site values('DR-3', -47.15, -126.72);
 INSERT INTO Site values('MSK-4', -48.87, -123.40);
 ~~~
-{: .source}
+{: .sql}
 
 We can also insert values into one table directly from another:
 
@@ -105,7 +105,7 @@ We can also insert values into one table directly from another:
 CREATE TABLE JustLatLong(lat text, long text);
 INSERT INTO JustLatLong SELECT lat, long FROM Site;
 ~~~
-{: .source}
+{: .sql}
 
 Modifying existing records is done using the `UPDATE` statement.
 To do this we tell the database which table we want to update,
@@ -118,7 +118,7 @@ of the last `INSERT` statement above:
 ~~~
 UPDATE Site SET lat=-47.87, long=-122.40 WHERE name='MSK-4';
 ~~~
-{: .source}
+{: .sql}
 
 Be careful to not forget the `where` clause or the update statement will
 modify *all* of the records in the database.
@@ -135,7 +135,7 @@ we can remove him from the `Person` table like this:
 ~~~
 DELETE FROM Person WHERE id = 'danforth';
 ~~~
-{: .source}
+{: .sql}
 
 But what if we removed Anderson Lake instead?
 Our `Survey` table would still contain seven records
