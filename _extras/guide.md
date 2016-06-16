@@ -47,12 +47,13 @@ to make it easier for scientists to find what they want to.
     Of the two,
     people seem to care most about how to add data (which only takes a few minutes to demonstrate).
 
-*   Simple calculations are actually easier to do in a spreadsheet;
-    the advantages of using a database become clear as soon as filtering and joins are needed.
-    Instructors may therefore want to show a spreadsheet with the information from the four database tables
-    consolidated into a single sheet,
-    and demonstrate what's needed in both systems to answer questions like,
-    "What was the average radiation reading in 1931?"
+*   Simple calculations are actually easier to do in a spreadsheet; the
+    advantages of using a database become clear as soon as filtering
+    and joins are needed.  Instructors may therefore want to show a
+    spreadsheet with the information from the four database tables
+    consolidated into a single sheet, and demonstrate what's needed in
+    both systems to answer questions like, "What was the average
+    radiation reading in 1931?"
 
 *   Some advanced learners may have heard that NoSQL databases
     (i.e., ones that don't use the relational model)

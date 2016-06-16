@@ -3,14 +3,16 @@ title: "Combining Data"
 teaching: 20
 exercises: 20
 questions:
-- "FIXME"
+- "How can I combine data from multiple tables?"
 objectives:
 - "Explain the operation of a query that joins two tables."
 - "Explain how to restrict the output of a query containing a join to only include meaningful combinations of values."
 - "Write queries that join tables on equal keys."
 - "Explain what primary and foreign keys are, and why they are useful."
 keypoints:
-- "FIXME"
+- "Use JOIN to combine data from two tables."
+- "Use table.field notation to refer to fields when doing joins."
+- "The most common join condition is matching keys."
 ---
 In order to submit our data to a web site
 that aggregates historical meteorological data,

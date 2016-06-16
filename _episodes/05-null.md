@@ -3,13 +3,16 @@ title: "Missing Data"
 teaching: 15
 exercises: 15
 questions:
-- "FIXME"
+- "How do databases represent missing information?"
+- "What special handling does missing information require?"
 objectives:
 - "Explain how databases represent missing information."
 - "Explain the three-valued logic databases use when manipulating missing information."
 - "Write queries that handle missing information correctly."
 keypoints:
-- "FIXME"
+- "Databases use a special value called NULL to represent missing information."
+- "Almost all operations on NULL produce NULL."
+- "Queries can test for NULLs using IS NULL and IS NOT NULL."
 ---
 Real-world data is never complete --- there are always holes.
 Databases represent these holes using a special value called `null`.
@@ -180,7 +183,12 @@ If we want to be absolutely sure that
 we aren't including any measurements by Lake in our results,
 we need to exclude all the records for which we don't know who did the work.
 
-In contrast to arithmetic or Boolean operators, aggregation functions that combine multiple values, such as `min`, `max` or `avg`, *ignore* `null` values. In the majority of cases, this is a desirable output: for example, unknown values are thus not affecting our data when we are averaging it. Aggregation functions will be addressed in more detail in [the next section](06-agg.html).
+In contrast to arithmetic or Boolean operators, aggregation functions
+that combine multiple values, such as `min`, `max` or `avg`, *ignore*
+`null` values. In the majority of cases, this is a desirable output:
+for example, unknown values are thus not affecting our data when we
+are averaging it. Aggregation functions will be addressed in more
+detail in [the next section](06-agg.html).
 
 > ## Sorting by Known Date
 >

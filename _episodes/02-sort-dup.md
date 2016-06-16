@@ -3,19 +3,20 @@ title: "Sorting and Removing Duplicates"
 teaching: 10
 exercises: 10
 questions:
-- "FIXME"
+- "How can I sort a query's results?"
+- "How can I remove duplicate values from a query's results?"
 objectives:
 - "Write queries that display results in a particular order."
 - "Write queries that eliminate duplicate values from data."
 keypoints:
-- "FIXME"
+- "Use ORDER BY to sort a query's results."
+- "Use DISTINCT to remove duplicate records."
 ---
 In beginning our examination of the Antarctic data, we want to know:
 
 * what kind of quantity measurements were taken at each site; 
 * which scientists took measurements on the expedition;
 * the sites where each scientist took measurements
-
 
 To determine which measurements were taken at each site, 
 we can examine the `Survey` table.
@@ -55,9 +56,10 @@ SELECT quant FROM Survey;
 |sal  |
 |rad  |
 
-This result makes it difficult to see all of the different types of `quant` in the Survey table.
-We can eliminate the redundant output to make the result more readable by adding the `DISTINCT` keyword
-to our query:
+This result makes it difficult to see all of the different types of
+`quant` in the Survey table.  We can eliminate the redundant output to
+make the result more readable by adding the `DISTINCT` keyword to our
+query:
 
 ~~~
 SELECT DISTINCT quant FROM Survey;
@@ -191,9 +193,10 @@ SELECT taken, person, quant FROM Survey ORDER BY taken ASC, person DESC;
 This query gives us a good idea of which scientist was at which site, 
 and what measurements they performed while they were there.
 
-Looking at the table, 
-it seems like some scientists specialized in certain kinds of measurements. 
-We can examine which scientists performed which measurements by selecting the appropriate columns and removing duplicates. 
+Looking at the table, it seems like some scientists specialized in
+certain kinds of measurements.  We can examine which scientists
+performed which measurements by selecting the appropriate columns and
+removing duplicates.
 
 ~~~
 SELECT DISTINCT quant, person FROM Survey ORDER BY quant ASC;
