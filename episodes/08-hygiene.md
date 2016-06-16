@@ -3,7 +3,7 @@ title: "Data Hygiene"
 teaching: 15
 exercises: 15
 questions:
-- "FIXME"
+- "How should I format data in a database, and why?"
 objectives:
 - "Explain what an atomic value is."
 - "Distinguish between atomic and non-atomic values."
@@ -13,19 +13,22 @@ objectives:
 - "Explain why database entries should not contain redundant information."
 - "Identify redundant information in databases."
 keypoints:
-- "FIXME"
+- "Every value in a database should be atomic."
+- "Every record should have a unique primary key."
+- "A database should not contain redundant information."
+- "Units and similar metadata should be stored with the data."
 ---
-Now that we have seen how joins work,
-we can see why the relational model is so useful
-and how best to use it.
-The first rule is that every value should be [atomic](reference.html#atomic),
-i.e.,
-not contain parts that we might want to work with separately.
-We store personal and family names in separate columns instead of putting the entire name in one column
-so that we don't have to use substring operations to get the name's components.
-More importantly,
-we store the two parts of the name separately because splitting on spaces is unreliable:
-just think of a name like "Eloise St. Cyr" or "Jan Mikkel Steubart".
+
+Now that we have seen how joins work, we can see why the relational
+model is so useful and how best to use it.  The first rule is that
+every value should be [atomic](reference.html#atomic), i.e., not
+contain parts that we might want to work with separately.  We store
+personal and family names in separate columns instead of putting the
+entire name in one column so that we don't have to use substring
+operations to get the name's components.  More importantly, we store
+the two parts of the name separately because splitting on spaces is
+unreliable: just think of a name like "Eloise St. Cyr" or "Jan Mikkel
+Steubart".
 
 The second rule is that every record should have a unique primary key.
 This can be a serial number that has no intrinsic meaning,

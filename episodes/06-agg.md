@@ -3,14 +3,16 @@ title: "Aggregation"
 teaching: 10
 exercises: 10
 questions:
-- "FIXME"
+- "How can I calculate sums, averages, and other summary values?"
 objectives:
 - "Define aggregation and give examples of its use."
 - "Write queries that compute aggregated values."
 - "Trace the execution of a query that performs aggregation."
 - "Explain how missing data is handled during aggregation."
 keypoints:
-- "FIXME"
+- "Use aggregation functions to combine multiple values."
+- "Use GROUP BY to combine subsets separately."
+- "If no aggregation function is specified for a field, the query may return an arbitrary value for that field."
 ---
 We now want to calculate ranges and averages for our data.
 We know how to select all of the dates from the `Visited` table:

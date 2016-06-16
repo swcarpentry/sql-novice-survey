@@ -3,12 +3,16 @@ title: "Creating and Modifying Data"
 teaching: 15
 exercises: 10
 questions:
-- "FIXME"
+- "How can I create, modify, and delete tables and data?"
 objectives:
 - "Write statements that creates tables."
 - "Write statements to insert, modify, and delete records."
 keypoints:
-- "FIXME"
+- "Use CREATE and DROP to create and delete tables."
+- "Use INSERT to add data."
+- "Use UPDATE to modify existing data."
+- "Use DELETE to remove data."
+- "Do not create dangling references by deleting records that other records refer to."
 ---
 So far we have only looked at how to get information out of a database,
 both because that is more frequent than adding information,

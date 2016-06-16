@@ -3,12 +3,14 @@ title: "Filtering"
 teaching: 10
 exercises: 10
 questions:
-- "FIXME"
+- "How can I select subsets of data?"
 objectives:
 - "Write queries that select records that satisfy user-specified conditions."
 - "Explain the order in which the clauses in a query are executed."
 keypoints:
-- "FIXME"
+- "Use WHERE to specify conditions that records must meet in order to be included in a query's results."
+- "Use AND, OR, and NOT to combine tests."
+- "Write queries incrementally."
 ---
 One of the most powerful features of a database is
 the ability to [filter](reference.html#filter) data,
@@ -170,12 +172,11 @@ SELECT * FROM Survey WHERE quant='sal' AND (person='lake' OR person='roe');
 |837  |lake  |sal  |0.21   |
 |837  |roe   |sal  |22.5   |
 
-We can also filter by partial matches.
-For example,
-if we want to know something just about the site names beginning with "DR" we can use the `LIKE` keyword.
-The percent symbol acts as a [wildcard](reference.html#wildcard),
-matching any characters in that place.
-It can be used at the beginning, middle, or end of the string:
+We can also filter by partial matches.  For example, if we want to
+know something just about the site names beginning with "DR" we can
+use the `LIKE` keyword.  The percent symbol acts as a
+[wildcard](reference.html#wildcard), matching any characters in that
+place.  It can be used at the beginning, middle, or end of the string:
 
 ~~~
 SELECT * FROM Visited WHERE site LIKE 'DR%';

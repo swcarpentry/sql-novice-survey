@@ -3,13 +3,14 @@ title: "Selecting Data"
 teaching: 10
 exercises: 5
 questions:
-- "FIXME"
+- "How can I get data from a database?"
 objectives:
 - "Explain the difference between a table, a record, and a field."
 - "Explain the difference between a database and a database manager."
 - "Write a query to select all values for specific fields from a single table."
 keypoints:
-- "FIXME"
+- "Use SELECT... FROM... to get values from a database table."
+- "SQL is case-insensitive (but data is case-sensitive)."
 ---
 A [relational database](reference.html#relational-database)
 is a way to store and manipulate information. 

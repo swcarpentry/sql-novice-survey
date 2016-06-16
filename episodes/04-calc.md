@@ -3,11 +3,12 @@ title: "Calculating New Values"
 teaching: 5
 exercises: 5
 questions:
-- "FIXME"
+- "How can I calculate new values on the fly?"
 objectives:
 - "Write queries that calculate new values for each selected record."
 keypoints:
-- "FIXME"
+- "Queries can do the usual arithmetic operations on values."
+- "Use UNION to combine the results of two or more queries."
 ---
 After carefully re-reading the expedition logs,
 we realize that the radiation measurements they report

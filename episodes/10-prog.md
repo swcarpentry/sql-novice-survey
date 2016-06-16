@@ -3,13 +3,15 @@ title: "Programming with Databases"
 teaching: 20
 exercises: 15
 questions:
-- "FIXME"
+- "How can I access databases from programs written in general-purpose languages?"
 objectives:
 - "Write short programs that execute SQL queries."
 - "Trace the execution of a program that contains an SQL query."
 - "Explain why most database applications are written in a general-purpose language rather than in SQL."
 keypoints:
-- "FIXME"
+- "General-purpose languages have libraries for accessing databases."
+- "These libraries use a connection-and-cursor model."
+- "Queries should be written using parameter substitution, not string formatting."
 ---
 To close,
 let's have a look at how to access a database from
