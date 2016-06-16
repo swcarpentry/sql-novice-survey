@@ -1,7 +1,5 @@
 ---
 layout: reference
-title: Reference
-permalink: /reference/
 ---
 ## [Selecting Data](01-select.html)
 
