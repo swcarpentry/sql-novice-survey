@@ -70,7 +70,7 @@ SELECT * FROM Visited WHERE site='DR-1' AND dated<'1930-01-01';
 |619  |DR-1|1927-02-08|
 |622  |DR-1|1927-02-10|
 
-> ## Date types
+> ## Date Types
 >
 > Most database managers have a special data type for dates.
 > In fact, many have two:

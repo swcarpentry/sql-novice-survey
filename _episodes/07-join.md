@@ -246,7 +246,7 @@ SELECT rowid, * FROM Person;
 > {: .sql}
 {: .challenge}
 
-> ## Who has been where?
+> ## Who Has Been Where?
 >
 > Write a query that shows each site with exact location (lat, long) ordered by visited date,
 > followed by personal name and family name of the person who visited the site

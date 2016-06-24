@@ -3,9 +3,11 @@ layout: page
 title: "Instructor's Guide"
 permalink: /guide/
 ---
-> ### database (dā'tə-bās') noun {.callout}
+
+> **database** (dā'tə-bās') noun:
 > "A collection of data arranged for ease and speed of search and retrieval by a computer"
-> - The American Heritage® Science Dictionary
+>
+> — The American Heritage® Science Dictionary
 {: .quotation}
 
 *   Three common options for storing data
