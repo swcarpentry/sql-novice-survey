@@ -29,6 +29,6 @@ These lessons will show how to use a database to explore the expeditions' data.
 
 > ## Prerequisites
 >
-> -    UNIX shell plus SQLite3 or Firefox SQLite plugin.
-> -    [survey.db](http://files.software-carpentry.org/survey.db)
+> *    Unix shell plus SQLite3 or Firefox SQLite plugin.
+> *    [survey.db](http://files.software-carpentry.org/survey.db)
 {: .prereq}

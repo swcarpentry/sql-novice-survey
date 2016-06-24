@@ -29,7 +29,7 @@ The database manager does whatever lookups and calculations the query specifies,
 returning the results in a tabular form
 that we can then use as a starting point for further queries.
 
-> ## Changing database managers
+> ## Changing Database Managers
 >
 > Every database manager --- Oracle,
 > IBM DB2, PostgreSQL, MySQL, Microsoft Access, and SQLite --- stores
@@ -46,7 +46,7 @@ SQL provides hundreds of different ways to analyze and recombine data.
 We will only look at a handful of queries,
 but that handful accounts for most of what scientists do.
 
-> ## Getting into and out of SQLite
+> ## Getting Into and Out Of SQLite
 >
 > In order to use the SQLite commands *interactively*, we need to
 > enter into the SQLite console.  So, open up a terminal, and run
@@ -142,7 +142,7 @@ data, but instead have a special `-null-` entry:
 we'll return to these missing values [later](05-null.html).
 
 
-> ## Checking if data is available
+> ## Checking If Data is Available
 >
 > On the shell command line,
 > change the working directory to the one where you saved `survey.sqlite`.
