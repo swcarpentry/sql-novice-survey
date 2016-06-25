@@ -9,8 +9,8 @@ objectives:
 - "Write queries that display results in a particular order."
 - "Write queries that eliminate duplicate values from data."
 keypoints:
-- "Use ORDER BY to sort a query's results."
-- "Use DISTINCT to remove duplicate records."
+- "The records in a database table are not intrinsically ordered: if we want to display them in some order, we must specify that explicitly with ORDER BY."
+- "The values in a database are not guaranteed to be unique: if we want to eliminate duplicates, we must specify that explicitly as well using DISTINCT."
 ---
 In beginning our examination of the Antarctic data, we want to know:
 

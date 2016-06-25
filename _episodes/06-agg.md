@@ -11,6 +11,8 @@ objectives:
 - "Explain how missing data is handled during aggregation."
 keypoints:
 - "Use aggregation functions to combine multiple values."
+- "Aggregation functions ignore `null` values."
+- "Aggregation happens after filtering."
 - "Use GROUP BY to combine subsets separately."
 - "If no aggregation function is specified for a field, the query may return an arbitrary value for that field."
 ---
