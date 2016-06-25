@@ -10,6 +10,7 @@ objectives:
 keypoints:
 - "Use WHERE to specify conditions that records must meet in order to be included in a query's results."
 - "Use AND, OR, and NOT to combine tests."
+- "Filtering is done on whole records, so conditions can use fields that are not actually displayed."
 - "Write queries incrementally."
 ---
 One of the most powerful features of a database is

@@ -12,6 +12,7 @@ keypoints:
 - "Use INSERT to add data."
 - "Use UPDATE to modify existing data."
 - "Use DELETE to remove data."
+- "It is simpler and safer to modify data when every record has a unique primary key."
 - "Do not create dangling references by deleting records that other records refer to."
 ---
 So far we have only looked at how to get information out of a database,
