@@ -2,8 +2,8 @@ sql-novice-survey
 =================
 
 An introduction to databases and SQL using Antarctic survey data.
-
-See [the lesson template documentation][lesson-example]
+Please see <https://swcarpentry.github.io/sql-novice-survey/> for a rendered version of this material,
+[the lesson template documentation][lesson-example]
 for instructions on formatting, building, and submitting material,
 or run `make` in this directory for a list of helpful commands.
 
