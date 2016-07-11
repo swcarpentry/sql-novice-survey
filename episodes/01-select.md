@@ -16,7 +16,7 @@ keypoints:
 - "SQL is case-insensitive (but data is case-sensitive)."
 ---
 A [relational database](reference.html#relational-database)
-is a way to store and manipulate information. 
+is a way to store and manipulate information.
 Databases are arranged as [tables](reference.html#table).
 Each table has columns (also known as [fields](reference.html#field)) that describe the data,
 and rows (also known as [records](reference.html#record)) which contain the data.
@@ -59,17 +59,17 @@ but that handful accounts for most of what scientists do.
 > $ sqlite3 survey.sqlite
 > ~~~
 > {: .bash}
-> 
+>
 > The SQLite command is `sqlite3` and you are telling SQLite to open up
 > the `survey.sqlite`.  You need to specify the `.db` file otherwise, SQLite
 > will open up a temporary, empty database.
-> 
+>
 > To get out of SQLite, type out `.exit` or `.quit`.  For some
 > terminals, `Ctrl-D` can also work.  If you forget any SQLite `.` (dot)
 > command, type `.help`.
 {: .callout}
 
-Before we get into the data and using SQLite to select the data, 
+Before we get into the data and using SQLite to select the data,
 
 The tables below show the database we will use in our examples:
 
