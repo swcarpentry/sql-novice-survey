@@ -113,7 +113,7 @@ The command history and line editing features provided by `readline` are
 invaluable with a command-line tool like `sqlite3`. Participants should be
 encouraged strongly to start with a simple SQL statement and then use the
 up-arrow key to go back and add clauses one at a time, or fix problems, rather
-than typing each command from scratch. Unfortunately on some Linux and Mac OSX
+than typing each command from scratch. Unfortunately on some Linux and Mac OS X
 systems participants have found that the arrow keys do not scroll through the
 command history as expected.
 
@@ -128,4 +128,4 @@ $ rlwrap sqlite3 survey.sqlite
 The `rlwrap` package is available in the standard Fedora repository
 (but wasn't needed when I [@benwaugh] taught this) and appears to be
 available in [Ubuntu](http://packages.ubuntu.com/precise/rlwrap) too,
-and in [OSX using Homebrew](https://news.ycombinator.com/item?id=5087790).
+and in [OS X using Homebrew](https://news.ycombinator.com/item?id=5087790).

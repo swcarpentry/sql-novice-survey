@@ -57,7 +57,7 @@ primary key
     uniquely identify the entry.
 
 query
-:   A textual desscription of a database operation. Queries are expressed in
+:   A textual description of a database operation. Queries are expressed in
     a special-purpose language called [SQL](#sql), and despite the name "query",
     they may modify or delete data as well as interrogate it.
 
