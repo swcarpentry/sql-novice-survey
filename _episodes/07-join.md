@@ -31,7 +31,7 @@ We need to combine these tables somehow.
 
 This figure shows the relations between the tables:
 
-![Survey Database Structure]({{ site.root }}/fig/sql-join-structure.svg)
+![Survey Database Structure]({{ site.github.url }}/fig/sql-join-structure.svg)
 
 The SQL command to do this is `JOIN`.
 To see how it works,

@@ -55,7 +55,7 @@ SELECT id FROM Visited WHERE site='DR-1';
 |622  |
 |844  |
 
-![SQL Filtering in Action]({{ site.root }}/fig/sql-filter.svg)
+![SQL Filtering in Action]({{ site.github.url }}/fig/sql-filter.svg)
 
 We can use many other Boolean operators to filter our data.
 For example,
