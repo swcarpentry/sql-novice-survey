@@ -1,22 +1,28 @@
 ---
-layout: page
-title: Databases and SQL
-subtitle: Aggregation
-minutes: 30
+title: "Aggregation"
+teaching: 10
+exercises: 10
+questions:
+- "How can I calculate sums, averages, and other summary values?"
+objectives:
+- "Define aggregation and give examples of its use."
+- "Write queries that compute aggregated values."
+- "Trace the execution of a query that performs aggregation."
+- "Explain how missing data is handled during aggregation."
+keypoints:
+- "Use aggregation functions to combine multiple values."
+- "Aggregation functions ignore `null` values."
+- "Aggregation happens after filtering."
+- "Use GROUP BY to combine subsets separately."
+- "If no aggregation function is specified for a field, the query may return an arbitrary value for that field."
 ---
-> ## Learning Objectives {.objectives}
->
-> *   Define "aggregation" and give examples of its use.
-> *   Write queries that compute aggregated values.
-> *   Trace the execution of a query that performs aggregation.
-> *   Explain how missing data is handled during aggregation.
-
 We now want to calculate ranges and averages for our data.
 We know how to select all of the dates from the `Visited` table:
 
-~~~ {.sql}
+~~~
 SELECT dated FROM Visited;
 ~~~
+{: .sql}
 
 |dated     |
 |----------|
@@ -35,19 +41,21 @@ such as `min` or `max`.
 Each of these functions takes a set of records as input,
 and produces a single record as output:
 
-~~~ {.sql}
+~~~
 SELECT min(dated) FROM Visited;
 ~~~
+{: .sql}
 
 |min(dated)|
 |----------|
 |1927-02-08|
 
-<img src="fig/sql-aggregation.svg" alt="SQL Aggregation" />
+![SQL Aggregation]({{ site.github.url }}/fig/sql-aggregation.svg)
 
-~~~ {.sql}
+~~~
 SELECT max(dated) FROM Visited;
 ~~~
+{: .sql}
 
 |max(dated)|
 |----------|
@@ -59,25 +67,28 @@ Three others are `avg`,
 `count`,
 and `sum`:
 
-~~~ {.sql}
+~~~
 SELECT avg(reading) FROM Survey WHERE quant='sal';
 ~~~
+{: .sql}
 
 |avg(reading)    |
 |----------------|
 |7.20333333333333|
 
-~~~ {.sql}
+~~~
 SELECT count(reading) FROM Survey WHERE quant='sal';
 ~~~
+{: .sql}
 
 |count(reading)|
 |--------------|
 |9             |
 
-~~~ {.sql}
+~~~
 SELECT sum(reading) FROM Survey WHERE quant='sal';
 ~~~
+{: .sql}
 
 |sum(reading)|
 |------------|
@@ -95,9 +106,10 @@ We can,
 for example,
 find the range of sensible salinity measurements:
 
-~~~ {.sql}
+~~~
 SELECT min(reading), max(reading) FROM Survey WHERE quant='sal' AND reading<=1.0;
 ~~~
+{: .sql}
 
 |min(reading)|max(reading)|
 |------------|------------|
@@ -106,9 +118,10 @@ SELECT min(reading), max(reading) FROM Survey WHERE quant='sal' AND reading<=1.0
 We can also combine aggregated results with raw results,
 although the output might surprise you:
 
-~~~ {.sql}
+~~~
 SELECT person, count(*) FROM Survey WHERE quant='sal' AND reading<=1.0;
 ~~~
+{: .sql}
 
 |person|count(\*)|
 |------|--------|
@@ -122,13 +135,15 @@ It might use the first one processed,
 the last one,
 or something else entirely.
 
-Another important fact is that when there are no values to aggregate --- for example, where there are no rows satisfying the `WHERE` clause ---
+Another important fact is that when there are no values to aggregate ---
+for example, where there are no rows satisfying the `WHERE` clause ---
 aggregation's result is "don't know"
 rather than zero or some other arbitrary value:
 
-~~~ {.sql}
+~~~
 SELECT person, max(reading), sum(reading) FROM Survey WHERE quant='missing';
 ~~~
+{: .sql}
 
 |person|max(reading)|sum(reading)|
 |------|------------|------------|
@@ -149,9 +164,10 @@ for aggregation functions to ignore null values
 and only combine those that are non-null.
 This behavior lets us write our queries as:
 
-~~~ {.sql}
+~~~
 SELECT min(dated) FROM Visited;
 ~~~
+{: .sql}
 
 |min(dated)|
 |----------|
@@ -159,9 +175,10 @@ SELECT min(dated) FROM Visited;
 
 instead of always having to filter explicitly:
 
-~~~ {.sql}
+~~~
 SELECT min(dated) FROM Visited WHERE dated IS NOT NULL;
 ~~~
+{: .sql}
 
 |min(dated)|
 |----------|
@@ -173,11 +190,12 @@ suppose we suspect that there is a systematic bias in our data,
 and that some scientists' radiation readings are higher than others.
 We know that this doesn't work:
 
-~~~ {.sql}
+~~~
 SELECT person, count(reading), round(avg(reading), 2)
 FROM  Survey
 WHERE quant='rad';
 ~~~
+{: .sql}
 
 |person|count(reading)|round(avg(reading), 2)|
 |------|--------------|----------------------|
@@ -188,12 +206,13 @@ rather than aggregating separately for each scientist.
 Since there are only five scientists,
 we could write five queries of the form:
 
-~~~ {.sql}
+~~~
 SELECT person, count(reading), round(avg(reading), 2)
 FROM  Survey
 WHERE quant='rad'
 AND   person='dyer';
 ~~~
+{: .sql}
 
 person|count(reading)|round(avg(reading), 2)|
 ------|--------------|----------------------|
@@ -207,12 +226,13 @@ What we need to do is
 tell the database manager to aggregate the hours for each scientist separately
 using a `GROUP BY` clause:
 
-~~~ {.sql}
+~~~
 SELECT   person, count(reading), round(avg(reading), 2)
 FROM     Survey
 WHERE    quant='rad'
 GROUP BY person;
 ~~~
+{: .sql}
 
 person|count(reading)|round(avg(reading), 2)|
 ------|--------------|----------------------|
@@ -235,11 +255,12 @@ To get the average reading by scientist and quantity measured,
 for example,
 we just add another field to the `GROUP BY` clause:
 
-~~~ {.sql}
+~~~
 SELECT   person, quant, count(reading), round(avg(reading), 2)
 FROM     Survey
 GROUP BY person, quant;
 ~~~
+{: .sql}
 
 |person|quant|count(reading)|round(avg(reading), 2)|
 |------|-----|--------------|----------------------|
@@ -261,13 +282,14 @@ since the results wouldn't make much sense otherwise.
 Let's go one step further and remove all the entries
 where we don't know who took the measurement:
 
-~~~ {.sql}
+~~~
 SELECT   person, quant, count(reading), round(avg(reading), 2)
 FROM     Survey
 WHERE    person IS NOT NULL
 GROUP BY person, quant
 ORDER BY person, quant;
 ~~~
+{: .sql}
 
 |person|quant|count(reading)|round(avg(reading), 2)|
 |------|-----|--------------|----------------------|
@@ -301,32 +323,36 @@ this query:
     (it doesn't matter which ones,
     since they're all equal).
 
-> ## Counting Temperature Readings {.challenge}
+> ## Counting Temperature Readings
 >
 > How many temperature readings did Frank Pabodie record,
 > and what was their average value?
+{: .challenge}
 
-> ## Averaging with NULL {.challenge}
+> ## Averaging with NULL
 >
 > The average of a set of values is the sum of the values
 > divided by the number of values.
 > Does this mean that the `avg` function returns 2.0 or 3.0
 > when given the values 1.0, `null`, and 5.0?
+{: .challenge}
 
-> ## What Does This Query Do? {.challenge}
+> ## What Does This Query Do?
 >
 > We want to calculate the difference between
 > each individual radiation reading
 > and the average of all the radiation readings.
 > We write the query:
 >
-> ~~~ {.sql}
+> ~~~
 > SELECT reading - avg(reading) FROM Survey WHERE quant='rad';
 > ~~~
+> {: .sql}
 >
 > What does this actually produce, and why?
+{: .challenge}
 
-> ## Ordering When Concatenating {.challenge}
+> ## Ordering When Concatenating
 >
 > The function `group_concat(field, separator)`
 > concatenates all the values in a field
@@ -335,8 +361,10 @@ this query:
 > Use this to produce a one-line list of scientists' names,
 > such as:
 >
-> ~~~ {.sql}
+> ~~~
 > William Dyer, Frank Pabodie, Anderson Lake, Valentina Roerich, Frank Danforth
 > ~~~
+> {: .sql}
 >
 > Can you find a way to order the list by surname?
+{: .challenge}

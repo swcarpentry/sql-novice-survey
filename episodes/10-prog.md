@@ -1,15 +1,20 @@
 ---
-layout: page
-title: Databases and SQL
-subtitle: Programming with Databases
-minutes: 20
+title: "Programming with Databases"
+teaching: 20
+exercises: 15
+questions:
+- "How can I access databases from programs written in general-purpose languages?"
+objectives:
+- "Write short programs that execute SQL queries."
+- "Trace the execution of a program that contains an SQL query."
+- "Explain why most database applications are written in a general-purpose language rather than in SQL."
+keypoints:
+- "General-purpose languages have libraries for accessing databases."
+- "To connect to a database, a program must use a library specific to that database manager."
+- "These libraries use a connection-and-cursor model."
+- "Programs can read query results in batches or all at once."
+- "Queries should be written using parameter substitution, not string formatting."
 ---
-> ## Learning Objectives {.objectives}
->
-> *   Write short programs that execute SQL queries.
-> *   Trace the execution of a program that contains an SQL query.
-> *   Explain why most database applications are written in a general-purpose language rather than in SQL.
-
 To close,
 let's have a look at how to access a database from
 a general-purpose programming language like Python.
@@ -20,7 +25,7 @@ but the concepts are the same.
 Here's a short Python program that selects latitudes and longitudes
 from an SQLite database stored in a file called `survey.sqlite`:
 
-~~~ {.python}
+~~~
 import sqlite3
 connection = sqlite3.connect("survey.sqlite")
 cursor = connection.cursor()
@@ -31,11 +36,13 @@ for r in results:
 cursor.close()
 connection.close()
 ~~~
-~~~ {.output}
+{: .python}
+~~~
 (-49.85, -128.57)
 (-47.15, -126.72)
 (-48.87, -123.4)
 ~~~
+{: .output}
 
 The program starts by importing the `sqlite3` library.
 If we were connecting to MySQL, DB2, or some other database,
@@ -83,7 +90,7 @@ Queries in real applications will often depend on values provided by users.
 For example,
 this function takes a user's ID as a parameter and returns their name:
 
-~~~ {.python}
+~~~
 def get_name(database_file, person_id):
     query = "SELECT personal || ' ' || family FROM Person WHERE id='" + person_id + "';"
 
@@ -98,27 +105,31 @@ def get_name(database_file, person_id):
 
 print "full name for dyer:", get_name('survey.sqlite', 'dyer')
 ~~~
-~~~ {.output}
+{: .python}
+~~~
 full name for dyer: William Dyer
 ~~~
+{: .output}
 
 We use string concatenation on the first line of this function
 to construct a query containing the user ID we have been given.
 This seems simple enough,
 but what happens if someone gives us this string as input?
 
-~~~ {.sql}
+~~~
 dyer'; DROP TABLE Survey; SELECT '
 ~~~
+{: .source}
 
 It looks like there's garbage after the user's ID,
 but it is very carefully chosen garbage.
 If we insert this string into our query,
 the result is:
 
-~~~ {.sql}
+~~~
 SELECT personal || ' ' || family FROM Person WHERE id='dyer'; DROP TABLE Survey; SELECT '';
 ~~~
+{: .sql}
 
 If we execute this,
 it will erase one of the tables in our database.
@@ -137,7 +148,7 @@ We can do this by using a [prepared statement](reference.html#prepared-statement
 instead of formatting our statements as strings.
 Here's what our example program looks like if we do this:
 
-~~~ {.python}
+~~~
 def get_name(database_file, person_id):
     query = "SELECT personal || ' ' || family FROM Person WHERE id=?;"
 
@@ -152,9 +163,11 @@ def get_name(database_file, person_id):
 
 print "full name for dyer:", get_name('survey.sqlite', 'dyer')
 ~~~
-~~~ {.output}
+{: .python}
+~~~
 full name for dyer: William Dyer
 ~~~
+{: .output}
 
 The key changes are in the query string and the `execute` call.
 Instead of formatting the query ourselves,
@@ -167,7 +180,7 @@ and translates any special characters in the values
 into their escaped equivalents
 so that they are safe to use.
 
-> ## Filling a Table vs. Printing Values {.challenge}
+> ## Filling a Table vs. Printing Values
 >
 > Write a Python program that creates a new database in a file called
 > `original.db` containing a single table called `Pressure`, with a
@@ -175,11 +188,13 @@ so that they are safe to use.
 > between 10.0 and 25.0.  How long does it take this program to run?
 > How long does it take to run a program that simply writes those
 > random numbers to a file?
+{: .challenge}
 
-> ## Filtering in SQL vs. Filtering in Python {.challenge}
+> ## Filtering in SQL vs. Filtering in Python
 >
 > Write a Python program that creates a new database called
 > `backup.db` with the same structure as `original.db` and copies all
 > the values greater than 20.0 from `original.db` to `backup.db`.
 > Which is faster: filtering values in the query, or reading
 > everything into memory and filtering in Python?
+{: .challenge}

@@ -1,23 +1,24 @@
 ---
-layout: page
-title: Databases and SQL
-subtitle: Sorting and Removing Duplicates
-minutes: 30
+title: "Sorting and Removing Duplicates"
+teaching: 10
+exercises: 10
+questions:
+- "How can I sort a query's results?"
+- "How can I remove duplicate values from a query's results?"
+objectives:
+- "Write queries that display results in a particular order."
+- "Write queries that eliminate duplicate values from data."
+keypoints:
+- "The records in a database table are not intrinsically ordered: if we want to display them in some order, we must specify that explicitly with ORDER BY."
+- "The values in a database are not guaranteed to be unique: if we want to eliminate duplicates, we must specify that explicitly as well using DISTINCT."
 ---
-> ## Learning Objectives {.objectives}
->
-> *   Write queries that display results in a particular order.
-> *   Write queries that eliminate duplicate values from data.
-
-
 In beginning our examination of the Antarctic data, we want to know:
 
-* what kind of quantity measurements were taken at each site; 
+* what kind of quantity measurements were taken at each site;
 * which scientists took measurements on the expedition;
 * the sites where each scientist took measurements
 
-
-To determine which measurements were taken at each site, 
+To determine which measurements were taken at each site,
 we can examine the `Survey` table.
 Data is often redundant,
 so queries often return redundant information.
@@ -26,9 +27,10 @@ if we select the quantities that have been measured
 from the `Survey` table,
 we get this:
 
-~~~ {.sql}
+~~~
 SELECT quant FROM Survey;
 ~~~
+{: .sql}
 
 |quant|
 |-----|
@@ -54,13 +56,15 @@ SELECT quant FROM Survey;
 |sal  |
 |rad  |
 
-This result makes it difficult to see all of the different types of `quant` in the Survey table.
-We can eliminate the redundant output to make the result more readable by adding the `DISTINCT` keyword
-to our query:
+This result makes it difficult to see all of the different types of
+`quant` in the Survey table.  We can eliminate the redundant output to
+make the result more readable by adding the `DISTINCT` keyword to our
+query:
 
-~~~ {.sql}
+~~~
 SELECT DISTINCT quant FROM Survey;
 ~~~
+{: .sql}
 
 |quant|
 |-----|
@@ -68,14 +72,15 @@ SELECT DISTINCT quant FROM Survey;
 |sal  |
 |temp |
 
-If we want to determine which sites have which quant measurement, 
+If we want to determine which sites have which quant measurement,
 we can use the `DISTINCT` keyword on multiple columns.
 If we select more than one column,
 the distinct *pairs* of values are returned:
 
-~~~ {.sql}
+~~~
 SELECT DISTINCT taken, quant FROM Survey;
 ~~~
+{: .sql}
 
 |taken|quant|
 |-----|-----|
@@ -112,9 +117,10 @@ we often want to sort them in a different way,
 e.g., by their identifier instead of by their personal name.
 We can do this in SQL by adding an `ORDER BY` clause to our query:
 
-~~~ {.sql}
+~~~
 SELECT * FROM Person ORDER BY id;
 ~~~
+{: .sql}
 
 |id     |personal |family  |
 |-------|---------|--------|
@@ -130,9 +136,10 @@ results are sorted in ascending order
 from least to greatest).
 We can sort in the opposite order using `DESC` (for "descending"):
 
-~~~ {.sql}
+~~~
 SELECT * FROM person ORDER BY id DESC;
 ~~~
+{: .sql}
 
 |id     |personal |family  |
 |-------|---------|--------|
@@ -146,7 +153,7 @@ SELECT * FROM person ORDER BY id DESC;
 we can use `ASC` instead of `DESC`.)
 
 
-In order to look at which scientist measured quantities at each site, 
+In order to look at which scientist measured quantities at each site,
 we can look again at the `Survey` table.
 We can also sort on several fields at once.
 For example,
@@ -154,9 +161,11 @@ this query sorts results first in ascending order by `taken`,
 and then in descending order by `person`
 within each group of equal `taken` values:
 
-~~~ {.sql}
+~~~
 SELECT taken, person, quant FROM Survey ORDER BY taken ASC, person DESC;
 ~~~
+{: .sql}
+
 |taken|person|quant|
 |-----|------|-----|
 |619  |dyer  |rad  |
@@ -181,16 +190,18 @@ SELECT taken, person, quant FROM Survey ORDER BY taken ASC, person DESC;
 |837  |lake  |sal  |
 |844  |roe   |rad  |
 
-This query gives us a good idea of which scientist was at which site, 
+This query gives us a good idea of which scientist was at which site,
 and what measurements they performed while they were there.
 
-Looking at the table, 
-it seems like some scientists specialized in certain kinds of measurements. 
-We can examine which scientists performed which measurements by selecting the appropriate columns and removing duplicates. 
+Looking at the table, it seems like some scientists specialized in
+certain kinds of measurements.  We can examine which scientists
+performed which measurements by selecting the appropriate columns and
+removing duplicates.
 
-~~~ {.sql}
+~~~
 SELECT DISTINCT quant, person FROM Survey ORDER BY quant ASC;
 ~~~
+{: .sql}
 
 |quant|person|
 |-----|------|
@@ -206,11 +217,13 @@ SELECT DISTINCT quant, person FROM Survey ORDER BY quant ASC;
 |temp |-null-|
 |temp |lake  |
 
-> ## Finding Distinct Dates {.challenge}
+> ## Finding Distinct Dates
 >
 > Write a query that selects distinct dates from the `Visited` table.
+{: .challenge}
 
-> ## Displaying Full Names {.challenge}
+> ## Displaying Full Names
 >
 > Write a query that displays the full names of the scientists in the `Person` table,
 > ordered by family name.
+{: .challenge}

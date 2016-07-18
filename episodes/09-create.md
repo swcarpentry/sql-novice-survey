@@ -1,14 +1,20 @@
 ---
-layout: page
-title: Databases and SQL
-subtitle: Creating and Modifying Data
-minutes: 30
+title: "Creating and Modifying Data"
+teaching: 15
+exercises: 10
+questions:
+- "How can I create, modify, and delete tables and data?"
+objectives:
+- "Write statements that creates tables."
+- "Write statements to insert, modify, and delete records."
+keypoints:
+- "Use CREATE and DROP to create and delete tables."
+- "Use INSERT to add data."
+- "Use UPDATE to modify existing data."
+- "Use DELETE to remove data."
+- "It is simpler and safer to modify data when every record has a unique primary key."
+- "Do not create dangling references by deleting records that other records refer to."
 ---
-> ## Learning Objectives {.objectives}
->
-> *   Write statements that creates tables.
-> *   Write statements to insert, modify, and delete records.
-
 So far we have only looked at how to get information out of a database,
 both because that is more frequent than adding information,
 and because most other operations only make sense
@@ -16,7 +22,7 @@ once queries are understood.
 If we want to create and modify data,
 we need to know two other sets of commands.
 
-The first pair are [`CREATE TABLE`][CREATE-TABLE] and [`DROP TABLE`][DROP-TABLE].
+The first pair are [`CREATE TABLE`][create-table] and [`DROP TABLE`][drop-table].
 While they are written as two words,
 they are actually single commands.
 The first one creates a new table;
@@ -24,18 +30,20 @@ its arguments are the names and types of the table's columns.
 For example,
 the following statements create the four tables in our survey database:
 
-~~~ {.sql}
+~~~
 CREATE TABLE Person(id text, personal text, family text);
 CREATE TABLE Site(name text, lat real, long real);
 CREATE TABLE Visited(id integer, site text, dated text);
 CREATE TABLE Survey(taken integer, person text, quant real, reading real);
 ~~~
+{: .sql}
 
 We can get rid of one of our tables using:
 
-~~~ {.sql}
+~~~
 DROP TABLE Survey;
 ~~~
+{: .sql}
 
 Be very careful when doing this:
 most databases have some support for undoing changes,
@@ -65,7 +73,7 @@ we can specify several kinds of constraints on its columns.
 For example,
 a better definition for the `Survey` table would be:
 
-~~~ {.sql}
+~~~
 CREATE TABLE Survey(
     taken   integer not null, -- where reading taken
     person  text,             -- may not know who took it
@@ -76,6 +84,7 @@ CREATE TABLE Survey(
     foreign key(person) references Person(id)
 );
 ~~~
+{: .sql}
 
 Once again,
 exactly what constraints are available
@@ -88,18 +97,20 @@ we can add, change, and remove records using our other set of commands,
 
 The simplest form of `INSERT` statement lists values in order:
 
-~~~ {.sql}
+~~~
 INSERT INTO Site values('DR-1', -49.85, -128.57);
 INSERT INTO Site values('DR-3', -47.15, -126.72);
 INSERT INTO Site values('MSK-4', -48.87, -123.40);
 ~~~
+{: .sql}
 
 We can also insert values into one table directly from another:
 
-~~~ {.sql}
+~~~
 CREATE TABLE JustLatLong(lat text, long text);
 INSERT INTO JustLatLong SELECT lat, long FROM Site;
 ~~~
+{: .sql}
 
 Modifying existing records is done using the `UPDATE` statement.
 To do this we tell the database which table we want to update,
@@ -109,9 +120,10 @@ and under what conditions we should update the values.
 For example, if we made a mistake when entering the lat and long values
 of the last `INSERT` statement above:
 
-~~~ {.sql}
+~~~
 UPDATE Site SET lat=-47.87, long=-122.40 WHERE name='MSK-4';
 ~~~
+{: .sql}
 
 Be careful to not forget the `where` clause or the update statement will
 modify *all* of the records in the database.
@@ -125,9 +137,10 @@ For example,
 once we realize that Frank Danforth didn't take any measurements,
 we can remove him from the `Person` table like this:
 
-~~~ {.sql}
+~~~
 DELETE FROM Person WHERE id = 'danforth';
 ~~~
+{: .sql}
 
 But what if we removed Anderson Lake instead?
 Our `Survey` table would still contain seven records
@@ -148,7 +161,7 @@ using [cascading delete](reference.html#cascading-delete).
 However,
 this technique is outside the scope of this chapter.
 
-> ## Hybrid Storage Models {.callout}
+> ## Hybrid Storage Models
 >
 > Many applications use a hybrid storage model
 > instead of putting everything into a database:
@@ -161,31 +174,35 @@ this technique is outside the scope of this chapter.
 > This is also how most music player software is built:
 > the database inside the application keeps track of the MP3 files,
 > but the files themselves live on disk.
+{: .callout}
 
-> ## Replacing NULL {.challenge}
+> ## Replacing NULL
 >
 > Write an SQL statement to replace all uses of `null` in
 > `Survey.person` with the string `'unknown'`.
+{: .challenge}
 
-> ## Generating Insert Statements {.challenge}
+> ## Generating Insert Statements
 >
 > One of our colleagues has sent us a [CSV](reference.html#comma-separated-values) file containing
 > temperature readings by Robert Olmstead, which is formatted like
 > this:
 >
-> ~~~ {.output}
+> ~~~
 > Taken,Temp
 > 619,-21.5
 > 622,-15.5
 > ~~~
+> {: .output}
 >
 > Write a small Python program that reads this file in and prints out
 > the SQL `INSERT` statements needed to add these records to the
 > survey database.  Note: you will need to add an entry for Olmstead
 > to the `Person` table.  If you are testing your program repeatedly,
 > you may want to investigate SQL's `INSERT or REPLACE` command.
+{: .challenge}
 
-> ## Backing Up with SQL {.challenge}
+> ## Backing Up with SQL
 >
 > SQLite has several administrative commands that aren't part of the
 > SQL standard.  One of them is `.dump`, which prints the SQL commands
@@ -195,6 +212,7 @@ this technique is outside the scope of this chapter.
 > control is a good way to track and manage changes to the database.
 > What are the pros and cons of this approach?  (Hint: records aren't
 > stored in any particular order.)
+{: .challenge}
 
-[CREATE-TABLE]: https://www.sqlite.org/lang_createtable.html
-[DROP-TABLE]: https://www.sqlite.org/lang_droptable.html
+[create-table]: https://www.sqlite.org/lang_createtable.html
+[drop-table]: https://www.sqlite.org/lang_droptable.html

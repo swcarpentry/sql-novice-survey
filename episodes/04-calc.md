@@ -1,13 +1,15 @@
 ---
-layout: page
-title: Databases and SQL
-subtitle: Calculating New Values
-minutes: 30
+title: "Calculating New Values"
+teaching: 5
+exercises: 5
+questions:
+- "How can I calculate new values on the fly?"
+objectives:
+- "Write queries that calculate new values for each selected record."
+keypoints:
+- "Queries can do the usual arithmetic operations on values."
+- "Use UNION to combine the results of two or more queries."
 ---
-> ## Learning Objectives {.objectives}
->
-> *   Write queries that calculate new values for each selected record.
-
 After carefully re-reading the expedition logs,
 we realize that the radiation measurements they report
 may need to be corrected upward by 5%.
@@ -15,9 +17,10 @@ Rather than modifying the stored data,
 we can do this calculation on the fly
 as part of our query:
 
-~~~ {.sql}
+~~~
 SELECT 1.05 * reading FROM Survey WHERE quant='rad';
 ~~~
+{: .sql}
 
 |1.05 * reading|
 |--------------|
@@ -40,22 +43,29 @@ For example,
 we can convert temperature readings from Fahrenheit to Celsius
 and round to two decimal places:
 
-~~~ {.sql}
+~~~
 SELECT taken, round(5*(reading-32)/9, 2) FROM Survey WHERE quant='temp';
 ~~~
+{: .sql}
 
-|taken|round(5\*(reading-32)/9, 2)|
-|-----|---------------------------|
-|734  |-29.72                     |
-|735  |-32.22                     |
-|751  |-28.06                     |
-|752  |-26.67                     |
+|taken|round(5*(reading-32)/9, 2)|
+|-----|--------------------------|
+|734  |-29.72                    |
+|735  |-32.22                    |
+|751  |-28.06                    |
+|752  |-26.67                    |
 
-As you can see from this example, though, the string describing our new field (generated from the equation) can become quite unwieldy. SQL allows us to rename our fields, any field for that matter, whether it was calculated or one of the existing fields in our database, for succinctness and clarity. For example, we could write the previous query as: 
+As you can see from this example, though, the string describing our
+new field (generated from the equation) can become quite unwieldy. SQL
+allows us to rename our fields, any field for that matter, whether it
+was calculated or one of the existing fields in our database, for
+succinctness and clarity. For example, we could write the previous
+query as:
 
-~~~ {.sql}
+~~~
 SELECT taken, round(5*(reading-32)/9, 2) as Celsius FROM Survey WHERE quant='temp';
 ~~~
+{: .sql}
 
 |taken|Celsius|
 |-----|-------|
@@ -67,9 +77,10 @@ SELECT taken, round(5*(reading-32)/9, 2) as Celsius FROM Survey WHERE quant='tem
 We can also combine values from different fields,
 for example by using the string concatenation operator `||`:
 
-~~~ {.sql}
+~~~
 SELECT personal || ' ' || family FROM Person;
 ~~~
+{: .sql}
 
 |personal || ' ' || family|
 |-------------------------|
@@ -79,7 +90,7 @@ SELECT personal || ' ' || family FROM Person;
 |Valentina Roerich        |
 |Frank Danforth           |
 
-> ## Fixing Salinity Readings {.challenge}
+> ## Fixing Salinity Readings
 >
 > After further reading,
 > we realize that Valentina Roerich
@@ -87,14 +98,16 @@ SELECT personal || ' ' || family FROM Person;
 > Write a query that returns all of her salinity measurements
 > from the `Survey` table
 > with the values divided by 100.
+{: .challenge}
 
-> ## Unions {.challenge}
+> ## Unions
 >
 > The `UNION` operator combines the results of two queries:
 >
-> ~~~ {.sql}
+> ~~~
 > SELECT * FROM Person WHERE id='dyer' UNION SELECT * FROM Person WHERE id='roe';
 > ~~~
+> {: .sql}
 >
 > |id  |personal |family |
 > |----|-------- |-------|
@@ -116,15 +129,17 @@ SELECT personal || ' ' || family FROM Person;
 > |752  |0.416  |
 > |837  |0.21   |
 > |837  |0.225  |
+{: .challenge}
 
-> ## Selecting Major Site Identifiers {.challenge}
+> ## Selecting Major Site Identifiers
 >
 > The site identifiers in the `Visited` table have two parts
 > separated by a '-':
 >
-> ~~~ {.sql}
+> ~~~
 > SELECT DISTINCT site FROM Visited;
 > ~~~
+> {: .sql}
 >
 > |site |
 > |-----|
@@ -141,3 +156,4 @@ SELECT personal || ' ' || family FROM Person;
 > Use these two functions to produce a list of unique major site identifiers.
 > (For this data,
 > the list should contain only "DR" and "MSK").
+{: .challenge}

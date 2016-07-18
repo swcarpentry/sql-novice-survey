@@ -1,14 +1,18 @@
 ---
-layout: page
-title: Databases and SQL
-subtitle: Filtering
-minutes: 30
+title: "Filtering"
+teaching: 10
+exercises: 10
+questions:
+- "How can I select subsets of data?"
+objectives:
+- "Write queries that select records that satisfy user-specified conditions."
+- "Explain the order in which the clauses in a query are executed."
+keypoints:
+- "Use WHERE to specify conditions that records must meet in order to be included in a query's results."
+- "Use AND, OR, and NOT to combine tests."
+- "Filtering is done on whole records, so conditions can use fields that are not actually displayed."
+- "Write queries incrementally."
 ---
-> ## Learning Objectives {.objectives}
->
-> *   Write queries that select records that satisfy user-specified conditions.
-> *   Explain the order in which the clauses in a query are executed.
-
 One of the most powerful features of a database is
 the ability to [filter](reference.html#filter) data,
 i.e.,
@@ -18,9 +22,10 @@ suppose we want to see when a particular site was visited.
 We can select these records from the `Visited` table
 by using a `WHERE` clause in our query:
 
-~~~ {.sql}
+~~~
 SELECT * FROM Visited WHERE site='DR-1';
 ~~~
+{: .sql}
 
 |id   |site|dated     |
 |-----|----|----------|
@@ -39,9 +44,10 @@ This processing order means that
 we can filter records using `WHERE`
 based on values in columns that aren't then displayed:
 
-~~~ {.sql}
+~~~
 SELECT id FROM Visited WHERE site='DR-1';
 ~~~
+{: .sql}
 
 |id   |
 |-----|
@@ -49,22 +55,23 @@ SELECT id FROM Visited WHERE site='DR-1';
 |622  |
 |844  |
 
-<img src="fig/sql-filter.svg" alt="SQL Filtering in Action" />
+![SQL Filtering in Action]({{ site.github.url }}/fig/sql-filter.svg)
 
 We can use many other Boolean operators to filter our data.
 For example,
 we can ask for all information from the DR-1 site collected before 1930:
 
-~~~ {.sql}
+~~~
 SELECT * FROM Visited WHERE site='DR-1' AND dated<'1930-01-01';
 ~~~
+{: .sql}
 
 |id   |site|dated     |
 |-----|----|----------|
 |619  |DR-1|1927-02-08|
 |622  |DR-1|1927-02-10|
 
-> ## Date types {.callout}
+> ## Date Types
 >
 > Most database managers have a special data type for dates.
 > In fact, many have two:
@@ -84,13 +91,15 @@ SELECT * FROM Visited WHERE site='DR-1' AND dated<'1930-01-01';
 > it is,
 > but not nearly as complicated as figuring out
 > [historical dates in Sweden](http://en.wikipedia.org/wiki/Swedish_calendar).
+{: .callout}
 
 If we want to find out what measurements were taken by either Lake or Roerich,
 we can combine the tests on their names using `OR`:
 
-~~~ {.sql}
+~~~
 SELECT * FROM Survey WHERE person='lake' OR person='roe';
 ~~~
+{: .sql}
 
 |taken|person|quant|reading|
 |-----|------|-----|-------|
@@ -108,9 +117,10 @@ SELECT * FROM Survey WHERE person='lake' OR person='roe';
 Alternatively,
 we can use `IN` to see if a value is in a specific set:
 
-~~~ {.sql}
+~~~
 SELECT * FROM Survey WHERE person IN ('lake', 'roe');
 ~~~
+{: .sql}
 
 |taken|person|quant|reading|
 |-----|------|-----|-------|
@@ -130,9 +140,10 @@ but we need to be careful about which operator is executed first.
 If we *don't* use parentheses,
 we get this:
 
-~~~ {.sql}
+~~~
 SELECT * FROM Survey WHERE quant='sal' AND person='lake' OR person='roe';
 ~~~
+{: .sql}
 
 |taken|person|quant|reading|
 |-----|------|-----|-------|
@@ -148,9 +159,10 @@ which is salinity measurements by Lake,
 and *any* measurement by Roerich.
 We probably want this instead:
 
-~~~ {.sql}
+~~~
 SELECT * FROM Survey WHERE quant='sal' AND (person='lake' OR person='roe');
 ~~~
+{: .sql}
 
 |taken|person|quant|reading|
 |-----|------|-----|-------|
@@ -161,16 +173,16 @@ SELECT * FROM Survey WHERE quant='sal' AND (person='lake' OR person='roe');
 |837  |lake  |sal  |0.21   |
 |837  |roe   |sal  |22.5   |
 
-We can also filter by partial matches.
-For example,
-if we want to know something just about the site names beginning with "DR" we can use the `LIKE` keyword.
-The percent symbol acts as a [wildcard](reference.html#wildcard),
-matching any characters in that place.
-It can be used at the beginning, middle, or end of the string:
+We can also filter by partial matches.  For example, if we want to
+know something just about the site names beginning with "DR" we can
+use the `LIKE` keyword.  The percent symbol acts as a
+[wildcard](reference.html#wildcard), matching any characters in that
+place.  It can be used at the beginning, middle, or end of the string:
 
-~~~ {.sql}
+~~~
 SELECT * FROM Visited WHERE site LIKE 'DR%';
 ~~~
+{: .sql}
 
 |id   |site |dated     |
 |-----|-----|----------|
@@ -187,9 +199,10 @@ Finally,
 we can use `DISTINCT` with `WHERE`
 to give a second level of filtering:
 
-~~~ {.sql}
+~~~
 SELECT DISTINCT person, quant FROM Survey WHERE person='lake' OR person='roe';
 ~~~
+{: .sql}
 
 |person|quant|
 |------|-----|
@@ -203,6 +216,8 @@ But remember:
 `DISTINCT` is applied to the values displayed in the chosen columns,
 not to the entire rows as they are being processed.
 
+> ## Growing Queries
+>
 > What we have just done is how most people "grow" their SQL queries.
 > We started with something simple that did part of what we wanted,
 > then added more clauses one by one,
@@ -221,26 +236,30 @@ not to the entire rows as they are being processed.
 > we could run it against a sample of ten thousand,
 > or write a small program to generate ten thousand random (but plausible) records
 > and use that.
+{: .callout}
 
-> ## Fix This Query {.challenge}
+> ## Fix This Query
 >
 > Suppose we want to select all sites that lie more than 30 degrees from the poles.
 > Our first query is:
 >
-> ~~~ {.sql}
+> ~~~
 > SELECT * FROM Site WHERE (lat > -60) OR (lat < 60);
 > ~~~
+> {: .sql}
 >
 > Explain why this is wrong,
 > and rewrite the query so that it is correct.
+{: .challenge}
 
-> ## Finding Outliers {.challenge}
+> ## Finding Outliers
 >
 > Normalized salinity readings are supposed to be between 0.0 and 1.0.
 > Write a query that selects all records from `Survey`
 > with salinity values outside this range.
+{: .challenge}
 
-> ## Matching Patterns {.challenge}
+> ## Matching Patterns
 >
 > Which of these expressions are true?
 >
@@ -249,3 +268,4 @@ not to the entire rows as they are being processed.
 > * `'beta' LIKE '%a'`
 > * `'alpha' LIKE 'a%%'`
 > * `'alpha' LIKE 'a%p%'`
+{: .challenge}
