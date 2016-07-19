@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="last-modified" content="2016-07-19 12:35:55 +0200">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="search-domain" value="/swc-releases/2016.06/sql-novice-survey">
+    <link rel="stylesheet" type="text/css" href="/swc-releases/2016.06/sql-novice-survey/assets/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/swc-releases/2016.06/sql-novice-survey/assets/css/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="/swc-releases/2016.06/sql-novice-survey/assets/css/lesson.css" />
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon-swc.ico" />
+    
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+    <title>Databases and SQL: Programming with Databases</title>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      
+      
+      <a href="https://software-carpentry.org" class="pull-left">
+        <img class="navbar-logo" src="/swc-releases/2016.06/sql-novice-survey/assets/img/swc-icon-blue.svg" alt="Software Carpentry logo" />
+      </a>
+      
+
+      
+      <a class="navbar-brand" href="/swc-releases/2016.06/sql-novice-survey/">Home</a>
+
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+
+	
+        <li><a href="/swc-releases/2016.06/sql-novice-survey/conduct/">Code of Conduct</a></li>
+
+	
+        
+        <li><a href="/swc-releases/2016.06/sql-novice-survey/setup/">Setup</a></li>
+        <li><a href="/swc-releases/2016.06/sql-novice-survey/reference/">Reference</a></li>
+        <li class="dropdown">
+          <a href="/swc-releases/2016.06/sql-novice-survey/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Episodes <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/01-select/">Selecting Data</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/02-sort-dup/">Sorting and Removing Duplicates</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/03-filter/">Filtering</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/04-calc/">Calculating New Values</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/05-null/">Missing Data</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/06-agg/">Aggregation</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/07-join/">Combining Data</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/08-hygiene/">Data Hygiene</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/09-create/">Creating and Modifying Data</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/10-prog/">Programming with Databases</a></li>
+            
+          </ul>
+        </li>
+	
+
+	
+	
+        <li class="dropdown">
+          <a href="/swc-releases/2016.06/sql-novice-survey/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Extras <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/about/">About</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/discuss/">Discussion</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/figures/">Figures</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/guide/">Instructor's Guide</a></li>
+            
+          </ul>
+        </li>
+	
+
+	
+        <li><a href="/swc-releases/2016.06/sql-novice-survey/license/">License</a></li>
+      </ul>
+      <form class="navbar-form navbar-right" role="search" id="search" onsubmit="google_search(); return false;">
+        <div class="form-group">
+          <input type="text" id="google-search" placeholder="Search...">
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+<div class="row">
+  <div class="col-md-1">
+    <h3>
+      
+      <a href="/swc-releases/2016.06/sql-novice-survey/09-create/"><span class="glyphicon glyphicon-menu-left"></span></a>
+      
+    </h3>
+  </div>
+  <div class="col-md-10">
+    <h3 class="maintitle"><a href="/swc-releases/2016.06/sql-novice-survey/">Databases and SQL</a></h3>
+    <h1 class="maintitle">Programming with Databases</h1>
+  </div>
+  <div class="col-md-1">
+    <h3>
+      
+      <a href="/swc-releases/2016.06/sql-novice-survey"><span class="glyphicon glyphicon-menu-up"></span></a>
+      
+    </h3>
+  </div>
+</div>
+
+
+<blockquote class="objectives">
+  <h2>Overview</h2>
+
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Teaching:</strong> 20 min
+      </br>
+      <strong>Exercises:</strong> 15 min
+    </div>
+    <div class="col-md-9">
+      <strong>Questions</strong>
+      <ul>
+	
+	<li><p>How can I access databases from programs written in general-purpose languages?</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-9">
+      <strong>Objectives</strong>
+      <ul>
+	
+	<li><p>Write short programs that execute SQL queries.</p>
+</li>
+	
+	<li><p>Trace the execution of a program that contains an SQL query.</p>
+</li>
+	
+	<li><p>Explain why most database applications are written in a general-purpose language rather than in SQL.</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+  
+</blockquote>
+
+<p>To close,
+let’s have a look at how to access a database from
+a general-purpose programming language like Python.
+Other languages use almost exactly the same model:
+library and function names may differ,
+but the concepts are the same.</p>
+
+<p>Here’s a short Python program that selects latitudes and longitudes
+from an SQLite database stored in a file called <code class="highlighter-rouge">survey.sqlite</code>:</p>
+
+<div class="python highlighter-rouge"><pre class="highlight"><code>import sqlite3
+connection = sqlite3.connect("survey.sqlite")
+cursor = connection.cursor()
+cursor.execute("SELECT Site.lat, Site.long FROM Site;")
+results = cursor.fetchall()
+for r in results:
+    print r
+cursor.close()
+connection.close()
+</code></pre>
+</div>
+<div class="output highlighter-rouge"><pre class="highlight"><code>(-49.85, -128.57)
+(-47.15, -126.72)
+(-48.87, -123.4)
+</code></pre>
+</div>
+
+<p>The program starts by importing the <code class="highlighter-rouge">sqlite3</code> library.
+If we were connecting to MySQL, DB2, or some other database,
+we would import a different library,
+but all of them provide the same functions,
+so that the rest of our program does not have to change
+(at least, not much)
+if we switch from one database to another.</p>
+
+<p>Line 2 establishes a connection to the database.
+Since we’re using SQLite,
+all we need to specify is the name of the database file.
+Other systems may require us to provide a username and password as well.
+Line 3 then uses this connection to create a <a href="reference.html#cursor">cursor</a>.
+Just like the cursor in an editor,
+its role is to keep track of where we are in the database.</p>
+
+<p>On line 4, we use that cursor to ask the database to execute a query for us.
+The query is written in SQL,
+and passed to <code class="highlighter-rouge">cursor.execute</code> as a string.
+It’s our job to make sure that SQL is properly formatted;
+if it isn’t,
+or if something goes wrong when it is being executed,
+the database will report an error.</p>
+
+<p>The database returns the results of the query to us
+in response to the <code class="highlighter-rouge">cursor.fetchall</code> call on line 5.
+This result is a list with one entry for each record in the result set;
+if we loop over that list (line 6) and print those list entries (line 7),
+we can see that each one is a tuple
+with one element for each field we asked for.</p>
+
+<p>Finally, lines 8 and 9 close our cursor and our connection,
+since the database can only keep a limited number of these open at one time.
+Since establishing a connection takes time,
+though,
+we shouldn’t open a connection,
+do one operation,
+then close the connection,
+only to reopen it a few microseconds later to do another operation.
+Instead,
+it’s normal to create one connection that stays open for the lifetime of the program.</p>
+
+<p>Queries in real applications will often depend on values provided by users.
+For example,
+this function takes a user’s ID as a parameter and returns their name:</p>
+
+<div class="python highlighter-rouge"><pre class="highlight"><code>def get_name(database_file, person_id):
+    query = "SELECT personal || ' ' || family FROM Person WHERE id='" + person_id + "';"
+
+    connection = sqlite3.connect(database_file)
+    cursor = connection.cursor()
+    cursor.execute(query)
+    results = cursor.fetchall()
+    cursor.close()
+    connection.close()
+
+    return results[0][0]
+
+print "full name for dyer:", get_name('survey.sqlite', 'dyer')
+</code></pre>
+</div>
+<div class="output highlighter-rouge"><pre class="highlight"><code>full name for dyer: William Dyer
+</code></pre>
+</div>
+
+<p>We use string concatenation on the first line of this function
+to construct a query containing the user ID we have been given.
+This seems simple enough,
+but what happens if someone gives us this string as input?</p>
+
+<div class="source highlighter-rouge"><pre class="highlight"><code>dyer'; DROP TABLE Survey; SELECT '
+</code></pre>
+</div>
+
+<p>It looks like there’s garbage after the user’s ID,
+but it is very carefully chosen garbage.
+If we insert this string into our query,
+the result is:</p>
+
+<div class="sql highlighter-rouge"><pre class="highlight"><code>SELECT personal || ' ' || family FROM Person WHERE id='dyer'; DROP TABLE Survey; SELECT '';
+</code></pre>
+</div>
+
+<p>If we execute this,
+it will erase one of the tables in our database.</p>
+
+<p>This is called an <a href="reference.html#sql-injection-attack">SQL injection attack</a>,
+and it has been used to attack thousands of programs over the years.
+In particular,
+many web sites that take data from users insert values directly into queries
+without checking them carefully first.</p>
+
+<p>Since a villain might try to smuggle commands into our queries in many different ways,
+the safest way to deal with this threat is
+to replace characters like quotes with their escaped equivalents,
+so that we can safely put whatever the user gives us inside a string.
+We can do this by using a <a href="reference.html#prepared-statement">prepared statement</a>
+instead of formatting our statements as strings.
+Here’s what our example program looks like if we do this:</p>
+
+<div class="python highlighter-rouge"><pre class="highlight"><code>def get_name(database_file, person_id):
+    query = "SELECT personal || ' ' || family FROM Person WHERE id=?;"
+
+    connection = sqlite3.connect(database_file)
+    cursor = connection.cursor()
+    cursor.execute(query, [person_id])
+    results = cursor.fetchall()
+    cursor.close()
+    connection.close()
+
+    return results[0][0]
+
+print "full name for dyer:", get_name('survey.sqlite', 'dyer')
+</code></pre>
+</div>
+<div class="output highlighter-rouge"><pre class="highlight"><code>full name for dyer: William Dyer
+</code></pre>
+</div>
+
+<p>The key changes are in the query string and the <code class="highlighter-rouge">execute</code> call.
+Instead of formatting the query ourselves,
+we put question marks in the query template where we want to insert values.
+When we call <code class="highlighter-rouge">execute</code>,
+we provide a list
+that contains as many values as there are question marks in the query.
+The library matches values to question marks in order,
+and translates any special characters in the values
+into their escaped equivalents
+so that they are safe to use.</p>
+
+<blockquote class="challenge">
+  <h2 id="filling-a-table-vs-printing-values">Filling a Table vs. Printing Values</h2>
+
+  <p>Write a Python program that creates a new database in a file called
+<code class="highlighter-rouge">original.db</code> containing a single table called <code class="highlighter-rouge">Pressure</code>, with a
+single field called <code class="highlighter-rouge">reading</code>, and inserts 100,000 random numbers
+between 10.0 and 25.0.  How long does it take this program to run?
+How long does it take to run a program that simply writes those
+random numbers to a file?</p>
+</blockquote>
+
+<blockquote class="challenge">
+  <h2 id="filtering-in-sql-vs-filtering-in-python">Filtering in SQL vs. Filtering in Python</h2>
+
+  <p>Write a Python program that creates a new database called
+<code class="highlighter-rouge">backup.db</code> with the same structure as <code class="highlighter-rouge">original.db</code> and copies all
+the values greater than 20.0 from <code class="highlighter-rouge">original.db</code> to <code class="highlighter-rouge">backup.db</code>.
+Which is faster: filtering values in the query, or reading
+everything into memory and filtering in Python?</p>
+</blockquote>
+
+<blockquote class="keypoints">
+  <h2>Key Points</h2>
+  <ul>
+    
+    <li><p>General-purpose languages have libraries for accessing databases.</p>
+</li>
+    
+    <li><p>To connect to a database, a program must use a library specific to that database manager.</p>
+</li>
+    
+    <li><p>These libraries use a connection-and-cursor model.</p>
+</li>
+    
+    <li><p>Programs can read query results in batches or all at once.</p>
+</li>
+    
+    <li><p>Queries should be written using parameter substitution, not string formatting.</p>
+</li>
+    
+  </ul>
+</blockquote>
+
+
+      
+      <hr/>
+<footer>
+  <div class="row">
+    <div class="col-md-6" align="left">
+      <h4>
+	Copyright &copy; 2016
+	<a href="https://software-carpentry.org">Software Carpentry Foundation</a>
+	
+      </h4>
+    </div>
+    <div class="col-md-6" align="right">
+      <h4>
+	<a href="/">Source</a>
+	/
+	<a href="/blob/gh-pages/CONTRIBUTING.md">Contributing</a>
+	/
+	<a href="mailto:lessons@software-carpentry.org">Contact</a>
+      </h4>
+    </div>
+  </div>
+</footer>
+
+      
+    </div>
+    <script src="/swc-releases/2016.06/sql-novice-survey/assets/js/jquery.min.js"></script>
+<script src="/swc-releases/2016.06/sql-novice-survey/assets/js/bootstrap.min.js"></script>
+<script src="/swc-releases/2016.06/sql-novice-survey/assets/js/lesson.js"></script>
+
+  </body>
+</html>

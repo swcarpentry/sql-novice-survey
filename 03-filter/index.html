@@ -1,0 +1,799 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="last-modified" content="2016-07-19 12:35:55 +0200">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="search-domain" value="/swc-releases/2016.06/sql-novice-survey">
+    <link rel="stylesheet" type="text/css" href="/swc-releases/2016.06/sql-novice-survey/assets/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/swc-releases/2016.06/sql-novice-survey/assets/css/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="/swc-releases/2016.06/sql-novice-survey/assets/css/lesson.css" />
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon-swc.ico" />
+    
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+    <title>Databases and SQL: Filtering</title>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      
+      
+      <a href="https://software-carpentry.org" class="pull-left">
+        <img class="navbar-logo" src="/swc-releases/2016.06/sql-novice-survey/assets/img/swc-icon-blue.svg" alt="Software Carpentry logo" />
+      </a>
+      
+
+      
+      <a class="navbar-brand" href="/swc-releases/2016.06/sql-novice-survey/">Home</a>
+
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+
+	
+        <li><a href="/swc-releases/2016.06/sql-novice-survey/conduct/">Code of Conduct</a></li>
+
+	
+        
+        <li><a href="/swc-releases/2016.06/sql-novice-survey/setup/">Setup</a></li>
+        <li><a href="/swc-releases/2016.06/sql-novice-survey/reference/">Reference</a></li>
+        <li class="dropdown">
+          <a href="/swc-releases/2016.06/sql-novice-survey/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Episodes <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/01-select/">Selecting Data</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/02-sort-dup/">Sorting and Removing Duplicates</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/03-filter/">Filtering</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/04-calc/">Calculating New Values</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/05-null/">Missing Data</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/06-agg/">Aggregation</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/07-join/">Combining Data</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/08-hygiene/">Data Hygiene</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/09-create/">Creating and Modifying Data</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/10-prog/">Programming with Databases</a></li>
+            
+          </ul>
+        </li>
+	
+
+	
+	
+        <li class="dropdown">
+          <a href="/swc-releases/2016.06/sql-novice-survey/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Extras <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/about/">About</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/discuss/">Discussion</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/figures/">Figures</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/guide/">Instructor's Guide</a></li>
+            
+          </ul>
+        </li>
+	
+
+	
+        <li><a href="/swc-releases/2016.06/sql-novice-survey/license/">License</a></li>
+      </ul>
+      <form class="navbar-form navbar-right" role="search" id="search" onsubmit="google_search(); return false;">
+        <div class="form-group">
+          <input type="text" id="google-search" placeholder="Search...">
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+<div class="row">
+  <div class="col-md-1">
+    <h3>
+      
+      <a href="/swc-releases/2016.06/sql-novice-survey/02-sort-dup/"><span class="glyphicon glyphicon-menu-left"></span></a>
+      
+    </h3>
+  </div>
+  <div class="col-md-10">
+    <h3 class="maintitle"><a href="/swc-releases/2016.06/sql-novice-survey/">Databases and SQL</a></h3>
+    <h1 class="maintitle">Filtering</h1>
+  </div>
+  <div class="col-md-1">
+    <h3>
+      
+      <a href="/swc-releases/2016.06/sql-novice-survey/04-calc/"><span class="glyphicon glyphicon-menu-right"></span></a>
+      
+    </h3>
+  </div>
+</div>
+
+
+<blockquote class="objectives">
+  <h2>Overview</h2>
+
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Teaching:</strong> 10 min
+      </br>
+      <strong>Exercises:</strong> 10 min
+    </div>
+    <div class="col-md-9">
+      <strong>Questions</strong>
+      <ul>
+	
+	<li><p>How can I select subsets of data?</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-9">
+      <strong>Objectives</strong>
+      <ul>
+	
+	<li><p>Write queries that select records that satisfy user-specified conditions.</p>
+</li>
+	
+	<li><p>Explain the order in which the clauses in a query are executed.</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+  
+</blockquote>
+
+<p>One of the most powerful features of a database is
+the ability to <a href="reference.html#filter">filter</a> data,
+i.e.,
+to select only those records that match certain criteria.
+For example,
+suppose we want to see when a particular site was visited.
+We can select these records from the <code class="highlighter-rouge">Visited</code> table
+by using a <code class="highlighter-rouge">WHERE</code> clause in our query:</p>
+
+<div class="sql highlighter-rouge"><pre class="highlight"><code>SELECT * FROM Visited WHERE site='DR-1';
+</code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>site</th>
+      <th>dated</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>619</td>
+      <td>DR-1</td>
+      <td>1927-02-08</td>
+    </tr>
+    <tr>
+      <td>622</td>
+      <td>DR-1</td>
+      <td>1927-02-10</td>
+    </tr>
+    <tr>
+      <td>844</td>
+      <td>DR-1</td>
+      <td>1932-03-22</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The database manager executes this query in two stages.
+First,
+it checks at each row in the <code class="highlighter-rouge">Visited</code> table
+to see which ones satisfy the <code class="highlighter-rouge">WHERE</code>.
+It then uses the column names following the <code class="highlighter-rouge">SELECT</code> keyword
+to determine which columns to display.</p>
+
+<p>This processing order means that
+we can filter records using <code class="highlighter-rouge">WHERE</code>
+based on values in columns that aren’t then displayed:</p>
+
+<div class="sql highlighter-rouge"><pre class="highlight"><code>SELECT id FROM Visited WHERE site='DR-1';
+</code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>619</td>
+    </tr>
+    <tr>
+      <td>622</td>
+    </tr>
+    <tr>
+      <td>844</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><img src="/swc-releases/2016.06/sql-novice-survey/fig/sql-filter.svg" alt="SQL Filtering in Action" /></p>
+
+<p>We can use many other Boolean operators to filter our data.
+For example,
+we can ask for all information from the DR-1 site collected before 1930:</p>
+
+<div class="sql highlighter-rouge"><pre class="highlight"><code>SELECT * FROM Visited WHERE site='DR-1' AND dated&lt;'1930-01-01';
+</code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>site</th>
+      <th>dated</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>619</td>
+      <td>DR-1</td>
+      <td>1927-02-08</td>
+    </tr>
+    <tr>
+      <td>622</td>
+      <td>DR-1</td>
+      <td>1927-02-10</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote class="callout">
+  <h2 id="date-types">Date Types</h2>
+
+  <p>Most database managers have a special data type for dates.
+In fact, many have two:
+one for dates,
+such as “May 31, 1971”,
+and one for durations,
+such as “31 days”.
+SQLite doesn’t:
+instead,
+it stores dates as either text
+(in the ISO-8601 standard format “YYYY-MM-DD HH:MM:SS.SSSS”),
+real numbers
+(the number of days since November 24, 4714 BCE),
+or integers
+(the number of seconds since midnight, January 1, 1970).
+If this sounds complicated,
+it is,
+but not nearly as complicated as figuring out
+<a href="http://en.wikipedia.org/wiki/Swedish_calendar">historical dates in Sweden</a>.</p>
+</blockquote>
+
+<p>If we want to find out what measurements were taken by either Lake or Roerich,
+we can combine the tests on their names using <code class="highlighter-rouge">OR</code>:</p>
+
+<div class="sql highlighter-rouge"><pre class="highlight"><code>SELECT * FROM Survey WHERE person='lake' OR person='roe';
+</code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>taken</th>
+      <th>person</th>
+      <th>quant</th>
+      <th>reading</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>734</td>
+      <td>lake</td>
+      <td>sal</td>
+      <td>0.05</td>
+    </tr>
+    <tr>
+      <td>751</td>
+      <td>lake</td>
+      <td>sal</td>
+      <td>0.1</td>
+    </tr>
+    <tr>
+      <td>752</td>
+      <td>lake</td>
+      <td>rad</td>
+      <td>2.19</td>
+    </tr>
+    <tr>
+      <td>752</td>
+      <td>lake</td>
+      <td>sal</td>
+      <td>0.09</td>
+    </tr>
+    <tr>
+      <td>752</td>
+      <td>lake</td>
+      <td>temp</td>
+      <td>-16.0</td>
+    </tr>
+    <tr>
+      <td>752</td>
+      <td>roe</td>
+      <td>sal</td>
+      <td>41.6</td>
+    </tr>
+    <tr>
+      <td>837</td>
+      <td>lake</td>
+      <td>rad</td>
+      <td>1.46</td>
+    </tr>
+    <tr>
+      <td>837</td>
+      <td>lake</td>
+      <td>sal</td>
+      <td>0.21</td>
+    </tr>
+    <tr>
+      <td>837</td>
+      <td>roe</td>
+      <td>sal</td>
+      <td>22.5</td>
+    </tr>
+    <tr>
+      <td>844</td>
+      <td>roe</td>
+      <td>rad</td>
+      <td>11.25</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Alternatively,
+we can use <code class="highlighter-rouge">IN</code> to see if a value is in a specific set:</p>
+
+<div class="sql highlighter-rouge"><pre class="highlight"><code>SELECT * FROM Survey WHERE person IN ('lake', 'roe');
+</code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>taken</th>
+      <th>person</th>
+      <th>quant</th>
+      <th>reading</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>734</td>
+      <td>lake</td>
+      <td>sal</td>
+      <td>0.05</td>
+    </tr>
+    <tr>
+      <td>751</td>
+      <td>lake</td>
+      <td>sal</td>
+      <td>0.1</td>
+    </tr>
+    <tr>
+      <td>752</td>
+      <td>lake</td>
+      <td>rad</td>
+      <td>2.19</td>
+    </tr>
+    <tr>
+      <td>752</td>
+      <td>lake</td>
+      <td>sal</td>
+      <td>0.09</td>
+    </tr>
+    <tr>
+      <td>752</td>
+      <td>lake</td>
+      <td>temp</td>
+      <td>-16.0</td>
+    </tr>
+    <tr>
+      <td>752</td>
+      <td>roe</td>
+      <td>sal</td>
+      <td>41.6</td>
+    </tr>
+    <tr>
+      <td>837</td>
+      <td>lake</td>
+      <td>rad</td>
+      <td>1.46</td>
+    </tr>
+    <tr>
+      <td>837</td>
+      <td>lake</td>
+      <td>sal</td>
+      <td>0.21</td>
+    </tr>
+    <tr>
+      <td>837</td>
+      <td>roe</td>
+      <td>sal</td>
+      <td>22.5</td>
+    </tr>
+    <tr>
+      <td>844</td>
+      <td>roe</td>
+      <td>rad</td>
+      <td>11.25</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>We can combine <code class="highlighter-rouge">AND</code> with <code class="highlighter-rouge">OR</code>,
+but we need to be careful about which operator is executed first.
+If we <em>don’t</em> use parentheses,
+we get this:</p>
+
+<div class="sql highlighter-rouge"><pre class="highlight"><code>SELECT * FROM Survey WHERE quant='sal' AND person='lake' OR person='roe';
+</code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>taken</th>
+      <th>person</th>
+      <th>quant</th>
+      <th>reading</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>734</td>
+      <td>lake</td>
+      <td>sal</td>
+      <td>0.05</td>
+    </tr>
+    <tr>
+      <td>751</td>
+      <td>lake</td>
+      <td>sal</td>
+      <td>0.1</td>
+    </tr>
+    <tr>
+      <td>752</td>
+      <td>lake</td>
+      <td>sal</td>
+      <td>0.09</td>
+    </tr>
+    <tr>
+      <td>752</td>
+      <td>roe</td>
+      <td>sal</td>
+      <td>41.6</td>
+    </tr>
+    <tr>
+      <td>837</td>
+      <td>lake</td>
+      <td>sal</td>
+      <td>0.21</td>
+    </tr>
+    <tr>
+      <td>837</td>
+      <td>roe</td>
+      <td>sal</td>
+      <td>22.5</td>
+    </tr>
+    <tr>
+      <td>844</td>
+      <td>roe</td>
+      <td>rad</td>
+      <td>11.25</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>which is salinity measurements by Lake,
+and <em>any</em> measurement by Roerich.
+We probably want this instead:</p>
+
+<div class="sql highlighter-rouge"><pre class="highlight"><code>SELECT * FROM Survey WHERE quant='sal' AND (person='lake' OR person='roe');
+</code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>taken</th>
+      <th>person</th>
+      <th>quant</th>
+      <th>reading</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>734</td>
+      <td>lake</td>
+      <td>sal</td>
+      <td>0.05</td>
+    </tr>
+    <tr>
+      <td>751</td>
+      <td>lake</td>
+      <td>sal</td>
+      <td>0.1</td>
+    </tr>
+    <tr>
+      <td>752</td>
+      <td>lake</td>
+      <td>sal</td>
+      <td>0.09</td>
+    </tr>
+    <tr>
+      <td>752</td>
+      <td>roe</td>
+      <td>sal</td>
+      <td>41.6</td>
+    </tr>
+    <tr>
+      <td>837</td>
+      <td>lake</td>
+      <td>sal</td>
+      <td>0.21</td>
+    </tr>
+    <tr>
+      <td>837</td>
+      <td>roe</td>
+      <td>sal</td>
+      <td>22.5</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>We can also filter by partial matches.  For example, if we want to
+know something just about the site names beginning with “DR” we can
+use the <code class="highlighter-rouge">LIKE</code> keyword.  The percent symbol acts as a
+<a href="reference.html#wildcard">wildcard</a>, matching any characters in that
+place.  It can be used at the beginning, middle, or end of the string:</p>
+
+<div class="sql highlighter-rouge"><pre class="highlight"><code>SELECT * FROM Visited WHERE site LIKE 'DR%';
+</code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>site</th>
+      <th>dated</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>619</td>
+      <td>DR-1</td>
+      <td>1927-02-08</td>
+    </tr>
+    <tr>
+      <td>622</td>
+      <td>DR-1</td>
+      <td>1927-02-10</td>
+    </tr>
+    <tr>
+      <td>734</td>
+      <td>DR-3</td>
+      <td>1930-01-07</td>
+    </tr>
+    <tr>
+      <td>735</td>
+      <td>DR-3</td>
+      <td>1930-01-12</td>
+    </tr>
+    <tr>
+      <td>751</td>
+      <td>DR-3</td>
+      <td>1930-02-26</td>
+    </tr>
+    <tr>
+      <td>752</td>
+      <td>DR-3</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>844</td>
+      <td>DR-1</td>
+      <td>1932-03-22</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Finally,
+we can use <code class="highlighter-rouge">DISTINCT</code> with <code class="highlighter-rouge">WHERE</code>
+to give a second level of filtering:</p>
+
+<div class="sql highlighter-rouge"><pre class="highlight"><code>SELECT DISTINCT person, quant FROM Survey WHERE person='lake' OR person='roe';
+</code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>person</th>
+      <th>quant</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>lake</td>
+      <td>sal</td>
+    </tr>
+    <tr>
+      <td>lake</td>
+      <td>rad</td>
+    </tr>
+    <tr>
+      <td>lake</td>
+      <td>temp</td>
+    </tr>
+    <tr>
+      <td>roe</td>
+      <td>sal</td>
+    </tr>
+    <tr>
+      <td>roe</td>
+      <td>rad</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>But remember:
+<code class="highlighter-rouge">DISTINCT</code> is applied to the values displayed in the chosen columns,
+not to the entire rows as they are being processed.</p>
+
+<blockquote class="callout">
+  <h2 id="growing-queries">Growing Queries</h2>
+
+  <p>What we have just done is how most people “grow” their SQL queries.
+We started with something simple that did part of what we wanted,
+then added more clauses one by one,
+testing their effects as we went.
+This is a good strategy — in fact,
+for complex queries it’s often the <em>only</em> strategy — but
+it depends on quick turnaround,
+and on us recognizing the right answer when we get it.</p>
+
+  <p>The best way to achieve quick turnaround is often
+to put a subset of data in a temporary database
+and run our queries against that,
+or to fill a small database with synthesized records.
+For example,
+instead of trying our queries against an actual database of 20 million Australians,
+we could run it against a sample of ten thousand,
+or write a small program to generate ten thousand random (but plausible) records
+and use that.</p>
+</blockquote>
+
+<blockquote class="challenge">
+  <h2 id="fix-this-query">Fix This Query</h2>
+
+  <p>Suppose we want to select all sites that lie more than 30 degrees from the poles.
+Our first query is:</p>
+
+  <div class="sql highlighter-rouge"><pre class="highlight"><code>SELECT * FROM Site WHERE (lat &gt; -60) OR (lat &lt; 60);
+</code></pre>
+  </div>
+
+  <p>Explain why this is wrong,
+and rewrite the query so that it is correct.</p>
+</blockquote>
+
+<blockquote class="challenge">
+  <h2 id="finding-outliers">Finding Outliers</h2>
+
+  <p>Normalized salinity readings are supposed to be between 0.0 and 1.0.
+Write a query that selects all records from <code class="highlighter-rouge">Survey</code>
+with salinity values outside this range.</p>
+</blockquote>
+
+<blockquote class="challenge">
+  <h2 id="matching-patterns">Matching Patterns</h2>
+
+  <p>Which of these expressions are true?</p>
+
+  <ul>
+    <li><code class="highlighter-rouge">'a' LIKE 'a'</code></li>
+    <li><code class="highlighter-rouge">'a' LIKE '%a'</code></li>
+    <li><code class="highlighter-rouge">'beta' LIKE '%a'</code></li>
+    <li><code class="highlighter-rouge">'alpha' LIKE 'a%%'</code></li>
+    <li><code class="highlighter-rouge">'alpha' LIKE 'a%p%'</code></li>
+  </ul>
+</blockquote>
+
+<blockquote class="keypoints">
+  <h2>Key Points</h2>
+  <ul>
+    
+    <li><p>Use WHERE to specify conditions that records must meet in order to be included in a query’s results.</p>
+</li>
+    
+    <li><p>Use AND, OR, and NOT to combine tests.</p>
+</li>
+    
+    <li><p>Filtering is done on whole records, so conditions can use fields that are not actually displayed.</p>
+</li>
+    
+    <li><p>Write queries incrementally.</p>
+</li>
+    
+  </ul>
+</blockquote>
+
+
+      
+      <hr/>
+<footer>
+  <div class="row">
+    <div class="col-md-6" align="left">
+      <h4>
+	Copyright &copy; 2016
+	<a href="https://software-carpentry.org">Software Carpentry Foundation</a>
+	
+      </h4>
+    </div>
+    <div class="col-md-6" align="right">
+      <h4>
+	<a href="/">Source</a>
+	/
+	<a href="/blob/gh-pages/CONTRIBUTING.md">Contributing</a>
+	/
+	<a href="mailto:lessons@software-carpentry.org">Contact</a>
+      </h4>
+    </div>
+  </div>
+</footer>
+
+      
+    </div>
+    <script src="/swc-releases/2016.06/sql-novice-survey/assets/js/jquery.min.js"></script>
+<script src="/swc-releases/2016.06/sql-novice-survey/assets/js/bootstrap.min.js"></script>
+<script src="/swc-releases/2016.06/sql-novice-survey/assets/js/lesson.js"></script>
+
+  </body>
+</html>

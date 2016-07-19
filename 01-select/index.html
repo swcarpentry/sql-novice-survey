@@ -1,0 +1,891 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="last-modified" content="2016-07-19 12:35:55 +0200">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="search-domain" value="/swc-releases/2016.06/sql-novice-survey">
+    <link rel="stylesheet" type="text/css" href="/swc-releases/2016.06/sql-novice-survey/assets/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/swc-releases/2016.06/sql-novice-survey/assets/css/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="/swc-releases/2016.06/sql-novice-survey/assets/css/lesson.css" />
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon-swc.ico" />
+    
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+    <title>Databases and SQL: Selecting Data</title>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      
+      
+      <a href="https://software-carpentry.org" class="pull-left">
+        <img class="navbar-logo" src="/swc-releases/2016.06/sql-novice-survey/assets/img/swc-icon-blue.svg" alt="Software Carpentry logo" />
+      </a>
+      
+
+      
+      <a class="navbar-brand" href="/swc-releases/2016.06/sql-novice-survey/">Home</a>
+
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+
+	
+        <li><a href="/swc-releases/2016.06/sql-novice-survey/conduct/">Code of Conduct</a></li>
+
+	
+        
+        <li><a href="/swc-releases/2016.06/sql-novice-survey/setup/">Setup</a></li>
+        <li><a href="/swc-releases/2016.06/sql-novice-survey/reference/">Reference</a></li>
+        <li class="dropdown">
+          <a href="/swc-releases/2016.06/sql-novice-survey/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Episodes <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/01-select/">Selecting Data</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/02-sort-dup/">Sorting and Removing Duplicates</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/03-filter/">Filtering</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/04-calc/">Calculating New Values</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/05-null/">Missing Data</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/06-agg/">Aggregation</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/07-join/">Combining Data</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/08-hygiene/">Data Hygiene</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/09-create/">Creating and Modifying Data</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/10-prog/">Programming with Databases</a></li>
+            
+          </ul>
+        </li>
+	
+
+	
+	
+        <li class="dropdown">
+          <a href="/swc-releases/2016.06/sql-novice-survey/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Extras <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/about/">About</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/discuss/">Discussion</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/figures/">Figures</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/guide/">Instructor's Guide</a></li>
+            
+          </ul>
+        </li>
+	
+
+	
+        <li><a href="/swc-releases/2016.06/sql-novice-survey/license/">License</a></li>
+      </ul>
+      <form class="navbar-form navbar-right" role="search" id="search" onsubmit="google_search(); return false;">
+        <div class="form-group">
+          <input type="text" id="google-search" placeholder="Search...">
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+<div class="row">
+  <div class="col-md-1">
+    <h3>
+      
+      <a href="/swc-releases/2016.06/sql-novice-survey"><span class="glyphicon glyphicon-menu-up"></span></a>
+      
+    </h3>
+  </div>
+  <div class="col-md-10">
+    <h3 class="maintitle"><a href="/swc-releases/2016.06/sql-novice-survey/">Databases and SQL</a></h3>
+    <h1 class="maintitle">Selecting Data</h1>
+  </div>
+  <div class="col-md-1">
+    <h3>
+      
+      <a href="/swc-releases/2016.06/sql-novice-survey/02-sort-dup/"><span class="glyphicon glyphicon-menu-right"></span></a>
+      
+    </h3>
+  </div>
+</div>
+
+
+<blockquote class="objectives">
+  <h2>Overview</h2>
+
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Teaching:</strong> 10 min
+      </br>
+      <strong>Exercises:</strong> 5 min
+    </div>
+    <div class="col-md-9">
+      <strong>Questions</strong>
+      <ul>
+	
+	<li><p>How can I get data from a database?</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-9">
+      <strong>Objectives</strong>
+      <ul>
+	
+	<li><p>Explain the difference between a table, a record, and a field.</p>
+</li>
+	
+	<li><p>Explain the difference between a database and a database manager.</p>
+</li>
+	
+	<li><p>Write a query to select all values for specific fields from a single table.</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+  
+</blockquote>
+
+<p>A <a href="reference.html#relational-database">relational database</a>
+is a way to store and manipulate information.
+Databases are arranged as <a href="reference.html#table">tables</a>.
+Each table has columns (also known as <a href="reference.html#field">fields</a>) that describe the data,
+and rows (also known as <a href="reference.html#record">records</a>) which contain the data.</p>
+
+<p>When we are using a spreadsheet,
+we put formulas into cells to calculate new values based on old ones.
+When we are using a database,
+we send commands
+(usually called <a href="reference.html#query">queries</a>)
+to a <a href="reference.html#database-manager">database manager</a>:
+a program that manipulates the database for us.
+The database manager does whatever lookups and calculations the query specifies,
+returning the results in a tabular form
+that we can then use as a starting point for further queries.</p>
+
+<blockquote class="callout">
+  <h2 id="changing-database-managers">Changing Database Managers</h2>
+
+  <p>Every database manager — Oracle,
+IBM DB2, PostgreSQL, MySQL, Microsoft Access, and SQLite — stores
+data in a different way,
+so a database created with one cannot be used directly by another.
+However,
+every database manager can import and export data in a variety of formats, like .csv,
+so it <em>is</em> possible to move information from one to another.</p>
+</blockquote>
+
+<p>Queries are written in a language called <a href="reference.html#sql">SQL</a>,
+which stands for “Structured Query Language”.
+SQL provides hundreds of different ways to analyze and recombine data.
+We will only look at a handful of queries,
+but that handful accounts for most of what scientists do.</p>
+
+<blockquote class="callout">
+  <h2 id="getting-into-and-out-of-sqlite">Getting Into and Out Of SQLite</h2>
+
+  <p>In order to use the SQLite commands <em>interactively</em>, we need to
+enter into the SQLite console.  So, open up a terminal, and run</p>
+
+  <div class="bash highlighter-rouge"><pre class="highlight"><code>$ cd /path/to/survey/data/
+$ sqlite3 survey.sqlite
+</code></pre>
+  </div>
+
+  <p>The SQLite command is <code class="highlighter-rouge">sqlite3</code> and you are telling SQLite to open up
+the <code class="highlighter-rouge">survey.sqlite</code>.  You need to specify the <code class="highlighter-rouge">.db</code> file otherwise, SQLite
+will open up a temporary, empty database.</p>
+
+  <p>To get out of SQLite, type out <code class="highlighter-rouge">.exit</code> or <code class="highlighter-rouge">.quit</code>.  For some
+terminals, <code class="highlighter-rouge">Ctrl-D</code> can also work.  If you forget any SQLite <code class="highlighter-rouge">.</code> (dot)
+command, type <code class="highlighter-rouge">.help</code>.</p>
+</blockquote>
+
+<p>Before we get into the data and using SQLite to select the data,</p>
+
+<p>The tables below show the database we will use in our examples:</p>
+
+<div class="row">
+  <div class="col-md-6">
+
+    <p><strong>Person</strong>: people who took readings.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>personal</th>
+          <th>family</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>dyer</td>
+          <td>William</td>
+          <td>Dyer</td>
+        </tr>
+        <tr>
+          <td>pb</td>
+          <td>Frank</td>
+          <td>Pabodie</td>
+        </tr>
+        <tr>
+          <td>lake</td>
+          <td>Anderson</td>
+          <td>Lake</td>
+        </tr>
+        <tr>
+          <td>roe</td>
+          <td>Valentina</td>
+          <td>Roerich</td>
+        </tr>
+        <tr>
+          <td>danforth</td>
+          <td>Frank</td>
+          <td>Danforth</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><strong>Site</strong>: locations where readings were taken.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>lat</th>
+          <th>long</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>DR-1</td>
+          <td>-49.85</td>
+          <td>-128.57</td>
+        </tr>
+        <tr>
+          <td>DR-3</td>
+          <td>-47.15</td>
+          <td>-126.72</td>
+        </tr>
+        <tr>
+          <td>MSK-4</td>
+          <td>-48.87</td>
+          <td>-123.4</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><strong>Visited</strong>: when readings were taken at specific sites.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>site</th>
+          <th>dated</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>619</td>
+          <td>DR-1</td>
+          <td>1927-02-08</td>
+        </tr>
+        <tr>
+          <td>622</td>
+          <td>DR-1</td>
+          <td>1927-02-10</td>
+        </tr>
+        <tr>
+          <td>734</td>
+          <td>DR-3</td>
+          <td>1930-01-07</td>
+        </tr>
+        <tr>
+          <td>735</td>
+          <td>DR-3</td>
+          <td>1930-01-12</td>
+        </tr>
+        <tr>
+          <td>751</td>
+          <td>DR-3</td>
+          <td>1930-02-26</td>
+        </tr>
+        <tr>
+          <td>752</td>
+          <td>DR-3</td>
+          <td>-null-</td>
+        </tr>
+        <tr>
+          <td>837</td>
+          <td>MSK-4</td>
+          <td>1932-01-14</td>
+        </tr>
+        <tr>
+          <td>844</td>
+          <td>DR-1</td>
+          <td>1932-03-22</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+  <div class="col-md-6">
+
+    <p><strong>Survey</strong>: the actual readings.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>taken</th>
+          <th>person</th>
+          <th>quant</th>
+          <th>reading</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>619</td>
+          <td>dyer</td>
+          <td>rad</td>
+          <td>9.82</td>
+        </tr>
+        <tr>
+          <td>619</td>
+          <td>dyer</td>
+          <td>sal</td>
+          <td>0.13</td>
+        </tr>
+        <tr>
+          <td>622</td>
+          <td>dyer</td>
+          <td>rad</td>
+          <td>7.8</td>
+        </tr>
+        <tr>
+          <td>622</td>
+          <td>dyer</td>
+          <td>sal</td>
+          <td>0.09</td>
+        </tr>
+        <tr>
+          <td>734</td>
+          <td>pb</td>
+          <td>rad</td>
+          <td>8.41</td>
+        </tr>
+        <tr>
+          <td>734</td>
+          <td>lake</td>
+          <td>sal</td>
+          <td>0.05</td>
+        </tr>
+        <tr>
+          <td>734</td>
+          <td>pb</td>
+          <td>temp</td>
+          <td>-21.5</td>
+        </tr>
+        <tr>
+          <td>735</td>
+          <td>pb</td>
+          <td>rad</td>
+          <td>7.22</td>
+        </tr>
+        <tr>
+          <td>735</td>
+          <td>-null-</td>
+          <td>sal</td>
+          <td>0.06</td>
+        </tr>
+        <tr>
+          <td>735</td>
+          <td>-null-</td>
+          <td>temp</td>
+          <td>-26.0</td>
+        </tr>
+        <tr>
+          <td>751</td>
+          <td>pb</td>
+          <td>rad</td>
+          <td>4.35</td>
+        </tr>
+        <tr>
+          <td>751</td>
+          <td>pb</td>
+          <td>temp</td>
+          <td>-18.5</td>
+        </tr>
+        <tr>
+          <td>751</td>
+          <td>lake</td>
+          <td>sal</td>
+          <td>0.1</td>
+        </tr>
+        <tr>
+          <td>752</td>
+          <td>lake</td>
+          <td>rad</td>
+          <td>2.19</td>
+        </tr>
+        <tr>
+          <td>752</td>
+          <td>lake</td>
+          <td>sal</td>
+          <td>0.09</td>
+        </tr>
+        <tr>
+          <td>752</td>
+          <td>lake</td>
+          <td>temp</td>
+          <td>-16.0</td>
+        </tr>
+        <tr>
+          <td>752</td>
+          <td>roe</td>
+          <td>sal</td>
+          <td>41.6</td>
+        </tr>
+        <tr>
+          <td>837</td>
+          <td>lake</td>
+          <td>rad</td>
+          <td>1.46</td>
+        </tr>
+        <tr>
+          <td>837</td>
+          <td>lake</td>
+          <td>sal</td>
+          <td>0.21</td>
+        </tr>
+        <tr>
+          <td>837</td>
+          <td>roe</td>
+          <td>sal</td>
+          <td>22.5</td>
+        </tr>
+        <tr>
+          <td>844</td>
+          <td>roe</td>
+          <td>rad</td>
+          <td>11.25</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
+<p>Notice that three entries — one in the <code class="highlighter-rouge">Visited</code> table,
+and two in the <code class="highlighter-rouge">Survey</code> table — don’t contain any actual
+data, but instead have a special <code class="highlighter-rouge">-null-</code> entry:
+we’ll return to these missing values <a href="05-null.html">later</a>.</p>
+
+<blockquote class="callout">
+  <h2 id="checking-if-data-is-available">Checking If Data is Available</h2>
+
+  <p>On the shell command line,
+change the working directory to the one where you saved <code class="highlighter-rouge">survey.sqlite</code>.
+If you saved it at your Desktop you should use</p>
+
+  <div class="bash highlighter-rouge"><pre class="highlight"><code>$ cd Desktop
+$ ls | grep survey.sqlite
+</code></pre>
+  </div>
+  <div class="output highlighter-rouge"><pre class="highlight"><code>survey.sqlite
+</code></pre>
+  </div>
+
+  <p>If you get the same output, you can run</p>
+
+  <div class="bash highlighter-rouge"><pre class="highlight"><code>$ sqlite3 survey.sqlite
+</code></pre>
+  </div>
+  <div class="output highlighter-rouge"><pre class="highlight"><code>SQLite version 3.8.8 2015-01-16 12:08:06
+Enter ".help" for usage hints.
+sqlite&gt;
+</code></pre>
+  </div>
+
+  <p>that instructs SQLite to load the database in the <code class="highlighter-rouge">survey.sqlite</code> file.</p>
+
+  <p>For a list of useful system commands, enter <code class="highlighter-rouge">.help</code>.</p>
+
+  <p>All SQLite-specific commands are prefixed with a <code class="highlighter-rouge">.</code> to distinguish them from SQL commands.
+Type <code class="highlighter-rouge">.tables</code> to list the tables in the database.</p>
+
+  <div class="sql highlighter-rouge"><pre class="highlight"><code>.tables
+</code></pre>
+  </div>
+  <div class="output highlighter-rouge"><pre class="highlight"><code>Person   Site     Survey   Visited
+</code></pre>
+  </div>
+
+  <p>You can change some SQLite settings to make the output easier to read.
+First,
+set the output mode to display left-aligned columns.
+Then turn on the display of column headers.</p>
+
+  <div class="sql highlighter-rouge"><pre class="highlight"><code>.mode column
+.header on
+</code></pre>
+  </div>
+
+  <p>To exit SQLite and return to the shell command line,
+you can use either <code class="highlighter-rouge">.quit</code> or <code class="highlighter-rouge">.exit</code>.</p>
+</blockquote>
+
+<p>For now,
+let’s write an SQL query that displays scientists’ names.
+We do this using the SQL command <code class="highlighter-rouge">SELECT</code>,
+giving it the names of the columns we want and the table we want them from.
+Our query and its output look like this:</p>
+
+<div class="sql highlighter-rouge"><pre class="highlight"><code>SELECT family, personal FROM Person;
+</code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>family</th>
+      <th>personal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Dyer</td>
+      <td>William</td>
+    </tr>
+    <tr>
+      <td>Pabodie</td>
+      <td>Frank</td>
+    </tr>
+    <tr>
+      <td>Lake</td>
+      <td>Anderson</td>
+    </tr>
+    <tr>
+      <td>Roerich</td>
+      <td>Valentina</td>
+    </tr>
+    <tr>
+      <td>Danforth</td>
+      <td>Frank</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The semicolon at the end of the query
+tells the database manager that the query is complete and ready to run.
+We have written our commands in upper case and the names for the table and columns
+in lower case,
+but we don’t have to:
+as the example below shows,
+SQL is <a href="reference.html#case-insensitive">case insensitive</a>.</p>
+
+<div class="sql highlighter-rouge"><pre class="highlight"><code>SeLeCt FaMiLy, PeRsOnAl FrOm PeRsOn;
+</code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>family</th>
+      <th>personal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Dyer</td>
+      <td>William</td>
+    </tr>
+    <tr>
+      <td>Pabodie</td>
+      <td>Frank</td>
+    </tr>
+    <tr>
+      <td>Lake</td>
+      <td>Anderson</td>
+    </tr>
+    <tr>
+      <td>Roerich</td>
+      <td>Valentina</td>
+    </tr>
+    <tr>
+      <td>Danforth</td>
+      <td>Frank</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>You can use SQL’s case insensitivity to your advantage. For instance,
+some people choose to write SQL keywords (such as <code class="highlighter-rouge">SELECT</code> and <code class="highlighter-rouge">FROM</code>)
+in capital letters and <strong>field</strong> and <strong>table</strong> names in lower
+case. This can make it easier to locate parts of an SQL statement. For
+instance, you can scan the statement, quickly locate the prominent
+<code class="highlighter-rouge">FROM</code> keyword and know the table name follows.  Whatever casing
+convention you choose, please be consistent: complex queries are hard
+enough to read without the extra cognitive load of random
+capitalization.  One convention is to use UPPER CASE for SQL
+statements, to distinguish them from tables and column names. This is
+the convention that we will use for this lesson.</p>
+
+<p>While we are on the topic of SQL’s syntax, one aspect of SQL’s syntax
+that can frustrate novices and experts alike is forgetting to finish a
+command with <code class="highlighter-rouge">;</code> (semicolon).  When you press enter for a command
+without adding the <code class="highlighter-rouge">;</code> to the end, it can look something like this:</p>
+
+<div class="sql highlighter-rouge"><pre class="highlight"><code>SELECT * FROM Person
+...&gt;
+...&gt;
+</code></pre>
+</div>
+
+<p>This is SQL’s prompt, where it is waiting for additional commands or
+for a <code class="highlighter-rouge">;</code> to let SQL know to finish.  This is easy to fix!  Just type
+<code class="highlighter-rouge">;</code> and press enter!</p>
+
+<p>Now, going back to our query,
+it’s important to understand that
+the rows and columns in a database table aren’t actually stored in any particular order.
+They will always be <em>displayed</em> in some order,
+but we can control that in various ways.
+For example,
+we could swap the columns in the output by writing our query as:</p>
+
+<div class="sql highlighter-rouge"><pre class="highlight"><code>SELECT personal, family FROM Person;
+</code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>personal</th>
+      <th>family</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>William</td>
+      <td>Dyer</td>
+    </tr>
+    <tr>
+      <td>Frank</td>
+      <td>Pabodie</td>
+    </tr>
+    <tr>
+      <td>Anderson</td>
+      <td>Lake</td>
+    </tr>
+    <tr>
+      <td>Valentina</td>
+      <td>Roerich</td>
+    </tr>
+    <tr>
+      <td>Frank</td>
+      <td>Danforth</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>or even repeat columns:</p>
+
+<div class="sql highlighter-rouge"><pre class="highlight"><code>SELECT id, id, id FROM Person;
+</code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>id</th>
+      <th>id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>dyer</td>
+      <td>dyer</td>
+      <td>dyer</td>
+    </tr>
+    <tr>
+      <td>pb</td>
+      <td>pb</td>
+      <td>pb</td>
+    </tr>
+    <tr>
+      <td>lake</td>
+      <td>lake</td>
+      <td>lake</td>
+    </tr>
+    <tr>
+      <td>roe</td>
+      <td>roe</td>
+      <td>roe</td>
+    </tr>
+    <tr>
+      <td>danforth</td>
+      <td>danforth</td>
+      <td>danforth</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>As a shortcut,
+we can select all of the columns in a table using <code class="highlighter-rouge">*</code>:</p>
+
+<div class="sql highlighter-rouge"><pre class="highlight"><code>SELECT * FROM Person;
+</code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>personal</th>
+      <th>family</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>dyer</td>
+      <td>William</td>
+      <td>Dyer</td>
+    </tr>
+    <tr>
+      <td>pb</td>
+      <td>Frank</td>
+      <td>Pabodie</td>
+    </tr>
+    <tr>
+      <td>lake</td>
+      <td>Anderson</td>
+      <td>Lake</td>
+    </tr>
+    <tr>
+      <td>roe</td>
+      <td>Valentina</td>
+      <td>Roerich</td>
+    </tr>
+    <tr>
+      <td>danforth</td>
+      <td>Frank</td>
+      <td>Danforth</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote class="challenge">
+  <h2 id="selecting-site-names">Selecting Site Names</h2>
+
+  <p>Write a query that selects only site names from the <code class="highlighter-rouge">Site</code> table.</p>
+</blockquote>
+
+<blockquote class="challenge">
+  <h2 id="query-style">Query Style</h2>
+
+  <p>Many people format queries as:</p>
+
+  <div class="sql highlighter-rouge"><pre class="highlight"><code>SELECT personal, family FROM person;
+</code></pre>
+  </div>
+
+  <p>or as:</p>
+
+  <div class="sql highlighter-rouge"><pre class="highlight"><code>select Personal, Family from PERSON;
+</code></pre>
+  </div>
+
+  <p>What style do you find easiest to read, and why?</p>
+</blockquote>
+
+<blockquote class="keypoints">
+  <h2>Key Points</h2>
+  <ul>
+    
+    <li><p>A relational database stores information in tables, each of which has a fixed set of columns and a variable number of records.</p>
+</li>
+    
+    <li><p>A database manager is a program that manipulates information stored in a database.</p>
+</li>
+    
+    <li><p>We write queries in a specialized language called SQL to extract information from databases.</p>
+</li>
+    
+    <li><p>Use SELECT… FROM… to get values from a database table.</p>
+</li>
+    
+    <li><p>SQL is case-insensitive (but data is case-sensitive).</p>
+</li>
+    
+  </ul>
+</blockquote>
+
+
+      
+      <hr/>
+<footer>
+  <div class="row">
+    <div class="col-md-6" align="left">
+      <h4>
+	Copyright &copy; 2016
+	<a href="https://software-carpentry.org">Software Carpentry Foundation</a>
+	
+      </h4>
+    </div>
+    <div class="col-md-6" align="right">
+      <h4>
+	<a href="/">Source</a>
+	/
+	<a href="/blob/gh-pages/CONTRIBUTING.md">Contributing</a>
+	/
+	<a href="mailto:lessons@software-carpentry.org">Contact</a>
+      </h4>
+    </div>
+  </div>
+</footer>
+
+      
+    </div>
+    <script src="/swc-releases/2016.06/sql-novice-survey/assets/js/jquery.min.js"></script>
+<script src="/swc-releases/2016.06/sql-novice-survey/assets/js/bootstrap.min.js"></script>
+<script src="/swc-releases/2016.06/sql-novice-survey/assets/js/lesson.js"></script>
+
+  </body>
+</html>

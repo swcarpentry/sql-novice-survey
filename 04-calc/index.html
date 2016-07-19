@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="last-modified" content="2016-07-19 12:35:55 +0200">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="search-domain" value="/swc-releases/2016.06/sql-novice-survey">
+    <link rel="stylesheet" type="text/css" href="/swc-releases/2016.06/sql-novice-survey/assets/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/swc-releases/2016.06/sql-novice-survey/assets/css/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="/swc-releases/2016.06/sql-novice-survey/assets/css/lesson.css" />
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon-swc.ico" />
+    
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+    <title>Databases and SQL: Calculating New Values</title>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      
+      
+      <a href="https://software-carpentry.org" class="pull-left">
+        <img class="navbar-logo" src="/swc-releases/2016.06/sql-novice-survey/assets/img/swc-icon-blue.svg" alt="Software Carpentry logo" />
+      </a>
+      
+
+      
+      <a class="navbar-brand" href="/swc-releases/2016.06/sql-novice-survey/">Home</a>
+
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+
+	
+        <li><a href="/swc-releases/2016.06/sql-novice-survey/conduct/">Code of Conduct</a></li>
+
+	
+        
+        <li><a href="/swc-releases/2016.06/sql-novice-survey/setup/">Setup</a></li>
+        <li><a href="/swc-releases/2016.06/sql-novice-survey/reference/">Reference</a></li>
+        <li class="dropdown">
+          <a href="/swc-releases/2016.06/sql-novice-survey/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Episodes <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/01-select/">Selecting Data</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/02-sort-dup/">Sorting and Removing Duplicates</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/03-filter/">Filtering</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/04-calc/">Calculating New Values</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/05-null/">Missing Data</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/06-agg/">Aggregation</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/07-join/">Combining Data</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/08-hygiene/">Data Hygiene</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/09-create/">Creating and Modifying Data</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/10-prog/">Programming with Databases</a></li>
+            
+          </ul>
+        </li>
+	
+
+	
+	
+        <li class="dropdown">
+          <a href="/swc-releases/2016.06/sql-novice-survey/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Extras <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/about/">About</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/discuss/">Discussion</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/figures/">Figures</a></li>
+            
+            <li><a href="/swc-releases/2016.06/sql-novice-survey/guide/">Instructor's Guide</a></li>
+            
+          </ul>
+        </li>
+	
+
+	
+        <li><a href="/swc-releases/2016.06/sql-novice-survey/license/">License</a></li>
+      </ul>
+      <form class="navbar-form navbar-right" role="search" id="search" onsubmit="google_search(); return false;">
+        <div class="form-group">
+          <input type="text" id="google-search" placeholder="Search...">
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+<div class="row">
+  <div class="col-md-1">
+    <h3>
+      
+      <a href="/swc-releases/2016.06/sql-novice-survey/03-filter/"><span class="glyphicon glyphicon-menu-left"></span></a>
+      
+    </h3>
+  </div>
+  <div class="col-md-10">
+    <h3 class="maintitle"><a href="/swc-releases/2016.06/sql-novice-survey/">Databases and SQL</a></h3>
+    <h1 class="maintitle">Calculating New Values</h1>
+  </div>
+  <div class="col-md-1">
+    <h3>
+      
+      <a href="/swc-releases/2016.06/sql-novice-survey/05-null/"><span class="glyphicon glyphicon-menu-right"></span></a>
+      
+    </h3>
+  </div>
+</div>
+
+
+<blockquote class="objectives">
+  <h2>Overview</h2>
+
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Teaching:</strong> 5 min
+      </br>
+      <strong>Exercises:</strong> 5 min
+    </div>
+    <div class="col-md-9">
+      <strong>Questions</strong>
+      <ul>
+	
+	<li><p>How can I calculate new values on the fly?</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-9">
+      <strong>Objectives</strong>
+      <ul>
+	
+	<li><p>Write queries that calculate new values for each selected record.</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+  
+</blockquote>
+
+<p>After carefully re-reading the expedition logs,
+we realize that the radiation measurements they report
+may need to be corrected upward by 5%.
+Rather than modifying the stored data,
+we can do this calculation on the fly
+as part of our query:</p>
+
+<div class="sql highlighter-rouge"><pre class="highlight"><code>SELECT 1.05 * reading FROM Survey WHERE quant='rad';
+</code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>1.05 * reading</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>10.311</td>
+    </tr>
+    <tr>
+      <td>8.19</td>
+    </tr>
+    <tr>
+      <td>8.8305</td>
+    </tr>
+    <tr>
+      <td>7.581</td>
+    </tr>
+    <tr>
+      <td>4.5675</td>
+    </tr>
+    <tr>
+      <td>2.2995</td>
+    </tr>
+    <tr>
+      <td>1.533</td>
+    </tr>
+    <tr>
+      <td>11.8125</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>When we run the query,
+the expression <code class="highlighter-rouge">1.05 * reading</code> is evaluated for each row.
+Expressions can use any of the fields,
+all of usual arithmetic operators,
+and a variety of common functions.
+(Exactly which ones depends on which database manager is being used.)
+For example,
+we can convert temperature readings from Fahrenheit to Celsius
+and round to two decimal places:</p>
+
+<div class="sql highlighter-rouge"><pre class="highlight"><code>SELECT taken, round(5*(reading-32)/9, 2) FROM Survey WHERE quant='temp';
+</code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>taken</th>
+      <th>round(5*(reading-32)/9, 2)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>734</td>
+      <td>-29.72</td>
+    </tr>
+    <tr>
+      <td>735</td>
+      <td>-32.22</td>
+    </tr>
+    <tr>
+      <td>751</td>
+      <td>-28.06</td>
+    </tr>
+    <tr>
+      <td>752</td>
+      <td>-26.67</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>As you can see from this example, though, the string describing our
+new field (generated from the equation) can become quite unwieldy. SQL
+allows us to rename our fields, any field for that matter, whether it
+was calculated or one of the existing fields in our database, for
+succinctness and clarity. For example, we could write the previous
+query as:</p>
+
+<div class="sql highlighter-rouge"><pre class="highlight"><code>SELECT taken, round(5*(reading-32)/9, 2) as Celsius FROM Survey WHERE quant='temp';
+</code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>taken</th>
+      <th>Celsius</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>734</td>
+      <td>-29.72</td>
+    </tr>
+    <tr>
+      <td>735</td>
+      <td>-32.22</td>
+    </tr>
+    <tr>
+      <td>751</td>
+      <td>-28.06</td>
+    </tr>
+    <tr>
+      <td>752</td>
+      <td>-26.67</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>We can also combine values from different fields,
+for example by using the string concatenation operator <code class="highlighter-rouge">||</code>:</p>
+
+<div class="sql highlighter-rouge"><pre class="highlight"><code>SELECT personal || ' ' || family FROM Person;
+</code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>personal</th>
+      <th> </th>
+      <th>’ ’</th>
+      <th> </th>
+      <th>family</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>William Dyer</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Frank Pabodie</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Anderson Lake</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Valentina Roerich</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Frank Danforth</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote class="challenge">
+  <h2 id="fixing-salinity-readings">Fixing Salinity Readings</h2>
+
+  <p>After further reading,
+we realize that Valentina Roerich
+was reporting salinity as percentages.
+Write a query that returns all of her salinity measurements
+from the <code class="highlighter-rouge">Survey</code> table
+with the values divided by 100.</p>
+</blockquote>
+
+<blockquote class="challenge">
+  <h2 id="unions">Unions</h2>
+
+  <p>The <code class="highlighter-rouge">UNION</code> operator combines the results of two queries:</p>
+
+  <div class="sql highlighter-rouge"><pre class="highlight"><code>SELECT * FROM Person WHERE id='dyer' UNION SELECT * FROM Person WHERE id='roe';
+</code></pre>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>personal</th>
+        <th>family</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>dyer</td>
+        <td>William</td>
+        <td>Dyer</td>
+      </tr>
+      <tr>
+        <td>roe</td>
+        <td>Valentina</td>
+        <td>Roerich</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>Use <code class="highlighter-rouge">UNION</code> to create a consolidated list of salinity measurements
+in which Roerich’s, and only Roerich’s,
+have been corrected as described in the previous challenge.
+The output should be something like:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>taken</th>
+        <th>reading</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>619</td>
+        <td>0.13</td>
+      </tr>
+      <tr>
+        <td>622</td>
+        <td>0.09</td>
+      </tr>
+      <tr>
+        <td>734</td>
+        <td>0.05</td>
+      </tr>
+      <tr>
+        <td>751</td>
+        <td>0.1</td>
+      </tr>
+      <tr>
+        <td>752</td>
+        <td>0.09</td>
+      </tr>
+      <tr>
+        <td>752</td>
+        <td>0.416</td>
+      </tr>
+      <tr>
+        <td>837</td>
+        <td>0.21</td>
+      </tr>
+      <tr>
+        <td>837</td>
+        <td>0.225</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<blockquote class="challenge">
+  <h2 id="selecting-major-site-identifiers">Selecting Major Site Identifiers</h2>
+
+  <p>The site identifiers in the <code class="highlighter-rouge">Visited</code> table have two parts
+separated by a ‘-‘:</p>
+
+  <div class="sql highlighter-rouge"><pre class="highlight"><code>SELECT DISTINCT site FROM Visited;
+</code></pre>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>site</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>DR-1</td>
+      </tr>
+      <tr>
+        <td>DR-3</td>
+      </tr>
+      <tr>
+        <td>MSK-4</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>Some major site identifiers are two letters long and some are three.
+The “in string” function <code class="highlighter-rouge">instr(X, Y)</code>
+returns the 1-based index of the first occurrence of string Y in string X,
+or 0 if Y does not exist in X.
+The substring function <code class="highlighter-rouge">substr(X, I, [L])</code>
+returns the substring of X starting at index I, with an optional length L.
+Use these two functions to produce a list of unique major site identifiers.
+(For this data,
+the list should contain only “DR” and “MSK”).</p>
+</blockquote>
+
+<blockquote class="keypoints">
+  <h2>Key Points</h2>
+  <ul>
+    
+    <li><p>Queries can do the usual arithmetic operations on values.</p>
+</li>
+    
+    <li><p>Use UNION to combine the results of two or more queries.</p>
+</li>
+    
+  </ul>
+</blockquote>
+
+
+      
+      <hr/>
+<footer>
+  <div class="row">
+    <div class="col-md-6" align="left">
+      <h4>
+	Copyright &copy; 2016
+	<a href="https://software-carpentry.org">Software Carpentry Foundation</a>
+	
+      </h4>
+    </div>
+    <div class="col-md-6" align="right">
+      <h4>
+	<a href="/">Source</a>
+	/
+	<a href="/blob/gh-pages/CONTRIBUTING.md">Contributing</a>
+	/
+	<a href="mailto:lessons@software-carpentry.org">Contact</a>
+      </h4>
+    </div>
+  </div>
+</footer>
+
+      
+    </div>
+    <script src="/swc-releases/2016.06/sql-novice-survey/assets/js/jquery.min.js"></script>
+<script src="/swc-releases/2016.06/sql-novice-survey/assets/js/bootstrap.min.js"></script>
+<script src="/swc-releases/2016.06/sql-novice-survey/assets/js/lesson.js"></script>
+
+  </body>
+</html>
