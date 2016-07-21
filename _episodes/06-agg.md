@@ -50,7 +50,7 @@ SELECT min(dated) FROM Visited;
 |----------|
 |1927-02-08|
 
-![SQL Aggregation]({{ site.github.url }}/fig/sql-aggregation.svg)
+![SQL Aggregation](../fig/sql-aggregation.svg)
 
 ~~~
 SELECT max(dated) FROM Visited;
