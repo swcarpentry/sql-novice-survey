@@ -14,3 +14,5 @@ create table Survey (taken integer, person text, quant text, reading real);
 .import data/site.csv Site
 .import data/survey.csv Survey
 .import data/visited.csv Visited
+UPDATE Visited SET dated = null WHERE dated = '';
+UPDATE Survey SET person = null WHERE person = '';
