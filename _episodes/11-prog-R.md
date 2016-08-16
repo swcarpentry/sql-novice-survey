@@ -186,3 +186,71 @@ so that they are safe to use.
 > Which is faster: filtering values in the query, or reading
 > everything into memory and filtering in R?
 {: .challenge}
+
+## Database helper functions in R
+
+R's database interface packages (like `RSQLite`) all share 
+a common set of helper functions useful for exploring databases and 
+reading/writing entire tables at once.
+
+To view all tables in a database, we can use `dbListTables()`:
+~~~ 
+connection <- dbConnect(SQLite(), "survey.db")
+dbListTables(connection)
+~~~
+{: .r}
+~~~
+"Person"  "Site"    "Survey"  "Visited"
+~~~
+{: .output}
+
+
+To view all column names of a table, use `dbListFields()`:
+~~~
+dbListFields(connection, "Survey")
+~~~
+{: .r}
+~~~
+"taken"   "person"  "quant"   "reading"
+~~~
+{: .output}
+
+
+To read an entire table as a dataframe, use `dbReadTable()`:
+~~~
+dbReadTable(connection, "Person")
+~~~
+{: .r}
+~~~
+     ident  personal   family
+1     dyer   William     Dyer
+2       pb     Frank  Pabodie
+3     lake  Anderson     Lake
+4      roe Valentina  Roerich
+5 danforth     Frank Danforth
+~~~
+{: .output}
+
+
+Finally to write an entire table to a database, you can use `dbWriteTable()`. 
+Note that we will always want to use the `row.names = FALSE` argument or R 
+will write the row names as a separate column. 
+In this example we will write R's built-in `iris` dataset as a table in `survey.db`.
+~~~
+dbWriteTable(connection, "iris", iris, row.names = FALSE)
+head(dbReadTable(connection, "iris"))
+~~~
+{: .r}
+~~~
+  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+1          5.1         3.5          1.4         0.2  setosa
+2          4.9         3.0          1.4         0.2  setosa
+3          4.7         3.2          1.3         0.2  setosa
+4          4.6         3.1          1.5         0.2  setosa
+5          5.0         3.6          1.4         0.2  setosa
+6          5.4         3.9          1.7         0.4  setosa
+~~~
+{: .output}
+
+
+
