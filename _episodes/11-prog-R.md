@@ -8,6 +8,13 @@ objectives:
 - "Write short programs that execute SQL queries."
 - "Trace the execution of a program that contains an SQL query."
 - "Explain why most database applications are written in a general-purpose language rather than in SQL."
+keypoints:
+- "Data analysis languages have libraries for accessing databases."
+- "To connect to a database, a program must use a library specific to that database manager."
+- "R's libraries can be used to directly query or read from a database."
+- "R has multiple helper functions to make working with databases easier."
+- "Programs can read query results in batches or all at once."
+- "Queries should be written using parameter substitution, not string formatting."
 ---
 
 To close,
@@ -120,6 +127,8 @@ and it has been used to attack thousands of programs over the years.
 In particular,
 many web sites that take data from users insert values directly into queries
 without checking them carefully first.
+
+![Relevant XKCD](https://imgs.xkcd.com/comics/exploits_of_a_mom.png)
 
 Since a villain might try to smuggle commands into our queries in many different ways,
 the safest way to deal with this threat is
