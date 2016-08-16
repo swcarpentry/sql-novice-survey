@@ -128,7 +128,7 @@ In particular,
 many web sites that take data from users insert values directly into queries
 without checking them carefully first.
 A very [relevant XKCD](https://xkcd.com/327/) that explains the 
-dangers of using raw input in queries a little more succinctly.
+dangers of using raw input in queries a little more succinctly:
 
 ![relevant XKCD](https://imgs.xkcd.com/comics/exploits_of_a_mom.png) 
 
