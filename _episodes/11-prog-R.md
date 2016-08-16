@@ -1,50 +1,42 @@
 ---
-title: "Programming with Databases - Python"
+title: Programming with Databases - R
 teaching: 20
-exercises: 15
+execises: 15
 questions:
-- "How can I access databases from programs written in Python?"
+- "How can I access databases from programs written in R?"
 objectives:
 - "Write short programs that execute SQL queries."
 - "Trace the execution of a program that contains an SQL query."
 - "Explain why most database applications are written in a general-purpose language rather than in SQL."
-keypoints:
-- "General-purpose languages have libraries for accessing databases."
-- "To connect to a database, a program must use a library specific to that database manager."
-- "These libraries use a connection-and-cursor model."
-- "Programs can read query results in batches or all at once."
-- "Queries should be written using parameter substitution, not string formatting."
 ---
+
 To close,
 let's have a look at how to access a database from
-a general-purpose programming language like Python.
+a data analysis language like R.
 Other languages use almost exactly the same model:
 library and function names may differ,
 but the concepts are the same.
 
-Here's a short Python program that selects latitudes and longitudes
-from an SQLite database stored in a file called `survey.sqlite`:
+Here's a short R program that selects latitudes and longitudes
+from an SQLite database stored in a file called `survey.db`:
 
 ~~~
-import sqlite3
-connection = sqlite3.connect("survey.sqlite")
-cursor = connection.cursor()
-cursor.execute("SELECT Site.lat, Site.long FROM Site;")
-results = cursor.fetchall()
-for r in results:
-    print r
-cursor.close()
-connection.close()
+library(RSQLite)
+connection <- dbConnect(SQLite(), "survey.db")
+results <- dbGetQuery(connection, "SELECT Site.lat, Site.long FROM Site;")
+print(results)
+dbDisconnect(connection)
 ~~~
-{: .python}
+{: .r}
 ~~~
-(-49.85, -128.57)
-(-47.15, -126.72)
-(-48.87, -123.4)
+     lat    long
+1 -49.85 -128.57
+2 -47.15 -126.72
+3 -48.87 -123.40
 ~~~
 {: .output}
 
-The program starts by importing the `sqlite3` library.
+The program starts by importing the `RSQLite` library.
 If we were connecting to MySQL, DB2, or some other database,
 we would import a different library,
 but all of them provide the same functions,
@@ -56,26 +48,15 @@ Line 2 establishes a connection to the database.
 Since we're using SQLite,
 all we need to specify is the name of the database file.
 Other systems may require us to provide a username and password as well.
-Line 3 then uses this connection to create a [cursor](reference.html#cursor).
-Just like the cursor in an editor,
-its role is to keep track of where we are in the database.
 
-On line 4, we use that cursor to ask the database to execute a query for us.
-The query is written in SQL,
-and passed to `cursor.execute` as a string.
+On line 3, we retrieve the results from an SQL query.
 It's our job to make sure that SQL is properly formatted;
 if it isn't,
 or if something goes wrong when it is being executed,
 the database will report an error.
+This result is a dataframe with one row for each entry and one column for each column in the database.
 
-The database returns the results of the query to us
-in response to the `cursor.fetchall` call on line 5.
-This result is a list with one entry for each record in the result set;
-if we loop over that list (line 6) and print those list entries (line 7),
-we can see that each one is a tuple
-with one element for each field we asked for.
-
-Finally, lines 8 and 9 close our cursor and our connection,
+Finally, the last line closes our connection,
 since the database can only keep a limited number of these open at one time.
 Since establishing a connection takes time,
 though,
@@ -91,22 +72,22 @@ For example,
 this function takes a user's ID as a parameter and returns their name:
 
 ~~~
-def get_name(database_file, person_id):
-    query = "SELECT personal || ' ' || family FROM Person WHERE id='" + person_id + "';"
+library(RSQLite)
 
-    connection = sqlite3.connect(database_file)
-    cursor = connection.cursor()
-    cursor.execute(query)
-    results = cursor.fetchall()
-    cursor.close()
-    connection.close()
+connection <- dbConnect(SQLite(), "survey.db")
 
-    return results[0][0]
+getName <- function(personID) {
+  query <- paste0("SELECT personal || ' ' || family FROM Person WHERE ident =='",
+                  personID, "';")
+  return(dbGetQuery(connection, query))
+}
 
-print "full name for dyer:", get_name('survey.sqlite', 'dyer')
+print(paste("full name for dyer:", getName('dyer')))
+
+dbDisconnect(connection)
 ~~~
-{: .python}
-~~~
+{: .r}
+~~~ 
 full name for dyer: William Dyer
 ~~~
 {: .output}
@@ -116,17 +97,17 @@ to construct a query containing the user ID we have been given.
 This seems simple enough,
 but what happens if someone gives us this string as input?
 
-~~~
+~~~ 
 dyer'; DROP TABLE Survey; SELECT '
 ~~~
-{: .source}
+{: .sql}
 
 It looks like there's garbage after the user's ID,
 but it is very carefully chosen garbage.
 If we insert this string into our query,
 the result is:
 
-~~~
+~~~ 
 SELECT personal || ' ' || family FROM Person WHERE id='dyer'; DROP TABLE Survey; SELECT '';
 ~~~
 {: .sql}
@@ -148,41 +129,39 @@ We can do this by using a [prepared statement](reference.html#prepared-statement
 instead of formatting our statements as strings.
 Here's what our example program looks like if we do this:
 
-~~~
-def get_name(database_file, person_id):
-    query = "SELECT personal || ' ' || family FROM Person WHERE id=?;"
+~~~ 
+library(RSQLite)
+connection <- dbConnect(SQLite(), "survey.db")
 
-    connection = sqlite3.connect(database_file)
-    cursor = connection.cursor()
-    cursor.execute(query, [person_id])
-    results = cursor.fetchall()
-    cursor.close()
-    connection.close()
+getName <- function(personID) {
+  query <- "SELECT personal || ' ' || family FROM Person WHERE ident == ?"
+  return(dbGetPreparedQuery(connection, query, data.frame(personID)))
+}
 
-    return results[0][0]
+print(paste("full name for dyer:", getName('dyer')))
 
-print "full name for dyer:", get_name('survey.sqlite', 'dyer')
+dbDisconnect(connection)
 ~~~
-{: .python}
-~~~
+{: .r}
+~~~ 
 full name for dyer: William Dyer
 ~~~
 {: .output}
 
-The key changes are in the query string and the `execute` call.
+The key changes are in the query string and the `dbGetQuery` call (we use dbGetPreparedQuery instead).
 Instead of formatting the query ourselves,
 we put question marks in the query template where we want to insert values.
-When we call `execute`,
-we provide a list
+When we call `dbGetPreparedQuery`,
+we provide a dataframe
 that contains as many values as there are question marks in the query.
 The library matches values to question marks in order,
 and translates any special characters in the values
 into their escaped equivalents
 so that they are safe to use.
 
-> ## Filling a Table vs. Printing Values
+> ## Filling a Table vs. Printing Values 
 >
-> Write a Python program that creates a new database in a file called
+> Write an R program that creates a new database in a file called
 > `original.db` containing a single table called `Pressure`, with a
 > single field called `reading`, and inserts 100,000 random numbers
 > between 10.0 and 25.0.  How long does it take this program to run?
@@ -190,11 +169,11 @@ so that they are safe to use.
 > random numbers to a file?
 {: .challenge}
 
-> ## Filtering in SQL vs. Filtering in Python
+> ## Filtering in SQL vs. Filtering in R
 >
-> Write a Python program that creates a new database called
+> Write an R program that creates a new database called
 > `backup.db` with the same structure as `original.db` and copies all
 > the values greater than 20.0 from `original.db` to `backup.db`.
 > Which is faster: filtering values in the query, or reading
-> everything into memory and filtering in Python?
+> everything into memory and filtering in R?
 {: .challenge}
