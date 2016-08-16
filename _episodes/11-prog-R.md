@@ -12,9 +12,9 @@ keypoints:
 - "Data analysis languages have libraries for accessing databases."
 - "To connect to a database, a program must use a library specific to that database manager."
 - "R's libraries can be used to directly query or read from a database."
-- "R has multiple helper functions to make working with databases easier."
 - "Programs can read query results in batches or all at once."
 - "Queries should be written using parameter substitution, not string formatting."
+- "R has multiple helper functions to make working with databases easier."
 ---
 
 To close,
@@ -128,9 +128,11 @@ In particular,
 many web sites that take data from users insert values directly into queries
 without checking them carefully first.
 
-![Relevant XKCD](https://imgs.xkcd.com/comics/exploits_of_a_mom.png)
+![relevant XKCD](https://imgs.xkcd.com/comics/exploits_of_a_mom.png)
+ 
+A very [relevant XKCD](https://xkcd.com/327/) that explains the dangers of using raw input in queries a little more succinctly.
 
-Since a villain might try to smuggle commands into our queries in many different ways,
+Since an unscrupulous parent might try to smuggle commands into our queries in many different ways,
 the safest way to deal with this threat is
 to replace characters like quotes with their escaped equivalents,
 so that we can safely put whatever the user gives us inside a string.
@@ -252,5 +254,9 @@ head(dbReadTable(connection, "iris"))
 ~~~
 {: .output}
 
-
+And as always, remember to close the database connection when done!
+~~~
+dbDisconnect(connection)
+~~~
+{: .r}
 
