@@ -196,6 +196,7 @@ a common set of helper functions useful for exploring databases and
 reading/writing entire tables at once.
 
 To view all tables in a database, we can use `dbListTables()`:
+
 ~~~ 
 connection <- dbConnect(SQLite(), "survey.db")
 dbListTables(connection)
@@ -208,6 +209,7 @@ dbListTables(connection)
 
 
 To view all column names of a table, use `dbListFields()`:
+
 ~~~
 dbListFields(connection, "Survey")
 ~~~
@@ -219,6 +221,7 @@ dbListFields(connection, "Survey")
 
 
 To read an entire table as a dataframe, use `dbReadTable()`:
+
 ~~~
 dbReadTable(connection, "Person")
 ~~~
@@ -238,6 +241,7 @@ Finally to write an entire table to a database, you can use `dbWriteTable()`.
 Note that we will always want to use the `row.names = FALSE` argument or R 
 will write the row names as a separate column. 
 In this example we will write R's built-in `iris` dataset as a table in `survey.db`.
+
 ~~~
 dbWriteTable(connection, "iris", iris, row.names = FALSE)
 head(dbReadTable(connection, "iris"))
@@ -255,6 +259,7 @@ head(dbReadTable(connection, "iris"))
 {: .output}
 
 And as always, remember to close the database connection when done!
+
 ~~~
 dbDisconnect(connection)
 ~~~
