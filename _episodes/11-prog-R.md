@@ -1,6 +1,6 @@
 ---
 title: Programming with Databases - R
-teaching: 20
+teaching: 30
 exercises: 15
 questions:
 - "How can I access databases from programs written in R?"
