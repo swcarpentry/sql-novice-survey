@@ -1,6 +1,8 @@
 ---
 layout: lesson
+root: .
 ---
+
 In the late 1920s and early 1930s,
 William Dyer,
 Frank Pabodie,
