@@ -1,9 +1,9 @@
 ---
-title: "Programming with Databases"
+title: "Programming with Databases - Python"
 teaching: 20
 exercises: 15
 questions:
-- "How can I access databases from programs written in general-purpose languages?"
+- "How can I access databases from programs written in Python?"
 objectives:
 - "Write short programs that execute SQL queries."
 - "Trace the execution of a program that contains an SQL query."
@@ -23,11 +23,11 @@ library and function names may differ,
 but the concepts are the same.
 
 Here's a short Python program that selects latitudes and longitudes
-from an SQLite database stored in a file called `survey.sqlite`:
+from an SQLite database stored in a file called `survey.db`:
 
 ~~~
 import sqlite3
-connection = sqlite3.connect("survey.sqlite")
+connection = sqlite3.connect("survey.db")
 cursor = connection.cursor()
 cursor.execute("SELECT Site.lat, Site.long FROM Site;")
 results = cursor.fetchall()
@@ -103,7 +103,7 @@ def get_name(database_file, person_id):
 
     return results[0][0]
 
-print "full name for dyer:", get_name('survey.sqlite', 'dyer')
+print "full name for dyer:", get_name('survey.db', 'dyer')
 ~~~
 {: .python}
 ~~~
@@ -161,7 +161,7 @@ def get_name(database_file, person_id):
 
     return results[0][0]
 
-print "full name for dyer:", get_name('survey.sqlite', 'dyer')
+print "full name for dyer:", get_name('survey.db', 'dyer')
 ~~~
 {: .python}
 ~~~
