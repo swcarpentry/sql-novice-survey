@@ -182,6 +182,14 @@ this technique is outside the scope of this chapter.
 > `Survey.person` with the string `'unknown'`.
 {: .challenge}
 
+> ## Fixing bad data
+>
+> Recall earlier we discovered that Valentina Roerich had entered
+> salinity as a percentage rather than a number between 0 and 1.
+> Write an SQL statement to correct those records, leaving all other
+> records unchanged.
+{: .challenge}
+
 > ## Generating Insert Statements
 >
 > One of our colleagues has sent us a [CSV](reference.html#comma-separated-values) file containing
