@@ -253,9 +253,8 @@ instance, you can scan the statement, quickly locate the prominent
 `FROM` keyword and know the table name follows.  Whatever casing
 convention you choose, please be consistent: complex queries are hard
 enough to read without the extra cognitive load of random
-capitalization.  One convention is to use UPPER CASE for SQL
-statements, to distinguish them from tables and column names. This is
-the convention that we will use for this lesson.
+capitalization. In this lesson, we'll use the convention of writing SQL 
+keywords in all capital letters.
 
 While we are on the topic of SQL's syntax, one aspect of SQL's syntax
 that can frustrate novices and experts alike is forgetting to finish a
@@ -348,3 +347,10 @@ SELECT * FROM Person;
 >
 > What style do you find easiest to read, and why?
 {: .challenge}
+
+> ## Selecting Site Names
+>
+> Write a query that returns a table with the following columns (in order)
+> from the `Visited` table: `site`, `id`, `id`, `dated`, `site`.
+{: .challenge}
+
