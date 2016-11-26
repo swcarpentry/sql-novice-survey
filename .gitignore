@@ -5,3 +5,5 @@
 .sass-cache
 __pycache__
 _site
+.Rproj.user
+*.Rproj
