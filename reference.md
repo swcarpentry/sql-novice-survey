@@ -5,6 +5,7 @@ permalink: /reference/
 
 ## Glossary
 
+{:auto_ids}
 aggregation function
 :   A function that combines multiple values to produce a single new value (e.g. sum, mean, median).
 
