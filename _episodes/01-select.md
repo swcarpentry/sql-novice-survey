@@ -56,12 +56,12 @@ but that handful accounts for most of what scientists do.
 >
 > ~~~
 > $ cd /path/to/survey/data/
-> $ sqlite3 survey.sqlite
+> $ sqlite3 survey.db
 > ~~~
 > {: .bash}
 >
 > The SQLite command is `sqlite3` and you are telling SQLite to open up
-> the `survey.sqlite`.  You need to specify the `.db` file otherwise, SQLite
+> the `survey.db`.  You need to specify the `.db` file otherwise, SQLite
 > will open up a temporary, empty database.
 >
 > To get out of SQLite, type out `.exit` or `.quit`.  For some
@@ -148,23 +148,23 @@ we'll return to these missing values [later]({{ site.github.url }}/05-null/).
 > ## Checking If Data is Available
 >
 > On the shell command line,
-> change the working directory to the one where you saved `survey.sqlite`.
+> change the working directory to the one where you saved `survey.db`.
 > If you saved it at your Desktop you should use
 >
 > ~~~
 > $ cd Desktop
-> $ ls | grep survey.sqlite
+> $ ls | grep survey.db
 > ~~~
 > {: .bash}
 > ~~~
-> survey.sqlite
+> survey.db
 > ~~~
 > {: .output}
 >
 > If you get the same output, you can run
 >
 > ~~~
-> $ sqlite3 survey.sqlite
+> $ sqlite3 survey.db
 > ~~~
 > {: .bash}
 > ~~~
@@ -174,7 +174,7 @@ we'll return to these missing values [later]({{ site.github.url }}/05-null/).
 > ~~~
 > {: .output}
 >
-> that instructs SQLite to load the database in the `survey.sqlite` file.
+> that instructs SQLite to load the database in the `survey.db` file.
 >
 > For a list of useful system commands, enter `.help`.
 >
