@@ -220,10 +220,45 @@ SELECT DISTINCT quant, person FROM Survey ORDER BY quant ASC;
 > ## Finding Distinct Dates
 >
 > Write a query that selects distinct dates from the `Visited` table.
+>
+> > ## Solution
+> > 
+> > ~~~
+> > SELECT DISTINCT dated FROM Visited;
+> > ~~~
+> > {: .sql}
+> >
+> > |dated     |
+> > |----------|
+> > |1927-02-08|
+> > |1927-02-10|
+> > |1930-01-07|
+> > |1930-01-12|
+> > |1930-02-26|
+> > |&nbsp;    |
+> > |1932-01-14|
+> > |1932-03-22|
+> {: .solution}
 {: .challenge}
 
 > ## Displaying Full Names
 >
 > Write a query that displays the full names of the scientists in the `Person` table,
 > ordered by family name.
+>
+> > ## Solution
+> > 
+> > ~~~
+> > SELECT personal, family FROM Person ORDER BY family ASC;
+> > ~~~
+> > {: .sql}
+> >
+> > |personal  |family    |
+> > |----------|----------|
+> > |Frank     |Danforth  |
+> > |William   |Dyer      |
+> > |Anderson  |Lake      |
+> > |Frank     |Pabodie   |
+> > |Valentina |Roerich   |
+> {: .solution}
 {: .challenge}
