@@ -98,6 +98,19 @@ SELECT personal || ' ' || family FROM Person;
 > Write a query that returns all of her salinity measurements
 > from the `Survey` table
 > with the values divided by 100.
+> 
+> > ## Solution
+> >
+> > ~~~
+> > SELECT taken, reading / 100 FROM Survey WHERE person='roe' AND quant='sal';
+> > ~~~
+> > {: .sql}
+> >
+> > |taken     |reading / 100|
+> > |----------|-------------|
+> > |752       |0.416        |
+> > |837       |0.225        |
+> {: .solution}
 {: .challenge}
 
 > ## Unions
@@ -115,7 +128,7 @@ SELECT personal || ' ' || family FROM Person;
 > |roe |Valentina|Roerich|
 >
 > Use `UNION` to create a consolidated list of salinity measurements
-> in which Roerich's, and only Roerich's,
+> in which Valentina Roerich's, and only Valentina's,
 > have been corrected as described in the previous challenge.
 > The output should be something like:
 >
@@ -129,6 +142,14 @@ SELECT personal || ' ' || family FROM Person;
 > |752  |0.416  |
 > |837  |0.21   |
 > |837  |0.225  |
+> 
+> > ## Solution
+> >
+> > ~~~
+> > SELECT taken,reading FROM Survey WHERE person!='roe' AND quant='sal' UNION SELECT taken,reading / 100 FROM Survey WHERE person='roe' AND quant='sal' ORDER BY taken ASC;
+> > ~~~
+> > {: .sql}
+> {: .solution}
 {: .challenge}
 
 > ## Selecting Major Site Identifiers
