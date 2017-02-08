@@ -1,0 +1,673 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="last-modified" content="2017-02-08 23:53:14 +0100">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- meta "search-domain" used for google site search function google_search() -->
+    <meta name="search-domain" value="/swc-releases/2017.02/sql-novice-survey">
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/lesson.css" />
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon-swc.ico" />
+    
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+    <title>Databases and SQL: Missing Data</title>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      
+      
+      <a href="https://software-carpentry.org" class="pull-left">
+        <img class="navbar-logo" src="../assets/img/swc-icon-blue.svg" alt="Software Carpentry logo" />
+      </a>
+      
+
+      
+      <a class="navbar-brand" href="../">Home</a>
+
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+
+	
+        <li><a href="../conduct/">Code of Conduct</a></li>
+
+	
+        
+        <li><a href="../setup/">Setup</a></li>
+        <li><a href="../reference/">Reference</a></li>
+        <li class="dropdown">
+          <a href="../" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Episodes <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            <li><a href="../01-select/">Selecting Data</a></li>
+            
+            <li><a href="../02-sort-dup/">Sorting and Removing Duplicates</a></li>
+            
+            <li><a href="../03-filter/">Filtering</a></li>
+            
+            <li><a href="../04-calc/">Calculating New Values</a></li>
+            
+            <li><a href="../05-null/">Missing Data</a></li>
+            
+            <li><a href="../06-agg/">Aggregation</a></li>
+            
+            <li><a href="../07-join/">Combining Data</a></li>
+            
+            <li><a href="../08-hygiene/">Data Hygiene</a></li>
+            
+            <li><a href="../09-create/">Creating and Modifying Data</a></li>
+            
+            <li><a href="../10-prog/">Programming with Databases - Python</a></li>
+            
+            <li><a href="../11-prog-R/">Programming with Databases - R</a></li>
+            
+          </ul>
+        </li>
+	
+
+	
+	
+        <li class="dropdown">
+          <a href="../" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Extras <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            <li><a href="../about/">About</a></li>
+            
+            <li><a href="../discuss/">Discussion</a></li>
+            
+            <li><a href="../figures/">Figures</a></li>
+            
+            <li><a href="../guide/">Instructor Notes</a></li>
+            
+          </ul>
+        </li>
+	
+
+	
+        <li><a href="../license/">License</a></li>
+      </ul>
+      <form class="navbar-form navbar-right" role="search" id="search" onsubmit="google_search(); return false;">
+        <div class="form-group">
+          <input type="text" id="google-search" placeholder="Search..." aria-label="Google site search">
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+<div class="row">
+  <div class="col-md-1">
+    <h3>
+      
+      <a href="../04-calc/"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><span class="sr-only">previous episode</span></a>
+      
+    </h3>
+  </div>
+  <div class="col-md-10">
+    
+    <h3 class="maintitle"><a href="../">Databases and SQL</a></h3>
+    <h1 class="maintitle">Missing Data</h1>
+    
+  </div>
+  <div class="col-md-1">
+    <h3>
+      
+      <a href="../06-agg/"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><span class="sr-only">next episode</span></a>
+      
+    </h3>
+  </div>
+</div>
+
+
+<blockquote class="objectives">
+  <h2>Overview</h2>
+
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Teaching:</strong> 15 min
+      <br/>
+      <strong>Exercises:</strong> 15 min
+    </div>
+    <div class="col-md-9">
+      <strong>Questions</strong>
+      <ul>
+	
+	<li><p>How do databases represent missing information?</p>
+</li>
+	
+	<li><p>What special handling does missing information require?</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-9">
+      <strong>Objectives</strong>
+      <ul>
+	
+	<li><p>Explain how databases represent missing information.</p>
+</li>
+	
+	<li><p>Explain the three-valued logic databases use when manipulating missing information.</p>
+</li>
+	
+	<li><p>Write queries that handle missing information correctly.</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+
+</blockquote>
+
+<p>Real-world data is never complete — there are always holes.
+Databases represent these holes using a special value called <code class="highlighter-rouge">null</code>.
+<code class="highlighter-rouge">null</code> is not zero, <code class="highlighter-rouge">False</code>, or the empty string;
+it is a one-of-a-kind value that means “nothing here”.
+Dealing with <code class="highlighter-rouge">null</code> requires a few special tricks
+and some careful thinking.</p>
+
+<p>To start,
+let’s have a look at the <code class="highlighter-rouge">Visited</code> table.
+There are eight records,
+but #752 doesn’t have a date — or rather,
+its date is null:</p>
+
+<div class="sql highlighter-rouge"><pre class="highlight"><code>SELECT * FROM Visited;
+</code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>site</th>
+      <th>dated</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>619</td>
+      <td>DR-1</td>
+      <td>1927-02-08</td>
+    </tr>
+    <tr>
+      <td>622</td>
+      <td>DR-1</td>
+      <td>1927-02-10</td>
+    </tr>
+    <tr>
+      <td>734</td>
+      <td>DR-3</td>
+      <td>1930-01-07</td>
+    </tr>
+    <tr>
+      <td>735</td>
+      <td>DR-3</td>
+      <td>1930-01-12</td>
+    </tr>
+    <tr>
+      <td>751</td>
+      <td>DR-3</td>
+      <td>1930-02-26</td>
+    </tr>
+    <tr>
+      <td>752</td>
+      <td>DR-3</td>
+      <td>-null-</td>
+    </tr>
+    <tr>
+      <td>837</td>
+      <td>MSK-</td>
+      <td>1932-01-14</td>
+    </tr>
+    <tr>
+      <td>844</td>
+      <td>DR-1</td>
+      <td>1932-03-22</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Null doesn’t behave like other values.
+If we select the records that come before 1930:</p>
+
+<div class="sql highlighter-rouge"><pre class="highlight"><code>SELECT * FROM Visited WHERE dated&lt;'1930-01-01';
+</code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>site</th>
+      <th>dated</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>619</td>
+      <td>DR-1</td>
+      <td>1927-02-08</td>
+    </tr>
+    <tr>
+      <td>622</td>
+      <td>DR-1</td>
+      <td>1927-02-10</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>we get two results,
+and if we select the ones that come during or after 1930:</p>
+
+<div class="sql highlighter-rouge"><pre class="highlight"><code>SELECT * FROM Visited WHERE dated&gt;='1930-01-01';
+</code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>site</th>
+      <th>dated</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>734</td>
+      <td>DR-3</td>
+      <td>1930-01-07</td>
+    </tr>
+    <tr>
+      <td>735</td>
+      <td>DR-3</td>
+      <td>1930-01-12</td>
+    </tr>
+    <tr>
+      <td>751</td>
+      <td>DR-3</td>
+      <td>1930-02-26</td>
+    </tr>
+    <tr>
+      <td>837</td>
+      <td>MSK-</td>
+      <td>1932-01-14</td>
+    </tr>
+    <tr>
+      <td>844</td>
+      <td>DR-1</td>
+      <td>1932-03-22</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>we get five,
+but record #752 isn’t in either set of results.
+The reason is that
+<code class="highlighter-rouge">null&lt;'1930-01-01'</code>
+is neither true nor false:
+null means, “We don’t know,”
+and if we don’t know the value on the left side of a comparison,
+we don’t know whether the comparison is true or false.
+Since databases represent “don’t know” as null,
+the value of <code class="highlighter-rouge">null&lt;'1930-01-01'</code>
+is actually <code class="highlighter-rouge">null</code>.
+<code class="highlighter-rouge">null&gt;='1930-01-01'</code> is also null
+because we can’t answer to that question either.
+And since the only records kept by a <code class="highlighter-rouge">WHERE</code>
+are those for which the test is true,
+record #752 isn’t included in either set of results.</p>
+
+<p>Comparisons aren’t the only operations that behave this way with nulls.
+<code class="highlighter-rouge">1+null</code> is <code class="highlighter-rouge">null</code>,
+<code class="highlighter-rouge">5*null</code> is <code class="highlighter-rouge">null</code>,
+<code class="highlighter-rouge">log(null)</code> is <code class="highlighter-rouge">null</code>,
+and so on.
+In particular,
+comparing things to null with = and != produces null:</p>
+
+<div class="sql highlighter-rouge"><pre class="highlight"><code>SELECT * FROM Visited WHERE dated=NULL;
+</code></pre>
+</div>
+
+<p>produces no output, and neither does:</p>
+
+<div class="sql highlighter-rouge"><pre class="highlight"><code>SELECT * FROM Visited WHERE dated!=NULL;
+</code></pre>
+</div>
+
+<p>To check whether a value is <code class="highlighter-rouge">null</code> or not,
+we must use a special test <code class="highlighter-rouge">IS NULL</code>:</p>
+
+<div class="sql highlighter-rouge"><pre class="highlight"><code>SELECT * FROM Visited WHERE dated IS NULL;
+</code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>site</th>
+      <th>dated</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>752</td>
+      <td>DR-3</td>
+      <td>-null-</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>or its inverse <code class="highlighter-rouge">IS NOT NULL</code>:</p>
+
+<div class="sql highlighter-rouge"><pre class="highlight"><code>SELECT * FROM Visited WHERE dated IS NOT NULL;
+</code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>site</th>
+      <th>dated</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>619</td>
+      <td>DR-1</td>
+      <td>1927-02-08</td>
+    </tr>
+    <tr>
+      <td>622</td>
+      <td>DR-1</td>
+      <td>1927-02-10</td>
+    </tr>
+    <tr>
+      <td>734</td>
+      <td>DR-3</td>
+      <td>1930-01-07</td>
+    </tr>
+    <tr>
+      <td>735</td>
+      <td>DR-3</td>
+      <td>1930-01-12</td>
+    </tr>
+    <tr>
+      <td>751</td>
+      <td>DR-3</td>
+      <td>1930-02-26</td>
+    </tr>
+    <tr>
+      <td>837</td>
+      <td>MSK-</td>
+      <td>1932-01-14</td>
+    </tr>
+    <tr>
+      <td>844</td>
+      <td>DR-1</td>
+      <td>1932-03-22</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Null values can cause headaches wherever they appear.
+For example,
+suppose we want to find all the salinity measurements
+that weren’t taken by Lake.
+It’s natural to write the query like this:</p>
+
+<div class="sql highlighter-rouge"><pre class="highlight"><code>SELECT * FROM Survey WHERE quant='sal' AND person!='lake';
+</code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>taken</th>
+      <th>person</th>
+      <th>quant</th>
+      <th>reading</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>619</td>
+      <td>dyer</td>
+      <td>sal</td>
+      <td>0.13</td>
+    </tr>
+    <tr>
+      <td>622</td>
+      <td>dyer</td>
+      <td>sal</td>
+      <td>0.09</td>
+    </tr>
+    <tr>
+      <td>752</td>
+      <td>roe</td>
+      <td>sal</td>
+      <td>41.6</td>
+    </tr>
+    <tr>
+      <td>837</td>
+      <td>roe</td>
+      <td>sal</td>
+      <td>22.5</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>but this query filters omits the records
+where we don’t know who took the measurement.
+Once again,
+the reason is that when <code class="highlighter-rouge">person</code> is <code class="highlighter-rouge">null</code>,
+the <code class="highlighter-rouge">!=</code> comparison produces <code class="highlighter-rouge">null</code>,
+so the record isn’t kept in our results.
+If we want to keep these records
+we need to add an explicit check:</p>
+
+<div class="sql highlighter-rouge"><pre class="highlight"><code>SELECT * FROM Survey WHERE quant='sal' AND (person!='lake' OR person IS NULL);
+</code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>taken</th>
+      <th>person</th>
+      <th>quant</th>
+      <th>reading</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>619</td>
+      <td>dyer</td>
+      <td>sal</td>
+      <td>0.13</td>
+    </tr>
+    <tr>
+      <td>622</td>
+      <td>dyer</td>
+      <td>sal</td>
+      <td>0.09</td>
+    </tr>
+    <tr>
+      <td>735</td>
+      <td>-null-</td>
+      <td>sal</td>
+      <td>0.06</td>
+    </tr>
+    <tr>
+      <td>752</td>
+      <td>roe</td>
+      <td>sal</td>
+      <td>41.6</td>
+    </tr>
+    <tr>
+      <td>837</td>
+      <td>roe</td>
+      <td>sal</td>
+      <td>22.5</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>We still have to decide whether this is the right thing to do or not.
+If we want to be absolutely sure that
+we aren’t including any measurements by Lake in our results,
+we need to exclude all the records for which we don’t know who did the work.</p>
+
+<p>In contrast to arithmetic or Boolean operators, aggregation functions
+that combine multiple values, such as <code class="highlighter-rouge">min</code>, <code class="highlighter-rouge">max</code> or <code class="highlighter-rouge">avg</code>, <em>ignore</em>
+<code class="highlighter-rouge">null</code> values. In the majority of cases, this is a desirable output:
+for example, unknown values are thus not affecting our data when we
+are averaging it. Aggregation functions will be addressed in more
+detail in <a href="/swc-releases/2017.02/sql-novice-survey/06-agg/">the next section</a>.</p>
+
+<blockquote class="challenge">
+  <h2 id="sorting-by-known-date">Sorting by Known Date</h2>
+
+  <p>Write a query that sorts the records in <code class="highlighter-rouge">Visited</code> by date,
+omitting entries for which the date is not known
+(i.e., is null).</p>
+</blockquote>
+
+<blockquote class="challenge">
+  <h2 id="null-in-a-set">NULL in a Set</h2>
+
+  <p>What do you expect the query:</p>
+
+  <div class="sql highlighter-rouge"><pre class="highlight"><code>SELECT * FROM Visited WHERE dated IN ('1927-02-08', NULL);
+</code></pre>
+  </div>
+
+  <p>to produce?
+What does it actually produce?</p>
+</blockquote>
+
+<blockquote class="challenge">
+  <h2 id="pros-and-cons-of-sentinels">Pros and Cons of Sentinels</h2>
+
+  <p>Some database designers prefer to use
+a <a href="/swc-releases/2017.02/sql-novice-survey/reference/#sentinel-value">sentinel value</a>
+to mark missing data rather than <code class="highlighter-rouge">null</code>.
+For example,
+they will use the date “0000-00-00” to mark a missing date,
+or -1.0 to mark a missing salinity or radiation reading
+(since actual readings cannot be negative).
+What does this simplify?
+What burdens or risks does it introduce?</p>
+</blockquote>
+
+<blockquote class="keypoints">
+  <h2>Key Points</h2>
+  <ul>
+    
+    <li><p>Databases use a special value called NULL to represent missing information.</p>
+</li>
+    
+    <li><p>Almost all operations on NULL produce NULL.</p>
+</li>
+    
+    <li><p>Queries can test for NULLs using IS NULL and IS NOT NULL.</p>
+</li>
+    
+  </ul>
+</blockquote>
+
+
+
+
+
+<div class="row">
+  <div class="col-md-1">
+    <h3>
+      
+      <a href="../04-calc/"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><span class="sr-only">previous episode</span></a>
+      
+    </h3>
+  </div>
+  <div class="col-md-10">
+    
+  </div>
+  <div class="col-md-1">
+    <h3>
+      
+      <a href="../06-agg/"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><span class="sr-only">next episode</span></a>
+      
+    </h3>
+  </div>
+</div>
+
+
+      
+      <footer>
+  <div class="row">
+    <div class="col-md-6" align="left">
+      <h4>
+	Copyright &copy; 2016
+	<a href="https://software-carpentry.org">Software Carpentry Foundation</a>
+	
+      </h4>
+    </div>
+    <div class="col-md-6" align="right">
+      <h4>
+	<a href="/">Source</a>
+	/
+	<a href="/blob/gh-pages/CONTRIBUTING.md">Contributing</a>
+	/
+	<a href="mailto:lessons@software-carpentry.org">Contact</a>
+      </h4>
+    </div>
+  </div>
+</footer>
+
+      
+    </div>
+    <script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/lesson.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-37305346-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="last-modified" content="2017-02-08 23:53:14 +0100">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- meta "search-domain" used for google site search function google_search() -->
+    <meta name="search-domain" value="/swc-releases/2017.02/sql-novice-survey">
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/lesson.css" />
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon-swc.ico" />
+    
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+    <title>Databases and SQL</title>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      
+      
+      <a href="https://software-carpentry.org" class="pull-left">
+        <img class="navbar-logo" src="../assets/img/swc-icon-blue.svg" alt="Software Carpentry logo" />
+      </a>
+      
+
+      
+      <a class="navbar-brand" href="../">Home</a>
+
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+
+	
+        <li><a href="../conduct/">Code of Conduct</a></li>
+
+	
+        
+        <li><a href="../setup/">Setup</a></li>
+        <li><a href="../reference/">Reference</a></li>
+        <li class="dropdown">
+          <a href="../" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Episodes <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            <li><a href="../01-select/">Selecting Data</a></li>
+            
+            <li><a href="../02-sort-dup/">Sorting and Removing Duplicates</a></li>
+            
+            <li><a href="../03-filter/">Filtering</a></li>
+            
+            <li><a href="../04-calc/">Calculating New Values</a></li>
+            
+            <li><a href="../05-null/">Missing Data</a></li>
+            
+            <li><a href="../06-agg/">Aggregation</a></li>
+            
+            <li><a href="../07-join/">Combining Data</a></li>
+            
+            <li><a href="../08-hygiene/">Data Hygiene</a></li>
+            
+            <li><a href="../09-create/">Creating and Modifying Data</a></li>
+            
+            <li><a href="../10-prog/">Programming with Databases - Python</a></li>
+            
+            <li><a href="../11-prog-R/">Programming with Databases - R</a></li>
+            
+          </ul>
+        </li>
+	
+
+	
+	
+        <li class="dropdown">
+          <a href="../" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Extras <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            <li><a href="../about/">About</a></li>
+            
+            <li><a href="../discuss/">Discussion</a></li>
+            
+            <li><a href="../figures/">Figures</a></li>
+            
+            <li><a href="../guide/">Instructor Notes</a></li>
+            
+          </ul>
+        </li>
+	
+
+	
+        <li><a href="../license/">License</a></li>
+      </ul>
+      <form class="navbar-form navbar-right" role="search" id="search" onsubmit="google_search(); return false;">
+        <div class="form-group">
+          <input type="text" id="google-search" placeholder="Search..." aria-label="Google site search">
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<h1 class="maintitle"><a href="../">Databases and SQL</a></h1>
+
+
+<h2>Key Points</h2>
+<table class="table table-striped">
+
+  
+    <tr>
+      <td class="col-md-3">
+        <a href="../01-select/">Selecting Data</a>
+      </td>
+      <td class="col-md-9">
+        <ul>
+        
+        <li><p>A relational database stores information in tables, each of which has a fixed set of columns and a variable number of records.</p>
+</li>
+        
+        <li><p>A database manager is a program that manipulates information stored in a database.</p>
+</li>
+        
+        <li><p>We write queries in a specialized language called SQL to extract information from databases.</p>
+</li>
+        
+        <li><p>Use SELECT… FROM… to get values from a database table.</p>
+</li>
+        
+        <li><p>SQL is case-insensitive (but data is case-sensitive).</p>
+</li>
+        
+        </ul>
+      </td>
+    </tr>
+  
+
+  
+    <tr>
+      <td class="col-md-3">
+        <a href="../02-sort-dup/">Sorting and Removing Duplicates</a>
+      </td>
+      <td class="col-md-9">
+        <ul>
+        
+        <li><p>The records in a database table are not intrinsically ordered: if we want to display them in some order, we must specify that explicitly with ORDER BY.</p>
+</li>
+        
+        <li><p>The values in a database are not guaranteed to be unique: if we want to eliminate duplicates, we must specify that explicitly as well using DISTINCT.</p>
+</li>
+        
+        </ul>
+      </td>
+    </tr>
+  
+
+  
+    <tr>
+      <td class="col-md-3">
+        <a href="../03-filter/">Filtering</a>
+      </td>
+      <td class="col-md-9">
+        <ul>
+        
+        <li><p>Use WHERE to specify conditions that records must meet in order to be included in a query’s results.</p>
+</li>
+        
+        <li><p>Use AND, OR, and NOT to combine tests.</p>
+</li>
+        
+        <li><p>Filtering is done on whole records, so conditions can use fields that are not actually displayed.</p>
+</li>
+        
+        <li><p>Write queries incrementally.</p>
+</li>
+        
+        </ul>
+      </td>
+    </tr>
+  
+
+  
+    <tr>
+      <td class="col-md-3">
+        <a href="../04-calc/">Calculating New Values</a>
+      </td>
+      <td class="col-md-9">
+        <ul>
+        
+        <li><p>Queries can do the usual arithmetic operations on values.</p>
+</li>
+        
+        <li><p>Use UNION to combine the results of two or more queries.</p>
+</li>
+        
+        </ul>
+      </td>
+    </tr>
+  
+
+  
+    <tr>
+      <td class="col-md-3">
+        <a href="../05-null/">Missing Data</a>
+      </td>
+      <td class="col-md-9">
+        <ul>
+        
+        <li><p>Databases use a special value called NULL to represent missing information.</p>
+</li>
+        
+        <li><p>Almost all operations on NULL produce NULL.</p>
+</li>
+        
+        <li><p>Queries can test for NULLs using IS NULL and IS NOT NULL.</p>
+</li>
+        
+        </ul>
+      </td>
+    </tr>
+  
+
+  
+    <tr>
+      <td class="col-md-3">
+        <a href="../06-agg/">Aggregation</a>
+      </td>
+      <td class="col-md-9">
+        <ul>
+        
+        <li><p>Use aggregation functions to combine multiple values.</p>
+</li>
+        
+        <li><p>Aggregation functions ignore <code class="highlighter-rouge">null</code> values.</p>
+</li>
+        
+        <li><p>Aggregation happens after filtering.</p>
+</li>
+        
+        <li><p>Use GROUP BY to combine subsets separately.</p>
+</li>
+        
+        <li><p>If no aggregation function is specified for a field, the query may return an arbitrary value for that field.</p>
+</li>
+        
+        </ul>
+      </td>
+    </tr>
+  
+
+  
+    <tr>
+      <td class="col-md-3">
+        <a href="../07-join/">Combining Data</a>
+      </td>
+      <td class="col-md-9">
+        <ul>
+        
+        <li><p>Use JOIN to combine data from two tables.</p>
+</li>
+        
+        <li><p>Use table.field notation to refer to fields when doing joins.</p>
+</li>
+        
+        <li><p>Every fact should be represented in a database exactly once.</p>
+</li>
+        
+        <li><p>A join produces all combinations of records from one table with records from another.</p>
+</li>
+        
+        <li><p>A primary key is a field (or set of fields) whose values uniquely identify the records in a table.</p>
+</li>
+        
+        <li><p>A foreign key is a field (or set of fields) in one table whose values are a primary key in another table.</p>
+</li>
+        
+        <li><p>We can eliminate meaningless combinations of records by matching primary keys and foreign keys between tables.</p>
+</li>
+        
+        <li><p>The most common join condition is matching keys.</p>
+</li>
+        
+        </ul>
+      </td>
+    </tr>
+  
+
+  
+    <tr>
+      <td class="col-md-3">
+        <a href="../08-hygiene/">Data Hygiene</a>
+      </td>
+      <td class="col-md-9">
+        <ul>
+        
+        <li><p>Every value in a database should be atomic.</p>
+</li>
+        
+        <li><p>Every record should have a unique primary key.</p>
+</li>
+        
+        <li><p>A database should not contain redundant information.</p>
+</li>
+        
+        <li><p>Units and similar metadata should be stored with the data.</p>
+</li>
+        
+        </ul>
+      </td>
+    </tr>
+  
+
+  
+    <tr>
+      <td class="col-md-3">
+        <a href="../09-create/">Creating and Modifying Data</a>
+      </td>
+      <td class="col-md-9">
+        <ul>
+        
+        <li><p>Use CREATE and DROP to create and delete tables.</p>
+</li>
+        
+        <li><p>Use INSERT to add data.</p>
+</li>
+        
+        <li><p>Use UPDATE to modify existing data.</p>
+</li>
+        
+        <li><p>Use DELETE to remove data.</p>
+</li>
+        
+        <li><p>It is simpler and safer to modify data when every record has a unique primary key.</p>
+</li>
+        
+        <li><p>Do not create dangling references by deleting records that other records refer to.</p>
+</li>
+        
+        </ul>
+      </td>
+    </tr>
+  
+
+  
+    <tr>
+      <td class="col-md-3">
+        <a href="../10-prog/">Programming with Databases - Python</a>
+      </td>
+      <td class="col-md-9">
+        <ul>
+        
+        <li><p>General-purpose languages have libraries for accessing databases.</p>
+</li>
+        
+        <li><p>To connect to a database, a program must use a library specific to that database manager.</p>
+</li>
+        
+        <li><p>These libraries use a connection-and-cursor model.</p>
+</li>
+        
+        <li><p>Programs can read query results in batches or all at once.</p>
+</li>
+        
+        <li><p>Queries should be written using parameter substitution, not string formatting.</p>
+</li>
+        
+        </ul>
+      </td>
+    </tr>
+  
+
+  
+    <tr>
+      <td class="col-md-3">
+        <a href="../11-prog-R/">Programming with Databases - R</a>
+      </td>
+      <td class="col-md-9">
+        <ul>
+        
+        <li><p>Data analysis languages have libraries for accessing databases.</p>
+</li>
+        
+        <li><p>To connect to a database, a program must use a library specific to that database manager.</p>
+</li>
+        
+        <li><p>R’s libraries can be used to directly query or read from a database.</p>
+</li>
+        
+        <li><p>Programs can read query results in batches or all at once.</p>
+</li>
+        
+        <li><p>Queries should be written using parameter substitution, not string formatting.</p>
+</li>
+        
+        <li><p>R has multiple helper functions to make working with databases easier.</p>
+</li>
+        
+        </ul>
+      </td>
+    </tr>
+  
+
+</table>
+
+<h2 id="glossary">Glossary</h2>
+
+<dl>
+  <dt id="aggregation-function">aggregation function</dt>
+  <dd>A function that combines multiple values to produce a single new value (e.g. sum, mean, median).</dd>
+  <dt id="atomic">atomic</dt>
+  <dd>Describes a value <em>not</em> divisible into parts that one might want to
+work with separately. For example, if one wanted to work with
+first and last names separately, the values “Ada” and “Lovelace”
+would be atomic, but the value “Ada Lovelace” would not.</dd>
+  <dt id="cascading-delete">cascading delete</dt>
+  <dd>An <a href="#sql">SQL</a> constraint requiring that if a given <a href="#record">record</a> is deleted,
+all records referencing it (via <a href="#foreign-key">foreign key</a>) in other <a href="#table">tables</a>
+must also be deleted.</dd>
+  <dt id="case-insensitive">case insensitive</dt>
+  <dd>Treating text as if upper and lower case characters were the same.
+See also: <a href="#case-sensitive">case sensitive</a>.</dd>
+  <dt id="case-sensitive">case sensitive</dt>
+  <dd>Treating upper and lower case characters as different. See also: <a href="#case-insensitive">case insensitive</a>.</dd>
+  <dt id="comma-separated-values-csv">comma-separated values (CSV)</dt>
+  <dd>A common textual representation for tables in which the values in each row are separated by commas.</dd>
+  <dt id="cross-product">cross product</dt>
+  <dd>A pairing of all elements of one set with all elements of another.</dd>
+  <dt id="cursor">cursor</dt>
+  <dd>A pointer into a database that keeps track of outstanding operations.</dd>
+  <dt id="database-manager">database manager</dt>
+  <dd>A program that manages a database, such as SQLite.</dd>
+  <dt id="fields">fields</dt>
+  <dd>A set of data values of a particular type, one for each <a href="#record">record</a> in a <a href="#table">table</a>.</dd>
+  <dt id="filter">filter</dt>
+  <dd>To select only the records that meet certain conditions.</dd>
+  <dt id="foreign-key">foreign key</dt>
+  <dd>One or more values in a <a href="#table-database">database table</a> that identify
+<a href="#record-database">records</a> in another table.</dd>
+  <dt id="prepared-statement">prepared statement</dt>
+  <dd>A template for an <a href="#sql">SQL</a> query in which some values can be filled in.</dd>
+  <dt id="primary-key">primary key</dt>
+  <dd>One or more <a href="#field">fields</a> in a <a href="#table">database table</a> whose values are
+guaranteed to be unique for each <a href="#record">record</a>, i.e., whose values
+uniquely identify the entry.</dd>
+  <dt id="query">query</dt>
+  <dd>A textual description of a database operation. Queries are expressed in
+a special-purpose language called <a href="#sql">SQL</a>, and despite the name “query”,
+they may modify or delete data as well as interrogate it.</dd>
+  <dt id="record">record</dt>
+  <dd>A set of related values making up a single entry in a <a href="#table">database table</a>,
+typically shown as a row. See also: <a href="#field">field</a>.</dd>
+  <dt id="referential-integrity">referential integrity</dt>
+  <dd>The internal consistency of values in a database. If an entry in one table
+contains a <a href="#foreign-key">foreign key</a>, but the corresponding <a href="#record">records</a>
+don’t exist, referential integrity has been violated.</dd>
+  <dt id="relational-database">relational database</dt>
+  <dd>A collection of data organized into <a href="#table">tables</a>.</dd>
+  <dt id="sentinel-value">sentinel value</dt>
+  <dd>A value in a collection that has a special meaning, such as 999 to mean “age unknown”.</dd>
+  <dt id="sql">SQL</dt>
+  <dd>A special-purpose language for describing operations on <a href="#relational-database">relational databases</a>.</dd>
+  <dt id="sql-injection-attack">SQL injection attack</dt>
+  <dd>An attack on a program in which the user’s input contains malicious SQL statements.
+If this text is copied directly into an SQL statement, it will be executed in the database.</dd>
+  <dt id="table">table</dt>
+  <dd>A set of data in a <a href="#relational-database">relational database</a> organized into a set
+of <a href="#record">records</a>, each having the same named <a href="#field">fields</a>.</dd>
+  <dt id="wildcard">wildcard</dt>
+  <dd>A character used in pattern matching. In SQL’s <code class="highlighter-rouge">like</code> operator, the wildcard “%”
+ matches zero or more characters, so that <code class="highlighter-rouge">%able%</code> matches “fixable” and “tablets”.</dd>
+</dl>
+
+
+
+      
+      <footer>
+  <div class="row">
+    <div class="col-md-6" align="left">
+      <h4>
+	Copyright &copy; 2016
+	<a href="https://software-carpentry.org">Software Carpentry Foundation</a>
+	
+      </h4>
+    </div>
+    <div class="col-md-6" align="right">
+      <h4>
+	<a href="/">Source</a>
+	/
+	<a href="/blob/gh-pages/CONTRIBUTING.md">Contributing</a>
+	/
+	<a href="mailto:lessons@software-carpentry.org">Contact</a>
+      </h4>
+    </div>
+  </div>
+</footer>
+
+      
+    </div>
+    <script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/lesson.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-37305346-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  </body>
+</html>

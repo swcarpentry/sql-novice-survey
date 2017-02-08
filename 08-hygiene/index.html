@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="last-modified" content="2017-02-08 23:53:14 +0100">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- meta "search-domain" used for google site search function google_search() -->
+    <meta name="search-domain" value="/swc-releases/2017.02/sql-novice-survey">
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/lesson.css" />
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon-swc.ico" />
+    
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+    <title>Databases and SQL: Data Hygiene</title>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      
+      
+      <a href="https://software-carpentry.org" class="pull-left">
+        <img class="navbar-logo" src="../assets/img/swc-icon-blue.svg" alt="Software Carpentry logo" />
+      </a>
+      
+
+      
+      <a class="navbar-brand" href="../">Home</a>
+
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+
+	
+        <li><a href="../conduct/">Code of Conduct</a></li>
+
+	
+        
+        <li><a href="../setup/">Setup</a></li>
+        <li><a href="../reference/">Reference</a></li>
+        <li class="dropdown">
+          <a href="../" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Episodes <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            <li><a href="../01-select/">Selecting Data</a></li>
+            
+            <li><a href="../02-sort-dup/">Sorting and Removing Duplicates</a></li>
+            
+            <li><a href="../03-filter/">Filtering</a></li>
+            
+            <li><a href="../04-calc/">Calculating New Values</a></li>
+            
+            <li><a href="../05-null/">Missing Data</a></li>
+            
+            <li><a href="../06-agg/">Aggregation</a></li>
+            
+            <li><a href="../07-join/">Combining Data</a></li>
+            
+            <li><a href="../08-hygiene/">Data Hygiene</a></li>
+            
+            <li><a href="../09-create/">Creating and Modifying Data</a></li>
+            
+            <li><a href="../10-prog/">Programming with Databases - Python</a></li>
+            
+            <li><a href="../11-prog-R/">Programming with Databases - R</a></li>
+            
+          </ul>
+        </li>
+	
+
+	
+	
+        <li class="dropdown">
+          <a href="../" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Extras <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            <li><a href="../about/">About</a></li>
+            
+            <li><a href="../discuss/">Discussion</a></li>
+            
+            <li><a href="../figures/">Figures</a></li>
+            
+            <li><a href="../guide/">Instructor Notes</a></li>
+            
+          </ul>
+        </li>
+	
+
+	
+        <li><a href="../license/">License</a></li>
+      </ul>
+      <form class="navbar-form navbar-right" role="search" id="search" onsubmit="google_search(); return false;">
+        <div class="form-group">
+          <input type="text" id="google-search" placeholder="Search..." aria-label="Google site search">
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+<div class="row">
+  <div class="col-md-1">
+    <h3>
+      
+      <a href="../07-join/"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><span class="sr-only">previous episode</span></a>
+      
+    </h3>
+  </div>
+  <div class="col-md-10">
+    
+    <h3 class="maintitle"><a href="../">Databases and SQL</a></h3>
+    <h1 class="maintitle">Data Hygiene</h1>
+    
+  </div>
+  <div class="col-md-1">
+    <h3>
+      
+      <a href="../09-create/"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><span class="sr-only">next episode</span></a>
+      
+    </h3>
+  </div>
+</div>
+
+
+<blockquote class="objectives">
+  <h2>Overview</h2>
+
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Teaching:</strong> 15 min
+      <br/>
+      <strong>Exercises:</strong> 15 min
+    </div>
+    <div class="col-md-9">
+      <strong>Questions</strong>
+      <ul>
+	
+	<li><p>How should I format data in a database, and why?</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-9">
+      <strong>Objectives</strong>
+      <ul>
+	
+	<li><p>Explain what an atomic value is.</p>
+</li>
+	
+	<li><p>Distinguish between atomic and non-atomic values.</p>
+</li>
+	
+	<li><p>Explain why every value in a database should be atomic.</p>
+</li>
+	
+	<li><p>Explain what a primary key is and why every record should have one.</p>
+</li>
+	
+	<li><p>Identify primary keys in database tables.</p>
+</li>
+	
+	<li><p>Explain why database entries should not contain redundant information.</p>
+</li>
+	
+	<li><p>Identify redundant information in databases.</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+
+</blockquote>
+
+<p>Now that we have seen how joins work, we can see why the relational
+model is so useful and how best to use it.  The first rule is that
+every value should be <a href="/swc-releases/2017.02/sql-novice-survey/reference/#atomic">atomic</a>, i.e., not
+contain parts that we might want to work with separately.  We store
+personal and family names in separate columns instead of putting the
+entire name in one column so that we don’t have to use substring
+operations to get the name’s components.  More importantly, we store
+the two parts of the name separately because splitting on spaces is
+unreliable: just think of a name like “Eloise St. Cyr” or “Jan Mikkel
+Steubart”.</p>
+
+<p>The second rule is that every record should have a unique primary key.
+This can be a serial number that has no intrinsic meaning,
+one of the values in the record (like the <code class="highlighter-rouge">id</code> field in the <code class="highlighter-rouge">Person</code> table),
+or even a combination of values:
+the triple <code class="highlighter-rouge">(taken, person, quant)</code> from the <code class="highlighter-rouge">Survey</code> table uniquely identifies every measurement.</p>
+
+<p>The third rule is that there should be no redundant information.
+For example,
+we could get rid of the <code class="highlighter-rouge">Site</code> table and rewrite the <code class="highlighter-rouge">Visited</code> table like this:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>lat</th>
+      <th>long</th>
+      <th>dated</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>619</td>
+      <td>-49.85</td>
+      <td>-128.57</td>
+      <td>1927-02-08</td>
+    </tr>
+    <tr>
+      <td>622</td>
+      <td>-49.85</td>
+      <td>-128.57</td>
+      <td>1927-02-10</td>
+    </tr>
+    <tr>
+      <td>734</td>
+      <td>-47.15</td>
+      <td>-126.72</td>
+      <td>1930-01-07</td>
+    </tr>
+    <tr>
+      <td>735</td>
+      <td>-47.15</td>
+      <td>-126.72</td>
+      <td>1930-01-12</td>
+    </tr>
+    <tr>
+      <td>751</td>
+      <td>-47.15</td>
+      <td>-126.72</td>
+      <td>1930-02-26</td>
+    </tr>
+    <tr>
+      <td>752</td>
+      <td>-47.15</td>
+      <td>-126.72</td>
+      <td>-null-</td>
+    </tr>
+    <tr>
+      <td>837</td>
+      <td>-48.87</td>
+      <td>-123.40</td>
+      <td>1932-01-14</td>
+    </tr>
+    <tr>
+      <td>844</td>
+      <td>-49.85</td>
+      <td>-128.57</td>
+      <td>1932-03-22</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>In fact,
+we could use a single table that recorded all the information about each reading in each row,
+just as a spreadsheet would.
+The problem is that it’s very hard to keep data organized this way consistent:
+if we realize that the date of a particular visit to a particular site is wrong,
+we have to change multiple records in the database.
+What’s worse,
+we may have to guess which records to change,
+since other sites may also have been visited on that date.</p>
+
+<p>The fourth rule is that the units for every value should be stored explicitly.
+Our database doesn’t do this,
+and that’s a problem:
+Roerich’s salinity measurements are several orders of magnitude larger than anyone else’s,
+but we don’t know if that means she was using parts per million instead of parts per thousand,
+or whether there actually was a saline anomaly at that site in 1932.</p>
+
+<p>Stepping back,
+data and the tools used to store it have a symbiotic relationship:
+we use tables and joins because it’s efficient,
+provided our data is organized a certain way,
+but organize our data that way because we have tools to manipulate it efficiently.
+As anthropologists say,
+the tool shapes the hand that shapes the tool.</p>
+
+<blockquote class="challenge">
+  <h2 id="identifying-atomic-values">Identifying Atomic Values</h2>
+
+  <p>Which of the following are atomic values? Which are not? Why?</p>
+
+  <ul>
+    <li>New Zealand</li>
+    <li>87 Turing Avenue</li>
+    <li>January 25, 1971</li>
+    <li>the XY coordinate (0.5, 3.3)</li>
+  </ul>
+</blockquote>
+
+<blockquote class="challenge">
+  <h2 id="identifying-a-primary-key">Identifying a Primary Key</h2>
+
+  <p>What is the primary key in this table?
+I.e., what value or combination of values uniquely identifies a record?</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>latitude</th>
+        <th>longitude</th>
+        <th>date</th>
+        <th>temperature</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>57.3</td>
+        <td>-22.5</td>
+        <td>2015-01-09</td>
+        <td>-14.2</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<blockquote class="keypoints">
+  <h2>Key Points</h2>
+  <ul>
+    
+    <li><p>Every value in a database should be atomic.</p>
+</li>
+    
+    <li><p>Every record should have a unique primary key.</p>
+</li>
+    
+    <li><p>A database should not contain redundant information.</p>
+</li>
+    
+    <li><p>Units and similar metadata should be stored with the data.</p>
+</li>
+    
+  </ul>
+</blockquote>
+
+
+
+
+
+<div class="row">
+  <div class="col-md-1">
+    <h3>
+      
+      <a href="../07-join/"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><span class="sr-only">previous episode</span></a>
+      
+    </h3>
+  </div>
+  <div class="col-md-10">
+    
+  </div>
+  <div class="col-md-1">
+    <h3>
+      
+      <a href="../09-create/"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><span class="sr-only">next episode</span></a>
+      
+    </h3>
+  </div>
+</div>
+
+
+      
+      <footer>
+  <div class="row">
+    <div class="col-md-6" align="left">
+      <h4>
+	Copyright &copy; 2016
+	<a href="https://software-carpentry.org">Software Carpentry Foundation</a>
+	
+      </h4>
+    </div>
+    <div class="col-md-6" align="right">
+      <h4>
+	<a href="/">Source</a>
+	/
+	<a href="/blob/gh-pages/CONTRIBUTING.md">Contributing</a>
+	/
+	<a href="mailto:lessons@software-carpentry.org">Contact</a>
+      </h4>
+    </div>
+  </div>
+</footer>
+
+      
+    </div>
+    <script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/lesson.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-37305346-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  </body>
+</html>
