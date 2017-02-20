@@ -223,7 +223,7 @@ and if we ever had a data set with fifty or five hundred scientists,
 the chances of us getting all of those queries right is small.
 
 What we need to do is
-tell the database manager to aggregate the hours for each scientist separately
+tell the database manager to aggregate the records for each scientist separately
 using a `GROUP BY` clause:
 
 ~~~

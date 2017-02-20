@@ -25,11 +25,11 @@ library and function names may differ,
 but the concepts are the same.
 
 Here's a short R program that selects latitudes and longitudes
-from an SQLite database stored in a file called `survey.db`:
+from an SQLite database stored in a file called `survey.sqlite`:
 
 ~~~
 library(RSQLite)
-connection <- dbConnect(SQLite(), "survey.db")
+connection <- dbConnect(SQLite(), "survey.sqlite")
 results <- dbGetQuery(connection, "SELECT Site.lat, Site.long FROM Site;")
 print(results)
 dbDisconnect(connection)
@@ -81,7 +81,7 @@ this function takes a user's ID as a parameter and returns their name:
 ~~~
 library(RSQLite)
 
-connection <- dbConnect(SQLite(), "survey.db")
+connection <- dbConnect(SQLite(), "survey.sqlite")
 
 getName <- function(personID) {
   query <- paste0("SELECT personal || ' ' || family FROM Person WHERE ident =='",
@@ -142,7 +142,7 @@ Here's what our example program looks like if we do this:
 
 ~~~ 
 library(RSQLite)
-connection <- dbConnect(SQLite(), "survey.db")
+connection <- dbConnect(SQLite(), "survey.sqlite")
 
 getName <- function(personID) {
   query <- "SELECT personal || ' ' || family FROM Person WHERE ident == ?"
@@ -198,7 +198,7 @@ reading/writing entire tables at once.
 To view all tables in a database, we can use `dbListTables()`:
 
 ~~~ 
-connection <- dbConnect(SQLite(), "survey.db")
+connection <- dbConnect(SQLite(), "survey.sqlite")
 dbListTables(connection)
 ~~~
 {: .r}
@@ -240,7 +240,7 @@ dbReadTable(connection, "Person")
 Finally to write an entire table to a database, you can use `dbWriteTable()`. 
 Note that we will always want to use the `row.names = FALSE` argument or R 
 will write the row names as a separate column. 
-In this example we will write R's built-in `iris` dataset as a table in `survey.db`.
+In this example we will write R's built-in `iris` dataset as a table in `survey.sqlite`.
 
 ~~~
 dbWriteTable(connection, "iris", iris, row.names = FALSE)
