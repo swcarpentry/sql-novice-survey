@@ -52,12 +52,12 @@ but it's better not to have to rely on it.
 Different database systems support different data types for table columns,
 but most provide the following:
 
-data type  use
----------  -----------------------------------------
-INTEGER    a signed integer
-REAL       a floating point number
-TEXT       a character string
-BLOB       a "binary large object", such as an image
+|data type|  use                                       | 
+|---------|  ----------------------------------------- |
+|INTEGER  |  a signed integer                          |
+|REAL     |  a floating point number                   |
+|TEXT     |  a character string                        |
+|BLOB     |  a "binary large object", such as an image |
 
 Most databases also support Booleans and date/time values;
 SQLite uses the integers 0 and 1 for the former,
