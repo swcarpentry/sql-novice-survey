@@ -98,6 +98,14 @@ SELECT personal || ' ' || family FROM Person;
 > Write a query that returns all of her salinity measurements
 > from the `Survey` table
 > with the values divided by 100.
+
+## Solution
+
+~~~
+SELECT quant/100, reading FROM Survey WHERE person LIKE 'roe' AND quant='sal';
+~~~
+{: .sql}
+{: .solution}
 {: .challenge}
 
 > ## Unions

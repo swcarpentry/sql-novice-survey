@@ -220,10 +220,25 @@ SELECT DISTINCT quant, person FROM Survey ORDER BY quant ASC;
 > ## Finding Distinct Dates
 >
 > Write a query that selects distinct dates from the `Visited` table.
+
+## Solution
+~~
+SELECT DISTINCT dated FROM Visited;
+~~
+{: .sql}
+{: .solution}
 {: .challenge}
 
 > ## Displaying Full Names
 >
 > Write a query that displays the full names of the scientists in the `Person` table,
 > ordered by family name.
+
+## Solution
+~~
+SELECT personal, family FROM Person ORDER BY family;
+~~
+As we are ordering by family name we assume this is A-Z, therefore we can use the default ORDER BY behaviour which is ascending order.
+{: .sql}
+{: .solution}
 {: .challenge}

@@ -250,6 +250,14 @@ not to the entire rows as they are being processed.
 >
 > Explain why this is wrong,
 > and rewrite the query so that it is correct.
+
+## Solution
+The query was incorrect as the use of OR means that lat values <-48 and those >48 would meet the criteria.
+~~
+SELECT * FROM Site WHERE (lat > -48) AND (lat < 48);
+~~
+{: .sql}
+{: .solution}
 {: .challenge}
 
 > ## Finding Outliers
@@ -257,6 +265,13 @@ not to the entire rows as they are being processed.
 > Normalized salinity readings are supposed to be between 0.0 and 1.0.
 > Write a query that selects all records from `Survey`
 > with salinity values outside this range.
+
+## Solution
+~~
+SELECT * FROM Survey WHERE quant='sal' AND WHERE((reading > 1.0) AND (reading < 0.0));
+~~
+{: .sql}
+{: .solution}
 {: .challenge}
 
 > ## Matching Patterns
@@ -268,4 +283,11 @@ not to the entire rows as they are being processed.
 > * `'beta' LIKE '%a'`
 > * `'alpha' LIKE 'a%%'`
 > * `'alpha' LIKE 'a%p%'`
+
+## Solution
+* 'a' will match the exact string
+* '%a' will match any string ending with 'a'
+* 'a%' will match any string starting with 'a', the second % is not necessary
+* 'a%p%' will only match strings starting with 'a' and containing a 'p' followed by any other characters
+{: .solution}
 {: .challenge}

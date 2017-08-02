@@ -328,6 +328,13 @@ SELECT * FROM Person;
 > ## Selecting Site Names
 >
 > Write a query that selects only site names from the `Site` table.
+
+## Solution
+~~~
+SELECT name FROM Site;
+~~~
+{: .sql}
+{: .solution}
 {: .challenge}
 
 > ## Query Style
