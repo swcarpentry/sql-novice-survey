@@ -46,18 +46,18 @@ DROP TABLE Survey;
 {: .sql}
 
 Be very careful when doing this:
-most databases have some support for undoing changes,
+if you drop the wrong table, hope that the person maintaining the database has a backup,
 but it's better not to have to rely on it.
 
 Different database systems support different data types for table columns,
 but most provide the following:
 
-data type  use
----------  -----------------------------------------
-INTEGER    a signed integer
-REAL       a floating point number
-TEXT       a character string
-BLOB       a "binary large object", such as an image
+data type|use
+---------|-----------------------------------------
+INTEGER  |  a signed integer
+REAL     |  a floating point number
+TEXT     |  a character string
+BLOB     |  a "binary large object", such as an image
 
 Most databases also support Booleans and date/time values;
 SQLite uses the integers 0 and 1 for the former,
@@ -98,9 +98,9 @@ we can add, change, and remove records using our other set of commands,
 The simplest form of `INSERT` statement lists values in order:
 
 ~~~
-INSERT INTO Site values('DR-1', -49.85, -128.57);
-INSERT INTO Site values('DR-3', -47.15, -126.72);
-INSERT INTO Site values('MSK-4', -48.87, -123.40);
+INSERT INTO Site VALUES('DR-1', -49.85, -128.57);
+INSERT INTO Site VALUES('DR-3', -47.15, -126.72);
+INSERT INTO Site VALUES('MSK-4', -48.87, -123.40);
 ~~~
 {: .sql}
 
