@@ -5,7 +5,7 @@ exercises: 10
 questions:
 - "How can I create, modify, and delete tables and data?"
 objectives:
-- "Write statements that creates tables."
+- "Write statements that create tables."
 - "Write statements to insert, modify, and delete records."
 keypoints:
 - "Use CREATE and DROP to create and delete tables."
