@@ -89,7 +89,7 @@ Next,
 create the database that will be used:
 
 ~~~
-$ sqlite3 survey.sqlite .read bin/create-db.sql
+$ sqlite3 survey.sqlite '.read bin/create-db.sql'
 ~~~
 {: .bash}
 
