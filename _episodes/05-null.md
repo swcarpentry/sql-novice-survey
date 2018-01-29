@@ -198,6 +198,7 @@ detail in [the next section]({{ site.github.url }}/06-agg/).
 {: .challenge}
 
 > ## NULL in a Set
+> The IN operator is another WHERE clause operator like AND and OR. Instead of writing WHERE dated = '1927-02-08' OR dated = '1927-02-10', we can say give us values "IN" this set of results: dated IN ('1927-02-08', '1927-02-10'). As ever, null is tricky.
 >
 > What do you expect the query:
 >
