@@ -180,6 +180,13 @@ this technique is outside the scope of this chapter.
 >
 > Write an SQL statement to replace all uses of `null` in
 > `Survey.person` with the string `'unknown'`.
+>
+> > ## Solution
+> > ~~~
+> > UPDATE Survey SET person="unknown" WHERE person IS NULL;
+> > ~~~
+> > {: .sql}
+> {: .solution}
 {: .challenge}
 
 > ## Generating Insert Statements
