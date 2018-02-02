@@ -327,6 +327,18 @@ this query:
 >
 > How many temperature readings did Frank Pabodie record,
 > and what was their average value?
+>
+> > ## Solution
+> >
+> > ~~~
+> > SELECT count(reading), avg(reading) FROM Survey WHERE quant='temp' AND person='pb';
+> > ~~~
+> > {: .sql}
+> >
+> > |count(reading)|avg(reading)|
+> > |--------------|------------|
+> > |2             |-20.0       |
+> {: .solution}
 {: .challenge}
 
 > ## Averaging with NULL
