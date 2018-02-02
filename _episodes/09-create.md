@@ -5,7 +5,7 @@ exercises: 10
 questions:
 - "How can I create, modify, and delete tables and data?"
 objectives:
-- "Write statements that creates tables."
+- "Write statements that create tables."
 - "Write statements to insert, modify, and delete records."
 keypoints:
 - "Use CREATE and DROP to create and delete tables."
@@ -52,12 +52,12 @@ but it's better not to have to rely on it.
 Different database systems support different data types for table columns,
 but most provide the following:
 
-data type|use
----------|-----------------------------------------
-INTEGER  |  a signed integer
-REAL     |  a floating point number
-TEXT     |  a character string
-BLOB     |  a "binary large object", such as an image
+|data type|  use                                       | 
+|---------|  ----------------------------------------- |
+|INTEGER  |  a signed integer                          |
+|REAL     |  a floating point number                   |
+|TEXT     |  a character string                        |
+|BLOB     |  a "binary large object", such as an image |
 
 Most databases also support Booleans and date/time values;
 SQLite uses the integers 0 and 1 for the former,
@@ -206,7 +206,7 @@ this technique is outside the scope of this chapter.
 >
 > SQLite has several administrative commands that aren't part of the
 > SQL standard.  One of them is `.dump`, which prints the SQL commands
-> needed to re-create the database.  Another is `.load`, which reads a
+> needed to re-create the database.  Another is `.read`, which reads a
 > file created by `.dump` and restores the database.  A colleague of
 > yours thinks that storing dump files (which are text) in version
 > control is a good way to track and manage changes to the database.

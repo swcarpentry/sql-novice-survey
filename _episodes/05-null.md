@@ -195,6 +195,24 @@ detail in [the next section]({{ site.github.url }}/06-agg/).
 > Write a query that sorts the records in `Visited` by date,
 > omitting entries for which the date is not known
 > (i.e., is null).
+>
+> > ## Solution
+> >
+> > ~~~
+> > SELECT * FROM Visited WHERE dated IS NOT NULL ORDER BY dated ASC;
+> > ~~~
+> > {: .sql}
+> >
+> > |id        |site      |dated     |
+> > |----------|----------|----------|
+> > |619       |DR-1      |1927-02-08|
+> > |622       |DR-1      |1927-02-10|
+> > |734       |DR-3      |1930-01-07|
+> > |735       |DR-3      |1930-01-12|
+> > |751       |DR-3      |1930-02-26|
+> > |837       |MSK-4     |1932-01-14|
+> > |844       |DR-1      |1932-03-22|
+> {: .solution}
 {: .challenge}
 
 > ## NULL in a Set

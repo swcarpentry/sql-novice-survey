@@ -84,9 +84,9 @@ SELECT * FROM Visited WHERE site='DR-1' AND dated<'1930-01-01';
 > it stores dates as either text
 > (in the ISO-8601 standard format "YYYY-MM-DD HH:MM:SS.SSSS"),
 > real numbers
-> (the number of days since November 24, 4714 BCE),
+> ([Julian days](http://en.wikipedia.org/wiki/Julian_day), the number of days since November 24, 4714 BCE),
 > or integers
-> (the number of seconds since midnight, January 1, 1970).
+> ([Unix time](http://en.wikipedia.org/wiki/Unix_time), the number of seconds since midnight, January 1, 1970).
 > If this sounds complicated,
 > it is,
 > but not nearly as complicated as figuring out
@@ -250,6 +250,18 @@ not to the entire rows as they are being processed.
 >
 > Explain why this is wrong,
 > and rewrite the query so that it is correct.
+>
+> > ## Solution
+> >
+> > Because we used `OR`, a site on the South Pole for example will still meet 
+> > the second criteria and thus be included. Instead, we want to restrict this
+> > to sites that meet _both_ criteria:
+> >
+> > ~~~
+> > SELECT * FROM Site WHERE (lat > -48) AND (lat < 48);
+> > ~~~
+> > {: .sql}
+> {: .solution}
 {: .challenge}
 
 > ## Finding Outliers
@@ -257,15 +269,37 @@ not to the entire rows as they are being processed.
 > Normalized salinity readings are supposed to be between 0.0 and 1.0.
 > Write a query that selects all records from `Survey`
 > with salinity values outside this range.
+>
+> > ## Solution
+> >
+> > ~~~
+> > SELECT * FROM Survey WHERE quant='sal' AND ((reading > 1.0) OR (reading < 0.0));
+> > ~~~
+> > {: .sql}
+> >
+> > |taken     |person    |quant     |reading   |
+> > |----------|----------|----------|----------|
+> > |752       |roe       |sal       |41.6      |
+> > |837       |roe       |sal       |22.5      |
+> {: .solution}
 {: .challenge}
 
 > ## Matching Patterns
 >
 > Which of these expressions are true?
 >
-> * `'a' LIKE 'a'`
-> * `'a' LIKE '%a'`
-> * `'beta' LIKE '%a'`
-> * `'alpha' LIKE 'a%%'`
-> * `'alpha' LIKE 'a%p%'`
+> 1. `'a' LIKE 'a'`
+> 2. `'a' LIKE '%a'`
+> 3. `'beta' LIKE '%a'`
+> 4. `'alpha' LIKE 'a%%'`
+> 5. `'alpha' LIKE 'a%p%'`
+>
+> > ## Solution
+> >
+> > 1. True because these are the same character.
+> > 2. True because the wildcard can match _zero_ or more characters.
+> > 3. True because the `%` matches `bet` and the `a` matches the `a`.
+> > 4. True because the first wildcard matches `lpha` and the second wildcard matches zero characters (or vice versa).
+> > 5. True because the first wildcard matches `l` and the second wildcard matches `ha`.
+> {: .solution}
 {: .challenge}

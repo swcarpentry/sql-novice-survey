@@ -32,7 +32,7 @@ cursor = connection.cursor()
 cursor.execute("SELECT Site.lat, Site.long FROM Site;")
 results = cursor.fetchall()
 for r in results:
-    print r
+    print(r)
 cursor.close()
 connection.close()
 ~~~
@@ -103,7 +103,7 @@ def get_name(database_file, person_id):
 
     return results[0][0]
 
-print "full name for dyer:", get_name('survey.db', 'dyer')
+print("full name for dyer:", get_name('survey.db', 'dyer'))
 ~~~
 {: .python}
 ~~~
@@ -161,7 +161,7 @@ def get_name(database_file, person_id):
 
     return results[0][0]
 
-print "full name for dyer:", get_name('survey.db', 'dyer')
+print("full name for dyer:", get_name('survey.db', 'dyer'))
 ~~~
 {: .python}
 ~~~
