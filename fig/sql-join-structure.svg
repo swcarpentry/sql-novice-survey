@@ -16,7 +16,7 @@
 <polygon style="fill:none;stroke:black;" points="0,-156 0,-252 102,-252 102,-156 0,-156"/>
 <text text-anchor="middle" x="51" y="-234" >Person</text>
 <polyline style="fill:none;stroke:black;" points="0,-228 102,-228 "/>
-<text text-anchor="middle" x="27" y="-210" >ident</text>
+<text text-anchor="middle" x="27" y="-210" >id</text>
 <polyline style="fill:none;stroke:black;" points="54,-204 54,-228 "/>
 <text text-anchor="middle" x="78" y="-210" >text</text>
 <polyline style="fill:none;stroke:black;" points="0,-204 102,-204 "/>
@@ -76,7 +76,7 @@
 <polygon style="fill:none;stroke:black;" points="138,-156 138,-252 237,-252 237,-156 138,-156"/>
 <text text-anchor="middle" x="187" y="-234" >Visited</text>
 <polyline style="fill:none;stroke:black;" points="138,-228 237,-228 "/>
-<text text-anchor="middle" x="160" y="-210" >ident</text>
+<text text-anchor="middle" x="160" y="-210" >id</text>
 <polyline style="fill:none;stroke:black;" points="182,-204 182,-228 "/>
 <text text-anchor="middle" x="209" y="-210" >integer</text>
 <polyline style="fill:none;stroke:black;" points="138,-204 237,-204 "/>
