@@ -206,7 +206,7 @@ this technique is outside the scope of this chapter.
 >
 > SQLite has several administrative commands that aren't part of the
 > SQL standard.  One of them is `.dump`, which prints the SQL commands
-> needed to re-create the database.  Another is `.load`, which reads a
+> needed to re-create the database.  Another is `.read`, which reads a
 > file created by `.dump` and restores the database.  A colleague of
 > yours thinks that storing dump files (which are text) in version
 > control is a good way to track and manage changes to the database.
