@@ -69,9 +69,7 @@ but that handful accounts for most of what scientists do.
 > command, type `.help`.
 {: .callout}
 
-Before we get into the data and using SQLite to select the data,
-
-The tables below show the database we will use in our examples:
+Before we get into using SQLite to select the data, let's take a look at the tables of the database we will use in our examples:
 
 <div class="row">
   <div class="col-md-6" markdown="1">
