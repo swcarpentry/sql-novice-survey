@@ -84,7 +84,7 @@ library(RSQLite)
 connection <- dbConnect(SQLite(), "survey.db")
 
 getName <- function(personID) {
-  query <- paste0("SELECT personal || ' ' || family FROM Person WHERE ident =='",
+  query <- paste0("SELECT personal || ' ' || family FROM Person WHERE id =='",
                   personID, "';")
   return(dbGetQuery(connection, query))
 }
@@ -145,7 +145,7 @@ library(RSQLite)
 connection <- dbConnect(SQLite(), "survey.db")
 
 getName <- function(personID) {
-  query <- "SELECT personal || ' ' || family FROM Person WHERE ident == ?"
+  query <- "SELECT personal || ' ' || family FROM Person WHERE id == ?"
   return(dbGetPreparedQuery(connection, query, data.frame(personID)))
 }
 
@@ -227,7 +227,7 @@ dbReadTable(connection, "Person")
 ~~~
 {: .r}
 ~~~
-     ident  personal   family
+        id  personal   family
 1     dyer   William     Dyer
 2       pb     Frank  Pabodie
 3     lake  Anderson     Lake
