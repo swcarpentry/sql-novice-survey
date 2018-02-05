@@ -130,12 +130,17 @@ SELECT * FROM Person ORDER BY id;
 |pb     |Frank    |Pabodie |
 |roe    |Valentina|Roerich |
 
-By default,
-results are sorted in ascending order
+By default, when we use ORDER BY
+results are sorted in ascending order of the column we specify
 (i.e.,
 from least to greatest).
+
 We can sort in the opposite order using `DESC` (for "descending"):
 
+> ## A note on ordering
+>
+> While it may look that the records are consistent every time we ask for them in this lesson, that is because no one has changed or modified any of the data so far. Remember to use ORDER BY if you want the rows returned to have any sort of consistent or predictable order.
+{: .callout}
 ~~~
 SELECT * FROM person ORDER BY id DESC;
 ~~~
