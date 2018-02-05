@@ -188,6 +188,44 @@ so that they are safe to use.
 > between 10.0 and 25.0.  How long does it take this program to run?
 > How long does it take to run a program that simply writes those
 > random numbers to a file?
+>
+> > ## Solution
+> > ~~~
+> > import sqlite3
+> > # import random number generator
+> > from numpy.random import uniform
+> >
+> > random_numbers = uniform(low=10.0, high=25.0, size=100000)
+> >
+> > connection = sqlite3.connect("original.db")
+> > cursor = connection.cursor()
+> > cursor.execute("CREATE TABLE Pressure (reading float not null)")
+> > query = "INSERT INTO Pressure values (?);"
+> >
+> > for number in random_numbers:
+> >     cursor.execute(query, [number])
+> >
+> > cursor.close()
+> > # save changes to file for next exercise
+> > connection.commit()
+> > connection.close()
+> > ~~~
+> > {: .python}
+> >
+> > For comparison, the following program writes the random numbers
+> > into the file `random_numbers.txt`:
+> >
+> > ~~~
+> > from numpy.random import uniform
+> >
+> > random_numbers = uniform(low=10.0, high=25.0, size=100000)
+> > with open('random_numbers.txt', 'w') as outfile:
+> >     for number in random_numbers:
+> >         # need to add linebreak \n
+> >         outfile.write("{}\n".format(number))
+> > ~~~
+> > {: .python}
+> {: .solution}
 {: .challenge}
 
 > ## Filtering in SQL vs. Filtering in Python
@@ -197,4 +235,67 @@ so that they are safe to use.
 > the values greater than 20.0 from `original.db` to `backup.db`.
 > Which is faster: filtering values in the query, or reading
 > everything into memory and filtering in Python?
+>
+> > ## Solution
+> > The first example reads all the data into memory and filters the
+> > numbers using the if statement in Python.
+> >
+> > ~~~
+> > import sqlite3
+> >
+> > connection_original = sqlite3.connect("original.db")
+> > cursor_original = connection_original.cursor()
+> > cursor_original.execute("SELECT * FROM Pressure;")
+> > results = cursor_original.fetchall()
+> > cursor_original.close()
+> > connection_original.close()
+> >
+> > connection_backup = sqlite3.connect("backup.db")
+> > cursor_backup = connection_backup.cursor()
+> > cursor_backup.execute("CREATE TABLE Pressure (reading float not null)")
+> > query = "INSERT INTO Pressure values (?);"
+> >
+> > for entry in results:
+> >     # number is saved in first column of the table
+> >     if entry[0] > 20.0:
+> >         cursor_backup.execute(query, entry)
+> >
+> > cursor_backup.close()
+> > connection_backup.commit()
+> > connection_backup.close()
+> > ~~~
+> > {: .python}
+> >
+> > In contrast the following example uses the conditional ``SELECT`` statement
+> > to filter the numbers in SQL.
+> > The only lines that changed are in line 5, where the values are fetched
+> > from `original.db` and the for loop starting in line 15 used to insert
+> > the numbers into `backup.db`.
+> > Note how this version does not require the use of Python's if statement.
+> >
+> > ~~~
+> > import sqlite3
+> >
+> > connection_original = sqlite3.connect("original.db")
+> > cursor_original = connection_original.cursor()
+> > cursor_original.execute("SELECT * FROM Pressure WHERE reading > 20.0;")
+> > results = cursor_original.fetchall()
+> > cursor_original.close()
+> > connection_original.close()
+> >
+> > connection_backup = sqlite3.connect("backup.db")
+> > cursor_backup = connection_backup.cursor()
+> > cursor_backup.execute("CREATE TABLE Pressure (reading float not null)")
+> > query = "INSERT INTO Pressure values (?);"
+> >
+> > for entry in results:
+> >     cursor_backup.execute(query, entry)
+> >
+> > cursor_backup.close()
+> > connection_backup.commit()
+> > connection_backup.close()
+> > ~~~
+> > {: .python}
+> >
+> {: .solution}
 {: .challenge}
