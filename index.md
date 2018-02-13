@@ -31,6 +31,6 @@ These lessons will show how to use a database to explore the expeditions' data.
 
 > ## Prerequisites
 >
-> *    Unix shell plus SQLite3 or Firefox SQLite plugin.
+> *    Unix shell plus [SQLite3](http://www.sqlite.org/) or [DB Browser for SQLite](http://sqlitebrowser.org/).
 > *    [survey.db]({{ site.github.repository_url }}/raw/gh-pages/files/survey.db)
 {: .prereq}
