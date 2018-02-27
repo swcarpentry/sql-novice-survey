@@ -379,4 +379,44 @@ this query:
 > {: .sql}
 >
 > Can you find a way to order the list by surname?
+>
+> > ## Solution
+> > 
+> > ~~~
+> > -- Description: Reduces the output of the subset of concatenated first- and last- names for each person into a single line. 
+> > -- 
+> > -- You can test each section for yourself by running the nested sub query first `nestedNamesOrderByFamily` standalone.
+> > -- The top-level SELECT statement concats the set of full names, separating each element by the given separator string.
+> > -- The separator is explicitly defined to include the intermediary whitespace after each comma. 
+> >	-- Example: "Frank Danforth, William Dyer" instead of "Frank Danforth,William Dyer"
+> > SELECT group_concat(nestedNamesOrderedByFamily.fullName, ', ') AS oneLineFullNames -- Explicitly define separator. Defaults to comma-separated.
+> > FROM (
+> >	-- This subquery returns a set of tuples containing the fullName.
+> >	-- The fullName field results from concatenating the first(`personal`)- and last(`family`)-name fields in the relation, 
+> >	-- This subquery is where the ordering (by family name) takes place. 
+> >	
+> >	SELECT (p.personal || ' ' || p.family) AS fullName 		-- Use the `||` concatenate operator to insert a space between the names.
+> >	FROM Person AS p										-- p table alias. Aliases are included for good practice.
+> >	ORDER BY p.family										-- Order by last name / surname. Ascending.
+> >	) AS nestedNamesOrderedByFamily 						-- Subquery result set alias as referenced in the top-level SELECT.
+> >	;
+> > ~~~
+> > {: .sql}
+> > To break down what each part is doing, here is the example output from the nested query:
+> >	-- fullName
+> >	-- --------------
+> >	-- Frank Danforth
+> >	-- William Dyer
+> >	-- Anderson Lake
+> >	-- Frank Pabodie
+> >	-- Valentina Roer
+> > This produces five tuples with a single field of the newly concatenated fullName.
+> >
+> > Group_concat then reduces this output to a single element, inserting a separator between elements from the previous result set:
+> >	-- oneLineFullNames
+> >	-- -----------------------------------------------------------------------------
+> >	-- Frank Danforth, William Dyer, Anderson Lake, Frank Pabodie, Valentina Roerich
+> {: .solution}
+
+
 {: .challenge}
