@@ -261,7 +261,7 @@ command with `;` (semicolon).  When you press enter for a command
 without adding the `;` to the end, it can look something like this:
 
 ~~~
-SELECT * FROM Person
+SELECT id FROM Person
 ...>
 ...>
 ~~~
