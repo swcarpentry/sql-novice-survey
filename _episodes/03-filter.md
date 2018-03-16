@@ -240,7 +240,7 @@ not to the entire rows as they are being processed.
 
 > ## Fix This Query
 >
-> Suppose we want to select all sites that lie more than 42 degrees from the poles.
+> Suppose we want to select all sites that lie more than 48 degrees from the poles.
 > Our first query is:
 >
 > ~~~
