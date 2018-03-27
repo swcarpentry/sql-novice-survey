@@ -7,7 +7,9 @@ permalink: /setup/
 For this course you will need the UNIX shell, plus [SQLite3](http://www.sqlite.org/) or
 [DB Browser for SQLite](http://sqlitebrowser.org/).
 
-If you are running Linux, you will already have SQLite3 installed.
+If you are running Linux, you may already have SQLite3 installed, otherwise you
+should be able to get it from your package manager (on Debian/Ubuntu, you can
+use the command `apt install sqlite3`).
 
 # Files
 Please download the database we'll be using: [survey.db]({{ page.root }}/files/survey.db)
