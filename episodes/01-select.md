@@ -325,7 +325,7 @@ SELECT * FROM Person;
 
 > ## Selecting Site Names
 >
-> Write a query that selects only site names from the `Site` table.
+> Write a query that selects only the `name` column from the `Site` table.
 >
 > > ## Solution
 > > 
