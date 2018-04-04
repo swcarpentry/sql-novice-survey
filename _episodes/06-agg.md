@@ -347,6 +347,21 @@ this query:
 > divided by the number of values.
 > Does this mean that the `avg` function returns 2.0 or 3.0
 > when given the values 1.0, `null`, and 5.0?
+>
+> > ## Solution
+> > The answer is 3.0.
+> > `NULL` is not a value; it is the absence of a value.
+> > As such it is not included in the calculation.
+> >
+> > You can confirm this, by executing this code:
+> > ```
+> > SELECT AVG(a) FROM (
+> >     SELECT 1 AS a
+> >     UNION ALL SELECT NULL
+> >     UNION ALL SELECT 5);
+> > ```
+> > {: .sql}
+> {: .solution}
 {: .challenge}
 
 > ## What Does This Query Do?
