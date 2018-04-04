@@ -84,6 +84,14 @@ the tool shapes the hand that shapes the tool.
 > *   87 Turing Avenue
 > *   January 25, 1971
 > *   the XY coordinate (0.5, 3.3)
+>
+> > ## Solution
+> > New Zealand is the only atomic value.
+> > All the others contain more than one piece of information which should be stored separately:
+> > - House number, street name
+> > - Month, day, year
+> > - X coordinate, Y coordinate
+> {: .solution}
 {: .challenge}
 
 > ## Identifying a Primary Key
@@ -94,4 +102,8 @@ the tool shapes the hand that shapes the tool.
 > |latitude|longitude|date      |temperature|
 > |--------|---------|----------|-----------|
 > |57.3    |-22.5    |2015-01-09|-14.2      |
+>
+> > ## Solution
+> > Latitude, longitude, and date are all required to uniquely identify the temperature record.
+> {: .solution}
 {: .challenge}
