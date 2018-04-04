@@ -168,7 +168,7 @@ SELECT personal || ' ' || family FROM Person;
 > |DR-3 |
 > |MSK-4|
 >
-> Some major site identifiers are two letters long and some are three.
+> Some major site identifiers (i.e. the letter codes) are two letters long and some are three.
 > The "in string" function `instr(X, Y)`
 > returns the 1-based index of the first occurrence of string Y in string X,
 > or 0 if Y does not exist in X.
@@ -177,4 +177,10 @@ SELECT personal || ' ' || family FROM Person;
 > Use these two functions to produce a list of unique major site identifiers.
 > (For this data,
 > the list should contain only "DR" and "MSK").
+>
+> > ## Solution
+> > ```
+> > SELECT DISTINCT substr(site, 1, instr(site, '-') - 1) AS MajorSite FROM Visited;
+> > ```
+> > {: .sql}
 {: .challenge}
