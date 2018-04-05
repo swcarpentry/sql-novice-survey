@@ -219,6 +219,19 @@ this technique is outside the scope of this chapter.
 > control is a good way to track and manage changes to the database.
 > What are the pros and cons of this approach?  (Hint: records aren't
 > stored in any particular order.)
+>
+> > ## Solution
+> > #### Advantages
+> > - A version control system will be able to show differences between versions
+> > of the dump file; something it can't do for binary files like databases
+> > - A VCS only saves changes between versions, rather than a complete copy of
+> > each version (save disk space)
+> > - The version control log will explain the reason for the changes in each version
+> > of the database
+> >
+> > #### Disadvantages
+> > - Artificial differences between commits because records don't have a fixed order
+> {: .solution}
 {: .challenge}
 
 [create-table]: https://www.sqlite.org/lang_createtable.html
