@@ -86,11 +86,17 @@ the tool shapes the hand that shapes the tool.
 > *   the XY coordinate (0.5, 3.3)
 >
 > > ## Solution
-> > New Zealand is the only atomic value.
-> > All the others contain more than one piece of information which should be stored separately:
+> > New Zealand is the only clear-cut atomic value.
+> >
+> > The address and the XY coordinate contain more than one piece of information
+> > which should be stored separately:
 > > - House number, street name
-> > - Month, day, year
 > > - X coordinate, Y coordinate
+> >
+> > The date entry is less clear cut.
+> > There is a `DATE` datatype in SQL, so dates could be considered atomic.
+> > However, there might be situations where we want to keep the month, day, and year
+> > as separate variables.
 > {: .solution}
 {: .challenge}
 
