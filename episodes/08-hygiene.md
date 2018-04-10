@@ -93,10 +93,10 @@ the tool shapes the hand that shapes the tool.
 > > - House number, street name
 > > - X coordinate, Y coordinate
 > >
-> > The date entry is less clear cut.
-> > There is a `DATE` datatype in SQL, so dates could be considered atomic.
-> > However, there might be situations where we want to keep the month, day, and year
-> > as separate variables.
+> > The date entry is less clear cut, because it contains month, day, and year elements.
+> > However, there is a `DATE` datatype in SQL, and dates should be stored using this format.
+> > If we need to work with the month, day, or year separately, we can use the
+> > [`EXTRACT`](https://docs.oracle.com/cd/B19306_01/server.102/b14200/functions050.htm) function.
 > {: .solution}
 {: .challenge}
 
