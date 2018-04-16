@@ -84,6 +84,20 @@ the tool shapes the hand that shapes the tool.
 > *   87 Turing Avenue
 > *   January 25, 1971
 > *   the XY coordinate (0.5, 3.3)
+>
+> > ## Solution
+> > New Zealand is the only clear-cut atomic value.
+> >
+> > The address and the XY coordinate contain more than one piece of information
+> > which should be stored separately:
+> > - House number, street name
+> > - X coordinate, Y coordinate
+> >
+> > The date entry is less clear cut, because it contains month, day, and year elements.
+> > However, there is a `DATE` datatype in SQL, and dates should be stored using this format.
+> > If we need to work with the month, day, or year separately, we can use the SQL functions available for our database software
+> > (for example [`EXTRACT`](https://docs.oracle.com/cd/B19306_01/server.102/b14200/functions050.htm) or [`STRFTIME`](http://www.sqlite.org/lang_datefunc.html) for SQLite).
+> {: .solution}
 {: .challenge}
 
 > ## Identifying a Primary Key
@@ -94,4 +108,8 @@ the tool shapes the hand that shapes the tool.
 > |latitude|longitude|date      |temperature|
 > |--------|---------|----------|-----------|
 > |57.3    |-22.5    |2015-01-09|-14.2      |
+>
+> > ## Solution
+> > Latitude, longitude, and date are all required to uniquely identify the temperature record.
+> {: .solution}
 {: .challenge}
