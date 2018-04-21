@@ -161,11 +161,11 @@ def get_name(database_file, person_id):
 
     return results[0][0]
 
-print("full name for dyer:", get_name('survey.db', 'dyer'))
+print("Full name for dyer:", get_name('survey.db', 'dyer'))
 ~~~
 {: .python}
 ~~~
-full name for dyer: William Dyer
+Full name for dyer: William Dyer
 ~~~
 {: .output}
 
@@ -179,6 +179,85 @@ The library matches values to question marks in order,
 and translates any special characters in the values
 into their escaped equivalents
 so that they are safe to use.
+
+We can also use `sqlite3`'s cursor to make changes to our database,
+such as inserting a new name.
+For instance, we can define a new function called `add_name` like so:
+
+~~~
+def add_name(database_file, new_person):
+    query = "INSERT INTO Person VALUES" + repr(person_details) + ";"
+
+    connection = sqlite3.connect(database_file)
+    cursor = connection.cursor()
+    cursor.execute(query)
+    cursor.close()
+    connection.close()
+
+
+def get_name(database_file, person_id):
+    query = "SELECT personal || ' ' || family FROM Person WHERE id=?;"
+
+    connection = sqlite3.connect(database_file)
+    cursor = connection.cursor()
+    cursor.execute(query, [person_id])
+    results = cursor.fetchall()
+    cursor.close()
+    connection.close()
+
+    return results[0][0]
+
+# Insert a new name
+add_name('survey.db', ('barrett', 'Mary', 'Barrett'))
+# Check it exists
+print("Full name for barrett:", get_name('survey.db', 'barrett'))
+~~~
+{: .python}
+~~~
+IndexError: list index out of range
+~~~
+{: .output}
+
+The `get_name` command has failed, even though we added Mary's
+entry into the table using `add_name`.
+This is because we must perform a `connection.commit()` before closing
+the connection, in order to save our changes to the database.
+
+~~~
+def add_name(database_file, new_person):
+    query = "INSERT INTO Person VALUES" + repr(person_details) + ";"
+
+    connection = sqlite3.connect(database_file)
+    cursor = connection.cursor()
+    cursor.execute(query)
+    cursor.close()
+    connection.commit()
+    connection.close()
+
+
+def get_name(database_file, person_id):
+    query = "SELECT personal || ' ' || family FROM Person WHERE id=?;"
+
+    connection = sqlite3.connect(database_file)
+    cursor = connection.cursor()
+    cursor.execute(query, [person_id])
+    results = cursor.fetchall()
+    cursor.close()
+    connection.close()
+
+    return results[0][0]
+
+# Insert a new name
+add_name('survey.db', ('barrett', 'Mary', 'Barrett'))
+# Check it exists
+print("Full name for barrett:", get_name('survey.db', 'barrett'))
+~~~
+{: .python}
+~~~
+Full name for barrett: Mary Barrett
+~~~
+{: .output}
+
 
 > ## Filling a Table vs. Printing Values
 >
