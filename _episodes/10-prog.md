@@ -218,7 +218,9 @@ IndexError: list index out of range
 ~~~
 {: .output}
 
-The `get_name` command has failed, even though we added Mary's
+Note that in versions of sqlite3 >= 2.5, the `get_name` function described
+above will fail with an `IndexError: list index out of range`,
+even though we added Mary's
 entry into the table using `add_name`.
 This is because we must perform a `connection.commit()` before closing
 the connection, in order to save our changes to the database.
