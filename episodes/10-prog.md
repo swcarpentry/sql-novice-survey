@@ -27,6 +27,7 @@ from an SQLite database stored in a file called `survey.db`:
 
 ~~~
 import sqlite3
+
 connection = sqlite3.connect("survey.db")
 cursor = connection.cursor()
 cursor.execute("SELECT Site.lat, Site.long FROM Site;")
@@ -91,6 +92,8 @@ For example,
 this function takes a user's ID as a parameter and returns their name:
 
 ~~~
+import sqlite3
+
 def get_name(database_file, person_id):
     query = "SELECT personal || ' ' || family FROM Person WHERE id='" + person_id + "';"
 
@@ -103,11 +106,11 @@ def get_name(database_file, person_id):
 
     return results[0][0]
 
-print("full name for dyer:", get_name('survey.db', 'dyer'))
+print("Full name for dyer:", get_name('survey.db', 'dyer'))
 ~~~
 {: .python}
 ~~~
-full name for dyer: William Dyer
+Full name for dyer: William Dyer
 ~~~
 {: .output}
 
@@ -149,6 +152,8 @@ instead of formatting our statements as strings.
 Here's what our example program looks like if we do this:
 
 ~~~
+import sqlite3
+
 def get_name(database_file, person_id):
     query = "SELECT personal || ' ' || family FROM Person WHERE id=?;"
 
@@ -185,6 +190,8 @@ such as inserting a new name.
 For instance, we can define a new function called `add_name` like so:
 
 ~~~
+import sqlite3
+
 def add_name(database_file, new_person):
     query = "INSERT INTO Person VALUES (?, ?, ?);"
 
@@ -226,6 +233,8 @@ This is because we must perform a `connection.commit()` before closing
 the connection, in order to save our changes to the database.
 
 ~~~
+import sqlite3
+
 def add_name(database_file, new_person):
     query = "INSERT INTO Person VALUES" + repr(person_details) + ";"
 
