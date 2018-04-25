@@ -236,11 +236,11 @@ the connection, in order to save our changes to the database.
 import sqlite3
 
 def add_name(database_file, new_person):
-    query = "INSERT INTO Person VALUES" + repr(person_details) + ";"
+    query = "INSERT INTO Person VALUES (?, ?, ?);"
 
     connection = sqlite3.connect(database_file)
     cursor = connection.cursor()
-    cursor.execute(query)
+    cursor.execute(query, list(new_person))
     cursor.close()
     connection.commit()
     connection.close()
