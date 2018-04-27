@@ -183,4 +183,5 @@ SELECT personal || ' ' || family FROM Person;
 > > SELECT DISTINCT substr(site, 1, instr(site, '-') - 1) AS MajorSite FROM Visited;
 > > ```
 > > {: .sql}
+> {: .solution}
 {: .challenge}
