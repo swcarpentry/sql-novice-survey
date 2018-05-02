@@ -13,9 +13,8 @@ or run `make` in this directory for a list of helpful commands.
 
 Maintainer(s):
 
-* [Abigail Cabunoc Mayes][cabunoc-mayes-abigail]
-* [Sheldon McKay][mckay-sheldon]
+* [Rémi Rampin](https://software-carpentry.org/team/#rampin_rmi)
+* [Henry Senyondo](https://software-carpentry.org/team/#senyondo_henry)
+* Jane Wyngaard
 
-[cabunoc-mayes-abigail]: http://software-carpentry.org/team/#cabunoc_abigail
 [lesson-example]: https://swcarpentry.github.com/lesson-example/
-[mckay-sheldon]: http://software-carpentry.org/team/#mckay_sheldon
