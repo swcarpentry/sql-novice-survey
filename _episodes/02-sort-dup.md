@@ -72,10 +72,12 @@ SELECT DISTINCT quant FROM Survey;
 |sal  |
 |temp |
 
-If we want to determine which sites have which quant measurement,
+If we want to determine which sites (stored in the `taken` column)
+have which `quant` measurement,
 we can use the `DISTINCT` keyword on multiple columns.
 If we select more than one column,
-the distinct *pairs* of values are returned:
+distinct *sets* of values are returned
+(in this case *pairs*, because we are selecting two columns):
 
 ~~~
 SELECT DISTINCT taken, quant FROM Survey;
