@@ -72,7 +72,7 @@ SELECT DISTINCT quant FROM Survey;
 |sal  |
 |temp |
 
-If we want to determine which sites (stored in the `taken` column)
+If we want to determine which visit (stored in the `taken` column)
 have which `quant` measurement,
 we can use the `DISTINCT` keyword on multiple columns.
 If we select more than one column,
