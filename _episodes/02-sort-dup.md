@@ -72,10 +72,12 @@ SELECT DISTINCT quant FROM Survey;
 |sal  |
 |temp |
 
-If we want to determine which sites have which quant measurement,
+If we want to determine which visit (stored in the `taken` column)
+have which `quant` measurement,
 we can use the `DISTINCT` keyword on multiple columns.
 If we select more than one column,
-the distinct *pairs* of values are returned:
+distinct *sets* of values are returned
+(in this case *pairs*, because we are selecting two columns):
 
 ~~~
 SELECT DISTINCT taken, quant FROM Survey;
@@ -158,7 +160,7 @@ SELECT * FROM person ORDER BY id DESC;
 we can use `ASC` instead of `DESC`.)
 
 
-In order to look at which scientist measured quantities at each site,
+In order to look at which scientist measured quantities during each visit,
 we can look again at the `Survey` table.
 We can also sort on several fields at once.
 For example,
@@ -195,8 +197,8 @@ SELECT taken, person, quant FROM Survey ORDER BY taken ASC, person DESC;
 |837  |lake  |sal  |
 |844  |roe   |rad  |
 
-This query gives us a good idea of which scientist was at which site,
-and what measurements they performed while they were there.
+This query gives us a good idea of which scientist was involved in which visit,
+and what measurements they performed during the visit.
 
 Looking at the table, it seems like some scientists specialized in
 certain kinds of measurements.  We can examine which scientists
