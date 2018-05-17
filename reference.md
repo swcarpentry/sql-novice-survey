@@ -46,14 +46,14 @@ filter
 :   To select only the records that meet certain conditions.
 
 foreign key
-:   One or more values in a [database table](#table-database) that identify
-    [records](#record-database) in another table.
+:   One or more values in a [database table](#table) that identify
+    [records](#record) in another table.
 
 prepared statement
 :   A template for an [SQL](#sql) query in which some values can be filled in.
 
 primary key
-:   One or more [fields](#field) in a [database table](#table) whose values are
+:   One or more [fields](#fields) in a [database table](#table) whose values are
     guaranteed to be unique for each [record](#record), i.e., whose values
     uniquely identify the entry.
 

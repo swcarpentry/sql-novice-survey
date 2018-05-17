@@ -327,6 +327,6 @@ SELECT rowid, * FROM Person;
 
 A good visual explanation of joins can be found [here][joinref]
 
-[outer]: http://en.wikipedia.org/wiki/Join_%28SQL%29#Outer_join
+[outer]: https://en.wikipedia.org/wiki/Join_%28SQL%29#Outer_join
 [rowid]: https://www.sqlite.org/lang_createtable.html#rowid
 [joinref]: http://sql-joins.leopard.in.ua/
