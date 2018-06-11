@@ -18,7 +18,7 @@ keypoints:
 A [relational database]({{ site.github.url }}/reference/#relational-database)
 is a way to store and manipulate information.
 Databases are arranged as [tables]({{ site.github.url }}/reference/#table).
-Each table has columns (also known as [fields]({{ site.github.url }}/reference/#field)) that describe the data,
+Each table has columns (also known as [fields]({{ site.github.url }}/reference/#fields)) that describe the data,
 and rows (also known as [records]({{ site.github.url }}/reference/#record)) which contain the data.
 
 When we are using a spreadsheet,
