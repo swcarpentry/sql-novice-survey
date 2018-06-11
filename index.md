@@ -7,7 +7,7 @@ In the late 1920s and early 1930s,
 William Dyer,
 Frank Pabodie,
 and Valentina Roerich led expeditions to the
-[Pole of Inaccessibility](http://en.wikipedia.org/wiki/Pole_of_inaccessibility)
+[Pole of Inaccessibility](https://en.wikipedia.org/wiki/Pole_of_inaccessibility)
 in the South Pacific,
 and then onward to Antarctica.
 Two years ago,

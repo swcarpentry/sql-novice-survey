@@ -191,7 +191,7 @@ this technique is outside the scope of this chapter.
 
 > ## Generating Insert Statements
 >
-> One of our colleagues has sent us a [CSV]({{ site.github.url }}/reference/#comma-separated-values) file containing
+> One of our colleagues has sent us a [CSV]({{ site.github.url }}/reference/#comma-separated-values-csv) file containing
 > temperature readings by Robert Olmstead, which is formatted like
 > this:
 >

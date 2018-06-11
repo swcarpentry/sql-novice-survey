@@ -84,13 +84,13 @@ SELECT * FROM Visited WHERE site='DR-1' AND dated<'1930-01-01';
 > it stores dates as either text
 > (in the ISO-8601 standard format "YYYY-MM-DD HH:MM:SS.SSSS"),
 > real numbers
-> ([Julian days](http://en.wikipedia.org/wiki/Julian_day), the number of days since November 24, 4714 BCE),
+> ([Julian days](https://en.wikipedia.org/wiki/Julian_day), the number of days since November 24, 4714 BCE),
 > or integers
-> ([Unix time](http://en.wikipedia.org/wiki/Unix_time), the number of seconds since midnight, January 1, 1970).
+> ([Unix time](https://en.wikipedia.org/wiki/Unix_time), the number of seconds since midnight, January 1, 1970).
 > If this sounds complicated,
 > it is,
 > but not nearly as complicated as figuring out
-> [historical dates in Sweden](http://en.wikipedia.org/wiki/Swedish_calendar).
+> [historical dates in Sweden](https://en.wikipedia.org/wiki/Swedish_calendar).
 {: .callout}
 
 If we want to find out what measurements were taken by either Lake or Roerich,
