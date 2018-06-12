@@ -17,4 +17,4 @@ Maintainer(s):
 * [Henry Senyondo](https://software-carpentry.org/team/#senyondo_henry)
 * Jane Wyngaard
 
-[lesson-example]: https://swcarpentry.github.com/lesson-example/
+[lesson-example]: https://carpentries.github.io/lesson-example/
