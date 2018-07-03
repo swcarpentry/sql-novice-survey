@@ -30,7 +30,7 @@ we get this:
 ~~~
 SELECT quant FROM Survey;
 ~~~
-{: .sql}
+{: .language-sql}
 
 |quant|
 |-----|
@@ -64,7 +64,7 @@ query:
 ~~~
 SELECT DISTINCT quant FROM Survey;
 ~~~
-{: .sql}
+{: .language-sql}
 
 |quant|
 |-----|
@@ -82,7 +82,7 @@ distinct *sets* of values are returned
 ~~~
 SELECT DISTINCT taken, quant FROM Survey;
 ~~~
-{: .sql}
+{: .language-sql}
 
 |taken|quant|
 |-----|-----|
@@ -117,12 +117,12 @@ This means that query results aren't necessarily sorted,
 and even if they are,
 we often want to sort them in a different way,
 e.g., by their identifier instead of by their personal name.
-We can do this in SQL by adding an `ORDER BY` clause to our query:
+We can do this in.language-SQL by adding an `ORDER BY` clause to our query:
 
 ~~~
 SELECT * FROM Person ORDER BY id;
 ~~~
-{: .sql}
+{: .language-sql}
 
 |id     |personal |family  |
 |-------|---------|--------|
@@ -141,12 +141,16 @@ We can sort in the opposite order using `DESC` (for "descending"):
 
 > ## A note on ordering
 >
-> While it may look that the records are consistent every time we ask for them in this lesson, that is because no one has changed or modified any of the data so far. Remember to use ORDER BY if you want the rows returned to have any sort of consistent or predictable order.
+> While it may look that the records are consistent
+every time we ask for them in this lesson,
+that is because no one has changed or modified any of the data so far.
+Remember to use ORDER BY if you want the rows returned to have any 
+sort of consistent or predictable order.
 {: .callout}
 ~~~
 SELECT * FROM person ORDER BY id DESC;
 ~~~
-{: .sql}
+{: .language-sql}
 
 |id     |personal |family  |
 |-------|---------|--------|
@@ -171,7 +175,7 @@ within each group of equal `taken` values:
 ~~~
 SELECT taken, person, quant FROM Survey ORDER BY taken ASC, person DESC;
 ~~~
-{: .sql}
+{: .language-sql}
 
 |taken|person|quant|
 |-----|------|-----|
@@ -208,7 +212,7 @@ removing duplicates.
 ~~~
 SELECT DISTINCT quant, person FROM Survey ORDER BY quant ASC;
 ~~~
-{: .sql}
+{: .language-sql}
 
 |quant|person|
 |-----|------|
@@ -233,7 +237,7 @@ SELECT DISTINCT quant, person FROM Survey ORDER BY quant ASC;
 > > ~~~
 > > SELECT DISTINCT dated FROM Visited;
 > > ~~~
-> > {: .sql}
+> > {: .language-sql}
 > >
 > > |dated     |
 > > |----------|
@@ -258,7 +262,7 @@ SELECT DISTINCT quant, person FROM Survey ORDER BY quant ASC;
 > > ~~~
 > > SELECT personal, family FROM Person ORDER BY family ASC;
 > > ~~~
-> > {: .sql}
+> > {: .language-sql}
 > >
 > > |personal  |family    |
 > > |----------|----------|
@@ -269,3 +273,5 @@ SELECT DISTINCT quant, person FROM Survey ORDER BY quant ASC;
 > > |Valentina |Roerich   |
 > {: .solution}
 {: .challenge}
+
+{% include links.md %}

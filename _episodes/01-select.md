@@ -18,7 +18,8 @@ keypoints:
 A [relational database]({{ page.root }}/reference/#relational-database).
 is a way to store and manipulate information.
 Databases are arranged as [tables]({{ page.root }}/reference/#table).
-Each table has columns (also known as [fields]({{ page.root }}/reference/#fields)) that describe the data,
+Each table has columns (also known as
+[fields]({{ page.root }}/reference/#fields)) that describe the data,
 and rows (also known as [records]({{ page.root }}/reference/#record)) which contain the data.
 
 When we are using a spreadsheet,
@@ -58,7 +59,7 @@ but that handful accounts for most of what scientists do.
 > $ cd /path/to/survey/data/
 > $ sqlite3 survey.db
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > The SQLite command is `sqlite3` and you are telling SQLite to open up
 > the `survey.db`.  You need to specify the `.db` file otherwise, SQLite
@@ -69,7 +70,8 @@ but that handful accounts for most of what scientists do.
 > command, type `.help`.
 {: .callout}
 
-Before we get into using SQLite to select the data, let's take a look at the tables of the database we will use in our examples:
+Before we get into using SQLite to select the data,
+let's take a look at the tables of the database we will use in our examples:
 
 <div class="row">
   <div class="col-md-6" markdown="1">
@@ -153,7 +155,7 @@ we'll return to these missing values [later]({{ page.root }}/05-null/).
 > $ cd Desktop
 > $ ls | grep survey.db
 > ~~~
-> {: .bash}
+> {: .language-bash}
 > ~~~
 > survey.db
 > ~~~
@@ -164,7 +166,7 @@ we'll return to these missing values [later]({{ page.root }}/05-null/).
 > ~~~
 > $ sqlite3 survey.db
 > ~~~
-> {: .bash}
+> {: .language-bash}
 > ~~~
 > SQLite version 3.8.8 2015-01-16 12:08:06
 > Enter ".help" for usage hints.
@@ -182,7 +184,7 @@ we'll return to these missing values [later]({{ page.root }}/05-null/).
 > ~~~
 > .tables
 > ~~~
-> {: .sql}
+> {: .language-sql}
 > ~~~
 > Person   Site     Survey   Visited
 > ~~~
@@ -197,7 +199,7 @@ we'll return to these missing values [later]({{ page.root }}/05-null/).
 > .mode column
 > .header on
 > ~~~
-> {: .sql}
+> {: .language-sql}
 >
 > To exit SQLite and return to the shell command line,
 > you can use either `.quit` or `.exit`.
@@ -212,7 +214,7 @@ Our query and its output look like this:
 ~~~
 SELECT family, personal FROM Person;
 ~~~
-{: .sql}
+{: .language-sql}
 
 |family  |personal |
 |--------|---------|
@@ -233,7 +235,7 @@ SQL is [case insensitive]({{ page.root }}/reference/#case-insensitive).
 ~~~
 SeLeCt FaMiLy, PeRsOnAl FrOm PeRsOn;
 ~~~
-{: .sql}
+{: .language-sql}
 
 |family  |personal |
 |--------|---------|
@@ -265,7 +267,7 @@ SELECT id FROM Person
 ...>
 ...>
 ~~~
-{: .sql}
+{: .language-sql}
 
 This is SQL's prompt, where it is waiting for additional commands or
 for a `;` to let SQL know to finish.  This is easy to fix!  Just type
@@ -282,7 +284,7 @@ we could swap the columns in the output by writing our query as:
 ~~~
 SELECT personal, family FROM Person;
 ~~~
-{: .sql}
+{: .language-sql}
 
 |personal |family  |
 |---------|--------|
@@ -297,7 +299,7 @@ or even repeat columns:
 ~~~
 SELECT id, id, id FROM Person;
 ~~~
-{: .sql}
+{: .language-sql}
 
 |id      |id      |id      |
 |--------|--------|--------|
@@ -313,7 +315,7 @@ we can select all of the columns in a table using `*`:
 ~~~
 SELECT * FROM Person;
 ~~~
-{: .sql}
+{: .language-sql}
 
 |id      |personal |family  |
 |--------|---------|--------|
@@ -332,7 +334,7 @@ SELECT * FROM Person;
 > > ~~~
 > > SELECT name FROM Site;
 > > ~~~
-> > {: .sql}
+> > {: .language-sql}
 > >
 > > |name      |
 > > |----------|
@@ -349,14 +351,16 @@ SELECT * FROM Person;
 > ~~~
 > SELECT personal, family FROM person;
 > ~~~
-> {: .sql}
+> {: .language-sql}
 >
 > or as:
 >
 > ~~~
 > select Personal, Family from PERSON;
 > ~~~
-> {: .sql}
+> {: .language-sql}
 >
 > What style do you find easiest to read, and why?
 {: .challenge}
+
+{% include links.md %}

@@ -36,14 +36,14 @@ CREATE TABLE Site(name text, lat real, long real);
 CREATE TABLE Visited(id integer, site text, dated text);
 CREATE TABLE Survey(taken integer, person text, quant real, reading real);
 ~~~
-{: .sql}
+{: .language-sql}
 
 We can get rid of one of our tables using:
 
 ~~~
 DROP TABLE Survey;
 ~~~
-{: .sql}
+{: .language-sql}
 
 Be very careful when doing this:
 if you drop the wrong table, hope that the person maintaining the database has a backup,
@@ -84,7 +84,7 @@ CREATE TABLE Survey(
     foreign key(person) references Person(id)
 );
 ~~~
-{: .sql}
+{: .language-sql}
 
 Once again,
 exactly what constraints are available
@@ -102,7 +102,7 @@ INSERT INTO Site VALUES('DR-1', -49.85, -128.57);
 INSERT INTO Site VALUES('DR-3', -47.15, -126.72);
 INSERT INTO Site VALUES('MSK-4', -48.87, -123.40);
 ~~~
-{: .sql}
+{: .language-sql}
 
 We can also insert values into one table directly from another:
 
@@ -110,7 +110,7 @@ We can also insert values into one table directly from another:
 CREATE TABLE JustLatLong(lat text, long text);
 INSERT INTO JustLatLong SELECT lat, long FROM Site;
 ~~~
-{: .sql}
+{: .language-sql}
 
 Modifying existing records is done using the `UPDATE` statement.
 To do this we tell the database which table we want to update,
@@ -123,7 +123,7 @@ of the last `INSERT` statement above:
 ~~~
 UPDATE Site SET lat=-47.87, long=-122.40 WHERE name='MSK-4';
 ~~~
-{: .sql}
+{: .language-sql}
 
 Be careful to not forget the `where` clause or the update statement will
 modify *all* of the records in the database.
@@ -140,7 +140,7 @@ we can remove him from the `Person` table like this:
 ~~~
 DELETE FROM Person WHERE id = 'danforth';
 ~~~
-{: .sql}
+{: .language-sql}
 
 But what if we removed Anderson Lake instead?
 Our `Survey` table would still contain seven records
@@ -185,13 +185,14 @@ this technique is outside the scope of this chapter.
 > > ~~~
 > > UPDATE Survey SET person="unknown" WHERE person IS NULL;
 > > ~~~
-> > {: .sql}
+> > {: .language-sql}
 > {: .solution}
 {: .challenge}
 
 > ## Generating Insert Statements
 >
-> One of our colleagues has sent us a [CSV]({{ page.root }}/reference/#comma-separated-values-csv) file containing
+> One of our colleagues has sent us
+a [CSV]({{ page.root }}/reference/#comma-separated-values-csv) file containing
 > temperature readings by Robert Olmstead, which is formatted like
 > this:
 >
@@ -234,5 +235,7 @@ this technique is outside the scope of this chapter.
 > {: .solution}
 {: .challenge}
 
-[create-table]: https://www.sqlite.org/lang_createtable.html
-[drop-table]: https://www.sqlite.org/lang_droptable.html
+[create-table]: https://www.language-sqlite.org/lang_createtable.html
+[drop-table]: https://www.language-sqlite.org/lang_droptable.html
+
+{% include links.md %}

@@ -95,8 +95,11 @@ the tool shapes the hand that shapes the tool.
 > >
 > > The date entry is less clear cut, because it contains month, day, and year elements.
 > > However, there is a `DATE` datatype in SQL, and dates should be stored using this format.
-> > If we need to work with the month, day, or year separately, we can use the SQL functions available for our database software
-> > (for example [`EXTRACT`](https://docs.oracle.com/cd/B19306_01/server.102/b14200/functions050.htm) or [`STRFTIME`](http://www.sqlite.org/lang_datefunc.html) for SQLite).
+> > If we need to work with the month, day, or year separately,
+we can use the SQL functions available for our database software
+> > (for example
+[`EXTRACT`](https://docs.oracle.com/cd/B19306_01/server.102/b14200/functions050.htm)
+or [`STRFTIME`](http://www.sqlite.org/lang_datefunc.html) for SQLite).
 > {: .solution}
 {: .challenge}
 
@@ -113,3 +116,5 @@ the tool shapes the hand that shapes the tool.
 > > Latitude, longitude, and date are all required to uniquely identify the temperature record.
 > {: .solution}
 {: .challenge}
+
+{% include links.md %}

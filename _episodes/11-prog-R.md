@@ -34,7 +34,7 @@ results <- dbGetQuery(connection, "SELECT Site.lat, Site.long FROM Site;")
 print(results)
 dbDisconnect(connection)
 ~~~
-{: .r}
+{: .language-r}
 ~~~
      lat    long
 1 -49.85 -128.57
@@ -61,7 +61,8 @@ It's our job to make sure that SQL is properly formatted;
 if it isn't,
 or if something goes wrong when it is being executed,
 the database will report an error.
-This result is a dataframe with one row for each entry and one column for each column in the database.
+This result is a dataframe with one row for each
+entry and one column for each column in the database.
 
 Finally, the last line closes our connection,
 since the database can only keep a limited number of these open at one time.
@@ -93,7 +94,7 @@ print(paste("full name for dyer:", getName('dyer')))
 
 dbDisconnect(connection)
 ~~~
-{: .r}
+{: .language-r}
 ~~~ 
 full name for dyer: William Dyer
 ~~~
@@ -107,7 +108,7 @@ but what happens if someone gives us this string as input?
 ~~~ 
 dyer'; DROP TABLE Survey; SELECT '
 ~~~
-{: .sql}
+{: .language-sql}
 
 It looks like there's garbage after the user's ID,
 but it is very carefully chosen garbage.
@@ -117,7 +118,7 @@ the result is:
 ~~~ 
 SELECT personal || ' ' || family FROM Person WHERE id='dyer'; DROP TABLE Survey; SELECT '';
 ~~~
-{: .sql}
+{: .language-sql}
 
 If we execute this,
 it will erase one of the tables in our database.
@@ -153,13 +154,14 @@ print(paste("full name for dyer:", getName('dyer')))
 
 dbDisconnect(connection)
 ~~~
-{: .r}
+{: .language-r}
 ~~~ 
 full name for dyer: William Dyer
 ~~~
 {: .output}
 
-The key changes are in the query string and the `dbGetQuery` call (we use dbGetPreparedQuery instead).
+The key changes are in the query string and
+the `dbGetQuery` call (we use dbGetPreparedQuery instead).
 Instead of formatting the query ourselves,
 we put question marks in the query template where we want to insert values.
 When we call `dbGetPreparedQuery`,
@@ -201,7 +203,7 @@ To view all tables in a database, we can use `dbListTables()`:
 connection <- dbConnect(SQLite(), "survey.db")
 dbListTables(connection)
 ~~~
-{: .r}
+{: .language-r}
 ~~~
 "Person"  "Site"    "Survey"  "Visited"
 ~~~
@@ -213,7 +215,7 @@ To view all column names of a table, use `dbListFields()`:
 ~~~
 dbListFields(connection, "Survey")
 ~~~
-{: .r}
+{: .language-r}
 ~~~
 "taken"   "person"  "quant"   "reading"
 ~~~
@@ -225,7 +227,7 @@ To read an entire table as a dataframe, use `dbReadTable()`:
 ~~~
 dbReadTable(connection, "Person")
 ~~~
-{: .r}
+{: .language-r}
 ~~~
         id  personal   family
 1     dyer   William     Dyer
@@ -246,7 +248,7 @@ In this example we will write R's built-in `iris` dataset as a table in `survey.
 dbWriteTable(connection, "iris", iris, row.names = FALSE)
 head(dbReadTable(connection, "iris"))
 ~~~
-{: .r}
+{: .language-r}
 ~~~
   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 1          5.1         3.5          1.4         0.2  setosa
@@ -263,5 +265,6 @@ And as always, remember to close the database connection when done!
 ~~~
 dbDisconnect(connection)
 ~~~
-{: .r}
+{: .language-r}
 
+{% include links.md %}

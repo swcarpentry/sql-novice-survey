@@ -24,10 +24,12 @@ case insensitive
     See also: [case sensitive](#case-sensitive).
 
 case sensitive
-:   Treating upper and lower case characters as different. See also: [case insensitive](#case-insensitive).
+:   Treating upper and lower case characters as different. 
+    See also: [case insensitive](#case-insensitive).
 
 comma-separated values (CSV)
-:   A common textual representation for tables in which the values in each row are separated by commas.
+:   A common textual representation for tables in which the values in
+    each row are separated by commas.
 
 cross product
 :   A pairing of all elements of one set with all elements of another.
@@ -77,7 +79,8 @@ sentinel value
 :   A value in a collection that has a special meaning, such as 999 to mean "age unknown".
 
 SQL
-:   A special-purpose language for describing operations on [relational databases](#relational-database).
+:   A special-purpose language for describing operations 
+    on [relational databases](#relational-database).
 
 SQL injection attack
 :   An attack on a program in which the user's input contains malicious SQL statements.

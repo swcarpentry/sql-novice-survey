@@ -20,7 +20,7 @@ as part of our query:
 ~~~
 SELECT 1.05 * reading FROM Survey WHERE quant='rad';
 ~~~
-{: .sql}
+{: .language-sql}
 
 |1.05 * reading|
 |--------------|
@@ -46,7 +46,7 @@ and round to two decimal places:
 ~~~
 SELECT taken, round(5*(reading-32)/9, 2) FROM Survey WHERE quant='temp';
 ~~~
-{: .sql}
+{: .language-sql}
 
 |taken|round(5*(reading-32)/9, 2)|
 |-----|--------------------------|
@@ -65,7 +65,7 @@ query as:
 ~~~
 SELECT taken, round(5*(reading-32)/9, 2) as Celsius FROM Survey WHERE quant='temp';
 ~~~
-{: .sql}
+{: .language-sql}
 
 |taken|Celsius|
 |-----|-------|
@@ -80,7 +80,7 @@ for example by using the string concatenation operator `||`:
 ~~~
 SELECT personal || ' ' || family FROM Person;
 ~~~
-{: .sql}
+{: .language-sql}
 
 |personal || ' ' || family|
 |-------------------------|
@@ -104,7 +104,7 @@ SELECT personal || ' ' || family FROM Person;
 > > ~~~
 > > SELECT taken, reading / 100 FROM Survey WHERE person='roe' AND quant='sal';
 > > ~~~
-> > {: .sql}
+> > {: .language-sql}
 > >
 > > |taken     |reading / 100|
 > > |----------|-------------|
@@ -120,7 +120,7 @@ SELECT personal || ' ' || family FROM Person;
 > ~~~
 > SELECT * FROM Person WHERE id='dyer' UNION SELECT * FROM Person WHERE id='roe';
 > ~~~
-> {: .sql}
+> {: .language-sql}
 >
 > |id  |personal |family |
 > |----|-------- |-------|
@@ -146,9 +146,14 @@ SELECT personal || ' ' || family FROM Person;
 > > ## Solution
 > >
 > > ~~~
-> > SELECT taken,reading FROM Survey WHERE person!='roe' AND quant='sal' UNION SELECT taken,reading / 100 FROM Survey WHERE person='roe' AND quant='sal' ORDER BY taken ASC;
+> > SELECT taken,reading FROM Survey
+WHERE person!='roe' AND quant='sal'
+UNION
+SELECT taken,reading / 100 FROM Survey
+WHERE person='roe' AND quant='sal'
+ORDER BY taken ASC;
 > > ~~~
-> > {: .sql}
+> > {: .language-sql}
 > {: .solution}
 {: .challenge}
 
@@ -160,7 +165,7 @@ SELECT personal || ' ' || family FROM Person;
 > ~~~
 > SELECT DISTINCT site FROM Visited;
 > ~~~
-> {: .sql}
+> {: .language-sql}
 >
 > |site |
 > |-----|
@@ -182,6 +187,8 @@ SELECT personal || ' ' || family FROM Person;
 > > ```
 > > SELECT DISTINCT substr(site, 1, instr(site, '-') - 1) AS MajorSite FROM Visited;
 > > ```
-> > {: .sql}
+> > {: .language-sql}
 > {: .solution}
 {: .challenge}
+
+{% include links.md %}

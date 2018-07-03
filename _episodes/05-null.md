@@ -30,7 +30,7 @@ its date is null:
 ~~~
 SELECT * FROM Visited;
 ~~~
-{: .sql}
+{: .language-sql}
 
 |id   |site|dated     |
 |-----|----|----------|
@@ -49,7 +49,7 @@ If we select the records that come before 1930:
 ~~~
 SELECT * FROM Visited WHERE dated<'1930-01-01';
 ~~~
-{: .sql}
+{: .language-sql}
 
 |id   |site|dated     |
 |-----|----|----------|
@@ -62,7 +62,7 @@ and if we select the ones that come during or after 1930:
 ~~~
 SELECT * FROM Visited WHERE dated>='1930-01-01';
 ~~~
-{: .sql}
+{: .language-sql}
 
 |id   |site|dated     |
 |-----|----|----------|
@@ -100,14 +100,14 @@ comparing things to null with = and != produces null:
 ~~~
 SELECT * FROM Visited WHERE dated=NULL;
 ~~~
-{: .sql}
+{: .language-sql}
 
 produces no output, and neither does:
 
 ~~~
 SELECT * FROM Visited WHERE dated!=NULL;
 ~~~
-{: .sql}
+{: .language-sql}
 
 To check whether a value is `null` or not,
 we must use a special test `IS NULL`:
@@ -115,7 +115,7 @@ we must use a special test `IS NULL`:
 ~~~
 SELECT * FROM Visited WHERE dated IS NULL;
 ~~~
-{: .sql}
+{: .language-sql}
 
 |id   |site|dated     |
 |-----|----|----------|
@@ -126,7 +126,7 @@ or its inverse `IS NOT NULL`:
 ~~~
 SELECT * FROM Visited WHERE dated IS NOT NULL;
 ~~~
-{: .sql}
+{: .language-sql}
 
 |id   |site|dated     |
 |-----|----|----------|
@@ -147,7 +147,7 @@ It's natural to write the query like this:
 ~~~
 SELECT * FROM Survey WHERE quant='sal' AND person!='lake';
 ~~~
-{: .sql}
+{: .language-sql}
 
 |taken|person|quant|reading|
 |-----|------|-----|-------|
@@ -168,7 +168,7 @@ we need to add an explicit check:
 ~~~
 SELECT * FROM Survey WHERE quant='sal' AND (person!='lake' OR person IS NULL);
 ~~~
-{: .sql}
+{: .language-sql}
 
 |taken|person|quant|reading|
 |-----|------|-----|-------|
@@ -201,7 +201,7 @@ detail in [the next section]({{ page.root }}/06-agg/).
 > > ~~~
 > > SELECT * FROM Visited WHERE dated IS NOT NULL ORDER BY dated ASC;
 > > ~~~
-> > {: .sql}
+> > {: .language-sql}
 > >
 > > |id        |site      |dated     |
 > > |----------|----------|----------|
@@ -222,7 +222,7 @@ detail in [the next section]({{ page.root }}/06-agg/).
 > ~~~
 > SELECT * FROM Visited WHERE dated IN ('1927-02-08', NULL);
 > ~~~
-> {: .sql}
+> {: .language-sql}
 >
 > to produce?
 > What does it actually produce?
@@ -240,3 +240,5 @@ detail in [the next section]({{ page.root }}/06-agg/).
 > What does this simplify?
 > What burdens or risks does it introduce?
 {: .challenge}
+
+{% include links.md %}

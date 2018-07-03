@@ -37,7 +37,7 @@ for r in results:
 cursor.close()
 connection.close()
 ~~~
-{: .python}
+{: .language-python}
 ~~~
 (-49.85, -128.57)
 (-47.15, -126.72)
@@ -108,7 +108,7 @@ def get_name(database_file, person_id):
 
 print("Full name for dyer:", get_name('survey.db', 'dyer'))
 ~~~
-{: .python}
+{: .language-python}
 ~~~
 Full name for dyer: William Dyer
 ~~~
@@ -132,7 +132,7 @@ the result is:
 ~~~
 SELECT personal || ' ' || family FROM Person WHERE id='dyer'; DROP TABLE Survey; SELECT '';
 ~~~
-{: .sql}
+{: .language-sql}
 
 If we execute this,
 it will erase one of the tables in our database.
@@ -168,7 +168,7 @@ def get_name(database_file, person_id):
 
 print("Full name for dyer:", get_name('survey.db', 'dyer'))
 ~~~
-{: .python}
+{: .language-python}
 ~~~
 Full name for dyer: William Dyer
 ~~~
@@ -219,7 +219,7 @@ add_name('survey.db', ('barrett', 'Mary', 'Barrett'))
 # Check it exists
 print("Full name for barrett:", get_name('survey.db', 'barrett'))
 ~~~
-{: .python}
+{: .language-python}
 ~~~
 IndexError: list index out of range
 ~~~
@@ -263,7 +263,7 @@ add_name('survey.db', ('barrett', 'Mary', 'Barrett'))
 # Check it exists
 print("Full name for barrett:", get_name('survey.db', 'barrett'))
 ~~~
-{: .python}
+{: .language-python}
 ~~~
 Full name for barrett: Mary Barrett
 ~~~
@@ -300,7 +300,7 @@ Full name for barrett: Mary Barrett
 > > connection.commit()
 > > connection.close()
 > > ~~~
-> > {: .python}
+> > {: .language-python}
 > >
 > > For comparison, the following program writes the random numbers
 > > into the file `random_numbers.txt`:
@@ -314,7 +314,7 @@ Full name for barrett: Mary Barrett
 > >         # need to add linebreak \n
 > >         outfile.write("{}\n".format(number))
 > > ~~~
-> > {: .python}
+> > {: .language-python}
 > {: .solution}
 {: .challenge}
 
@@ -354,7 +354,7 @@ Full name for barrett: Mary Barrett
 > > connection_backup.commit()
 > > connection_backup.close()
 > > ~~~
-> > {: .python}
+> > {: .language-python}
 > >
 > > In contrast the following example uses the conditional ``SELECT`` statement
 > > to filter the numbers in SQL.
@@ -385,7 +385,9 @@ Full name for barrett: Mary Barrett
 > > connection_backup.commit()
 > > connection_backup.close()
 > > ~~~
-> > {: .python}
+> > {: .language-python}
 > >
 > {: .solution}
 {: .challenge}
+
+{% include links.md %}
