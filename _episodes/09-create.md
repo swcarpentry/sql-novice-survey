@@ -61,7 +61,7 @@ but most provide the following:
 
 Most databases also support Booleans and date/time values;
 SQLite uses the integers 0 and 1 for the former,
-and represents the latter as discussed [earlier](#a:dates).
+and represents the latter as discussed [earlier]({{ page.root }}/03-filter/#date-types).
 An increasing number of databases also support geographic data types,
 such as latitude and longitude.
 Keeping track of what particular systems do or do not offer,
