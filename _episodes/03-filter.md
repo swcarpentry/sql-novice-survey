@@ -14,7 +14,7 @@ keypoints:
 - "Write queries incrementally."
 ---
 One of the most powerful features of a database is
-the ability to [filter]({{ site.github.url }}/reference.html#filter) data,
+the ability to [filter]({{ page.root }}/reference/#filter) data,
 i.e.,
 to select only those records that match certain criteria.
 For example,
@@ -25,7 +25,7 @@ by using a `WHERE` clause in our query:
 ~~~
 SELECT * FROM Visited WHERE site='DR-1';
 ~~~
-{: .sql}
+{: .language-sql}
 
 |id   |site|dated     |
 |-----|----|----------|
@@ -47,7 +47,7 @@ based on values in columns that aren't then displayed:
 ~~~
 SELECT id FROM Visited WHERE site='DR-1';
 ~~~
-{: .sql}
+{: .language-sql}
 
 |id   |
 |-----|
@@ -64,7 +64,7 @@ we can ask for all information from the DR-1 site collected before 1930:
 ~~~
 SELECT * FROM Visited WHERE site='DR-1' AND dated<'1930-01-01';
 ~~~
-{: .sql}
+{: .language-sql}
 
 |id   |site|dated     |
 |-----|----|----------|
@@ -84,9 +84,11 @@ SELECT * FROM Visited WHERE site='DR-1' AND dated<'1930-01-01';
 > it stores dates as either text
 > (in the ISO-8601 standard format "YYYY-MM-DD HH:MM:SS.SSSS"),
 > real numbers
-> ([Julian days](https://en.wikipedia.org/wiki/Julian_day), the number of days since November 24, 4714 BCE),
+> ([Julian days](https://en.wikipedia.org/wiki/Julian_day),
+the number of days since November 24, 4714 BCE),
 > or integers
-> ([Unix time](https://en.wikipedia.org/wiki/Unix_time), the number of seconds since midnight, January 1, 1970).
+> ([Unix time](https://en.wikipedia.org/wiki/Unix_time),
+the number of seconds since midnight, January 1, 1970).
 > If this sounds complicated,
 > it is,
 > but not nearly as complicated as figuring out
@@ -99,7 +101,7 @@ we can combine the tests on their names using `OR`:
 ~~~
 SELECT * FROM Survey WHERE person='lake' OR person='roe';
 ~~~
-{: .sql}
+{: .language-sql}
 
 |taken|person|quant|reading|
 |-----|------|-----|-------|
@@ -120,7 +122,7 @@ we can use `IN` to see if a value is in a specific set:
 ~~~
 SELECT * FROM Survey WHERE person IN ('lake', 'roe');
 ~~~
-{: .sql}
+{: .language-sql}
 
 |taken|person|quant|reading|
 |-----|------|-----|-------|
@@ -143,7 +145,7 @@ we get this:
 ~~~
 SELECT * FROM Survey WHERE quant='sal' AND person='lake' OR person='roe';
 ~~~
-{: .sql}
+{: .language-sql}
 
 |taken|person|quant|reading|
 |-----|------|-----|-------|
@@ -162,7 +164,7 @@ We probably want this instead:
 ~~~
 SELECT * FROM Survey WHERE quant='sal' AND (person='lake' OR person='roe');
 ~~~
-{: .sql}
+{: .language-sql}
 
 |taken|person|quant|reading|
 |-----|------|-----|-------|
@@ -176,13 +178,13 @@ SELECT * FROM Survey WHERE quant='sal' AND (person='lake' OR person='roe');
 We can also filter by partial matches.  For example, if we want to
 know something just about the site names beginning with "DR" we can
 use the `LIKE` keyword.  The percent symbol acts as a
-[wildcard]({{ site.github.url }}/reference.html#wildcard), matching any characters in that
+[wildcard]({{ page.root }}/reference/#wildcard), matching any characters in that
 place.  It can be used at the beginning, middle, or end of the string:
 
 ~~~
 SELECT * FROM Visited WHERE site LIKE 'DR%';
 ~~~
-{: .sql}
+{: .language-sql}
 
 |id   |site |dated     |
 |-----|-----|----------|
@@ -202,7 +204,7 @@ to give a second level of filtering:
 ~~~
 SELECT DISTINCT person, quant FROM Survey WHERE person='lake' OR person='roe';
 ~~~
-{: .sql}
+{: .language-sql}
 
 |person|quant|
 |------|-----|
@@ -246,7 +248,7 @@ not to the entire rows as they are being processed.
 > ~~~
 > SELECT * FROM Site WHERE (lat > -48) OR (lat < 48);
 > ~~~
-> {: .sql}
+> {: .language-sql}
 >
 > Explain why this is wrong,
 > and rewrite the query so that it is correct.
@@ -260,7 +262,7 @@ not to the entire rows as they are being processed.
 > > ~~~
 > > SELECT * FROM Site WHERE (lat > -48) AND (lat < 48);
 > > ~~~
-> > {: .sql}
+> > {: .language-sql}
 > {: .solution}
 {: .challenge}
 
@@ -275,7 +277,7 @@ not to the entire rows as they are being processed.
 > > ~~~
 > > SELECT * FROM Survey WHERE quant='sal' AND ((reading > 1.0) OR (reading < 0.0));
 > > ~~~
-> > {: .sql}
+> > {: .language-sql}
 > >
 > > |taken     |person    |quant     |reading   |
 > > |----------|----------|----------|----------|
@@ -299,7 +301,11 @@ not to the entire rows as they are being processed.
 > > 1. True because these are the same character.
 > > 2. True because the wildcard can match _zero_ or more characters.
 > > 3. True because the `%` matches `bet` and the `a` matches the `a`.
-> > 4. True because the first wildcard matches `lpha` and the second wildcard matches zero characters (or vice versa).
+> > 4. True because the first wildcard matches `lpha` and the
+second wildcard matches zero characters (or vice versa).
 > > 5. True because the first wildcard matches `l` and the second wildcard matches `ha`.
 > {: .solution}
 {: .challenge}
+
+{% include links.md %}
+

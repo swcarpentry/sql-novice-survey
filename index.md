@@ -31,6 +31,7 @@ These lessons will show how to use a database to explore the expeditions' data.
 
 > ## Prerequisites
 >
-> * This lesson requires the Unix shell, plus [SQLite3](http://www.sqlite.org/) or [DB Browser for SQLite](http://sqlitebrowser.org/).
+> * This lesson requires the Unix shell,
+plus [SQLite3](http://www.sqlite.org/) or [DB Browser for SQLite](http://sqlitebrowser.org/).
 > * Please download the database we will use: [survey.db]({{ page.root }}/files/survey.db)
 {: .prereq}

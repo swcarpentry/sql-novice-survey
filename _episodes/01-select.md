@@ -15,18 +15,19 @@ keypoints:
 - "Use SELECT... FROM... to get values from a database table."
 - "SQL is case-insensitive (but data is case-sensitive)."
 ---
-A [relational database]({{ site.github.url }}/reference.html#relational-database)
+A [relational database]({{ page.root }}/reference/#relational-database).
 is a way to store and manipulate information.
-Databases are arranged as [tables]({{ site.github.url }}/reference.html#table).
-Each table has columns (also known as [fields]({{ site.github.url }}/reference.html#fields)) that describe the data,
-and rows (also known as [records]({{ site.github.url }}/reference.html#record)) which contain the data.
+Databases are arranged as [tables]({{ page.root }}/reference/#table).
+Each table has columns (also known as
+[fields]({{ page.root }}/reference/#fields)) that describe the data,
+and rows (also known as [records]({{ page.root }}/reference/#record)) which contain the data.
 
 When we are using a spreadsheet,
 we put formulas into cells to calculate new values based on old ones.
 When we are using a database,
 we send commands
-(usually called [queries]({{ site.github.url }}/reference.html#query))
-to a [database manager]({{ site.github.url }}/reference.html#database-manager):
+(usually called [queries]({{ page.root }}/reference/#query))
+to a [database manager]({{ page.root }}/reference/#database-manager):
 a program that manipulates the database for us.
 The database manager does whatever lookups and calculations the query specifies,
 returning the results in a tabular form
@@ -43,7 +44,7 @@ that we can then use as a starting point for further queries.
 > so it *is* possible to move information from one to another.
 {: .callout}
 
-Queries are written in a language called [SQL]({{ site.github.url }}/reference.html#sql),
+Queries are written in a language called [SQL]({{ page.root }}/reference/#sql),
 which stands for "Structured Query Language".
 SQL provides hundreds of different ways to analyze and recombine data.
 We will only look at a handful of queries,
@@ -58,7 +59,7 @@ but that handful accounts for most of what scientists do.
 > $ cd /path/to/survey/data/
 > $ sqlite3 survey.db
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > The SQLite command is `sqlite3` and you are telling SQLite to open up
 > the `survey.db`.  You need to specify the `.db` file otherwise, SQLite
@@ -69,7 +70,8 @@ but that handful accounts for most of what scientists do.
 > command, type `.help`.
 {: .callout}
 
-Before we get into using SQLite to select the data, let's take a look at the tables of the database we will use in our examples:
+Before we get into using SQLite to select the data,
+let's take a look at the tables of the database we will use in our examples:
 
 <div class="row">
   <div class="col-md-6" markdown="1">
@@ -140,7 +142,7 @@ Before we get into using SQLite to select the data, let's take a look at the tab
 Notice that three entries --- one in the `Visited` table,
 and two in the `Survey` table --- don't contain any actual
 data, but instead have a special `-null-` entry:
-we'll return to these missing values [later]({{ site.github.url }}/05-null/).
+we'll return to these missing values [later]({{ page.root }}/05-null/).
 
 
 > ## Checking If Data is Available
@@ -153,7 +155,7 @@ we'll return to these missing values [later]({{ site.github.url }}/05-null/).
 > $ cd Desktop
 > $ ls | grep survey.db
 > ~~~
-> {: .bash}
+> {: .language-bash}
 > ~~~
 > survey.db
 > ~~~
@@ -164,7 +166,7 @@ we'll return to these missing values [later]({{ site.github.url }}/05-null/).
 > ~~~
 > $ sqlite3 survey.db
 > ~~~
-> {: .bash}
+> {: .language-bash}
 > ~~~
 > SQLite version 3.8.8 2015-01-16 12:08:06
 > Enter ".help" for usage hints.
@@ -182,7 +184,7 @@ we'll return to these missing values [later]({{ site.github.url }}/05-null/).
 > ~~~
 > .tables
 > ~~~
-> {: .sql}
+> {: .language-sql}
 > ~~~
 > Person   Site     Survey   Visited
 > ~~~
@@ -197,7 +199,7 @@ we'll return to these missing values [later]({{ site.github.url }}/05-null/).
 > .mode column
 > .header on
 > ~~~
-> {: .sql}
+> {: .language-sql}
 >
 > To exit SQLite and return to the shell command line,
 > you can use either `.quit` or `.exit`.
@@ -212,7 +214,7 @@ Our query and its output look like this:
 ~~~
 SELECT family, personal FROM Person;
 ~~~
-{: .sql}
+{: .language-sql}
 
 |family  |personal |
 |--------|---------|
@@ -228,12 +230,12 @@ We have written our commands in upper case and the names for the table and colum
 in lower case,
 but we don't have to:
 as the example below shows,
-SQL is [case insensitive]({{ site.github.url }}/reference.html#case-insensitive).
+SQL is [case insensitive]({{ page.root }}/reference/#case-insensitive).
 
 ~~~
 SeLeCt FaMiLy, PeRsOnAl FrOm PeRsOn;
 ~~~
-{: .sql}
+{: .language-sql}
 
 |family  |personal |
 |--------|---------|
@@ -265,7 +267,7 @@ SELECT id FROM Person
 ...>
 ...>
 ~~~
-{: .sql}
+{: .language-sql}
 
 This is SQL's prompt, where it is waiting for additional commands or
 for a `;` to let SQL know to finish.  This is easy to fix!  Just type
@@ -282,7 +284,7 @@ we could swap the columns in the output by writing our query as:
 ~~~
 SELECT personal, family FROM Person;
 ~~~
-{: .sql}
+{: .language-sql}
 
 |personal |family  |
 |---------|--------|
@@ -297,7 +299,7 @@ or even repeat columns:
 ~~~
 SELECT id, id, id FROM Person;
 ~~~
-{: .sql}
+{: .language-sql}
 
 |id      |id      |id      |
 |--------|--------|--------|
@@ -313,7 +315,7 @@ we can select all of the columns in a table using `*`:
 ~~~
 SELECT * FROM Person;
 ~~~
-{: .sql}
+{: .language-sql}
 
 |id      |personal |family  |
 |--------|---------|--------|
@@ -332,7 +334,7 @@ SELECT * FROM Person;
 > > ~~~
 > > SELECT name FROM Site;
 > > ~~~
-> > {: .sql}
+> > {: .language-sql}
 > >
 > > |name      |
 > > |----------|
@@ -349,14 +351,16 @@ SELECT * FROM Person;
 > ~~~
 > SELECT personal, family FROM person;
 > ~~~
-> {: .sql}
+> {: .language-sql}
 >
 > or as:
 >
 > ~~~
 > select Personal, Family from PERSON;
 > ~~~
-> {: .sql}
+> {: .language-sql}
 >
 > What style do you find easiest to read, and why?
 {: .challenge}
+
+{% include links.md %}

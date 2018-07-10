@@ -40,7 +40,7 @@ let's start by joining the `Site` and `Visited` tables:
 ~~~
 SELECT * FROM Site JOIN Visited;
 ~~~
-{: .sql}
+{: .language-sql}
 
 |name |lat   |long   |id   |site  |dated     |
 |-----|------|-------|-----|------|----------|
@@ -70,7 +70,7 @@ SELECT * FROM Site JOIN Visited;
 |MSK-4|-48.87|-123.4 |844  |DR-1  |1932-03-22|
 
 `JOIN` creates
-the [cross product]({{ site.github.url }}/reference.html#cross-product)
+the [cross product]({{ page.root }}/reference/#cross-product)
 of two tables,
 i.e.,
 it joins each record of one table with each record of the other table
@@ -92,7 +92,7 @@ thus we need to use a filter:
 ~~~
 SELECT * FROM Site JOIN Visited ON Site.name=Visited.site;
 ~~~
-{: .sql}
+{: .language-sql}
 
 |name |lat   |long   |id   |site |dated     |
 |-----|------|-------|-----|-----|----------|
@@ -132,7 +132,7 @@ SELECT Site.lat, Site.long, Visited.dated
 FROM   Site JOIN Visited
 ON     Site.name=Visited.site;
 ~~~
-{: .sql}
+{: .language-sql}
 
 |lat   |long   |dated     |
 |------|-------|----------|
@@ -160,7 +160,7 @@ ON     Site.name=Visited.site
 AND    Visited.id=Survey.taken
 AND    Visited.dated IS NOT NULL;
 ~~~
-{: .sql}
+{: .language-sql}
 
 |lat   |long   |dated     |quant|reading|
 |------|-------|----------|-----|-------|
@@ -185,8 +185,8 @@ AND    Visited.dated IS NOT NULL;
 We can tell which records from `Site`, `Visited`, and `Survey`
 correspond with each other
 because those tables contain
-[primary keys]({{ site.github.url }}/reference.html#primary-key)
-and [foreign keys]({{ site.github.url }}/reference.html#foreign-key).
+[primary keys]({{ page.root }}/reference/#primary-key)
+and [foreign keys]({{ page.root }}/reference/#foreign-key).
 A primary key is a value,
 or combination of values,
 that uniquely identifies each record in a table.
@@ -220,7 +220,7 @@ and we can use those record numbers in queries:
 ~~~
 SELECT rowid, * FROM Person;
 ~~~
-{: .sql}
+{: .language-sql}
 
 |rowid|id      |personal |family  |
 |-----|--------|---------|--------|
@@ -243,7 +243,7 @@ SELECT rowid, * FROM Person;
  > > WHERE Site.name="DR-1" 
  > > AND Survey.quant ="rad";
  > > ~~~
- > > {: .sql}
+ > > {: .language-sql}
  > >
  > > |reading   |
  > > |----------|
@@ -266,7 +266,7 @@ SELECT rowid, * FROM Person;
  > > AND Survey.person=Person.id
  > > WHERE Person.personal="Frank";
  > > ~~~
- > > {: .sql}
+ > > {: .language-sql}
  > >
  > > |name   |
  > > |-------|
@@ -282,7 +282,7 @@ SELECT rowid, * FROM Person;
 > SELECT Site.name FROM Site JOIN Visited
 > ON Site.lat<-49.0 AND Site.name=Visited.site AND Visited.dated>='1932-01-01';
 > ~~~
-> {: .sql}
+> {: .language-sql}
 {: .challenge}
 
 > ## Who Has Been Where?
@@ -303,7 +303,7 @@ SELECT rowid, * FROM Person;
  > > AND Visited.dated IS NOT NULL
  > > ORDER BY Visited.dated;
  > > ~~~
- > > {: .sql}
+ > > {: .language-sql}
  > >
  > > name   |  lat        |  long       |  personal   | family   | quant     | reading   |     dated
  > >--------|-------------|-------------|-------------|----------|-----------|-----------|-----------
@@ -328,5 +328,7 @@ SELECT rowid, * FROM Person;
 A good visual explanation of joins can be found [here][joinref]
 
 [outer]: https://en.wikipedia.org/wiki/Join_%28SQL%29#Outer_join
-[rowid]: https://www.sqlite.org/lang_createtable.html#rowid
+[rowid]: https://www.language-sqlite.org/lang_createtable.html#rowid
 [joinref]: https://sql-joins.leopard.in.ua/
+
+{% include links.md %}

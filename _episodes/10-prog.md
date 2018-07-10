@@ -37,7 +37,7 @@ for r in results:
 cursor.close()
 connection.close()
 ~~~
-{: .python}
+{: .language-python}
 ~~~
 (-49.85, -128.57)
 (-47.15, -126.72)
@@ -57,7 +57,7 @@ Line 2 establishes a connection to the database.
 Since we're using SQLite,
 all we need to specify is the name of the database file.
 Other systems may require us to provide a username and password as well.
-Line 3 then uses this connection to create a [cursor]({{ site.github.url }}/reference.html#cursor).
+Line 3 then uses this connection to create a [cursor]({{ page.root }}/reference/#cursor).
 Just like the cursor in an editor,
 its role is to keep track of where we are in the database.
 
@@ -108,7 +108,7 @@ def get_name(database_file, person_id):
 
 print("Full name for dyer:", get_name('survey.db', 'dyer'))
 ~~~
-{: .python}
+{: .language-python}
 ~~~
 Full name for dyer: William Dyer
 ~~~
@@ -132,12 +132,12 @@ the result is:
 ~~~
 SELECT personal || ' ' || family FROM Person WHERE id='dyer'; DROP TABLE Survey; SELECT '';
 ~~~
-{: .sql}
+{: .language-sql}
 
 If we execute this,
 it will erase one of the tables in our database.
 
-This is called an [SQL injection attack]({{ site.github.url }}/reference.html#sql-injection-attack),
+This is called an [SQL injection attack]({{ page.root }}/reference/#sql-injection-attack),
 and it has been used to attack thousands of programs over the years.
 In particular,
 many web sites that take data from users insert values directly into queries
@@ -147,7 +147,7 @@ Since a villain might try to smuggle commands into our queries in many different
 the safest way to deal with this threat is
 to replace characters like quotes with their escaped equivalents,
 so that we can safely put whatever the user gives us inside a string.
-We can do this by using a [prepared statement]({{ site.github.url }}/reference.html#prepared-statement)
+We can do this by using a [prepared statement]({{ page.root }}/reference/#prepared-statement)
 instead of formatting our statements as strings.
 Here's what our example program looks like if we do this:
 
@@ -168,7 +168,7 @@ def get_name(database_file, person_id):
 
 print("Full name for dyer:", get_name('survey.db', 'dyer'))
 ~~~
-{: .python}
+{: .language-python}
 ~~~
 Full name for dyer: William Dyer
 ~~~
@@ -219,7 +219,7 @@ add_name('survey.db', ('barrett', 'Mary', 'Barrett'))
 # Check it exists
 print("Full name for barrett:", get_name('survey.db', 'barrett'))
 ~~~
-{: .python}
+{: .language-python}
 ~~~
 IndexError: list index out of range
 ~~~
@@ -263,7 +263,7 @@ add_name('survey.db', ('barrett', 'Mary', 'Barrett'))
 # Check it exists
 print("Full name for barrett:", get_name('survey.db', 'barrett'))
 ~~~
-{: .python}
+{: .language-python}
 ~~~
 Full name for barrett: Mary Barrett
 ~~~
@@ -300,7 +300,7 @@ Full name for barrett: Mary Barrett
 > > connection.commit()
 > > connection.close()
 > > ~~~
-> > {: .python}
+> > {: .language-python}
 > >
 > > For comparison, the following program writes the random numbers
 > > into the file `random_numbers.txt`:
@@ -314,7 +314,7 @@ Full name for barrett: Mary Barrett
 > >         # need to add linebreak \n
 > >         outfile.write("{}\n".format(number))
 > > ~~~
-> > {: .python}
+> > {: .language-python}
 > {: .solution}
 {: .challenge}
 
@@ -354,7 +354,7 @@ Full name for barrett: Mary Barrett
 > > connection_backup.commit()
 > > connection_backup.close()
 > > ~~~
-> > {: .python}
+> > {: .language-python}
 > >
 > > In contrast the following example uses the conditional ``SELECT`` statement
 > > to filter the numbers in SQL.
@@ -385,7 +385,9 @@ Full name for barrett: Mary Barrett
 > > connection_backup.commit()
 > > connection_backup.close()
 > > ~~~
-> > {: .python}
+> > {: .language-python}
 > >
 > {: .solution}
 {: .challenge}
+
+{% include links.md %}
