@@ -146,7 +146,7 @@ SELECT personal || ' ' || family FROM Person;
 > > ## Solution
 > >
 > > ~~~
-> > SELECT taken,reading FROM Survey WHERE person!='roe' AND quant='sal' UNION SELECT taken,reading / 100 FROM Survey WHERE person='roe' AND quant='sal' ORDER BY taken ASC;
+> > SELECT taken, reading FROM Survey WHERE person!='roe' AND quant='sal' UNION SELECT taken, reading / 100 FROM Survey WHERE person='roe' AND quant='sal' ORDER BY taken ASC;
 > > ~~~
 > > {: .sql}
 > {: .solution}
