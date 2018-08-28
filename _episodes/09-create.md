@@ -121,7 +121,7 @@ For example, if we made a mistake when entering the lat and long values
 of the last `INSERT` statement above:
 
 ~~~
-UPDATE Site SET lat=-47.87, long=-122.40 WHERE name='MSK-4';
+UPDATE Site SET lat = -47.87, long = -122.40 WHERE name = 'MSK-4';
 ~~~
 {: .sql}
 
@@ -183,7 +183,7 @@ this technique is outside the scope of this chapter.
 >
 > > ## Solution
 > > ~~~
-> > UPDATE Survey SET person="unknown" WHERE person IS NULL;
+> > UPDATE Survey SET person = "unknown" WHERE person IS NULL;
 > > ~~~
 > > {: .sql}
 > {: .solution}

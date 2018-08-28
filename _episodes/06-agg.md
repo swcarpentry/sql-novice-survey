@@ -68,7 +68,7 @@ Three others are `avg`,
 and `sum`:
 
 ~~~
-SELECT avg(reading) FROM Survey WHERE quant='sal';
+SELECT avg(reading) FROM Survey WHERE quant = 'sal';
 ~~~
 {: .sql}
 
@@ -77,7 +77,7 @@ SELECT avg(reading) FROM Survey WHERE quant='sal';
 |7.20333333333333|
 
 ~~~
-SELECT count(reading) FROM Survey WHERE quant='sal';
+SELECT count(reading) FROM Survey WHERE quant = 'sal';
 ~~~
 {: .sql}
 
@@ -86,7 +86,7 @@ SELECT count(reading) FROM Survey WHERE quant='sal';
 |9             |
 
 ~~~
-SELECT sum(reading) FROM Survey WHERE quant='sal';
+SELECT sum(reading) FROM Survey WHERE quant = 'sal';
 ~~~
 {: .sql}
 
@@ -107,7 +107,7 @@ for example,
 find the range of sensible salinity measurements:
 
 ~~~
-SELECT min(reading), max(reading) FROM Survey WHERE quant='sal' AND reading<=1.0;
+SELECT min(reading), max(reading) FROM Survey WHERE quant = 'sal' AND reading <= 1.0;
 ~~~
 {: .sql}
 
@@ -119,7 +119,7 @@ We can also combine aggregated results with raw results,
 although the output might surprise you:
 
 ~~~
-SELECT person, count(*) FROM Survey WHERE quant='sal' AND reading<=1.0;
+SELECT person, count(*) FROM Survey WHERE quant = 'sal' AND reading <= 1.0;
 ~~~
 {: .sql}
 
@@ -141,7 +141,7 @@ aggregation's result is "don't know"
 rather than zero or some other arbitrary value:
 
 ~~~
-SELECT person, max(reading), sum(reading) FROM Survey WHERE quant='missing';
+SELECT person, max(reading), sum(reading) FROM Survey WHERE quant = 'missing';
 ~~~
 {: .sql}
 
@@ -193,7 +193,7 @@ We know that this doesn't work:
 ~~~
 SELECT person, count(reading), round(avg(reading), 2)
 FROM  Survey
-WHERE quant='rad';
+WHERE quant = 'rad';
 ~~~
 {: .sql}
 
@@ -209,8 +209,8 @@ we could write five queries of the form:
 ~~~
 SELECT person, count(reading), round(avg(reading), 2)
 FROM  Survey
-WHERE quant='rad'
-AND   person='dyer';
+WHERE quant = 'rad'
+AND   person = 'dyer';
 ~~~
 {: .sql}
 
@@ -229,7 +229,7 @@ using a `GROUP BY` clause:
 ~~~
 SELECT   person, count(reading), round(avg(reading), 2)
 FROM     Survey
-WHERE    quant='rad'
+WHERE    quant = 'rad'
 GROUP BY person;
 ~~~
 {: .sql}
@@ -331,7 +331,7 @@ this query:
 > > ## Solution
 > >
 > > ~~~
-> > SELECT count(reading), avg(reading) FROM Survey WHERE quant='temp' AND person='pb';
+> > SELECT count(reading), avg(reading) FROM Survey WHERE quant = 'temp' AND person = 'pb';
 > > ~~~
 > > {: .sql}
 > >
@@ -372,7 +372,7 @@ this query:
 > We write the query:
 >
 > ~~~
-> SELECT reading - avg(reading) FROM Survey WHERE quant='rad';
+> SELECT reading - avg(reading) FROM Survey WHERE quant = 'rad';
 > ~~~
 > {: .sql}
 >
