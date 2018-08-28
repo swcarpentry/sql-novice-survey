@@ -241,7 +241,7 @@ SELECT rowid, * FROM Person;
  > > ON Site.name=Visited.site
  > > AND Visited.id=Survey.taken
  > > WHERE Site.name="DR-1" 
- > > AND Survey.quant ="rad";
+ > > AND Survey.quant="rad";
  > > ~~~
  > > {: .sql}
  > >
