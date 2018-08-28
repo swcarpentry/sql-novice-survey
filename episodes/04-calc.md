@@ -18,7 +18,7 @@ we can do this calculation on the fly
 as part of our query:
 
 ~~~
-SELECT 1.05 * reading FROM Survey WHERE quant='rad';
+SELECT 1.05 * reading FROM Survey WHERE quant = 'rad';
 ~~~
 {: .sql}
 
@@ -44,7 +44,7 @@ we can convert temperature readings from Fahrenheit to Celsius
 and round to two decimal places:
 
 ~~~
-SELECT taken, round(5*(reading-32)/9, 2) FROM Survey WHERE quant='temp';
+SELECT taken, round(5 * (reading - 32) / 9, 2) FROM Survey WHERE quant = 'temp';
 ~~~
 {: .sql}
 
@@ -63,7 +63,7 @@ succinctness and clarity. For example, we could write the previous
 query as:
 
 ~~~
-SELECT taken, round(5*(reading-32)/9, 2) as Celsius FROM Survey WHERE quant='temp';
+SELECT taken, round(5 * (reading - 32) / 9, 2) as Celsius FROM Survey WHERE quant = 'temp';
 ~~~
 {: .sql}
 
@@ -102,7 +102,7 @@ SELECT personal || ' ' || family FROM Person;
 > > ## Solution
 > >
 > > ~~~
-> > SELECT taken, reading / 100 FROM Survey WHERE person='roe' AND quant='sal';
+> > SELECT taken, reading / 100 FROM Survey WHERE person = 'roe' AND quant = 'sal';
 > > ~~~
 > > {: .sql}
 > >
@@ -118,7 +118,7 @@ SELECT personal || ' ' || family FROM Person;
 > The `UNION` operator combines the results of two queries:
 >
 > ~~~
-> SELECT * FROM Person WHERE id='dyer' UNION SELECT * FROM Person WHERE id='roe';
+> SELECT * FROM Person WHERE id = 'dyer' UNION SELECT * FROM Person WHERE id = 'roe';
 > ~~~
 > {: .sql}
 >
@@ -146,7 +146,7 @@ SELECT personal || ' ' || family FROM Person;
 > > ## Solution
 > >
 > > ~~~
-> > SELECT taken,reading FROM Survey WHERE person!='roe' AND quant='sal' UNION SELECT taken,reading / 100 FROM Survey WHERE person='roe' AND quant='sal' ORDER BY taken ASC;
+> > SELECT taken, reading FROM Survey WHERE person != 'roe' AND quant = 'sal' UNION SELECT taken, reading / 100 FROM Survey WHERE person = 'roe' AND quant = 'sal' ORDER BY taken ASC;
 > > ~~~
 > > {: .sql}
 > {: .solution}

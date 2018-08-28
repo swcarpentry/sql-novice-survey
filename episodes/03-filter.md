@@ -23,7 +23,7 @@ We can select these records from the `Visited` table
 by using a `WHERE` clause in our query:
 
 ~~~
-SELECT * FROM Visited WHERE site='DR-1';
+SELECT * FROM Visited WHERE site = 'DR-1';
 ~~~
 {: .sql}
 
@@ -45,7 +45,7 @@ we can filter records using `WHERE`
 based on values in columns that aren't then displayed:
 
 ~~~
-SELECT id FROM Visited WHERE site='DR-1';
+SELECT id FROM Visited WHERE site = 'DR-1';
 ~~~
 {: .sql}
 
@@ -62,7 +62,7 @@ For example,
 we can ask for all information from the DR-1 site collected before 1930:
 
 ~~~
-SELECT * FROM Visited WHERE site='DR-1' AND dated<'1930-01-01';
+SELECT * FROM Visited WHERE site = 'DR-1' AND dated < '1930-01-01';
 ~~~
 {: .sql}
 
@@ -97,7 +97,7 @@ If we want to find out what measurements were taken by either Lake or Roerich,
 we can combine the tests on their names using `OR`:
 
 ~~~
-SELECT * FROM Survey WHERE person='lake' OR person='roe';
+SELECT * FROM Survey WHERE person = 'lake' OR person = 'roe';
 ~~~
 {: .sql}
 
@@ -141,7 +141,7 @@ If we *don't* use parentheses,
 we get this:
 
 ~~~
-SELECT * FROM Survey WHERE quant='sal' AND person='lake' OR person='roe';
+SELECT * FROM Survey WHERE quant = 'sal' AND person = 'lake' OR person = 'roe';
 ~~~
 {: .sql}
 
@@ -160,7 +160,7 @@ and *any* measurement by Roerich.
 We probably want this instead:
 
 ~~~
-SELECT * FROM Survey WHERE quant='sal' AND (person='lake' OR person='roe');
+SELECT * FROM Survey WHERE quant = 'sal' AND (person = 'lake' OR person = 'roe');
 ~~~
 {: .sql}
 
@@ -200,7 +200,7 @@ we can use `DISTINCT` with `WHERE`
 to give a second level of filtering:
 
 ~~~
-SELECT DISTINCT person, quant FROM Survey WHERE person='lake' OR person='roe';
+SELECT DISTINCT person, quant FROM Survey WHERE person = 'lake' OR person = 'roe';
 ~~~
 {: .sql}
 
@@ -273,7 +273,7 @@ not to the entire rows as they are being processed.
 > > ## Solution
 > >
 > > ~~~
-> > SELECT * FROM Survey WHERE quant='sal' AND ((reading > 1.0) OR (reading < 0.0));
+> > SELECT * FROM Survey WHERE quant = 'sal' AND ((reading > 1.0) OR (reading < 0.0));
 > > ~~~
 > > {: .sql}
 > >
