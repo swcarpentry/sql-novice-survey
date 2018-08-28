@@ -47,7 +47,7 @@ Null doesn't behave like other values.
 If we select the records that come before 1930:
 
 ~~~
-SELECT * FROM Visited WHERE dated<'1930-01-01';
+SELECT * FROM Visited WHERE dated < '1930-01-01';
 ~~~
 {: .sql}
 
@@ -60,7 +60,7 @@ we get two results,
 and if we select the ones that come during or after 1930:
 
 ~~~
-SELECT * FROM Visited WHERE dated>='1930-01-01';
+SELECT * FROM Visited WHERE dated >= '1930-01-01';
 ~~~
 {: .sql}
 
@@ -98,14 +98,14 @@ In particular,
 comparing things to null with = and != produces null:
 
 ~~~
-SELECT * FROM Visited WHERE dated=NULL;
+SELECT * FROM Visited WHERE dated = NULL;
 ~~~
 {: .sql}
 
 produces no output, and neither does:
 
 ~~~
-SELECT * FROM Visited WHERE dated!=NULL;
+SELECT * FROM Visited WHERE dated != NULL;
 ~~~
 {: .sql}
 
@@ -145,7 +145,7 @@ that weren't taken by Lake.
 It's natural to write the query like this:
 
 ~~~
-SELECT * FROM Survey WHERE quant='sal' AND person!='lake';
+SELECT * FROM Survey WHERE quant = 'sal' AND person != 'lake';
 ~~~
 {: .sql}
 
@@ -166,7 +166,7 @@ If we want to keep these records
 we need to add an explicit check:
 
 ~~~
-SELECT * FROM Survey WHERE quant='sal' AND (person!='lake' OR person IS NULL);
+SELECT * FROM Survey WHERE quant = 'sal' AND (person != 'lake' OR person IS NULL);
 ~~~
 {: .sql}
 
