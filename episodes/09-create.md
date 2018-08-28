@@ -125,7 +125,7 @@ UPDATE Site SET lat=-47.87, long=-122.40 WHERE name='MSK-4';
 ~~~
 {: .sql}
 
-Be careful to not forget the `where` clause or the update statement will
+Be careful to not forget the `WHERE` clause or the update statement will
 modify *all* of the records in the database.
 
 Deleting records can be a bit trickier,
