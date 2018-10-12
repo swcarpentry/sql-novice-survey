@@ -183,7 +183,7 @@ this technique is outside the scope of this chapter.
 >
 > > ## Solution
 > > ~~~
-> > UPDATE Survey SET person = "unknown" WHERE person IS NULL;
+> > UPDATE Survey SET person = 'unknown' WHERE person IS NULL;
 > > ~~~
 > > {: .sql}
 > {: .solution}
