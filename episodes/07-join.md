@@ -240,8 +240,8 @@ SELECT rowid, * FROM Person;
  > > FROM Site JOIN Visited JOIN Survey 
  > > ON Site.name = Visited.site
  > > AND Visited.id = Survey.taken
- > > WHERE Site.name = "DR-1" 
- > > AND Survey.quant = "rad";
+ > > WHERE Site.name = 'DR-1' 
+ > > AND Survey.quant = 'rad';
  > > ~~~
  > > {: .sql}
  > >
@@ -264,7 +264,7 @@ SELECT rowid, * FROM Person;
  > > ON Site.name = Visited.site
  > > AND Visited.id = Survey.taken
  > > AND Survey.person = Person.id
- > > WHERE Person.personal = "Frank";
+ > > WHERE Person.personal = 'Frank';
  > > ~~~
  > > {: .sql}
  > >
