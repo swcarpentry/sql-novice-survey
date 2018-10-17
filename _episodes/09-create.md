@@ -33,8 +33,8 @@ the following statements create the four tables in our survey database:
 ~~~
 CREATE TABLE Person(id text, personal text, family text);
 CREATE TABLE Site(name text, lat real, long real);
-CREATE TABLE Visited(id integer, site text, dated text);
-CREATE TABLE Survey(taken integer, person text, quant real, reading real);
+CREATE TABLE Visited(id text, site text, dated text);
+CREATE TABLE Survey(taken integer, person text, quant text, reading real);
 ~~~
 {: .sql}
 
@@ -77,7 +77,7 @@ a better definition for the `Survey` table would be:
 CREATE TABLE Survey(
     taken   integer not null, -- where reading taken
     person  text,             -- may not know who took it
-    quant   real not null,    -- the quantity measured
+    quant   text not null,    -- the quantity measured
     reading real not null,    -- the actual reading
     primary key(taken, quant),
     foreign key(taken) references Visited(id),
