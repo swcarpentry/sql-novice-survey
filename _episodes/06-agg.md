@@ -355,10 +355,7 @@ this query:
 > >
 > > You can confirm this, by executing this code:
 > > ```
-> > SELECT AVG(a) FROM (
-> >     SELECT 1 AS a
-> >     UNION ALL SELECT NULL
-> >     UNION ALL SELECT 5);
+> > SELECT AVG(a) FROM (SELECT 1 AS a UNION SELECT NULL UNION SELECT 5);
 > > ```
 > > {: .sql}
 > {: .solution}
@@ -376,22 +373,37 @@ this query:
 > ~~~
 > {: .sql}
 >
-> What does this actually produce, and why?
-{: .challenge}
-
-> ## Ordering When Concatenating
+> What does this actually produce, and can you think of why?
 >
-> The function `group_concat(field, separator)`
-> concatenates all the values in a field
-> using the specified separator character
-> (or ',' if the separator isn't specified).
-> Use this to produce a one-line list of scientists' names,
-> such as:
->
-> ~~~
-> William Dyer, Frank Pabodie, Anderson Lake, Valentina Roerich, Frank Danforth
-> ~~~
-> {: .sql}
->
-> Can you find a way to order the list by surname?
+> > ## Solution
+> > The query produces only one row of results when we what we really want is a result for each of the readings.
+> > The `avg()` function produces only a single value, and because it is run first, the table is reduced to a single row. 
+> > The `reading` value is simply an arbitraty one.
+> > 
+> > To achieve what we wanted, we would have to run two queries:
+> >
+> > ~~~
+> > SELECT avg(reading) FROM Survey WHERE quant='rad';
+> > ~~~
+> > {: .sql}
+> >
+> > This produces the average value (6.5625), which we can then insert into a second query:
+> >
+> > ~~~
+> > SELECT reading - 6.5625 FROM Survey WHERE quant = 'rad';
+> > ~~~
+> > {: .sql}
+> >
+> > This produces what we want! But, lo and behold, we can combine this into a single query using something called subqueries!
+> >
+> > ~~~
+> > SELECT reading - (SELECT avg(reading) FROM Survey WHERE quant='rad') FROM Survey WHERE quant = 'rad';
+> > ~~~
+> > {: .sql}
+> > 
+> > This way we don't have execute two queries.
+> >
+> > In summary what we have done is to replace `avg(reading)` with `(SELECT avg(reading) FROM Survey WHERE quant='rad')` in the original query.
+> > 
+> {: .solution}
 {: .challenge}
