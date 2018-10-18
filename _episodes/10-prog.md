@@ -389,3 +389,23 @@ Full name for barrett: Mary Barrett
 > >
 > {: .solution}
 {: .challenge}
+
+> ## Generating Insert Statements
+>
+> One of our colleagues has sent us a [CSV]({{ site.github.url }}/reference.html#comma-separated-values-csv) file containing
+> temperature readings by Robert Olmstead, which is formatted like
+> this:
+>
+> ~~~
+> Taken,Temp
+> 619,-21.5
+> 622,-15.5
+> ~~~
+> {: .output}
+>
+> Write a small Python program that reads this file in and prints out
+> the SQL `INSERT` statements needed to add these records to the
+> survey database.  Note: you will need to add an entry for Olmstead
+> to the `Person` table.  If you are testing your program repeatedly,
+> you may want to investigate SQL's `INSERT or REPLACE` command.
+{: .challenge}
