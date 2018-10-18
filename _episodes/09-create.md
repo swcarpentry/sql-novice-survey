@@ -95,7 +95,7 @@ Once tables have been created,
 we can add, change, and remove records using our other set of commands,
 `INSERT`, `UPDATE`, and `DELETE`.
 
-The simplest form of `INSERT` statement lists values in order:
+Here is an example of inserting into Site:
 
 ~~~
 INSERT INTO Site (name, lat, long) VALUES ('DR-1', -49.85, -128.57);
@@ -104,10 +104,13 @@ INSERT INTO Site (name, lat, long) VALUES ('MSK-4', -48.87, -123.40);
 ~~~
 {: .sql}
 
+Note that you have to insert a correct value, defined by the datatype, into every column - you can't refrain from inserting into a column, 
+if you have no value to insert use NULL.
+
 We can also insert values into one table directly from another:
 
 ~~~
-CREATE TABLE JustLatLong(lat text, long text);
+CREATE TABLE JustLatLong(lat real, long real);
 INSERT INTO JustLatLong SELECT lat, long FROM Site;
 ~~~
 {: .sql}
@@ -118,7 +121,7 @@ what we want to change the values to for any or all of the fields,
 and under what conditions we should update the values.
 
 For example, if we made a mistake when entering the lat and long values
-of the last `INSERT` statement above:
+of the last Site table `INSERT` statement above, we can correct it with an update:
 
 ~~~
 UPDATE Site SET lat = -47.87, long = -122.40 WHERE name = 'MSK-4';
