@@ -471,7 +471,7 @@
    <rect fill="none" stroke="none" x="9115" y="7300" width="3394" height="684"/>
    <g fill="rgb(0,0,0)" stroke="none" font-family="Arial embedded" font-size="388" font-style="normal" font-weight="400">
     <text x="9365" y="7776">
-     <tspan x="9365 9581 9687 9797 10055 10313 10529 10787 11067 11304 11414 11499 11715 11930 12146">2. SELECT ident</tspan></text>
+     <tspan x="9365 9581 9687 9797 10055 10313 10529 10787 11067 11304 11414 11499 11715 11930 12146">2. SELECT id</tspan></text>
    </g>
   </g>
  </g>
