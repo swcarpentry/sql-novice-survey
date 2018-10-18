@@ -235,6 +235,16 @@ detail in [the next section]({{ site.github.url }}/06-agg/).
 >
 > to produce?
 > What does it actually produce?
+> > ## Solution
+> >
+> > The IN () function does not match NULL, and we only get results for the date '1927-02-08'.
+> > To also match for NULL we have to rewrite the query using the IS NULL condition:
+> >
+> > ~~~
+> > SELECT * FROM Visited WHERE dated = '1927-02-08' OR dated IS NULL; 
+> > ~~~
+> > {: .sql}
+> {: .solution}
 {: .challenge}
 
 > ## Pros and Cons of Sentinels
