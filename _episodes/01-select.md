@@ -12,6 +12,7 @@ keypoints:
 - "A relational database stores information in tables, each of which has a fixed set of columns and a variable number of records."
 - "A database manager is a program that manipulates information stored in a database."
 - "We write queries in a specialized language called SQL to extract information from databases."
+- "SQL is a set-based language, where we specify what data and format to return or save; but not how to save it or how to retrieve it (like you would specify in iterative loops in other languages.)
 - "Use SELECT... FROM... to get values from a database table."
 - "SQL is case-insensitive (but data is case-sensitive)."
 ---
@@ -30,7 +31,7 @@ to a [database manager]({{ site.github.url }}/reference.html#database-manager):
 a program that manipulates the database for us.
 The database manager does whatever lookups and calculations the query specifies,
 returning the results in a tabular form
-that we can then use as a starting point for further queries.
+that we can then use as a starting point for further queries.  This allows us to focus on the modeling of fields within a table, and relationships between tables, while delegating the row-level storage and retrieval responsibilities to the database manager.
 
 > ## Changing Database Managers
 >
