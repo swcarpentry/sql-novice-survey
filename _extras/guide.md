@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Instructor Notes"
-permalink: /guide/
 ---
 
 > **database** (dā'tə-bās') noun:
