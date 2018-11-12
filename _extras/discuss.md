@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Discussion
-permalink: /discuss/
 ---
 
 Relational databases are the most widely used by far,
