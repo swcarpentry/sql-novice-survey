@@ -177,6 +177,7 @@ we'll return to these missing values [later]({{ site.github.url }}/05-null/).
 > For a list of useful system commands, enter `.help`.
 >
 > All SQLite-specific commands are prefixed with a `.` to distinguish them from SQL commands.
+> 
 > Type `.tables` to list the tables in the database.
 >
 > ~~~
@@ -187,6 +188,27 @@ we'll return to these missing values [later]({{ site.github.url }}/05-null/).
 > Person   Site     Survey   Visited
 > ~~~
 > {: .output}
+>
+> If you didn't have the above tables, you might be curious what information was stored in each table.
+> To get more information on the tables, type `.schema` to see the SQL statements used to create the tables in the database.  The statements will have a list of the columns and the data types each column stores.
+> ~~~
+> .schema
+> ~~~
+> {: .sql}
+> ~~~
+> CREATE TABLE Person (id text, personal text, family text);
+> CREATE TABLE Site (name text, lat real, long real);
+> CREATE TABLE Survey (taken integer, person text, quant text, reading real);
+> CREATE TABLE Visited (id integer, site text, dated text);
+> ~~~
+> {: .output}
+>
+> The output is formatted as <**columnName** *dataType*>.  Thus we can see from the first line that the table **Person** has three columns: 
+> * **id** with type _text_
+> * **personal** with type _text_
+> * **family** with type _text_
+> 
+> Note: The available data types vary based on the database manager - you can search online for what data types are supported.
 >
 > You can change some SQLite settings to make the output easier to read.
 > First,
@@ -322,6 +344,27 @@ SELECT * FROM Person;
 |lake    |Anderson |Lake    |
 |roe     |Valentina|Roerich |
 |danforth|Frank    |Danforth|
+
+> ## Understanding CREATE statements
+> 
+> Use the `.schema` to identify column that contains integers.
+>
+> > ## Solution
+> >
+> > ~~~
+> > .schema
+> > ~~~
+> > {: .sql}
+> > ~~~
+> > CREATE TABLE Person (id text, personal text, family text);
+> > CREATE TABLE Site (name text, lat real, long real);
+> > CREATE TABLE Survey (taken integer, person text, quant text, reading real);
+> > CREATE TABLE Visited (id integer, site text, dated text);
+> > ~~~
+> > {: .output}
+> > From the output, we see that the **taken** column in the **Survey** table (3rd line) is composed of integers. 
+> {: .solution}
+{: .challenge}
 
 > ## Selecting Site Names
 >
