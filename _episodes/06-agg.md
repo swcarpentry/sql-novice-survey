@@ -395,3 +395,12 @@ this query:
 >
 > Can you find a way to order the list by surname?
 {: .challenge}
+
+> > ## Solution
+> > Yes, you can confirm this, by executing this code:
+> > ```
+> > SELECT group_concat(personal || ' ' || family, ", ") FROM Person ORDER BY family;
+> > ```
+> > {: .sql}
+> {: .solution}
+{: .challenge}
