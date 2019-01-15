@@ -32,22 +32,22 @@ The database manager does whatever lookups and calculations the query specifies,
 returning the results in a tabular form
 that we can then use as a starting point for further queries.
 
-> ## Changing Database Managers
->
-> Every database manager --- Oracle,
-> IBM DB2, PostgreSQL, MySQL, Microsoft Access, and SQLite --- stores
-> data in a different way,
-> so a database created with one cannot be used directly by another.
-> However,
-> every database manager can import and export data in a variety of formats, like .csv,
-> so it *is* possible to move information from one to another.
-{: .callout}
-
 Queries are written in a language called [SQL]({{ site.github.url }}/reference.html#sql),
 which stands for "Structured Query Language".
 SQL provides hundreds of different ways to analyze and recombine data.
 We will only look at a handful of queries,
 but that handful accounts for most of what scientists do.
+
+> ## Changing Database Managers
+>
+> Many database managers --- Oracle,
+> IBM DB2, PostgreSQL, MySQL, Microsoft Access, and SQLite ---  understand
+> SQL but each stores data in a different way,
+> so a database created with one cannot be used directly by another.
+> However, every database manager
+> can import and export data in a variety of formats like .csv, SQL,
+> so it *is* possible to move information from one to another.
+{: .callout}
 
 > ## Getting Into and Out Of SQLite
 >
