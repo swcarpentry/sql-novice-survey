@@ -108,7 +108,7 @@ Before we get into using SQLite to select the data, let's take a look at the tab
   </div>
   <div class="col-md-6" markdown="1">
 
-**Survey**: the actual readings.
+**Survey**: the actual readings.  The field `quant` is short for quantitative and indicates what is being measured.  Values are `rad`, `sal`, and `temp` referring to 'radiation', 'salinity' and 'temperature', respectively.
 
 |taken|person|quant|reading|
 |-----|------|-----|-------|
