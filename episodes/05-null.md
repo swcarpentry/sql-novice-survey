@@ -21,6 +21,15 @@ it is a one-of-a-kind value that means "nothing here".
 Dealing with `null` requires a few special tricks
 and some careful thinking.
 
+By default, SQLite does not display NULL values in its output. The `.nullvalue`
+command causes SQLite to display the value you specify for NULLs. We will use
+the value `-null-` to make the NULLs easier to see:
+
+~~~
+.nullvalue -null-
+~~~
+{: .sql}
+
 To start,
 let's have a look at the `Visited` table.
 There are eight records,
