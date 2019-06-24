@@ -63,7 +63,7 @@ query
 
 record
 :   A set of related values making up a single entry in a [database table](#table),
-    typically shown as a row. See also: [field](#field).
+    typically shown as a row. See also: [fields](#fields).
 
 referential integrity
 :   The internal consistency of values in a database. If an entry in one table
@@ -85,7 +85,7 @@ SQL injection attack
 
 table
 :   A set of data in a [relational database](#relational-database) organized into a set
-    of [records](#record), each having the same named [fields](#field).
+    of [records](#record), each having the same named [fields](#fields).
 
 wildcard
 :   A character used in pattern matching. In SQL's `like` operator, the wildcard "%"
