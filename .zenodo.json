@@ -1,0 +1,242 @@
+{
+  "contributors": [
+    {
+      "type": "Editor",
+      "name": "Abigail Cabunoc Mayes"
+    },
+    {
+      "type": "Editor",
+      "name": "Sam Hames"
+    },
+    {
+      "type": "Editor",
+      "name": "Henry Senyondo",
+      "orcid": "0000-0001-7105-5808"
+    },
+    {
+      "type": "Editor",
+      "name": "Rémi Rampin",
+      "orcid": "0000-0002-0524-2282"
+    },
+    {
+      "type": "Editor",
+      "name": "Jane Wyngaard"
+    }
+  ],
+  "creators": [
+    {
+      "name": "Greg Wilson",
+      "orcid": "0000-0001-8659-8979"
+    },
+    {
+      "name": "Raniere Silva"
+    },
+    {
+      "name": "Andrew Boughton",
+      "orcid": "0000-0002-0318-4912"
+    },
+    {
+      "name": "Sheldon John McKay",
+      "orcid": "0000-0002-4011-3160"
+    },
+    {
+      "name": "Rémi Rampin",
+      "orcid": "0000-0002-0524-2282"
+    },
+    {
+      "name": "Thomas Guignard"
+    },
+    {
+      "name": "Rémi Emonet",
+      "orcid": "0000-0002-1870-1329"
+    },
+    {
+      "name": "Paula Andrea Martinez",
+      "orcid": "0000-0002-8990-1985"
+    },
+    {
+      "name": "Gerard Capes"
+    },
+    {
+      "name": "Pauline Barmby",
+      "orcid": "0000-0003-2767-0090"
+    },
+    {
+      "name": "Ben Waugh",
+      "orcid": "0000-0003-0872-8920"
+    },
+    {
+      "name": "Donny Winston"
+    },
+    {
+      "name": "Ethan P White",
+      "orcid": "0000-0001-6728-7745"
+    },
+    {
+      "name": "François Michonneau",
+      "orcid": "0000-0002-9092-966X"
+    },
+    {
+      "name": "Trevor Bekolay",
+      "orcid": "0000-0001-5215-7999"
+    },
+    {
+      "name": "John Blischak",
+      "orcid": "0000-0003-2634-9879"
+    },
+    {
+      "name": "Jonathan Guyer",
+      "orcid": "0000-0002-1407-6589"
+    },
+    {
+      "name": "Matty Jones"
+    },
+    {
+      "name": "Morgan Taschuk",
+      "orcid": "0000-0003-0677-6902"
+    },
+    {
+      "name": "Erin Alison Becker",
+      "orcid": "0000-0002-6832-0233"
+    },
+    {
+      "name": "Jonah Duckles",
+      "orcid": "0000-0002-8985-3119"
+    },
+    {
+      "name": "Sheldon McKay"
+    },
+    {
+      "name": "Amy Brown"
+    },
+    {
+      "name": "Brian Ballsun-Stanton"
+    },
+    {
+      "name": "Doug Latornell",
+      "orcid": "0000-0002-7951-114X"
+    },
+    {
+      "name": "Gideon Juve"
+    },
+    {
+      "name": "Joshua Nahum"
+    },
+    {
+      "name": "Luke William Johnston",
+      "orcid": "0000-0003-4169-2616"
+    },
+    {
+      "name": "Maneesha Sane",
+      "orcid": "0000-0003-0726-5696"
+    },
+    {
+      "name": "Matthew Collins"
+    },
+    {
+      "name": "Mike Jackson",
+      "orcid": "0000-0002-1765-8234"
+    },
+    {
+      "name": "Patrick McCann",
+      "orcid": "0000-0002-9324-2775"
+    },
+    {
+      "name": "Ray Bell",
+      "orcid": "0000-0003-2623-0587"
+    },
+    {
+      "name": "Sheldon McKay"
+    },
+    {
+      "name": "Andrew Kubiak"
+    },
+    {
+      "name": "Avishek Kumar"
+    },
+    {
+      "name": "Bill Mills",
+      "orcid": "0000-0002-5887-6270"
+    },
+    {
+      "name": "Colleen Fallaw"
+    },
+    {
+      "name": "Dan Michael Heggø",
+      "orcid": "0000-0002-6189-5958"
+    },
+    {
+      "name": "Daniel Suess"
+    },
+    {
+      "name": "Dave Welch"
+    },
+    {
+      "name": "David W Wright"
+    },
+    {
+      "name": "Deborah Gertrude Digges"
+    },
+    {
+      "name": "Ethan Nelson"
+    },
+    {
+      "name": "George Graham"
+    },
+    {
+      "name": "Chris Tomlinson",
+      "orcid": "0000-0002-8634-6111"
+    },
+    {
+      "name": "Ioan Vancea"
+    },
+    {
+      "name": "Jake Lever"
+    },
+    {
+      "name": "James Mickley"
+    },
+    {
+      "name": "JohnRMoreau@gmail.com"
+    },
+    {
+      "name": "Kate Hertweck",
+      "orcid": "0000-0002-4026-4612"
+    },
+    {
+      "name": "Kevin Dyke"
+    },
+    {
+      "name": "lorra"
+    },
+    {
+      "name": "Louis Vernon"
+    },
+    {
+      "name": "Luc Small"
+    },
+    {
+      "name": "Mark Stacy"
+    },
+    {
+      "name": "Piotr Banaszkiewicz"
+    },
+    {
+      "name": "Rayna Michelle Harris",
+      "orcid": "0000-0002-7943-5650"
+    },
+    {
+      "name": "Seda Arat"
+    },
+    {
+      "name": "slimlime"
+    },
+    {
+      "name": "Stephen Davison",
+      "orcid": "0000-0003-0102-8200"
+    }
+  ],
+  "license": {
+    "id": "CC-BY-4.0"
+  }
+}
