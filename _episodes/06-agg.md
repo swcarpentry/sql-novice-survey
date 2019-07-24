@@ -379,7 +379,7 @@ this query:
 > What does this actually produce, and why?
 {: .challenge}
 
-> ## Ordering When Concatenating
+> ## Using the group_concat function
 >
 > The function `group_concat(field, separator)`
 > concatenates all the values in a field
@@ -393,5 +393,11 @@ this query:
 > ~~~
 > {: .sql}
 >
-> Can you find a way to order the list by surname?
+> Can you find a way to list all the scientists separated by a : character?
+> > ~~~
+> > SELECT group_concat(personal || ' ' || family, ':') FROM Person;
+> > ~~~
+> > {: .sql}
+> {: .solution}
 {: .challenge}
+
