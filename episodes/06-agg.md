@@ -393,11 +393,20 @@ this query:
 > ~~~
 > {: .sql}
 >
-> Can you find a way to list all the scientists separated by a : character?
+> Can you find a way to list all the scientists family names separated by a comma?
+> Can you find a way to list all the scientists personal and family names separated by a comma?
+> > List all the family names separated by a comma:
 > > ~~~
-> > SELECT group_concat(personal || ' ' || family, ':') FROM Person;
+> > SELECT group_concat(family, ',') FROM Person;
 > > ~~~
 > > {: .sql}
+> >
+> > List all the full names separated by a comma:
+> > ~~~
+> > SELECT group_concat(personal || ' ' || family, ',') FROM Person;
+> > ~~~
+> > {: .sql}
+
 > {: .solution}
 {: .challenge}
 
