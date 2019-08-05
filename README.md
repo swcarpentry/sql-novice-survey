@@ -13,8 +13,8 @@ or run `make` in this directory for a list of helpful commands.
 
 Maintainer(s):
 
-* [Rémi Rampin](https://software-carpentry.org/team/#rampin_rmi)
-* [Henry Senyondo](https://software-carpentry.org/team/#senyondo_henry)
-* Jane Wyngaard
+* [Rémi Rampin](https://carpentries.org/instructors/#remram44)
+* [Henry Senyondo](https://carpentries.org/instructors/#henrykironde)
+* [Jane Wyngaard](https://github.com/r4space)
 
 [lesson-example]: https://carpentries.github.io/lesson-example/
