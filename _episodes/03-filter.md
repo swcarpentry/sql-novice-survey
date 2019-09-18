@@ -240,7 +240,8 @@ not to the entire rows as they are being processed.
 
 > ## Fix This Query
 >
-> Suppose we want to select all sites that lie more than 48 degrees from the poles.
+> Suppose we want to select all sites that lie more than a magnitude of
+> 48 degrees from the poles.
 > Our first query is:
 >
 > ~~~
@@ -253,14 +254,20 @@ not to the entire rows as they are being processed.
 >
 > > ## Solution
 > >
-> > Because we used `OR`, a site on the South Pole for example will still meet 
-> > the second criteria and thus be included. Instead, we want to restrict this
-> > to sites that meet _both_ criteria:
+> > The condition (lat > -48) will return values greater than -48 and (lat < 48)
+> > will return all values that are greater than 48.
+> >
+> > OR will add these two results, hence a union of both results,
+> > However, AND will only return records that are in both sets hence an
+> > intersection of both results.
 > >
 > > ~~~
 > > SELECT * FROM Site WHERE (lat > -48) AND (lat < 48);
 > > ~~~
 > > {: .sql}
+> >
+> > ![SQL Filtering with And](../fig/sql-filter-and.svg)
+> >
 > {: .solution}
 {: .challenge}
 
