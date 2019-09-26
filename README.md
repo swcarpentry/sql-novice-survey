@@ -1,5 +1,6 @@
+[![GitHub release][shields_release]][swc_sql_novice_survey_releases]
 [![Create a Slack Account with us](https://img.shields.io/badge/Create_Slack_Account-The_Carpentries-071159.svg)](https://swc-slack-invite.herokuapp.com/) 
- [![Slack Status](https://img.shields.io/badge/Slack_Channel-swc--sql-E01563.svg)](https://swcarpentry.slack.com/messages/C9X3YNVNY) 
+[![Slack Status](https://img.shields.io/badge/Slack_Channel-swc--sql-E01563.svg)](https://swcarpentry.slack.com/messages/C9X3YNVNY) 
 
 
 sql-novice-survey
@@ -18,3 +19,5 @@ Maintainer(s):
 * [Jane Wyngaard](https://github.com/r4space)
 
 [lesson-example]: https://carpentries.github.io/lesson-example/
+[shields_release]: https://img.shields.io/github/v/release/swcarpentry/sql-novice-survey
+[swc_sql_novice_survey_releases]: https://github.com/swcarpentry/sql-novice-survey/releases
