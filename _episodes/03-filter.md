@@ -33,7 +33,7 @@ SELECT * FROM Visited WHERE site = 'DR-1';
 |622  |DR-1|1927-02-10|
 |844  |DR-1|1932-03-22|
 
-The database manager executes this query in two stages.
+The database engine executes this query in two stages.
 First,
 it checks at each row in the `Visited` table
 to see which ones satisfy the `WHERE`.
@@ -73,7 +73,7 @@ SELECT * FROM Visited WHERE site = 'DR-1' AND dated < '1930-01-01';
 
 > ## Date Types
 >
-> Most database managers have a special data type for dates.
+> Most database engines have a special data type for dates.
 > In fact, many have two:
 > one for dates,
 > such as "May 31, 1971",

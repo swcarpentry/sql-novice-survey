@@ -110,7 +110,7 @@ and for all the queries in this lesson you can use them interchangeably.
 There are differences in how they affect [outer joins][outer],
 but that's beyond the scope of this lesson.
 Once we add this to our query,
-the database manager throws away records
+the database engine throws away records
 that combined information about two different sites,
 leaving us with just the ones we want.
 

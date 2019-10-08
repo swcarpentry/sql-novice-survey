@@ -35,7 +35,7 @@ cross product
 cursor
 :   A pointer into a database that keeps track of outstanding operations.
 
-database manager
+database engine
 :   A program that manages a database, such as SQLite.
 
 fields

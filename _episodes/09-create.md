@@ -89,7 +89,7 @@ CREATE TABLE Survey(
 Once again,
 exactly what constraints are available
 and what they're called
-depends on which database manager we are using.
+depends on which database engine we are using.
 
 Once tables have been created,
 we can add, change, and remove records using our other set of commands,
@@ -155,7 +155,7 @@ we need to ensure that all references between tables can always be resolved corr
 One way to do this is to delete all the records
 that use `'lake'` as a foreign key
 before deleting the record that uses it as a primary key.
-If our database manager supports it,
+If our database engine supports it,
 we can automate this
 using [cascading delete]({{ site.github.url }}/reference.html#cascading-delete).
 However,

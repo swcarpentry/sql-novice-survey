@@ -130,7 +130,7 @@ SELECT person, count(*) FROM Survey WHERE quant = 'sal' AND reading <= 1.0;
 Why does Lake's name appear rather than Roerich's or Dyer's?
 The answer is that when it has to aggregate a field,
 but isn't told how to,
-the database manager chooses an actual value from the input set.
+the database engine chooses an actual value from the input set.
 It might use the first one processed,
 the last one,
 or something else entirely.
@@ -201,7 +201,7 @@ WHERE quant = 'rad';
 |------|--------------|----------------------|
 |roe   |8             |6.56                  |
 
-because the database manager selects a single arbitrary scientist's name
+because the database engine selects a single arbitrary scientist's name
 rather than aggregating separately for each scientist.
 Since there are only five scientists,
 we could write five queries of the form:
@@ -223,7 +223,7 @@ and if we ever had a data set with fifty or five hundred scientists,
 the chances of us getting all of those queries right is small.
 
 What we need to do is
-tell the database manager to aggregate the hours for each scientist separately
+tell the database engine to aggregate the hours for each scientist separately
 using a `GROUP BY` clause:
 
 ~~~
@@ -245,7 +245,7 @@ roe   |1             |11.25                 |
 groups all the records with the same value for the specified field together
 so that aggregation can process each batch separately.
 Since all the records in each batch have the same value for `person`,
-it no longer matters that the database manager
+it no longer matters that the database engine
 is picking an arbitrary one to display
 alongside the aggregated `reading` values.
 

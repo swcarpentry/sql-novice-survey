@@ -10,7 +10,7 @@ objectives:
 - "Explain why most database applications are written in a general-purpose language rather than in SQL."
 keypoints:
 - "Data analysis languages have libraries for accessing databases."
-- "To connect to a database, a program must use a library specific to that database manager."
+- "To connect to a database, a program must use a library specific to that database engine."
 - "R's libraries can be used to directly query or read from a database."
 - "Programs can read query results in batches or all at once."
 - "Queries should be written using parameter substitution, not string formatting."

@@ -38,7 +38,7 @@ the expression `1.05 * reading` is evaluated for each row.
 Expressions can use any of the fields,
 all of usual arithmetic operators,
 and a variety of common functions.
-(Exactly which ones depends on which database manager is being used.)
+(Exactly which ones depends on which database engine is being used.)
 For example,
 we can convert temperature readings from Fahrenheit to Celsius
 and round to two decimal places:
