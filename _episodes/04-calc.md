@@ -98,7 +98,7 @@ SELECT personal || ' ' || family FROM Person;
 > Write a query that returns all of her salinity measurements
 > from the `Survey` table
 > with the values divided by 100.
-> 
+>
 > > ## Solution
 > >
 > > ~~~
@@ -152,7 +152,7 @@ SELECT personal || ' ' || family FROM Person;
 > |752  |0.416  |
 > |837  |0.21   |
 > |837  |0.225  |
-> 
+>
 > > ## Solution
 > >
 > > ~~~

@@ -234,13 +234,13 @@ SELECT rowid, * FROM Person;
 >
 > Write a query that lists all radiation readings from the DR-1 site.
  > > ## Solution
- > > 
+ > >
  > > ~~~
- > > SELECT Survey.reading 
- > > FROM Site JOIN Visited JOIN Survey 
+ > > SELECT Survey.reading
+ > > FROM Site JOIN Visited JOIN Survey
  > > ON Site.name = Visited.site
  > > AND Visited.id = Survey.taken
- > > WHERE Site.name = 'DR-1' 
+ > > WHERE Site.name = 'DR-1'
  > > AND Survey.quant = 'rad';
  > > ~~~
  > > {: .sql}
@@ -257,7 +257,7 @@ SELECT rowid, * FROM Person;
 >
 > Write a query that lists all sites visited by people named "Frank".
  > > ## Solution
- > > 
+ > >
  > > ~~~
  > > SELECT DISTINCT Site.name
  > > FROM Site JOIN Visited JOIN Survey JOIN Person
@@ -292,7 +292,7 @@ SELECT rowid, * FROM Person;
 > and the type of measurement taken and its reading. Please avoid all null values.
 > Tip: you should get 15 records with 8 fields.
  > > ## Solution
- > > 
+ > >
  > > ~~~
  > > SELECT Site.name, Site.lat, Site.long, Person.personal, Person.family, Survey.quant, Survey.reading, Visited.dated
  > > FROM Site JOIN Visited JOIN Survey JOIN Person

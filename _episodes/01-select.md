@@ -177,7 +177,7 @@ we'll return to these missing values [later]({{ site.github.url }}/05-null/).
 > For a list of useful system commands, enter `.help`.
 >
 > All SQLite-specific commands are prefixed with a `.` to distinguish them from SQL commands.
-> 
+>
 > Type `.tables` to list the tables in the database.
 >
 > ~~~
@@ -203,11 +203,11 @@ we'll return to these missing values [later]({{ site.github.url }}/05-null/).
 > ~~~
 > {: .output}
 >
-> The output is formatted as <**columnName** *dataType*>.  Thus we can see from the first line that the table **Person** has three columns: 
+> The output is formatted as <**columnName** *dataType*>.  Thus we can see from the first line that the table **Person** has three columns:
 > * **id** with type _text_
 > * **personal** with type _text_
 > * **family** with type _text_
-> 
+>
 > Note: The available data types vary based on the database manager - you can search online for what data types are supported.
 >
 > You can change some SQLite settings to make the output easier to read.
@@ -346,7 +346,7 @@ SELECT * FROM Person;
 |danforth|Frank    |Danforth|
 
 > ## Understanding CREATE statements
-> 
+>
 > Use the `.schema` to identify column that contains integers.
 >
 > > ## Solution
@@ -362,7 +362,7 @@ SELECT * FROM Person;
 > > CREATE TABLE Visited (id integer, site text, dated text);
 > > ~~~
 > > {: .output}
-> > From the output, we see that the **taken** column in the **Survey** table (3rd line) is composed of integers. 
+> > From the output, we see that the **taken** column in the **Survey** table (3rd line) is composed of integers.
 > {: .solution}
 {: .challenge}
 
@@ -371,7 +371,7 @@ SELECT * FROM Person;
 > Write a query that selects only the `name` column from the `Site` table.
 >
 > > ## Solution
-> > 
+> >
 > > ~~~
 > > SELECT name FROM Site;
 > > ~~~

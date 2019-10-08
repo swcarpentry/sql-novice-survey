@@ -229,7 +229,7 @@ SELECT DISTINCT quant, person FROM Survey ORDER BY quant ASC;
 > Write a query that selects distinct dates from the `Visited` table.
 >
 > > ## Solution
-> > 
+> >
 > > ~~~
 > > SELECT DISTINCT dated FROM Visited;
 > > ~~~
@@ -254,7 +254,7 @@ SELECT DISTINCT quant, person FROM Survey ORDER BY quant ASC;
 > ordered by family name.
 >
 > > ## Solution
-> > 
+> >
 > > ~~~
 > > SELECT personal, family FROM Person ORDER BY family ASC;
 > > ~~~

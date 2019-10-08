@@ -52,7 +52,7 @@ but it's better not to have to rely on it.
 Different database systems support different data types for table columns,
 but most provide the following:
 
-|data type|  use                                       | 
+|data type|  use                                       |
 |---------|  ----------------------------------------- |
 |INTEGER  |  a signed integer                          |
 |REAL     |  a floating point number                   |

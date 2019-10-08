@@ -253,7 +253,7 @@ not to the entire rows as they are being processed.
 >
 > > ## Solution
 > >
-> > Because we used `OR`, a site on the South Pole for example will still meet 
+> > Because we used `OR`, a site on the South Pole for example will still meet
 > > the second criteria and thus be included. Instead, we want to restrict this
 > > to sites that meet _both_ criteria:
 > >
