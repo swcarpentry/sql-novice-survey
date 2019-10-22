@@ -285,6 +285,18 @@ SELECT rowid, * FROM Person;
 > {: .sql}
 {: .challenge}
 
+
+> ## How can I remind myself what columns are inside a table?
+>
+> The `PRAGMA` command helps us refresh our memory on table contents before writing a join.
+> 
+> ~~~
+> PRAGMA table_info(site);
+> ~~~
+> {: .sql}
+{: .challenge}
+
+
 > ## Who Has Been Where?
 >
 > Write a query that shows each site with exact location (lat, long) ordered by visited date,
@@ -330,3 +342,7 @@ A good visual explanation of joins can be found [here][joinref]
 [outer]: https://en.wikipedia.org/wiki/Join_%28SQL%29#Outer_join
 [rowid]: https://www.sqlite.org/lang_createtable.html#rowid
 [joinref]: https://sql-joins.leopard.in.ua/
+
+ 
+
+
