@@ -407,7 +407,7 @@ SELECT * FROM Person;
 
 > ## Quiz: How much can SELECT do?
 > 
-> Which of the following one(s) is/are wrong and will throw error?
+> Which of the following one(s) is/are wrong and will throw an error?
 > 
 > a) SELECT 1+1;
 > 
