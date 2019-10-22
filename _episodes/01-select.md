@@ -403,3 +403,29 @@ SELECT * FROM Person;
 >
 > What style do you find easiest to read, and why?
 {: .challenge}
+
+
+> ## Quiz: How much can SELECT do?
+> 
+> Which of the following one(s) is/are wrong and will throw error?
+> 
+> a) SELECT 1+1;
+> 
+> b) SELECT * FROM PERSON;
+> 
+> c) SELECT * FROM PERSON ALTER COLUMN Family;
+> 
+>
+> > ## Solution
+> > 
+> > The wrong answer is:
+> > c) SELECT * FROM PERSON ALTER COLUMN Family;
+> >
+> > Answers a) and b) are correct.
+> > SELECT performs a query and does not alter data of the original source (e.g. in a) or b) ).
+> > 
+> > The correct syntax to `ALTER` a column in sqlite is `ALTER TABLE`.
+> >
+> {: .solution}
+{: .challenge}
+
