@@ -15,24 +15,24 @@ keypoints:
 - "Use SELECT... FROM... to get values from a database table."
 - "SQL is case-insensitive (but data is case-sensitive)."
 ---
-A [relational database]({{ site.github.url }}/reference.html#relational-database)
+A [relational database]({% link reference.md %}#relational-database)
 is a way to store and manipulate information.
-Databases are arranged as [tables]({{ site.github.url }}/reference.html#table).
-Each table has columns (also known as [fields]({{ site.github.url }}/reference.html#fields)) that describe the data,
-and rows (also known as [records]({{ site.github.url }}/reference.html#record)) which contain the data.
+Databases are arranged as [tables]({% link reference.md %}#table).
+Each table has columns (also known as [fields]({% link reference.md %}#fields)) that describe the data,
+and rows (also known as [records]({% link reference.md %}#record)) which contain the data.
 
 When we are using a spreadsheet,
 we put formulas into cells to calculate new values based on old ones.
 When we are using a database,
 we send commands
-(usually called [queries]({{ site.github.url }}/reference.html#query))
-to a [database manager]({{ site.github.url }}/reference.html#database-manager):
+(usually called [queries]({% link reference.md %}#query))
+to a [database manager]({% link reference.md %}#database-manager):
 a program that manipulates the database for us.
 The database manager does whatever lookups and calculations the query specifies,
 returning the results in a tabular form
 that we can then use as a starting point for further queries.
 
-Queries are written in a language called [SQL]({{ site.github.url }}/reference.html#sql),
+Queries are written in a language called [SQL]({% link reference.md %}#sql),
 which stands for "Structured Query Language".
 SQL provides hundreds of different ways to analyze and recombine data.
 We will only look at a handful of queries,
@@ -250,7 +250,7 @@ We have written our commands in upper case and the names for the table and colum
 in lower case,
 but we don't have to:
 as the example below shows,
-SQL is [case insensitive]({{ site.github.url }}/reference.html#case-insensitive).
+SQL is [case insensitive]({% link reference.md %}#case-insensitive).
 
 ~~~
 SeLeCt FaMiLy, PeRsOnAl FrOm PeRsOn;
