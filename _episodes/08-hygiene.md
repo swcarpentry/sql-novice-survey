@@ -21,7 +21,7 @@ keypoints:
 
 Now that we have seen how joins work, we can see why the relational
 model is so useful and how best to use it.  The first rule is that
-every value should be [atomic]({{ site.github.url }}/reference.html#atomic), i.e., not
+every value should be [atomic]({% link reference.md %}#atomic), i.e., not
 contain parts that we might want to work with separately.  We store
 personal and family names in separate columns instead of putting the
 entire name in one column so that we don't have to use substring
