@@ -150,14 +150,14 @@ but that's never supposed to happen:
 and all our queries assume there will be a row in the latter
 matching every value in the former.
 
-This problem is called [referential integrity]({{ site.github.url }}/reference.html#referential-integrity):
+This problem is called [referential integrity]({% link reference.md %}#referential-integrity):
 we need to ensure that all references between tables can always be resolved correctly.
 One way to do this is to delete all the records
 that use `'lake'` as a foreign key
 before deleting the record that uses it as a primary key.
 If our database manager supports it,
 we can automate this
-using [cascading delete]({{ site.github.url }}/reference.html#cascading-delete).
+using [cascading delete]({% link reference.md %}#cascading-delete).
 However,
 this technique is outside the scope of this chapter.
 
@@ -191,7 +191,7 @@ this technique is outside the scope of this chapter.
 
 > ## Generating Insert Statements
 >
-> One of our colleagues has sent us a [CSV]({{ site.github.url }}/reference.html#comma-separated-values-csv) file containing
+> One of our colleagues has sent us a [CSV]({% link reference.md %}#comma-separated-values-csv) file containing
 > temperature readings by Robert Olmstead, which is formatted like
 > this:
 >
