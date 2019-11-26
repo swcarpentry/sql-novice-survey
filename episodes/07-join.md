@@ -280,7 +280,7 @@ SELECT rowid, * FROM Person;
 >
 > ~~~
 > SELECT Site.name FROM Site JOIN Visited
-> ON Site.lat <- 49.0 AND Site.name = Visited.site AND Visited.dated >= '1932-01-01';
+> ON Site.lat < -49.0 AND Site.name = Visited.site AND Visited.dated >= '1932-01-01';
 > ~~~
 > {: .sql}
 {: .challenge}
