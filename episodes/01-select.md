@@ -61,7 +61,7 @@ but that handful accounts for most of what scientists do.
 > {: .bash}
 >
 > The SQLite command is `sqlite3` and you are telling SQLite to open up
-> the `survey.db`.  You need to specify the `.db` file otherwise, SQLite
+> the `survey.db`.  You need to specify the `.db` file, otherwise SQLite
 > will open up a temporary, empty database.
 >
 > To get out of SQLite, type out `.exit` or `.quit`.  For some
@@ -189,7 +189,7 @@ we'll return to these missing values [later]({{ site.github.url }}/05-null/).
 > ~~~
 > {: .output}
 >
-> If you didn't have the above tables, you might be curious what information was stored in each table.
+> If you had the above tables, you might be curious what information was stored in each table.
 > To get more information on the tables, type `.schema` to see the SQL statements used to create the tables in the database.  The statements will have a list of the columns and the data types each column stores.
 > ~~~
 > .schema
