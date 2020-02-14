@@ -16,7 +16,6 @@ In beginning our examination of the Antarctic data, we want to know:
 
 * what kind of quantity measurements were taken at each site;
 * which scientists took measurements on the expedition;
-* the sites where each scientist took measurements
 
 To determine which measurements were taken at each site,
 we can examine the `Survey` table.
