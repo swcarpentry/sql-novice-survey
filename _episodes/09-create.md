@@ -98,9 +98,9 @@ we can add, change, and remove records using our other set of commands,
 The simplest form of `INSERT` statement lists values in order:
 
 ~~~
-INSERT INTO Site VALUES('DR-1', -49.85, -128.57);
-INSERT INTO Site VALUES('DR-3', -47.15, -126.72);
-INSERT INTO Site VALUES('MSK-4', -48.87, -123.40);
+INSERT INTO Site (name, lat, long) VALUES ('DR-1', -49.85, -128.57);
+INSERT INTO Site (name, lat, long) VALUES ('DR-3', -47.15, -126.72);
+INSERT INTO Site (name, lat, long) VALUES ('MSK-4', -48.87, -123.40);
 ~~~
 {: .sql}
 
