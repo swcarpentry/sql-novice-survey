@@ -193,7 +193,7 @@ For instance, we can define a new function called `add_name` like so:
 import sqlite3
 
 def add_name(database_file, new_person):
-    query = "INSERT INTO Person VALUES (?, ?, ?);"
+    query = "INSERT INTO Person (id, personal, family) VALUES (?, ?, ?);"
 
     connection = sqlite3.connect(database_file)
     cursor = connection.cursor()
@@ -236,7 +236,7 @@ the connection, in order to save our changes to the database.
 import sqlite3
 
 def add_name(database_file, new_person):
-    query = "INSERT INTO Person VALUES (?, ?, ?);"
+    query = "INSERT INTO Person (id, personal, family) VALUES (?, ?, ?);"
 
     connection = sqlite3.connect(database_file)
     cursor = connection.cursor()
@@ -290,7 +290,7 @@ Full name for barrett: Mary Barrett
 > > connection = sqlite3.connect("original.db")
 > > cursor = connection.cursor()
 > > cursor.execute("CREATE TABLE Pressure (reading float not null)")
-> > query = "INSERT INTO Pressure values (?);"
+> > query = "INSERT INTO Pressure (reading) VALUES (?);"
 > >
 > > for number in random_numbers:
 > >     cursor.execute(query, [number])
@@ -343,7 +343,7 @@ Full name for barrett: Mary Barrett
 > > connection_backup = sqlite3.connect("backup.db")
 > > cursor_backup = connection_backup.cursor()
 > > cursor_backup.execute("CREATE TABLE Pressure (reading float not null)")
-> > query = "INSERT INTO Pressure values (?);"
+> > query = "INSERT INTO Pressure (reading) VALUES (?);"
 > >
 > > for entry in results:
 > >     # number is saved in first column of the table
@@ -376,7 +376,7 @@ Full name for barrett: Mary Barrett
 > > connection_backup = sqlite3.connect("backup.db")
 > > cursor_backup = connection_backup.cursor()
 > > cursor_backup.execute("CREATE TABLE Pressure (reading float not null)")
-> > query = "INSERT INTO Pressure values (?);"
+> > query = "INSERT INTO Pressure (reading) VALUES (?);"
 > >
 > > for entry in results:
 > >     cursor_backup.execute(query, entry)
