@@ -353,8 +353,6 @@ this query:
 > > The function returns 3.0, which is the average of the 1.0 and 5.0.
 > > As `NULL` is not a value (it is the absence of a value),
 > > it is not included in the average.
-> >
-> > {: .sql}
 > {: .solution}
 {: .challenge}
 
