@@ -349,14 +349,11 @@ this query:
 > when given the values 1.0, `null`, and 5.0?
 >
 > > ## Solution
-> > The answer is 3.0.
-> > `NULL` is not a value; it is the absence of a value.
-> > As such it is not included in the calculation.
+> > 
+> > The function returns 3.0, which is the average of the 1.0 and 5.0.
+> > As `NULL` is not a value (it is the absence of a value),
+> > it is not included in the average.
 > >
-> > You can confirm this, by executing this code:
-> > ```
-> > SELECT AVG(a) FROM (SELECT 1 AS a UNION SELECT NULL UNION SELECT 5);
-> > ```
 > > {: .sql}
 > {: .solution}
 {: .challenge}
@@ -394,7 +391,7 @@ this query:
 > > ~~~
 > > {: .sql}
 > >
-> > This produces what we want! But, lo and behold, we can combine this into a single query using something called subqueries!
+> > This produces what we want, but we can combine this into a single query using subqueries.
 > >
 > > ~~~
 > > SELECT reading - (SELECT avg(reading) FROM Survey WHERE quant='rad') FROM Survey WHERE quant = 'rad';
