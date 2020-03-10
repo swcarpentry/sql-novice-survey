@@ -107,7 +107,7 @@ INSERT INTO Site (name, lat, long) VALUES ('MSK-4', -48.87, -123.40);
 We can also insert values into one table directly from another:
 
 ~~~
-CREATE TABLE JustLatLong(lat text, long text);
+CREATE TABLE JustLatLong(lat real, long real);
 INSERT INTO JustLatLong SELECT lat, long FROM Site;
 ~~~
 {: .sql}
