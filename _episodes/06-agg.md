@@ -378,20 +378,3 @@ this query:
 >
 > What does this actually produce, and why?
 {: .challenge}
-
-> ## Ordering When Concatenating
->
-> The function `group_concat(field, separator)`
-> concatenates all the values in a field
-> using the specified separator character
-> (or ',' if the separator isn't specified).
-> Use this to produce a one-line list of scientists' names,
-> such as:
->
-> ~~~
-> William Dyer, Frank Pabodie, Anderson Lake, Valentina Roerich, Frank Danforth
-> ~~~
-> {: .sql}
->
-> Can you find a way to order the list by surname?
-{: .challenge}
