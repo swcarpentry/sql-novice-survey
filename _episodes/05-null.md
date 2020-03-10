@@ -226,22 +226,32 @@ detail in [the next section]({{ site.github.url }}/06-agg/).
 
 > ## NULL in a Set
 >
-> What do you expect the query:
+> What do you expect the following query to produce?
 >
 > ~~~
 > SELECT * FROM Visited WHERE dated IN ('1927-02-08', NULL);
 > ~~~
 > {: .sql}
 >
-> to produce?
 > What does it actually produce?
 > > ## Solution
 > >
-> > The IN () function does not match NULL, and we only get results for the date '1927-02-08'.
-> > To also match for NULL we have to rewrite the query using the IS NULL condition:
+> > You might expect the above query to return rows where dated is either '1927-02-08' or NULL.
+> > Instead it only returns rows where dated is '1927-02-08', the same as you would get from this
+> > simpler query:
 > >
 > > ~~~
-> > SELECT * FROM Visited WHERE dated = '1927-02-08' OR dated IS NULL; 
+> > SELECT * FROM Visited WHERE dated IN ('1927-02-08');
+> > ~~~
+> > {: .sql}
+> >
+> > The reason is that the `IN` operator works with a set of *values*, but NULL is by definition
+> > not a value and is therefore simply ignored.
+> >
+> > If we wanted to actually include NULL, we would have to rewrite the query to use the IS NULL condition:
+> >
+> > ~~~
+> > SELECT * FROM Visited WHERE dated = '1927-02-08' OR dated IS NULL;
 > > ~~~
 > > {: .sql}
 > {: .solution}
