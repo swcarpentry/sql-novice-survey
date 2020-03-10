@@ -95,7 +95,7 @@ Once tables have been created,
 we can add, change, and remove records using our other set of commands,
 `INSERT`, `UPDATE`, and `DELETE`.
 
-The simplest form of `INSERT` statement lists values in order:
+Here is an example of inserting rows into the `Site` table:
 
 ~~~
 INSERT INTO Site (name, lat, long) VALUES ('DR-1', -49.85, -128.57);
@@ -118,7 +118,7 @@ what we want to change the values to for any or all of the fields,
 and under what conditions we should update the values.
 
 For example, if we made a mistake when entering the lat and long values
-of the last `INSERT` statement above:
+of the last `INSERT` statement above, we can correct it with an update:
 
 ~~~
 UPDATE Site SET lat = -47.87, long = -122.40 WHERE name = 'MSK-4';
