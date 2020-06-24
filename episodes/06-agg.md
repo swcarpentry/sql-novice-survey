@@ -381,7 +381,7 @@ this query:
 > > ## Solution
 > > The query produces only one row of results when we what we really want is a result for each of the readings.
 > > The `avg()` function produces only a single value, and because it is run first, the table is reduced to a single row.
-> > The `reading` value is simply an arbitraty one.
+> > The `reading` value is simply an arbitrary one.
 > >
 > > To achieve what we wanted, we would have to run two queries:
 > >
