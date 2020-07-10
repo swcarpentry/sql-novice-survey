@@ -150,14 +150,14 @@ but that's never supposed to happen:
 and all our queries assume there will be a row in the latter
 matching every value in the former.
 
-This problem is called [referential integrity]({% link reference.md %}#referential-integrity):
+This problem is called [referential integrity]({{ page.root }}{% link reference.md %}#referential-integrity):
 we need to ensure that all references between tables can always be resolved correctly.
 One way to do this is to delete all the records
 that use `'lake'` as a foreign key
 before deleting the record that uses it as a primary key.
 If our database manager supports it,
 we can automate this
-using [cascading delete]({% link reference.md %}#cascading-delete).
+using [cascading delete]({{ page.root }}{% link reference.md %}#cascading-delete).
 However,
 this technique is outside the scope of this chapter.
 

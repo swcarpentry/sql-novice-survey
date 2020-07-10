@@ -14,7 +14,7 @@ keypoints:
 - "Write queries incrementally."
 ---
 One of the most powerful features of a database is
-the ability to [filter]({% link reference.md %}#filter) data,
+the ability to [filter]({{ page.root }}{% link reference.md %}#filter) data,
 i.e.,
 to select only those records that match certain criteria.
 For example,
@@ -176,7 +176,7 @@ SELECT * FROM Survey WHERE quant = 'sal' AND (person = 'lake' OR person = 'roe')
 We can also filter by partial matches.  For example, if we want to
 know something just about the site names beginning with "DR" we can
 use the `LIKE` keyword.  The percent symbol acts as a
-[wildcard]({% link reference.md %}#wildcard), matching any characters in that
+[wildcard]({{ page.root }}{% link reference.md %}#wildcard), matching any characters in that
 place.  It can be used at the beginning, middle, or end of the string:
 
 ~~~
