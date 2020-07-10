@@ -70,7 +70,7 @@ SELECT * FROM Site JOIN Visited;
 |MSK-4|-48.87|-123.4 |844  |DR-1  |1932-03-22|
 
 `JOIN` creates
-the [cross product]({% link reference.md %}#cross-product)
+the [cross product]({{ page.root }}{% link reference.md %}#cross-product)
 of two tables,
 i.e.,
 it joins each record of one table with each record of the other table
@@ -185,8 +185,8 @@ AND    Visited.dated IS NOT NULL;
 We can tell which records from `Site`, `Visited`, and `Survey`
 correspond with each other
 because those tables contain
-[primary keys]({% link reference.md %}#primary-key)
-and [foreign keys]({% link reference.md %}#foreign-key).
+[primary keys]({{ page.root }}{% link reference.md %}#primary-key)
+and [foreign keys]({{ page.root }}{% link reference.md %}#foreign-key).
 A primary key is a value,
 or combination of values,
 that uniquely identifies each record in a table.

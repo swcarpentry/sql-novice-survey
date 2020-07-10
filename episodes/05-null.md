@@ -197,7 +197,7 @@ that combine multiple values, such as `min`, `max` or `avg`, *ignore*
 `null` values. In the majority of cases, this is a desirable output:
 for example, unknown values are thus not affecting our data when we
 are averaging it. Aggregation functions will be addressed in more
-detail in [the next section]({{ site.github.url }}/06-agg/).
+detail in [the next section]({{ page.root }}{% link _episodes/06-agg.md %}).
 
 > ## Sorting by Known Date
 >
@@ -260,7 +260,7 @@ detail in [the next section]({{ site.github.url }}/06-agg/).
 > ## Pros and Cons of Sentinels
 >
 > Some database designers prefer to use
-> a [sentinel value]({% link reference.md %}#sentinel-value)
+> a [sentinel value]({{ page.root }}{% link reference.md %}#sentinel-value)
 > to mark missing data rather than `null`.
 > For example,
 > they will use the date "0000-00-00" to mark a missing date,
