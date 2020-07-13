@@ -15,24 +15,24 @@ keypoints:
 - "Use SELECT... FROM... to get values from a database table."
 - "SQL is case-insensitive (but data is case-sensitive)."
 ---
-A [relational database]({% link reference.md %}#relational-database)
+A [relational database]({{ page.root }}{% link reference.md %}#relational-database)
 is a way to store and manipulate information.
-Databases are arranged as [tables]({% link reference.md %}#table).
-Each table has columns (also known as [fields]({% link reference.md %}#fields)) that describe the data,
-and rows (also known as [records]({% link reference.md %}#record)) which contain the data.
+Databases are arranged as [tables]({{ page.root }}{% link reference.md %}#table).
+Each table has columns (also known as [fields]({{ page.root }}{% link reference.md %}#fields)) that describe the data,
+and rows (also known as [records]({{ page.root }}{% link reference.md %}#record)) which contain the data.
 
 When we are using a spreadsheet,
 we put formulas into cells to calculate new values based on old ones.
 When we are using a database,
 we send commands
-(usually called [queries]({% link reference.md %}#query))
-to a [database manager]({% link reference.md %}#database-manager):
+(usually called [queries]({{ page.root }}{% link reference.md %}#query))
+to a [database manager]({{ page.root }}{% link reference.md %}#database-manager):
 a program that manipulates the database for us.
 The database manager does whatever lookups and calculations the query specifies,
 returning the results in a tabular form
 that we can then use as a starting point for further queries.
 
-Queries are written in a language called [SQL]({% link reference.md %}#sql),
+Queries are written in a language called [SQL]({{ page.root }}{% link reference.md %}#sql),
 which stands for "Structured Query Language".
 SQL provides hundreds of different ways to analyze and recombine data.
 We will only look at a handful of queries,
@@ -140,7 +140,8 @@ Before we get into using SQLite to select the data, let's take a look at the tab
 Notice that three entries --- one in the `Visited` table,
 and two in the `Survey` table --- don't contain any actual
 data, but instead have a special `-null-` entry:
-we'll return to these missing values [later]({{ site.github.url }}/05-null/).
+we'll return to these missing values
+[later]({{ page.root }}{% link _episodes/05-null.md %}).
 
 
 > ## Checking If Data is Available
@@ -177,7 +178,7 @@ we'll return to these missing values [later]({{ site.github.url }}/05-null/).
 > For a list of useful system commands, enter `.help`.
 >
 > All SQLite-specific commands are prefixed with a `.` to distinguish them from SQL commands.
-> 
+>
 > Type `.tables` to list the tables in the database.
 >
 > ~~~
@@ -203,11 +204,11 @@ we'll return to these missing values [later]({{ site.github.url }}/05-null/).
 > ~~~
 > {: .output}
 >
-> The output is formatted as <**columnName** *dataType*>.  Thus we can see from the first line that the table **Person** has three columns: 
+> The output is formatted as <**columnName** *dataType*>.  Thus we can see from the first line that the table **Person** has three columns:
 > * **id** with type _text_
 > * **personal** with type _text_
 > * **family** with type _text_
-> 
+>
 > Note: The available data types vary based on the database manager - you can search online for what data types are supported.
 >
 > You can change some SQLite settings to make the output easier to read.
@@ -250,7 +251,7 @@ We have written our commands in upper case and the names for the table and colum
 in lower case,
 but we don't have to:
 as the example below shows,
-SQL is [case insensitive]({% link reference.md %}#case-insensitive).
+SQL is [case insensitive]({{ page.root }}{% link reference.md %}#case-insensitive).
 
 ~~~
 SeLeCt FaMiLy, PeRsOnAl FrOm PeRsOn;
@@ -346,7 +347,7 @@ SELECT * FROM Person;
 |danforth|Frank    |Danforth|
 
 > ## Understanding CREATE statements
-> 
+>
 > Use the `.schema` to identify column that contains integers.
 >
 > > ## Solution
@@ -362,7 +363,7 @@ SELECT * FROM Person;
 > > CREATE TABLE Visited (id integer, site text, dated text);
 > > ~~~
 > > {: .output}
-> > From the output, we see that the **taken** column in the **Survey** table (3rd line) is composed of integers. 
+> > From the output, we see that the **taken** column in the **Survey** table (3rd line) is composed of integers.
 > {: .solution}
 {: .challenge}
 
@@ -371,7 +372,7 @@ SELECT * FROM Person;
 > Write a query that selects only the `name` column from the `Site` table.
 >
 > > ## Solution
-> > 
+> >
 > > ~~~
 > > SELECT name FROM Site;
 > > ~~~
