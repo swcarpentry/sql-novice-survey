@@ -19,6 +19,25 @@ So far we have only looked at how to get information out of a database,
 both because that is more frequent than adding information,
 and because most other operations only make sense
 once queries are understood.
+Since our previous lesson exercise used the survey database with the same table names, 
+to continue with the next series of SQL statements, begin with the new database.   
+If you are currently within the SQLite interactive session,  exit out.
+~~~
+.exit
+~~~
+Start the SQLite3 with a new empty database.  Note the name is 
+different to avoid conflict with the existing survey database.  
+~~~
+$ sqlite3 newsurvey.db
+~~~
+We can run the SQLite settings commands previously shown in Selecting Data exercise
+to set the output mode to display left-aligned columns and turn on the display of column headers.
+(Note if you exited and restarted SQLite3 your settings will change back to the default)
+~~~
+.mode column
+.header on
+~~~
+
 If we want to create and modify data,
 we need to know two other sets of commands.
 
