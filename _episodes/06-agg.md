@@ -95,11 +95,15 @@ SELECT sum(reading) FROM Survey WHERE quant = 'sal';
 |64.83       |
 
 We used `count(reading)` here,
-but we could just as easily have counted `quant`
-or any other field in the table,
-or even used `count(*)`,
+but could have used `count(*)`,
 since the function doesn't care about the values themselves,
 just how many values there are.
+Even a column other than `reading` could be used,
+but note that any `NULL` value will not be counted
+(try counting the `person` column instead).
+This perhaps non-obvious behavior
+of aggregation functions is covered later
+in this episode.
 
 SQL lets us do several aggregations at once.
 We can,
