@@ -97,10 +97,11 @@ SELECT sum(reading) FROM Survey WHERE quant = 'sal';
 We used `count(reading)` here,
 but could have used `count(*)`,
 since the function doesn't care about the values themselves,
-just how many values there are.
+just how many rows there are.
 Even a column other than `reading` could be used,
 but note that any `NULL` value will not be counted
-(try counting the `person` column instead).
+(to see, try `count`ing the `person` column, which contains a
+row with a `NULL`).
 This perhaps non-obvious behavior
 of aggregation functions is covered later
 in this episode.
