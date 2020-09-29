@@ -82,7 +82,7 @@ SELECT personal || ' ' || family FROM Person;
 ~~~
 {: .sql}
 
-|personal || ' ' || family|
+|personal \|\| ' ' \|\| family|
 |-------------------------|
 |William Dyer             |
 |Frank Pabodie            |
