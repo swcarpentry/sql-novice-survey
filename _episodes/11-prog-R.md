@@ -130,7 +130,7 @@ without checking them carefully first.
 A very [relevant XKCD](https://xkcd.com/327/) that explains the 
 dangers of using raw input in queries a little more succinctly:
 
-![relevant XKCD](https://imgs.xkcd.com/comics/exploits_of_a_mom.png) 
+![XKCD comic with 4 panels, called Exploits of a Mom. A stick figure, presumably the Mom, is on the phone with a hot drink in a mug in all four panels. Panel 1: The Phone says "Hi, this is your son's school. We're having some computer trouble." Panel 2: Mom: "Oh dear- did he break something?" Phone: "In a way-" Panel 3: Phone: "Did you really name your son Robert'); DROP TABLE Students;--?" Mom: "Oh, yes. Little Bobby Tables we call him." Panel 4: Phone: "Well, we've lost this year's student records. I hope you're happy." Mom: "And I hope you've learned to sanitize your database inputs."](https://imgs.xkcd.com/comics/exploits_of_a_mom.png) 
 
 Since an unscrupulous parent might try to smuggle commands into our queries in many different ways,
 the safest way to deal with this threat is
