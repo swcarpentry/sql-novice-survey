@@ -28,11 +28,10 @@ Here's a short R program that selects latitudes and longitudes
 from an SQLite database stored in a file called `survey.db`:
 
 ~~~
-library(RSQLite)
-connection <- dbConnect(SQLite(), "survey.db")
-results <- dbGetQuery(connection, "SELECT Site.lat, Site.long FROM Site;")
-print(results)
-dbDisconnect(connection)
+library(DBI)
+con <- dbConnect(RSQLite::SQLite(), "survey.db")
+dbGetQuery(con, "SELECT Site.lat, Site.long FROM Site;")
+dbDisconnect(con)
 ~~~
 {: .r}
 ~~~
@@ -43,13 +42,7 @@ dbDisconnect(connection)
 ~~~
 {: .output}
 
-The program starts by importing the `RSQLite` library.
-If we were connecting to MySQL, DB2, or some other database,
-we would import a different library,
-but all of them provide the same functions,
-so that the rest of our program does not have to change
-(at least, not much)
-if we switch from one database to another.
+The program starts by importing the `{DBI}` library. `{DBI}` provides a uniform interface to using SQL databases from within R. This lets us use different types of database, changing only the function used to make the connection to the DB. If we were connecting to MySQL, DB2, or some other database, we would change the connection function to one from the library for our DB.
 
 Line 2 establishes a connection to the database.
 Since we're using SQLite,
@@ -79,14 +72,12 @@ For example,
 this function takes a user's ID as a parameter and returns their name:
 
 ~~~
-library(RSQLite)
-
-connection <- dbConnect(SQLite(), "survey.db")
+con <- dbConnect(RSQLite::SQLite(), "survey.db")
 
 getName <- function(personID) {
   query <- paste0("SELECT personal || ' ' || family FROM Person WHERE id =='",
                   personID, "';")
-  return(dbGetQuery(connection, query))
+  dbGetQuery(con, query)
 }
 
 print(paste("full name for dyer:", getName('dyer')))
@@ -141,12 +132,11 @@ instead of formatting our statements as strings.
 Here's what our example program looks like if we do this:
 
 ~~~ 
-library(RSQLite)
-connection <- dbConnect(SQLite(), "survey.db")
+con <- dbConnect(RSQLite::SQLite(), "survey.db")
 
 getName <- function(personID) {
   query <- "SELECT personal || ' ' || family FROM Person WHERE id == ?"
-  return(dbGetPreparedQuery(connection, query, data.frame(personID)))
+  dbGetQuery(con, query, params = list(personID))
 }
 
 print(paste("full name for dyer:", getName('dyer')))
@@ -159,11 +149,11 @@ full name for dyer: William Dyer
 ~~~
 {: .output}
 
-The key changes are in the query string and the `dbGetQuery` call (we use dbGetPreparedQuery instead).
+The key changes are in the query string and the `dbGetQuery()` call.
 Instead of formatting the query ourselves,
 we put question marks in the query template where we want to insert values.
-When we call `dbGetPreparedQuery`,
-we provide a dataframe
+When we call `dbGetQuery()`,
+we provide the parameters in the `params` argument as a list 
 that contains as many values as there are question marks in the query.
 The library matches values to question marks in order,
 and translates any special characters in the values
@@ -198,8 +188,8 @@ reading/writing entire tables at once.
 To view all tables in a database, we can use `dbListTables()`:
 
 ~~~ 
-connection <- dbConnect(SQLite(), "survey.db")
-dbListTables(connection)
+con <- dbConnect(RSQLite::SQLite(), "survey.db")
+dbListTables(con)
 ~~~
 {: .r}
 ~~~
@@ -211,7 +201,7 @@ dbListTables(connection)
 To view all column names of a table, use `dbListFields()`:
 
 ~~~
-dbListFields(connection, "Survey")
+dbListFields(con, "Survey")
 ~~~
 {: .r}
 ~~~
@@ -223,7 +213,7 @@ dbListFields(connection, "Survey")
 To read an entire table as a dataframe, use `dbReadTable()`:
 
 ~~~
-dbReadTable(connection, "Person")
+dbReadTable(con, "Person")
 ~~~
 {: .r}
 ~~~
@@ -243,8 +233,8 @@ will write the row names as a separate column.
 In this example we will write R's built-in `iris` dataset as a table in `survey.db`.
 
 ~~~
-dbWriteTable(connection, "iris", iris, row.names = FALSE)
-head(dbReadTable(connection, "iris"))
+dbWriteTable(con, "iris", iris, row.names = FALSE)
+head(dbReadTable(con, "iris"))
 ~~~
 {: .r}
 ~~~
@@ -261,7 +251,7 @@ head(dbReadTable(connection, "iris"))
 And as always, remember to close the database connection when done!
 
 ~~~
-dbDisconnect(connection)
+dbDisconnect(con)
 ~~~
 {: .r}
 
