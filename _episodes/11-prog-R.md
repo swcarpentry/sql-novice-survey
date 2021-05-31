@@ -82,7 +82,7 @@ getName <- function(personID) {
 
 print(paste("full name for dyer:", getName('dyer')))
 
-dbDisconnect(connection)
+dbDisconnect(con)
 ~~~
 {: .r}
 ~~~ 
@@ -141,7 +141,7 @@ getName <- function(personID) {
 
 print(paste("full name for dyer:", getName('dyer')))
 
-dbDisconnect(connection)
+dbDisconnect(con)
 ~~~
 {: .r}
 ~~~ 
