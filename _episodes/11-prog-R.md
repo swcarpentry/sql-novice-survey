@@ -30,15 +30,17 @@ from an SQLite database stored in a file called `survey.db`:
 ~~~
 library(DBI)
 con <- dbConnect(RSQLite::SQLite(), "survey.db")
-dbGetQuery(con, "SELECT Site.lat, Site.long FROM Site;")
+dbGetQuery(con, "SELECT * FROM Person")
 dbDisconnect(con)
 ~~~
 {: .r}
 ~~~
-     lat    long
-1 -49.85 -128.57
-2 -47.15 -126.72
-3 -48.87 -123.40
+        id  personal   family
+1     dyer   William     Dyer
+2       pb     Frank  Pabodie
+3     lake  Anderson     Lake
+4      roe Valentina  Roerich
+5 danforth     Frank Danforth
 ~~~
 {: .output}
 
@@ -75,12 +77,14 @@ this function takes a user's ID as a parameter and returns their name:
 con <- dbConnect(RSQLite::SQLite(), "survey.db")
 
 getName <- function(personID) {
-  query <- paste0("SELECT personal || ' ' || family FROM Person WHERE id =='",
-                  personID, "';")
+  query <- paste0("SELECT personal || ' ' || family 
+                   FROM Person 
+                   WHERE id =='", personID, "'")
+
   dbGetQuery(con, query)
 }
 
-print(paste("full name for dyer:", getName('dyer')))
+paste("full name for dyer:", getName('dyer'))
 
 dbDisconnect(con)
 ~~~
@@ -135,11 +139,14 @@ Here's what our example program looks like if we do this:
 con <- dbConnect(RSQLite::SQLite(), "survey.db")
 
 getName <- function(personID) {
-  query <- "SELECT personal || ' ' || family FROM Person WHERE id == ?"
+  query <- "SELECT personal || ' ' || family 
+            FROM Person 
+            WHERE id == ?"
+
   dbGetQuery(con, query, params = list(personID))
 }
 
-print(paste("full name for dyer:", getName('dyer')))
+paste("full name for dyer:", getName('dyer'))
 
 dbDisconnect(con)
 ~~~
