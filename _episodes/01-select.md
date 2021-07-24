@@ -268,7 +268,8 @@ SeLeCt FaMiLy, PeRsOnAl FrOm PeRsOn;
 
 You can use SQL's case insensitivity to your advantage, by making it easier
 to distinguish between different parts of an SQL statement.
-In this lesson, we use the convention of using UPPER CASE for SQL keywords,
+In this lesson, we use the convention of using UPPER CASE for SQL keywords
+(such as `SELECT` and `FROM`),
 Title Case for table names, and lower case for field names.
 Whatever casing
 convention you choose, please be consistent: complex queries are hard
