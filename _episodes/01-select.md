@@ -13,7 +13,7 @@ keypoints:
 - "A database manager is a program that manipulates information stored in a database."
 - "We write queries in a specialized language called SQL to extract information from databases."
 - "Use SELECT... FROM... to get values from a database table."
-- "SQL is case-insensitive (but data is case-sensitive)."
+- "SQL is case insensitive (but data is case sensitive)."
 ---
 A [relational database]({{ page.root }}{% link reference.md %}#relational-database)
 is a way to store and manipulate information.
