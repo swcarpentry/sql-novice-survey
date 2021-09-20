@@ -227,7 +227,7 @@ not to the entire rows as they are being processed.
 > it depends on quick turnaround,
 > and on us recognizing the right answer when we get it.
 >
-> The best way to achieve quick turnaround is often
+> The best way to achieve a quick turnaround is often
 > to put a subset of data in a temporary database
 > and run our queries against that,
 > or to fill a small database with synthesized records.
