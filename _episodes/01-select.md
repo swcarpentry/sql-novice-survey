@@ -266,7 +266,7 @@ SeLeCt FaMiLy, PeRsOnAl FrOm PeRsOn;
 |Roerich |Valentina|
 |Danforth|Frank    |
 
-You can use SQL's case insensitivity to your advantage, by making it easier
+You can use SQL's case insensitivity
 to distinguish between different parts of an SQL statement.
 In this lesson, we use the convention of using UPPER CASE for SQL keywords
 (such as `SELECT` and `FROM`),
