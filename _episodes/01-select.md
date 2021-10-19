@@ -266,17 +266,15 @@ SeLeCt FaMiLy, PeRsOnAl FrOm PeRsOn;
 |Roerich |Valentina|
 |Danforth|Frank    |
 
-You can use SQL's case insensitivity to your advantage. For instance,
-some people choose to write SQL keywords (such as `SELECT` and `FROM`)
-in capital letters and **field** and **table** names in lower
-case. This can make it easier to locate parts of an SQL statement. For
-instance, you can scan the statement, quickly locate the prominent
-`FROM` keyword and know the table name follows.  Whatever casing
+You can use SQL's case insensitivity
+to distinguish between different parts of an SQL statement.
+In this lesson, we use the convention of using UPPER CASE for SQL keywords
+(such as `SELECT` and `FROM`),
+Title Case for table names, and lower case for field names.
+Whatever casing
 convention you choose, please be consistent: complex queries are hard
 enough to read without the extra cognitive load of random
-capitalization.  One convention is to use UPPER CASE for SQL
-statements, to distinguish them from tables and column names. This is
-the convention that we will use for this lesson.
+capitalization.
 
 While we are on the topic of SQL's syntax, one aspect of SQL's syntax
 that can frustrate novices and experts alike is forgetting to finish a
