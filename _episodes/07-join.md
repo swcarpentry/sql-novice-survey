@@ -189,7 +189,7 @@ because those tables contain
 and [foreign keys]({{ page.root }}{% link reference.md %}#foreign-key).
 A primary key is a value,
 or combination of values,
-that uniquely identifies each record in a table.
+that uniquely identifies each record in a table (Note: There can only be one column containing primary key per table).
 A foreign key is a value (or combination of values) from one table
 that identifies a unique record in another table.
 Another way of saying this is that
