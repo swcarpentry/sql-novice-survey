@@ -418,12 +418,28 @@ this query:
 > using the specified separator character
 > (or ',' if the separator isn't specified).
 > Use this to produce a one-line list of scientists' names,
-> such as:
->
-> ~~~
-> William Dyer, Frank Pabodie, Anderson Lake, Valentina Roerich, Frank Danforth
-> ~~~
-> {: .sql}
+> such as: `William Dyer, Frank Pabodie, Anderson Lake, Valentina Roerich, Frank Danforth`
 >
 > Can you find a way to order the list by surname?
+>
+> > ## Solution
+> > ~~~
+> > SELECT
+> >   GROUP_CONCAT(fullname, ', ')
+> > FROM
+> >   (
+> >     SELECT
+> >       personal || ' ' || family AS fullname
+> >     FROM
+> >       person
+> >     GROUP BY
+> >       id
+> >     ORDER BY
+> >       family
+> >   );
+> > ~~~
+> > {: .sql}
+> >
+> > Frank Danforth, William Dyer, Anderson Lake, Frank Pabodie, Valentina Roerich
+> {: .solution}
 {: .challenge}
