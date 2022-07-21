@@ -405,9 +405,9 @@ Full name for barrett: Mary Barrett
 > ~~~
 > {: .output}
 >
-> Write a small Python program that reads this file in and prints out
-> the SQL `INSERT` statements needed to add these records to the
-> survey database.  Note: you will need to add an entry for Olmstead
+> Write a small Python program that reads this file in and INSERTs these
+> records into the survey database.
+> Note: you will need to add an entry for Olmstead
 > to the `Person` table.  If you are testing your program repeatedly,
 > you may want to investigate SQL's `INSERT or REPLACE` command.
 {: .challenge}
