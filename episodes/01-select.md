@@ -74,7 +74,7 @@ Before we get into using SQLite to select the data, let's take a look at the tab
 <div class="row">
   <div class="col-md-6" markdown="1">
 
-**Person**: people who took readings.
+**Person**: People who took readings, `id` being the unique identifier for that person.
 
 |id      |personal |family
 |--------|---------|----------
@@ -84,7 +84,7 @@ Before we get into using SQLite to select the data, let's take a look at the tab
 |roe     |Valentina|Roerich
 |danforth|Frank    |Danforth
 
-**Site**: locations where readings were taken.
+**Site**: Locations of the `sites` where readings were taken.
 
 |name |lat   |long   |
 |-----|------|-------|
@@ -92,7 +92,7 @@ Before we get into using SQLite to select the data, let's take a look at the tab
 |DR-3 |-47.15|-126.72|
 |MSK-4|-48.87|-123.4 |
 
-**Visited**: when readings were taken at specific sites.
+**Visited**: Specific identification `id` of the precise locations where readings were taken at the sites and dates.
 
 |id   |site |dated     |
 |-----|-----|----------|
@@ -108,7 +108,7 @@ Before we get into using SQLite to select the data, let's take a look at the tab
   </div>
   <div class="col-md-6" markdown="1">
 
-**Survey**: the actual readings.  The field `quant` is short for quantity and indicates what is being measured.  Values are `rad`, `sal`, and `temp` referring to 'radiation', 'salinity' and 'temperature', respectively.
+**Survey**: The measurements taken at each precise location on these sites. They are identified as `taken`. The field `quant` is short for quantity and indicates what is being measured.  The values are `rad`, `sal`, and `temp` referring to 'radiation', 'salinity' and 'temperature', respectively.
 
 |taken|person|quant|reading|
 |-----|------|-----|-------|
