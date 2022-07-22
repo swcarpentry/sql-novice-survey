@@ -19,6 +19,32 @@ So far we have only looked at how to get information out of a database,
 both because that is more frequent than adding information,
 and because most other operations only make sense
 once queries are understood.
+
+The `Person`, `Survey`, `Site`, and `Visited` tables from the `survey,db` database were
+used during the earlier episodes. We're going to build a new database over the course
+of the upcoming episodes. Exit the `SQLite` interactive session if you're still in it.
+
+~~~
+.exit
+~~~
+{: .sql}
+
+Launch `SQLite3` and create a new database, lets call it `newsurvey.db`.
+We use a different name to avoid confusion with the currently existing `survey.db` database.
+
+~~~
+$ sqlite3 newsurvey.db
+~~~
+
+Run the `.mode column` and `.header on` commands again if you aren't using the `.sqliterc` file.
+(Note if you exited and restarted SQLite3 your settings will change back to the default)
+
+~~~
+.mode column
+.header on
+~~~
+{: .sql}
+
 If we want to create and modify data,
 we need to know two other sets of commands.
 
