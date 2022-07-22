@@ -79,7 +79,7 @@ CREATE TABLE Survey(
     person  text,             -- may not know who took it
     quant   text not null,    -- the quantity measured
     reading real not null,    -- the actual reading
-    primary key(taken, person, quant),
+    primary key(taken, person, quant),    -- key is taken + person + quant
     foreign key(taken) references Visited(id),
     foreign key(person) references Person(id)
 );
