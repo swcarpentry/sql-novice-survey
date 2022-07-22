@@ -90,7 +90,13 @@ we're only interested in combinations that have the same site name,
 thus we need to use a filter:
 
 ~~~
-SELECT * FROM Site JOIN Visited ON Site.name = Visited.site;
+SELECT
+  Site.lat,
+  Site.long,
+  Visited.dated
+FROM
+  Site
+  JOIN Visited ON Site.name = Visited.site;
 ~~~
 {: .sql}
 
@@ -128,9 +134,13 @@ to select the three columns we actually want
 out of our join:
 
 ~~~
-SELECT Site.lat, Site.long, Visited.dated
-FROM   Site JOIN Visited
-ON     Site.name = Visited.site;
+SELECT
+  Site.lat,
+  Site.long,
+  Visited.dated
+FROM
+  Site
+  JOIN Visited ON Site.name = Visited.site;
 ~~~
 {: .sql}
 
@@ -154,11 +164,18 @@ and more `ON` tests to filter out combinations of records
 that don't make sense:
 
 ~~~
-SELECT Site.lat, Site.long, Visited.dated, Survey.quant, Survey.reading
-FROM   Site JOIN Visited JOIN Survey
-ON     Site.name = Visited.site
-AND    Visited.id = Survey.taken
-AND    Visited.dated IS NOT NULL;
+SELECT
+  Site.lat,
+  Site.long,
+  Visited.dated,
+  Survey.quant,
+  Survey.reading
+FROM 
+  Site
+  JOIN Visited
+  JOIN Survey ON Site.name = Visited.site
+  AND Visited.id = Survey.taken
+  AND Visited.dated IS NOT NULL;
 ~~~
 {: .sql}
 
@@ -236,12 +253,19 @@ SELECT rowid, * FROM Person;
  > > ## Solution
  > > 
  > > ~~~
- > > SELECT Survey.reading 
- > > FROM Site JOIN Visited JOIN Survey 
- > > ON Site.name = Visited.site
- > > AND Visited.id = Survey.taken
- > > WHERE Site.name = 'DR-1' 
- > > AND Survey.quant = 'rad';
+ > > SELECT
+ > >    Survey.reading
+ > > FROM
+ > >    Site
+ > >    JOIN
+ > >       Visited
+ > >   JOIN
+ > >       Survey
+ > >       ON Site.name = Visited.site
+ > >       AND Visited.id = Survey.taken
+ > > WHERE
+ > >    Site.name = 'DR-1'
+ > >    AND Survey.quant = 'rad';
  > > ~~~
  > > {: .sql}
  > >
@@ -259,12 +283,17 @@ SELECT rowid, * FROM Person;
  > > ## Solution
  > > 
  > > ~~~
- > > SELECT DISTINCT Site.name
- > > FROM Site JOIN Visited JOIN Survey JOIN Person
- > > ON Site.name = Visited.site
- > > AND Visited.id = Survey.taken
- > > AND Survey.person = Person.id
- > > WHERE Person.personal = 'Frank';
+ > > SELECT
+ > >   DISTINCT Site.name
+ > > FROM
+ > >   Site
+ > >   JOIN Visited
+ > >   JOIN Survey
+ > >   JOIN Person ON Site.name = Visited.site
+ > >   AND Visited.id = Survey.taken
+ > >   AND Survey.person = Person.id
+ > > WHERE
+ > >   Person.personal = 'Frank';
  > > ~~~
  > > {: .sql}
  > >
@@ -295,13 +324,22 @@ SELECT rowid, * FROM Person;
  > > 
  > > ~~~
  > > SELECT Site.name, Site.lat, Site.long, Person.personal, Person.family, Survey.quant, Survey.reading, Visited.dated
- > > FROM Site JOIN Visited JOIN Survey JOIN Person
- > > ON Site.name = Visited.site
- > > AND Visited.id = Survey.taken
- > > AND Survey.person = Person.id
- > > WHERE Survey.person IS NOT NULL
- > > AND Visited.dated IS NOT NULL
- > > ORDER BY Visited.dated;
+ > > FROM
+ > >    Site
+ > >    JOIN
+ > >       Visited
+ > >    JOIN
+ > >       Survey
+ > >    JOIN
+ > >       Person
+ > >       ON Site.name = Visited.site
+ > >       AND Visited.id = Survey.taken
+ > >       AND Survey.person = Person.id
+ > > WHERE
+ > >    Survey.person IS NOT NULL
+ > >    AND Visited.dated IS NOT NULL
+ > > ORDER BY
+ > >    Visited.dated;
  > > ~~~
  > > {: .sql}
  > >
