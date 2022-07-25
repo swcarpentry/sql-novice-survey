@@ -253,15 +253,12 @@ SELECT rowid, * FROM Person;
  > > SELECT
  > >    Survey.reading
  > > FROM
- > >    Site
+ > >    Survey
  > >    JOIN
  > >       Visited
- > >   JOIN
- > >       Survey
- > >       ON Site.name = Visited.site
- > >       AND Visited.id = Survey.taken
+ > >       ON Visited.id = Survey.taken
  > > WHERE
- > >    Site.name = 'DR-1'
+ > >    Visited.site = 'DR-1'
  > >    AND Survey.quant = 'rad';
  > > ~~~
  > > {: .sql}
