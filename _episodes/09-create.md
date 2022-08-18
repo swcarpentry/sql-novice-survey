@@ -29,12 +29,12 @@ of the upcoming episodes. Exit the `SQLite` interactive session if you're still 
 ~~~
 {: .sql}
 
-Launch `SQLite3` and create a new database, lets call it `newsurvey.db`.
-We use a different name to avoid confusion with the currently existing `survey.db` database.
+Launch `SQLite3` and create a new database called `newsurvey.db` (to avoid confusion with the currently existing `survey.db` database).
 
 ~~~
 $ sqlite3 newsurvey.db
 ~~~
+{: .bash}
 
 Run the `.mode column` and `.header on` commands again if you aren't using the `.sqliterc` file.
 (Note if you exited and restarted SQLite3 your settings will change back to the default)
