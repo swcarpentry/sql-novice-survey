@@ -90,10 +90,7 @@ we're only interested in combinations that have the same site name,
 thus we need to use a filter:
 
 ~~~
-SELECT
-  Site.lat,
-  Site.long,
-  Visited.dated
+SELECT *
 FROM
   Site
   JOIN Visited ON Site.name = Visited.site;
