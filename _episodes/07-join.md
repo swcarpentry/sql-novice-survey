@@ -91,8 +91,11 @@ thus we need to use a filter:
 
 ~~~
 SELECT
+  Site.name,
   Site.lat,
   Site.long,
+  Visited.id,
+  Visited.site,
   Visited.dated
 FROM
   Site
