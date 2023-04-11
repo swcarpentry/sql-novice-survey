@@ -438,7 +438,6 @@ this query:
 > > SELECT group_concat(personal || ' ' || family, ',') FROM Person;
 > > ~~~
 > > {: .sql}
-
 > {: .solution}
 {: .challenge}
 
