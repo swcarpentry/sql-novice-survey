@@ -221,10 +221,10 @@ we'll return to these missing values
 > ~~~
 > {: .sql}
 >
-Alternatively, you can get the settings automatically by creating a `.sqliterc` file.
-Add the commands above and reopen SQLite.
-For Windows, use `C:\Users\<yourusername>.sqliterc`.
-For Linux/MacOS, use `/Users/<yourusername>/.sqliterc`.
+> Alternatively, you can get the settings automatically by creating a `.sqliterc` file.
+> Add the commands above and reopen SQLite.
+> For Windows, use `C:\Users\<yourusername>.sqliterc`.
+> For Linux/MacOS, use `/Users/<yourusername>/.sqliterc`.
 >
 > To exit SQLite and return to the shell command line,
 > you can use either `.quit` or `.exit`.
