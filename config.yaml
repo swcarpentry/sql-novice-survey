@@ -14,7 +14,7 @@ carpentry: 'swc'
 title: 'Databases and SQL'
 
 # Date the lesson was created (YYYY-MM-DD, this is empty by default)
-created: 
+created: '2014-11-21'
 
 # Comma-separated list of keywords for the lesson
 keywords: 'software, data, lesson, The Carpentries'
@@ -27,7 +27,7 @@ life_cycle: 'stable'
 license: 'CC-BY 4.0'
 
 # Link to the source repository for this lesson
-source: 'https://github.com/fishtree-attempt/sql-novice-survey/'
+source: 'https://github.com/swcarpentry/sql-novice-survey'
 
 # Default branch of your lesson
 branch: 'main'
@@ -86,7 +86,6 @@ profiles:
 # sandpaper and varnish versions) should live
 
 
-url: https://preview.carpentries.org/sql-novice-survey
+url: 'https://swcarpentry.github.io/sql-novice-survey'
 analytics: carpentries
 lang: en
-workbench-beta: 'true'
