@@ -43,7 +43,13 @@
     <loc>https://swcarpentry.github.io/sql-novice-survey/LICENSE.html</loc>
   </url>
   <url>
+    <loc>https://swcarpentry.github.io/sql-novice-survey/aio.html</loc>
+  </url>
+  <url>
     <loc>https://swcarpentry.github.io/sql-novice-survey/discuss.html</loc>
+  </url>
+  <url>
+    <loc>https://swcarpentry.github.io/sql-novice-survey/images.html</loc>
   </url>
   <url>
     <loc>https://swcarpentry.github.io/sql-novice-survey/index.html</loc>
@@ -91,16 +97,34 @@
     <loc>https://swcarpentry.github.io/sql-novice-survey/instructor/LICENSE.html</loc>
   </url>
   <url>
+    <loc>https://swcarpentry.github.io/sql-novice-survey/instructor/aio.html</loc>
+  </url>
+  <url>
     <loc>https://swcarpentry.github.io/sql-novice-survey/instructor/discuss.html</loc>
   </url>
   <url>
+    <loc>https://swcarpentry.github.io/sql-novice-survey/instructor/images.html</loc>
+  </url>
+  <url>
     <loc>https://swcarpentry.github.io/sql-novice-survey/instructor/index.html</loc>
+  </url>
+  <url>
+    <loc>https://swcarpentry.github.io/sql-novice-survey/instructor/instructor-notes.html</loc>
+  </url>
+  <url>
+    <loc>https://swcarpentry.github.io/sql-novice-survey/instructor/key-points.html</loc>
   </url>
   <url>
     <loc>https://swcarpentry.github.io/sql-novice-survey/instructor/profiles.html</loc>
   </url>
   <url>
     <loc>https://swcarpentry.github.io/sql-novice-survey/instructor/reference.html</loc>
+  </url>
+  <url>
+    <loc>https://swcarpentry.github.io/sql-novice-survey/instructor-notes.html</loc>
+  </url>
+  <url>
+    <loc>https://swcarpentry.github.io/sql-novice-survey/key-points.html</loc>
   </url>
   <url>
     <loc>https://swcarpentry.github.io/sql-novice-survey/profiles.html</loc>
