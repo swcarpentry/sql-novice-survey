@@ -342,12 +342,12 @@ queries.</p>
 Language”. SQL provides hundreds of different ways to analyze and
 recombine data. We will only look at a handful of queries, but that
 handful accounts for most of what scientists do.</p>
-<div id="callout1" class="callout callout">
+<div id="changing-database-managers" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="changing-database-managers" class="callout-inner">
-<h3 class="callout-title">Changing Database Managers<a class="anchor" aria-label="anchor" href="#callout1"></a>
+<h3 class="callout-title">Changing Database Managers<a class="anchor" aria-label="anchor" href="#changing-database-managers"></a>
 </h3>
 <div class="callout-content">
 <p>Many database managers — Oracle, IBM DB2, PostgreSQL, MySQL,
@@ -359,12 +359,12 @@ information from one to another.</p>
 </div>
 </div>
 </div>
-<div id="callout2" class="callout callout">
+<div id="getting-into-and-out-of-sqlite" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="getting-into-and-out-of-sqlite" class="callout-inner">
-<h3 class="callout-title">Getting Into and Out Of SQLite<a class="anchor" aria-label="anchor" href="#callout2"></a>
+<h3 class="callout-title">Getting Into and Out Of SQLite<a class="anchor" aria-label="anchor" href="#getting-into-and-out-of-sqlite"></a>
 </h3>
 <div class="callout-content">
 <p>In order to use the SQLite commands <em>interactively</em>, we need
@@ -556,12 +556,12 @@ being measured.  The values are <code>rad</code>, <code>sal</code>, and
 and two in the <code>Survey</code> table — don’t contain any actual
 data, but instead have a special <code>-null-</code> entry: we’ll return
 to these missing values <a href="05-null.html">later</a>.</p>
-<div id="callout3" class="callout callout">
+<div id="checking-if-data-is-available" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="checking-if-data-is-available" class="callout-inner">
-<h3 class="callout-title">Checking If Data is Available<a class="anchor" aria-label="anchor" href="#callout3"></a>
+<h3 class="callout-title">Checking If Data is Available<a class="anchor" aria-label="anchor" href="#checking-if-data-is-available"></a>
 </h3>
 <div class="callout-content">
 <p>On the shell command line, change the working directory to the one
@@ -793,12 +793,12 @@ columns in the output by writing our query as:</p>
 </tr><tr class="odd"><td>danforth</td>
 <td>Frank</td>
 <td>Danforth</td>
-</tr></tbody></table><div id="challenge1" class="callout challenge">
+</tr></tbody></table><div id="understanding-create-statements" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="understanding-create-statements" class="callout-inner">
-<h3 class="callout-title">Understanding CREATE statements<a class="anchor" aria-label="anchor" href="#challenge1"></a>
+<h3 class="callout-title">Understanding CREATE statements<a class="anchor" aria-label="anchor" href="#understanding-create-statements"></a>
 </h3>
 <div class="callout-content">
 <p>Use the <code>.schema</code> to identify column that contains
@@ -834,12 +834,12 @@ CREATE TABLE Visited (id integer, site text, dated text);</code></pre>
 </div>
 </div>
 </div>
-<div id="challenge2" class="callout challenge">
+<div id="selecting-site-names" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="selecting-site-names" class="callout-inner">
-<h3 class="callout-title">Selecting Site Names<a class="anchor" aria-label="anchor" href="#challenge2"></a>
+<h3 class="callout-title">Selecting Site Names<a class="anchor" aria-label="anchor" href="#selecting-site-names"></a>
 </h3>
 <div class="callout-content">
 <p>Write a query that selects only the <code>name</code> column from the
@@ -869,12 +869,12 @@ CREATE TABLE Visited (id integer, site text, dated text);</code></pre>
 </div>
 </div>
 </div>
-<div id="discussion1" class="callout discussion">
+<div id="query-style" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <div id="query-style" class="callout-inner">
-<h3 class="callout-title">Query Style<a class="anchor" aria-label="anchor" href="#discussion1"></a>
+<h3 class="callout-title">Query Style<a class="anchor" aria-label="anchor" href="#query-style"></a>
 </h3>
 <div class="callout-content">
 <p>Many people format queries as:</p>
@@ -945,7 +945,7 @@ information from databases.</li>
         <p>Materials licensed under <a href="../LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.11.16" class="external-link">sandpaper (0.11.16)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.12.0" class="external-link">sandpaper (0.12.0)</a>,
         <a href="https://github.com/carpentries/pegboard" class="external-link">pegboard (0.5.3)</a>,
       and <a href="https://github.com/carpentries/varnish/tree/0.2.16" class="external-link">varnish (0.2.16)</a>.</p>
 			</div>
@@ -969,7 +969,7 @@ information from databases.</li>
   "identifier": "https://swcarpentry.github.io/sql-novice-survey/instructor/01-select.html",
   "dateCreated": "2014-11-21",
   "dateModified": "2023-05-08",
-  "datePublished": "2023-05-16"
+  "datePublished": "2023-05-23"
 }
 
   </script><script>

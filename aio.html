@@ -409,12 +409,12 @@ queries.</p>
 Language”. SQL provides hundreds of different ways to analyze and
 recombine data. We will only look at a handful of queries, but that
 handful accounts for most of what scientists do.</p>
-<div id="callout1" class="callout callout">
+<div id="changing-database-managers" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="changing-database-managers" class="callout-inner">
-<h3 class="callout-title">Changing Database Managers<a class="anchor" aria-label="anchor" href="#callout1"></a>
+<h3 class="callout-title">Changing Database Managers<a class="anchor" aria-label="anchor" href="#changing-database-managers"></a>
 </h3>
 <div class="callout-content">
 <p>Many database managers — Oracle, IBM DB2, PostgreSQL, MySQL,
@@ -426,12 +426,12 @@ information from one to another.</p>
 </div>
 </div>
 </div>
-<div id="callout2" class="callout callout">
+<div id="getting-into-and-out-of-sqlite" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="getting-into-and-out-of-sqlite" class="callout-inner">
-<h3 class="callout-title">Getting Into and Out Of SQLite<a class="anchor" aria-label="anchor" href="#callout2"></a>
+<h3 class="callout-title">Getting Into and Out Of SQLite<a class="anchor" aria-label="anchor" href="#getting-into-and-out-of-sqlite"></a>
 </h3>
 <div class="callout-content">
 <p>In order to use the SQLite commands <em>interactively</em>, we need
@@ -721,12 +721,12 @@ being measured.  The values are <code>rad</code>, <code>sal</code>, and
 and two in the <code>Survey</code> table — don’t contain any actual
 data, but instead have a special <code>-null-</code> entry: we’ll return
 to these missing values <a href="05-null.html">later</a>.</p>
-<div id="callout3" class="callout callout">
+<div id="checking-if-data-is-available" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="checking-if-data-is-available" class="callout-inner">
-<h3 class="callout-title">Checking If Data is Available<a class="anchor" aria-label="anchor" href="#callout3"></a>
+<h3 class="callout-title">Checking If Data is Available<a class="anchor" aria-label="anchor" href="#checking-if-data-is-available"></a>
 </h3>
 <div class="callout-content">
 <p>On the shell command line, change the working directory to the one
@@ -1040,12 +1040,12 @@ columns in the output by writing our query as:</p>
 </tr>
 </tbody>
 </table>
-<div id="challenge1" class="callout challenge">
+<div id="understanding-create-statements" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="understanding-create-statements" class="callout-inner">
-<h3 class="callout-title">Understanding CREATE statements<a class="anchor" aria-label="anchor" href="#challenge1"></a>
+<h3 class="callout-title">Understanding CREATE statements<a class="anchor" aria-label="anchor" href="#understanding-create-statements"></a>
 </h3>
 <div class="callout-content">
 <p>Use the <code>.schema</code> to identify column that contains
@@ -1081,12 +1081,12 @@ CREATE TABLE Visited (id integer, site text, dated text);</code></pre>
 </div>
 </div>
 </div>
-<div id="challenge2" class="callout challenge">
+<div id="selecting-site-names" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="selecting-site-names" class="callout-inner">
-<h3 class="callout-title">Selecting Site Names<a class="anchor" aria-label="anchor" href="#challenge2"></a>
+<h3 class="callout-title">Selecting Site Names<a class="anchor" aria-label="anchor" href="#selecting-site-names"></a>
 </h3>
 <div class="callout-content">
 <p>Write a query that selects only the <code>name</code> column from the
@@ -1128,12 +1128,12 @@ CREATE TABLE Visited (id integer, site text, dated text);</code></pre>
 </div>
 </div>
 </div>
-<div id="discussion1" class="callout discussion">
+<div id="query-style" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <div id="query-style" class="callout-inner">
-<h3 class="callout-title">Query Style<a class="anchor" aria-label="anchor" href="#discussion1"></a>
+<h3 class="callout-title">Query Style<a class="anchor" aria-label="anchor" href="#query-style"></a>
 </h3>
 <div class="callout-content">
 <p>Many people format queries as:</p>
@@ -1465,12 +1465,12 @@ ascending order of the column we specify (i.e., from least to
 greatest).</p>
 <p>We can sort in the opposite order using <code>DESC</code> (for
 “descending”):</p>
-<div id="callout1" class="callout callout">
+<div id="a-note-on-ordering" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="a-note-on-ordering" class="callout-inner">
-<h3 class="callout-title">A note on ordering<a class="anchor" aria-label="anchor" href="#callout1"></a>
+<h3 class="callout-title">A note on ordering<a class="anchor" aria-label="anchor" href="#a-note-on-ordering"></a>
 </h3>
 <div class="callout-content">
 <p>While it may look that the records are consistent every time we ask
@@ -1710,12 +1710,12 @@ duplicates.</p>
 </tr>
 </tbody>
 </table>
-<div id="challenge1" class="callout challenge">
+<div id="finding-distinct-dates" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="finding-distinct-dates" class="callout-inner">
-<h3 class="callout-title">Finding Distinct Dates<a class="anchor" aria-label="anchor" href="#challenge1"></a>
+<h3 class="callout-title">Finding Distinct Dates<a class="anchor" aria-label="anchor" href="#finding-distinct-dates"></a>
 </h3>
 <div class="callout-content">
 <p>Write a query that selects distinct dates from the
@@ -1730,7 +1730,7 @@ duplicates.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1772,12 +1772,12 @@ duplicates.</p>
 </div>
 </div>
 </div>
-<div id="challenge2" class="callout challenge">
+<div id="displaying-full-names" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="displaying-full-names" class="callout-inner">
-<h3 class="callout-title">Displaying Full Names<a class="anchor" aria-label="anchor" href="#challenge2"></a>
+<h3 class="callout-title">Displaying Full Names<a class="anchor" aria-label="anchor" href="#displaying-full-names"></a>
 </h3>
 <div class="callout-content">
 <p>Write a query that displays the full names of the scientists in the
@@ -1792,7 +1792,7 @@ duplicates.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1974,12 +1974,12 @@ before 1930:</p>
 </tr>
 </tbody>
 </table>
-<div id="callout1" class="callout callout">
+<div id="date-types" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="date-types" class="callout-inner">
-<h3 class="callout-title">Date Types<a class="anchor" aria-label="anchor" href="#callout1"></a>
+<h3 class="callout-title">Date Types<a class="anchor" aria-label="anchor" href="#date-types"></a>
 </h3>
 <div class="callout-content">
 <p>Most database managers have a special data type for dates. In fact,
@@ -2354,12 +2354,12 @@ give a second level of filtering:</p>
 <p>But remember: <code>DISTINCT</code> is applied to the values
 displayed in the chosen columns, not to the entire rows as they are
 being processed.</p>
-<div id="callout2" class="callout callout">
+<div id="growing-queries" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="growing-queries" class="callout-inner">
-<h3 class="callout-title">Growing Queries<a class="anchor" aria-label="anchor" href="#callout2"></a>
+<h3 class="callout-title">Growing Queries<a class="anchor" aria-label="anchor" href="#growing-queries"></a>
 </h3>
 <div class="callout-content">
 <p>What we have just done is how most people “grow” their SQL queries.
@@ -2378,12 +2378,12 @@ that.</p>
 </div>
 </div>
 </div>
-<div id="challenge1" class="callout challenge">
+<div id="fix-this-query" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="fix-this-query" class="callout-inner">
-<h3 class="callout-title">Fix This Query<a class="anchor" aria-label="anchor" href="#challenge1"></a>
+<h3 class="callout-title">Fix This Query<a class="anchor" aria-label="anchor" href="#fix-this-query"></a>
 </h3>
 <div class="callout-content">
 <p>Suppose we want to select all sites that lie within 48 degrees of the
@@ -2405,7 +2405,7 @@ correct.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>Because we used <code>OR</code>, a site on the South Pole for example
 will still meet the second criteria and thus be included. Instead, we
@@ -2419,12 +2419,12 @@ want to restrict this to sites that meet <em>both</em> criteria:</p>
 </div>
 </div>
 </div>
-<div id="challenge2" class="callout challenge">
+<div id="finding-outliers" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="finding-outliers" class="callout-inner">
-<h3 class="callout-title">Finding Outliers<a class="anchor" aria-label="anchor" href="#challenge2"></a>
+<h3 class="callout-title">Finding Outliers<a class="anchor" aria-label="anchor" href="#finding-outliers"></a>
 </h3>
 <div class="callout-content">
 <p>Normalized salinity readings are supposed to be between 0.0 and 1.0.
@@ -2440,7 +2440,7 @@ salinity values outside this range.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2473,12 +2473,12 @@ salinity values outside this range.</p>
 </div>
 </div>
 </div>
-<div id="challenge3" class="callout challenge">
+<div id="matching-patterns" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="matching-patterns" class="callout-inner">
-<h3 class="callout-title">Matching Patterns<a class="anchor" aria-label="anchor" href="#challenge3"></a>
+<h3 class="callout-title">Matching Patterns<a class="anchor" aria-label="anchor" href="#matching-patterns"></a>
 </h3>
 <div class="callout-content">
 <p>Which of these expressions are true?</p>
@@ -2499,7 +2499,7 @@ salinity values outside this range.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>True because these are the same character.</li>
@@ -2707,12 +2707,12 @@ using the string concatenation operator <code>||</code>:</p>
 </tr>
 </tbody>
 </table>
-<div id="challenge1" class="callout challenge">
+<div id="fixing-salinity-readings" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="fixing-salinity-readings" class="callout-inner">
-<h3 class="callout-title">Fixing Salinity Readings<a class="anchor" aria-label="anchor" href="#challenge1"></a>
+<h3 class="callout-title">Fixing Salinity Readings<a class="anchor" aria-label="anchor" href="#fixing-salinity-readings"></a>
 </h3>
 <div class="callout-content">
 <p>After further reading, we realize that Valentina Roerich was
@@ -2756,12 +2756,12 @@ divided by 100.</p>
 </div>
 </div>
 </div>
-<div id="challenge2" class="callout challenge">
+<div id="unions" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="unions" class="callout-inner">
-<h3 class="callout-title">Unions<a class="anchor" aria-label="anchor" href="#challenge2"></a>
+<h3 class="callout-title">Unions<a class="anchor" aria-label="anchor" href="#unions"></a>
 </h3>
 <div class="callout-content">
 <p>The <code>UNION</code> operator combines the results of two
@@ -2865,12 +2865,12 @@ be something like:</p>
 </div>
 </div>
 </div>
-<div id="challenge3" class="callout challenge">
+<div id="selecting-major-site-identifiers" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="selecting-major-site-identifiers" class="callout-inner">
-<h3 class="callout-title">Selecting Major Site Identifiers<a class="anchor" aria-label="anchor" href="#challenge3"></a>
+<h3 class="callout-title">Selecting Major Site Identifiers<a class="anchor" aria-label="anchor" href="#selecting-major-site-identifiers"></a>
 </h3>
 <div class="callout-content">
 <p>The site identifiers in the <code>Visited</code> table have two parts
@@ -3312,12 +3312,12 @@ or <code>avg</code>, <em>ignore</em> <code>null</code> values. In the
 majority of cases, this is a desirable output: for example, unknown
 values are thus not affecting our data when we are averaging it.
 Aggregation functions will be addressed in more detail in <a href="06-agg.html">the next section</a>.</p>
-<div id="challenge1" class="callout challenge">
+<div id="sorting-by-known-date" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="sorting-by-known-date" class="callout-inner">
-<h3 class="callout-title">Sorting by Known Date<a class="anchor" aria-label="anchor" href="#challenge1"></a>
+<h3 class="callout-title">Sorting by Known Date<a class="anchor" aria-label="anchor" href="#sorting-by-known-date"></a>
 </h3>
 <div class="callout-content">
 <p>Write a query that sorts the records in <code>Visited</code> by date,
@@ -3387,12 +3387,12 @@ omitting entries for which the date is not known (i.e., is null).</p>
 </div>
 </div>
 </div>
-<div id="challenge2" class="callout challenge">
+<div id="null-in-a-set" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="null-in-a-set" class="callout-inner">
-<h3 class="callout-title">NULL in a Set<a class="anchor" aria-label="anchor" href="#challenge2"></a>
+<h3 class="callout-title">NULL in a Set<a class="anchor" aria-label="anchor" href="#null-in-a-set"></a>
 </h3>
 <div class="callout-content">
 <p>What do you expect the following query to produce?</p>
@@ -3436,12 +3436,12 @@ query to use the IS NULL condition:</p>
 </div>
 </div>
 </div>
-<div id="discussion1" class="callout discussion">
+<div id="pros-and-cons-of-sentinels" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <div id="pros-and-cons-of-sentinels" class="callout-inner">
-<h3 class="callout-title">Pros and Cons of Sentinels<a class="anchor" aria-label="anchor" href="#discussion1"></a>
+<h3 class="callout-title">Pros and Cons of Sentinels<a class="anchor" aria-label="anchor" href="#pros-and-cons-of-sentinels"></a>
 </h3>
 <div class="callout-content">
 <p>Some database designers prefer to use a <a href="reference.html#sentinel-value">sentinel value</a> to mark missing
@@ -3996,12 +3996,12 @@ average <code>reading</code> in each, and chose a <code>person</code>
 and <code>quant</code> value from each (it doesn’t matter which ones,
 since they’re all equal).</p></li>
 </ol>
-<div id="challenge1" class="callout challenge">
+<div id="counting-temperature-readings" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="counting-temperature-readings" class="callout-inner">
-<h3 class="callout-title">Counting Temperature Readings<a class="anchor" aria-label="anchor" href="#challenge1"></a>
+<h3 class="callout-title">Counting Temperature Readings<a class="anchor" aria-label="anchor" href="#counting-temperature-readings"></a>
 </h3>
 <div class="callout-content">
 <p>How many temperature readings did Frank Pabodie record, and what was
@@ -4016,7 +4016,7 @@ their average value?</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -4037,12 +4037,12 @@ their average value?</p>
 </div>
 </div>
 </div>
-<div id="challenge2" class="callout challenge">
+<div id="averaging-with-null" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="averaging-with-null" class="callout-inner">
-<h3 class="callout-title">Averaging with NULL<a class="anchor" aria-label="anchor" href="#challenge2"></a>
+<h3 class="callout-title">Averaging with NULL<a class="anchor" aria-label="anchor" href="#averaging-with-null"></a>
 </h3>
 <div class="callout-content">
 <p>The average of a set of values is the sum of the values divided by
@@ -4059,7 +4059,7 @@ returns 2.0 or 3.0 when given the values 1.0, <code>null</code>, and
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>The answer is 3.0. <code>NULL</code> is not a value; it is the
 absence of a value. As such it is not included in the calculation.</p>
@@ -4076,12 +4076,12 @@ absence of a value. As such it is not included in the calculation.</p>
 </div>
 </div>
 </div>
-<div id="challenge3" class="callout challenge">
+<div id="what-does-this-query-do" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="what-does-this-query-do" class="callout-inner">
-<h3 class="callout-title">What Does This Query Do?<a class="anchor" aria-label="anchor" href="#challenge3"></a>
+<h3 class="callout-title">What Does This Query Do?<a class="anchor" aria-label="anchor" href="#what-does-this-query-do"></a>
 </h3>
 <div class="callout-content">
 <p>We want to calculate the difference between each individual radiation
@@ -4103,7 +4103,7 @@ query:</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>The query produces only one row of results when we what we really
 want is a result for each of the readings. The <code>avg()</code>
@@ -4138,12 +4138,12 @@ the original query.</p>
 </div>
 </div>
 </div>
-<div id="challenge4" class="callout challenge">
+<div id="using-the-group_concat-function" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="using-the-group_concat-function" class="callout-inner">
-<h3 class="callout-title">Using the group_concat function<a class="anchor" aria-label="anchor" href="#challenge4"></a>
+<h3 class="callout-title">Using the group_concat function<a class="anchor" aria-label="anchor" href="#using-the-group_concat-function"></a>
 </h3>
 <div class="callout-content">
 <p>The function <code>group_concat(field, separator)</code> concatenates
@@ -4168,7 +4168,7 @@ family names separated by a comma?</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>List all the family names separated by a comma:</p>
 <div class="codewrapper sourceCode" id="cb24">
@@ -4868,12 +4868,12 @@ record numbers in queries:</p>
 </tr>
 </tbody>
 </table>
-<div id="challenge1" class="callout challenge">
+<div id="listing-radiation-readings" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="listing-radiation-readings" class="callout-inner">
-<h3 class="callout-title">Listing Radiation Readings<a class="anchor" aria-label="anchor" href="#challenge1"></a>
+<h3 class="callout-title">Listing Radiation Readings<a class="anchor" aria-label="anchor" href="#listing-radiation-readings"></a>
 </h3>
 <div class="callout-content">
 <p>Write a query that lists all radiation readings from the DR-1
@@ -4927,12 +4927,12 @@ site.</p>
 </div>
 </div>
 </div>
-<div id="challenge2" class="callout challenge">
+<div id="wheres-frank" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="wheres-frank" class="callout-inner">
-<h3 class="callout-title">Where’s Frank?<a class="anchor" aria-label="anchor" href="#challenge2"></a>
+<h3 class="callout-title">Where’s Frank?<a class="anchor" aria-label="anchor" href="#wheres-frank"></a>
 </h3>
 <div class="callout-content">
 <p>Write a query that lists all sites visited by people named
@@ -4976,12 +4976,12 @@ site.</p>
 </div>
 </div>
 </div>
-<div id="discussion1" class="callout discussion">
+<div id="reading-queries" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <div id="reading-queries" class="callout-inner">
-<h3 class="callout-title">Reading Queries<a class="anchor" aria-label="anchor" href="#discussion1"></a>
+<h3 class="callout-title">Reading Queries<a class="anchor" aria-label="anchor" href="#reading-queries"></a>
 </h3>
 <div class="callout-content">
 <p>Describe in your own words what the following query produces:</p>
@@ -4994,12 +4994,12 @@ site.</p>
 </div>
 </div>
 </div>
-<div id="challenge3" class="callout challenge">
+<div id="who-has-been-where" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="who-has-been-where" class="callout-inner">
-<h3 class="callout-title">Who Has Been Where?<a class="anchor" aria-label="anchor" href="#challenge3"></a>
+<h3 class="callout-title">Who Has Been Where?<a class="anchor" aria-label="anchor" href="#who-has-been-where"></a>
 </h3>
 <div class="callout-content">
 <p>Write a query that shows each site with exact location (lat, long)
@@ -5379,12 +5379,12 @@ relationship: we use tables and joins because it’s efficient, provided
 our data is organized a certain way, but organize our data that way
 because we have tools to manipulate it efficiently. As anthropologists
 say, the tool shapes the hand that shapes the tool.</p>
-<div id="challenge1" class="callout challenge">
+<div id="identifying-atomic-values" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="identifying-atomic-values" class="callout-inner">
-<h3 class="callout-title">Identifying Atomic Values<a class="anchor" aria-label="anchor" href="#challenge1"></a>
+<h3 class="callout-title">Identifying Atomic Values<a class="anchor" aria-label="anchor" href="#identifying-atomic-values"></a>
 </h3>
 <div class="callout-content">
 <p>Which of the following are atomic values? Which are not? Why?</p>
@@ -5404,7 +5404,7 @@ say, the tool shapes the hand that shapes the tool.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>New Zealand is the only clear-cut atomic value.</p>
 <p>The address and the XY coordinate contain more than one piece of
@@ -5424,12 +5424,12 @@ for SQLite).</p>
 </div>
 </div>
 </div>
-<div id="challenge2" class="callout challenge">
+<div id="identifying-a-primary-key" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="identifying-a-primary-key" class="callout-inner">
-<h3 class="callout-title">Identifying a Primary Key<a class="anchor" aria-label="anchor" href="#challenge2"></a>
+<h3 class="callout-title">Identifying a Primary Key<a class="anchor" aria-label="anchor" href="#identifying-a-primary-key"></a>
 </h3>
 <div class="callout-content">
 <p>What is the primary key in this table? I.e., what value or
@@ -5458,7 +5458,7 @@ combination of values uniquely identifies a record?</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>Latitude, longitude, and date are all required to uniquely identify
 the temperature record.</p>
@@ -5679,12 +5679,12 @@ uses it as a primary key. If our database manager supports it, we can
 automate this using <a href="reference.html#cascading-delete">cascading
 delete</a>. However, this technique is outside the scope of this
 chapter.</p>
-<div id="callout1" class="callout callout">
+<div id="hybrid-storage-models" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="hybrid-storage-models" class="callout-inner">
-<h3 class="callout-title">Hybrid Storage Models<a class="anchor" aria-label="anchor" href="#callout1"></a>
+<h3 class="callout-title">Hybrid Storage Models<a class="anchor" aria-label="anchor" href="#hybrid-storage-models"></a>
 </h3>
 <div class="callout-content">
 <p>Many applications use a hybrid storage model instead of putting
@@ -5697,12 +5697,12 @@ the MP3 files, but the files themselves live on disk.</p>
 </div>
 </div>
 </div>
-<div id="challenge1" class="callout challenge">
+<div id="replacing-null" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="replacing-null" class="callout-inner">
-<h3 class="callout-title">Replacing NULL<a class="anchor" aria-label="anchor" href="#challenge1"></a>
+<h3 class="callout-title">Replacing NULL<a class="anchor" aria-label="anchor" href="#replacing-null"></a>
 </h3>
 <div class="callout-content">
 <p>Write an SQL statement to replace all uses of <code>null</code> in
@@ -5717,7 +5717,7 @@ the MP3 files, but the files themselves live on disk.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -5728,12 +5728,12 @@ the MP3 files, but the files themselves live on disk.</p>
 </div>
 </div>
 </div>
-<div id="challenge2" class="callout challenge">
+<div id="backing-up-with-sql" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="backing-up-with-sql" class="callout-inner">
-<h3 class="callout-title">Backing Up with SQL<a class="anchor" aria-label="anchor" href="#challenge2"></a>
+<h3 class="callout-title">Backing Up with SQL<a class="anchor" aria-label="anchor" href="#backing-up-with-sql"></a>
 </h3>
 <div class="callout-content">
 <p>SQLite has several administrative commands that aren’t part of the
@@ -5754,7 +5754,7 @@ approach? (Hint: records aren’t stored in any particular order.)</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="section level4">
 <h4 id="advantages">Advantages<a class="anchor" aria-label="anchor" href="#advantages"></a>
@@ -6061,12 +6061,12 @@ connection, in order to save our changes to the database.</p>
 </h3>
 <pre class="output" tabindex="0"><code>Full name for barrett: Mary Barrett</code></pre>
 </div>
-<div id="challenge1" class="callout challenge">
+<div id="filling-a-table-vs.-printing-values" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="filling-a-table-vs.-printing-values" class="callout-inner">
-<h3 class="callout-title">Filling a Table vs. Printing Values<a class="anchor" aria-label="anchor" href="#challenge1"></a>
+<h3 class="callout-title">Filling a Table vs. Printing Values<a class="anchor" aria-label="anchor" href="#filling-a-table-vs.-printing-values"></a>
 </h3>
 <div class="callout-content">
 <p>Write a Python program that creates a new database in a file called
@@ -6085,7 +6085,7 @@ simply writes those random numbers to a file?</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -6126,12 +6126,12 @@ the file <code>random_numbers.txt</code>:</p>
 </div>
 </div>
 </div>
-<div id="challenge2" class="callout challenge">
+<div id="filtering-in-sql-vs.-filtering-in-python" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="filtering-in-sql-vs.-filtering-in-python" class="callout-inner">
-<h3 class="callout-title">Filtering in SQL vs. Filtering in Python<a class="anchor" aria-label="anchor" href="#challenge2"></a>
+<h3 class="callout-title">Filtering in SQL vs. Filtering in Python<a class="anchor" aria-label="anchor" href="#filtering-in-sql-vs.-filtering-in-python"></a>
 </h3>
 <div class="callout-content">
 <p>Write a Python program that creates a new database called
@@ -6150,7 +6150,7 @@ and filtering in Python?</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>The first example reads all the data into memory and filters the
 numbers using the if statement in Python.</p>
@@ -6214,12 +6214,12 @@ does not require the use of Python’s if statement.</p>
 </div>
 </div>
 </div>
-<div id="discussion1" class="callout discussion">
+<div id="generating-insert-statements" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <div id="generating-insert-statements" class="callout-inner">
-<h3 class="callout-title">Generating Insert Statements<a class="anchor" aria-label="anchor" href="#discussion1"></a>
+<h3 class="callout-title">Generating Insert Statements<a class="anchor" aria-label="anchor" href="#generating-insert-statements"></a>
 </h3>
 <div class="callout-content">
 <p>One of our colleagues has sent us a <a href="reference.html#comma-separated-values-csv">CSV</a> file containing
@@ -6429,12 +6429,12 @@ many values as there are question marks in the query. The library
 matches values to question marks in order, and translates any special
 characters in the values into their escaped equivalents so that they are
 safe to use.</p>
-<div id="discussion1" class="callout discussion">
+<div id="filling-a-table-vs.-printing-values" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <div id="filling-a-table-vs.-printing-values" class="callout-inner">
-<h3 class="callout-title">Filling a Table vs. Printing Values<a class="anchor" aria-label="anchor" href="#discussion1"></a>
+<h3 class="callout-title">Filling a Table vs. Printing Values<a class="anchor" aria-label="anchor" href="#filling-a-table-vs.-printing-values"></a>
 </h3>
 <div class="callout-content">
 <p>Write an R program that creates a new database in a file called
@@ -6446,12 +6446,12 @@ simply writes those random numbers to a file?</p>
 </div>
 </div>
 </div>
-<div id="discussion2" class="callout discussion">
+<div id="filtering-in-sql-vs.-filtering-in-r" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <div id="filtering-in-sql-vs.-filtering-in-r" class="callout-inner">
-<h3 class="callout-title">Filtering in SQL vs. Filtering in R<a class="anchor" aria-label="anchor" href="#discussion2"></a>
+<h3 class="callout-title">Filtering in SQL vs. Filtering in R<a class="anchor" aria-label="anchor" href="#filtering-in-sql-vs.-filtering-in-r"></a>
 </h3>
 <div class="callout-content">
 <p>Write an R program that creates a new database called
@@ -6593,7 +6593,7 @@ easier.</li>
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.11.16" class="external-link">sandpaper (0.11.16)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.12.0" class="external-link">sandpaper (0.12.0)</a>,
         <a href="https://github.com/carpentries/pegboard" class="external-link">pegboard (0.5.3)</a>,
       and <a href="https://github.com/carpentries/varnish/tree/0.2.16" class="external-link">varnish (0.2.16)</a>.</p>
 			</div>
@@ -6617,8 +6617,8 @@ easier.</li>
   "url": "https://swcarpentry.github.io/sql-novice-survey/aio.html",
   "identifier": "https://swcarpentry.github.io/sql-novice-survey/aio.html",
   "dateCreated": "2014-11-21",
-  "dateModified": "2023-05-16",
-  "datePublished": "2023-05-16"
+  "dateModified": "2023-05-23",
+  "datePublished": "2023-05-23"
 }
 
   </script><script>

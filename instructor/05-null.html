@@ -558,12 +558,12 @@ or <code>avg</code>, <em>ignore</em> <code>null</code> values. In the
 majority of cases, this is a desirable output: for example, unknown
 values are thus not affecting our data when we are averaging it.
 Aggregation functions will be addressed in more detail in <a href="06-agg.html">the next section</a>.</p>
-<div id="challenge1" class="callout challenge">
+<div id="sorting-by-known-date" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="sorting-by-known-date" class="callout-inner">
-<h3 class="callout-title">Sorting by Known Date<a class="anchor" aria-label="anchor" href="#challenge1"></a>
+<h3 class="callout-title">Sorting by Known Date<a class="anchor" aria-label="anchor" href="#sorting-by-known-date"></a>
 </h3>
 <div class="callout-content">
 <p>Write a query that sorts the records in <code>Visited</code> by date,
@@ -613,12 +613,12 @@ omitting entries for which the date is not known (i.e., is null).</p>
 </div>
 </div>
 </div>
-<div id="challenge2" class="callout challenge">
+<div id="null-in-a-set" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="null-in-a-set" class="callout-inner">
-<h3 class="callout-title">NULL in a Set<a class="anchor" aria-label="anchor" href="#challenge2"></a>
+<h3 class="callout-title">NULL in a Set<a class="anchor" aria-label="anchor" href="#null-in-a-set"></a>
 </h3>
 <div class="callout-content">
 <p>What do you expect the following query to produce?</p>
@@ -662,12 +662,12 @@ query to use the IS NULL condition:</p>
 </div>
 </div>
 </div>
-<div id="discussion1" class="callout discussion">
+<div id="pros-and-cons-of-sentinels" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <div id="pros-and-cons-of-sentinels" class="callout-inner">
-<h3 class="callout-title">Pros and Cons of Sentinels<a class="anchor" aria-label="anchor" href="#discussion1"></a>
+<h3 class="callout-title">Pros and Cons of Sentinels<a class="anchor" aria-label="anchor" href="#pros-and-cons-of-sentinels"></a>
 </h3>
 <div class="callout-content">
 <p>Some database designers prefer to use a <a href="reference.html#sentinel-value">sentinel value</a> to mark missing
@@ -726,7 +726,7 @@ information.</li>
         <p>Materials licensed under <a href="../LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.11.16" class="external-link">sandpaper (0.11.16)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.12.0" class="external-link">sandpaper (0.12.0)</a>,
         <a href="https://github.com/carpentries/pegboard" class="external-link">pegboard (0.5.3)</a>,
       and <a href="https://github.com/carpentries/varnish/tree/0.2.16" class="external-link">varnish (0.2.16)</a>.</p>
 			</div>
@@ -750,7 +750,7 @@ information.</li>
   "identifier": "https://swcarpentry.github.io/sql-novice-survey/instructor/05-null.html",
   "dateCreated": "2014-11-21",
   "dateModified": "2023-05-08",
-  "datePublished": "2023-05-16"
+  "datePublished": "2023-05-23"
 }
 
   </script><script>
