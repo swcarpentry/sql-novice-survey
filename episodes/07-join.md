@@ -378,7 +378,7 @@ ORDER BY
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-A good visual explanation of joins can be found [here][joinref]
+A good visual explanation of joins can be [found here][joinref]
 
 [outer]: https://en.wikipedia.org/wiki/Join_%28SQL%29#Outer_join
 [rowid]: https://www.sqlite.org/lang_createtable.html#rowid
