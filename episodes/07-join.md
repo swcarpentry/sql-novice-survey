@@ -90,9 +90,7 @@ thus we need to use a filter:
 
 ```sql
 SELECT
-  Site.lat,
-  Site.long,
-  Visited.dated
+  *
 FROM
   Site
   JOIN Visited ON Site.name = Visited.site;
