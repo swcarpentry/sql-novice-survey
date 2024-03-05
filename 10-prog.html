@@ -343,16 +343,16 @@ from an SQLite database stored in a file called
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>connection <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"survey.db"</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>cursor <span class="op">=</span> connection.cursor()</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>cursor.execute(<span class="st">"SELECT Site.lat, Site.long FROM Site;"</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> cursor.fetchall()</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> r <span class="kw">in</span> results:</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(r)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>cursor.close()</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>connection.close()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>connection <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"survey.db"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>cursor <span class="op">=</span> connection.cursor()</span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>cursor.execute(<span class="st">"SELECT Site.lat, Site.long FROM Site;"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>results <span class="op">=</span> cursor.fetchall()</span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="cf">for</span> r <span class="kw">in</span> results:</span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a>    <span class="bu">print</span>(r)</span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a>cursor.close()</span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a>connection.close()</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -394,21 +394,21 @@ returns their name:</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_name(database_file, person_id):</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    query <span class="op">=</span> <span class="st">"SELECT personal || ' ' || family FROM Person WHERE id='"</span> <span class="op">+</span> person_id <span class="op">+</span> <span class="st">"';"</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    connection <span class="op">=</span> sqlite3.<span class="ex">connect</span>(database_file)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    cursor <span class="op">=</span> connection.cursor()</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    cursor.execute(query)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    results <span class="op">=</span> cursor.fetchall()</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    cursor.close()</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    connection.close()</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> results[<span class="dv">0</span>][<span class="dv">0</span>]</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Full name for dyer:"</span>, get_name(<span class="st">'survey.db'</span>, <span class="st">'dyer'</span>))</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="kw">def</span> get_name(database_file, person_id):</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>    query <span class="op">=</span> <span class="st">"SELECT personal || ' ' || family FROM Person WHERE id='"</span> <span class="op">+</span> person_id <span class="op">+</span> <span class="st">"';"</span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>    connection <span class="op">=</span> sqlite3.<span class="ex">connect</span>(database_file)</span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>    cursor <span class="op">=</span> connection.cursor()</span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>    cursor.execute(query)</span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a>    results <span class="op">=</span> cursor.fetchall()</span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a>    cursor.close()</span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a>    connection.close()</span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a>    <span class="cf">return</span> results[<span class="dv">0</span>][<span class="dv">0</span>]</span>
+<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Full name for dyer:"</span>, get_name(<span class="st">'survey.db'</span>, <span class="st">'dyer'</span>))</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -426,7 +426,7 @@ result is:</p>
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> personal <span class="op">||</span> <span class="st">' '</span> <span class="op">||</span> family <span class="kw">FROM</span> Person <span class="kw">WHERE</span> <span class="kw">id</span><span class="op">=</span><span class="st">'dyer'</span>; <span class="kw">DROP</span> <span class="kw">TABLE</span> Survey; <span class="kw">SELECT</span> <span class="st">''</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="kw">SELECT</span> personal <span class="op">||</span> <span class="st">' '</span> <span class="op">||</span> family <span class="kw">FROM</span> Person <span class="kw">WHERE</span> <span class="kw">id</span><span class="op">=</span><span class="st">'dyer'</span>; <span class="kw">DROP</span> <span class="kw">TABLE</span> Survey; <span class="kw">SELECT</span> <span class="st">''</span>;</span></code></pre>
 </div>
 <p>If we execute this, it will erase one of the tables in our
 database.</p>
@@ -445,21 +445,21 @@ what our example program looks like if we do this:</p>
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_name(database_file, person_id):</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    query <span class="op">=</span> <span class="st">"SELECT personal || ' ' || family FROM Person WHERE id=?;"</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    connection <span class="op">=</span> sqlite3.<span class="ex">connect</span>(database_file)</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    cursor <span class="op">=</span> connection.cursor()</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    cursor.execute(query, [person_id])</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    results <span class="op">=</span> cursor.fetchall()</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    cursor.close()</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    connection.close()</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> results[<span class="dv">0</span>][<span class="dv">0</span>]</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Full name for dyer:"</span>, get_name(<span class="st">'survey.db'</span>, <span class="st">'dyer'</span>))</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="kw">def</span> get_name(database_file, person_id):</span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>    query <span class="op">=</span> <span class="st">"SELECT personal || ' ' || family FROM Person WHERE id=?;"</span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>    connection <span class="op">=</span> sqlite3.<span class="ex">connect</span>(database_file)</span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a>    cursor <span class="op">=</span> connection.cursor()</span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a>    cursor.execute(query, [person_id])</span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a>    results <span class="op">=</span> cursor.fetchall()</span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a>    cursor.close()</span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a>    connection.close()</span>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a>    <span class="cf">return</span> results[<span class="dv">0</span>][<span class="dv">0</span>]</span>
+<span id="cb7-14"><a href="#cb7-14" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Full name for dyer:"</span>, get_name(<span class="st">'survey.db'</span>, <span class="st">'dyer'</span>))</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -479,34 +479,34 @@ new function called <code>add_name</code> like so:</p>
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add_name(database_file, new_person):</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    query <span class="op">=</span> <span class="st">"INSERT INTO Person (id, personal, family) VALUES (?, ?, ?);"</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    connection <span class="op">=</span> sqlite3.<span class="ex">connect</span>(database_file)</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    cursor <span class="op">=</span> connection.cursor()</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    cursor.execute(query, <span class="bu">list</span>(new_person))</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    cursor.close()</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    connection.close()</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_name(database_file, person_id):</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    query <span class="op">=</span> <span class="st">"SELECT personal || ' ' || family FROM Person WHERE id=?;"</span></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    connection <span class="op">=</span> sqlite3.<span class="ex">connect</span>(database_file)</span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    cursor <span class="op">=</span> connection.cursor()</span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>    cursor.execute(query, [person_id])</span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    results <span class="op">=</span> cursor.fetchall()</span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    cursor.close()</span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    connection.close()</span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> results[<span class="dv">0</span>][<span class="dv">0</span>]</span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Insert a new name</span></span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>add_name(<span class="st">'survey.db'</span>, (<span class="st">'barrett'</span>, <span class="st">'Mary'</span>, <span class="st">'Barrett'</span>))</span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Check it exists</span></span>
-<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Full name for barrett:"</span>, get_name(<span class="st">'survey.db'</span>, <span class="st">'barrett'</span>))</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="kw">def</span> add_name(database_file, new_person):</span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>    query <span class="op">=</span> <span class="st">"INSERT INTO Person (id, personal, family) VALUES (?, ?, ?);"</span></span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>    connection <span class="op">=</span> sqlite3.<span class="ex">connect</span>(database_file)</span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a>    cursor <span class="op">=</span> connection.cursor()</span>
+<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a>    cursor.execute(query, <span class="bu">list</span>(new_person))</span>
+<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a>    cursor.close()</span>
+<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a>    connection.close()</span>
+<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" tabindex="-1"></a><span class="kw">def</span> get_name(database_file, person_id):</span>
+<span id="cb9-14"><a href="#cb9-14" tabindex="-1"></a>    query <span class="op">=</span> <span class="st">"SELECT personal || ' ' || family FROM Person WHERE id=?;"</span></span>
+<span id="cb9-15"><a href="#cb9-15" tabindex="-1"></a></span>
+<span id="cb9-16"><a href="#cb9-16" tabindex="-1"></a>    connection <span class="op">=</span> sqlite3.<span class="ex">connect</span>(database_file)</span>
+<span id="cb9-17"><a href="#cb9-17" tabindex="-1"></a>    cursor <span class="op">=</span> connection.cursor()</span>
+<span id="cb9-18"><a href="#cb9-18" tabindex="-1"></a>    cursor.execute(query, [person_id])</span>
+<span id="cb9-19"><a href="#cb9-19" tabindex="-1"></a>    results <span class="op">=</span> cursor.fetchall()</span>
+<span id="cb9-20"><a href="#cb9-20" tabindex="-1"></a>    cursor.close()</span>
+<span id="cb9-21"><a href="#cb9-21" tabindex="-1"></a>    connection.close()</span>
+<span id="cb9-22"><a href="#cb9-22" tabindex="-1"></a></span>
+<span id="cb9-23"><a href="#cb9-23" tabindex="-1"></a>    <span class="cf">return</span> results[<span class="dv">0</span>][<span class="dv">0</span>]</span>
+<span id="cb9-24"><a href="#cb9-24" tabindex="-1"></a></span>
+<span id="cb9-25"><a href="#cb9-25" tabindex="-1"></a><span class="co"># Insert a new name</span></span>
+<span id="cb9-26"><a href="#cb9-26" tabindex="-1"></a>add_name(<span class="st">'survey.db'</span>, (<span class="st">'barrett'</span>, <span class="st">'Mary'</span>, <span class="st">'Barrett'</span>))</span>
+<span id="cb9-27"><a href="#cb9-27" tabindex="-1"></a><span class="co"># Check it exists</span></span>
+<span id="cb9-28"><a href="#cb9-28" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Full name for barrett:"</span>, get_name(<span class="st">'survey.db'</span>, <span class="st">'barrett'</span>))</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -522,35 +522,35 @@ connection, in order to save our changes to the database.</p>
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add_name(database_file, new_person):</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    query <span class="op">=</span> <span class="st">"INSERT INTO Person (id, personal, family) VALUES (?, ?, ?);"</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    connection <span class="op">=</span> sqlite3.<span class="ex">connect</span>(database_file)</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    cursor <span class="op">=</span> connection.cursor()</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    cursor.execute(query, <span class="bu">list</span>(new_person))</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    cursor.close()</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    connection.commit()</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    connection.close()</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_name(database_file, person_id):</span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    query <span class="op">=</span> <span class="st">"SELECT personal || ' ' || family FROM Person WHERE id=?;"</span></span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>    connection <span class="op">=</span> sqlite3.<span class="ex">connect</span>(database_file)</span>
-<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>    cursor <span class="op">=</span> connection.cursor()</span>
-<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>    cursor.execute(query, [person_id])</span>
-<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>    results <span class="op">=</span> cursor.fetchall()</span>
-<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>    cursor.close()</span>
-<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>    connection.close()</span>
-<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> results[<span class="dv">0</span>][<span class="dv">0</span>]</span>
-<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Insert a new name</span></span>
-<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>add_name(<span class="st">'survey.db'</span>, (<span class="st">'barrett'</span>, <span class="st">'Mary'</span>, <span class="st">'Barrett'</span>))</span>
-<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Check it exists</span></span>
-<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Full name for barrett:"</span>, get_name(<span class="st">'survey.db'</span>, <span class="st">'barrett'</span>))</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a><span class="kw">def</span> add_name(database_file, new_person):</span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a>    query <span class="op">=</span> <span class="st">"INSERT INTO Person (id, personal, family) VALUES (?, ?, ?);"</span></span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a>    connection <span class="op">=</span> sqlite3.<span class="ex">connect</span>(database_file)</span>
+<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a>    cursor <span class="op">=</span> connection.cursor()</span>
+<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a>    cursor.execute(query, <span class="bu">list</span>(new_person))</span>
+<span id="cb11-9"><a href="#cb11-9" tabindex="-1"></a>    cursor.close()</span>
+<span id="cb11-10"><a href="#cb11-10" tabindex="-1"></a>    connection.commit()</span>
+<span id="cb11-11"><a href="#cb11-11" tabindex="-1"></a>    connection.close()</span>
+<span id="cb11-12"><a href="#cb11-12" tabindex="-1"></a></span>
+<span id="cb11-13"><a href="#cb11-13" tabindex="-1"></a></span>
+<span id="cb11-14"><a href="#cb11-14" tabindex="-1"></a><span class="kw">def</span> get_name(database_file, person_id):</span>
+<span id="cb11-15"><a href="#cb11-15" tabindex="-1"></a>    query <span class="op">=</span> <span class="st">"SELECT personal || ' ' || family FROM Person WHERE id=?;"</span></span>
+<span id="cb11-16"><a href="#cb11-16" tabindex="-1"></a></span>
+<span id="cb11-17"><a href="#cb11-17" tabindex="-1"></a>    connection <span class="op">=</span> sqlite3.<span class="ex">connect</span>(database_file)</span>
+<span id="cb11-18"><a href="#cb11-18" tabindex="-1"></a>    cursor <span class="op">=</span> connection.cursor()</span>
+<span id="cb11-19"><a href="#cb11-19" tabindex="-1"></a>    cursor.execute(query, [person_id])</span>
+<span id="cb11-20"><a href="#cb11-20" tabindex="-1"></a>    results <span class="op">=</span> cursor.fetchall()</span>
+<span id="cb11-21"><a href="#cb11-21" tabindex="-1"></a>    cursor.close()</span>
+<span id="cb11-22"><a href="#cb11-22" tabindex="-1"></a>    connection.close()</span>
+<span id="cb11-23"><a href="#cb11-23" tabindex="-1"></a></span>
+<span id="cb11-24"><a href="#cb11-24" tabindex="-1"></a>    <span class="cf">return</span> results[<span class="dv">0</span>][<span class="dv">0</span>]</span>
+<span id="cb11-25"><a href="#cb11-25" tabindex="-1"></a></span>
+<span id="cb11-26"><a href="#cb11-26" tabindex="-1"></a><span class="co"># Insert a new name</span></span>
+<span id="cb11-27"><a href="#cb11-27" tabindex="-1"></a>add_name(<span class="st">'survey.db'</span>, (<span class="st">'barrett'</span>, <span class="st">'Mary'</span>, <span class="st">'Barrett'</span>))</span>
+<span id="cb11-28"><a href="#cb11-28" tabindex="-1"></a><span class="co"># Check it exists</span></span>
+<span id="cb11-29"><a href="#cb11-29" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Full name for barrett:"</span>, get_name(<span class="st">'survey.db'</span>, <span class="st">'barrett'</span>))</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -579,42 +579,42 @@ simply writes those random numbers to a file?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1">Show me the solution</h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># import random number generator</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy.random <span class="im">import</span> uniform</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>random_numbers <span class="op">=</span> uniform(low<span class="op">=</span><span class="fl">10.0</span>, high<span class="op">=</span><span class="fl">25.0</span>, size<span class="op">=</span><span class="dv">100000</span>)</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>connection <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"original.db"</span>)</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>cursor <span class="op">=</span> connection.cursor()</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>cursor.execute(<span class="st">"CREATE TABLE Pressure (reading float not null)"</span>)</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>query <span class="op">=</span> <span class="st">"INSERT INTO Pressure (reading) VALUES (?);"</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> number <span class="kw">in</span> random_numbers:</span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    cursor.execute(query, [number])</span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>cursor.close()</span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="co"># save changes to file for next exercise</span></span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>connection.commit()</span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>connection.close()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="co"># import random number generator</span></span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a><span class="im">from</span> numpy.random <span class="im">import</span> uniform</span>
+<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a>random_numbers <span class="op">=</span> uniform(low<span class="op">=</span><span class="fl">10.0</span>, high<span class="op">=</span><span class="fl">25.0</span>, size<span class="op">=</span><span class="dv">100000</span>)</span>
+<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a>connection <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"original.db"</span>)</span>
+<span id="cb13-8"><a href="#cb13-8" tabindex="-1"></a>cursor <span class="op">=</span> connection.cursor()</span>
+<span id="cb13-9"><a href="#cb13-9" tabindex="-1"></a>cursor.execute(<span class="st">"CREATE TABLE Pressure (reading float not null)"</span>)</span>
+<span id="cb13-10"><a href="#cb13-10" tabindex="-1"></a>query <span class="op">=</span> <span class="st">"INSERT INTO Pressure (reading) VALUES (?);"</span></span>
+<span id="cb13-11"><a href="#cb13-11" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="#cb13-12" tabindex="-1"></a><span class="cf">for</span> number <span class="kw">in</span> random_numbers:</span>
+<span id="cb13-13"><a href="#cb13-13" tabindex="-1"></a>    cursor.execute(query, [number])</span>
+<span id="cb13-14"><a href="#cb13-14" tabindex="-1"></a></span>
+<span id="cb13-15"><a href="#cb13-15" tabindex="-1"></a>cursor.close()</span>
+<span id="cb13-16"><a href="#cb13-16" tabindex="-1"></a><span class="co"># save changes to file for next exercise</span></span>
+<span id="cb13-17"><a href="#cb13-17" tabindex="-1"></a>connection.commit()</span>
+<span id="cb13-18"><a href="#cb13-18" tabindex="-1"></a>connection.close()</span></code></pre>
 </div>
 <p>For comparison, the following program writes the random numbers into
 the file <code>random_numbers.txt</code>:</p>
 <div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy.random <span class="im">import</span> uniform</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>random_numbers <span class="op">=</span> uniform(low<span class="op">=</span><span class="fl">10.0</span>, high<span class="op">=</span><span class="fl">25.0</span>, size<span class="op">=</span><span class="dv">100000</span>)</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'random_numbers.txt'</span>, <span class="st">'w'</span>) <span class="im">as</span> outfile:</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> number <span class="kw">in</span> random_numbers:</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>        <span class="co"># need to add linebreak \n</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>        outfile.write(<span class="st">"</span><span class="sc">{}</span><span class="ch">\n</span><span class="st">"</span>.<span class="bu">format</span>(number))</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="im">from</span> numpy.random <span class="im">import</span> uniform</span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a>random_numbers <span class="op">=</span> uniform(low<span class="op">=</span><span class="fl">10.0</span>, high<span class="op">=</span><span class="fl">25.0</span>, size<span class="op">=</span><span class="dv">100000</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'random_numbers.txt'</span>, <span class="st">'w'</span>) <span class="im">as</span> outfile:</span>
+<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a>    <span class="cf">for</span> number <span class="kw">in</span> random_numbers:</span>
+<span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a>        <span class="co"># need to add linebreak \n</span></span>
+<span id="cb14-7"><a href="#cb14-7" tabindex="-1"></a>        outfile.write(<span class="st">"</span><span class="sc">{}</span><span class="ch">\n</span><span class="st">"</span>.<span class="bu">format</span>(number))</span></code></pre>
 </div>
 </div>
 </div>
@@ -642,35 +642,35 @@ and filtering in Python?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2">Show me the solution</h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>The first example reads all the data into memory and filters the
 numbers using the if statement in Python.</p>
 <div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>connection_original <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"original.db"</span>)</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>cursor_original <span class="op">=</span> connection_original.cursor()</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>cursor_original.execute(<span class="st">"SELECT * FROM Pressure;"</span>)</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> cursor_original.fetchall()</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>cursor_original.close()</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>connection_original.close()</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>connection_backup <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"backup.db"</span>)</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>cursor_backup <span class="op">=</span> connection_backup.cursor()</span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>cursor_backup.execute(<span class="st">"CREATE TABLE Pressure (reading float not null)"</span>)</span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>query <span class="op">=</span> <span class="st">"INSERT INTO Pressure (reading) VALUES (?);"</span></span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> entry <span class="kw">in</span> results:</span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># number is saved in first column of the table</span></span>
-<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> entry[<span class="dv">0</span>] <span class="op">&gt;</span> <span class="fl">20.0</span>:</span>
-<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>        cursor_backup.execute(query, entry)</span>
-<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>cursor_backup.close()</span>
-<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>connection_backup.commit()</span>
-<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>connection_backup.close()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a>connection_original <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"original.db"</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a>cursor_original <span class="op">=</span> connection_original.cursor()</span>
+<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a>cursor_original.execute(<span class="st">"SELECT * FROM Pressure;"</span>)</span>
+<span id="cb15-6"><a href="#cb15-6" tabindex="-1"></a>results <span class="op">=</span> cursor_original.fetchall()</span>
+<span id="cb15-7"><a href="#cb15-7" tabindex="-1"></a>cursor_original.close()</span>
+<span id="cb15-8"><a href="#cb15-8" tabindex="-1"></a>connection_original.close()</span>
+<span id="cb15-9"><a href="#cb15-9" tabindex="-1"></a></span>
+<span id="cb15-10"><a href="#cb15-10" tabindex="-1"></a>connection_backup <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"backup.db"</span>)</span>
+<span id="cb15-11"><a href="#cb15-11" tabindex="-1"></a>cursor_backup <span class="op">=</span> connection_backup.cursor()</span>
+<span id="cb15-12"><a href="#cb15-12" tabindex="-1"></a>cursor_backup.execute(<span class="st">"CREATE TABLE Pressure (reading float not null)"</span>)</span>
+<span id="cb15-13"><a href="#cb15-13" tabindex="-1"></a>query <span class="op">=</span> <span class="st">"INSERT INTO Pressure (reading) VALUES (?);"</span></span>
+<span id="cb15-14"><a href="#cb15-14" tabindex="-1"></a></span>
+<span id="cb15-15"><a href="#cb15-15" tabindex="-1"></a><span class="cf">for</span> entry <span class="kw">in</span> results:</span>
+<span id="cb15-16"><a href="#cb15-16" tabindex="-1"></a>    <span class="co"># number is saved in first column of the table</span></span>
+<span id="cb15-17"><a href="#cb15-17" tabindex="-1"></a>    <span class="cf">if</span> entry[<span class="dv">0</span>] <span class="op">&gt;</span> <span class="fl">20.0</span>:</span>
+<span id="cb15-18"><a href="#cb15-18" tabindex="-1"></a>        cursor_backup.execute(query, entry)</span>
+<span id="cb15-19"><a href="#cb15-19" tabindex="-1"></a></span>
+<span id="cb15-20"><a href="#cb15-20" tabindex="-1"></a>cursor_backup.close()</span>
+<span id="cb15-21"><a href="#cb15-21" tabindex="-1"></a>connection_backup.commit()</span>
+<span id="cb15-22"><a href="#cb15-22" tabindex="-1"></a>connection_backup.close()</span></code></pre>
 </div>
 <p>In contrast the following example uses the conditional
 <code>SELECT</code> statement to filter the numbers in SQL. The only
@@ -681,26 +681,26 @@ does not require the use of Python’s if statement.</p>
 <div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>connection_original <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"original.db"</span>)</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>cursor_original <span class="op">=</span> connection_original.cursor()</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>cursor_original.execute(<span class="st">"SELECT * FROM Pressure WHERE reading &gt; 20.0;"</span>)</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> cursor_original.fetchall()</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>cursor_original.close()</span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>connection_original.close()</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>connection_backup <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"backup.db"</span>)</span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>cursor_backup <span class="op">=</span> connection_backup.cursor()</span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>cursor_backup.execute(<span class="st">"CREATE TABLE Pressure (reading float not null)"</span>)</span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>query <span class="op">=</span> <span class="st">"INSERT INTO Pressure (reading) VALUES (?);"</span></span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> entry <span class="kw">in</span> results:</span>
-<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>    cursor_backup.execute(query, entry)</span>
-<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>cursor_backup.close()</span>
-<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>connection_backup.commit()</span>
-<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>connection_backup.close()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a>connection_original <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"original.db"</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" tabindex="-1"></a>cursor_original <span class="op">=</span> connection_original.cursor()</span>
+<span id="cb16-5"><a href="#cb16-5" tabindex="-1"></a>cursor_original.execute(<span class="st">"SELECT * FROM Pressure WHERE reading &gt; 20.0;"</span>)</span>
+<span id="cb16-6"><a href="#cb16-6" tabindex="-1"></a>results <span class="op">=</span> cursor_original.fetchall()</span>
+<span id="cb16-7"><a href="#cb16-7" tabindex="-1"></a>cursor_original.close()</span>
+<span id="cb16-8"><a href="#cb16-8" tabindex="-1"></a>connection_original.close()</span>
+<span id="cb16-9"><a href="#cb16-9" tabindex="-1"></a></span>
+<span id="cb16-10"><a href="#cb16-10" tabindex="-1"></a>connection_backup <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"backup.db"</span>)</span>
+<span id="cb16-11"><a href="#cb16-11" tabindex="-1"></a>cursor_backup <span class="op">=</span> connection_backup.cursor()</span>
+<span id="cb16-12"><a href="#cb16-12" tabindex="-1"></a>cursor_backup.execute(<span class="st">"CREATE TABLE Pressure (reading float not null)"</span>)</span>
+<span id="cb16-13"><a href="#cb16-13" tabindex="-1"></a>query <span class="op">=</span> <span class="st">"INSERT INTO Pressure (reading) VALUES (?);"</span></span>
+<span id="cb16-14"><a href="#cb16-14" tabindex="-1"></a></span>
+<span id="cb16-15"><a href="#cb16-15" tabindex="-1"></a><span class="cf">for</span> entry <span class="kw">in</span> results:</span>
+<span id="cb16-16"><a href="#cb16-16" tabindex="-1"></a>    cursor_backup.execute(query, entry)</span>
+<span id="cb16-17"><a href="#cb16-17" tabindex="-1"></a></span>
+<span id="cb16-18"><a href="#cb16-18" tabindex="-1"></a>cursor_backup.close()</span>
+<span id="cb16-19"><a href="#cb16-19" tabindex="-1"></a>connection_backup.commit()</span>
+<span id="cb16-20"><a href="#cb16-20" tabindex="-1"></a>connection_backup.close()</span></code></pre>
 </div>
 </div>
 </div>
@@ -813,7 +813,7 @@ formatting.</li>
   "identifier": "https://swcarpentry.github.io/sql-novice-survey/10-prog.html",
   "dateCreated": "2014-11-21",
   "dateModified": "2023-05-08",
-  "datePublished": "2024-02-27"
+  "datePublished": "2024-03-05"
 }
 
   </script><script>

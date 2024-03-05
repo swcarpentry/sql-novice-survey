@@ -412,12 +412,12 @@ queries.</p>
 Language”. SQL provides hundreds of different ways to analyze and
 recombine data. We will only look at a handful of queries, but that
 handful accounts for most of what scientists do.</p>
-<div id="changing-database-managers" class="callout callout">
+<div id="callout1" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="changing-database-managers" class="callout-inner">
-<h3 class="callout-title">Changing Database Managers<a class="anchor" aria-label="anchor" href="#changing-database-managers"></a>
+<div class="section level3 callout-title callout-inner">
+<h3 class="callout-title" id="changing-database-managers">Changing Database Managers<a class="anchor" aria-label="anchor" href="#changing-database-managers"></a>
 </h3>
 <div class="callout-content">
 <p>Many database managers — Oracle, IBM DB2, PostgreSQL, MySQL,
@@ -429,12 +429,12 @@ information from one to another.</p>
 </div>
 </div>
 </div>
-<div id="getting-into-and-out-of-sqlite" class="callout callout">
+<div id="callout2" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="getting-into-and-out-of-sqlite" class="callout-inner">
-<h3 class="callout-title">Getting Into and Out Of SQLite<a class="anchor" aria-label="anchor" href="#getting-into-and-out-of-sqlite"></a>
+<div class="section level3 callout-title callout-inner">
+<h3 class="callout-title" id="getting-into-and-out-of-sqlite">Getting Into and Out Of SQLite<a class="anchor" aria-label="anchor" href="#getting-into-and-out-of-sqlite"></a>
 </h3>
 <div class="callout-content">
 <p>In order to use the SQLite commands <em>interactively</em>, we need
@@ -442,8 +442,8 @@ to enter into the SQLite console. So, open up a terminal, and run</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd /path/to/survey/data/</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sqlite3 survey.db</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">$</span> cd /path/to/survey/data/</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="ex">$</span> sqlite3 survey.db</span></code></pre>
 </div>
 <p>The SQLite command is <code>sqlite3</code> and you are telling SQLite
 to open up the <code>survey.db</code>. You need to specify the
@@ -724,12 +724,12 @@ being measured.  The values are <code>rad</code>, <code>sal</code>, and
 and two in the <code>Survey</code> table — don’t contain any actual
 data, but instead have a special <code>-null-</code> entry: we’ll return
 to these missing values <a href="05-null.html">later</a>.</p>
-<div id="checking-if-data-is-available" class="callout callout">
+<div id="callout3" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="checking-if-data-is-available" class="callout-inner">
-<h3 class="callout-title">Checking If Data is Available<a class="anchor" aria-label="anchor" href="#checking-if-data-is-available"></a>
+<div class="section level3 callout-title callout-inner">
+<h3 class="callout-title" id="checking-if-data-is-available">Checking If Data is Available<a class="anchor" aria-label="anchor" href="#checking-if-data-is-available"></a>
 </h3>
 <div class="callout-content">
 <p>On the shell command line, change the working directory to the one
@@ -738,8 +738,8 @@ you should use</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd Desktop</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls <span class="kw">|</span> <span class="fu">grep</span> survey.db</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">$</span> cd Desktop</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="ex">$</span> ls <span class="kw">|</span> <span class="fu">grep</span> survey.db</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -750,7 +750,7 @@ you should use</p>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sqlite3 survey.db</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">$</span> sqlite3 survey.db</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -768,7 +768,7 @@ distinguish them from SQL commands.</p>
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>.<span class="kw">tables</span></span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>.<span class="kw">tables</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -783,7 +783,7 @@ data types each column stores.</p>
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>.<span class="kw">schema</span></span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>.<span class="kw">schema</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -815,8 +815,8 @@ turn on the display of column headers.</p>
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>.<span class="kw">mode</span> <span class="kw">column</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>.<span class="kw">header</span> <span class="kw">on</span></span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>.<span class="kw">mode</span> <span class="kw">column</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>.<span class="kw">header</span> <span class="kw">on</span></span></code></pre>
 </div>
 <p>Alternatively, you can get the settings automatically by creating a
 <code>.sqliterc</code> file. Add the commands above and reopen SQLite.
@@ -835,7 +835,7 @@ its output look like this:</p>
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> family, personal <span class="kw">FROM</span> Person;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="kw">SELECT</span> family, personal <span class="kw">FROM</span> Person;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -872,7 +872,7 @@ don’t have to: as the example below shows, SQL is <a href="reference.html#case
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SeLeCt</span> FaMiLy, PeRsOnAl <span class="kw">FrOm</span> PeRsOn;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="kw">SeLeCt</span> FaMiLy, PeRsOnAl <span class="kw">FrOm</span> PeRsOn;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -917,9 +917,9 @@ something like this:</p>
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">id</span> <span class="kw">FROM</span> Person</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="op">..</span>.<span class="op">&gt;</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="op">..</span>.<span class="op">&gt;</span></span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">id</span> <span class="kw">FROM</span> Person</span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="op">..</span>.<span class="op">&gt;</span></span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a><span class="op">..</span>.<span class="op">&gt;</span></span></code></pre>
 </div>
 <p>This is SQL’s prompt, where it is waiting for additional commands or
 for a <code>;</code> to let SQL know to finish. This is easy to fix!
@@ -932,7 +932,7 @@ columns in the output by writing our query as:</p>
 <div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> personal, family <span class="kw">FROM</span> Person;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="kw">SELECT</span> personal, family <span class="kw">FROM</span> Person;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -966,7 +966,7 @@ columns in the output by writing our query as:</p>
 <div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">id</span>, <span class="kw">id</span>, <span class="kw">id</span> <span class="kw">FROM</span> Person;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">id</span>, <span class="kw">id</span>, <span class="kw">id</span> <span class="kw">FROM</span> Person;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -1007,7 +1007,7 @@ columns in the output by writing our query as:</p>
 <div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Person;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Person;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -1066,7 +1066,7 @@ integers.</p>
 <div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>.<span class="kw">schema</span></span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a>.<span class="kw">schema</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1105,7 +1105,7 @@ CREATE TABLE Visited (id integer, site text, dated text);</code></pre>
 <div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> name <span class="kw">FROM</span> Site;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="kw">SELECT</span> name <span class="kw">FROM</span> Site;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -1139,13 +1139,13 @@ CREATE TABLE Visited (id integer, site text, dated text);</code></pre>
 <div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> personal, family <span class="kw">FROM</span> person;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="kw">SELECT</span> personal, family <span class="kw">FROM</span> person;</span></code></pre>
 </div>
 <p>or as:</p>
 <div class="codewrapper sourceCode" id="cb21">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> Personal, Family <span class="kw">from</span> PERSON;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="kw">select</span> Personal, Family <span class="kw">from</span> PERSON;</span></code></pre>
 </div>
 <p>What style do you find easiest to read, and why?</p>
 </div>
@@ -1220,7 +1220,7 @@ table, we get this:</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> quant <span class="kw">FROM</span> Survey;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="kw">SELECT</span> quant <span class="kw">FROM</span> Survey;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -1299,7 +1299,7 @@ output to make the result more readable by adding the
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> quant <span class="kw">FROM</span> Survey;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> quant <span class="kw">FROM</span> Survey;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -1325,7 +1325,7 @@ case <em>pairs</em>, because we are selecting two columns):</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> taken, quant <span class="kw">FROM</span> Survey;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> taken, quant <span class="kw">FROM</span> Survey;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -1423,7 +1423,7 @@ of by their personal name. We can do this in SQL by adding an
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Person <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="kw">id</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Person <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="kw">id</span>;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -1464,12 +1464,12 @@ ascending order of the column we specify (i.e., from least to
 greatest).</p>
 <p>We can sort in the opposite order using <code>DESC</code> (for
 “descending”):</p>
-<div id="a-note-on-ordering" class="callout callout">
+<div id="callout1" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="a-note-on-ordering" class="callout-inner">
-<h3 class="callout-title">A note on ordering<a class="anchor" aria-label="anchor" href="#a-note-on-ordering"></a>
+<div class="section level3 callout-title callout-inner">
+<h3 class="callout-title" id="a-note-on-ordering">A note on ordering<a class="anchor" aria-label="anchor" href="#a-note-on-ordering"></a>
 </h3>
 <div class="callout-content">
 <p>While it may look that the records are consistent every time we ask
@@ -1483,7 +1483,7 @@ order.</p>
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> person <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="kw">id</span> <span class="kw">DESC</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> person <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="kw">id</span> <span class="kw">DESC</span>;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -1530,7 +1530,7 @@ order by <code>person</code> within each group of equal
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> taken, person, quant <span class="kw">FROM</span> Survey <span class="kw">ORDER</span> <span class="kw">BY</span> taken <span class="kw">ASC</span>, person <span class="kw">DESC</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="kw">SELECT</span> taken, person, quant <span class="kw">FROM</span> Survey <span class="kw">ORDER</span> <span class="kw">BY</span> taken <span class="kw">ASC</span>, person <span class="kw">DESC</span>;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -1655,7 +1655,7 @@ duplicates.</p>
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> quant, person <span class="kw">FROM</span> Survey <span class="kw">ORDER</span> <span class="kw">BY</span> quant <span class="kw">ASC</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> quant, person <span class="kw">FROM</span> Survey <span class="kw">ORDER</span> <span class="kw">BY</span> quant <span class="kw">ASC</span>;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -1732,7 +1732,7 @@ duplicates.</p>
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> dated <span class="kw">FROM</span> Visited;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> dated <span class="kw">FROM</span> Visited;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -1792,7 +1792,7 @@ duplicates.</p>
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> personal, family <span class="kw">FROM</span> Person <span class="kw">ORDER</span> <span class="kw">BY</span> family <span class="kw">ASC</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="kw">SELECT</span> personal, family <span class="kw">FROM</span> Person <span class="kw">ORDER</span> <span class="kw">BY</span> family <span class="kw">ASC</span>;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -1887,7 +1887,7 @@ query:</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> site <span class="op">=</span> <span class="st">'DR-1'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> site <span class="op">=</span> <span class="st">'DR-1'</span>;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -1924,7 +1924,7 @@ displayed:</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">id</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> site <span class="op">=</span> <span class="st">'DR-1'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">id</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> site <span class="op">=</span> <span class="st">'DR-1'</span>;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -1948,7 +1948,7 @@ before 1930:</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> site <span class="op">=</span> <span class="st">'DR-1'</span> <span class="kw">AND</span> dated <span class="op">&lt;</span> <span class="st">'1930-01-01'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> site <span class="op">=</span> <span class="st">'DR-1'</span> <span class="kw">AND</span> dated <span class="op">&lt;</span> <span class="st">'1930-01-01'</span>;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -1969,12 +1969,12 @@ before 1930:</p>
 </tr>
 </tbody>
 </table>
-<div id="date-types" class="callout callout">
+<div id="callout1" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="date-types" class="callout-inner">
-<h3 class="callout-title">Date Types<a class="anchor" aria-label="anchor" href="#date-types"></a>
+<div class="section level3 callout-title callout-inner">
+<h3 class="callout-title" id="date-types">Date Types<a class="anchor" aria-label="anchor" href="#date-types"></a>
 </h3>
 <div class="callout-content">
 <p>Most database managers have a special data type for dates. In fact,
@@ -1995,7 +1995,7 @@ Roerich, we can combine the tests on their names using
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> person <span class="op">=</span> <span class="st">'lake'</span> <span class="kw">OR</span> person <span class="op">=</span> <span class="st">'roe'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> person <span class="op">=</span> <span class="st">'lake'</span> <span class="kw">OR</span> person <span class="op">=</span> <span class="st">'roe'</span>;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -2072,7 +2072,7 @@ specific set:</p>
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> person <span class="kw">IN</span> (<span class="st">'lake'</span>, <span class="st">'roe'</span>);</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> person <span class="kw">IN</span> (<span class="st">'lake'</span>, <span class="st">'roe'</span>);</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -2150,7 +2150,7 @@ use parentheses, we get this:</p>
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span> <span class="kw">AND</span> person <span class="op">=</span> <span class="st">'lake'</span> <span class="kw">OR</span> person <span class="op">=</span> <span class="st">'roe'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span> <span class="kw">AND</span> person <span class="op">=</span> <span class="st">'lake'</span> <span class="kw">OR</span> person <span class="op">=</span> <span class="st">'roe'</span>;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -2209,7 +2209,7 @@ by Roerich. We probably want this instead:</p>
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span> <span class="kw">AND</span> (person <span class="op">=</span> <span class="st">'lake'</span> <span class="kw">OR</span> person <span class="op">=</span> <span class="st">'roe'</span>);</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span> <span class="kw">AND</span> (person <span class="op">=</span> <span class="st">'lake'</span> <span class="kw">OR</span> person <span class="op">=</span> <span class="st">'roe'</span>);</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -2265,7 +2265,7 @@ string:</p>
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> site <span class="kw">LIKE</span> <span class="st">'DR%'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> site <span class="kw">LIKE</span> <span class="st">'DR%'</span>;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -2316,7 +2316,7 @@ give a second level of filtering:</p>
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> person, quant <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> person <span class="op">=</span> <span class="st">'lake'</span> <span class="kw">OR</span> person <span class="op">=</span> <span class="st">'roe'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> person, quant <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> person <span class="op">=</span> <span class="st">'lake'</span> <span class="kw">OR</span> person <span class="op">=</span> <span class="st">'roe'</span>;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -2349,12 +2349,12 @@ give a second level of filtering:</p>
 <p>But remember: <code>DISTINCT</code> is applied to the values
 displayed in the chosen columns, not to the entire rows as they are
 being processed.</p>
-<div id="growing-queries" class="callout callout">
+<div id="callout2" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="growing-queries" class="callout-inner">
-<h3 class="callout-title">Growing Queries<a class="anchor" aria-label="anchor" href="#growing-queries"></a>
+<div class="section level3 callout-title callout-inner">
+<h3 class="callout-title" id="growing-queries">Growing Queries<a class="anchor" aria-label="anchor" href="#growing-queries"></a>
 </h3>
 <div class="callout-content">
 <p>What we have just done is how most people “grow” their SQL queries.
@@ -2386,7 +2386,7 @@ equator. Our first query is:</p>
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Site <span class="kw">WHERE</span> (lat <span class="op">&gt;</span> <span class="op">-</span><span class="dv">48</span>) <span class="kw">OR</span> (lat <span class="op">&lt;</span> <span class="dv">48</span>);</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Site <span class="kw">WHERE</span> (lat <span class="op">&gt;</span> <span class="op">-</span><span class="dv">48</span>) <span class="kw">OR</span> (lat <span class="op">&lt;</span> <span class="dv">48</span>);</span></code></pre>
 </div>
 <p>Explain why this is wrong, and rewrite the query so that it is
 correct.</p>
@@ -2406,7 +2406,7 @@ want to restrict this to sites that meet <em>both</em> criteria:</p>
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Site <span class="kw">WHERE</span> (lat <span class="op">&gt;</span> <span class="op">-</span><span class="dv">48</span>) <span class="kw">AND</span> (lat <span class="op">&lt;</span> <span class="dv">48</span>);</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Site <span class="kw">WHERE</span> (lat <span class="op">&gt;</span> <span class="op">-</span><span class="dv">48</span>) <span class="kw">AND</span> (lat <span class="op">&lt;</span> <span class="dv">48</span>);</span></code></pre>
 </div>
 </div>
 </div>
@@ -2436,7 +2436,7 @@ salinity values outside this range.</p>
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span> <span class="kw">AND</span> ((reading <span class="op">&gt;</span> <span class="fl">1.0</span>) <span class="kw">OR</span> (reading <span class="op">&lt;</span> <span class="fl">0.0</span>));</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span> <span class="kw">AND</span> ((reading <span class="op">&gt;</span> <span class="fl">1.0</span>) <span class="kw">OR</span> (reading <span class="op">&lt;</span> <span class="fl">0.0</span>));</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -2564,7 +2564,7 @@ the fly as part of our query:</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fl">1.05</span> <span class="op">*</span> reading <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'rad'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fl">1.05</span> <span class="op">*</span> reading <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'rad'</span>;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -2606,7 +2606,7 @@ and round to two decimal places:</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> taken, <span class="fu">round</span>(<span class="dv">5</span> <span class="op">*</span> (reading <span class="op">-</span> <span class="dv">32</span>) <span class="op">/</span> <span class="dv">9</span>, <span class="dv">2</span>) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'temp'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="kw">SELECT</span> taken, <span class="fu">round</span>(<span class="dv">5</span> <span class="op">*</span> (reading <span class="op">-</span> <span class="dv">32</span>) <span class="op">/</span> <span class="dv">9</span>, <span class="dv">2</span>) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'temp'</span>;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -2641,7 +2641,7 @@ as:</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> taken, <span class="fu">round</span>(<span class="dv">5</span> <span class="op">*</span> (reading <span class="op">-</span> <span class="dv">32</span>) <span class="op">/</span> <span class="dv">9</span>, <span class="dv">2</span>) <span class="kw">as</span> Celsius <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'temp'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="kw">SELECT</span> taken, <span class="fu">round</span>(<span class="dv">5</span> <span class="op">*</span> (reading <span class="op">-</span> <span class="dv">32</span>) <span class="op">/</span> <span class="dv">9</span>, <span class="dv">2</span>) <span class="kw">as</span> Celsius <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'temp'</span>;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -2672,7 +2672,7 @@ using the string concatenation operator <code>||</code>:</p>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> personal <span class="op">||</span> <span class="st">' '</span> <span class="op">||</span> family <span class="kw">FROM</span> Person;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="kw">SELECT</span> personal <span class="op">||</span> <span class="st">' '</span> <span class="op">||</span> family <span class="kw">FROM</span> Person;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -2716,12 +2716,12 @@ divided by 100.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1">Show me the solution</h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> taken, reading <span class="op">/</span> <span class="dv">100</span> <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> person <span class="op">=</span> <span class="st">'roe'</span> <span class="kw">AND</span> quant <span class="op">=</span> <span class="st">'sal'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="kw">SELECT</span> taken, reading <span class="op">/</span> <span class="dv">100</span> <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> person <span class="op">=</span> <span class="st">'roe'</span> <span class="kw">AND</span> quant <span class="op">=</span> <span class="st">'sal'</span>;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -2756,7 +2756,7 @@ queries:</p>
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Person <span class="kw">WHERE</span> <span class="kw">id</span> <span class="op">=</span> <span class="st">'dyer'</span> <span class="kw">UNION</span> <span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Person <span class="kw">WHERE</span> <span class="kw">id</span> <span class="op">=</span> <span class="st">'roe'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Person <span class="kw">WHERE</span> <span class="kw">id</span> <span class="op">=</span> <span class="st">'dyer'</span> <span class="kw">UNION</span> <span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Person <span class="kw">WHERE</span> <span class="kw">id</span> <span class="op">=</span> <span class="st">'roe'</span>;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -2839,12 +2839,12 @@ be something like:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2">Show me the solution</h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> taken, reading <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> person <span class="op">!=</span> <span class="st">'roe'</span> <span class="kw">AND</span> quant <span class="op">=</span> <span class="st">'sal'</span> <span class="kw">UNION</span> <span class="kw">SELECT</span> taken, reading <span class="op">/</span> <span class="dv">100</span> <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> person <span class="op">=</span> <span class="st">'roe'</span> <span class="kw">AND</span> quant <span class="op">=</span> <span class="st">'sal'</span> <span class="kw">ORDER</span> <span class="kw">BY</span> taken <span class="kw">ASC</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="kw">SELECT</span> taken, reading <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> person <span class="op">!=</span> <span class="st">'roe'</span> <span class="kw">AND</span> quant <span class="op">=</span> <span class="st">'sal'</span> <span class="kw">UNION</span> <span class="kw">SELECT</span> taken, reading <span class="op">/</span> <span class="dv">100</span> <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> person <span class="op">=</span> <span class="st">'roe'</span> <span class="kw">AND</span> quant <span class="op">=</span> <span class="st">'sal'</span> <span class="kw">ORDER</span> <span class="kw">BY</span> taken <span class="kw">ASC</span>;</span></code></pre>
 </div>
 </div>
 </div>
@@ -2863,7 +2863,7 @@ separated by a ‘-’:</p>
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> site <span class="kw">FROM</span> Visited;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> site <span class="kw">FROM</span> Visited;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -2897,12 +2897,12 @@ data, the list should contain only “DR” and “MSK”).</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3">Show me the solution</h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> <span class="fu">substr</span>(site, <span class="dv">1</span>, <span class="fu">instr</span>(site, <span class="st">'-'</span>) <span class="op">-</span> <span class="dv">1</span>) <span class="kw">AS</span> MajorSite <span class="kw">FROM</span> Visited;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> <span class="fu">substr</span>(site, <span class="dv">1</span>, <span class="fu">instr</span>(site, <span class="st">'-'</span>) <span class="op">-</span> <span class="dv">1</span>) <span class="kw">AS</span> MajorSite <span class="kw">FROM</span> Visited;</span></code></pre>
 </div>
 </div>
 </div>
@@ -2972,7 +2972,7 @@ NULLs easier to see:</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>.nullvalue <span class="op">-</span><span class="kw">null</span><span class="op">-</span></span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>.nullvalue <span class="op">-</span><span class="kw">null</span><span class="op">-</span></span></code></pre>
 </div>
 <p>To start, let’s have a look at the <code>Visited</code> table. There
 are eight records, but #752 doesn’t have a date — or rather, its date is
@@ -2980,7 +2980,7 @@ null:</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -3036,7 +3036,7 @@ come before 1930:</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="op">&lt;</span> <span class="st">'1930-01-01'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="op">&lt;</span> <span class="st">'1930-01-01'</span>;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -3062,7 +3062,7 @@ after 1930:</p>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="op">&gt;=</span> <span class="st">'1930-01-01'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="op">&gt;=</span> <span class="st">'1930-01-01'</span>;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -3116,20 +3116,20 @@ null:</p>
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="op">=</span> <span class="kw">NULL</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="op">=</span> <span class="kw">NULL</span>;</span></code></pre>
 </div>
 <p>produces no output, and neither does:</p>
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="op">!=</span> <span class="kw">NULL</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="op">!=</span> <span class="kw">NULL</span>;</span></code></pre>
 </div>
 <p>To check whether a value is <code>null</code> or not, we must use a
 special test <code>IS NULL</code>:</p>
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="kw">IS</span> <span class="kw">NULL</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="kw">IS</span> <span class="kw">NULL</span>;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -3147,7 +3147,7 @@ special test <code>IS NULL</code>:</p>
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span>;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -3199,7 +3199,7 @@ by Lake. It’s natural to write the query like this:</p>
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span> <span class="kw">AND</span> person <span class="op">!=</span> <span class="st">'lake'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span> <span class="kw">AND</span> person <span class="op">!=</span> <span class="st">'lake'</span>;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -3243,7 +3243,7 @@ to keep these records we need to add an explicit check:</p>
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span> <span class="kw">AND</span> (person <span class="op">!=</span> <span class="st">'lake'</span> <span class="kw">OR</span> person <span class="kw">IS</span> <span class="kw">NULL</span>);</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span> <span class="kw">AND</span> (person <span class="op">!=</span> <span class="st">'lake'</span> <span class="kw">OR</span> person <span class="kw">IS</span> <span class="kw">NULL</span>);</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -3318,7 +3318,7 @@ omitting entries for which the date is not known (i.e., is null).</p>
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">ORDER</span> <span class="kw">BY</span> dated <span class="kw">ASC</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">ORDER</span> <span class="kw">BY</span> dated <span class="kw">ASC</span>;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -3380,7 +3380,7 @@ omitting entries for which the date is not known (i.e., is null).</p>
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="kw">IN</span> (<span class="st">'1927-02-08'</span>, <span class="kw">NULL</span>);</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="kw">IN</span> (<span class="st">'1927-02-08'</span>, <span class="kw">NULL</span>);</span></code></pre>
 </div>
 <p>What does it actually produce?</p>
 </div>
@@ -3399,7 +3399,7 @@ omitting entries for which the date is not known (i.e., is null).</p>
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="kw">IN</span> (<span class="st">'1927-02-08'</span>);</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="kw">IN</span> (<span class="st">'1927-02-08'</span>);</span></code></pre>
 </div>
 <p>The reason is that the <code>IN</code> operator works with a set of
 <em>values</em>, but NULL is by definition not a value and is therefore
@@ -3409,7 +3409,7 @@ query to use the IS NULL condition:</p>
 <div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="op">=</span> <span class="st">'1927-02-08'</span> <span class="kw">OR</span> dated <span class="kw">IS</span> <span class="kw">NULL</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="op">=</span> <span class="st">'1927-02-08'</span> <span class="kw">OR</span> dated <span class="kw">IS</span> <span class="kw">NULL</span>;</span></code></pre>
 </div>
 </div>
 </div>
@@ -3488,7 +3488,7 @@ how to select all of the dates from the <code>Visited</code> table:</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> dated <span class="kw">FROM</span> Visited;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="kw">SELECT</span> dated <span class="kw">FROM</span> Visited;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -3527,7 +3527,7 @@ set of records as input, and produces a single record as output:</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">min</span>(dated) <span class="kw">FROM</span> Visited;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">min</span>(dated) <span class="kw">FROM</span> Visited;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -3540,7 +3540,7 @@ set of records as input, and produces a single record as output:</p>
 <figure><img src="fig/sql-aggregation.svg" alt="SQL Aggregation" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">max</span>(dated) <span class="kw">FROM</span> Visited;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">max</span>(dated) <span class="kw">FROM</span> Visited;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -3556,7 +3556,7 @@ functions built into SQL. Three others are <code>avg</code>,
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">avg</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">avg</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span>;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -3569,7 +3569,7 @@ functions built into SQL. Three others are <code>avg</code>,
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">count</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">count</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span>;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -3582,7 +3582,7 @@ functions built into SQL. Three others are <code>avg</code>,
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">sum</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">sum</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span>;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -3601,7 +3601,7 @@ find the range of sensible salinity measurements:</p>
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">min</span>(reading), <span class="fu">max</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span> <span class="kw">AND</span> reading <span class="op">&lt;=</span> <span class="fl">1.0</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">min</span>(reading), <span class="fu">max</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span> <span class="kw">AND</span> reading <span class="op">&lt;=</span> <span class="fl">1.0</span>;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -3618,7 +3618,7 @@ output might surprise you:</p>
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> person, <span class="fu">count</span>(<span class="op">*</span>) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span> <span class="kw">AND</span> reading <span class="op">&lt;=</span> <span class="fl">1.0</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="kw">SELECT</span> person, <span class="fu">count</span>(<span class="op">*</span>) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span> <span class="kw">AND</span> reading <span class="op">&lt;=</span> <span class="fl">1.0</span>;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -3642,7 +3642,7 @@ other arbitrary value:</p>
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> person, <span class="fu">max</span>(reading), <span class="fu">sum</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'missing'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="kw">SELECT</span> person, <span class="fu">max</span>(reading), <span class="fu">sum</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'missing'</span>;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -3666,7 +3666,7 @@ those that are non-null. This behavior lets us write our queries as:</p>
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">min</span>(dated) <span class="kw">FROM</span> Visited;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">min</span>(dated) <span class="kw">FROM</span> Visited;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -3680,7 +3680,7 @@ those that are non-null. This behavior lets us write our queries as:</p>
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">min</span>(dated) <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">min</span>(dated) <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span>;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -3697,9 +3697,9 @@ know that this doesn’t work:</p>
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> person, <span class="fu">count</span>(reading), <span class="fu">round</span>(<span class="fu">avg</span>(reading), <span class="dv">2</span>)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>  Survey</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'rad'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="kw">SELECT</span> person, <span class="fu">count</span>(reading), <span class="fu">round</span>(<span class="fu">avg</span>(reading), <span class="dv">2</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="kw">FROM</span>  Survey</span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a><span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'rad'</span>;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -3719,10 +3719,10 @@ are only five scientists, we could write five queries of the form:</p>
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> person, <span class="fu">count</span>(reading), <span class="fu">round</span>(<span class="fu">avg</span>(reading), <span class="dv">2</span>)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>  Survey</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'rad'</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="kw">AND</span>   person <span class="op">=</span> <span class="st">'dyer'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="kw">SELECT</span> person, <span class="fu">count</span>(reading), <span class="fu">round</span>(<span class="fu">avg</span>(reading), <span class="dv">2</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="kw">FROM</span>  Survey</span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a><span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'rad'</span></span>
+<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a><span class="kw">AND</span>   person <span class="op">=</span> <span class="st">'dyer'</span>;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -3745,10 +3745,10 @@ clause:</p>
 <div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span>   person, <span class="fu">count</span>(reading), <span class="fu">round</span>(<span class="fu">avg</span>(reading), <span class="dv">2</span>)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>     Survey</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span>    quant <span class="op">=</span> <span class="st">'rad'</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> person;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="kw">SELECT</span>   person, <span class="fu">count</span>(reading), <span class="fu">round</span>(<span class="fu">avg</span>(reading), <span class="dv">2</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a><span class="kw">FROM</span>     Survey</span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a><span class="kw">WHERE</span>    quant <span class="op">=</span> <span class="st">'rad'</span></span>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> person;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -3792,9 +3792,9 @@ quantity measured, for example, we just add another field to the
 <div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span>   person, quant, <span class="fu">count</span>(reading), <span class="fu">round</span>(<span class="fu">avg</span>(reading), <span class="dv">2</span>)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>     Survey</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> person, quant;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="kw">SELECT</span>   person, quant, <span class="fu">count</span>(reading), <span class="fu">round</span>(<span class="fu">avg</span>(reading), <span class="dv">2</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a><span class="kw">FROM</span>     Survey</span>
+<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> person, quant;</span></code></pre>
 </div>
 <table class="table">
 <colgroup>
@@ -3885,11 +3885,11 @@ know who took the measurement:</p>
 <div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span>   person, quant, <span class="fu">count</span>(reading), <span class="fu">round</span>(<span class="fu">avg</span>(reading), <span class="dv">2</span>)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>     Survey</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span>    person <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> person, quant</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> person, quant;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="kw">SELECT</span>   person, quant, <span class="fu">count</span>(reading), <span class="fu">round</span>(<span class="fu">avg</span>(reading), <span class="dv">2</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a><span class="kw">FROM</span>     Survey</span>
+<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a><span class="kw">WHERE</span>    person <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
+<span id="cb16-4"><a href="#cb16-4" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> person, quant</span>
+<span id="cb16-5"><a href="#cb16-5" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> person, quant;</span></code></pre>
 </div>
 <table class="table">
 <colgroup>
@@ -3993,12 +3993,12 @@ their average value?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1">Show me the solution</h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">count</span>(reading), <span class="fu">avg</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'temp'</span> <span class="kw">AND</span> person <span class="op">=</span> <span class="st">'pb'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">count</span>(reading), <span class="fu">avg</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'temp'</span> <span class="kw">AND</span> person <span class="op">=</span> <span class="st">'pb'</span>;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -4034,7 +4034,7 @@ returns 2.0 or 3.0 when given the values 1.0, <code>null</code>, and
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2">Show me the solution</h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>The answer is 3.0. <code>NULL</code> is not a value; it is the
 absence of a value. As such it is not included in the calculation.</p>
@@ -4042,10 +4042,10 @@ absence of a value. As such it is not included in the calculation.</p>
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">AVG</span>(a) <span class="kw">FROM</span> (</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> <span class="dv">1</span> <span class="kw">AS</span> a</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">UNION</span> <span class="kw">ALL</span> <span class="kw">SELECT</span> <span class="kw">NULL</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">UNION</span> <span class="kw">ALL</span> <span class="kw">SELECT</span> <span class="dv">5</span>);</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">AVG</span>(a) <span class="kw">FROM</span> (</span>
+<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a>    <span class="kw">SELECT</span> <span class="dv">1</span> <span class="kw">AS</span> a</span>
+<span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a>    <span class="kw">UNION</span> <span class="kw">ALL</span> <span class="kw">SELECT</span> <span class="kw">NULL</span></span>
+<span id="cb18-4"><a href="#cb18-4" tabindex="-1"></a>    <span class="kw">UNION</span> <span class="kw">ALL</span> <span class="kw">SELECT</span> <span class="dv">5</span>);</span></code></pre>
 </div>
 </div>
 </div>
@@ -4065,7 +4065,7 @@ query:</p>
 <div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> reading <span class="op">-</span> <span class="fu">avg</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'rad'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="kw">SELECT</span> reading <span class="op">-</span> <span class="fu">avg</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'rad'</span>;</span></code></pre>
 </div>
 <p>What does this actually produce, and can you think of why?</p>
 </div>
@@ -4076,7 +4076,7 @@ query:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3">Show me the solution</h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>The query produces only one row of results when we what we really
 want is a result for each of the readings. The <code>avg()</code>
@@ -4087,21 +4087,21 @@ simply an arbitrary one.</p>
 <div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">avg</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant<span class="op">=</span><span class="st">'rad'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">avg</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant<span class="op">=</span><span class="st">'rad'</span>;</span></code></pre>
 </div>
 <p>This produces the average value (6.5625), which we can then insert
 into a second query:</p>
 <div class="codewrapper sourceCode" id="cb21">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> reading <span class="op">-</span> <span class="fl">6.5625</span> <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'rad'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="kw">SELECT</span> reading <span class="op">-</span> <span class="fl">6.5625</span> <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'rad'</span>;</span></code></pre>
 </div>
 <p>This produces what we want, but we can combine this into a single
 query using subqueries.</p>
 <div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> reading <span class="op">-</span> (<span class="kw">SELECT</span> <span class="fu">avg</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant<span class="op">=</span><span class="st">'rad'</span>) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'rad'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="kw">SELECT</span> reading <span class="op">-</span> (<span class="kw">SELECT</span> <span class="fu">avg</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant<span class="op">=</span><span class="st">'rad'</span>) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'rad'</span>;</span></code></pre>
 </div>
 <p>This way we don’t have execute two queries.</p>
 <p>In summary what we have done is to replace <code>avg(reading)</code>
@@ -4126,7 +4126,7 @@ list of scientists’ names, such as:</p>
 <div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>William Dyer, Frank Pabodie, Anderson Lake, Valentina Roerich, Frank Danforth</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a>William Dyer, Frank Pabodie, Anderson Lake, Valentina Roerich, Frank Danforth</span></code></pre>
 </div>
 <p>Can you find a way to list all the scientists family names separated
 by a comma? Can you find a way to list all the scientists personal and
@@ -4139,19 +4139,19 @@ family names separated by a comma?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4">Show me the solution</h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>List all the family names separated by a comma:</p>
 <div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> group_concat(family, <span class="st">','</span>) <span class="kw">FROM</span> Person;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="kw">SELECT</span> group_concat(family, <span class="st">','</span>) <span class="kw">FROM</span> Person;</span></code></pre>
 </div>
 <p>List all the full names separated by a comma:</p>
 <div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> group_concat(personal <span class="op">||</span> <span class="st">' '</span> <span class="op">||</span> family, <span class="st">','</span>) <span class="kw">FROM</span> Person;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a><span class="kw">SELECT</span> group_concat(personal <span class="op">||</span> <span class="st">' '</span> <span class="op">||</span> family, <span class="st">','</span>) <span class="kw">FROM</span> Person;</span></code></pre>
 </div>
 </div>
 </div>
@@ -4226,7 +4226,7 @@ tables:</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Site <span class="kw">JOIN</span> Visited;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Site <span class="kw">JOIN</span> Visited;</span></code></pre>
 </div>
 <table class="table">
 <colgroup>
@@ -4454,11 +4454,11 @@ site name, thus we need to use a filter:</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">*</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  Site</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">JOIN</span> Visited <span class="kw">ON</span> Site.name <span class="op">=</span> Visited.site;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>  <span class="op">*</span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>  Site</span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>  <span class="kw">JOIN</span> Visited <span class="kw">ON</span> Site.name <span class="op">=</span> Visited.site;</span></code></pre>
 </div>
 <table class="table">
 <colgroup>
@@ -4562,13 +4562,13 @@ we actually want out of our join:</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  Site.lat,</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  Site.<span class="dt">long</span>,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  Visited.dated</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  Site</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">JOIN</span> Visited <span class="kw">ON</span> Site.name <span class="op">=</span> Visited.site;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>  Site.lat,</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>  Site.<span class="dt">long</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>  Visited.dated</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>  Site</span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>  <span class="kw">JOIN</span> Visited <span class="kw">ON</span> Site.name <span class="op">=</span> Visited.site;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -4626,18 +4626,18 @@ to filter out combinations of records that don’t make sense:</p>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  Site.lat,</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  Site.<span class="dt">long</span>,</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  Visited.dated,</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  Survey.quant,</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  Survey.reading</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> </span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  Site</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">JOIN</span> Visited</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">JOIN</span> Survey <span class="kw">ON</span> Site.name <span class="op">=</span> Visited.site</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">AND</span> Visited.<span class="kw">id</span> <span class="op">=</span> Survey.taken</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="kw">AND</span> Visited.dated <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>  Site.lat,</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>  Site.<span class="dt">long</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>  Visited.dated,</span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>  Survey.quant,</span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>  Survey.reading</span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="kw">FROM</span> </span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a>  Site</span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a>  <span class="kw">JOIN</span> Visited</span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a>  <span class="kw">JOIN</span> Survey <span class="kw">ON</span> Site.name <span class="op">=</span> Visited.site</span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a>  <span class="kw">AND</span> Visited.<span class="kw">id</span> <span class="op">=</span> Survey.taken</span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a>  <span class="kw">AND</span> Visited.dated <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span>;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -4795,7 +4795,7 @@ record numbers in queries:</p>
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="dt">rowid</span>, <span class="op">*</span> <span class="kw">FROM</span> Person;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="dt">rowid</span>, <span class="op">*</span> <span class="kw">FROM</span> Person;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -4860,19 +4860,19 @@ site.</p>
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>   Survey.reading</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>   Site</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>   <span class="kw">JOIN</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>      Visited</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">JOIN</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>      Survey</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>      <span class="kw">ON</span> Site.name <span class="op">=</span> Visited.site</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>      <span class="kw">AND</span> Visited.<span class="kw">id</span> <span class="op">=</span> Survey.taken</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>   Site.name <span class="op">=</span> <span class="st">'DR-1'</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>   <span class="kw">AND</span> Survey.quant <span class="op">=</span> <span class="st">'rad'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>   Survey.reading</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>   Site</span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>   <span class="kw">JOIN</span></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>      Visited</span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>  <span class="kw">JOIN</span></span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>      Survey</span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a>      <span class="kw">ON</span> Site.name <span class="op">=</span> Visited.site</span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a>      <span class="kw">AND</span> Visited.<span class="kw">id</span> <span class="op">=</span> Survey.taken</span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a><span class="kw">WHERE</span></span>
+<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a>   Site.name <span class="op">=</span> <span class="st">'DR-1'</span></span>
+<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a>   <span class="kw">AND</span> Survey.quant <span class="op">=</span> <span class="st">'rad'</span>;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -4917,17 +4917,17 @@ site.</p>
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">DISTINCT</span> Site.name</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  Site</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">JOIN</span> Visited</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">JOIN</span> Survey</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">JOIN</span> Person <span class="kw">ON</span> Site.name <span class="op">=</span> Visited.site</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">AND</span> Visited.<span class="kw">id</span> <span class="op">=</span> Survey.taken</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">AND</span> Survey.person <span class="op">=</span> Person.<span class="kw">id</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  Person.personal <span class="op">=</span> <span class="st">'Frank'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>  <span class="kw">DISTINCT</span> Site.name</span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>  Site</span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>  <span class="kw">JOIN</span> Visited</span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>  <span class="kw">JOIN</span> Survey</span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a>  <span class="kw">JOIN</span> Person <span class="kw">ON</span> Site.name <span class="op">=</span> Visited.site</span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a>  <span class="kw">AND</span> Visited.<span class="kw">id</span> <span class="op">=</span> Survey.taken</span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a>  <span class="kw">AND</span> Survey.person <span class="op">=</span> Person.<span class="kw">id</span></span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a><span class="kw">WHERE</span></span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a>  Person.personal <span class="op">=</span> <span class="st">'Frank'</span>;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -4953,8 +4953,8 @@ site.</p>
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Site.name <span class="kw">FROM</span> Site <span class="kw">JOIN</span> Visited</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">ON</span> Site.lat <span class="op">&lt;</span> <span class="op">-</span><span class="fl">49.0</span> <span class="kw">AND</span> Site.name <span class="op">=</span> Visited.site <span class="kw">AND</span> Visited.dated <span class="op">&gt;=</span> <span class="st">'1932-01-01'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="kw">SELECT</span> Site.name <span class="kw">FROM</span> Site <span class="kw">JOIN</span> Visited</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="kw">ON</span> Site.lat <span class="op">&lt;</span> <span class="op">-</span><span class="fl">49.0</span> <span class="kw">AND</span> Site.name <span class="op">=</span> Visited.site <span class="kw">AND</span> Visited.dated <span class="op">&gt;=</span> <span class="st">'1932-01-01'</span>;</span></code></pre>
 </div>
 </div>
 </div>
@@ -4985,23 +4985,23 @@ records with 8 fields.</p>
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Site.name, Site.lat, Site.<span class="dt">long</span>, Person.personal, Person.family, Survey.quant, Survey.reading, Visited.dated</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>   Site</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>   <span class="kw">JOIN</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>      Visited</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>   <span class="kw">JOIN</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>      Survey</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>   <span class="kw">JOIN</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>      Person</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>      <span class="kw">ON</span> Site.name <span class="op">=</span> Visited.site</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>      <span class="kw">AND</span> Visited.<span class="kw">id</span> <span class="op">=</span> Survey.taken</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>      <span class="kw">AND</span> Survey.person <span class="op">=</span> Person.<span class="kw">id</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>   Survey.person <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>   <span class="kw">AND</span> Visited.dated <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>   Visited.dated;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="kw">SELECT</span> Site.name, Site.lat, Site.<span class="dt">long</span>, Person.personal, Person.family, Survey.quant, Survey.reading, Visited.dated</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>   Site</span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>   <span class="kw">JOIN</span></span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>      Visited</span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>   <span class="kw">JOIN</span></span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a>      Survey</span>
+<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a>   <span class="kw">JOIN</span></span>
+<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a>      Person</span>
+<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a>      <span class="kw">ON</span> Site.name <span class="op">=</span> Visited.site</span>
+<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a>      <span class="kw">AND</span> Visited.<span class="kw">id</span> <span class="op">=</span> Survey.taken</span>
+<span id="cb9-12"><a href="#cb9-12" tabindex="-1"></a>      <span class="kw">AND</span> Survey.person <span class="op">=</span> Person.<span class="kw">id</span></span>
+<span id="cb9-13"><a href="#cb9-13" tabindex="-1"></a><span class="kw">WHERE</span></span>
+<span id="cb9-14"><a href="#cb9-14" tabindex="-1"></a>   Survey.person <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
+<span id="cb9-15"><a href="#cb9-15" tabindex="-1"></a>   <span class="kw">AND</span> Visited.dated <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
+<span id="cb9-16"><a href="#cb9-16" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb9-17"><a href="#cb9-17" tabindex="-1"></a>   Visited.dated;</span></code></pre>
 </div>
 <table class="table">
 <colgroup>
@@ -5365,7 +5365,7 @@ say, the tool shapes the hand that shapes the tool.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1">Show me the solution</h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>New Zealand is the only clear-cut atomic value.</p>
 <p>The address and the XY coordinate contain more than one piece of
@@ -5417,7 +5417,7 @@ combination of values uniquely identifies a record?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2">Show me the solution</h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>Latitude, longitude, and date are all required to uniquely identify
 the temperature record.</p>
@@ -5487,7 +5487,7 @@ database over the course of the upcoming episodes. Exit the
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>.exit</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>.exit</span></code></pre>
 </div>
 <p>Launch <code>SQLite3</code> and create a new database, lets call it
 <code>newsurvey.db</code>. We use a different name to avoid confusion
@@ -5500,8 +5500,8 @@ to the default)</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>.<span class="kw">mode</span> <span class="kw">column</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>.<span class="kw">header</span> <span class="kw">on</span></span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>.<span class="kw">mode</span> <span class="kw">column</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>.<span class="kw">header</span> <span class="kw">on</span></span></code></pre>
 </div>
 <p>If we want to create and modify data, we need to know two other sets
 of commands.</p>
@@ -5514,16 +5514,16 @@ four tables in our survey database:</p>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> Person(<span class="kw">id</span> text, personal text, family text);</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> Site(name text, lat <span class="dt">real</span>, <span class="dt">long</span> <span class="dt">real</span>);</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> Visited(<span class="kw">id</span> <span class="dt">integer</span>, site text, dated text);</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> Survey(taken <span class="dt">integer</span>, person text, quant text, reading <span class="dt">real</span>);</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> Person(<span class="kw">id</span> text, personal text, family text);</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> Site(name text, lat <span class="dt">real</span>, <span class="dt">long</span> <span class="dt">real</span>);</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> Visited(<span class="kw">id</span> <span class="dt">integer</span>, site text, dated text);</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> Survey(taken <span class="dt">integer</span>, person text, quant text, reading <span class="dt">real</span>);</span></code></pre>
 </div>
 <p>We can get rid of one of our tables using:</p>
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">DROP</span> <span class="kw">TABLE</span> Survey;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="kw">DROP</span> <span class="kw">TABLE</span> Survey;</span></code></pre>
 </div>
 <p>Be very careful when doing this: if you drop the wrong table, hope
 that the person maintaining the database has a backup, but it’s better
@@ -5567,15 +5567,15 @@ on its columns. For example, a better definition for the
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> Survey(</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    taken   <span class="dt">integer</span> <span class="kw">not</span> <span class="kw">null</span>, <span class="co">-- where reading taken</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    person  text,             <span class="co">-- may not know who took it</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    quant   text <span class="kw">not</span> <span class="kw">null</span>,    <span class="co">-- the quantity measured</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    reading <span class="dt">real</span> <span class="kw">not</span> <span class="kw">null</span>,    <span class="co">-- the actual reading</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">primary</span> <span class="kw">key</span>(taken, person, quant),    <span class="co">-- key is taken + person + quant</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">foreign</span> <span class="kw">key</span>(taken) <span class="kw">references</span> Visited(<span class="kw">id</span>),</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">foreign</span> <span class="kw">key</span>(person) <span class="kw">references</span> Person(<span class="kw">id</span>)</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>);</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> Survey(</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>    taken   <span class="dt">integer</span> <span class="kw">not</span> <span class="kw">null</span>, <span class="co">-- where reading taken</span></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>    person  text,             <span class="co">-- may not know who took it</span></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>    quant   text <span class="kw">not</span> <span class="kw">null</span>,    <span class="co">-- the quantity measured</span></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>    reading <span class="dt">real</span> <span class="kw">not</span> <span class="kw">null</span>,    <span class="co">-- the actual reading</span></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>    <span class="kw">primary</span> <span class="kw">key</span>(taken, person, quant),    <span class="co">-- key is taken + person + quant</span></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>    <span class="kw">foreign</span> <span class="kw">key</span>(taken) <span class="kw">references</span> Visited(<span class="kw">id</span>),</span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>    <span class="kw">foreign</span> <span class="kw">key</span>(person) <span class="kw">references</span> Person(<span class="kw">id</span>)</span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a>);</span></code></pre>
 </div>
 <p>Once again, exactly what constraints are available and what they’re
 called depends on which database manager we are using.</p>
@@ -5587,16 +5587,16 @@ table:</p>
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> Site (name, lat, <span class="dt">long</span>) <span class="kw">VALUES</span> (<span class="st">'DR-1'</span>, <span class="op">-</span><span class="fl">49.85</span>, <span class="op">-</span><span class="fl">128.57</span>);</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> Site (name, lat, <span class="dt">long</span>) <span class="kw">VALUES</span> (<span class="st">'DR-3'</span>, <span class="op">-</span><span class="fl">47.15</span>, <span class="op">-</span><span class="fl">126.72</span>);</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> Site (name, lat, <span class="dt">long</span>) <span class="kw">VALUES</span> (<span class="st">'MSK-4'</span>, <span class="op">-</span><span class="fl">48.87</span>, <span class="op">-</span><span class="fl">123.40</span>);</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> Site (name, lat, <span class="dt">long</span>) <span class="kw">VALUES</span> (<span class="st">'DR-1'</span>, <span class="op">-</span><span class="fl">49.85</span>, <span class="op">-</span><span class="fl">128.57</span>);</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> Site (name, lat, <span class="dt">long</span>) <span class="kw">VALUES</span> (<span class="st">'DR-3'</span>, <span class="op">-</span><span class="fl">47.15</span>, <span class="op">-</span><span class="fl">126.72</span>);</span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> Site (name, lat, <span class="dt">long</span>) <span class="kw">VALUES</span> (<span class="st">'MSK-4'</span>, <span class="op">-</span><span class="fl">48.87</span>, <span class="op">-</span><span class="fl">123.40</span>);</span></code></pre>
 </div>
 <p>We can also insert values into one table directly from another:</p>
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> JustLatLong(lat <span class="dt">real</span>, <span class="dt">long</span> <span class="dt">real</span>);</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> JustLatLong <span class="kw">SELECT</span> lat, <span class="dt">long</span> <span class="kw">FROM</span> Site;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> JustLatLong(lat <span class="dt">real</span>, <span class="dt">long</span> <span class="dt">real</span>);</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> JustLatLong <span class="kw">SELECT</span> lat, <span class="dt">long</span> <span class="kw">FROM</span> Site;</span></code></pre>
 </div>
 <p>Modifying existing records is done using the <code>UPDATE</code>
 statement. To do this we tell the database which table we want to
@@ -5608,7 +5608,7 @@ it with an update:</p>
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">UPDATE</span> Site <span class="kw">SET</span> lat <span class="op">=</span> <span class="op">-</span><span class="fl">47.87</span>, <span class="dt">long</span> <span class="op">=</span> <span class="op">-</span><span class="fl">122.40</span> <span class="kw">WHERE</span> name <span class="op">=</span> <span class="st">'MSK-4'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="kw">UPDATE</span> Site <span class="kw">SET</span> lat <span class="op">=</span> <span class="op">-</span><span class="fl">47.87</span>, <span class="dt">long</span> <span class="op">=</span> <span class="op">-</span><span class="fl">122.40</span> <span class="kw">WHERE</span> name <span class="op">=</span> <span class="st">'MSK-4'</span>;</span></code></pre>
 </div>
 <p>Be careful to not forget the <code>WHERE</code> clause or the update
 statement will modify <em>all</em> of the records in the
@@ -5623,7 +5623,7 @@ this:</p>
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">DELETE</span> <span class="kw">FROM</span> Person <span class="kw">WHERE</span> <span class="kw">id</span> <span class="op">=</span> <span class="st">'danforth'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="kw">DELETE</span> <span class="kw">FROM</span> Person <span class="kw">WHERE</span> <span class="kw">id</span> <span class="op">=</span> <span class="st">'danforth'</span>;</span></code></pre>
 </div>
 <p>But what if we removed Anderson Lake instead? Our <code>Survey</code>
 table would still contain seven records of measurements he’d taken, but
@@ -5638,12 +5638,12 @@ uses it as a primary key. If our database manager supports it, we can
 automate this using <a href="reference.html#cascading-delete">cascading
 delete</a>. However, this technique is outside the scope of this
 chapter.</p>
-<div id="hybrid-storage-models" class="callout callout">
+<div id="callout1" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="hybrid-storage-models" class="callout-inner">
-<h3 class="callout-title">Hybrid Storage Models<a class="anchor" aria-label="anchor" href="#hybrid-storage-models"></a>
+<div class="section level3 callout-title callout-inner">
+<h3 class="callout-title" id="hybrid-storage-models">Hybrid Storage Models<a class="anchor" aria-label="anchor" href="#hybrid-storage-models"></a>
 </h3>
 <div class="callout-content">
 <p>Many applications use a hybrid storage model instead of putting
@@ -5679,7 +5679,7 @@ the MP3 files, but the files themselves live on disk.</p>
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">UPDATE</span> Survey <span class="kw">SET</span> person <span class="op">=</span> <span class="st">'unknown'</span> <span class="kw">WHERE</span> person <span class="kw">IS</span> <span class="kw">NULL</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="kw">UPDATE</span> Survey <span class="kw">SET</span> person <span class="op">=</span> <span class="st">'unknown'</span> <span class="kw">WHERE</span> person <span class="kw">IS</span> <span class="kw">NULL</span>;</span></code></pre>
 </div>
 </div>
 </div>
@@ -5802,16 +5802,16 @@ from an SQLite database stored in a file called
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>connection <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"survey.db"</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>cursor <span class="op">=</span> connection.cursor()</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>cursor.execute(<span class="st">"SELECT Site.lat, Site.long FROM Site;"</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> cursor.fetchall()</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> r <span class="kw">in</span> results:</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(r)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>cursor.close()</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>connection.close()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>connection <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"survey.db"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>cursor <span class="op">=</span> connection.cursor()</span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>cursor.execute(<span class="st">"SELECT Site.lat, Site.long FROM Site;"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>results <span class="op">=</span> cursor.fetchall()</span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="cf">for</span> r <span class="kw">in</span> results:</span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a>    <span class="bu">print</span>(r)</span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a>cursor.close()</span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a>connection.close()</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -5853,21 +5853,21 @@ returns their name:</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_name(database_file, person_id):</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    query <span class="op">=</span> <span class="st">"SELECT personal || ' ' || family FROM Person WHERE id='"</span> <span class="op">+</span> person_id <span class="op">+</span> <span class="st">"';"</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    connection <span class="op">=</span> sqlite3.<span class="ex">connect</span>(database_file)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    cursor <span class="op">=</span> connection.cursor()</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    cursor.execute(query)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    results <span class="op">=</span> cursor.fetchall()</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    cursor.close()</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    connection.close()</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> results[<span class="dv">0</span>][<span class="dv">0</span>]</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Full name for dyer:"</span>, get_name(<span class="st">'survey.db'</span>, <span class="st">'dyer'</span>))</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="kw">def</span> get_name(database_file, person_id):</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>    query <span class="op">=</span> <span class="st">"SELECT personal || ' ' || family FROM Person WHERE id='"</span> <span class="op">+</span> person_id <span class="op">+</span> <span class="st">"';"</span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>    connection <span class="op">=</span> sqlite3.<span class="ex">connect</span>(database_file)</span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>    cursor <span class="op">=</span> connection.cursor()</span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>    cursor.execute(query)</span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a>    results <span class="op">=</span> cursor.fetchall()</span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a>    cursor.close()</span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a>    connection.close()</span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a>    <span class="cf">return</span> results[<span class="dv">0</span>][<span class="dv">0</span>]</span>
+<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Full name for dyer:"</span>, get_name(<span class="st">'survey.db'</span>, <span class="st">'dyer'</span>))</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -5885,7 +5885,7 @@ result is:</p>
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> personal <span class="op">||</span> <span class="st">' '</span> <span class="op">||</span> family <span class="kw">FROM</span> Person <span class="kw">WHERE</span> <span class="kw">id</span><span class="op">=</span><span class="st">'dyer'</span>; <span class="kw">DROP</span> <span class="kw">TABLE</span> Survey; <span class="kw">SELECT</span> <span class="st">''</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="kw">SELECT</span> personal <span class="op">||</span> <span class="st">' '</span> <span class="op">||</span> family <span class="kw">FROM</span> Person <span class="kw">WHERE</span> <span class="kw">id</span><span class="op">=</span><span class="st">'dyer'</span>; <span class="kw">DROP</span> <span class="kw">TABLE</span> Survey; <span class="kw">SELECT</span> <span class="st">''</span>;</span></code></pre>
 </div>
 <p>If we execute this, it will erase one of the tables in our
 database.</p>
@@ -5904,21 +5904,21 @@ what our example program looks like if we do this:</p>
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_name(database_file, person_id):</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    query <span class="op">=</span> <span class="st">"SELECT personal || ' ' || family FROM Person WHERE id=?;"</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    connection <span class="op">=</span> sqlite3.<span class="ex">connect</span>(database_file)</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    cursor <span class="op">=</span> connection.cursor()</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    cursor.execute(query, [person_id])</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    results <span class="op">=</span> cursor.fetchall()</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    cursor.close()</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    connection.close()</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> results[<span class="dv">0</span>][<span class="dv">0</span>]</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Full name for dyer:"</span>, get_name(<span class="st">'survey.db'</span>, <span class="st">'dyer'</span>))</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="kw">def</span> get_name(database_file, person_id):</span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>    query <span class="op">=</span> <span class="st">"SELECT personal || ' ' || family FROM Person WHERE id=?;"</span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>    connection <span class="op">=</span> sqlite3.<span class="ex">connect</span>(database_file)</span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a>    cursor <span class="op">=</span> connection.cursor()</span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a>    cursor.execute(query, [person_id])</span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a>    results <span class="op">=</span> cursor.fetchall()</span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a>    cursor.close()</span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a>    connection.close()</span>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a>    <span class="cf">return</span> results[<span class="dv">0</span>][<span class="dv">0</span>]</span>
+<span id="cb7-14"><a href="#cb7-14" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Full name for dyer:"</span>, get_name(<span class="st">'survey.db'</span>, <span class="st">'dyer'</span>))</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -5938,34 +5938,34 @@ new function called <code>add_name</code> like so:</p>
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add_name(database_file, new_person):</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    query <span class="op">=</span> <span class="st">"INSERT INTO Person (id, personal, family) VALUES (?, ?, ?);"</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    connection <span class="op">=</span> sqlite3.<span class="ex">connect</span>(database_file)</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    cursor <span class="op">=</span> connection.cursor()</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    cursor.execute(query, <span class="bu">list</span>(new_person))</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    cursor.close()</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    connection.close()</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_name(database_file, person_id):</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    query <span class="op">=</span> <span class="st">"SELECT personal || ' ' || family FROM Person WHERE id=?;"</span></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    connection <span class="op">=</span> sqlite3.<span class="ex">connect</span>(database_file)</span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    cursor <span class="op">=</span> connection.cursor()</span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>    cursor.execute(query, [person_id])</span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    results <span class="op">=</span> cursor.fetchall()</span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    cursor.close()</span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    connection.close()</span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> results[<span class="dv">0</span>][<span class="dv">0</span>]</span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Insert a new name</span></span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>add_name(<span class="st">'survey.db'</span>, (<span class="st">'barrett'</span>, <span class="st">'Mary'</span>, <span class="st">'Barrett'</span>))</span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Check it exists</span></span>
-<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Full name for barrett:"</span>, get_name(<span class="st">'survey.db'</span>, <span class="st">'barrett'</span>))</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="kw">def</span> add_name(database_file, new_person):</span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>    query <span class="op">=</span> <span class="st">"INSERT INTO Person (id, personal, family) VALUES (?, ?, ?);"</span></span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>    connection <span class="op">=</span> sqlite3.<span class="ex">connect</span>(database_file)</span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a>    cursor <span class="op">=</span> connection.cursor()</span>
+<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a>    cursor.execute(query, <span class="bu">list</span>(new_person))</span>
+<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a>    cursor.close()</span>
+<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a>    connection.close()</span>
+<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" tabindex="-1"></a><span class="kw">def</span> get_name(database_file, person_id):</span>
+<span id="cb9-14"><a href="#cb9-14" tabindex="-1"></a>    query <span class="op">=</span> <span class="st">"SELECT personal || ' ' || family FROM Person WHERE id=?;"</span></span>
+<span id="cb9-15"><a href="#cb9-15" tabindex="-1"></a></span>
+<span id="cb9-16"><a href="#cb9-16" tabindex="-1"></a>    connection <span class="op">=</span> sqlite3.<span class="ex">connect</span>(database_file)</span>
+<span id="cb9-17"><a href="#cb9-17" tabindex="-1"></a>    cursor <span class="op">=</span> connection.cursor()</span>
+<span id="cb9-18"><a href="#cb9-18" tabindex="-1"></a>    cursor.execute(query, [person_id])</span>
+<span id="cb9-19"><a href="#cb9-19" tabindex="-1"></a>    results <span class="op">=</span> cursor.fetchall()</span>
+<span id="cb9-20"><a href="#cb9-20" tabindex="-1"></a>    cursor.close()</span>
+<span id="cb9-21"><a href="#cb9-21" tabindex="-1"></a>    connection.close()</span>
+<span id="cb9-22"><a href="#cb9-22" tabindex="-1"></a></span>
+<span id="cb9-23"><a href="#cb9-23" tabindex="-1"></a>    <span class="cf">return</span> results[<span class="dv">0</span>][<span class="dv">0</span>]</span>
+<span id="cb9-24"><a href="#cb9-24" tabindex="-1"></a></span>
+<span id="cb9-25"><a href="#cb9-25" tabindex="-1"></a><span class="co"># Insert a new name</span></span>
+<span id="cb9-26"><a href="#cb9-26" tabindex="-1"></a>add_name(<span class="st">'survey.db'</span>, (<span class="st">'barrett'</span>, <span class="st">'Mary'</span>, <span class="st">'Barrett'</span>))</span>
+<span id="cb9-27"><a href="#cb9-27" tabindex="-1"></a><span class="co"># Check it exists</span></span>
+<span id="cb9-28"><a href="#cb9-28" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Full name for barrett:"</span>, get_name(<span class="st">'survey.db'</span>, <span class="st">'barrett'</span>))</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -5981,35 +5981,35 @@ connection, in order to save our changes to the database.</p>
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add_name(database_file, new_person):</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    query <span class="op">=</span> <span class="st">"INSERT INTO Person (id, personal, family) VALUES (?, ?, ?);"</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    connection <span class="op">=</span> sqlite3.<span class="ex">connect</span>(database_file)</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    cursor <span class="op">=</span> connection.cursor()</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    cursor.execute(query, <span class="bu">list</span>(new_person))</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    cursor.close()</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    connection.commit()</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    connection.close()</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_name(database_file, person_id):</span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    query <span class="op">=</span> <span class="st">"SELECT personal || ' ' || family FROM Person WHERE id=?;"</span></span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>    connection <span class="op">=</span> sqlite3.<span class="ex">connect</span>(database_file)</span>
-<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>    cursor <span class="op">=</span> connection.cursor()</span>
-<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>    cursor.execute(query, [person_id])</span>
-<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>    results <span class="op">=</span> cursor.fetchall()</span>
-<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>    cursor.close()</span>
-<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>    connection.close()</span>
-<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> results[<span class="dv">0</span>][<span class="dv">0</span>]</span>
-<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Insert a new name</span></span>
-<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>add_name(<span class="st">'survey.db'</span>, (<span class="st">'barrett'</span>, <span class="st">'Mary'</span>, <span class="st">'Barrett'</span>))</span>
-<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Check it exists</span></span>
-<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Full name for barrett:"</span>, get_name(<span class="st">'survey.db'</span>, <span class="st">'barrett'</span>))</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a><span class="kw">def</span> add_name(database_file, new_person):</span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a>    query <span class="op">=</span> <span class="st">"INSERT INTO Person (id, personal, family) VALUES (?, ?, ?);"</span></span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a>    connection <span class="op">=</span> sqlite3.<span class="ex">connect</span>(database_file)</span>
+<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a>    cursor <span class="op">=</span> connection.cursor()</span>
+<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a>    cursor.execute(query, <span class="bu">list</span>(new_person))</span>
+<span id="cb11-9"><a href="#cb11-9" tabindex="-1"></a>    cursor.close()</span>
+<span id="cb11-10"><a href="#cb11-10" tabindex="-1"></a>    connection.commit()</span>
+<span id="cb11-11"><a href="#cb11-11" tabindex="-1"></a>    connection.close()</span>
+<span id="cb11-12"><a href="#cb11-12" tabindex="-1"></a></span>
+<span id="cb11-13"><a href="#cb11-13" tabindex="-1"></a></span>
+<span id="cb11-14"><a href="#cb11-14" tabindex="-1"></a><span class="kw">def</span> get_name(database_file, person_id):</span>
+<span id="cb11-15"><a href="#cb11-15" tabindex="-1"></a>    query <span class="op">=</span> <span class="st">"SELECT personal || ' ' || family FROM Person WHERE id=?;"</span></span>
+<span id="cb11-16"><a href="#cb11-16" tabindex="-1"></a></span>
+<span id="cb11-17"><a href="#cb11-17" tabindex="-1"></a>    connection <span class="op">=</span> sqlite3.<span class="ex">connect</span>(database_file)</span>
+<span id="cb11-18"><a href="#cb11-18" tabindex="-1"></a>    cursor <span class="op">=</span> connection.cursor()</span>
+<span id="cb11-19"><a href="#cb11-19" tabindex="-1"></a>    cursor.execute(query, [person_id])</span>
+<span id="cb11-20"><a href="#cb11-20" tabindex="-1"></a>    results <span class="op">=</span> cursor.fetchall()</span>
+<span id="cb11-21"><a href="#cb11-21" tabindex="-1"></a>    cursor.close()</span>
+<span id="cb11-22"><a href="#cb11-22" tabindex="-1"></a>    connection.close()</span>
+<span id="cb11-23"><a href="#cb11-23" tabindex="-1"></a></span>
+<span id="cb11-24"><a href="#cb11-24" tabindex="-1"></a>    <span class="cf">return</span> results[<span class="dv">0</span>][<span class="dv">0</span>]</span>
+<span id="cb11-25"><a href="#cb11-25" tabindex="-1"></a></span>
+<span id="cb11-26"><a href="#cb11-26" tabindex="-1"></a><span class="co"># Insert a new name</span></span>
+<span id="cb11-27"><a href="#cb11-27" tabindex="-1"></a>add_name(<span class="st">'survey.db'</span>, (<span class="st">'barrett'</span>, <span class="st">'Mary'</span>, <span class="st">'Barrett'</span>))</span>
+<span id="cb11-28"><a href="#cb11-28" tabindex="-1"></a><span class="co"># Check it exists</span></span>
+<span id="cb11-29"><a href="#cb11-29" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Full name for barrett:"</span>, get_name(<span class="st">'survey.db'</span>, <span class="st">'barrett'</span>))</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -6038,42 +6038,42 @@ simply writes those random numbers to a file?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1">Show me the solution</h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># import random number generator</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy.random <span class="im">import</span> uniform</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>random_numbers <span class="op">=</span> uniform(low<span class="op">=</span><span class="fl">10.0</span>, high<span class="op">=</span><span class="fl">25.0</span>, size<span class="op">=</span><span class="dv">100000</span>)</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>connection <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"original.db"</span>)</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>cursor <span class="op">=</span> connection.cursor()</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>cursor.execute(<span class="st">"CREATE TABLE Pressure (reading float not null)"</span>)</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>query <span class="op">=</span> <span class="st">"INSERT INTO Pressure (reading) VALUES (?);"</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> number <span class="kw">in</span> random_numbers:</span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    cursor.execute(query, [number])</span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>cursor.close()</span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="co"># save changes to file for next exercise</span></span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>connection.commit()</span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>connection.close()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="co"># import random number generator</span></span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a><span class="im">from</span> numpy.random <span class="im">import</span> uniform</span>
+<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a>random_numbers <span class="op">=</span> uniform(low<span class="op">=</span><span class="fl">10.0</span>, high<span class="op">=</span><span class="fl">25.0</span>, size<span class="op">=</span><span class="dv">100000</span>)</span>
+<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a>connection <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"original.db"</span>)</span>
+<span id="cb13-8"><a href="#cb13-8" tabindex="-1"></a>cursor <span class="op">=</span> connection.cursor()</span>
+<span id="cb13-9"><a href="#cb13-9" tabindex="-1"></a>cursor.execute(<span class="st">"CREATE TABLE Pressure (reading float not null)"</span>)</span>
+<span id="cb13-10"><a href="#cb13-10" tabindex="-1"></a>query <span class="op">=</span> <span class="st">"INSERT INTO Pressure (reading) VALUES (?);"</span></span>
+<span id="cb13-11"><a href="#cb13-11" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="#cb13-12" tabindex="-1"></a><span class="cf">for</span> number <span class="kw">in</span> random_numbers:</span>
+<span id="cb13-13"><a href="#cb13-13" tabindex="-1"></a>    cursor.execute(query, [number])</span>
+<span id="cb13-14"><a href="#cb13-14" tabindex="-1"></a></span>
+<span id="cb13-15"><a href="#cb13-15" tabindex="-1"></a>cursor.close()</span>
+<span id="cb13-16"><a href="#cb13-16" tabindex="-1"></a><span class="co"># save changes to file for next exercise</span></span>
+<span id="cb13-17"><a href="#cb13-17" tabindex="-1"></a>connection.commit()</span>
+<span id="cb13-18"><a href="#cb13-18" tabindex="-1"></a>connection.close()</span></code></pre>
 </div>
 <p>For comparison, the following program writes the random numbers into
 the file <code>random_numbers.txt</code>:</p>
 <div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy.random <span class="im">import</span> uniform</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>random_numbers <span class="op">=</span> uniform(low<span class="op">=</span><span class="fl">10.0</span>, high<span class="op">=</span><span class="fl">25.0</span>, size<span class="op">=</span><span class="dv">100000</span>)</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'random_numbers.txt'</span>, <span class="st">'w'</span>) <span class="im">as</span> outfile:</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> number <span class="kw">in</span> random_numbers:</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>        <span class="co"># need to add linebreak \n</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>        outfile.write(<span class="st">"</span><span class="sc">{}</span><span class="ch">\n</span><span class="st">"</span>.<span class="bu">format</span>(number))</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="im">from</span> numpy.random <span class="im">import</span> uniform</span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a>random_numbers <span class="op">=</span> uniform(low<span class="op">=</span><span class="fl">10.0</span>, high<span class="op">=</span><span class="fl">25.0</span>, size<span class="op">=</span><span class="dv">100000</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'random_numbers.txt'</span>, <span class="st">'w'</span>) <span class="im">as</span> outfile:</span>
+<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a>    <span class="cf">for</span> number <span class="kw">in</span> random_numbers:</span>
+<span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a>        <span class="co"># need to add linebreak \n</span></span>
+<span id="cb14-7"><a href="#cb14-7" tabindex="-1"></a>        outfile.write(<span class="st">"</span><span class="sc">{}</span><span class="ch">\n</span><span class="st">"</span>.<span class="bu">format</span>(number))</span></code></pre>
 </div>
 </div>
 </div>
@@ -6101,35 +6101,35 @@ and filtering in Python?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2">Show me the solution</h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>The first example reads all the data into memory and filters the
 numbers using the if statement in Python.</p>
 <div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>connection_original <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"original.db"</span>)</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>cursor_original <span class="op">=</span> connection_original.cursor()</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>cursor_original.execute(<span class="st">"SELECT * FROM Pressure;"</span>)</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> cursor_original.fetchall()</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>cursor_original.close()</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>connection_original.close()</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>connection_backup <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"backup.db"</span>)</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>cursor_backup <span class="op">=</span> connection_backup.cursor()</span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>cursor_backup.execute(<span class="st">"CREATE TABLE Pressure (reading float not null)"</span>)</span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>query <span class="op">=</span> <span class="st">"INSERT INTO Pressure (reading) VALUES (?);"</span></span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> entry <span class="kw">in</span> results:</span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># number is saved in first column of the table</span></span>
-<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> entry[<span class="dv">0</span>] <span class="op">&gt;</span> <span class="fl">20.0</span>:</span>
-<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>        cursor_backup.execute(query, entry)</span>
-<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>cursor_backup.close()</span>
-<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>connection_backup.commit()</span>
-<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>connection_backup.close()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a>connection_original <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"original.db"</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a>cursor_original <span class="op">=</span> connection_original.cursor()</span>
+<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a>cursor_original.execute(<span class="st">"SELECT * FROM Pressure;"</span>)</span>
+<span id="cb15-6"><a href="#cb15-6" tabindex="-1"></a>results <span class="op">=</span> cursor_original.fetchall()</span>
+<span id="cb15-7"><a href="#cb15-7" tabindex="-1"></a>cursor_original.close()</span>
+<span id="cb15-8"><a href="#cb15-8" tabindex="-1"></a>connection_original.close()</span>
+<span id="cb15-9"><a href="#cb15-9" tabindex="-1"></a></span>
+<span id="cb15-10"><a href="#cb15-10" tabindex="-1"></a>connection_backup <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"backup.db"</span>)</span>
+<span id="cb15-11"><a href="#cb15-11" tabindex="-1"></a>cursor_backup <span class="op">=</span> connection_backup.cursor()</span>
+<span id="cb15-12"><a href="#cb15-12" tabindex="-1"></a>cursor_backup.execute(<span class="st">"CREATE TABLE Pressure (reading float not null)"</span>)</span>
+<span id="cb15-13"><a href="#cb15-13" tabindex="-1"></a>query <span class="op">=</span> <span class="st">"INSERT INTO Pressure (reading) VALUES (?);"</span></span>
+<span id="cb15-14"><a href="#cb15-14" tabindex="-1"></a></span>
+<span id="cb15-15"><a href="#cb15-15" tabindex="-1"></a><span class="cf">for</span> entry <span class="kw">in</span> results:</span>
+<span id="cb15-16"><a href="#cb15-16" tabindex="-1"></a>    <span class="co"># number is saved in first column of the table</span></span>
+<span id="cb15-17"><a href="#cb15-17" tabindex="-1"></a>    <span class="cf">if</span> entry[<span class="dv">0</span>] <span class="op">&gt;</span> <span class="fl">20.0</span>:</span>
+<span id="cb15-18"><a href="#cb15-18" tabindex="-1"></a>        cursor_backup.execute(query, entry)</span>
+<span id="cb15-19"><a href="#cb15-19" tabindex="-1"></a></span>
+<span id="cb15-20"><a href="#cb15-20" tabindex="-1"></a>cursor_backup.close()</span>
+<span id="cb15-21"><a href="#cb15-21" tabindex="-1"></a>connection_backup.commit()</span>
+<span id="cb15-22"><a href="#cb15-22" tabindex="-1"></a>connection_backup.close()</span></code></pre>
 </div>
 <p>In contrast the following example uses the conditional
 <code>SELECT</code> statement to filter the numbers in SQL. The only
@@ -6140,26 +6140,26 @@ does not require the use of Python’s if statement.</p>
 <div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>connection_original <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"original.db"</span>)</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>cursor_original <span class="op">=</span> connection_original.cursor()</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>cursor_original.execute(<span class="st">"SELECT * FROM Pressure WHERE reading &gt; 20.0;"</span>)</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> cursor_original.fetchall()</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>cursor_original.close()</span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>connection_original.close()</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>connection_backup <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"backup.db"</span>)</span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>cursor_backup <span class="op">=</span> connection_backup.cursor()</span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>cursor_backup.execute(<span class="st">"CREATE TABLE Pressure (reading float not null)"</span>)</span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>query <span class="op">=</span> <span class="st">"INSERT INTO Pressure (reading) VALUES (?);"</span></span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> entry <span class="kw">in</span> results:</span>
-<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>    cursor_backup.execute(query, entry)</span>
-<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>cursor_backup.close()</span>
-<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>connection_backup.commit()</span>
-<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>connection_backup.close()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a>connection_original <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"original.db"</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" tabindex="-1"></a>cursor_original <span class="op">=</span> connection_original.cursor()</span>
+<span id="cb16-5"><a href="#cb16-5" tabindex="-1"></a>cursor_original.execute(<span class="st">"SELECT * FROM Pressure WHERE reading &gt; 20.0;"</span>)</span>
+<span id="cb16-6"><a href="#cb16-6" tabindex="-1"></a>results <span class="op">=</span> cursor_original.fetchall()</span>
+<span id="cb16-7"><a href="#cb16-7" tabindex="-1"></a>cursor_original.close()</span>
+<span id="cb16-8"><a href="#cb16-8" tabindex="-1"></a>connection_original.close()</span>
+<span id="cb16-9"><a href="#cb16-9" tabindex="-1"></a></span>
+<span id="cb16-10"><a href="#cb16-10" tabindex="-1"></a>connection_backup <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"backup.db"</span>)</span>
+<span id="cb16-11"><a href="#cb16-11" tabindex="-1"></a>cursor_backup <span class="op">=</span> connection_backup.cursor()</span>
+<span id="cb16-12"><a href="#cb16-12" tabindex="-1"></a>cursor_backup.execute(<span class="st">"CREATE TABLE Pressure (reading float not null)"</span>)</span>
+<span id="cb16-13"><a href="#cb16-13" tabindex="-1"></a>query <span class="op">=</span> <span class="st">"INSERT INTO Pressure (reading) VALUES (?);"</span></span>
+<span id="cb16-14"><a href="#cb16-14" tabindex="-1"></a></span>
+<span id="cb16-15"><a href="#cb16-15" tabindex="-1"></a><span class="cf">for</span> entry <span class="kw">in</span> results:</span>
+<span id="cb16-16"><a href="#cb16-16" tabindex="-1"></a>    cursor_backup.execute(query, entry)</span>
+<span id="cb16-17"><a href="#cb16-17" tabindex="-1"></a></span>
+<span id="cb16-18"><a href="#cb16-18" tabindex="-1"></a>cursor_backup.close()</span>
+<span id="cb16-19"><a href="#cb16-19" tabindex="-1"></a>connection_backup.commit()</span>
+<span id="cb16-20"><a href="#cb16-20" tabindex="-1"></a>connection_backup.close()</span></code></pre>
 </div>
 </div>
 </div>
@@ -6324,7 +6324,7 @@ input?</p>
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>dyer<span class="st">'; DROP TABLE Survey; SELECT '</span></span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>dyer<span class="st">'; DROP TABLE Survey; SELECT '</span></span></code></pre>
 </div>
 <p>It looks like there’s garbage after the user’s ID, but it is very
 carefully chosen garbage. If we insert this string into our query, the
@@ -6332,7 +6332,7 @@ result is:</p>
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> personal <span class="op">||</span> <span class="st">' '</span> <span class="op">||</span> family <span class="kw">FROM</span> Person <span class="kw">WHERE</span> <span class="kw">id</span><span class="op">=</span><span class="st">'dyer'</span>; <span class="kw">DROP</span> <span class="kw">TABLE</span> Survey; <span class="kw">SELECT</span> <span class="st">''</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="kw">SELECT</span> personal <span class="op">||</span> <span class="st">' '</span> <span class="op">||</span> family <span class="kw">FROM</span> Person <span class="kw">WHERE</span> <span class="kw">id</span><span class="op">=</span><span class="st">'dyer'</span>; <span class="kw">DROP</span> <span class="kw">TABLE</span> Survey; <span class="kw">SELECT</span> <span class="st">''</span>;</span></code></pre>
 </div>
 <p>If we execute this, it will erase one of the tables in our
 database.</p>
@@ -6567,8 +6567,8 @@ easier.</li>
   "url": "https://swcarpentry.github.io/sql-novice-survey/aio.html",
   "identifier": "https://swcarpentry.github.io/sql-novice-survey/aio.html",
   "dateCreated": "2014-11-21",
-  "dateModified": "2024-02-27",
-  "datePublished": "2024-02-27"
+  "dateModified": "2024-03-05",
+  "datePublished": "2024-03-05"
 }
 
   </script><script>

@@ -450,14 +450,14 @@ Then:</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git clone http://github.com/swcarpentry/sql-novice-survey.git</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd sql-novice-survey</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">$</span> git clone http://github.com/swcarpentry/sql-novice-survey.git</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="ex">$</span> cd sql-novice-survey</span></code></pre>
 </div>
 <p>Next, create the database that will be used:</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sqlite3 survey.sqlite <span class="st">'.read bin/create-db.sql'</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">$</span> sqlite3 survey.sqlite <span class="st">'.read bin/create-db.sql'</span></span></code></pre>
 </div>
 <p>This reads commands from <code>bin/create-db.sql</code>, which sets
 up the tables and loads data from the CSV files in the <code>data</code>
@@ -467,10 +467,10 @@ directory.</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sqlite3 survey.sqlite</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">SQLite</span> version 3.8.5 2014-08-15 22:37:57</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Enter</span> <span class="st">".help"</span> for usage hints.</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">sqlite</span><span class="op">&gt;</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">$</span> sqlite3 survey.sqlite</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="ex">SQLite</span> version 3.8.5 2014-08-15 22:37:57</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="ex">Enter</span> <span class="st">".help"</span> for usage hints.</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="ex">sqlite</span><span class="op">&gt;</span></span></code></pre>
 </div>
 </section><section id="troubleshooting"><h2 class="section-heading">Troubleshooting<a class="anchor" aria-label="anchor" href="#troubleshooting"></a>
 </h2>
@@ -488,7 +488,7 @@ command when starting SQLite:</p>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> rlwrap sqlite3 survey.sqlite</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">$</span> rlwrap sqlite3 survey.sqlite</span></code></pre>
 </div>
 <p>The <code>rlwrap</code> package is available in the standard Fedora
 repository (but wasn’t needed when I <span class="citation">[@benwaugh]</span> taught this) and appears to be
@@ -543,8 +543,8 @@ Homebrew</a>.</p>
   "url": "https://swcarpentry.github.io/sql-novice-survey/instructor-notes.html",
   "identifier": "https://swcarpentry.github.io/sql-novice-survey/instructor-notes.html",
   "dateCreated": "2014-11-21",
-  "dateModified": "2024-02-27",
-  "datePublished": "2024-02-27"
+  "dateModified": "2024-03-05",
+  "datePublished": "2024-03-05"
 }
 
   </script><script>

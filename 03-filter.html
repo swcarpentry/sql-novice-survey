@@ -340,7 +340,7 @@ query:</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> site <span class="op">=</span> <span class="st">'DR-1'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> site <span class="op">=</span> <span class="st">'DR-1'</span>;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>id</th>
 <th>site</th>
@@ -365,7 +365,7 @@ displayed:</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">id</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> site <span class="op">=</span> <span class="st">'DR-1'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">id</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> site <span class="op">=</span> <span class="st">'DR-1'</span>;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>id</th>
 </tr></thead><tbody><tr class="odd"><td>619</td>
@@ -377,7 +377,7 @@ before 1930:</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> site <span class="op">=</span> <span class="st">'DR-1'</span> <span class="kw">AND</span> dated <span class="op">&lt;</span> <span class="st">'1930-01-01'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> site <span class="op">=</span> <span class="st">'DR-1'</span> <span class="kw">AND</span> dated <span class="op">&lt;</span> <span class="st">'1930-01-01'</span>;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>id</th>
 <th>site</th>
@@ -388,13 +388,12 @@ before 1930:</p>
 </tr><tr class="even"><td>622</td>
 <td>DR-1</td>
 <td>1927-02-10</td>
-</tr></tbody></table><div id="date-types" class="callout callout">
+</tr></tbody></table><div id="callout1" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="date-types" class="callout-inner">
-<h3 class="callout-title">Date Types<a class="anchor" aria-label="anchor" href="#date-types"></a>
-</h3>
+<div class="section level3 callout-title callout-inner">
+<h3 class="callout-title" id="date-types">Date Types<a class="anchor" aria-label="anchor" href="#date-types"></a></h3>
 <div class="callout-content">
 <p>Most database managers have a special data type for dates. In fact,
 many have two: one for dates, such as “May 31, 1971”, and one for
@@ -414,7 +413,7 @@ Roerich, we can combine the tests on their names using
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> person <span class="op">=</span> <span class="st">'lake'</span> <span class="kw">OR</span> person <span class="op">=</span> <span class="st">'roe'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> person <span class="op">=</span> <span class="st">'lake'</span> <span class="kw">OR</span> person <span class="op">=</span> <span class="st">'roe'</span>;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>taken</th>
 <th>person</th>
@@ -465,7 +464,7 @@ specific set:</p>
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> person <span class="kw">IN</span> (<span class="st">'lake'</span>, <span class="st">'roe'</span>);</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> person <span class="kw">IN</span> (<span class="st">'lake'</span>, <span class="st">'roe'</span>);</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>taken</th>
 <th>person</th>
@@ -517,7 +516,7 @@ use parentheses, we get this:</p>
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span> <span class="kw">AND</span> person <span class="op">=</span> <span class="st">'lake'</span> <span class="kw">OR</span> person <span class="op">=</span> <span class="st">'roe'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span> <span class="kw">AND</span> person <span class="op">=</span> <span class="st">'lake'</span> <span class="kw">OR</span> person <span class="op">=</span> <span class="st">'roe'</span>;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>taken</th>
 <th>person</th>
@@ -556,7 +555,7 @@ by Roerich. We probably want this instead:</p>
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span> <span class="kw">AND</span> (person <span class="op">=</span> <span class="st">'lake'</span> <span class="kw">OR</span> person <span class="op">=</span> <span class="st">'roe'</span>);</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span> <span class="kw">AND</span> (person <span class="op">=</span> <span class="st">'lake'</span> <span class="kw">OR</span> person <span class="op">=</span> <span class="st">'roe'</span>);</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>taken</th>
 <th>person</th>
@@ -594,7 +593,7 @@ string:</p>
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> site <span class="kw">LIKE</span> <span class="st">'DR%'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> site <span class="kw">LIKE</span> <span class="st">'DR%'</span>;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>id</th>
 <th>site</th>
@@ -625,7 +624,7 @@ give a second level of filtering:</p>
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> person, quant <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> person <span class="op">=</span> <span class="st">'lake'</span> <span class="kw">OR</span> person <span class="op">=</span> <span class="st">'roe'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> person, quant <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> person <span class="op">=</span> <span class="st">'lake'</span> <span class="kw">OR</span> person <span class="op">=</span> <span class="st">'roe'</span>;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>person</th>
 <th>quant</th>
@@ -642,13 +641,12 @@ give a second level of filtering:</p>
 </tr></tbody></table><p>But remember: <code>DISTINCT</code> is applied to the values
 displayed in the chosen columns, not to the entire rows as they are
 being processed.</p>
-<div id="growing-queries" class="callout callout">
+<div id="callout2" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="growing-queries" class="callout-inner">
-<h3 class="callout-title">Growing Queries<a class="anchor" aria-label="anchor" href="#growing-queries"></a>
-</h3>
+<div class="section level3 callout-title callout-inner">
+<h3 class="callout-title" id="growing-queries">Growing Queries<a class="anchor" aria-label="anchor" href="#growing-queries"></a></h3>
 <div class="callout-content">
 <p>What we have just done is how most people “grow” their SQL queries.
 We started with something simple that did part of what we wanted, then
@@ -679,7 +677,7 @@ equator. Our first query is:</p>
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Site <span class="kw">WHERE</span> (lat <span class="op">&gt;</span> <span class="op">-</span><span class="dv">48</span>) <span class="kw">OR</span> (lat <span class="op">&lt;</span> <span class="dv">48</span>);</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Site <span class="kw">WHERE</span> (lat <span class="op">&gt;</span> <span class="op">-</span><span class="dv">48</span>) <span class="kw">OR</span> (lat <span class="op">&lt;</span> <span class="dv">48</span>);</span></code></pre>
 </div>
 <p>Explain why this is wrong, and rewrite the query so that it is
 correct.</p>
@@ -699,7 +697,7 @@ want to restrict this to sites that meet <em>both</em> criteria:</p>
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Site <span class="kw">WHERE</span> (lat <span class="op">&gt;</span> <span class="op">-</span><span class="dv">48</span>) <span class="kw">AND</span> (lat <span class="op">&lt;</span> <span class="dv">48</span>);</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Site <span class="kw">WHERE</span> (lat <span class="op">&gt;</span> <span class="op">-</span><span class="dv">48</span>) <span class="kw">AND</span> (lat <span class="op">&lt;</span> <span class="dv">48</span>);</span></code></pre>
 </div>
 </div>
 </div>
@@ -729,7 +727,7 @@ salinity values outside this range.</p>
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span> <span class="kw">AND</span> ((reading <span class="op">&gt;</span> <span class="fl">1.0</span>) <span class="kw">OR</span> (reading <span class="op">&lt;</span> <span class="fl">0.0</span>));</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span> <span class="kw">AND</span> ((reading <span class="op">&gt;</span> <span class="fl">1.0</span>) <span class="kw">OR</span> (reading <span class="op">&lt;</span> <span class="fl">0.0</span>));</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>taken</th>
 <th>person</th>
@@ -863,7 +861,7 @@ that are not actually displayed.</li>
   "identifier": "https://swcarpentry.github.io/sql-novice-survey/03-filter.html",
   "dateCreated": "2014-11-21",
   "dateModified": "2023-05-08",
-  "datePublished": "2024-02-27"
+  "datePublished": "2024-03-05"
 }
 
   </script><script>

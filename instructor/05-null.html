@@ -349,7 +349,7 @@ NULLs easier to see:</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>.nullvalue <span class="op">-</span><span class="kw">null</span><span class="op">-</span></span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>.nullvalue <span class="op">-</span><span class="kw">null</span><span class="op">-</span></span></code></pre>
 </div>
 <p>To start, let’s have a look at the <code>Visited</code> table. There
 are eight records, but #752 doesn’t have a date — or rather, its date is
@@ -357,7 +357,7 @@ null:</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>id</th>
 <th>site</th>
@@ -391,7 +391,7 @@ come before 1930:</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="op">&lt;</span> <span class="st">'1930-01-01'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="op">&lt;</span> <span class="st">'1930-01-01'</span>;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>id</th>
 <th>site</th>
@@ -407,7 +407,7 @@ after 1930:</p>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="op">&gt;=</span> <span class="st">'1930-01-01'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="op">&gt;=</span> <span class="st">'1930-01-01'</span>;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>id</th>
 <th>site</th>
@@ -445,20 +445,20 @@ null:</p>
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="op">=</span> <span class="kw">NULL</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="op">=</span> <span class="kw">NULL</span>;</span></code></pre>
 </div>
 <p>produces no output, and neither does:</p>
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="op">!=</span> <span class="kw">NULL</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="op">!=</span> <span class="kw">NULL</span>;</span></code></pre>
 </div>
 <p>To check whether a value is <code>null</code> or not, we must use a
 special test <code>IS NULL</code>:</p>
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="kw">IS</span> <span class="kw">NULL</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="kw">IS</span> <span class="kw">NULL</span>;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>id</th>
 <th>site</th>
@@ -470,7 +470,7 @@ special test <code>IS NULL</code>:</p>
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span>;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>id</th>
 <th>site</th>
@@ -502,7 +502,7 @@ by Lake. It’s natural to write the query like this:</p>
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span> <span class="kw">AND</span> person <span class="op">!=</span> <span class="st">'lake'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span> <span class="kw">AND</span> person <span class="op">!=</span> <span class="st">'lake'</span>;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>taken</th>
 <th>person</th>
@@ -532,7 +532,7 @@ to keep these records we need to add an explicit check:</p>
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span> <span class="kw">AND</span> (person <span class="op">!=</span> <span class="st">'lake'</span> <span class="kw">OR</span> person <span class="kw">IS</span> <span class="kw">NULL</span>);</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span> <span class="kw">AND</span> (person <span class="op">!=</span> <span class="st">'lake'</span> <span class="kw">OR</span> person <span class="kw">IS</span> <span class="kw">NULL</span>);</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>taken</th>
 <th>person</th>
@@ -591,7 +591,7 @@ omitting entries for which the date is not known (i.e., is null).</p>
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">ORDER</span> <span class="kw">BY</span> dated <span class="kw">ASC</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">ORDER</span> <span class="kw">BY</span> dated <span class="kw">ASC</span>;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>id</th>
 <th>site</th>
@@ -633,7 +633,7 @@ omitting entries for which the date is not known (i.e., is null).</p>
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="kw">IN</span> (<span class="st">'1927-02-08'</span>, <span class="kw">NULL</span>);</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="kw">IN</span> (<span class="st">'1927-02-08'</span>, <span class="kw">NULL</span>);</span></code></pre>
 </div>
 <p>What does it actually produce?</p>
 </div>
@@ -652,7 +652,7 @@ omitting entries for which the date is not known (i.e., is null).</p>
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="kw">IN</span> (<span class="st">'1927-02-08'</span>);</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="kw">IN</span> (<span class="st">'1927-02-08'</span>);</span></code></pre>
 </div>
 <p>The reason is that the <code>IN</code> operator works with a set of
 <em>values</em>, but NULL is by definition not a value and is therefore
@@ -662,7 +662,7 @@ query to use the IS NULL condition:</p>
 <div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="op">=</span> <span class="st">'1927-02-08'</span> <span class="kw">OR</span> dated <span class="kw">IS</span> <span class="kw">NULL</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="op">=</span> <span class="st">'1927-02-08'</span> <span class="kw">OR</span> dated <span class="kw">IS</span> <span class="kw">NULL</span>;</span></code></pre>
 </div>
 </div>
 </div>
@@ -761,7 +761,7 @@ information.</li>
   "identifier": "https://swcarpentry.github.io/sql-novice-survey/instructor/05-null.html",
   "dateCreated": "2014-11-21",
   "dateModified": "2023-05-08",
-  "datePublished": "2024-02-27"
+  "datePublished": "2024-03-05"
 }
 
   </script><script>

@@ -350,7 +350,7 @@ tables:</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Site <span class="kw">JOIN</span> Visited;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Site <span class="kw">JOIN</span> Visited;</span></code></pre>
 </div>
 <table class="table"><colgroup><col width="13%"><col width="15%"><col width="19%"><col width="17%"><col width="13%"><col width="19%"></colgroup><thead><tr class="header"><th>name</th>
 <th>lat</th>
@@ -516,11 +516,11 @@ site name, thus we need to use a filter:</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">*</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  Site</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">JOIN</span> Visited <span class="kw">ON</span> Site.name <span class="op">=</span> Visited.site;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>  <span class="op">*</span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>  Site</span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>  <span class="kw">JOIN</span> Visited <span class="kw">ON</span> Site.name <span class="op">=</span> Visited.site;</span></code></pre>
 </div>
 <table class="table"><colgroup><col width="13%"><col width="15%"><col width="19%"><col width="17%"><col width="13%"><col width="19%"></colgroup><thead><tr class="header"><th>name</th>
 <th>lat</th>
@@ -594,13 +594,13 @@ we actually want out of our join:</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  Site.lat,</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  Site.<span class="dt">long</span>,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  Visited.dated</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  Site</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">JOIN</span> Visited <span class="kw">ON</span> Site.name <span class="op">=</span> Visited.site;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>  Site.lat,</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>  Site.<span class="dt">long</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>  Visited.dated</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>  Site</span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>  <span class="kw">JOIN</span> Visited <span class="kw">ON</span> Site.name <span class="op">=</span> Visited.site;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>lat</th>
 <th>long</th>
@@ -636,18 +636,18 @@ to filter out combinations of records that don’t make sense:</p>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  Site.lat,</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  Site.<span class="dt">long</span>,</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  Visited.dated,</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  Survey.quant,</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  Survey.reading</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> </span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  Site</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">JOIN</span> Visited</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">JOIN</span> Survey <span class="kw">ON</span> Site.name <span class="op">=</span> Visited.site</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">AND</span> Visited.<span class="kw">id</span> <span class="op">=</span> Survey.taken</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="kw">AND</span> Visited.dated <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>  Site.lat,</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>  Site.<span class="dt">long</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>  Visited.dated,</span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>  Survey.quant,</span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>  Survey.reading</span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="kw">FROM</span> </span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a>  Site</span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a>  <span class="kw">JOIN</span> Visited</span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a>  <span class="kw">JOIN</span> Survey <span class="kw">ON</span> Site.name <span class="op">=</span> Visited.site</span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a>  <span class="kw">AND</span> Visited.<span class="kw">id</span> <span class="op">=</span> Survey.taken</span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a>  <span class="kw">AND</span> Visited.dated <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span>;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>lat</th>
 <th>long</th>
@@ -765,7 +765,7 @@ record numbers in queries:</p>
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="dt">rowid</span>, <span class="op">*</span> <span class="kw">FROM</span> Person;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="dt">rowid</span>, <span class="op">*</span> <span class="kw">FROM</span> Person;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>rowid</th>
 <th>id</th>
@@ -814,19 +814,19 @@ site.</p>
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>   Survey.reading</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>   Site</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>   <span class="kw">JOIN</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>      Visited</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">JOIN</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>      Survey</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>      <span class="kw">ON</span> Site.name <span class="op">=</span> Visited.site</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>      <span class="kw">AND</span> Visited.<span class="kw">id</span> <span class="op">=</span> Survey.taken</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>   Site.name <span class="op">=</span> <span class="st">'DR-1'</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>   <span class="kw">AND</span> Survey.quant <span class="op">=</span> <span class="st">'rad'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>   Survey.reading</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>   Site</span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>   <span class="kw">JOIN</span></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>      Visited</span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>  <span class="kw">JOIN</span></span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>      Survey</span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a>      <span class="kw">ON</span> Site.name <span class="op">=</span> Visited.site</span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a>      <span class="kw">AND</span> Visited.<span class="kw">id</span> <span class="op">=</span> Survey.taken</span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a><span class="kw">WHERE</span></span>
+<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a>   Site.name <span class="op">=</span> <span class="st">'DR-1'</span></span>
+<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a>   <span class="kw">AND</span> Survey.quant <span class="op">=</span> <span class="st">'rad'</span>;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>reading</th>
 </tr></thead><tbody><tr class="odd"><td>9.82</td>
@@ -859,17 +859,17 @@ site.</p>
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">DISTINCT</span> Site.name</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  Site</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">JOIN</span> Visited</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">JOIN</span> Survey</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">JOIN</span> Person <span class="kw">ON</span> Site.name <span class="op">=</span> Visited.site</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">AND</span> Visited.<span class="kw">id</span> <span class="op">=</span> Survey.taken</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">AND</span> Survey.person <span class="op">=</span> Person.<span class="kw">id</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  Person.personal <span class="op">=</span> <span class="st">'Frank'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>  <span class="kw">DISTINCT</span> Site.name</span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>  Site</span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>  <span class="kw">JOIN</span> Visited</span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>  <span class="kw">JOIN</span> Survey</span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a>  <span class="kw">JOIN</span> Person <span class="kw">ON</span> Site.name <span class="op">=</span> Visited.site</span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a>  <span class="kw">AND</span> Visited.<span class="kw">id</span> <span class="op">=</span> Survey.taken</span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a>  <span class="kw">AND</span> Survey.person <span class="op">=</span> Person.<span class="kw">id</span></span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a><span class="kw">WHERE</span></span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a>  Person.personal <span class="op">=</span> <span class="st">'Frank'</span>;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>name</th>
 </tr></thead><tbody><tr class="odd"><td>DR-3</td>
@@ -889,8 +889,8 @@ site.</p>
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Site.name <span class="kw">FROM</span> Site <span class="kw">JOIN</span> Visited</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">ON</span> Site.lat <span class="op">&lt;</span> <span class="op">-</span><span class="fl">49.0</span> <span class="kw">AND</span> Site.name <span class="op">=</span> Visited.site <span class="kw">AND</span> Visited.dated <span class="op">&gt;=</span> <span class="st">'1932-01-01'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="kw">SELECT</span> Site.name <span class="kw">FROM</span> Site <span class="kw">JOIN</span> Visited</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="kw">ON</span> Site.lat <span class="op">&lt;</span> <span class="op">-</span><span class="fl">49.0</span> <span class="kw">AND</span> Site.name <span class="op">=</span> Visited.site <span class="kw">AND</span> Visited.dated <span class="op">&gt;=</span> <span class="st">'1932-01-01'</span>;</span></code></pre>
 </div>
 </div>
 </div>
@@ -921,23 +921,23 @@ records with 8 fields.</p>
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Site.name, Site.lat, Site.<span class="dt">long</span>, Person.personal, Person.family, Survey.quant, Survey.reading, Visited.dated</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>   Site</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>   <span class="kw">JOIN</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>      Visited</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>   <span class="kw">JOIN</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>      Survey</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>   <span class="kw">JOIN</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>      Person</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>      <span class="kw">ON</span> Site.name <span class="op">=</span> Visited.site</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>      <span class="kw">AND</span> Visited.<span class="kw">id</span> <span class="op">=</span> Survey.taken</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>      <span class="kw">AND</span> Survey.person <span class="op">=</span> Person.<span class="kw">id</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>   Survey.person <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>   <span class="kw">AND</span> Visited.dated <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>   Visited.dated;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="kw">SELECT</span> Site.name, Site.lat, Site.<span class="dt">long</span>, Person.personal, Person.family, Survey.quant, Survey.reading, Visited.dated</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>   Site</span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>   <span class="kw">JOIN</span></span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>      Visited</span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>   <span class="kw">JOIN</span></span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a>      Survey</span>
+<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a>   <span class="kw">JOIN</span></span>
+<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a>      Person</span>
+<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a>      <span class="kw">ON</span> Site.name <span class="op">=</span> Visited.site</span>
+<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a>      <span class="kw">AND</span> Visited.<span class="kw">id</span> <span class="op">=</span> Survey.taken</span>
+<span id="cb9-12"><a href="#cb9-12" tabindex="-1"></a>      <span class="kw">AND</span> Survey.person <span class="op">=</span> Person.<span class="kw">id</span></span>
+<span id="cb9-13"><a href="#cb9-13" tabindex="-1"></a><span class="kw">WHERE</span></span>
+<span id="cb9-14"><a href="#cb9-14" tabindex="-1"></a>   Survey.person <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
+<span id="cb9-15"><a href="#cb9-15" tabindex="-1"></a>   <span class="kw">AND</span> Visited.dated <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
+<span id="cb9-16"><a href="#cb9-16" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb9-17"><a href="#cb9-17" tabindex="-1"></a>   Visited.dated;</span></code></pre>
 </div>
 <table class="table"><colgroup><col width="10%"><col width="11%"><col width="14%"><col width="13%"><col width="10%"><col width="14%"><col width="10%"><col width="14%"></colgroup><thead><tr class="header"><th>name</th>
 <th>lat</th>
@@ -1157,7 +1157,7 @@ primary keys and foreign keys between tables.</li>
   "identifier": "https://swcarpentry.github.io/sql-novice-survey/instructor/07-join.html",
   "dateCreated": "2014-11-21",
   "dateModified": "2024-01-18",
-  "datePublished": "2024-02-27"
+  "datePublished": "2024-03-05"
 }
 
   </script><script>

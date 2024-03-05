@@ -344,7 +344,7 @@ table, we get this:</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> quant <span class="kw">FROM</span> Survey;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="kw">SELECT</span> quant <span class="kw">FROM</span> Survey;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>quant</th>
 </tr></thead><tbody><tr class="odd"><td>rad</td>
@@ -375,7 +375,7 @@ output to make the result more readable by adding the
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> quant <span class="kw">FROM</span> Survey;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> quant <span class="kw">FROM</span> Survey;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>quant</th>
 </tr></thead><tbody><tr class="odd"><td>rad</td>
@@ -389,7 +389,7 @@ case <em>pairs</em>, because we are selecting two columns):</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> taken, quant <span class="kw">FROM</span> Survey;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> taken, quant <span class="kw">FROM</span> Survey;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>taken</th>
 <th>quant</th>
@@ -443,7 +443,7 @@ of by their personal name. We can do this in SQL by adding an
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Person <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="kw">id</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Person <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="kw">id</span>;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>id</th>
 <th>personal</th>
@@ -468,13 +468,12 @@ ascending order of the column we specify (i.e., from least to
 greatest).</p>
 <p>We can sort in the opposite order using <code>DESC</code> (for
 “descending”):</p>
-<div id="a-note-on-ordering" class="callout callout">
+<div id="callout1" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="a-note-on-ordering" class="callout-inner">
-<h3 class="callout-title">A note on ordering<a class="anchor" aria-label="anchor" href="#a-note-on-ordering"></a>
-</h3>
+<div class="section level3 callout-title callout-inner">
+<h3 class="callout-title" id="a-note-on-ordering">A note on ordering<a class="anchor" aria-label="anchor" href="#a-note-on-ordering"></a></h3>
 <div class="callout-content">
 <p>While it may look that the records are consistent every time we ask
 for them in this lesson, that is because no one has changed or modified
@@ -487,7 +486,7 @@ order.</p>
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> person <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="kw">id</span> <span class="kw">DESC</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> person <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="kw">id</span> <span class="kw">DESC</span>;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>id</th>
 <th>personal</th>
@@ -518,7 +517,7 @@ order by <code>person</code> within each group of equal
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> taken, person, quant <span class="kw">FROM</span> Survey <span class="kw">ORDER</span> <span class="kw">BY</span> taken <span class="kw">ASC</span>, person <span class="kw">DESC</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="kw">SELECT</span> taken, person, quant <span class="kw">FROM</span> Survey <span class="kw">ORDER</span> <span class="kw">BY</span> taken <span class="kw">ASC</span>, person <span class="kw">DESC</span>;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>taken</th>
 <th>person</th>
@@ -595,7 +594,7 @@ duplicates.</p>
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> quant, person <span class="kw">FROM</span> Survey <span class="kw">ORDER</span> <span class="kw">BY</span> quant <span class="kw">ASC</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> quant, person <span class="kw">FROM</span> Survey <span class="kw">ORDER</span> <span class="kw">BY</span> quant <span class="kw">ASC</span>;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>quant</th>
 <th>person</th>
@@ -644,7 +643,7 @@ duplicates.</p>
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> dated <span class="kw">FROM</span> Visited;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> dated <span class="kw">FROM</span> Visited;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>dated</th>
 </tr></thead><tbody><tr class="odd"><td>1927-02-08</td>
@@ -682,7 +681,7 @@ duplicates.</p>
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> personal, family <span class="kw">FROM</span> Person <span class="kw">ORDER</span> <span class="kw">BY</span> family <span class="kw">ASC</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="kw">SELECT</span> personal, family <span class="kw">FROM</span> Person <span class="kw">ORDER</span> <span class="kw">BY</span> family <span class="kw">ASC</span>;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>personal</th>
 <th>family</th>
@@ -779,7 +778,7 @@ DISTINCT.</li>
   "identifier": "https://swcarpentry.github.io/sql-novice-survey/02-sort-dup.html",
   "dateCreated": "2014-11-21",
   "dateModified": "2023-05-08",
-  "datePublished": "2024-02-27"
+  "datePublished": "2024-03-05"
 }
 
   </script><script>

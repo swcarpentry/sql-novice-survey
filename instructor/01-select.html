@@ -352,13 +352,12 @@ queries.</p>
 Language”. SQL provides hundreds of different ways to analyze and
 recombine data. We will only look at a handful of queries, but that
 handful accounts for most of what scientists do.</p>
-<div id="changing-database-managers" class="callout callout">
+<div id="callout1" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="changing-database-managers" class="callout-inner">
-<h3 class="callout-title">Changing Database Managers<a class="anchor" aria-label="anchor" href="#changing-database-managers"></a>
-</h3>
+<div class="section level3 callout-title callout-inner">
+<h3 class="callout-title" id="changing-database-managers">Changing Database Managers<a class="anchor" aria-label="anchor" href="#changing-database-managers"></a></h3>
 <div class="callout-content">
 <p>Many database managers — Oracle, IBM DB2, PostgreSQL, MySQL,
 Microsoft Access, and SQLite — understand SQL but each stores data in a
@@ -369,21 +368,20 @@ information from one to another.</p>
 </div>
 </div>
 </div>
-<div id="getting-into-and-out-of-sqlite" class="callout callout">
+<div id="callout2" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="getting-into-and-out-of-sqlite" class="callout-inner">
-<h3 class="callout-title">Getting Into and Out Of SQLite<a class="anchor" aria-label="anchor" href="#getting-into-and-out-of-sqlite"></a>
-</h3>
+<div class="section level3 callout-title callout-inner">
+<h3 class="callout-title" id="getting-into-and-out-of-sqlite">Getting Into and Out Of SQLite<a class="anchor" aria-label="anchor" href="#getting-into-and-out-of-sqlite"></a></h3>
 <div class="callout-content">
 <p>In order to use the SQLite commands <em>interactively</em>, we need
 to enter into the SQLite console. So, open up a terminal, and run</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd /path/to/survey/data/</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sqlite3 survey.db</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">$</span> cd /path/to/survey/data/</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="ex">$</span> sqlite3 survey.db</span></code></pre>
 </div>
 <p>The SQLite command is <code>sqlite3</code> and you are telling SQLite
 to open up the <code>survey.db</code>. You need to specify the
@@ -566,13 +564,12 @@ being measured.  The values are <code>rad</code>, <code>sal</code>, and
 and two in the <code>Survey</code> table — don’t contain any actual
 data, but instead have a special <code>-null-</code> entry: we’ll return
 to these missing values <a href="05-null.html">later</a>.</p>
-<div id="checking-if-data-is-available" class="callout callout">
+<div id="callout3" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="checking-if-data-is-available" class="callout-inner">
-<h3 class="callout-title">Checking If Data is Available<a class="anchor" aria-label="anchor" href="#checking-if-data-is-available"></a>
-</h3>
+<div class="section level3 callout-title callout-inner">
+<h3 class="callout-title" id="checking-if-data-is-available">Checking If Data is Available<a class="anchor" aria-label="anchor" href="#checking-if-data-is-available"></a></h3>
 <div class="callout-content">
 <p>On the shell command line, change the working directory to the one
 where you saved <code>survey.db</code>. If you saved it at your Desktop
@@ -580,8 +577,8 @@ you should use</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd Desktop</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls <span class="kw">|</span> <span class="fu">grep</span> survey.db</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">$</span> cd Desktop</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="ex">$</span> ls <span class="kw">|</span> <span class="fu">grep</span> survey.db</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -592,7 +589,7 @@ you should use</p>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sqlite3 survey.db</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">$</span> sqlite3 survey.db</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -610,7 +607,7 @@ distinguish them from SQL commands.</p>
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>.<span class="kw">tables</span></span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>.<span class="kw">tables</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -625,7 +622,7 @@ data types each column stores.</p>
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>.<span class="kw">schema</span></span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>.<span class="kw">schema</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -655,8 +652,8 @@ turn on the display of column headers.</p>
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>.<span class="kw">mode</span> <span class="kw">column</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>.<span class="kw">header</span> <span class="kw">on</span></span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>.<span class="kw">mode</span> <span class="kw">column</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>.<span class="kw">header</span> <span class="kw">on</span></span></code></pre>
 </div>
 <p>Alternatively, you can get the settings automatically by creating a
 <code>.sqliterc</code> file. Add the commands above and reopen SQLite.
@@ -675,7 +672,7 @@ its output look like this:</p>
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> family, personal <span class="kw">FROM</span> Person;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="kw">SELECT</span> family, personal <span class="kw">FROM</span> Person;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>family</th>
 <th>personal</th>
@@ -696,7 +693,7 @@ don’t have to: as the example below shows, SQL is <a href="reference.html#case
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SeLeCt</span> FaMiLy, PeRsOnAl <span class="kw">FrOm</span> PeRsOn;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="kw">SeLeCt</span> FaMiLy, PeRsOnAl <span class="kw">FrOm</span> PeRsOn;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>family</th>
 <th>personal</th>
@@ -725,9 +722,9 @@ something like this:</p>
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">id</span> <span class="kw">FROM</span> Person</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="op">..</span>.<span class="op">&gt;</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="op">..</span>.<span class="op">&gt;</span></span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">id</span> <span class="kw">FROM</span> Person</span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="op">..</span>.<span class="op">&gt;</span></span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a><span class="op">..</span>.<span class="op">&gt;</span></span></code></pre>
 </div>
 <p>This is SQL’s prompt, where it is waiting for additional commands or
 for a <code>;</code> to let SQL know to finish. This is easy to fix!
@@ -740,7 +737,7 @@ columns in the output by writing our query as:</p>
 <div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> personal, family <span class="kw">FROM</span> Person;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="kw">SELECT</span> personal, family <span class="kw">FROM</span> Person;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>personal</th>
 <th>family</th>
@@ -758,7 +755,7 @@ columns in the output by writing our query as:</p>
 <div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">id</span>, <span class="kw">id</span>, <span class="kw">id</span> <span class="kw">FROM</span> Person;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">id</span>, <span class="kw">id</span>, <span class="kw">id</span> <span class="kw">FROM</span> Person;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>id</th>
 <th>id</th>
@@ -783,7 +780,7 @@ columns in the output by writing our query as:</p>
 <div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Person;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Person;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>id</th>
 <th>personal</th>
@@ -826,7 +823,7 @@ integers.</p>
 <div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>.<span class="kw">schema</span></span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a>.<span class="kw">schema</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -865,7 +862,7 @@ CREATE TABLE Visited (id integer, site text, dated text);</code></pre>
 <div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> name <span class="kw">FROM</span> Site;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="kw">SELECT</span> name <span class="kw">FROM</span> Site;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>name</th>
 </tr></thead><tbody><tr class="odd"><td>DR-1</td>
@@ -887,13 +884,13 @@ CREATE TABLE Visited (id integer, site text, dated text);</code></pre>
 <div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> personal, family <span class="kw">FROM</span> person;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="kw">SELECT</span> personal, family <span class="kw">FROM</span> person;</span></code></pre>
 </div>
 <p>or as:</p>
 <div class="codewrapper sourceCode" id="cb21">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> Personal, Family <span class="kw">from</span> PERSON;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="kw">select</span> Personal, Family <span class="kw">from</span> PERSON;</span></code></pre>
 </div>
 <p>What style do you find easiest to read, and why?</p>
 </div>
@@ -980,7 +977,7 @@ information from databases.</li>
   "identifier": "https://swcarpentry.github.io/sql-novice-survey/instructor/01-select.html",
   "dateCreated": "2014-11-21",
   "dateModified": "2023-05-08",
-  "datePublished": "2024-02-27"
+  "datePublished": "2024-03-05"
 }
 
   </script><script>

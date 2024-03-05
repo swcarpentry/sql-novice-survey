@@ -345,7 +345,7 @@ database over the course of the upcoming episodes. Exit the
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>.exit</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>.exit</span></code></pre>
 </div>
 <p>Launch <code>SQLite3</code> and create a new database, lets call it
 <code>newsurvey.db</code>. We use a different name to avoid confusion
@@ -358,8 +358,8 @@ to the default)</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>.<span class="kw">mode</span> <span class="kw">column</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>.<span class="kw">header</span> <span class="kw">on</span></span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>.<span class="kw">mode</span> <span class="kw">column</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>.<span class="kw">header</span> <span class="kw">on</span></span></code></pre>
 </div>
 <p>If we want to create and modify data, we need to know two other sets
 of commands.</p>
@@ -372,16 +372,16 @@ four tables in our survey database:</p>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> Person(<span class="kw">id</span> text, personal text, family text);</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> Site(name text, lat <span class="dt">real</span>, <span class="dt">long</span> <span class="dt">real</span>);</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> Visited(<span class="kw">id</span> <span class="dt">integer</span>, site text, dated text);</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> Survey(taken <span class="dt">integer</span>, person text, quant text, reading <span class="dt">real</span>);</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> Person(<span class="kw">id</span> text, personal text, family text);</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> Site(name text, lat <span class="dt">real</span>, <span class="dt">long</span> <span class="dt">real</span>);</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> Visited(<span class="kw">id</span> <span class="dt">integer</span>, site text, dated text);</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> Survey(taken <span class="dt">integer</span>, person text, quant text, reading <span class="dt">real</span>);</span></code></pre>
 </div>
 <p>We can get rid of one of our tables using:</p>
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">DROP</span> <span class="kw">TABLE</span> Survey;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="kw">DROP</span> <span class="kw">TABLE</span> Survey;</span></code></pre>
 </div>
 <p>Be very careful when doing this: if you drop the wrong table, hope
 that the person maintaining the database has a backup, but it’s better
@@ -411,15 +411,15 @@ on its columns. For example, a better definition for the
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> Survey(</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    taken   <span class="dt">integer</span> <span class="kw">not</span> <span class="kw">null</span>, <span class="co">-- where reading taken</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    person  text,             <span class="co">-- may not know who took it</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    quant   text <span class="kw">not</span> <span class="kw">null</span>,    <span class="co">-- the quantity measured</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    reading <span class="dt">real</span> <span class="kw">not</span> <span class="kw">null</span>,    <span class="co">-- the actual reading</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">primary</span> <span class="kw">key</span>(taken, person, quant),    <span class="co">-- key is taken + person + quant</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">foreign</span> <span class="kw">key</span>(taken) <span class="kw">references</span> Visited(<span class="kw">id</span>),</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">foreign</span> <span class="kw">key</span>(person) <span class="kw">references</span> Person(<span class="kw">id</span>)</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>);</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> Survey(</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>    taken   <span class="dt">integer</span> <span class="kw">not</span> <span class="kw">null</span>, <span class="co">-- where reading taken</span></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>    person  text,             <span class="co">-- may not know who took it</span></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>    quant   text <span class="kw">not</span> <span class="kw">null</span>,    <span class="co">-- the quantity measured</span></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>    reading <span class="dt">real</span> <span class="kw">not</span> <span class="kw">null</span>,    <span class="co">-- the actual reading</span></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>    <span class="kw">primary</span> <span class="kw">key</span>(taken, person, quant),    <span class="co">-- key is taken + person + quant</span></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>    <span class="kw">foreign</span> <span class="kw">key</span>(taken) <span class="kw">references</span> Visited(<span class="kw">id</span>),</span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>    <span class="kw">foreign</span> <span class="kw">key</span>(person) <span class="kw">references</span> Person(<span class="kw">id</span>)</span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a>);</span></code></pre>
 </div>
 <p>Once again, exactly what constraints are available and what they’re
 called depends on which database manager we are using.</p>
@@ -431,16 +431,16 @@ table:</p>
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> Site (name, lat, <span class="dt">long</span>) <span class="kw">VALUES</span> (<span class="st">'DR-1'</span>, <span class="op">-</span><span class="fl">49.85</span>, <span class="op">-</span><span class="fl">128.57</span>);</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> Site (name, lat, <span class="dt">long</span>) <span class="kw">VALUES</span> (<span class="st">'DR-3'</span>, <span class="op">-</span><span class="fl">47.15</span>, <span class="op">-</span><span class="fl">126.72</span>);</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> Site (name, lat, <span class="dt">long</span>) <span class="kw">VALUES</span> (<span class="st">'MSK-4'</span>, <span class="op">-</span><span class="fl">48.87</span>, <span class="op">-</span><span class="fl">123.40</span>);</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> Site (name, lat, <span class="dt">long</span>) <span class="kw">VALUES</span> (<span class="st">'DR-1'</span>, <span class="op">-</span><span class="fl">49.85</span>, <span class="op">-</span><span class="fl">128.57</span>);</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> Site (name, lat, <span class="dt">long</span>) <span class="kw">VALUES</span> (<span class="st">'DR-3'</span>, <span class="op">-</span><span class="fl">47.15</span>, <span class="op">-</span><span class="fl">126.72</span>);</span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> Site (name, lat, <span class="dt">long</span>) <span class="kw">VALUES</span> (<span class="st">'MSK-4'</span>, <span class="op">-</span><span class="fl">48.87</span>, <span class="op">-</span><span class="fl">123.40</span>);</span></code></pre>
 </div>
 <p>We can also insert values into one table directly from another:</p>
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> JustLatLong(lat <span class="dt">real</span>, <span class="dt">long</span> <span class="dt">real</span>);</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> JustLatLong <span class="kw">SELECT</span> lat, <span class="dt">long</span> <span class="kw">FROM</span> Site;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> JustLatLong(lat <span class="dt">real</span>, <span class="dt">long</span> <span class="dt">real</span>);</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> JustLatLong <span class="kw">SELECT</span> lat, <span class="dt">long</span> <span class="kw">FROM</span> Site;</span></code></pre>
 </div>
 <p>Modifying existing records is done using the <code>UPDATE</code>
 statement. To do this we tell the database which table we want to
@@ -452,7 +452,7 @@ it with an update:</p>
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">UPDATE</span> Site <span class="kw">SET</span> lat <span class="op">=</span> <span class="op">-</span><span class="fl">47.87</span>, <span class="dt">long</span> <span class="op">=</span> <span class="op">-</span><span class="fl">122.40</span> <span class="kw">WHERE</span> name <span class="op">=</span> <span class="st">'MSK-4'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="kw">UPDATE</span> Site <span class="kw">SET</span> lat <span class="op">=</span> <span class="op">-</span><span class="fl">47.87</span>, <span class="dt">long</span> <span class="op">=</span> <span class="op">-</span><span class="fl">122.40</span> <span class="kw">WHERE</span> name <span class="op">=</span> <span class="st">'MSK-4'</span>;</span></code></pre>
 </div>
 <p>Be careful to not forget the <code>WHERE</code> clause or the update
 statement will modify <em>all</em> of the records in the
@@ -467,7 +467,7 @@ this:</p>
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">DELETE</span> <span class="kw">FROM</span> Person <span class="kw">WHERE</span> <span class="kw">id</span> <span class="op">=</span> <span class="st">'danforth'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="kw">DELETE</span> <span class="kw">FROM</span> Person <span class="kw">WHERE</span> <span class="kw">id</span> <span class="op">=</span> <span class="st">'danforth'</span>;</span></code></pre>
 </div>
 <p>But what if we removed Anderson Lake instead? Our <code>Survey</code>
 table would still contain seven records of measurements he’d taken, but
@@ -482,13 +482,12 @@ uses it as a primary key. If our database manager supports it, we can
 automate this using <a href="reference.html#cascading-delete">cascading
 delete</a>. However, this technique is outside the scope of this
 chapter.</p>
-<div id="hybrid-storage-models" class="callout callout">
+<div id="callout1" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="hybrid-storage-models" class="callout-inner">
-<h3 class="callout-title">Hybrid Storage Models<a class="anchor" aria-label="anchor" href="#hybrid-storage-models"></a>
-</h3>
+<div class="section level3 callout-title callout-inner">
+<h3 class="callout-title" id="hybrid-storage-models">Hybrid Storage Models<a class="anchor" aria-label="anchor" href="#hybrid-storage-models"></a></h3>
 <div class="callout-content">
 <p>Many applications use a hybrid storage model instead of putting
 everything into a database: the actual data (such as astronomical
@@ -523,7 +522,7 @@ the MP3 files, but the files themselves live on disk.</p>
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">UPDATE</span> Survey <span class="kw">SET</span> person <span class="op">=</span> <span class="st">'unknown'</span> <span class="kw">WHERE</span> person <span class="kw">IS</span> <span class="kw">NULL</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="kw">UPDATE</span> Survey <span class="kw">SET</span> person <span class="op">=</span> <span class="st">'unknown'</span> <span class="kw">WHERE</span> person <span class="kw">IS</span> <span class="kw">NULL</span>;</span></code></pre>
 </div>
 </div>
 </div>
@@ -655,7 +654,7 @@ records refer to.</li>
   "identifier": "https://swcarpentry.github.io/sql-novice-survey/instructor/09-create.html",
   "dateCreated": "2014-11-21",
   "dateModified": "2023-05-08",
-  "datePublished": "2024-02-27"
+  "datePublished": "2024-03-05"
 }
 
   </script><script>

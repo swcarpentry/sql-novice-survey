@@ -338,7 +338,7 @@ how to select all of the dates from the <code>Visited</code> table:</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> dated <span class="kw">FROM</span> Visited;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="kw">SELECT</span> dated <span class="kw">FROM</span> Visited;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>dated</th>
 </tr></thead><tbody><tr class="odd"><td>1927-02-08</td>
@@ -355,14 +355,14 @@ set of records as input, and produces a single record as output:</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">min</span>(dated) <span class="kw">FROM</span> Visited;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">min</span>(dated) <span class="kw">FROM</span> Visited;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>min(dated)</th>
 </tr></thead><tbody><tr class="odd"><td>1927-02-08</td>
 </tr></tbody></table><figure><img src="fig/sql-aggregation.svg" alt="SQL Aggregation" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">max</span>(dated) <span class="kw">FROM</span> Visited;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">max</span>(dated) <span class="kw">FROM</span> Visited;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>max(dated)</th>
 </tr></thead><tbody><tr class="odd"><td>1932-03-22</td>
@@ -372,21 +372,21 @@ functions built into SQL. Three others are <code>avg</code>,
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">avg</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">avg</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span>;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>avg(reading)</th>
 </tr></thead><tbody><tr class="odd"><td>7.20333333333333</td>
 </tr></tbody></table><div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">count</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">count</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span>;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>count(reading)</th>
 </tr></thead><tbody><tr class="odd"><td>9</td>
 </tr></tbody></table><div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">sum</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">sum</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span>;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>sum(reading)</th>
 </tr></thead><tbody><tr class="odd"><td>64.83</td>
@@ -399,7 +399,7 @@ find the range of sensible salinity measurements:</p>
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">min</span>(reading), <span class="fu">max</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span> <span class="kw">AND</span> reading <span class="op">&lt;=</span> <span class="fl">1.0</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">min</span>(reading), <span class="fu">max</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span> <span class="kw">AND</span> reading <span class="op">&lt;=</span> <span class="fl">1.0</span>;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>min(reading)</th>
 <th>max(reading)</th>
@@ -410,7 +410,7 @@ output might surprise you:</p>
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> person, <span class="fu">count</span>(<span class="op">*</span>) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span> <span class="kw">AND</span> reading <span class="op">&lt;=</span> <span class="fl">1.0</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="kw">SELECT</span> person, <span class="fu">count</span>(<span class="op">*</span>) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span> <span class="kw">AND</span> reading <span class="op">&lt;=</span> <span class="fl">1.0</span>;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>person</th>
 <th>count(*)</th>
@@ -428,7 +428,7 @@ other arbitrary value:</p>
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> person, <span class="fu">max</span>(reading), <span class="fu">sum</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'missing'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="kw">SELECT</span> person, <span class="fu">max</span>(reading), <span class="fu">sum</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'missing'</span>;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>person</th>
 <th>max(reading)</th>
@@ -446,7 +446,7 @@ those that are non-null. This behavior lets us write our queries as:</p>
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">min</span>(dated) <span class="kw">FROM</span> Visited;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">min</span>(dated) <span class="kw">FROM</span> Visited;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>min(dated)</th>
 </tr></thead><tbody><tr class="odd"><td>1927-02-08</td>
@@ -454,7 +454,7 @@ those that are non-null. This behavior lets us write our queries as:</p>
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">min</span>(dated) <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">min</span>(dated) <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span>;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>min(dated)</th>
 </tr></thead><tbody><tr class="odd"><td>1927-02-08</td>
@@ -465,9 +465,9 @@ know that this doesn’t work:</p>
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> person, <span class="fu">count</span>(reading), <span class="fu">round</span>(<span class="fu">avg</span>(reading), <span class="dv">2</span>)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>  Survey</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'rad'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="kw">SELECT</span> person, <span class="fu">count</span>(reading), <span class="fu">round</span>(<span class="fu">avg</span>(reading), <span class="dv">2</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="kw">FROM</span>  Survey</span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a><span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'rad'</span>;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>person</th>
 <th>count(reading)</th>
@@ -481,10 +481,10 @@ are only five scientists, we could write five queries of the form:</p>
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> person, <span class="fu">count</span>(reading), <span class="fu">round</span>(<span class="fu">avg</span>(reading), <span class="dv">2</span>)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>  Survey</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'rad'</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="kw">AND</span>   person <span class="op">=</span> <span class="st">'dyer'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="kw">SELECT</span> person, <span class="fu">count</span>(reading), <span class="fu">round</span>(<span class="fu">avg</span>(reading), <span class="dv">2</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="kw">FROM</span>  Survey</span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a><span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'rad'</span></span>
+<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a><span class="kw">AND</span>   person <span class="op">=</span> <span class="st">'dyer'</span>;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>person</th>
 <th>count(reading)</th>
@@ -501,10 +501,10 @@ clause:</p>
 <div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span>   person, <span class="fu">count</span>(reading), <span class="fu">round</span>(<span class="fu">avg</span>(reading), <span class="dv">2</span>)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>     Survey</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span>    quant <span class="op">=</span> <span class="st">'rad'</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> person;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="kw">SELECT</span>   person, <span class="fu">count</span>(reading), <span class="fu">round</span>(<span class="fu">avg</span>(reading), <span class="dv">2</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a><span class="kw">FROM</span>     Survey</span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a><span class="kw">WHERE</span>    quant <span class="op">=</span> <span class="st">'rad'</span></span>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> person;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>person</th>
 <th>count(reading)</th>
@@ -534,9 +534,9 @@ quantity measured, for example, we just add another field to the
 <div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span>   person, quant, <span class="fu">count</span>(reading), <span class="fu">round</span>(<span class="fu">avg</span>(reading), <span class="dv">2</span>)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>     Survey</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> person, quant;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="kw">SELECT</span>   person, quant, <span class="fu">count</span>(reading), <span class="fu">round</span>(<span class="fu">avg</span>(reading), <span class="dv">2</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a><span class="kw">FROM</span>     Survey</span>
+<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> person, quant;</span></code></pre>
 </div>
 <table class="table"><colgroup><col width="21%"><col width="18%"><col width="29%"><col width="29%"></colgroup><thead><tr class="header"><th>person</th>
 <th>quant</th>
@@ -593,11 +593,11 @@ know who took the measurement:</p>
 <div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span>   person, quant, <span class="fu">count</span>(reading), <span class="fu">round</span>(<span class="fu">avg</span>(reading), <span class="dv">2</span>)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>     Survey</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span>    person <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> person, quant</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> person, quant;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="kw">SELECT</span>   person, quant, <span class="fu">count</span>(reading), <span class="fu">round</span>(<span class="fu">avg</span>(reading), <span class="dv">2</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a><span class="kw">FROM</span>     Survey</span>
+<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a><span class="kw">WHERE</span>    person <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
+<span id="cb16-4"><a href="#cb16-4" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> person, quant</span>
+<span id="cb16-5"><a href="#cb16-5" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> person, quant;</span></code></pre>
 </div>
 <table class="table"><colgroup><col width="21%"><col width="18%"><col width="29%"><col width="29%"></colgroup><thead><tr class="header"><th>person</th>
 <th>quant</th>
@@ -669,12 +669,12 @@ their average value?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1">Show me the solution</h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">count</span>(reading), <span class="fu">avg</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'temp'</span> <span class="kw">AND</span> person <span class="op">=</span> <span class="st">'pb'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">count</span>(reading), <span class="fu">avg</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'temp'</span> <span class="kw">AND</span> person <span class="op">=</span> <span class="st">'pb'</span>;</span></code></pre>
 </div>
 <table class="table"><thead><tr class="header"><th>count(reading)</th>
 <th>avg(reading)</th>
@@ -704,7 +704,7 @@ returns 2.0 or 3.0 when given the values 1.0, <code>null</code>, and
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2">Show me the solution</h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>The answer is 3.0. <code>NULL</code> is not a value; it is the
 absence of a value. As such it is not included in the calculation.</p>
@@ -712,10 +712,10 @@ absence of a value. As such it is not included in the calculation.</p>
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">AVG</span>(a) <span class="kw">FROM</span> (</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> <span class="dv">1</span> <span class="kw">AS</span> a</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">UNION</span> <span class="kw">ALL</span> <span class="kw">SELECT</span> <span class="kw">NULL</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">UNION</span> <span class="kw">ALL</span> <span class="kw">SELECT</span> <span class="dv">5</span>);</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">AVG</span>(a) <span class="kw">FROM</span> (</span>
+<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a>    <span class="kw">SELECT</span> <span class="dv">1</span> <span class="kw">AS</span> a</span>
+<span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a>    <span class="kw">UNION</span> <span class="kw">ALL</span> <span class="kw">SELECT</span> <span class="kw">NULL</span></span>
+<span id="cb18-4"><a href="#cb18-4" tabindex="-1"></a>    <span class="kw">UNION</span> <span class="kw">ALL</span> <span class="kw">SELECT</span> <span class="dv">5</span>);</span></code></pre>
 </div>
 </div>
 </div>
@@ -735,7 +735,7 @@ query:</p>
 <div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> reading <span class="op">-</span> <span class="fu">avg</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'rad'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="kw">SELECT</span> reading <span class="op">-</span> <span class="fu">avg</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'rad'</span>;</span></code></pre>
 </div>
 <p>What does this actually produce, and can you think of why?</p>
 </div>
@@ -746,7 +746,7 @@ query:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3">Show me the solution</h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>The query produces only one row of results when we what we really
 want is a result for each of the readings. The <code>avg()</code>
@@ -757,21 +757,21 @@ simply an arbitrary one.</p>
 <div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">avg</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant<span class="op">=</span><span class="st">'rad'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">avg</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant<span class="op">=</span><span class="st">'rad'</span>;</span></code></pre>
 </div>
 <p>This produces the average value (6.5625), which we can then insert
 into a second query:</p>
 <div class="codewrapper sourceCode" id="cb21">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> reading <span class="op">-</span> <span class="fl">6.5625</span> <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'rad'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="kw">SELECT</span> reading <span class="op">-</span> <span class="fl">6.5625</span> <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'rad'</span>;</span></code></pre>
 </div>
 <p>This produces what we want, but we can combine this into a single
 query using subqueries.</p>
 <div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> reading <span class="op">-</span> (<span class="kw">SELECT</span> <span class="fu">avg</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant<span class="op">=</span><span class="st">'rad'</span>) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'rad'</span>;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="kw">SELECT</span> reading <span class="op">-</span> (<span class="kw">SELECT</span> <span class="fu">avg</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant<span class="op">=</span><span class="st">'rad'</span>) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'rad'</span>;</span></code></pre>
 </div>
 <p>This way we don’t have execute two queries.</p>
 <p>In summary what we have done is to replace <code>avg(reading)</code>
@@ -796,7 +796,7 @@ list of scientists’ names, such as:</p>
 <div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>William Dyer, Frank Pabodie, Anderson Lake, Valentina Roerich, Frank Danforth</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a>William Dyer, Frank Pabodie, Anderson Lake, Valentina Roerich, Frank Danforth</span></code></pre>
 </div>
 <p>Can you find a way to list all the scientists family names separated
 by a comma? Can you find a way to list all the scientists personal and
@@ -809,19 +809,19 @@ family names separated by a comma?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4">Show me the solution</h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>List all the family names separated by a comma:</p>
 <div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> group_concat(family, <span class="st">','</span>) <span class="kw">FROM</span> Person;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="kw">SELECT</span> group_concat(family, <span class="st">','</span>) <span class="kw">FROM</span> Person;</span></code></pre>
 </div>
 <p>List all the full names separated by a comma:</p>
 <div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> group_concat(personal <span class="op">||</span> <span class="st">' '</span> <span class="op">||</span> family, <span class="st">','</span>) <span class="kw">FROM</span> Person;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a><span class="kw">SELECT</span> group_concat(personal <span class="op">||</span> <span class="st">' '</span> <span class="op">||</span> family, <span class="st">','</span>) <span class="kw">FROM</span> Person;</span></code></pre>
 </div>
 </div>
 </div>
@@ -906,7 +906,7 @@ return an arbitrary value for that field.</li>
   "identifier": "https://swcarpentry.github.io/sql-novice-survey/06-agg.html",
   "dateCreated": "2014-11-21",
   "dateModified": "2023-05-08",
-  "datePublished": "2024-02-27"
+  "datePublished": "2024-03-05"
 }
 
   </script><script>
