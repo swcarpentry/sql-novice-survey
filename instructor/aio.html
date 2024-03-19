@@ -415,12 +415,12 @@ queries.</p>
 Language”. SQL provides hundreds of different ways to analyze and
 recombine data. We will only look at a handful of queries, but that
 handful accounts for most of what scientists do.</p>
-<div id="callout1" class="callout">
+<div id="changing-database-managers" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div class="section level3 callout-title callout-inner">
-<h3 class="callout-title" id="changing-database-managers">Changing Database Managers<a class="anchor" aria-label="anchor" href="#changing-database-managers"></a>
+<div id="changing-database-managers" class="callout-inner">
+<h3 class="callout-title">Changing Database Managers<a class="anchor" aria-label="anchor" href="#changing-database-managers"></a>
 </h3>
 <div class="callout-content">
 <p>Many database managers — Oracle, IBM DB2, PostgreSQL, MySQL,
@@ -432,12 +432,12 @@ information from one to another.</p>
 </div>
 </div>
 </div>
-<div id="callout2" class="callout">
+<div id="getting-into-and-out-of-sqlite" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div class="section level3 callout-title callout-inner">
-<h3 class="callout-title" id="getting-into-and-out-of-sqlite">Getting Into and Out Of SQLite<a class="anchor" aria-label="anchor" href="#getting-into-and-out-of-sqlite"></a>
+<div id="getting-into-and-out-of-sqlite" class="callout-inner">
+<h3 class="callout-title">Getting Into and Out Of SQLite<a class="anchor" aria-label="anchor" href="#getting-into-and-out-of-sqlite"></a>
 </h3>
 <div class="callout-content">
 <p>In order to use the SQLite commands <em>interactively</em>, we need
@@ -727,12 +727,12 @@ being measured.  The values are <code>rad</code>, <code>sal</code>, and
 and two in the <code>Survey</code> table — don’t contain any actual
 data, but instead have a special <code>-null-</code> entry: we’ll return
 to these missing values <a href="05-null.html">later</a>.</p>
-<div id="callout3" class="callout">
+<div id="checking-if-data-is-available" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div class="section level3 callout-title callout-inner">
-<h3 class="callout-title" id="checking-if-data-is-available">Checking If Data is Available<a class="anchor" aria-label="anchor" href="#checking-if-data-is-available"></a>
+<div id="checking-if-data-is-available" class="callout-inner">
+<h3 class="callout-title">Checking If Data is Available<a class="anchor" aria-label="anchor" href="#checking-if-data-is-available"></a>
 </h3>
 <div class="callout-content">
 <p>On the shell command line, change the working directory to the one
@@ -1468,12 +1468,12 @@ ascending order of the column we specify (i.e., from least to
 greatest).</p>
 <p>We can sort in the opposite order using <code>DESC</code> (for
 “descending”):</p>
-<div id="callout1" class="callout">
+<div id="a-note-on-ordering" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div class="section level3 callout-title callout-inner">
-<h3 class="callout-title" id="a-note-on-ordering">A note on ordering<a class="anchor" aria-label="anchor" href="#a-note-on-ordering"></a>
+<div id="a-note-on-ordering" class="callout-inner">
+<h3 class="callout-title">A note on ordering<a class="anchor" aria-label="anchor" href="#a-note-on-ordering"></a>
 </h3>
 <div class="callout-content">
 <p>While it may look that the records are consistent every time we ask
@@ -1974,12 +1974,12 @@ before 1930:</p>
 </tr>
 </tbody>
 </table>
-<div id="callout1" class="callout">
+<div id="date-types" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div class="section level3 callout-title callout-inner">
-<h3 class="callout-title" id="date-types">Date Types<a class="anchor" aria-label="anchor" href="#date-types"></a>
+<div id="date-types" class="callout-inner">
+<h3 class="callout-title">Date Types<a class="anchor" aria-label="anchor" href="#date-types"></a>
 </h3>
 <div class="callout-content">
 <p>Most database managers have a special data type for dates. In fact,
@@ -2354,12 +2354,12 @@ give a second level of filtering:</p>
 <p>But remember: <code>DISTINCT</code> is applied to the values
 displayed in the chosen columns, not to the entire rows as they are
 being processed.</p>
-<div id="callout2" class="callout">
+<div id="growing-queries" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div class="section level3 callout-title callout-inner">
-<h3 class="callout-title" id="growing-queries">Growing Queries<a class="anchor" aria-label="anchor" href="#growing-queries"></a>
+<div id="growing-queries" class="callout-inner">
+<h3 class="callout-title">Growing Queries<a class="anchor" aria-label="anchor" href="#growing-queries"></a>
 </h3>
 <div class="callout-content">
 <p>What we have just done is how most people “grow” their SQL queries.
@@ -2722,7 +2722,7 @@ divided by 100.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1">Show me the solution</h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2845,7 +2845,7 @@ be something like:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2">Show me the solution</h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2903,7 +2903,7 @@ data, the list should contain only “DR” and “MSK”).</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3">Show me the solution</h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3320,7 +3320,7 @@ omitting entries for which the date is not known (i.e., is null).</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1">Show me the solution</h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3398,7 +3398,7 @@ omitting entries for which the date is not known (i.e., is null).</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2">Show me the solution</h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>You might expect the above query to return rows where dated is either
 ‘1927-02-08’ or NULL. Instead it only returns rows where dated is
@@ -5375,7 +5375,7 @@ say, the tool shapes the hand that shapes the tool.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1">Show me the solution</h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>New Zealand is the only clear-cut atomic value.</p>
 <p>The address and the XY coordinate contain more than one piece of
@@ -5427,7 +5427,7 @@ combination of values uniquely identifies a record?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2">Show me the solution</h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>Latitude, longitude, and date are all required to uniquely identify
 the temperature record.</p>
@@ -5649,12 +5649,12 @@ uses it as a primary key. If our database manager supports it, we can
 automate this using <a href="reference.html#cascading-delete">cascading
 delete</a>. However, this technique is outside the scope of this
 chapter.</p>
-<div id="callout1" class="callout">
+<div id="hybrid-storage-models" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div class="section level3 callout-title callout-inner">
-<h3 class="callout-title" id="hybrid-storage-models">Hybrid Storage Models<a class="anchor" aria-label="anchor" href="#hybrid-storage-models"></a>
+<div id="hybrid-storage-models" class="callout-inner">
+<h3 class="callout-title">Hybrid Storage Models<a class="anchor" aria-label="anchor" href="#hybrid-storage-models"></a>
 </h3>
 <div class="callout-content">
 <p>Many applications use a hybrid storage model instead of putting
@@ -6557,7 +6557,7 @@ easier.</li>
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.16.2" class="external-link">sandpaper (0.16.2)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.4" class="external-link">pegboard (0.7.4)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.1" class="external-link">varnish (1.0.1)</a></p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.16.3" class="external-link">sandpaper (0.16.3)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.4" class="external-link">pegboard (0.7.4)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.1" class="external-link">varnish (1.0.1)</a></p>
 			</div>
 		</footer>
 </div> <!-- / div.container -->
@@ -6580,8 +6580,8 @@ easier.</li>
   "url": "https://swcarpentry.github.io/sql-novice-survey/instructor/aio.html",
   "identifier": "https://swcarpentry.github.io/sql-novice-survey/instructor/aio.html",
   "dateCreated": "2014-11-21",
-  "dateModified": "2024-03-12",
-  "datePublished": "2024-03-12"
+  "dateModified": "2024-03-19",
+  "datePublished": "2024-03-19"
 }
 
   </script><script>
