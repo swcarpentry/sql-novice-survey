@@ -29,9 +29,9 @@ To use a particular version's DOI, refer to [all Zenodo released versions][all_z
 
 Maintainer(s):
 
-- [Rémi Rampin](https://carpentries.org/instructors/#remram44)
 - [Henry Senyondo](https://carpentries.org/instructors/#henrykironde)
-- [Jane Wyngaard](https://github.com/r4space)
+- [Kellie Templeman](https://github.com/kltempleman)
+- [Novica Nakov](https://github.com/novica)
 
 [swc_sql_novice_survey_releases]: https://github.com/swcarpentry/sql-novice-survey/releases
 [shields_release]: https://img.shields.io/github/v/release/swcarpentry/sql-novice-survey
