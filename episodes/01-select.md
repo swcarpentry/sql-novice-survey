@@ -24,7 +24,7 @@ Databases are arranged as [tables](../learners/reference.md#table).
 Each table has columns (also known as [fields](../learners/reference.md#fields)) that describe the data,
 and rows (also known as [records](../learners/reference.md#record)) which contain the data.
 
-![](fig/database-diagram.svg){atl="Database diagram."}
+![](fig/database-diagram.svg){alt="Database diagram."}
 
 When we are using a spreadsheet,
 we put formulas into cells to calculate new values based on old ones.
