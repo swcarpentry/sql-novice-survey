@@ -65,8 +65,8 @@ In order to use the SQLite commands *interactively*, we need to
 enter into the SQLite console.  So, open up a terminal, and run
 
 ```bash
-cd /path/to/survey/data/
-sqlite3 survey.db
+$ cd /path/to/survey/data/
+$ sqlite3 survey.db
 ```
 
 The SQLite command is `sqlite3` and you are telling SQLite to open up
@@ -165,8 +165,8 @@ change the working directory to the one where you saved `survey.db`.
 If you saved it at your Desktop you should use
 
 ```bash
-cd Desktop
-ls | grep survey.db
+$ cd Desktop
+$ ls | grep survey.db
 ```
 
 ```output
@@ -176,7 +176,7 @@ survey.db
 If you get the same output, you can run
 
 ```bash
-sqlite3 survey.db
+$ sqlite3 survey.db
 ```
 
 ```output
