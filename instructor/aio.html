@@ -895,7 +895,7 @@ either <code>.quit</code> or <code>.exit</code>.</p>
 <p>For now, let’s write an SQL query that displays scientists’ names. We
 do this using the SQL command <code>SELECT</code>, giving it the names
 of the columns we want and the table we want them from. Our query and
-its output look like this:</p>
+its output, with the above settings applied, look like this:</p>
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -930,13 +930,22 @@ its output look like this:</p>
 </tbody>
 </table>
 <p>The semicolon at the end of the query tells the database manager that
-the query is complete and ready to run. We have written our commands in
-upper case and the names for the table and columns in lower case, but we
-don’t have to: as the example below shows, SQL is <a href="reference.html#case-insensitive">case insensitive</a>.</p>
-<div class="codewrapper sourceCode" id="cb12">
+the query is complete and ready to run.</p>
+<p>For comparison, without the above settings, the output of the same
+query will look like this:</p>
+<pre><code><span><span class="va">William</span><span class="op">|</span><span class="va">Dyer</span></span>
+<span><span class="va">Frank</span><span class="op">|</span><span class="va">Pabodie</span></span>
+<span><span class="va">Anderson</span><span class="op">|</span><span class="va">Lake</span></span>
+<span><span class="va">Valentina</span><span class="op">|</span><span class="va">Roerich</span></span>
+<span><span class="va">Frank</span><span class="op">|</span><span class="va">Danforth</span></span></code></pre>
+<p>We have written our commands in upper case and the names for the
+table and columns in lower case, but we don’t have to: as the example
+below shows, SQL is <a href="reference.html#case-insensitive">case
+insensitive</a>.</p>
+<div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="kw">SeLeCt</span> FaMiLy, PeRsOnAl <span class="kw">FrOm</span> PeRsOn;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="kw">SeLeCt</span> FaMiLy, PeRsOnAl <span class="kw">FrOm</span> PeRsOn;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -978,12 +987,12 @@ that can frustrate novices and experts alike is forgetting to finish a
 command with <code>;</code> (semicolon). When you press enter for a
 command without adding the <code>;</code> to the end, it can look
 something like this:</p>
-<div class="codewrapper sourceCode" id="cb13">
+<div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">id</span> <span class="kw">FROM</span> Person</span>
-<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="op">..</span>.<span class="op">&gt;</span></span>
-<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a><span class="op">..</span>.<span class="op">&gt;</span></span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">id</span> <span class="kw">FROM</span> Person</span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a><span class="op">..</span>.<span class="op">&gt;</span></span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a><span class="op">..</span>.<span class="op">&gt;</span></span></code></pre>
 </div>
 <p>This is SQL’s prompt, where it is waiting for additional commands or
 for a <code>;</code> to let SQL know to finish. This is easy to fix!
@@ -993,10 +1002,10 @@ rows and columns in a database table aren’t actually stored in any
 particular order. They will always be <em>displayed</em> in some order,
 but we can control that in various ways. For example, we could swap the
 columns in the output by writing our query as:</p>
-<div class="codewrapper sourceCode" id="cb14">
+<div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="kw">SELECT</span> personal, family <span class="kw">FROM</span> Person;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="kw">SELECT</span> personal, family <span class="kw">FROM</span> Person;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -1027,10 +1036,10 @@ columns in the output by writing our query as:</p>
 </tbody>
 </table>
 <p>or even repeat columns:</p>
-<div class="codewrapper sourceCode" id="cb15">
+<div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">id</span>, <span class="kw">id</span>, <span class="kw">id</span> <span class="kw">FROM</span> Person;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">id</span>, <span class="kw">id</span>, <span class="kw">id</span> <span class="kw">FROM</span> Person;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -1068,10 +1077,10 @@ columns in the output by writing our query as:</p>
 </table>
 <p>As a shortcut, we can select all of the columns in a table using
 <code>*</code>:</p>
-<div class="codewrapper sourceCode" id="cb16">
+<div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Person;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Person;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -1127,10 +1136,10 @@ integers.</p>
 </button>
 <div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb17">
+<div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a>.<span class="kw">schema</span></span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a>.<span class="kw">schema</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1166,10 +1175,10 @@ CREATE TABLE Visited (id integer, site text, dated text);</code></pre>
 </button>
 <div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb19">
+<div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="kw">SELECT</span> name <span class="kw">FROM</span> Site;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="kw">SELECT</span> name <span class="kw">FROM</span> Site;</span></code></pre>
 </div>
 <table class="table">
 <thead><tr class="header">
@@ -1200,16 +1209,16 @@ CREATE TABLE Visited (id integer, site text, dated text);</code></pre>
 <h3 class="callout-title">Query Style</h3>
 <div class="callout-content">
 <p>Many people format queries as:</p>
-<div class="codewrapper sourceCode" id="cb20">
-<h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="kw">SELECT</span> personal, family <span class="kw">FROM</span> person;</span></code></pre>
-</div>
-<p>or as:</p>
 <div class="codewrapper sourceCode" id="cb21">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="kw">select</span> Personal, Family <span class="kw">from</span> PERSON;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="kw">SELECT</span> personal, family <span class="kw">FROM</span> person;</span></code></pre>
+</div>
+<p>or as:</p>
+<div class="codewrapper sourceCode" id="cb22">
+<h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="kw">select</span> Personal, Family <span class="kw">from</span> PERSON;</span></code></pre>
 </div>
 <p>What style do you find easiest to read, and why?</p>
 </div>
@@ -4061,7 +4070,7 @@ their average value?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -4102,7 +4111,7 @@ returns 2.0 or 3.0 when given the values 1.0, <code>null</code>, and
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>The answer is 3.0. <code>NULL</code> is not a value; it is the
 absence of a value. As such it is not included in the calculation.</p>
@@ -4144,7 +4153,7 @@ query:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>The query produces only one row of results when we what we really
 want is a result for each of the readings. The <code>avg()</code>
@@ -4207,7 +4216,7 @@ family names separated by a comma?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>List all the family names separated by a comma:</p>
 <div class="codewrapper sourceCode" id="cb24">
