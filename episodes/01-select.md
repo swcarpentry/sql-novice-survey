@@ -24,6 +24,8 @@ Databases are arranged as [tables](../learners/reference.md#table).
 Each table has columns (also known as [fields](../learners/reference.md#fields)) that describe the data,
 and rows (also known as [records](../learners/reference.md#record)) which contain the data.
 
+![](fig/database-diagram.svg){alt="Database diagram."}
+
 When we are using a spreadsheet,
 we put formulas into cells to calculate new values based on old ones.
 When we are using a database,
@@ -53,7 +55,6 @@ However, every database manager
 can import and export data in a variety of formats like .csv, SQL,
 so it *is* possible to move information from one to another.
 
-
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::::  callout
@@ -76,7 +77,6 @@ To get out of SQLite, type out `.exit` or `.quit`.  For some
 terminals, `Ctrl-D` can also work.  If you forget any SQLite `.` (dot)
 command, type `.help`.
 
-
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 Before we get into using SQLite to select the data, let's take a look at the tables of the database we will use in our examples:
@@ -87,34 +87,34 @@ Before we get into using SQLite to select the data, let's take a look at the tab
 
 **Person**: People who took readings, `id` being the unique identifier for that person.
 
-| id        | personal  | family     | 
+| id        | personal  | family     |
 | --------- | --------- | ---------- |
-| dyer      | William   | Dyer       | 
-| pb        | Frank     | Pabodie    | 
-| lake      | Anderson  | Lake       | 
-| roe       | Valentina | Roerich    | 
-| danforth  | Frank     | Danforth   | 
+| dyer      | William   | Dyer       |
+| pb        | Frank     | Pabodie    |
+| lake      | Anderson  | Lake       |
+| roe       | Valentina | Roerich    |
+| danforth  | Frank     | Danforth   |
 
 **Site**: Locations of the `sites` where readings were taken.
 
-| name      | lat       | long       | 
+| name      | lat       | long       |
 | --------- | --------- | ---------- |
-| DR-1      | \-49.85    | \-128.57    | 
-| DR-3      | \-47.15    | \-126.72    | 
-| MSK-4     | \-48.87    | \-123.4     | 
+| DR-1      | \-49.85    | \-128.57    |
+| DR-3      | \-47.15    | \-126.72    |
+| MSK-4     | \-48.87    | \-123.4     |
 
 **Visited**: Specific identification `id` of the precise locations where readings were taken at the sites and dates.
 
-| id        | site      | dated      | 
+| id        | site      | dated      |
 | --------- | --------- | ---------- |
-| 619       | DR-1      | 1927-02-08 | 
-| 622       | DR-1      | 1927-02-10 | 
-| 734       | DR-3      | 1930-01-07 | 
-| 735       | DR-3      | 1930-01-12 | 
-| 751       | DR-3      | 1930-02-26 | 
-| 752       | DR-3      | \-null-     | 
-| 837       | MSK-4     | 1932-01-14 | 
-| 844       | DR-1      | 1932-03-22 | 
+| 619       | DR-1      | 1927-02-08 |
+| 622       | DR-1      | 1927-02-10 |
+| 734       | DR-3      | 1930-01-07 |
+| 735       | DR-3      | 1930-01-12 |
+| 751       | DR-3      | 1930-02-26 |
+| 752       | DR-3      | \-null-     |
+| 837       | MSK-4     | 1932-01-14 |
+| 844       | DR-1      | 1932-03-22 |
 
   </div>
 
@@ -122,29 +122,29 @@ Before we get into using SQLite to select the data, let's take a look at the tab
 
 **Survey**: The measurements taken at each precise location on these sites. They are identified as `taken`. The field `quant` is short for quantity and indicates what is being measured.  The values are `rad`, `sal`, and `temp` referring to 'radiation', 'salinity' and 'temperature', respectively.
 
-| taken     | person    | quant      | reading | 
+| taken     | person    | quant      | reading |
 | --------- | --------- | ---------- | ------- |
-| 619       | dyer      | rad        | 9\.82    | 
-| 619       | dyer      | sal        | 0\.13    | 
-| 622       | dyer      | rad        | 7\.8     | 
-| 622       | dyer      | sal        | 0\.09    | 
-| 734       | pb        | rad        | 8\.41    | 
-| 734       | lake      | sal        | 0\.05    | 
-| 734       | pb        | temp       | \-21.5   | 
-| 735       | pb        | rad        | 7\.22    | 
-| 735       | \-null-    | sal        | 0\.06    | 
-| 735       | \-null-    | temp       | \-26.0   | 
-| 751       | pb        | rad        | 4\.35    | 
-| 751       | pb        | temp       | \-18.5   | 
-| 751       | lake      | sal        | 0\.1     | 
-| 752       | lake      | rad        | 2\.19    | 
-| 752       | lake      | sal        | 0\.09    | 
-| 752       | lake      | temp       | \-16.0   | 
-| 752       | roe       | sal        | 41\.6    | 
-| 837       | lake      | rad        | 1\.46    | 
-| 837       | lake      | sal        | 0\.21    | 
-| 837       | roe       | sal        | 22\.5    | 
-| 844       | roe       | rad        | 11\.25   | 
+| 619       | dyer      | rad        | 9\.82    |
+| 619       | dyer      | sal        | 0\.13    |
+| 622       | dyer      | rad        | 7\.8     |
+| 622       | dyer      | sal        | 0\.09    |
+| 734       | pb        | rad        | 8\.41    |
+| 734       | lake      | sal        | 0\.05    |
+| 734       | pb        | temp       | \-21.5   |
+| 735       | pb        | rad        | 7\.22    |
+| 735       | \-null-    | sal        | 0\.06    |
+| 735       | \-null-    | temp       | \-26.0   |
+| 751       | pb        | rad        | 4\.35    |
+| 751       | pb        | temp       | \-18.5   |
+| 751       | lake      | sal        | 0\.1     |
+| 752       | lake      | rad        | 2\.19    |
+| 752       | lake      | sal        | 0\.09    |
+| 752       | lake      | temp       | \-16.0   |
+| 752       | roe       | sal        | 41\.6    |
+| 837       | lake      | rad        | 1\.46    |
+| 837       | lake      | sal        | 0\.21    |
+| 837       | roe       | sal        | 22\.5    |
+| 844       | roe       | rad        | 11\.25   |
 
   </div>
 
@@ -241,7 +241,6 @@ For Linux/MacOS, use `/Users/<yourusername>/.sqliterc`.
 To exit SQLite and return to the shell command line,
 you can use either `.quit` or `.exit`.
 
-
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 For now,
@@ -254,13 +253,13 @@ Our query and its output look like this:
 SELECT family, personal FROM Person;
 ```
 
-| family    | personal  | 
+| family    | personal  |
 | --------- | --------- |
-| Dyer      | William   | 
-| Pabodie   | Frank     | 
-| Lake      | Anderson  | 
-| Roerich   | Valentina | 
-| Danforth  | Frank     | 
+| Dyer      | William   |
+| Pabodie   | Frank     |
+| Lake      | Anderson  |
+| Roerich   | Valentina |
+| Danforth  | Frank     |
 
 The semicolon at the end of the query
 tells the database manager that the query is complete and ready to run.
@@ -274,13 +273,13 @@ SQL is [case insensitive](../learners/reference.md#case-insensitive).
 SeLeCt FaMiLy, PeRsOnAl FrOm PeRsOn;
 ```
 
-| family    | personal  | 
+| family    | personal  |
 | --------- | --------- |
-| Dyer      | William   | 
-| Pabodie   | Frank     | 
-| Lake      | Anderson  | 
-| Roerich   | Valentina | 
-| Danforth  | Frank     | 
+| Dyer      | William   |
+| Pabodie   | Frank     |
+| Lake      | Anderson  |
+| Roerich   | Valentina |
+| Danforth  | Frank     |
 
 You can use SQL's case insensitivity
 to distinguish between different parts of an SQL statement.
@@ -319,13 +318,13 @@ we could swap the columns in the output by writing our query as:
 SELECT personal, family FROM Person;
 ```
 
-| personal  | family    | 
+| personal  | family    |
 | --------- | --------- |
-| William   | Dyer      | 
-| Frank     | Pabodie   | 
-| Anderson  | Lake      | 
-| Valentina | Roerich   | 
-| Frank     | Danforth  | 
+| William   | Dyer      |
+| Frank     | Pabodie   |
+| Anderson  | Lake      |
+| Valentina | Roerich   |
+| Frank     | Danforth  |
 
 or even repeat columns:
 
@@ -333,13 +332,13 @@ or even repeat columns:
 SELECT id, id, id FROM Person;
 ```
 
-| id        | id        | id         | 
+| id        | id        | id         |
 | --------- | --------- | ---------- |
-| dyer      | dyer      | dyer       | 
-| pb        | pb        | pb         | 
-| lake      | lake      | lake       | 
-| roe       | roe       | roe        | 
-| danforth  | danforth  | danforth   | 
+| dyer      | dyer      | dyer       |
+| pb        | pb        | pb         |
+| lake      | lake      | lake       |
+| roe       | roe       | roe        |
+| danforth  | danforth  | danforth   |
 
 As a shortcut,
 we can select all of the columns in a table using `*`:
@@ -348,13 +347,13 @@ we can select all of the columns in a table using `*`:
 SELECT * FROM Person;
 ```
 
-| id        | personal  | family     | 
+| id        | personal  | family     |
 | --------- | --------- | ---------- |
-| dyer      | William   | Dyer       | 
-| pb        | Frank     | Pabodie    | 
-| lake      | Anderson  | Lake       | 
-| roe       | Valentina | Roerich    | 
-| danforth  | Frank     | Danforth   | 
+| dyer      | William   | Dyer       |
+| pb        | Frank     | Pabodie    |
+| lake      | Anderson  | Lake       |
+| roe       | Valentina | Roerich    |
+| danforth  | Frank     | Danforth   |
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -379,8 +378,6 @@ CREATE TABLE Visited (id integer, site text, dated text);
 
 From the output, we see that the **taken** column in the **Survey** table (3rd line) is composed of integers.
 
-
-
 :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -399,11 +396,11 @@ Write a query that selects only the `name` column from the `Site` table.
 SELECT name FROM Site;
 ```
 
-| name      | 
+| name      |
 | --------- |
-| DR-1      | 
-| DR-3      | 
-| MSK-4     | 
+| DR-1      |
+| DR-3      |
+| MSK-4     |
 
 :::::::::::::::::::::::::
 
@@ -427,7 +424,6 @@ select Personal, Family from PERSON;
 
 What style do you find easiest to read, and why?
 
-
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
@@ -439,5 +435,3 @@ What style do you find easiest to read, and why?
 - SQL is case-insensitive (but data is case-sensitive).
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
-
-
