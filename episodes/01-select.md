@@ -247,7 +247,7 @@ For now,
 let's write an SQL query that displays scientists' names.
 We do this using the SQL command `SELECT`,
 giving it the names of the columns we want and the table we want them from.
-Our query and its output look like this:
+Our query and its output, with the above settings applied, look like this:
 
 ```sql
 SELECT family, personal FROM Person;
@@ -263,6 +263,17 @@ SELECT family, personal FROM Person;
 
 The semicolon at the end of the query
 tells the database manager that the query is complete and ready to run.
+
+For comparison, without the above settings, the output of the same query will look like this:
+
+```
+William|Dyer
+Frank|Pabodie
+Anderson|Lake
+Valentina|Roerich
+Frank|Danforth
+```
+
 We have written our commands in upper case and the names for the table and columns
 in lower case,
 but we don't have to:
