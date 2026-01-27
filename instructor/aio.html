@@ -2597,7 +2597,7 @@ that are not actually displayed.</li>
 </div>
 </div></section><section id="aio-04-calc"><p>Content from <a href="04-calc.html">Calculating New Values</a></p>
 <hr>
-<p>Last updated on 2023-05-08 |
+<p>Last updated on 2026-01-27 |
 
         <a href="https://github.com/swcarpentry/sql-novice-survey/edit/main/episodes/04-calc.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 10 minutes</p>
@@ -2954,14 +2954,70 @@ separated by a ‘-’:</p>
 </tr>
 </tbody>
 </table>
-<p>Some major site identifiers (i.e. the letter codes) are two letters
-long and some are three. The “in string” function
-<code>instr(X, Y)</code> returns the 1-based index of the first
-occurrence of string Y in string X, or 0 if Y does not exist in X. The
-substring function <code>substr(X, I, [L])</code> returns the substring
-of X starting at index I, with an optional length L. Use these two
-functions to produce a list of unique major site identifiers. (For this
-data, the list should contain only “DR” and “MSK”).</p>
+<p>The sites are identified by a few letters, a dash, and a number.
+Suppose you want to see what are the major sites where data has been
+collected. In our data, those would be the sites denoted with the letter
+codes such as <code>DR</code> or <code>MSK</code>. However, some major
+site identifiers (i.e. the letter codes) are two letters long and some
+are three. Therefore, we need to run some kind of operation on the site
+string to be able to get just the letter codes.</p>
+<p>SQLite has functions that would enable us to do just that. The “in
+string” function <code>instr(X, Y)</code> returns the 1-based index of
+the first occurrence of string Y in string X, or 0 if Y does not exist
+in X. For example, the query:</p>
+<div class="codewrapper sourceCode" id="cb9">
+<h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="kw">select</span> <span class="fu">INSTR</span>(site, <span class="st">'-'</span>) <span class="kw">as</span> <span class="kw">indexes</span> <span class="kw">FROM</span> Visited;</span></code></pre>
+</div>
+<p>Would return the position of the <code>-</code> character in each
+site:</p>
+<table class="table">
+<thead><tr class="header">
+<th>indexes</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>3</td>
+</tr>
+<tr class="even">
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>The substring function <code>substr(X, I, [L])</code> returns the
+substring of X starting at index I, with an optional length L. For
+example, the query:</p>
+<div class="codewrapper sourceCode" id="cb10">
+<h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="kw">SELECT</span>  <span class="fu">substr</span>(site, <span class="dv">1</span>, <span class="dv">1</span>) <span class="kw">as</span> first_char <span class="kw">FROM</span> Visited;</span></code></pre>
+</div>
+<p>Would return the first letter of each site:</p>
+<table class="table">
+<thead><tr class="header">
+<th>first_char</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>D</td>
+</tr>
+<tr class="even">
+<td>D</td>
+</tr>
+<tr class="odd">
+<td>D</td>
+</tr>
+</tbody>
+</table>
+<p>
+Combine these two functions to produce a list of unique major site
+identifiers. (For this data, the list should contain only “DR” and
+“MSK”).
+</p>
 </div>
 </div>
 </div>
@@ -2972,10 +3028,10 @@ data, the list should contain only “DR” and “MSK”).</p>
 </button>
 <div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb9">
+<div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> <span class="fu">substr</span>(site, <span class="dv">1</span>, <span class="fu">instr</span>(site, <span class="st">'-'</span>) <span class="op">-</span> <span class="dv">1</span>) <span class="kw">AS</span> MajorSite <span class="kw">FROM</span> Visited;</span></code></pre>
+<pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> <span class="fu">substr</span>(site, <span class="dv">1</span>, <span class="fu">instr</span>(site, <span class="st">'-'</span>) <span class="op">-</span> <span class="dv">1</span>) <span class="kw">AS</span> MajorSite <span class="kw">FROM</span> Visited;</span></code></pre>
 </div>
 </div>
 </div>
@@ -4070,7 +4126,7 @@ their average value?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -4111,7 +4167,7 @@ returns 2.0 or 3.0 when given the values 1.0, <code>null</code>, and
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>The answer is 3.0. <code>NULL</code> is not a value; it is the
 absence of a value. As such it is not included in the calculation.</p>
@@ -4153,7 +4209,7 @@ query:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>The query produces only one row of results when we what we really
 want is a result for each of the readings. The <code>avg()</code>
@@ -4216,7 +4272,7 @@ family names separated by a comma?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>List all the family names separated by a comma:</p>
 <div class="codewrapper sourceCode" id="cb24">
@@ -4932,7 +4988,7 @@ site.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -4989,7 +5045,7 @@ site.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -5057,7 +5113,7 @@ records with 8 fields.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -5442,7 +5498,7 @@ say, the tool shapes the hand that shapes the tool.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>New Zealand is the only clear-cut atomic value.</p>
 <p>The address and the XY coordinate contain more than one piece of
@@ -5494,7 +5550,7 @@ combination of values uniquely identifies a record?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>Latitude, longitude, and date are all required to uniquely identify
 the temperature record.</p>
@@ -5751,7 +5807,7 @@ the MP3 files, but the files themselves live on disk.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -5786,7 +5842,7 @@ approach? (Hint: records aren’t stored in any particular order.)</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="section level4">
 <h4 id="advantages">Advantages<a class="anchor" aria-label="anchor" href="#advantages"></a>
