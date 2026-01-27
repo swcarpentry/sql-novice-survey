@@ -190,15 +190,38 @@ SELECT DISTINCT site FROM Visited;
 | DR-3                      | 
 | MSK-4                     | 
 
-Some major site identifiers (i.e. the letter codes) are two letters long and some are three.
-The "in string" function `instr(X, Y)`
-returns the 1-based index of the first occurrence of string Y in string X,
-or 0 if Y does not exist in X.
-The substring function `substr(X, I, [L])`
-returns the substring of X starting at index I, with an optional length L.
-Use these two functions to produce a list of unique major site identifiers.
-(For this data,
-the list should contain only "DR" and "MSK").
+The sites are identified by a few letters, a dash, and a number. Suppose you want to see what are the major sites where data has been collected. In our data, those would be the sites denoted with the letter codes such as `DR` or `MSK`. However, some major site identifiers (i.e. the letter codes) are two letters long and some are three. Therefore, we need to run some kind of operation on the site string to be able to get just the letter codes.
+
+SQLite has functions that would enable us to do just that. The “in string” function `instr(X, Y)` returns the 1-based index of the first occurrence of string Y in string X, or 0 if Y does not exist in X. For example, the query:
+
+```SQL
+select INSTR(site, '-') as indexes FROM Visited;
+```
+Would return the position of the `-` character in each site:
+
+| indexes |
+| ------------------------- |
+| 3 |
+| 3 |
+| 3 |
+
+The substring function `substr(X, I, [L])` returns the substring
+of X starting at index I, with an optional length L. For example, the query:
+
+```SQL 
+SELECT  substr(site, 1, 1) as first_char FROM Visited;
+```
+
+Would return the first letter of each site:
+
+| first_char |
+| ------------------------- |
+| D |
+| D |
+| D |
+
+<p>Combine these two functions to produce a list of unique major site identifiers. (For this data,
+the list should contain only "DR" and "MSK").</p>
 
 :::::::::::::::  solution
 
@@ -218,5 +241,3 @@ SELECT DISTINCT substr(site, 1, instr(site, '-') - 1) AS MajorSite FROM Visited;
 - Use UNION to combine the results of two or more queries.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
-
-
