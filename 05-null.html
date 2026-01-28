@@ -415,31 +415,31 @@ null:</p>
 </h3>
 <pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited;</span></code></pre>
 </div>
-<table class="table"><thead><tr class="header"><th>id</th>
+<table class="table"><thead><tr><th>id</th>
 <th>site</th>
 <th>dated</th>
-</tr></thead><tbody><tr class="odd"><td>619</td>
+</tr></thead><tbody><tr><td>619</td>
 <td>DR-1</td>
 <td>1927-02-08</td>
-</tr><tr class="even"><td>622</td>
+</tr><tr><td>622</td>
 <td>DR-1</td>
 <td>1927-02-10</td>
-</tr><tr class="odd"><td>734</td>
+</tr><tr><td>734</td>
 <td>DR-3</td>
 <td>1930-01-07</td>
-</tr><tr class="even"><td>735</td>
+</tr><tr><td>735</td>
 <td>DR-3</td>
 <td>1930-01-12</td>
-</tr><tr class="odd"><td>751</td>
+</tr><tr><td>751</td>
 <td>DR-3</td>
 <td>1930-02-26</td>
-</tr><tr class="even"><td>752</td>
+</tr><tr><td>752</td>
 <td>DR-3</td>
 <td>-null-</td>
-</tr><tr class="odd"><td>837</td>
+</tr><tr><td>837</td>
 <td>MSK-4</td>
 <td>1932-01-14</td>
-</tr><tr class="even"><td>844</td>
+</tr><tr><td>844</td>
 <td>DR-1</td>
 <td>1932-03-22</td>
 </tr></tbody></table><p>Null doesn’t behave like other values. If we select the records that
@@ -449,13 +449,13 @@ come before 1930:</p>
 </h3>
 <pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="op">&lt;</span> <span class="st">'1930-01-01'</span>;</span></code></pre>
 </div>
-<table class="table"><thead><tr class="header"><th>id</th>
+<table class="table"><thead><tr><th>id</th>
 <th>site</th>
 <th>dated</th>
-</tr></thead><tbody><tr class="odd"><td>619</td>
+</tr></thead><tbody><tr><td>619</td>
 <td>DR-1</td>
 <td>1927-02-08</td>
-</tr><tr class="even"><td>622</td>
+</tr><tr><td>622</td>
 <td>DR-1</td>
 <td>1927-02-10</td>
 </tr></tbody></table><p>we get two results, and if we select the ones that come during or
@@ -465,22 +465,22 @@ after 1930:</p>
 </h3>
 <pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="op">&gt;=</span> <span class="st">'1930-01-01'</span>;</span></code></pre>
 </div>
-<table class="table"><thead><tr class="header"><th>id</th>
+<table class="table"><thead><tr><th>id</th>
 <th>site</th>
 <th>dated</th>
-</tr></thead><tbody><tr class="odd"><td>734</td>
+</tr></thead><tbody><tr><td>734</td>
 <td>DR-3</td>
 <td>1930-01-07</td>
-</tr><tr class="even"><td>735</td>
+</tr><tr><td>735</td>
 <td>DR-3</td>
 <td>1930-01-12</td>
-</tr><tr class="odd"><td>751</td>
+</tr><tr><td>751</td>
 <td>DR-3</td>
 <td>1930-02-26</td>
-</tr><tr class="even"><td>837</td>
+</tr><tr><td>837</td>
 <td>MSK-4</td>
 <td>1932-01-14</td>
-</tr><tr class="odd"><td>844</td>
+</tr><tr><td>844</td>
 <td>DR-1</td>
 <td>1932-03-22</td>
 </tr></tbody></table><p>we get five, but record #752 isn’t in either set of results. The
@@ -516,10 +516,10 @@ special test <code>IS NULL</code>:</p>
 </h3>
 <pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="kw">IS</span> <span class="kw">NULL</span>;</span></code></pre>
 </div>
-<table class="table"><thead><tr class="header"><th>id</th>
+<table class="table"><thead><tr><th>id</th>
 <th>site</th>
 <th>dated</th>
-</tr></thead><tbody><tr class="odd"><td>752</td>
+</tr></thead><tbody><tr><td>752</td>
 <td>DR-3</td>
 <td>-null-</td>
 </tr></tbody></table><p>or its inverse <code>IS NOT NULL</code>:</p>
@@ -528,28 +528,28 @@ special test <code>IS NULL</code>:</p>
 </h3>
 <pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span>;</span></code></pre>
 </div>
-<table class="table"><thead><tr class="header"><th>id</th>
+<table class="table"><thead><tr><th>id</th>
 <th>site</th>
 <th>dated</th>
-</tr></thead><tbody><tr class="odd"><td>619</td>
+</tr></thead><tbody><tr><td>619</td>
 <td>DR-1</td>
 <td>1927-02-08</td>
-</tr><tr class="even"><td>622</td>
+</tr><tr><td>622</td>
 <td>DR-1</td>
 <td>1927-02-10</td>
-</tr><tr class="odd"><td>734</td>
+</tr><tr><td>734</td>
 <td>DR-3</td>
 <td>1930-01-07</td>
-</tr><tr class="even"><td>735</td>
+</tr><tr><td>735</td>
 <td>DR-3</td>
 <td>1930-01-12</td>
-</tr><tr class="odd"><td>751</td>
+</tr><tr><td>751</td>
 <td>DR-3</td>
 <td>1930-02-26</td>
-</tr><tr class="even"><td>837</td>
+</tr><tr><td>837</td>
 <td>MSK-4</td>
 <td>1932-01-14</td>
-</tr><tr class="odd"><td>844</td>
+</tr><tr><td>844</td>
 <td>DR-1</td>
 <td>1932-03-22</td>
 </tr></tbody></table><p>Null values can cause headaches wherever they appear. For example,
@@ -560,23 +560,23 @@ by Lake. It’s natural to write the query like this:</p>
 </h3>
 <pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span> <span class="kw">AND</span> person <span class="op">!=</span> <span class="st">'lake'</span>;</span></code></pre>
 </div>
-<table class="table"><thead><tr class="header"><th>taken</th>
+<table class="table"><thead><tr><th>taken</th>
 <th>person</th>
 <th>quant</th>
 <th>reading</th>
-</tr></thead><tbody><tr class="odd"><td>619</td>
+</tr></thead><tbody><tr><td>619</td>
 <td>dyer</td>
 <td>sal</td>
 <td>0.13</td>
-</tr><tr class="even"><td>622</td>
+</tr><tr><td>622</td>
 <td>dyer</td>
 <td>sal</td>
 <td>0.09</td>
-</tr><tr class="odd"><td>752</td>
+</tr><tr><td>752</td>
 <td>roe</td>
 <td>sal</td>
 <td>41.6</td>
-</tr><tr class="even"><td>837</td>
+</tr><tr><td>837</td>
 <td>roe</td>
 <td>sal</td>
 <td>22.5</td>
@@ -590,27 +590,27 @@ to keep these records we need to add an explicit check:</p>
 </h3>
 <pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span> <span class="kw">AND</span> (person <span class="op">!=</span> <span class="st">'lake'</span> <span class="kw">OR</span> person <span class="kw">IS</span> <span class="kw">NULL</span>);</span></code></pre>
 </div>
-<table class="table"><thead><tr class="header"><th>taken</th>
+<table class="table"><thead><tr><th>taken</th>
 <th>person</th>
 <th>quant</th>
 <th>reading</th>
-</tr></thead><tbody><tr class="odd"><td>619</td>
+</tr></thead><tbody><tr><td>619</td>
 <td>dyer</td>
 <td>sal</td>
 <td>0.13</td>
-</tr><tr class="even"><td>622</td>
+</tr><tr><td>622</td>
 <td>dyer</td>
 <td>sal</td>
 <td>0.09</td>
-</tr><tr class="odd"><td>735</td>
+</tr><tr><td>735</td>
 <td>-null-</td>
 <td>sal</td>
 <td>0.06</td>
-</tr><tr class="even"><td>752</td>
+</tr><tr><td>752</td>
 <td>roe</td>
 <td>sal</td>
 <td>41.6</td>
-</tr><tr class="odd"><td>837</td>
+</tr><tr><td>837</td>
 <td>roe</td>
 <td>sal</td>
 <td>22.5</td>
@@ -649,28 +649,28 @@ omitting entries for which the date is not known (i.e., is null).</p>
 </h3>
 <pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">ORDER</span> <span class="kw">BY</span> dated <span class="kw">ASC</span>;</span></code></pre>
 </div>
-<table class="table"><thead><tr class="header"><th>id</th>
+<table class="table"><thead><tr><th>id</th>
 <th>site</th>
 <th>dated</th>
-</tr></thead><tbody><tr class="odd"><td>619</td>
+</tr></thead><tbody><tr><td>619</td>
 <td>DR-1</td>
 <td>1927-02-08</td>
-</tr><tr class="even"><td>622</td>
+</tr><tr><td>622</td>
 <td>DR-1</td>
 <td>1927-02-10</td>
-</tr><tr class="odd"><td>734</td>
+</tr><tr><td>734</td>
 <td>DR-3</td>
 <td>1930-01-07</td>
-</tr><tr class="even"><td>735</td>
+</tr><tr><td>735</td>
 <td>DR-3</td>
 <td>1930-01-12</td>
-</tr><tr class="odd"><td>751</td>
+</tr><tr><td>751</td>
 <td>DR-3</td>
 <td>1930-02-26</td>
-</tr><tr class="even"><td>837</td>
+</tr><tr><td>837</td>
 <td>MSK-4</td>
 <td>1932-01-14</td>
-</tr><tr class="odd"><td>844</td>
+</tr><tr><td>844</td>
 <td>DR-1</td>
 <td>1932-03-22</td>
 </tr></tbody></table></div>
@@ -795,7 +795,7 @@ information.</li>
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
 
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.18.4" class="external-link">sandpaper (0.18.4)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.9" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.9" class="external-link">varnish (1.0.9)</a></p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/" class="external-link">sandpaper (0.18.1)</a>, <a href="https://github.com/carpentries/pegboard/tree/" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/" class="external-link">varnish (1.0.9)</a></p>
 		</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
