@@ -398,15 +398,15 @@ the fly as part of our query:</p>
 </h3>
 <pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fl">1.05</span> <span class="op">*</span> reading <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'rad'</span>;</span></code></pre>
 </div>
-<table class="table"><thead><tr><th>1.05 * reading</th>
-</tr></thead><tbody><tr><td>10.311</td>
-</tr><tr><td>8.19</td>
-</tr><tr><td>8.8305</td>
-</tr><tr><td>7.581</td>
-</tr><tr><td>4.5675</td>
-</tr><tr><td>2.2995</td>
-</tr><tr><td>1.533</td>
-</tr><tr><td>11.8125</td>
+<table class="table"><thead><tr class="header"><th>1.05 * reading</th>
+</tr></thead><tbody><tr class="odd"><td>10.311</td>
+</tr><tr class="even"><td>8.19</td>
+</tr><tr class="odd"><td>8.8305</td>
+</tr><tr class="even"><td>7.581</td>
+</tr><tr class="odd"><td>4.5675</td>
+</tr><tr class="even"><td>2.2995</td>
+</tr><tr class="odd"><td>1.533</td>
+</tr><tr class="even"><td>11.8125</td>
 </tr></tbody></table><p>When we run the query, the expression <code>1.05 * reading</code> is
 evaluated for each row. Expressions can use any of the fields, all of
 usual arithmetic operators, and a variety of common functions. (Exactly
@@ -418,15 +418,15 @@ and round to two decimal places:</p>
 </h3>
 <pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="kw">SELECT</span> taken, <span class="fu">round</span>(<span class="dv">5</span> <span class="op">*</span> (reading <span class="op">-</span> <span class="dv">32</span>) <span class="op">/</span> <span class="dv">9</span>, <span class="dv">2</span>) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'temp'</span>;</span></code></pre>
 </div>
-<table class="table"><thead><tr><th>taken</th>
+<table class="table"><thead><tr class="header"><th>taken</th>
 <th>round(5*(reading-32)/9, 2)</th>
-</tr></thead><tbody><tr><td>734</td>
+</tr></thead><tbody><tr class="odd"><td>734</td>
 <td>-29.72</td>
-</tr><tr><td>735</td>
+</tr><tr class="even"><td>735</td>
 <td>-32.22</td>
-</tr><tr><td>751</td>
+</tr><tr class="odd"><td>751</td>
 <td>-28.06</td>
-</tr><tr><td>752</td>
+</tr><tr class="even"><td>752</td>
 <td>-26.67</td>
 </tr></tbody></table><p>As you can see from this example, though, the string describing our
 new field (generated from the equation) can become quite unwieldy. SQL
@@ -439,15 +439,15 @@ as:</p>
 </h3>
 <pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="kw">SELECT</span> taken, <span class="fu">round</span>(<span class="dv">5</span> <span class="op">*</span> (reading <span class="op">-</span> <span class="dv">32</span>) <span class="op">/</span> <span class="dv">9</span>, <span class="dv">2</span>) <span class="kw">as</span> Celsius <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'temp'</span>;</span></code></pre>
 </div>
-<table class="table"><thead><tr><th>taken</th>
+<table class="table"><thead><tr class="header"><th>taken</th>
 <th>Celsius</th>
-</tr></thead><tbody><tr><td>734</td>
+</tr></thead><tbody><tr class="odd"><td>734</td>
 <td>-29.72</td>
-</tr><tr><td>735</td>
+</tr><tr class="even"><td>735</td>
 <td>-32.22</td>
-</tr><tr><td>751</td>
+</tr><tr class="odd"><td>751</td>
 <td>-28.06</td>
-</tr><tr><td>752</td>
+</tr><tr class="even"><td>752</td>
 <td>-26.67</td>
 </tr></tbody></table><p>We can also combine values from different fields, for example by
 using the string concatenation operator <code>||</code>:</p>
@@ -456,12 +456,12 @@ using the string concatenation operator <code>||</code>:</p>
 </h3>
 <pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="kw">SELECT</span> personal <span class="op">||</span> <span class="st">' '</span> <span class="op">||</span> family <span class="kw">FROM</span> Person;</span></code></pre>
 </div>
-<table class="table"><thead><tr><th>personal</th>
-</tr></thead><tbody><tr><td>William Dyer</td>
-</tr><tr><td>Frank Pabodie</td>
-</tr><tr><td>Anderson Lake</td>
-</tr><tr><td>Valentina Roerich</td>
-</tr><tr><td>Frank Danforth</td>
+<table class="table"><thead><tr class="header"><th>personal</th>
+</tr></thead><tbody><tr class="odd"><td>William Dyer</td>
+</tr><tr class="even"><td>Frank Pabodie</td>
+</tr><tr class="odd"><td>Anderson Lake</td>
+</tr><tr class="even"><td>Valentina Roerich</td>
+</tr><tr class="odd"><td>Frank Danforth</td>
 </tr></tbody></table><div id="fixing-salinity-readings" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -489,11 +489,11 @@ divided by 100.</p>
 </h3>
 <pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="kw">SELECT</span> taken, reading <span class="op">/</span> <span class="dv">100</span> <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> person <span class="op">=</span> <span class="st">'roe'</span> <span class="kw">AND</span> quant <span class="op">=</span> <span class="st">'sal'</span>;</span></code></pre>
 </div>
-<table class="table"><thead><tr><th>taken</th>
+<table class="table"><thead><tr class="header"><th>taken</th>
 <th>reading / 100</th>
-</tr></thead><tbody><tr><td>752</td>
+</tr></thead><tbody><tr class="odd"><td>752</td>
 <td>0.416</td>
-</tr><tr><td>837</td>
+</tr><tr class="even"><td>837</td>
 <td>0.225</td>
 </tr></tbody></table></div>
 </div>
@@ -514,13 +514,13 @@ queries:</p>
 </h3>
 <pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Person <span class="kw">WHERE</span> <span class="kw">id</span> <span class="op">=</span> <span class="st">'dyer'</span> <span class="kw">UNION</span> <span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Person <span class="kw">WHERE</span> <span class="kw">id</span> <span class="op">=</span> <span class="st">'roe'</span>;</span></code></pre>
 </div>
-<table class="table"><thead><tr><th>id</th>
+<table class="table"><thead><tr class="header"><th>id</th>
 <th>personal</th>
 <th>family</th>
-</tr></thead><tbody><tr><td>dyer</td>
+</tr></thead><tbody><tr class="odd"><td>dyer</td>
 <td>William</td>
 <td>Dyer</td>
-</tr><tr><td>roe</td>
+</tr><tr class="even"><td>roe</td>
 <td>Valentina</td>
 <td>Roerich</td>
 </tr></tbody></table><p>The <code>UNION ALL</code> command is equivalent to the
@@ -537,23 +537,23 @@ UNION.</p>
 measurements in which Valentina Roerich’s, and only Valentina’s, have
 been corrected as described in the previous challenge. The output should
 be something like:</p>
-<table class="table"><thead><tr><th>taken</th>
+<table class="table"><thead><tr class="header"><th>taken</th>
 <th>reading</th>
-</tr></thead><tbody><tr><td>619</td>
+</tr></thead><tbody><tr class="odd"><td>619</td>
 <td>0.13</td>
-</tr><tr><td>622</td>
+</tr><tr class="even"><td>622</td>
 <td>0.09</td>
-</tr><tr><td>734</td>
+</tr><tr class="odd"><td>734</td>
 <td>0.05</td>
-</tr><tr><td>751</td>
+</tr><tr class="even"><td>751</td>
 <td>0.1</td>
-</tr><tr><td>752</td>
+</tr><tr class="odd"><td>752</td>
 <td>0.09</td>
-</tr><tr><td>752</td>
+</tr><tr class="even"><td>752</td>
 <td>0.416</td>
-</tr><tr><td>837</td>
+</tr><tr class="odd"><td>837</td>
 <td>0.21</td>
-</tr><tr><td>837</td>
+</tr><tr class="even"><td>837</td>
 <td>0.225</td>
 </tr></tbody></table></div>
 </div>
@@ -589,10 +589,10 @@ separated by a ‘-’:</p>
 </h3>
 <pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> site <span class="kw">FROM</span> Visited;</span></code></pre>
 </div>
-<table class="table"><thead><tr><th>site</th>
-</tr></thead><tbody><tr><td>DR-1</td>
-</tr><tr><td>DR-3</td>
-</tr><tr><td>MSK-4</td>
+<table class="table"><thead><tr class="header"><th>site</th>
+</tr></thead><tbody><tr class="odd"><td>DR-1</td>
+</tr><tr class="even"><td>DR-3</td>
+</tr><tr class="odd"><td>MSK-4</td>
 </tr></tbody></table><p>The sites are identified by a few letters, a dash, and a number.
 Suppose you want to see what are the major sites where data has been
 collected. In our data, those would be the sites denoted with the letter
@@ -611,10 +611,10 @@ in X. For example, the query:</p>
 </div>
 <p>Would return the position of the <code>-</code> character in each
 site:</p>
-<table class="table"><thead><tr><th>indexes</th>
-</tr></thead><tbody><tr><td>3</td>
-</tr><tr><td>3</td>
-</tr><tr><td>3</td>
+<table class="table"><thead><tr class="header"><th>indexes</th>
+</tr></thead><tbody><tr class="odd"><td>3</td>
+</tr><tr class="even"><td>3</td>
+</tr><tr class="odd"><td>3</td>
 </tr></tbody></table><p>The substring function <code>substr(X, I, [L])</code> returns the
 substring of X starting at index I, with an optional length L. For
 example, the query:</p>
@@ -624,10 +624,10 @@ example, the query:</p>
 <pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="kw">SELECT</span>  <span class="fu">substr</span>(site, <span class="dv">1</span>, <span class="dv">1</span>) <span class="kw">as</span> first_char <span class="kw">FROM</span> Visited;</span></code></pre>
 </div>
 <p>Would return the first letter of each site:</p>
-<table class="table"><thead><tr><th>first_char</th>
-</tr></thead><tbody><tr><td>D</td>
-</tr><tr><td>D</td>
-</tr><tr><td>D</td>
+<table class="table"><thead><tr class="header"><th>first_char</th>
+</tr></thead><tbody><tr class="odd"><td>D</td>
+</tr><tr class="even"><td>D</td>
+</tr><tr class="odd"><td>D</td>
 </tr></tbody></table><p>
 Combine these two functions to produce a list of unique major site
 identifiers. (For this data, the list should contain only “DR” and
@@ -705,7 +705,7 @@ identifiers. (For this data, the list should contain only “DR” and
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
 
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/" class="external-link">sandpaper (0.18.1)</a>, <a href="https://github.com/carpentries/pegboard/tree/" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/" class="external-link">varnish (1.0.9)</a></p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.18.5" class="external-link">sandpaper (0.18.5)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.9" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.9" class="external-link">varnish (1.0.9)</a></p>
 		</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
@@ -728,7 +728,7 @@ identifiers. (For this data, the list should contain only “DR” and
   "identifier": "https://swcarpentry.github.io/sql-novice-survey/04-calc.html",
   "dateCreated": "2014-11-21",
   "dateModified": "2026-01-27",
-  "datePublished": "2026-01-28"
+  "datePublished": "2026-02-03"
 }
 
   </script><script>
