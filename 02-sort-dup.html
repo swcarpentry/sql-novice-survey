@@ -404,28 +404,28 @@ table, we get this:</p>
 </h3>
 <pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="kw">SELECT</span> quant <span class="kw">FROM</span> Survey;</span></code></pre>
 </div>
-<table class="table"><thead><tr class="header"><th>quant</th>
-</tr></thead><tbody><tr class="odd"><td>rad</td>
-</tr><tr class="even"><td>sal</td>
-</tr><tr class="odd"><td>rad</td>
-</tr><tr class="even"><td>sal</td>
-</tr><tr class="odd"><td>rad</td>
-</tr><tr class="even"><td>sal</td>
-</tr><tr class="odd"><td>temp</td>
-</tr><tr class="even"><td>rad</td>
-</tr><tr class="odd"><td>sal</td>
-</tr><tr class="even"><td>temp</td>
-</tr><tr class="odd"><td>rad</td>
-</tr><tr class="even"><td>temp</td>
-</tr><tr class="odd"><td>sal</td>
-</tr><tr class="even"><td>rad</td>
-</tr><tr class="odd"><td>sal</td>
-</tr><tr class="even"><td>temp</td>
-</tr><tr class="odd"><td>sal</td>
-</tr><tr class="even"><td>rad</td>
-</tr><tr class="odd"><td>sal</td>
-</tr><tr class="even"><td>sal</td>
-</tr><tr class="odd"><td>rad</td>
+<table class="table"><thead><tr><th>quant</th>
+</tr></thead><tbody><tr><td>rad</td>
+</tr><tr><td>sal</td>
+</tr><tr><td>rad</td>
+</tr><tr><td>sal</td>
+</tr><tr><td>rad</td>
+</tr><tr><td>sal</td>
+</tr><tr><td>temp</td>
+</tr><tr><td>rad</td>
+</tr><tr><td>sal</td>
+</tr><tr><td>temp</td>
+</tr><tr><td>rad</td>
+</tr><tr><td>temp</td>
+</tr><tr><td>sal</td>
+</tr><tr><td>rad</td>
+</tr><tr><td>sal</td>
+</tr><tr><td>temp</td>
+</tr><tr><td>sal</td>
+</tr><tr><td>rad</td>
+</tr><tr><td>sal</td>
+</tr><tr><td>sal</td>
+</tr><tr><td>rad</td>
 </tr></tbody></table><p>This result makes it difficult to see all of the different types of
 <code>quant</code> in the Survey table. We can eliminate the redundant
 output to make the result more readable by adding the
@@ -435,10 +435,10 @@ output to make the result more readable by adding the
 </h3>
 <pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> quant <span class="kw">FROM</span> Survey;</span></code></pre>
 </div>
-<table class="table"><thead><tr class="header"><th>quant</th>
-</tr></thead><tbody><tr class="odd"><td>rad</td>
-</tr><tr class="even"><td>sal</td>
-</tr><tr class="odd"><td>temp</td>
+<table class="table"><thead><tr><th>quant</th>
+</tr></thead><tbody><tr><td>rad</td>
+</tr><tr><td>sal</td>
+</tr><tr><td>temp</td>
 </tr></tbody></table><p>If we want to determine which visit (stored in the <code>taken</code>
 column) have which <code>quant</code> measurement, we can use the
 <code>DISTINCT</code> keyword on multiple columns. If we select more
@@ -449,45 +449,45 @@ case <em>pairs</em>, because we are selecting two columns):</p>
 </h3>
 <pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> taken, quant <span class="kw">FROM</span> Survey;</span></code></pre>
 </div>
-<table class="table"><thead><tr class="header"><th>taken</th>
+<table class="table"><thead><tr><th>taken</th>
 <th>quant</th>
-</tr></thead><tbody><tr class="odd"><td>619</td>
+</tr></thead><tbody><tr><td>619</td>
 <td>rad</td>
-</tr><tr class="even"><td>619</td>
+</tr><tr><td>619</td>
 <td>sal</td>
-</tr><tr class="odd"><td>622</td>
+</tr><tr><td>622</td>
 <td>rad</td>
-</tr><tr class="even"><td>622</td>
+</tr><tr><td>622</td>
 <td>sal</td>
-</tr><tr class="odd"><td>734</td>
+</tr><tr><td>734</td>
 <td>rad</td>
-</tr><tr class="even"><td>734</td>
+</tr><tr><td>734</td>
 <td>sal</td>
-</tr><tr class="odd"><td>734</td>
+</tr><tr><td>734</td>
 <td>temp</td>
-</tr><tr class="even"><td>735</td>
+</tr><tr><td>735</td>
 <td>rad</td>
-</tr><tr class="odd"><td>735</td>
+</tr><tr><td>735</td>
 <td>sal</td>
-</tr><tr class="even"><td>735</td>
+</tr><tr><td>735</td>
 <td>temp</td>
-</tr><tr class="odd"><td>751</td>
+</tr><tr><td>751</td>
 <td>rad</td>
-</tr><tr class="even"><td>751</td>
+</tr><tr><td>751</td>
 <td>temp</td>
-</tr><tr class="odd"><td>751</td>
+</tr><tr><td>751</td>
 <td>sal</td>
-</tr><tr class="even"><td>752</td>
+</tr><tr><td>752</td>
 <td>rad</td>
-</tr><tr class="odd"><td>752</td>
+</tr><tr><td>752</td>
 <td>sal</td>
-</tr><tr class="even"><td>752</td>
+</tr><tr><td>752</td>
 <td>temp</td>
-</tr><tr class="odd"><td>837</td>
+</tr><tr><td>837</td>
 <td>rad</td>
-</tr><tr class="even"><td>837</td>
+</tr><tr><td>837</td>
 <td>sal</td>
-</tr><tr class="odd"><td>844</td>
+</tr><tr><td>844</td>
 <td>rad</td>
 </tr></tbody></table><p>Notice in both cases that duplicates are removed even if the rows
 they come from didn’t appear to be adjacent in the database table.</p>
@@ -503,22 +503,22 @@ of by their personal name. We can do this in SQL by adding an
 </h3>
 <pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Person <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="kw">id</span>;</span></code></pre>
 </div>
-<table class="table"><thead><tr class="header"><th>id</th>
+<table class="table"><thead><tr><th>id</th>
 <th>personal</th>
 <th>family</th>
-</tr></thead><tbody><tr class="odd"><td>danfort</td>
+</tr></thead><tbody><tr><td>danfort</td>
 <td>Frank</td>
 <td>Danforth</td>
-</tr><tr class="even"><td>dyer</td>
+</tr><tr><td>dyer</td>
 <td>William</td>
 <td>Dyer</td>
-</tr><tr class="odd"><td>lake</td>
+</tr><tr><td>lake</td>
 <td>Anderson</td>
 <td>Lake</td>
-</tr><tr class="even"><td>pb</td>
+</tr><tr><td>pb</td>
 <td>Frank</td>
 <td>Pabodie</td>
-</tr><tr class="odd"><td>roe</td>
+</tr><tr><td>roe</td>
 <td>Valentina</td>
 <td>Roerich</td>
 </tr></tbody></table><p>By default, when we use <code>ORDER BY</code>, results are sorted in
@@ -547,22 +547,22 @@ order.</p>
 </h3>
 <pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> person <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="kw">id</span> <span class="kw">DESC</span>;</span></code></pre>
 </div>
-<table class="table"><thead><tr class="header"><th>id</th>
+<table class="table"><thead><tr><th>id</th>
 <th>personal</th>
 <th>family</th>
-</tr></thead><tbody><tr class="odd"><td>roe</td>
+</tr></thead><tbody><tr><td>roe</td>
 <td>Valentina</td>
 <td>Roerich</td>
-</tr><tr class="even"><td>pb</td>
+</tr><tr><td>pb</td>
 <td>Frank</td>
 <td>Pabodie</td>
-</tr><tr class="odd"><td>lake</td>
+</tr><tr><td>lake</td>
 <td>Anderson</td>
 <td>Lake</td>
-</tr><tr class="even"><td>dyer</td>
+</tr><tr><td>dyer</td>
 <td>William</td>
 <td>Dyer</td>
-</tr><tr class="odd"><td>danfort</td>
+</tr><tr><td>danfort</td>
 <td>Frank</td>
 <td>Danforth</td>
 </tr></tbody></table><p>(And if we want to make it clear that we’re sorting in ascending
@@ -578,70 +578,70 @@ order by <code>person</code> within each group of equal
 </h3>
 <pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="kw">SELECT</span> taken, person, quant <span class="kw">FROM</span> Survey <span class="kw">ORDER</span> <span class="kw">BY</span> taken <span class="kw">ASC</span>, person <span class="kw">DESC</span>;</span></code></pre>
 </div>
-<table class="table"><thead><tr class="header"><th>taken</th>
+<table class="table"><thead><tr><th>taken</th>
 <th>person</th>
 <th>quant</th>
-</tr></thead><tbody><tr class="odd"><td>619</td>
+</tr></thead><tbody><tr><td>619</td>
 <td>dyer</td>
 <td>rad</td>
-</tr><tr class="even"><td>619</td>
+</tr><tr><td>619</td>
 <td>dyer</td>
 <td>sal</td>
-</tr><tr class="odd"><td>622</td>
+</tr><tr><td>622</td>
 <td>dyer</td>
 <td>rad</td>
-</tr><tr class="even"><td>622</td>
+</tr><tr><td>622</td>
 <td>dyer</td>
 <td>sal</td>
-</tr><tr class="odd"><td>734</td>
+</tr><tr><td>734</td>
 <td>pb</td>
 <td>rad</td>
-</tr><tr class="even"><td>734</td>
+</tr><tr><td>734</td>
 <td>pb</td>
 <td>temp</td>
-</tr><tr class="odd"><td>734</td>
+</tr><tr><td>734</td>
 <td>lake</td>
 <td>sal</td>
-</tr><tr class="even"><td>735</td>
+</tr><tr><td>735</td>
 <td>pb</td>
 <td>rad</td>
-</tr><tr class="odd"><td>735</td>
+</tr><tr><td>735</td>
 <td>-null-</td>
 <td>sal</td>
-</tr><tr class="even"><td>735</td>
+</tr><tr><td>735</td>
 <td>-null-</td>
 <td>temp</td>
-</tr><tr class="odd"><td>751</td>
+</tr><tr><td>751</td>
 <td>pb</td>
 <td>rad</td>
-</tr><tr class="even"><td>751</td>
+</tr><tr><td>751</td>
 <td>pb</td>
 <td>temp</td>
-</tr><tr class="odd"><td>751</td>
+</tr><tr><td>751</td>
 <td>lake</td>
 <td>sal</td>
-</tr><tr class="even"><td>752</td>
+</tr><tr><td>752</td>
 <td>roe</td>
 <td>sal</td>
-</tr><tr class="odd"><td>752</td>
+</tr><tr><td>752</td>
 <td>lake</td>
 <td>rad</td>
-</tr><tr class="even"><td>752</td>
+</tr><tr><td>752</td>
 <td>lake</td>
 <td>sal</td>
-</tr><tr class="odd"><td>752</td>
+</tr><tr><td>752</td>
 <td>lake</td>
 <td>temp</td>
-</tr><tr class="even"><td>837</td>
+</tr><tr><td>837</td>
 <td>roe</td>
 <td>sal</td>
-</tr><tr class="odd"><td>837</td>
+</tr><tr><td>837</td>
 <td>lake</td>
 <td>rad</td>
-</tr><tr class="even"><td>837</td>
+</tr><tr><td>837</td>
 <td>lake</td>
 <td>sal</td>
-</tr><tr class="odd"><td>844</td>
+</tr><tr><td>844</td>
 <td>roe</td>
 <td>rad</td>
 </tr></tbody></table><p>This query gives us a good idea of which scientist was involved in
@@ -655,29 +655,29 @@ duplicates.</p>
 </h3>
 <pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> quant, person <span class="kw">FROM</span> Survey <span class="kw">ORDER</span> <span class="kw">BY</span> quant <span class="kw">ASC</span>;</span></code></pre>
 </div>
-<table class="table"><thead><tr class="header"><th>quant</th>
+<table class="table"><thead><tr><th>quant</th>
 <th>person</th>
-</tr></thead><tbody><tr class="odd"><td>rad</td>
+</tr></thead><tbody><tr><td>rad</td>
 <td>dyer</td>
-</tr><tr class="even"><td>rad</td>
+</tr><tr><td>rad</td>
 <td>pb</td>
-</tr><tr class="odd"><td>rad</td>
+</tr><tr><td>rad</td>
 <td>lake</td>
-</tr><tr class="even"><td>rad</td>
+</tr><tr><td>rad</td>
 <td>roe</td>
-</tr><tr class="odd"><td>sal</td>
+</tr><tr><td>sal</td>
 <td>dyer</td>
-</tr><tr class="even"><td>sal</td>
+</tr><tr><td>sal</td>
 <td>lake</td>
-</tr><tr class="odd"><td>sal</td>
+</tr><tr><td>sal</td>
 <td>-null-</td>
-</tr><tr class="even"><td>sal</td>
+</tr><tr><td>sal</td>
 <td>roe</td>
-</tr><tr class="odd"><td>temp</td>
+</tr><tr><td>temp</td>
 <td>pb</td>
-</tr><tr class="even"><td>temp</td>
+</tr><tr><td>temp</td>
 <td>-null-</td>
-</tr><tr class="odd"><td>temp</td>
+</tr><tr><td>temp</td>
 <td>lake</td>
 </tr></tbody></table><div id="finding-distinct-dates" class="callout challenge">
 <div class="callout-square">
@@ -697,22 +697,22 @@ duplicates.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> dated <span class="kw">FROM</span> Visited;</span></code></pre>
 </div>
-<table class="table"><thead><tr class="header"><th>dated</th>
-</tr></thead><tbody><tr class="odd"><td>1927-02-08</td>
-</tr><tr class="even"><td>1927-02-10</td>
-</tr><tr class="odd"><td>1930-01-07</td>
-</tr><tr class="even"><td>1930-01-12</td>
-</tr><tr class="odd"><td>1930-02-26</td>
-</tr><tr class="even"><td> </td>
-</tr><tr class="odd"><td>1932-01-14</td>
-</tr><tr class="even"><td>1932-03-22</td>
+<table class="table"><thead><tr><th>dated</th>
+</tr></thead><tbody><tr><td>1927-02-08</td>
+</tr><tr><td>1927-02-10</td>
+</tr><tr><td>1930-01-07</td>
+</tr><tr><td>1930-01-12</td>
+</tr><tr><td>1930-02-26</td>
+</tr><tr><td> </td>
+</tr><tr><td>1932-01-14</td>
+</tr><tr><td>1932-03-22</td>
 </tr></tbody></table></div>
 </div>
 </div>
@@ -735,24 +735,24 @@ duplicates.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="kw">SELECT</span> personal, family <span class="kw">FROM</span> Person <span class="kw">ORDER</span> <span class="kw">BY</span> family <span class="kw">ASC</span>;</span></code></pre>
 </div>
-<table class="table"><thead><tr class="header"><th>personal</th>
+<table class="table"><thead><tr><th>personal</th>
 <th>family</th>
-</tr></thead><tbody><tr class="odd"><td>Frank</td>
+</tr></thead><tbody><tr><td>Frank</td>
 <td>Danforth</td>
-</tr><tr class="even"><td>William</td>
+</tr><tr><td>William</td>
 <td>Dyer</td>
-</tr><tr class="odd"><td>Anderson</td>
+</tr><tr><td>Anderson</td>
 <td>Lake</td>
-</tr><tr class="even"><td>Frank</td>
+</tr><tr><td>Frank</td>
 <td>Pabodie</td>
-</tr><tr class="odd"><td>Valentina</td>
+</tr><tr><td>Valentina</td>
 <td>Roerich</td>
 </tr></tbody></table></div>
 </div>
@@ -815,7 +815,7 @@ DISTINCT.</li>
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
 
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.18.5" class="external-link">sandpaper (0.18.5)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.9" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.9" class="external-link">varnish (1.0.9)</a></p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/" class="external-link">sandpaper (0.18.1)</a>, <a href="https://github.com/carpentries/pegboard/tree/" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/" class="external-link">varnish (1.0.9)</a></p>
 		</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
