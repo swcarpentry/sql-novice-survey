@@ -398,15 +398,15 @@ how to select all of the dates from the <code>Visited</code> table:</p>
 </h3>
 <pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="kw">SELECT</span> dated <span class="kw">FROM</span> Visited;</span></code></pre>
 </div>
-<table class="table"><thead><tr><th>dated</th>
-</tr></thead><tbody><tr><td>1927-02-08</td>
-</tr><tr><td>1927-02-10</td>
-</tr><tr><td>1930-01-07</td>
-</tr><tr><td>1930-01-12</td>
-</tr><tr><td>1930-02-26</td>
-</tr><tr><td>-null-</td>
-</tr><tr><td>1932-01-14</td>
-</tr><tr><td>1932-03-22</td>
+<table class="table"><thead><tr class="header"><th>dated</th>
+</tr></thead><tbody><tr class="odd"><td>1927-02-08</td>
+</tr><tr class="even"><td>1927-02-10</td>
+</tr><tr class="odd"><td>1930-01-07</td>
+</tr><tr class="even"><td>1930-01-12</td>
+</tr><tr class="odd"><td>1930-02-26</td>
+</tr><tr class="even"><td>-null-</td>
+</tr><tr class="odd"><td>1932-01-14</td>
+</tr><tr class="even"><td>1932-03-22</td>
 </tr></tbody></table><p>but to combine them, we must use an <a href="reference.html#aggregation-function">aggregation function</a> such
 as <code>min</code> or <code>max</code>. Each of these functions takes a
 set of records as input, and produces a single record as output:</p>
@@ -415,15 +415,15 @@ set of records as input, and produces a single record as output:</p>
 </h3>
 <pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">min</span>(dated) <span class="kw">FROM</span> Visited;</span></code></pre>
 </div>
-<table class="table"><thead><tr><th>min(dated)</th>
-</tr></thead><tbody><tr><td>1927-02-08</td>
+<table class="table"><thead><tr class="header"><th>min(dated)</th>
+</tr></thead><tbody><tr class="odd"><td>1927-02-08</td>
 </tr></tbody></table><figure><img src="fig/sql-aggregation.svg" alt="SQL Aggregation" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">max</span>(dated) <span class="kw">FROM</span> Visited;</span></code></pre>
 </div>
-<table class="table"><thead><tr><th>max(dated)</th>
-</tr></thead><tbody><tr><td>1932-03-22</td>
+<table class="table"><thead><tr class="header"><th>max(dated)</th>
+</tr></thead><tbody><tr class="odd"><td>1932-03-22</td>
 </tr></tbody></table><p><code>min</code> and <code>max</code> are just two of the aggregation
 functions built into SQL. Three others are <code>avg</code>,
 <code>count</code>, and <code>sum</code>:</p>
@@ -432,22 +432,22 @@ functions built into SQL. Three others are <code>avg</code>,
 </h3>
 <pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">avg</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span>;</span></code></pre>
 </div>
-<table class="table"><thead><tr><th>avg(reading)</th>
-</tr></thead><tbody><tr><td>7.20333333333333</td>
+<table class="table"><thead><tr class="header"><th>avg(reading)</th>
+</tr></thead><tbody><tr class="odd"><td>7.20333333333333</td>
 </tr></tbody></table><div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">count</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span>;</span></code></pre>
 </div>
-<table class="table"><thead><tr><th>count(reading)</th>
-</tr></thead><tbody><tr><td>9</td>
+<table class="table"><thead><tr class="header"><th>count(reading)</th>
+</tr></thead><tbody><tr class="odd"><td>9</td>
 </tr></tbody></table><div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">sum</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span>;</span></code></pre>
 </div>
-<table class="table"><thead><tr><th>sum(reading)</th>
-</tr></thead><tbody><tr><td>64.83</td>
+<table class="table"><thead><tr class="header"><th>sum(reading)</th>
+</tr></thead><tbody><tr class="odd"><td>64.83</td>
 </tr></tbody></table><p>We used <code>count(reading)</code> here, but could have used
 <code>count(*)</code>, since the function doesn’t care about the values
 themselves, just how many rows there are.</p>
@@ -463,9 +463,9 @@ find the range of sensible salinity measurements:</p>
 </h3>
 <pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">min</span>(reading), <span class="fu">max</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span> <span class="kw">AND</span> reading <span class="op">&lt;=</span> <span class="fl">1.0</span>;</span></code></pre>
 </div>
-<table class="table"><thead><tr><th>min(reading)</th>
+<table class="table"><thead><tr class="header"><th>min(reading)</th>
 <th>max(reading)</th>
-</tr></thead><tbody><tr><td>0.05</td>
+</tr></thead><tbody><tr class="odd"><td>0.05</td>
 <td>0.21</td>
 </tr></tbody></table><p>We can also combine aggregated results with raw results, although the
 output might surprise you:</p>
@@ -474,9 +474,9 @@ output might surprise you:</p>
 </h3>
 <pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="kw">SELECT</span> person, <span class="fu">count</span>(<span class="op">*</span>) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'sal'</span> <span class="kw">AND</span> reading <span class="op">&lt;=</span> <span class="fl">1.0</span>;</span></code></pre>
 </div>
-<table class="table"><thead><tr><th>person</th>
+<table class="table"><thead><tr class="header"><th>person</th>
 <th>count(*)</th>
-</tr></thead><tbody><tr><td>lake</td>
+</tr></thead><tbody><tr class="odd"><td>lake</td>
 <td>7</td>
 </tr></tbody></table><p>Why does Lake’s name appear rather than Roerich’s or Dyer’s? The
 answer is that when it has to aggregate a field, but isn’t told how to,
@@ -492,10 +492,10 @@ other arbitrary value:</p>
 </h3>
 <pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="kw">SELECT</span> person, <span class="fu">max</span>(reading), <span class="fu">sum</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'missing'</span>;</span></code></pre>
 </div>
-<table class="table"><thead><tr><th>person</th>
+<table class="table"><thead><tr class="header"><th>person</th>
 <th>max(reading)</th>
 <th>sum(reading)</th>
-</tr></thead><tbody><tr><td>-null-</td>
+</tr></thead><tbody><tr class="odd"><td>-null-</td>
 <td>-null-</td>
 <td>-null-</td>
 </tr></tbody></table><p>One final important feature of aggregation functions is that they are
@@ -510,16 +510,16 @@ those that are non-null. This behavior lets us write our queries as:</p>
 </h3>
 <pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">min</span>(dated) <span class="kw">FROM</span> Visited;</span></code></pre>
 </div>
-<table class="table"><thead><tr><th>min(dated)</th>
-</tr></thead><tbody><tr><td>1927-02-08</td>
+<table class="table"><thead><tr class="header"><th>min(dated)</th>
+</tr></thead><tbody><tr class="odd"><td>1927-02-08</td>
 </tr></tbody></table><p>instead of always having to filter explicitly:</p>
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">min</span>(dated) <span class="kw">FROM</span> Visited <span class="kw">WHERE</span> dated <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span>;</span></code></pre>
 </div>
-<table class="table"><thead><tr><th>min(dated)</th>
-</tr></thead><tbody><tr><td>1927-02-08</td>
+<table class="table"><thead><tr class="header"><th>min(dated)</th>
+</tr></thead><tbody><tr class="odd"><td>1927-02-08</td>
 </tr></tbody></table><p>Aggregating all records at once doesn’t always make sense. For
 example, suppose we suspect that there is a systematic bias in our data,
 and that some scientists’ radiation readings are higher than others. We
@@ -531,10 +531,10 @@ know that this doesn’t work:</p>
 <span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="kw">FROM</span>  Survey</span>
 <span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a><span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'rad'</span>;</span></code></pre>
 </div>
-<table class="table"><thead><tr><th>person</th>
+<table class="table"><thead><tr class="header"><th>person</th>
 <th>count(reading)</th>
 <th>round(avg(reading), 2)</th>
-</tr></thead><tbody><tr><td>roe</td>
+</tr></thead><tbody><tr class="odd"><td>roe</td>
 <td>8</td>
 <td>6.56</td>
 </tr></tbody></table><p>because the database manager selects a single arbitrary scientist’s
@@ -548,10 +548,10 @@ are only five scientists, we could write five queries of the form:</p>
 <span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a><span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'rad'</span></span>
 <span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a><span class="kw">AND</span>   person <span class="op">=</span> <span class="st">'dyer'</span>;</span></code></pre>
 </div>
-<table class="table"><thead><tr><th>person</th>
+<table class="table"><thead><tr class="header"><th>person</th>
 <th>count(reading)</th>
 <th>round(avg(reading), 2)</th>
-</tr></thead><tbody><tr><td>dyer</td>
+</tr></thead><tbody><tr class="odd"><td>dyer</td>
 <td>2</td>
 <td>8.81</td>
 </tr></tbody></table><p>but this would be tedious, and if we ever had a data set with fifty
@@ -568,19 +568,19 @@ clause:</p>
 <span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a><span class="kw">WHERE</span>    quant <span class="op">=</span> <span class="st">'rad'</span></span>
 <span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> person;</span></code></pre>
 </div>
-<table class="table"><thead><tr><th>person</th>
+<table class="table"><thead><tr class="header"><th>person</th>
 <th>count(reading)</th>
 <th>round(avg(reading), 2)</th>
-</tr></thead><tbody><tr><td>dyer</td>
+</tr></thead><tbody><tr class="odd"><td>dyer</td>
 <td>2</td>
 <td>8.81</td>
-</tr><tr><td>lake</td>
+</tr><tr class="even"><td>lake</td>
 <td>2</td>
 <td>1.82</td>
-</tr><tr><td>pb</td>
+</tr><tr class="odd"><td>pb</td>
 <td>3</td>
 <td>6.66</td>
-</tr><tr><td>roe</td>
+</tr><tr class="even"><td>roe</td>
 <td>1</td>
 <td>11.25</td>
 </tr></tbody></table><p><code>GROUP BY</code> does exactly what its name implies: groups all
@@ -600,51 +600,51 @@ quantity measured, for example, we just add another field to the
 <span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a><span class="kw">FROM</span>     Survey</span>
 <span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> person, quant;</span></code></pre>
 </div>
-<table class="table"><colgroup><col width="21%"><col width="18%"><col width="29%"><col width="29%"></colgroup><thead><tr><th>person</th>
+<table class="table"><colgroup><col width="21%"><col width="18%"><col width="29%"><col width="29%"></colgroup><thead><tr class="header"><th>person</th>
 <th>quant</th>
 <th>count(reading)</th>
 <th>round(avg(reading), 2)</th>
-</tr></thead><tbody><tr><td>-null-</td>
+</tr></thead><tbody><tr class="odd"><td>-null-</td>
 <td>sal</td>
 <td>1</td>
 <td>0.06</td>
-</tr><tr><td>-null-</td>
+</tr><tr class="even"><td>-null-</td>
 <td>temp</td>
 <td>1</td>
 <td>-26.0</td>
-</tr><tr><td>dyer</td>
+</tr><tr class="odd"><td>dyer</td>
 <td>rad</td>
 <td>2</td>
 <td>8.81</td>
-</tr><tr><td>dyer</td>
+</tr><tr class="even"><td>dyer</td>
 <td>sal</td>
 <td>2</td>
 <td>0.11</td>
-</tr><tr><td>lake</td>
+</tr><tr class="odd"><td>lake</td>
 <td>rad</td>
 <td>2</td>
 <td>1.82</td>
-</tr><tr><td>lake</td>
+</tr><tr class="even"><td>lake</td>
 <td>sal</td>
 <td>4</td>
 <td>0.11</td>
-</tr><tr><td>lake</td>
+</tr><tr class="odd"><td>lake</td>
 <td>temp</td>
 <td>1</td>
 <td>-16.0</td>
-</tr><tr><td>pb</td>
+</tr><tr class="even"><td>pb</td>
 <td>rad</td>
 <td>3</td>
 <td>6.66</td>
-</tr><tr><td>pb</td>
+</tr><tr class="odd"><td>pb</td>
 <td>temp</td>
 <td>2</td>
 <td>-20.0</td>
-</tr><tr><td>roe</td>
+</tr><tr class="even"><td>roe</td>
 <td>rad</td>
 <td>1</td>
 <td>11.25</td>
-</tr><tr><td>roe</td>
+</tr><tr class="odd"><td>roe</td>
 <td>sal</td>
 <td>2</td>
 <td>32.05</td>
@@ -661,43 +661,43 @@ know who took the measurement:</p>
 <span id="cb16-4"><a href="#cb16-4" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> person, quant</span>
 <span id="cb16-5"><a href="#cb16-5" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> person, quant;</span></code></pre>
 </div>
-<table class="table"><colgroup><col width="21%"><col width="18%"><col width="29%"><col width="29%"></colgroup><thead><tr><th>person</th>
+<table class="table"><colgroup><col width="21%"><col width="18%"><col width="29%"><col width="29%"></colgroup><thead><tr class="header"><th>person</th>
 <th>quant</th>
 <th>count(reading)</th>
 <th>round(avg(reading), 2)</th>
-</tr></thead><tbody><tr><td>dyer</td>
+</tr></thead><tbody><tr class="odd"><td>dyer</td>
 <td>rad</td>
 <td>2</td>
 <td>8.81</td>
-</tr><tr><td>dyer</td>
+</tr><tr class="even"><td>dyer</td>
 <td>sal</td>
 <td>2</td>
 <td>0.11</td>
-</tr><tr><td>lake</td>
+</tr><tr class="odd"><td>lake</td>
 <td>rad</td>
 <td>2</td>
 <td>1.82</td>
-</tr><tr><td>lake</td>
+</tr><tr class="even"><td>lake</td>
 <td>sal</td>
 <td>4</td>
 <td>0.11</td>
-</tr><tr><td>lake</td>
+</tr><tr class="odd"><td>lake</td>
 <td>temp</td>
 <td>1</td>
 <td>-16.0</td>
-</tr><tr><td>pb</td>
+</tr><tr class="even"><td>pb</td>
 <td>rad</td>
 <td>3</td>
 <td>6.66</td>
-</tr><tr><td>pb</td>
+</tr><tr class="odd"><td>pb</td>
 <td>temp</td>
 <td>2</td>
 <td>-20.0</td>
-</tr><tr><td>roe</td>
+</tr><tr class="even"><td>roe</td>
 <td>rad</td>
 <td>1</td>
 <td>11.25</td>
-</tr><tr><td>roe</td>
+</tr><tr class="odd"><td>roe</td>
 <td>sal</td>
 <td>2</td>
 <td>32.05</td>
@@ -731,16 +731,16 @@ their average value?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">SQL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode sql" tabindex="0"><code class="sourceCode sql"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">count</span>(reading), <span class="fu">avg</span>(reading) <span class="kw">FROM</span> Survey <span class="kw">WHERE</span> quant <span class="op">=</span> <span class="st">'temp'</span> <span class="kw">AND</span> person <span class="op">=</span> <span class="st">'pb'</span>;</span></code></pre>
 </div>
-<table class="table"><thead><tr><th>count(reading)</th>
+<table class="table"><thead><tr class="header"><th>count(reading)</th>
 <th>avg(reading)</th>
-</tr></thead><tbody><tr><td>2</td>
+</tr></thead><tbody><tr class="odd"><td>2</td>
 <td>-20.0</td>
 </tr></tbody></table></div>
 </div>
@@ -766,7 +766,7 @@ returns 2.0 or 3.0 when given the values 1.0, <code>null</code>, and
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>The answer is 3.0. <code>NULL</code> is not a value; it is the
 absence of a value. As such it is not included in the calculation.</p>
@@ -808,7 +808,7 @@ query:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>The query produces only one row of results when we what we really
 want is a result for each of the readings. The <code>avg()</code>
@@ -871,7 +871,7 @@ family names separated by a comma?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>List all the family names separated by a comma:</p>
 <div class="codewrapper sourceCode" id="cb24">
@@ -946,7 +946,7 @@ return an arbitrary value for that field.</li>
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
 
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/" class="external-link">sandpaper (0.18.1)</a>, <a href="https://github.com/carpentries/pegboard/tree/" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/" class="external-link">varnish (1.0.9)</a></p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.18.5" class="external-link">sandpaper (0.18.5)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.9" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.9" class="external-link">varnish (1.0.9)</a></p>
 		</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
@@ -969,7 +969,7 @@ return an arbitrary value for that field.</li>
   "identifier": "https://swcarpentry.github.io/sql-novice-survey/06-agg.html",
   "dateCreated": "2014-11-21",
   "dateModified": "2025-06-26",
-  "datePublished": "2026-02-17"
+  "datePublished": "2026-02-24"
 }
 
   </script><script>
