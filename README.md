@@ -30,7 +30,6 @@ To use a particular version's DOI, refer to [all Zenodo released versions][all_z
 Maintainer(s):
 
 - [Henry Senyondo](https://carpentries.org/instructors/#henrykironde)
-- [Kellie Templeman](https://github.com/kltempleman)
 - [Novica Nakov](https://github.com/novica)
 
 [swc_sql_novice_survey_releases]: https://github.com/swcarpentry/sql-novice-survey/releases
